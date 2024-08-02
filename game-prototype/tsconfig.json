@@ -1,13 +1,26 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "es2020",
     "module": "commonjs",
+    "moduleResolution": "node",
     "strict": true,
+    "baseUrl": ".",
     "outDir": "./dist",
     "rootDir": "./",
   },
   "include": [
     "src/**/*",
     "types/**/*"
-  ]
+  ],
+  "paths": {
+    "@game/*": [
+      "src/game/*"
+    ],
+    "types/*": [
+      "src/types/*"
+    ],
+    "@/*": [
+      "src/*"
+    ]
+  }
 }

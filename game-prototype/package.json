@@ -11,5 +11,8 @@
   "description": "",
   "devDependencies": {
     "@types/node": "^22.1.0"
+  },
+  "dependencies": {
+    "tsconfig-paths": "^4.2.0"
   }
 }

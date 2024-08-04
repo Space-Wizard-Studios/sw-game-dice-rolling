@@ -9,7 +9,7 @@ import { battleEnd } from './game/battleEnd';
 
 async function main() {
 
-    addDialogue("Welcome to the game! Press submit to start the battle phases.");
+    addDialogue("Welcome to the game! Press 'Start Battle' to start the battle phases.");
     await waitForSubmit('Start Battle');
 
     battleSetup();

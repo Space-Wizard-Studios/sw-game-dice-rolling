@@ -1,5 +1,5 @@
 export function addDialogue(text: string) {
-    const dialogueContainer = document.getElementById('dialogueContainer');
+    const dialogueContainer = document.getElementById('dialogue');
     if (!dialogueContainer) return;
 
     // Create a new paragraph element for the text

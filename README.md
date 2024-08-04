@@ -7,5 +7,6 @@
 ```shell
 cd game-prototype
 npm i
-ts-node src/index.ts
+npm run build
+npm run dev
 ```

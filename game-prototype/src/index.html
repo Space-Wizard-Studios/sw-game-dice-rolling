@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+</head>
+
+<body>
+    <div id="gameContainer">
+        <div id="boardContainer">
+            <div id="playerBoard">
+                <div class="character">
+                    <div class="portrait">
+                        <img src="https://via.placeholder.com/150" class="charPortrait">
+                    </div>
+                    <div class="attributes">
+                        <p class="charName">Character Name</p>
+                        <p class="charHealth">Health: <span class="value">X</span></p>
+                        <p class="charAction">Action: <span class="value">X</span></p>
+                    </div>
+                </div>
+            </div>
+            <div id="gameBoard">
+                <div id="diceResult">
+                    <p>Result: <span id="diceResultValue">X</span></p>
+                </div>
+                <div id="reroll">
+                    <p>Reroll attempts: <span id="rerollAttempts">X</span></p>
+                    <button id="rerollButton" disabled>Reroll</button>
+                </div>
+            </div>
+            <div id="enemyBoard">
+                <div class="character">
+                    <div class="portrait">
+                        <img src="https://via.placeholder.com/150" class="charPortrait">
+                    </div>
+                    <div class="attributes">
+                        <p class="charName">Character Name</p>
+                        <p class="charHealth">Health: <span class="value">X</span></p>
+                        <p class="charAction">Action: <span class="value">X</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dialogueContainer"></div>
+        <div id="promptContainer">
+            <form id="gameForm">
+                <textarea id="gameInput" name="gameInput" placeholder="" disabled></textarea>
+                <button id="gameSubmit" type="submit" disabled></button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,26 +1,30 @@
 {
   "compilerOptions": {
-    "target": "es2020",
+    "lib": [
+      "ES2023", "DOM"
+    ],
+    "target": "ES2020",
     "module": "commonjs",
     "moduleResolution": "node",
+    "esModuleInterop": true,
+    "outDir": "dist",
     "strict": true,
+    "allowJs": true,
     "baseUrl": ".",
-    "outDir": "./dist",
-    "rootDir": "./",
+    "paths": {
+      "@helpers/*": [
+        "src/helpers/*"
+      ],
+      "types/*": [
+        "src/types/*"
+      ],
+      "@/*": [
+        "src/*"
+      ]
+    }
   },
   "include": [
     "src/**/*",
-    "types/**/*"
+    "src/types/**/*"
   ],
-  "paths": {
-    "@game/*": [
-      "src/game/*"
-    ],
-    "types/*": [
-      "src/types/*"
-    ],
-    "@/*": [
-      "src/*"
-    ]
-  }
 }

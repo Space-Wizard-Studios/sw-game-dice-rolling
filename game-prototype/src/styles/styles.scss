@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --spacing-size: 1rem;
+  --half-spacing: calc(var(--spacing-size)/2);
+}
+
+#gameContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#boardContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: var(--spacing-size);
+  width: 100%;
+  height: 70%;
+  background: #101010;
+  gap: var(--spacing-size);
+
+  #playerBoard {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    overflow: auto;
+    padding: var(--half-spacing);
+    gap: var(--half-spacing);
+    background: red;
+  }
+
+  #gameBoard {
+    flex: 1;
+    padding: var(--half-spacing);
+    background: green;
+  }
+
+  #enemyBoard {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    overflow: auto;
+    padding: var(--half-spacing);
+    gap: var(--half-spacing);
+    background: blue;
+  }
+
+  .character {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: var(--half-spacing);
+    gap: var(--half-spacing);
+    background: rgba(0, 0, 0, 0.25);
+    border: rgba(0, 0, 0, 0.5) 4px solid;
+
+    .portrait {
+      overflow: hidden;
+      width: calc(var(--spacing-size) * 4);
+      height: calc(var(--spacing-size) * 4);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .attributes {
+      display: flex;
+      flex-direction: column;
+      padding: var(--half-spacing);
+      gap: var(--half-spacing);
+    }
+  }
+}
+
+#dialogueContainer {
+  position: relative;
+  height: 20%;
+  padding: var(--spacing-size);
+  overflow-y: auto;
+  text-align: left;
+  color: whitesmoke;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
+  background: #181818;
+
+}
+
+#promptContainer {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 10%;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
+  background: #282828;
+
+  form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+
+
+    textarea {
+      width: 90%;
+      height: 100%;
+      padding: var(--spacing-size);
+      resize: none;
+      border: none;
+      background: inherit;
+    }
+
+    button {
+      width: 10%;
+      height: 100%;
+      border: none;
+      background: inherit;
+      color: whitesmoke;
+    }
+
+    textarea:disabled,
+    textarea:disabled::placeholder,
+    button:disabled {
+      color: #ccc;
+    }
+
+  }
+}

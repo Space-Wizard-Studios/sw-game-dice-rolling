@@ -12,8 +12,8 @@ export const Roles: { [key: string]: Role } = {
         name: "Healer",
         description: "A compassionate character who can heal wounds and cure ailments."
     },
-    Rogue: {
-        name: "Rogue",
+    Assassin: {
+        name: "Assassin",
         description: "A stealthy and agile character skilled in deception and evasion."
     }
 };

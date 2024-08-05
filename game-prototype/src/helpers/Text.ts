@@ -1,4 +1,4 @@
-export function addDialogue(text: string) {
+export function AddDialogue(text: string) {
     const dialogueContainer = document.getElementById('dialogue');
     if (!dialogueContainer) return;
 

@@ -1,25 +1,33 @@
 import './styles/styles.scss';
 
-import { addDialogue } from '@helpers/Text';
-import { waitForSubmit } from '@helpers/waitForSubmit';
+import { AddDialogue } from '@helpers/Text';
+import { WaitForSubmit } from '@helpers/WaitForSubmit';
 
-import { battleSetup } from './game/battleSetup';
-import { battleStart } from './game/battleStart';
-import { battleEnd } from './game/battleEnd';
+import { BattleSetup } from './gameplay/BattleSetup';
+import { BattleStart } from './gameplay/BattleStart';
+import { BattleEnd } from './gameplay/BattleEnd';
+import { BuildSetup } from './gameplay/BuildSetup';
+
+import { Character } from "types/characters";
+
+import { playableCharacters } from '@config/playableCharacters';
+import { AddCharacter } from '@helpers/AddCharacter';
 
 async function main() {
 
-    addDialogue("Welcome to the game! Press 'Start Battle' to start the battle phases.");
-    await waitForSubmit('Start Battle');
+    let character = playableCharacters[0];
+    character.name = "Fighter";
+    AddCharacter(character);
 
-    battleSetup();
-    battleStart();
-    battleEnd();
+    // AddDialogue("Welcome to the game! Press 'Start Battle' to start the battle phases.");
+    // await WaitForSubmit('Start Battle');
 
-    // for (let i = 1; i <= 150; i++) {
-    //     addTextToDialogue(`Debug line ${i}`);
-    // }
+    // BuildSetup();
+    // BattleSetup();
+    // BattleStart();
+    // BattleEnd();
 
 }
 
 main();
+

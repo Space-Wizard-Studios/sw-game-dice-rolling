@@ -15,6 +15,10 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
+                test: /\.html$/i,
+                use: 'html-loader',
+            },
+            {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']

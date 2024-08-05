@@ -1,4 +1,4 @@
-export function waitForSubmit(buttonText: string = "Submit"): Promise<void> {
+export function WaitForSubmit(buttonText: string = "Submit"): Promise<void> {
     return new Promise((resolve) => {
         const submitButton = document.getElementById('gameSubmit') as HTMLButtonElement;
         const gameForm = document.getElementById('gameForm') as HTMLFormElement;

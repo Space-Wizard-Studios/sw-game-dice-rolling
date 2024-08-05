@@ -1,6 +1,6 @@
-import { AddDialogue } from "@helpers/Text";
+import { AddDialogue } from "@helpers/Dialogue";
 
-export function BattleEnd() {
+export async function BattleEnd() {
     AddDialogue("End of battle.");
     AddDialogue("Calculating experience and leveling up characters...");
 }

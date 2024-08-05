@@ -9,40 +9,13 @@
 
 <body>
     <div id="board">
-        <div id="player">
-            
-        </div>
-        <div id="game">
-            <div>
-                <div id="diceResult">
-                    <p>Result: <span id="diceResultValue">X</span></p>
-                </div>
-                <div id="reroll">
-                    <p>Reroll attempts: <span id="rerollAttempts">X</span></p>
-                    <button id="rerollButton" disabled>Reroll</button>
-                </div>
-            </div>
-        </div>
-        <div id="enemy">
-            <div class="character">
-                <div class="portrait">
-                    <img src="https://via.placeholder.com/150" class="charPortrait">
-                </div>
-                <div class="attributes">
-                    <p class="charName">Character Name</p>
-                    <p class="charHealth">Health: <span class="value">X</span></p>
-                    <p class="charAction">Action: <span class="value">X</span></p>
-                </div>
-            </div>
-        </div>
+        <div id="player"></div>
+        <div id="game"></div>
+        <div id="enemy"></div>
     </div>
-    <div id="info">
+    <div id="prompt">
         <div id="dialogue"></div>
-        <div id="options">
-            <form id="gameForm">
-                <button id="gameSubmit" type="submit" disabled>Action</button>
-            </form>
-        </div>
+        <div id="input"></div>
     </div>
 </body>
 

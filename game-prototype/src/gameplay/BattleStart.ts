@@ -1,5 +1,5 @@
-import { AddDialogue } from "@helpers/Text";
+import { AddDialogue } from "@helpers/Dialogue";
 
-export function BattleStart() {
+export async function BattleStart() {
     AddDialogue("Battle begins!");
 }

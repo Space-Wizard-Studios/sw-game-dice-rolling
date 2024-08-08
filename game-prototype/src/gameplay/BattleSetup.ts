@@ -1,4 +1,4 @@
-import { AddDialogue } from '../helpers/Dialogue';
+import { AddDialogue } from '../helpers/AddDialogue';
 
 export async function BattleSetup() {
     AddDialogue("Setting up the battle and deploying characters...");

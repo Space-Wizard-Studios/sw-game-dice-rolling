@@ -37,7 +37,7 @@ body {
   color: whitesmoke;
   gap: var(--spacing-size);
 
-  #player {
+  #playerCharacters {
     display: flex;
     flex-direction: column;
     flex: 2;
@@ -47,13 +47,16 @@ body {
     background: rgba(120, 120, 255, 0.25);
   }
 
-  #game {
+  #inventory {
+    display: flex;
     flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
     padding: var(--half-spacing);
     background: rgba(120, 120, 120, 0.25);
   }
 
-  #enemy {
+  #enemyCharacters {
     display: flex;
     flex-direction: column;
     flex: 2;
@@ -116,13 +119,14 @@ body {
   #input {
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex: 1;
     padding: var(--spacing-size);
+    color: whitesmoke;
     background: #151515;
 
-    > * {
-      width:100%;
+    >* {
+      width: 100%;
     }
 
     form {
@@ -135,12 +139,11 @@ body {
         width: 100%;
         gap: 1rem;
         line-height: 1.5;
-        color: whitesmoke;
       }
     }
 
     & button {
-      width: 100%;
+      flex: 1;
       height: 2rem;
       padding: var(--half-spacing);
       border: none;

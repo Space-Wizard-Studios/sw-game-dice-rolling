@@ -1,8 +1,10 @@
 # sw-game-dice-roll
 
-## Useful commands
+## Requirements
 
-Install packages and run the prototype game.
+## Commands
+
+Install packages and run the development environment.
 
 ```shell
 cd game-prototype
@@ -10,26 +12,27 @@ npm i
 npm run dev
 ```
 
-## Game logic
+## Game Logic
 
-The game consists in phases:
+The game takes place in distinct stages:
 
-### Build Setup
+### Build setup
 
-- Player gets 3 random characters and can choose 1 to add to it's army.
-- Player allocates dices to the character chosen, with predefined actions accordingly to the dice options.
+- The player receives random characters and can choose 1 to add to his army.
+  1. Characters have dice slots where the player allocates the dice there
+  2. Characters can have combos that require specific actions
 
-### Battle Setup
+### Battle setup
 
-- Enemies are deployed and shown to the player.
-- Player must select what characters they will send to battle.
+- Enemies appear on the battlefield
+- Player chooses which characters to send
+- The order of turns is organized according to the speed of the characters
 
 ### Battle
 
-- Both player's and enemy's characters are sorted accordingly to their speed.
-- Enemies reveals it's intent of actions.
-- Player rolls for each character with their dices, following the characters speeds.
-- After rolling for every character, the player then can allocate one of the dices rolled and assign a target for it.
-- If two dices are rolled equal, an extra action will be available to be allocated
+- Enemies show their intentions of actions
+- For each character, the player rolls the allocated dice to see what they will do
+- After the roll, the player can choose a rolled action and the target
+  1. If there are combos, this option becomes available
 
 ### Battle End

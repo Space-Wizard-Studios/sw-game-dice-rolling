@@ -1,31 +1,30 @@
-export function AddOptions(
-    options: string[],
-    actions: { label: string, callback: () => void }[],
-    inputType: 'radio' | 'checkbox' = 'radio'
+export function AddInputOptions(
+    actions: { label: string, callback: (selectedValues: string[]) => void }[],
+    inputType: 'radio' | 'checkbox',
+    options?: string[],
+    clearAfterAction: boolean = false
 ): Promise<string[]> {
-    return new Promise((resolve) => {
-        const inputContainer = document.getElementById('input');
-        if (!inputContainer) return;
+    return new Promise((resolve, reject) => {
+        const inputContainer = document.querySelector('#input .container');
+        if (!inputContainer) {
+            reject(new Error('Input container not found'));
+            return;
+        }
 
         // Clear existing options
         inputContainer.innerHTML = '';
 
-        // Create a new div element for the options
-        const formContainer = document.createElement('div');
-        formContainer.id = 'form-container';
-
         // Create a form to group input elements
         const form = document.createElement('form');
-        form.id = 'form';
+        form.id = `form-${Date.now()}`; // Unique form ID
 
-        // Create input elements for each option
-        options.forEach((option, index) => {
+        options?.forEach((option, index) => {
             const optionContainer = document.createElement('div');
             optionContainer.classList.add('input-group');
 
             const optionLabel = document.createElement('label');
             const optionInput = document.createElement('input');
-            
+
             optionInput.type = inputType;
             optionInput.name = `options`;
             optionInput.value = option;
@@ -40,7 +39,7 @@ export function AddOptions(
             form.appendChild(optionContainer);
         });
 
-        formContainer.appendChild(form);
+        inputContainer.appendChild(form);
 
         // Create buttons for each action
         actions.forEach(action => {
@@ -53,13 +52,15 @@ export function AddOptions(
                 if (selectedValues.length > 0) {
                     console.log(`Options selected: ${selectedValues.join(', ')}`);
                 }
-                action.callback();
+                action.callback(selectedValues);
                 resolve(selectedValues);
+
+                if (clearAfterAction) {
+                    inputContainer.innerHTML = '';
+                }
             };
-            formContainer.appendChild(actionButton);
+            inputContainer.appendChild(actionButton);
         });
 
-        // Append the new div to the options container
-        inputContainer.appendChild(formContainer);
     });
 }

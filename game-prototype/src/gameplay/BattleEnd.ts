@@ -1,4 +1,4 @@
-import { AddDialogue } from "@helpers/Dialogue";
+import { AddDialogue } from "@helpers/AddDialogue";
 
 export async function BattleEnd() {
     AddDialogue("End of battle.");

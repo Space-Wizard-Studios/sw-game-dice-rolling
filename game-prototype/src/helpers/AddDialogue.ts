@@ -1,19 +1,16 @@
 export function AddDialogue(text: string) {
-    const dialogueContainer = document.getElementById('dialogue');
+    const dialogueContainer = document.querySelector('#dialogue .container');
     if (!dialogueContainer) return;
 
-    // Create a new paragraph element for the text
     const newParagraph = document.createElement('p');
     newParagraph.textContent = text;
-
-    // Append the new paragraph to the dialogue container
     dialogueContainer.appendChild(newParagraph);
 
-    // Check if the number of child elements exceeds 100
     while (dialogueContainer.children.length > 100) {
-        dialogueContainer.removeChild(dialogueContainer.firstChild as Node);
+        if (dialogueContainer.firstChild) {
+            dialogueContainer.removeChild(dialogueContainer.firstChild);
+        }
     }
 
-    // Scroll to the bottom
     dialogueContainer.scrollTop = dialogueContainer.scrollHeight;
 }

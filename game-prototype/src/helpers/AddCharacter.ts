@@ -1,20 +1,21 @@
-import { LoadTemplate } from '@helpers/LoadTemplate';
+import { LoadLayout } from '@helpers/LoadLayout';
 import { Character } from "types/characters";
 
-import html from '@components/character.html';
+import html from '@layouts/character.html';
 
 export async function AddCharacter(character: Character) {
-    if (!document.getElementById('characterTemplate')) {
-        await LoadTemplate(html);
+    if (!document.querySelector('#characterLayout')) {
+        console.log('Character layout not found, loading layout');
+        await LoadLayout(html);
     }
 
-    const template = document.getElementById('characterTemplate') as HTMLTemplateElement;
-    if (!template) {
+    const layout = document.querySelector('#characterLayout') as HTMLTemplateElement;
+    if (!layout) {
         console.error('Character template not found');
         return;
     }
 
-    const clone = document.importNode(template.content, true);
+    const clone = document.importNode(layout.content, true);
 
     const charElement = clone.querySelector('.character') as HTMLElement;
     if (!charElement) {
@@ -36,8 +37,8 @@ export async function AddCharacter(character: Character) {
     if (charActionTarget) charActionTarget.textContent = 'None';
     if (charInitiative) charInitiative.textContent = character.speed.current?.toString() || character.speed.max.toString();
 
-    const playerBoard = document.getElementById('player');
-    if (playerBoard) {
-        playerBoard.appendChild(clone);
+    const playerCharacters = document.querySelector('#playerCharacters .container');
+    if (playerCharacters) {
+        playerCharacters.appendChild(clone);
     }
 }

@@ -11,7 +11,6 @@ export const playableCharacters: Character[] = [
         speed: {
             max: 10,
         },
-        die: null,
     },
     {
         name: "Assassin",
@@ -22,7 +21,6 @@ export const playableCharacters: Character[] = [
         speed: {
             max: 10,
         },
-        die: null,
     },
     {
         name: "Healer",
@@ -34,6 +32,5 @@ export const playableCharacters: Character[] = [
         speed: {
             max: 10,
         },
-        die: null,
     },
 ];

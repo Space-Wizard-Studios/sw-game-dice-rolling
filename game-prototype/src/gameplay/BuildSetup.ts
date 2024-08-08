@@ -4,7 +4,6 @@ import { AddCharacter } from '@helpers/AddCharacter';
 import { GetRandomCharacters } from '@helpers/GetRandomCharacters';
 import { Character } from 'types/characters';
 import { diceOptions } from '@config/diceOptions';
-
 import { playableCharacters } from '@config/playableCharacters';
 
 export async function BuildSetup() {
@@ -12,11 +11,15 @@ export async function BuildSetup() {
     AddDialogue("Build phase where player can choose characters.");
 
     // Step 2: Present the characters to the player
-    const randomCharacters: Character[] = GetRandomCharacters(playableCharacters, 3, 1);
+    const randomCharacters = GetRandomCharacters(playableCharacters, 3, 1);
     const characterOptions = randomCharacters.map(character => character.name);
-    AddDialogue(`Choose one character: ${randomCharacters.map(c => c.name).join(", ")}`);
+    AddDialogue(`Choose one character: ${characterOptions.join(", ")}`);
 
-    // Step 3: for each randomly get character, assign an option with a button to add the character selected
+    // Step 3: Handle character selection
+    await handleCharacterSelection(randomCharacters, characterOptions);
+}
+
+async function handleCharacterSelection(randomCharacters: Character[], characterOptions: string[]) {
     await AddInputOptions(
         [
             {
@@ -26,28 +29,7 @@ export async function BuildSetup() {
                     if (selectedCharacter) {
                         AddCharacter(selectedCharacter);
                         AddDialogue(`Character ${selectedCharacter.name} has been added.`);
-
-                        // Step 4: Present the dice options to the player
-                        const diceOptionKeys = Object.keys(diceOptions);
-                        AddDialogue(`Choose one dice: ${diceOptionKeys.join(", ")}`);
-
-                        await AddInputOptions(
-                            [
-                                {
-                                    label: 'Select Dice',
-                                    callback: (selectedDiceValues: string[]) => {
-                                        const selectedDice = diceOptions[selectedDiceValues[0] as keyof typeof diceOptions];
-                                        if (selectedDice) {
-                                            selectedCharacter.dice = selectedDice;
-                                            AddDialogue(`Dice ${selectedDiceValues[0]} has been added to character ${selectedCharacter.name}.`);
-                                        }
-                                    }
-                                },
-                            ],
-                            'radio',
-                            diceOptionKeys,
-                            true
-                        );
+                        await handleDiceSelection(selectedCharacter);
                     }
                 }
             },
@@ -55,5 +37,29 @@ export async function BuildSetup() {
         'radio',
         characterOptions,
         false
+    );
+}
+
+async function handleDiceSelection(selectedCharacter: Character) {
+    const diceOptionKeys = Object.keys(diceOptions);
+    AddDialogue(`Choose one dice: ${diceOptionKeys.join(", ")}`);
+
+    await AddInputOptions(
+        [
+            {
+                label: 'Select Dice',
+                callback: (selectedDiceValues: string[]) => {
+                    const selectedDice = diceOptions[selectedDiceValues[0] as keyof typeof diceOptions];
+                    if (selectedDice) {
+                        selectedCharacter.dice = selectedDice;
+                        AddDialogue(`Dice ${selectedDiceValues[0]} has been added to character ${selectedCharacter.name}.`);
+                        AddDialogue("----------------------------------------");
+                    }
+                }
+            },
+        ],
+        'radio',
+        diceOptionKeys,
+        true
     );
 }

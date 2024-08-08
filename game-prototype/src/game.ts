@@ -11,7 +11,7 @@ async function main() {
     GamePresentation();
     await AddInputContinue();
     await BuildSetup();
-    // await BattleSetup();
+    await BattleSetup();
     // await BattleStart();
     // await BattleEnd();
 }

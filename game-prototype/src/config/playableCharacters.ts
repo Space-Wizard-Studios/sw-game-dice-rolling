@@ -16,7 +16,7 @@ export const playableCharacters: Character[] = [
         name: "Assassin",
         role: Roles.Assassin,
         health: {
-            max: 100,
+            max: 50,
         },
         speed: {
             max: 10,
@@ -27,7 +27,6 @@ export const playableCharacters: Character[] = [
         role: Roles.Healer,
         health: {
             max: 100,
-            current: 100,
         },
         speed: {
             max: 10,

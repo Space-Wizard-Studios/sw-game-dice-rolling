@@ -32,4 +32,24 @@ export const playerCharacters: Character[] = [
             max: 10,
         },
     },
+    {
+        name: "Assassin",
+        role: Roles.Assassin,
+        health: {
+            max: 50,
+        },
+        speed: {
+            max: 10,
+        },
+    },
+    {
+        name: "Assassin",
+        role: Roles.Assassin,
+        health: {
+            max: 50,
+        },
+        speed: {
+            max: 10,
+        },
+    },
 ];

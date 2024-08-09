@@ -11,7 +11,7 @@ export type BoardProps = {
 
 export const Board: Component<BoardProps> = (props) => {
   return (
-    <div id="gameBoard" class={`relative flex flex-row p-2 text-whitesmoke gap-2 ${props.bg}`}>
+    <div id="gameBoard" class={`relative flex flex-row max-h-[50%] p-2 text-whitesmoke gap-2 ${props.bg}`}>
       <CharacterBoard title="Player" characters={playerCharacters} bg='bg-blue-500 bg-opacity-50' />
       <InventoryBoard />
       <CharacterBoard title="Enemy" characters={enemyCharacters} bg='bg-red-500 bg-opacity-50' />

@@ -3,26 +3,26 @@ export type DiceAction = {
     description: string;
 }
 
-type DiceActionType = 'empty' | 'physicalAttack' | 'magicAttack' | 'defend' | 'special';
+type DiceActionType = 'Empty' | 'PhysicalAttack' | 'MagicAttack' | 'Defend' | 'Special';
 
 export const DiceActions: Record<DiceActionType, DiceAction> = {
-    empty: {
+    Empty: {
         name: 'Empty',
         description: 'Do nothing.',
     },
-    physicalAttack: {
+    PhysicalAttack: {
         name: 'Physical Attack',
         description: 'Perform a physical attack.',
     },
-    magicAttack: {
-        name: 'magic Attack',
+    MagicAttack: {
+        name: 'Magic Attack',
         description: 'Perform a magic attack.',
     },
-    defend: {
+    Defend: {
         name: 'Defend',
         description: 'Take a defensive stance to reduce incoming damage.',
     },
-    special: {
+    Special: {
         name: 'Special',
         description: 'Use a special ability.',
     },

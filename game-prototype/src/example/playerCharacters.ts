@@ -1,7 +1,7 @@
 import { Character } from 'types/characters';
 import { Roles } from 'types/roles';
 
-export const playableCharacters: Character[] = [
+export const playerCharacters: Character[] = [
     {
         name: "Fighter",
         role: Roles.Fighter,

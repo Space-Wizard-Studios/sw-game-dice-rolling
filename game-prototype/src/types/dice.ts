@@ -1,4 +1,4 @@
-import { DiceAction } from './actions/dice';
+import { DiceAction } from './actions/diceAction';
 
 type DiceSide = DiceAction;
 
@@ -15,3 +15,8 @@ export type D10 = Dice<10>;
 export type D12 = Dice<12>;
 export type D20 = Dice<20>;
 export type D100 = Dice<100>;
+
+export type DiceType = {
+    name: string;
+    dice: (D4 | D6 | D8 | D10 | D12 | D20 | D100)
+};

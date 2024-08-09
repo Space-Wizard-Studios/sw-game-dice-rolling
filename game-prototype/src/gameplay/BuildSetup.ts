@@ -3,15 +3,15 @@ import { AddInputOptions } from '@helpers/AddInputOptions';
 import { AddCharacter } from '@helpers/AddCharacter';
 import { GetRandomCharacters } from '@helpers/GetRandomCharacters';
 import { Character } from 'types/characters';
-import { diceOptions } from '@config/diceOptions';
-import { playableCharacters } from '@config/playableCharacters';
+// import { diceOptions } from '@config/diceOptions';
+import { playerCharacters } from '@example/playerCharacters';
 
 export async function BuildSetup() {
     // Step 1: Present the build phase to the player
     AddDialogue("BUILD PHASE: player can choose characters.");
 
     // Step 2: Present the characters to the player
-    const randomCharacters = GetRandomCharacters(playableCharacters, 3, 1);
+    const randomCharacters = GetRandomCharacters(playerCharacters, 3, 1);
     const characterOptions = randomCharacters.map(character => character.name);
     AddDialogue(`Choose one character: ${characterOptions.join(", ")}`);
 
@@ -55,7 +55,7 @@ async function handleDiceSelection(selectedCharacter: Character): Promise<void> 
                     callback: async (selectedDiceValues: string[]) => {
                         const selectedDice = diceOptions[selectedDiceValues[0] as keyof typeof diceOptions];
                         if (selectedDice) {
-                            selectedCharacter.dice = selectedDice;
+                            selectedCharacter.diceSet = selectedDice;
                             AddDialogue(`Dice ${selectedDiceValues[0]} has been added to character ${selectedCharacter.name}.`);
                             AddDialogue("----------------------------------------");
                         }

@@ -1,7 +1,7 @@
-import { D4, D6, D8, D10, D12, D20, D100 } from './dice';
-import { Role } from './roles';
+import { DiceType } from './dice';
+import { Role } from 'types/roles';
 
-import { CommonAction } from './actions/common';
+import { CommonAction } from './actions/commonAction';
 
 export type Health = {
     max: number;
@@ -19,5 +19,5 @@ export type Character = {
     health: Health;
     speed: Speed;
     commonActions?: CommonAction[];
-    dice?: (D4 | D6 | D8 | D10 | D12 | D20 | D100);
+    diceSet?: DiceType[];
 }

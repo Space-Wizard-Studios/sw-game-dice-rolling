@@ -28,7 +28,7 @@ The game takes place in distinct stages:
 - Player chooses which characters to send
 - The order of turns is organized according to the speed of the characters
 
-### Battle
+### Battle start
 
 - Enemies show their intentions of actions
 - For each character, the player rolls the allocated dice to see what they will do

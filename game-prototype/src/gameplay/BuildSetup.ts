@@ -8,7 +8,7 @@ import { playableCharacters } from '@config/playableCharacters';
 
 export async function BuildSetup() {
     // Step 1: Present the build phase to the player
-    AddDialogue("Build phase where player can choose characters.");
+    AddDialogue("BUILD PHASE: player can choose characters.");
 
     // Step 2: Present the characters to the player
     const randomCharacters = GetRandomCharacters(playableCharacters, 3, 1);
@@ -19,47 +19,53 @@ export async function BuildSetup() {
     await handleCharacterSelection(randomCharacters, characterOptions);
 }
 
-async function handleCharacterSelection(randomCharacters: Character[], characterOptions: string[]) {
-    await AddInputOptions(
-        [
-            {
-                label: 'Add character',
-                callback: async (selectedValues: string[]) => {
-                    const selectedCharacter = randomCharacters.find(character => character.name === selectedValues[0]);
-                    if (selectedCharacter) {
-                        AddCharacter(selectedCharacter);
-                        AddDialogue(`Character ${selectedCharacter.name} has been added.`);
-                        await handleDiceSelection(selectedCharacter);
+async function handleCharacterSelection(randomCharacters: Character[], characterOptions: string[]): Promise<void> {
+    return new Promise((resolve) => {
+        AddInputOptions(
+            [
+                {
+                    label: 'Add character',
+                    callback: async (selectedValues: string[]) => {
+                        const selectedCharacter = randomCharacters.find(character => character.name === selectedValues[0]);
+                        if (selectedCharacter) {
+                            AddCharacter(selectedCharacter);
+                            AddDialogue(`Character ${selectedCharacter.name} has been added.`);
+                            await handleDiceSelection(selectedCharacter);
+                        }
+                        resolve();
                     }
-                }
-            },
-        ],
-        'radio',
-        characterOptions,
-        false
-    );
+                },
+            ],
+            'radio',
+            characterOptions,
+            false
+        );
+    });
 }
 
-async function handleDiceSelection(selectedCharacter: Character) {
-    const diceOptionKeys = Object.keys(diceOptions);
-    AddDialogue(`Choose one dice: ${diceOptionKeys.join(", ")}`);
+async function handleDiceSelection(selectedCharacter: Character): Promise<void> {
+    return new Promise((resolve) => {
+        const diceOptionKeys = Object.keys(diceOptions);
+        AddDialogue(`Choose one dice: ${diceOptionKeys.join(", ")}`);
 
-    await AddInputOptions(
-        [
-            {
-                label: 'Select Dice',
-                callback: (selectedDiceValues: string[]) => {
-                    const selectedDice = diceOptions[selectedDiceValues[0] as keyof typeof diceOptions];
-                    if (selectedDice) {
-                        selectedCharacter.dice = selectedDice;
-                        AddDialogue(`Dice ${selectedDiceValues[0]} has been added to character ${selectedCharacter.name}.`);
-                        AddDialogue("----------------------------------------");
+        AddInputOptions(
+            [
+                {
+                    label: 'Select Dice',
+                    callback: async (selectedDiceValues: string[]) => {
+                        const selectedDice = diceOptions[selectedDiceValues[0] as keyof typeof diceOptions];
+                        if (selectedDice) {
+                            selectedCharacter.dice = selectedDice;
+                            AddDialogue(`Dice ${selectedDiceValues[0]} has been added to character ${selectedCharacter.name}.`);
+                            AddDialogue("----------------------------------------");
+                        }
+                        resolve();
                     }
-                }
-            },
-        ],
-        'radio',
-        diceOptionKeys,
-        true
-    );
+                },
+            ],
+            'radio',
+            diceOptionKeys,
+            true
+        );
+    });
 }

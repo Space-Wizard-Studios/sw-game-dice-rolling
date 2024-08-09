@@ -1,5 +1,5 @@
 import { AddDialogue } from '../helpers/AddDialogue';
 
 export async function BattleSetup() {
-    AddDialogue("Setting up the battle and deploying characters...");
+    AddDialogue("BATTLE SETUP PHASE: setting up the battle and deploying characters...");
 }

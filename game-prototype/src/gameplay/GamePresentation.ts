@@ -1,4 +1,4 @@
-import { AddDialogue } from '@helpers/AddDialogue';
+import { AddDialogue } from '@helpers/dialogueStore';
 
 export function GamePresentation() {
     AddDialogue("Welcome to the game prototype!");

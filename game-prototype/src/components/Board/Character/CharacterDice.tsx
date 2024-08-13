@@ -37,7 +37,7 @@ export const CharacterDice: Component<{ diceSet: DiceType[] }> = (props) => {
                             <Popover>
                                 <PopoverTrigger
                                     as={(triggerProps: PopoverTriggerProps) => (
-                                        <Button {...triggerProps} class="bg-white dark:bg-black" size="sm">
+                                        <Button {...triggerProps} class="bg-white dark:bg-black text-black" size="sm">
                                             {diceSet.name}
                                         </Button>
                                     )}

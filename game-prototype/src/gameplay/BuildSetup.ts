@@ -1,4 +1,4 @@
-import { AddDialogue } from '@helpers/AddDialogue';
+import { AddDialogue } from '@helpers/dialogueStore';
 import { AddInputOptions } from '@helpers/AddInputOptions';
 import { AddCharacter } from '@helpers/AddCharacter';
 import { GetRandomCharacters } from '@helpers/GetRandomCharacters';

@@ -27,6 +27,9 @@
       "@layouts/*": [
         "src/layouts/*"
       ],
+      "@stores/*": [
+        "src/stores/*"
+      ],
       "@styles/*": [
         "src/styles/*"
       ],

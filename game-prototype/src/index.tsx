@@ -1,31 +1,35 @@
-import { render } from 'solid-js/web';
-
 import '@styles/main.scss';
+
+import { render } from 'solid-js/web';
+import { Component, createEffect } from 'solid-js';
 
 import { Board } from '@components/Board/Board';
 import { Dialogue } from '@components/Dialogue/Dialogue';
-import { Input } from '@components/Input/Input';
+import { InteractivePanel } from '@components/InteractivePanel/Input';
 
-import { dialogueLines } from '@stores/dialogueStore';
+import { gameState } from '@stores/GameStateStore';
+import { startGame } from '@game/PhaseTransitions';
 
-const body = document.body;
+const Game: Component = () => {
+  createEffect(() => {
+    console.log('Current Phase:', gameState.currentPhase);
+  });
 
-if (import.meta.env.DEV && !(body instanceof HTMLElement)) {
-  throw new Error('Body element not found.');
-}
+  startGame();
 
-render(
-  () =>
+  return (
     <main class="relative h-dvh w-dvh text-white">
       <div class="flex flex-row w-full h-2/3">
-        <Board class="bg-gray-900" />
+        <Board class="bg-slate-900" />
       </div>
       <div class="flex flex-row w-full h-1/3">
         <div class="flex flex-row w-full p-2 gap-2 bg-slate-900">
-          <Dialogue lines={dialogueLines()} />
-          <Input />
+          <Dialogue />
+          <InteractivePanel />
         </div>
       </div>
-    </main>,
-  body!
-);
+    </main>
+  );
+};
+
+render(() => <Game />, document.body);

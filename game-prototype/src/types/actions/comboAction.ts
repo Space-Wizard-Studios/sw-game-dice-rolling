@@ -1,5 +1,5 @@
-import { DiceActions } from './diceAction';
-import type { DiceAction } from './diceAction';
+import { DiceActions } from './DiceAction';
+import type { DiceAction } from './DiceAction';
 
 export type ComboAction = {
     name: string;

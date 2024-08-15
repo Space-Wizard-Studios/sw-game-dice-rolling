@@ -1,8 +1,8 @@
-import { Roles } from 'types/roles';
+import { Roles } from 'types/Roles';
 
-import { DiceActions } from 'types/actions/diceAction';
-import type { Character } from 'types/characters';
-import type { D4, D6 } from 'types/dice';
+import { DiceActions } from 'types/actions/DiceAction';
+import type { Character } from 'types/Characters';
+import type { D4, D6 } from 'types/Dice';
 
 const d4Example: D4 = [DiceActions.PhysicalAttack, DiceActions.Empty, DiceActions.MagicAttack, DiceActions.Defend];
 const d6Example: D6 = [DiceActions.PhysicalAttack, DiceActions.MagicAttack, DiceActions.Defend, DiceActions.Empty, DiceActions.PhysicalAttack, DiceActions.MagicAttack];

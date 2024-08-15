@@ -1,5 +1,55 @@
 {
+    "json.schemaDownload.enable": true,
+    "files.associations": {
+        "*.css": "postcss"
+    },
+    "tailwindCSS.includeLanguages": {
+        "astro": "html",
+        "typescript": "html",
+        "typescriptreact": "html",
+        "plaintext": "javascript"
+    },
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "stylelint.validate": [
+        "css",
+        "scss"
+    ],
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": [
+        "source.fixAll.eslint",
+        "source.fixAll.stylelint"
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/node_modules/**": true,
+        "node_modules": true
+    },
+    "search.exclude": {
+        "**/node_modules/": true,
+        "**/node_modules/**": true
+    },
     "cSpell.words": [
         "kobalte"
-    ]
+    ],
 }

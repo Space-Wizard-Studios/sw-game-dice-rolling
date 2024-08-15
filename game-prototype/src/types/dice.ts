@@ -1,4 +1,4 @@
-import { DiceAction } from './actions/diceAction';
+import { DiceAction } from './actions/DiceAction';
 
 type DiceSide = DiceAction;
 

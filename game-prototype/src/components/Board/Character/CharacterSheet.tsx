@@ -3,7 +3,7 @@ import { CharacterImage } from './CharacterImage';
 import { CharacterHealth } from './CharacterHealth';
 import { CharacterDice } from './CharacterDice';
 import { CharacterAction } from './CharacterAction';
-import type { Character } from 'types/characters';
+import type { Character } from 'types/Characters';
 
 export const CharacterSheet: Component<{ character: Character }> = (props) => {
     return (

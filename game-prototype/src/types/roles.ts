@@ -1,8 +1,8 @@
-import { DiceActions } from "./actions/diceAction";
-import { ComboActions } from "./actions/comboAction";
+import { DiceActions } from "./actions/DiceAction";
+import { ComboActions } from "./actions/ComboAction";
 
-import type { DiceAction } from "./actions/diceAction";
-import type { ComboAction } from "./actions/comboAction";
+import type { DiceAction } from "./actions/DiceAction";
+import type { ComboAction } from "./actions/ComboAction";
 
 export type Role = {
     name: string;

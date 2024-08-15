@@ -1,5 +1,5 @@
 import type { Component } from 'solid-js';
-import type { Health } from 'types/characters';
+import type { Health } from 'types/Characters';
 
 export const CharacterHealth: Component<{ health: Health }> = (props) => {
     return (

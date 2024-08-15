@@ -21,6 +21,9 @@
       "@example/*": [
         "src/example/*"
       ],
+      "@game/*": [
+        "src/game/*"
+      ],
       "@helpers/*": [
         "src/helpers/*"
       ],

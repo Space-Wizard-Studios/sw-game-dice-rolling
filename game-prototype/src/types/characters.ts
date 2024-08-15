@@ -13,8 +13,12 @@ export type Speed = {
     current?: number;
 }
 
+export type CharacterType = 'player' | 'enemy';
+
 export type Character = {
     id: string;
+    type: CharacterType;
+    image: string;
     name: string;
     role: Role;
     health: Health;
@@ -22,7 +26,3 @@ export type Character = {
     commonActions?: CommonAction[];
     diceSet?: DiceType[];
 }
-
-export type CharacterStore = {
-    characters: Character[];
-};

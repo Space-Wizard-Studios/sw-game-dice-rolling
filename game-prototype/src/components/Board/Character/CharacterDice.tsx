@@ -1,21 +1,21 @@
-import { Button } from "@components/ui/button";
+import { Button } from '@components/ui/button';
 import {
     Popover,
     PopoverContent,
     PopoverDescription,
     PopoverTitle,
     PopoverTrigger,
-} from "@components/ui/popover";
+} from '@components/ui/popover';
 
 import type { Component } from 'solid-js';
 import type { DiceType } from 'types/dice';
-import type { PopoverTriggerProps } from "@kobalte/core/popover";
+import type { PopoverTriggerProps } from '@kobalte/core/popover';
 
 export const CharacterDice: Component<{ diceSet: DiceType[] }> = (props) => {
     return (
-        <div class="flex flex-row gap-4 items-center">
-            <p class="text-sm">Dice Set:</p>
-            <ul class="list-none grid grid-cols-4 gap-4">
+        <div class='flex flex-row gap-4 items-center'>
+            <p class='text-sm'>Dice Set:</p>
+            <ul class='list-none grid grid-cols-4 gap-4'>
                 {props.diceSet.map((diceSet) => {
                     // store the count of each unique action
                     const actionCountMap = new Map<string, number>();
@@ -37,19 +37,19 @@ export const CharacterDice: Component<{ diceSet: DiceType[] }> = (props) => {
                             <Popover>
                                 <PopoverTrigger
                                     as={(triggerProps: PopoverTriggerProps) => (
-                                        <Button {...triggerProps} class="bg-white dark:bg-black text-black" size="sm">
+                                        <Button {...triggerProps} class='bg-white dark:bg-black text-black' size='sm'>
                                             {diceSet.name}
                                         </Button>
                                     )}
                                 />
-                                <PopoverContent class="w-80">
-                                    <div class="grid gap-4">
-                                        <PopoverTitle class="space-y-2">
-                                            <h4 class="font-medium leading-none">Actions for {diceSet.name}</h4>
+                                <PopoverContent class='w-80'>
+                                    <div class='grid gap-4'>
+                                        <PopoverTitle class='space-y-2'>
+                                            <h4 class='font-medium leading-none'>Actions for {diceSet.name}</h4>
                                         </PopoverTitle>
-                                        <PopoverDescription class="grid gap-2">
+                                        <PopoverDescription class='grid gap-2'>
                                             <div>
-                                                <h5 class="font-medium">Probability:</h5>
+                                                <h5 class='font-medium'>Probability:</h5>
                                                 <ul>
                                                     {actionProbabilities.map(({ name, probability }) => (
                                                         <li>
@@ -59,7 +59,7 @@ export const CharacterDice: Component<{ diceSet: DiceType[] }> = (props) => {
                                                 </ul>
                                             </div>
                                             <div>
-                                                <h5 class="font-medium">Dice:</h5>
+                                                <h5 class='font-medium'>Dice:</h5>
                                                 <ul>
                                                     {diceSet.dice.map((action) => (
                                                         <li>

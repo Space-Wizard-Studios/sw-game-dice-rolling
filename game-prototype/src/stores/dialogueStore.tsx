@@ -1,11 +1,13 @@
 import { createSignal } from 'solid-js';
 
+const MAX_DIALOGUE_LINES = 200;
+
 const [dialogueLines, setDialogueLines] = createSignal([""]);
 
 const addDialogueLine = (line: string) => {
   setDialogueLines((prevLines) => {
     const newLines = [...prevLines, line];
-    return newLines.length > 200 ? newLines.slice(-200) : newLines;
+    return newLines.length > MAX_DIALOGUE_LINES ? newLines.slice(-MAX_DIALOGUE_LINES) : newLines;
   });
 };
 

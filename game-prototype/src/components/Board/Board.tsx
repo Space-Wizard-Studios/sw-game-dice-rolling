@@ -1,21 +1,22 @@
 /* @refresh reload */
 import type { Component } from 'solid-js';
 import InventoryBoard from './InventoryBoard';
-import { characterStore as playerCharacters } from '@stores/playerCharacterStore';
-import { enemyCharacters } from '@example/enemyCharacters';
 import { CharacterBoard } from './CharacterBoard';
+import { characterStore } from '@stores/characterStore';
+import { cn } from '@components/utils';
 
-export type BoardProps = {
+type BoardProps = {
   class?: string;
-  bg: string;
 }
 
 export const Board: Component<BoardProps> = (props) => {
+  const playerCharacterIds = characterStore.characters.map(character => character.id);
+
   return (
-    <div class={`flex flex-row w-full p-2 gap-2 ${props.bg}`}>
-      {/* <CharacterBoard title="Player" characters={playerCharacters} bg='bg-blue-500 bg-opacity-50' />
+    <div class={cn('flex flex-row w-full p-2 gap-2', props.class)}>
+      <CharacterBoard title="Player" characterIds={playerCharacterIds}/>
       <InventoryBoard />
-      <CharacterBoard title="Enemy" characters={enemyCharacters} bg='bg-red-500 bg-opacity-50' /> */}
+      {/* <CharacterBoard title="Enemy"  /> */}
     </div>
   );
 };

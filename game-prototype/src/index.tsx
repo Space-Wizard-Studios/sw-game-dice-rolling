@@ -18,7 +18,7 @@ render(
   () =>
     <main class="relative h-dvh w-dvh text-white">
       <div class="flex flex-row w-full h-2/3">
-        <Board bg="bg-gray-900" />
+        <Board class="bg-gray-900" />
       </div>
       <div class="flex flex-row w-full h-1/3">
         <div class="flex flex-row w-full p-2 gap-2 bg-slate-900">

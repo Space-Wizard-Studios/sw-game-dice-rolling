@@ -1,6 +1,20 @@
-import { addDialogueLine } from "@stores/DialogueStore";
+import { addDialogueLine, addDialogueMessage } from "@stores/DialogueStore";
 
 export async function Presentation() {
-    addDialogueLine("Presentation.");
+    addDialogueMessage({
+        lines: [
+            { text: 'Welcome to the game!' },
+            { text: 'blah blah blah' },
+        ]
+    });
+
+    addDialogueMessage({
+        lines: [
+            { text: 'blah blah blah' }
+        ]
+    });
+
+    addDialogueLine('This is a test');
+
     await new Promise(resolve => setTimeout(resolve, 3000));
 }

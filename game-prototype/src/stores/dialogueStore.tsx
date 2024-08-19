@@ -1,23 +1,45 @@
 import { createStore } from 'solid-js/store';
 
-// TODO: fix this mess, it's not working
-
 type DialogueLine = {
-  line: string;
+  text: string;
 };
 
-type DialogueMessage = {
-  message: DialogueLine[];
+type MessageType = 'info' | 'failure' | 'success';
+
+export type DialogueMessage = {
+  type?: MessageType;
+  lines: DialogueLine[];
 };
 
-export const [dialogueStore, setDialogueStore] = createStore<DialogueMessage>({
-  message: [],
+export const [dialogueStore, setDialogueStore] = createStore<{ messages: DialogueMessage[] }>({
+  messages: [],
 });
 
 export function addDialogueLine(line: string) {
-  setDialogueStore('message', messages => [...messages, { line }]);
+  setDialogueStore('messages', messages => {
+    if (messages.length === 0) {
+      return [...messages, { lines: [{ text: line }] }];
+    } else {
+      const lastMessage = messages[messages.length - 1];
+      return [
+        ...messages.slice(0, -1),
+        { ...lastMessage, lines: [...lastMessage.lines, { text: line }] },
+      ];
+    }
+  });
 }
 
-// for (let i = 1; i <= 300; i++) {
-//   addDialogueLine(`This is dialogue line number ${i}`);
-// }
+export function addDialogueMessage(newMessage: DialogueMessage) {
+  setDialogueStore('messages', messages => [...messages, newMessage]);
+}
+
+// add 300 example messages
+
+for (let i = 0; i < 300; i++) {
+  addDialogueMessage({
+    lines: [
+      { text: 'This is the message number ' },
+      { text: `${i}` },
+    ],
+  });
+}

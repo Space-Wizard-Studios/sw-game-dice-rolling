@@ -1,8 +1,13 @@
-import { addDialogueLine } from '@stores/DialogueStore';
+import { addDialogueLine, addDialogueMessage } from '@stores/DialogueStore';
 
 export async function Preparation() {
     // - Dialogue presenting the build phase to the player
-    addDialogueLine("Preparation.");
+    addDialogueMessage({
+        lines: [
+            { text: 'This is the build phase.' },
+        ]
+    });
+
     await new Promise(resolve => setTimeout(resolve, 3000));
 
     // - Generate characters and present them to the player in the interactive panel

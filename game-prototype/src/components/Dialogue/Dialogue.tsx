@@ -1,16 +1,28 @@
+import { createEffect, onCleanup, onMount } from 'solid-js';
 import type { Component } from 'solid-js';
 
 import { gameState } from '@stores/GameStateStore';
-import { dialogueStore } from '@stores/DialogueStore';
+import { DialogueMessage, dialogueStore } from '@stores/DialogueStore';
 
 type DialogueProps = {
-  lines?: string[];
+  message: DialogueMessage;
 };
 
 export const Dialogue: Component<DialogueProps> = () => {
-  // TODO: fix this mess, it's not working
+  let messagesContainer: HTMLDivElement | undefined;
+
+  const scrollToBottom = () => {
+    if (messagesContainer) {
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+  };
+
+  onMount(scrollToBottom);
   
-  const lines = dialogueStore.message.map((message) => message.line);
+  createEffect(() => {
+    dialogueStore.messages;
+    scrollToBottom();
+  });
 
   return (
     <div class='flex flex-col flex-1 h-full p-2 gap-2 rounded-md bg-gray-500 bg-opacity-50'>
@@ -18,10 +30,36 @@ export const Dialogue: Component<DialogueProps> = () => {
         <h2>Dialogue</h2>
         <h3>Phase: {gameState.currentPhase}</h3>
       </div>
-      <div class='flex flex-col p-2 gap-2 h-full overflow-y-scroll bg-black bg-opacity-25 border-2 rounded-md border-black border-opacity-50'>
-        {lines && lines?.map((line: string) => (
-          <p>{line}</p>
-        ))}
+      <div
+        ref={messagesContainer}
+        class='flex flex-col p-2 gap-2 h-full overflow-y-auto bg-black bg-opacity-25 border-2 rounded-md border-black border-opacity-50'
+      >
+        {dialogueStore.messages.map(message => {
+
+          let bg = '';
+          switch (message.type) {
+            case 'info':
+              bg = 'bg-blue-500';
+              break;
+            case 'failure':
+              bg = 'bg-red-500';
+              break;
+            case 'success':
+              bg = 'bg-green-500';
+              break;
+            default:
+              bg = 'bg-gray-500';
+              break;
+          }
+
+          return (
+            <div class={`p-1 rounded-md ${bg} bg-opacity-50`}>
+              {message.lines.map(line => (
+                <p>{line.text}</p>
+              ))}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

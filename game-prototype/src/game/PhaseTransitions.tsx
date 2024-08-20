@@ -40,5 +40,5 @@ export async function transitionToBattleStart() {
 export async function transitionToBattleEnd() {
     setGamePhase(GamePhases.BattleEnd);
     await BattleEnd();
-    // Decide next phase or end game
+    // TODO Decide next phase or end game
 }

@@ -19,11 +19,9 @@ const Game: Component = () => {
       <div class="flex flex-row w-full h-2/3">
         <Board class="bg-slate-900" />
       </div>
-      <div class="flex flex-row w-full h-1/3">
-        <div class="flex flex-row w-full p-2 gap-2 bg-slate-900">
-          <Dialogue />
-          <InteractivePanel />
-        </div>
+      <div class="relative flex flex-col md:flex-row w-full h-1/3 p-2 gap-2 bg-slate-900">
+        <Dialogue />
+        <InteractivePanel />
       </div>
     </main>
   );

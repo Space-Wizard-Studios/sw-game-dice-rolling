@@ -1,7 +1,8 @@
-import { addDialogueLine, addDialogueMessage } from "@stores/Dialogue";
+import { addDialogueLine, addDialogueMessage } from "@stores/DialogueStore";
 
 export async function Presentation() {
     addDialogueMessage({
+        type: 'info',
         lines: [
             { text: 'Welcome to the game!' },
             { text: 'blah blah blah' },

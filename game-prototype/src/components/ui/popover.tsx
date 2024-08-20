@@ -1,4 +1,4 @@
-import { cn } from "@components/utils";
+import { cn } from "@helpers/cn";
 import type { PolymorphicProps } from "@kobalte/core/polymorphic";
 import type {
 	PopoverContentProps,

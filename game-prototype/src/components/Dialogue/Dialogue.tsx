@@ -1,8 +1,9 @@
-import { createEffect, onCleanup, onMount } from 'solid-js';
-import type { Component } from 'solid-js';
-
+import { createEffect, onMount } from 'solid-js';
 import { gameState } from '@game/GameContext';
-import { DialogueMessage, dialogueStore } from '@stores/Dialogue';
+import { dialogueStore } from '@stores/DialogueStore';
+
+import type { Component } from 'solid-js';
+import type { DialogueMessage } from '@stores/DialogueStore';
 
 type DialogueProps = {
   message?: DialogueMessage;
@@ -18,14 +19,14 @@ export const Dialogue: Component<DialogueProps> = () => {
   };
 
   onMount(scrollToBottom);
-  
+
   createEffect(() => {
     dialogueStore.messages;
     scrollToBottom();
   });
 
   return (
-    <div class='flex flex-col flex-1 h-full p-2 gap-2 rounded-md bg-gray-500 bg-opacity-50'>
+    <div class='flex flex-col flex-1 h-2/3 md:h-full p-2 gap-2 rounded-md bg-gray-500 bg-opacity-50'>
       <div class='flex flex-row justify-between'>
         <h2>Dialogue</h2>
         <h3>Phase: {gameState.currentPhase}</h3>

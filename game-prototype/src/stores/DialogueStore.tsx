@@ -32,3 +32,7 @@ export function addDialogueLine(line: string) {
 export function addDialogueMessage(newMessage: DialogueMessage) {
   setDialogueStore('messages', messages => [...messages, newMessage]);
 }
+
+for (let i = 0; i < 300; i++) {
+  addDialogueLine(`Test line ${i}`);
+}

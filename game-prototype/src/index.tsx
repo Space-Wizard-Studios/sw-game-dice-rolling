@@ -7,13 +7,10 @@ import { Board } from '@components/Board/Board';
 import { Dialogue } from '@components/Dialogue/Dialogue';
 import { InteractivePanel } from '@components/InteractivePanel/Input';
 
-import { gameState } from '@stores/GameStateStore';
+import { GameProvider } from '@game/GameContext';
 import { startGame } from '@game/PhaseTransitions';
 
 const Game: Component = () => {
-  createEffect(() => {
-    console.log('Current Phase:', gameState.currentPhase);
-  });
 
   startGame();
 
@@ -32,4 +29,8 @@ const Game: Component = () => {
   );
 };
 
-render(() => <Game />, document.body);
+render(() => (
+  <GameProvider>
+    <Game />
+  </GameProvider>
+), document.body);

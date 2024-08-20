@@ -32,14 +32,3 @@ export function addDialogueLine(line: string) {
 export function addDialogueMessage(newMessage: DialogueMessage) {
   setDialogueStore('messages', messages => [...messages, newMessage]);
 }
-
-// add 300 example messages
-
-for (let i = 0; i < 300; i++) {
-  addDialogueMessage({
-    lines: [
-      { text: 'This is the message number ' },
-      { text: `${i}` },
-    ],
-  });
-}

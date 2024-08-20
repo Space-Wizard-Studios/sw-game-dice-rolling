@@ -1,11 +1,11 @@
 import { createEffect, onCleanup, onMount } from 'solid-js';
 import type { Component } from 'solid-js';
 
-import { gameState } from '@stores/GameStateStore';
-import { DialogueMessage, dialogueStore } from '@stores/DialogueStore';
+import { gameState } from '@game/GameContext';
+import { DialogueMessage, dialogueStore } from '@stores/Dialogue';
 
 type DialogueProps = {
-  message: DialogueMessage;
+  message?: DialogueMessage;
 };
 
 export const Dialogue: Component<DialogueProps> = () => {
@@ -34,7 +34,7 @@ export const Dialogue: Component<DialogueProps> = () => {
         ref={messagesContainer}
         class='flex flex-col p-2 gap-2 h-full overflow-y-auto bg-black bg-opacity-25 border-2 rounded-md border-black border-opacity-50'
       >
-        {dialogueStore.messages.map(message => {
+        {dialogueStore.messages?.map(message => {
 
           let bg = '';
           switch (message.type) {
@@ -53,7 +53,7 @@ export const Dialogue: Component<DialogueProps> = () => {
           }
 
           return (
-            <div class={`p-1 rounded-md ${bg} bg-opacity-50`}>
+            <div class={`p-2 rounded-md ${bg} bg-opacity-50`}>
               {message.lines.map(line => (
                 <p>{line.text}</p>
               ))}

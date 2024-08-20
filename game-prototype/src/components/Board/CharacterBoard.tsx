@@ -2,7 +2,7 @@ import type { Component } from 'solid-js';
 import { CharacterSheet } from '@components/Board/Character/CharacterSheet';
 import { cn } from '@components/utils';
 
-import { getCharacterById } from '@stores/CharacterStore';
+import { getCharacterById } from '@stores/Character';
 
 type CharacterBoardProps = {
   title: string;

@@ -1,4 +1,4 @@
-import { addDialogueLine, addDialogueMessage } from '@stores/DialogueStore';
+import { addDialogueMessage } from '@stores/Dialogue';
 
 export async function Preparation() {
     // - Dialogue presenting the build phase to the player

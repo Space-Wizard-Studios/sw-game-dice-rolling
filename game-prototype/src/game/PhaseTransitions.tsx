@@ -1,4 +1,4 @@
-import { setGamePhase } from '@stores/GameStateStore';
+import { useGameManager } from '@game/GameContext';
 
 import { Presentation } from '@game/phases/Presentation';
 import { Preparation } from '@game/phases/Preparation';
@@ -7,6 +7,11 @@ import { BattleStart } from '@game/phases/BattleStart';
 import { BattleEnd } from '@game/phases/BattleEnd';
 
 import { GamePhases } from 'types/GamePhases';
+
+export function setGamePhase(phase: GamePhases) {
+    const [, setGameState] = useGameManager();
+    setGameState('currentPhase', phase);
+}
 
 export async function startGame() {
     setGamePhase(GamePhases.Presentation);

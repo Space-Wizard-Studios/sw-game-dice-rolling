@@ -2,7 +2,7 @@
 import type { Component } from 'solid-js';
 import InventoryBoard from './InventoryBoard';
 import { CharacterBoard } from './CharacterBoard';
-import { characterStore } from '@stores/CharacterStore';
+import { characterStore } from '@stores/Character';
 import { cn } from '@components/utils';
 
 type BoardProps = {

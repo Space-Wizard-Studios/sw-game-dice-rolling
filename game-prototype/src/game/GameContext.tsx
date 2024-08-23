@@ -1,9 +1,11 @@
 import { Component, createContext, useContext, ParentProps } from 'solid-js';
 import { createStore } from 'solid-js/store';
+
 import { GamePhases } from 'types/GamePhases';
+import type { GamePhase } from 'types/GamePhases';
 
 export type GameManager = {
-    currentPhase: GamePhases;
+    currentPhase: GamePhase;
 };
 
 export const [gameState, setGameState] = createStore<GameManager>({

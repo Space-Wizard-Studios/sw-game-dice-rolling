@@ -7,8 +7,9 @@ import { BattleStart } from '@game/phases/BattleStart';
 import { BattleEnd } from '@game/phases/BattleEnd';
 
 import { GamePhases } from 'types/GamePhases';
+import type { GamePhase } from 'types/GamePhases';
 
-export function setGamePhase(phase: GamePhases) {
+export function setGamePhase(phase: GamePhase) {
     const [, setGameState] = useGameManager();
     setGameState('currentPhase', phase);
 }

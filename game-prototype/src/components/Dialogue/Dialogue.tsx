@@ -32,8 +32,7 @@ export const Dialogue: Component<DialogueProps> = () => {
   return (
     <div class='flex flex-col flex-1 h-2/3 md:h-full p-2 gap-2 rounded-md bg-gray-500 bg-opacity-50'>
       <div class='flex flex-row justify-between'>
-        <h2>Dialogue</h2>
-        <h3>Phase: {gameState.currentPhase}</h3>
+        <h3>Phase: {gameState.currentPhase.name}</h3>
       </div>
       <div
         ref={messagesContainer}

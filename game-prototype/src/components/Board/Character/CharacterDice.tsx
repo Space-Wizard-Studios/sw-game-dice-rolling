@@ -11,7 +11,13 @@ import type { Component } from 'solid-js';
 import type { DiceType } from 'types/Dice';
 import type { PopoverTriggerProps } from '@kobalte/core/popover';
 
-export const CharacterDice: Component<{ diceSet: DiceType[] }> = (props) => {
+type CharacterDiceProps = {
+    class?: string;
+    diceSet: DiceType[];
+    onClick?: () => void;
+}
+
+export const CharacterDice: Component<CharacterDiceProps> = (props) => {
     return (
         <div class='flex flex-row gap-4 items-center'>
             <p class='text-sm'>Dice Set:</p>

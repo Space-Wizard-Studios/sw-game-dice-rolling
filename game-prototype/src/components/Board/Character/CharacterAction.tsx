@@ -1,6 +1,11 @@
 import type { Component } from 'solid-js';
 
-export const CharacterAction: Component = () => {
+type CharacterActionProps = {
+    class?: string;
+    onClick?: () => void;
+}
+
+export const CharacterAction: Component<CharacterActionProps> = () => {
     return (
         <p class='text-sm'>
             Action: <span class='font-semibold'>X</span> on <span class='font-semibold'>Y</span>

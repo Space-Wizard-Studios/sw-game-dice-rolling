@@ -6,9 +6,9 @@ import { CharacterSheet } from '@components/Board/Character/CharacterSheet';
 import type { Character } from 'types/Characters';
 
 export const renderCharacter = (character: Character, selectItem: () => void, isSelected: boolean) => (
-    <div onClick={selectItem} class={isSelected ? 'border-2 border-blue-500 bg-blue-100' : ''}>
-        <CharacterSheet character={character} />
-    </div>
+    <CharacterSheet character={character} onClick={selectItem}
+        class={isSelected ? 'border-2 border-blue-500 bg-blue-200' : ''}
+    />
 );
 interface SelectionDialogProps<T> {
     open: boolean;
@@ -17,21 +17,21 @@ interface SelectionDialogProps<T> {
     onConfirm: (item: T) => void;
 }
 
-export const SelectionDialog = <T,>(props: SelectionDialogProps<T>) => {
+export const ItemSelection = <T,>(props: SelectionDialogProps<T>) => {
     const [selectedItem, setSelectedItem] = createSignal<T | null>(null);
 
     return (
-        <Dialog open={props.open}>
-            <DialogContent>
+        <Dialog open={props.open} >
+            <DialogContent enableClose={false}>
                 <DialogHeader>
                     <DialogTitle>Choose wisely</DialogTitle>
                     <DialogDescription>
                         Choose one of the items below:
                     </DialogDescription>
                 </DialogHeader>
-                <div>
+                <div class='flex flex-col gap-2'>
                     {props.items.map(item => (
-                        <div onClick={() => setSelectedItem(() => item)}>
+                        <div onClick={() => setSelectedItem(() => item)} class='cursor-pointer hover:bg-blue-100'>
                             {props.renderItem(item, () => setSelectedItem(() => item), selectedItem() === item)}
                         </div>
                     ))}

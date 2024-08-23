@@ -9,6 +9,10 @@ type DialogueProps = {
   message?: DialogueMessage;
 };
 
+type MessageProps = {
+  message: DialogueMessage;
+};
+
 export const Dialogue: Component<DialogueProps> = () => {
   let messagesContainer: HTMLDivElement | undefined;
 
@@ -35,32 +39,40 @@ export const Dialogue: Component<DialogueProps> = () => {
         ref={messagesContainer}
         class='flex flex-col p-2 gap-2 h-full overflow-y-auto bg-black bg-opacity-25 border-2 rounded-md border-black border-opacity-50'
       >
-        {dialogueStore.messages?.map(message => {
+        {dialogueStore.messages?.map(message => (
+          <Message message={message} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
-          let bg = '';
-          switch (message.type) {
-            case 'info':
-              bg = 'bg-blue-500';
-              break;
-            case 'failure':
-              bg = 'bg-red-500';
-              break;
-            case 'success':
-              bg = 'bg-green-500';
-              break;
-            default:
-              bg = 'bg-gray-500';
-              break;
-          }
+export const Message: Component<MessageProps> = (props) => {
+  let bg = '';
+  switch (props.message.type) {
+    case 'info':
+      bg = 'bg-blue-500';
+      break;
+    case 'failure':
+      bg = 'bg-red-500';
+      break;
+    case 'success':
+      bg = 'bg-green-500';
+      break;
+    default:
+      bg = 'bg-gray-500';
+      break;
+  }
 
-          return (
-            <div class={`p-2 rounded-md ${bg} bg-opacity-50`}>
-              {message.lines.map(line => (
-                <p>{line.text}</p>
-              ))}
-            </div>
-          );
-        })}
+  return (
+    <div class={`p-2 rounded-md ${bg} bg-opacity-50`}>
+      <div>
+        <h3>{props.message.type}</h3>
+      </div>
+      <div>
+        {props.message.lines.map(line => (
+          <p>{line.text}</p>
+        ))}
       </div>
     </div>
   );

@@ -1,23 +1,31 @@
 name: Deploy Prototype to Pages
-
 on:
-#   push:
-#     branches: [ main ]
-#   pull_request:
-#     branches: [ main ]
-
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "22"
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install dependencies
         run: |
           cd game-prototype
           npm i
+
+      - name: List installed dependencies
+        run: npm list
 
       - name: Build project
         run: |
@@ -28,7 +36,7 @@ jobs:
 
       - name: create .nojekyll
         run: touch .output/public/.nojekyll
-
+        
       - name: deploy pages
         uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:

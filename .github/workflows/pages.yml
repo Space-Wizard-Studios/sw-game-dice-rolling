@@ -17,6 +17,9 @@ jobs:
       - name: cd
         run: cd game-prototype
 
+      - name: ls
+        run: ls -la
+
       - name: install
         run: npm i --legacy-peer-deps
 

@@ -7,7 +7,7 @@ export default defineConfig({
     solidPlugin(),
     tsconfigPaths(
       {
-        root: 'game-prototype',
+        root: './',
       }
     ),
   ],

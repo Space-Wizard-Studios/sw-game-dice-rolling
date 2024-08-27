@@ -5,7 +5,11 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   plugins: [
     solidPlugin(),
-    tsconfigPaths(),
+    tsconfigPaths(
+      {
+        root: 'game-prototype',
+      }
+    ),
   ],
   css: {
     postcss: './postcss.config.js',

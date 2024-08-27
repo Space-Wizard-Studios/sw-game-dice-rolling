@@ -5,19 +5,12 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   plugins: [
     solidPlugin(),
-    tsconfigPaths(
-      {
-        root: './',
-      }
-    ),
+    tsconfigPaths(),
   ],
   css: {
     postcss: './postcss.config.js',
   },
   server: {
     port: 3000,
-  },
-  build: {
-    target: 'esnext',
   },
 });

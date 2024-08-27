@@ -6,7 +6,7 @@ import { enemyCharacterStore } from '@stores/CharacterStore';
 export async function Preparation() {
     addDialogueMessage({
         lines: [
-            { text: 'This is the build phase.' },
+            { text: 'This is the preparation phase.' },
         ]
     });
 

@@ -27,7 +27,6 @@ export function addDialogueMessage(newMessage: DialogueMessage) {
     setDialogueStore('messages', messages => [...messages, messagePhase]);
 }
 
-
 export function addDialogueLine(line: string, type?: LineType) {
     setDialogueStore('messages', messages => {
         if (messages.length === 0) {

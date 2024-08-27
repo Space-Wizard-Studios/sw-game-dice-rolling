@@ -21,6 +21,9 @@
     "baseUrl": "./",
     "outDir": "dist",
     "paths": {
+      "types/*": [
+        "src/types/*"
+      ],
       "@components/*": [
         "src/components/*"
       ],
@@ -41,9 +44,6 @@
       ],
       "@styles/*": [
         "src/styles/*"
-      ],
-      "types/*": [
-        "src/types/*"
       ],
       "@/*": [
         "src/*"

@@ -8,7 +8,9 @@
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "lib": [
-      "esnext"
+      "es2020",
+      "esnext",
+      "dom"
     ],
     "module": "ESNext",
     "moduleResolution": "node",

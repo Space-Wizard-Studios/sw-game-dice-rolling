@@ -14,20 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: ls
-        run: ls -la
+      - name: Install dependencies
+        run: |
+          cd game-prototype
+          npm i
 
-      - name: cd
-        run: cd 'game-prototype'
-
-      - name: ls
-        run: ls -la
-
-      - name: install
-        run: npm i
-
-      - name: build
-        run: npm run build
+      - name: Build project
+        run: |
+          cd game-prototype
+          npm run build
         env:
           BASE_PATH: /game-prototype/
 

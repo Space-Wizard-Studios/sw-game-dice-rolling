@@ -24,7 +24,7 @@ jobs:
           cd game-prototype
           npm run build
         env:
-          BASE_PATH: /game-prototype/
+          BASE_PATH: /dist/
 
       - name: create .nojekyll
         run: touch .output/public/.nojekyll

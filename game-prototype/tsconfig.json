@@ -1,23 +1,26 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    "declaration": true,
     "esModuleInterop": true,
+    "isolatedModules": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
+    "lib": [
+      "es2020"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "ESNext",
     "types": [
       "vite/client"
     ],
-    "noEmit": true,
-    "isolatedModules": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
+    "outDir": "dist",
     "paths": {
-      "types/*": [
-        "src/types/*"
-      ],
       "@components/*": [
         "src/components/*"
       ],
@@ -38,6 +41,9 @@
       ],
       "@styles/*": [
         "src/styles/*"
+      ],
+      "types/*": [
+        "src/types/*"
       ],
       "@/*": [
         "src/*"

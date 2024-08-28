@@ -8,17 +8,20 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
+    "skipLibCheck": true,
     "lib": [
       "es2020",
       "es2021",
       "esnext",
       "dom"
     ],
-    "module": "ESNext",
+    "module": "ES2022",
     "moduleResolution": "node",
+    "verbatimModuleSyntax": true,
     "noEmit": true,
     "strict": true,
-    "target": "ESNext",
+    "strictNullChecks": true,
+    "target": "ES2022",
     "types": [
       "astro/client",
       "vite/client"

@@ -52,7 +52,7 @@
       "@styles/*": [
         "src/styles/*"
       ],
-      "~types/*": [
+      "types/*": [
         "src/types/*"
       ],
       "@/*": [

@@ -10,6 +10,11 @@ export default defineConfig({
     plugins: [
       tsconfigPaths(),
     ],
+    resolve: {
+      alias: {
+        'types': 'src/types',
+      },
+    },
     vite: {
       types: ["vite/client"]
     }

@@ -1,5 +1,5 @@
 import { createStore } from 'solid-js/store';
-import type { Character } from 'types/Characters';
+import type { Character } from '~types/Characters';
 
 export type CharacterStore = {
     characters: Character[];

@@ -10,13 +10,6 @@ export default defineConfig({
     plugins: [
       tsconfigPaths(),
     ],
-    build: {
-      rollupOptions: {
-        external: [
-          /^types\//,
-        ]
-      }
-    },
     vite: {
       types: ["vite/client"]
     }

@@ -22,8 +22,5 @@ export default defineConfig({
         '@': resolve(__dirname, './src'),
       },
     },
-    optimizeDeps: {
-      include: ["vite/client"]
-    }
   },
 });

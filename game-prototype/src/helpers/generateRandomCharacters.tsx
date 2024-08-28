@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { getRandomElement } from '@helpers/getRandomElement';
-import { Roles } from ./types/Roles';
-import type { Character } from ./types/Characters';
+import { Roles } from types/Roles';
+import type { Character } from types/Characters';
 
 const roles = [Roles.Fighter, Roles.Mage, Roles.Rogue];
 

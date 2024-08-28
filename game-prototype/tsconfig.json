@@ -24,7 +24,6 @@
     "target": "ES2022",
     "types": [
       "astro/client",
-      "vite/client"
     ],
     "baseUrl": ".",
     "outDir": "dist",
@@ -58,13 +57,13 @@
       "@/*": [
         "src/*"
       ],
-      "./types/*": [
+      "types/*": [
         "src/types/*"
       ],
     }
   },
   "include": [
-    "src",
+    "src/**/*",
     "*.astro",
     "*.tsx"
   ],

@@ -7,12 +7,6 @@ export default defineConfig({
     solid(),
   ],
   vite: {
-    resolve: {
-      alias: {
-        '~types': './src/types',
-        '~': './src',
-        '@': './src',
-      },
-    },
-  },
+		types: ["vite/client"]
+	},
 });

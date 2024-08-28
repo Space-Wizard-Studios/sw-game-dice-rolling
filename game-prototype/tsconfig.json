@@ -55,13 +55,10 @@
       "@styles/*": [
         "src/styles/*"
       ],
-      "~types/*": [
+      "types/*": [
         "src/types/*"
       ],
-      "~/*": [
-        "src/*"
-      ],
-      "@/*": [
+      "@*": [
         "src/*"
       ]
     }

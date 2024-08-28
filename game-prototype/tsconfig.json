@@ -9,6 +9,7 @@
     "jsxImportSource": "solid-js",
     "lib": [
       "es2020",
+      "es2021",
       "esnext",
       "dom"
     ],

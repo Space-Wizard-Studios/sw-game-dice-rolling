@@ -1,7 +1,7 @@
-import { DiceType } from './Dice';
-import { Role } from '@ts/Roles';
+import type { DiceType } from './Dice';
+import type { Role } from '@ts/Roles';
 
-import { CommonAction } from './actions/CommonAction';
+import type { CommonAction } from './actions/CommonAction';
 
 export type Health = {
     max: number;

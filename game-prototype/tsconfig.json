@@ -55,12 +55,12 @@
       "@styles/*": [
         "src/styles/*"
       ],
-      "types/*": [
+      "@/*": [
+        "src/*"
+      ],
+      "./types/*": [
         "src/types/*"
       ],
-      "@*": [
-        "src/*"
-      ]
     }
   },
   "include": [

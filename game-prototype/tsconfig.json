@@ -26,7 +26,7 @@
       "astro/client",
       "vite/client"
     ],
-    "baseUrl": "./",
+    "baseUrl": ".",
     "outDir": "dist",
     "plugins": [
       {

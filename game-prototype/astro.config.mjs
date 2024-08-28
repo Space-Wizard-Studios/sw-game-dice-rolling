@@ -7,5 +7,12 @@ export default defineConfig({
   ],
   vite: {
     plugins: [],
+    build: {
+      rollupOptions: {
+        external: [
+          /^types\//,
+        ]
+      }
+    }
   },
 });

@@ -60,6 +60,9 @@
       "types/*": [
         "src/types/*"
       ],
+      "@ts/*": [
+        "src/types/*"
+      ],
     }
   },
   "include": [

@@ -1,5 +1,5 @@
 import { DiceType } from './Dice';
-import { Role } from '~types/Roles';
+import { Role } from 'types/Roles';
 
 import { CommonAction } from './actions/CommonAction';
 

@@ -1,18 +1,24 @@
 import { defineConfig } from 'astro/config';
 import solid from '@astrojs/solid-js';
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
   integrations: [
     solid(),
   ],
   vite: {
-    plugins: [],
+    plugins: [
+      tsconfigPaths(),
+    ],
     build: {
       rollupOptions: {
         external: [
           /^types\//,
         ]
       }
+    },
+    vite: {
+      types: ["vite/client"]
     }
   },
 });

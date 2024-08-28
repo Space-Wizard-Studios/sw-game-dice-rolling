@@ -1,4 +1,5 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
@@ -19,10 +20,16 @@
     "strict": true,
     "target": "ESNext",
     "types": [
+      "astro/client",
       "vite/client"
     ],
     "baseUrl": "./",
     "outDir": "dist",
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
     "paths": {
       "@components/*": [
         "src/components/*"
@@ -58,4 +65,7 @@
     "*.astro",
     "*.tsx"
   ],
+  "exclude": [
+    "node_modules"
+  ]
 }

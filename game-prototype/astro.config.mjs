@@ -7,6 +7,7 @@ export default defineConfig({
     solid(),
   ],
   vite: {
+    plugins: [tsconfigPaths()],
 		types: ["vite/client"]
 	},
 });

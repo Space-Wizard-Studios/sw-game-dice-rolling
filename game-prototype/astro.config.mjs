@@ -12,11 +12,9 @@ export default defineConfig({
     ],
     resolve: {
       alias: {
-        'types': '/src/types',
+        'types/*': '/src/types/*',
       },
     },
-    vite: {
-      types: ["vite/client"]
-    }
+    types: ["vite/client"],
   },
 });

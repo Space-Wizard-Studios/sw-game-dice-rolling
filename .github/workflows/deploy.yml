@@ -21,6 +21,8 @@ jobs:
         uses: withastro/action@v2
         with:
             path: game-prototype
+            node-version: 22
+            package-manager: npm
 
   deploy:
     needs: build

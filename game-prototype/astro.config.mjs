@@ -1,7 +1,11 @@
 import { resolve } from 'path';
+import { fileURLToPath } from 'url';
 import { defineConfig } from 'astro/config';
 import solid from '@astrojs/solid-js';
-import tsconfigPaths from 'vite-tsconfig-paths'
+import tsconfigPaths from 'vite-tsconfig-paths';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = resolve(__filename, '..');
 
 export default defineConfig({
   integrations: [
@@ -18,6 +22,8 @@ export default defineConfig({
         '@': resolve(__dirname, './src'),
       },
     },
-    types: ["vite/client"],
+    optimizeDeps: {
+      include: ["vite/client"]
+    }
   },
 });

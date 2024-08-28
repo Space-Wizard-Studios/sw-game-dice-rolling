@@ -3,6 +3,7 @@ import solidPlugin from 'vite-plugin-solid';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
+  base: 'sw-game-dice-roll',
   plugins: [
     solidPlugin(),
     tsconfigPaths(),
@@ -19,5 +20,5 @@ export default defineConfig({
         /^types\//,
       ]
     }
-  }
+  },
 });

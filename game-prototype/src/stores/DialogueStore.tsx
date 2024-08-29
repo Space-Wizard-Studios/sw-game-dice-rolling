@@ -1,6 +1,6 @@
 import { createStore } from 'solid-js/store';
 import { useGameManager } from '@game/GameContext';
-import { GamePhase } from '@ts/GamePhases';
+import type { GamePhase } from '@models/GamePhases';
 
 type LineType = 'info' | 'failure' | 'success';
 

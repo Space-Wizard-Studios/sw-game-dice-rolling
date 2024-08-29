@@ -51,7 +51,9 @@
     },
     "cSpell.words": [
         "astrojs",
+        "esnext",
         "kobalte",
+        "tsconfigs",
         "uuidv"
     ],
 }

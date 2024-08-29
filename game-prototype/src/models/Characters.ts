@@ -1,5 +1,5 @@
 import type { DiceType } from './Dice';
-import type { Role } from '@ts/Roles';
+import type { Role } from '@models/Roles';
 
 import type { CommonAction } from './actions/CommonAction';
 

@@ -1,5 +1,5 @@
 import type { Component } from 'solid-js';
-import type { Health } from '@ts/Characters';
+import type { Health } from '@models/Characters';
 
 type CharacterHealthProps = {
     class?: string;

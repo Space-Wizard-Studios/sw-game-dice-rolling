@@ -3,7 +3,7 @@ import { createSignal } from 'solid-js';
 import { ItemSelection } from '@components/ItemSelection/ItemSelection';
 import { renderCharacter } from '@components/ItemSelection/ItemSelection';
 import { playerCharacterStore } from '@stores/CharacterStore';
-import type { Character } from '@ts/Characters';
+import type { Character } from '@models/Characters';
 
 /**
  * Displays a character selection dialog and returns a promise that resolves with the selected character.

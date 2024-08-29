@@ -2,8 +2,8 @@ import { createContext, useContext } from 'solid-js';
 import type { Component, ParentProps } from 'solid-js';
 import { createStore } from 'solid-js/store';
 
-import { GamePhases } from '@ts/GamePhases';
-import type { GamePhase } from '@ts/GamePhases';
+import { GamePhases } from '@models/GamePhases';
+import type { GamePhase } from '@models/GamePhases';
 
 export type GameManager = {
     currentPhase: GamePhase;

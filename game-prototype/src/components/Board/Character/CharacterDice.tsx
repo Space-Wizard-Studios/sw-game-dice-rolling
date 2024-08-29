@@ -8,7 +8,7 @@ import {
 } from '@components/ui/popover';
 
 import type { Component } from 'solid-js';
-import type { DiceType } from '@ts/Dice';
+import type { DiceType } from '@models/Dice';
 import type { PopoverTriggerProps } from '@kobalte/core/popover';
 
 type CharacterDiceProps = {

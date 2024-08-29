@@ -48,6 +48,9 @@
       "@layouts/*": [
         "src/layouts/*"
       ],
+      "@models/*": [
+        "src/models/*"
+      ],
       "@stores/*": [
         "src/stores/*"
       ],
@@ -56,13 +59,7 @@
       ],
       "@/*": [
         "src/*"
-      ],
-      "types/*": [
-        "src/types/*"
-      ],
-      "@ts/*": [
-        "src/types/*"
-      ],
+      ]
     }
   },
   "include": [

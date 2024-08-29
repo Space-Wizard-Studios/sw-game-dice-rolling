@@ -5,7 +5,7 @@ import { CharacterAction } from './CharacterAction';
 import { cn } from '@helpers/cn';
 
 import type { Component } from 'solid-js';
-import type { Character } from '@ts/Characters';
+import type { Character } from '@models/Characters';
 
 type CharacterSheetProps = {
     character: Character;

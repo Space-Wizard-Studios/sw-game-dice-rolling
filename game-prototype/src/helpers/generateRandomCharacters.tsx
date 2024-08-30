@@ -17,11 +17,12 @@ export function generateRandomCharacters(n: number, prefix: string = ''): Charac
     const characters: Character[] = [];
 
     for (let i = 0; i < n; i++) {
+        const role = getRandomElement(roles);
         const character: Character = {
             id: uuidv4(),
-            name: `${prefix ? prefix + ' ' : ''}Character ${i + 1}`,
+            name: `(${prefix ? prefix + ' ' : ''} ${role.name}) Character ${i + 1}`,
             image: 'https://via.placeholder.com/150',
-            role: getRandomElement(roles),
+            role: role,
             health: {
                 max: 100,
                 current: 100,

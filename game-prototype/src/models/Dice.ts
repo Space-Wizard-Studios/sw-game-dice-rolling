@@ -1,6 +1,6 @@
-import type { DiceAction } from './actions/DiceAction';
+import type { Action } from './actions/DiceAction';
 
-type DiceSide = DiceAction;
+type DiceSide = Action;
 
 type Dice<
     Sides extends number,

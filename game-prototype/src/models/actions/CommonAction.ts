@@ -3,15 +3,11 @@ export type CommonAction = {
     description: string;
 }
 
-type CommonActionType = 'flee' | 'blah';
+type CommonActionType = 'flee';
 
 export const CommonActions: Record<CommonActionType, CommonAction> = {
     flee: {
         name: 'Flee',
         description: 'Attempt to flee from the battle.'
-    },
-    blah: {
-        name: 'Blah',
-        description: 'Attempt to blah.'
     },
 } as const;

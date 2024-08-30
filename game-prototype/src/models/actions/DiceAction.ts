@@ -1,29 +1,37 @@
-export type DiceAction = {
+import { Targets, type ActionTarget } from '@models/actions/Target';
+
+export type Action = {
     name: string;
     description: string;
+    targets: ActionTarget[];
 }
 
-type DiceActionType = 'Empty' | 'PhysicalAttack' | 'MagicAttack' | 'Defend' | 'Special';
+type ActionType = 'empty' | 'physicalAttack' | 'magicAttack' | 'defend' | 'special';
 
-export const DiceActions: Record<DiceActionType, DiceAction> = {
-    Empty: {
+export const DiceActions: Record<ActionType, Action> = {
+    empty: {
         name: 'Empty',
         description: 'Do nothing.',
+        targets: [Targets.self],        
     },
-    PhysicalAttack: {
+    physicalAttack: {
         name: 'Physical Attack',
         description: 'Perform a physical attack.',
+        targets: [Targets.enemySingle],
     },
-    MagicAttack: {
+    magicAttack: {
         name: 'Magic Attack',
         description: 'Perform a magic attack.',
+        targets: [Targets.enemySingle, Targets.enemyAll],
     },
-    Defend: {
+    defend: {
         name: 'Defend',
         description: 'Take a defensive stance to reduce incoming damage.',
+        targets: [Targets.self],
     },
-    Special: {
+    special: {
         name: 'Special',
         description: 'Use a special ability.',
+        targets: [Targets.any],
     },
 } as const;

@@ -18,9 +18,13 @@ export function generateRandomCharacters(n: number, prefix: string = ''): Charac
 
     for (let i = 0; i < n; i++) {
         const role = getRandomElement(roles);
+        if (!role) {
+            console.error('Failed to get a random role. Roles array:', roles);
+            continue;
+        }
         const character: Character = {
             id: uuidv4(),
-            name: `(${prefix ? prefix + ' ' : ''} ${role.name}) Character ${i + 1}`,
+            name: `(${role.name}) ${prefix ? prefix + ' ' : ''} Character ${i + 1}`,
             image: 'https://via.placeholder.com/150',
             role: role,
             health: {

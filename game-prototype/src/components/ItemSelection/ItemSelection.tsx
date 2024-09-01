@@ -1,4 +1,4 @@
-import { createSignal, JSX } from 'solid-js';
+import { createSignal, type JSX } from 'solid-js';
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@components/ui/dialog';
 import { CharacterSheet } from '@components/Board/Character/CharacterSheet';

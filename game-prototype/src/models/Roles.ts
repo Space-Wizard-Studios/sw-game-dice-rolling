@@ -10,6 +10,8 @@ export type Role = {
     allowedCombos?: ComboAction[];
 };
 
+// TODO specify the type of the Roles object
+
 export const Roles: { [key: string]: Role } = {
     Fighter: {
         name: "Fighter",
@@ -28,5 +30,23 @@ export const Roles: { [key: string]: Role } = {
         },
         allowedActions: [DiceActions.physicalAttack, DiceActions.magicAttack],
         allowedCombos: [ComboActions.chargedAttack],
+    },
+    Mage: {
+        name: "Mage",
+        description: "A master of magical arts.",
+        baseHealth: {
+            max: 70,
+        },
+        allowedActions: [DiceActions.magicAttack, DiceActions.defend],
+        allowedCombos: [ComboActions.magicBurst],
+    },
+    Rogue: {
+        name: "Rogue",
+        description: "A cunning and agile character skilled in stealth.",
+        baseHealth: {
+            max: 75,
+        },
+        allowedActions: [DiceActions.physicalAttack, DiceActions.defend],
+        allowedCombos: [],
     }
 };

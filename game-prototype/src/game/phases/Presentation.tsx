@@ -4,7 +4,7 @@ export async function Presentation() {
     addDialogueMessage({
         lines: [
             {
-                text: 'Welcome to the game!',
+                text: 'Boas vindas ao maravilhoso jogo do Danilo :)',
             },
         ],
     });
@@ -12,18 +12,18 @@ export async function Presentation() {
     addDialogueMessage({
         lines: [
             {
-                text: "Let's test some messages",
+                text: "Vamos testar algumas mensagens.",
             },
             {
-                text: 'Failure message',
+                text: 'Mensagem de falha.',
                 type: 'failure',
             },
             {
-                text: 'Info message',
+                text: 'Mensagem de informação.',
                 type: 'info',
             },
             {
-                text: 'Success message',
+                text: 'Mensagem de sucesso.',
                 type: 'success',
             },
         ],

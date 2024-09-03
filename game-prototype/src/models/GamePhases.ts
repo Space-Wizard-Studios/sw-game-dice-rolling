@@ -5,32 +5,34 @@ export type GamePhase = {
     iconBg: string;
 };
 
-export const GamePhases: { [key: string]: GamePhase } = {
-    Presentation: {
+export type GamePhasesType = 'presentation' | 'preparation' | 'battleSetup' | 'battleStart' | 'battleEnd';
+
+export const GamePhases: Record<GamePhasesType, GamePhase> = {
+    presentation: {
         name: "Presentation",
         icon: "presentation-icon",
         bg: "presentation-bg",
         iconBg: "presentation-icon-bg"
     },
-    Preparation: {
+    preparation: {
         name: "Preparation",
         icon: "preparation-icon",
         bg: "preparation-bg",
         iconBg: "preparation-icon-bg"
     },
-    BattleSetup: {
+    battleSetup: {
         name: "Battle Setup",
         icon: "battle-setup-icon",
         bg: "battle-setup-bg",
         iconBg: "battle-setup-icon-bg"
     },
-    BattleStart: {
+    battleStart: {
         name: "Battle Start",
         icon: "battle-start-icon",
         bg: "battle-start-bg",
         iconBg: "battle-start-icon-bg",
     },
-    BattleEnd: {
+    battleEnd: {
         name: "Battle End",
         icon: "battle-end-icon",
         bg: "battle-end-bg",

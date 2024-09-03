@@ -21,7 +21,7 @@ export const ComboActions: Record<ComboActionType, ComboAction> = {
         requiredActions: [DiceActions.magicAttack, DiceActions.special],
     },
     magicBurst: {
-        name: 'MagicBurst Attack',
+        name: 'Magic Burst',
         description: 'Charge up an magical attack to deal massive damage.',
         requiredActions: [DiceActions.magicAttack, DiceActions.magicAttack],
     },

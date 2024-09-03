@@ -10,9 +10,9 @@ export type Role = {
     allowedCombos?: ComboAction[];
 };
 
-// TODO specify the type of the Roles object
+export type RoleType = 'Fighter' | 'Assassin' | 'Mage' | 'Rogue';
 
-export const Roles: { [key: string]: Role } = {
+export const Roles: Record<RoleType, Role> = {
     Fighter: {
         name: "Fighter",
         description: "A strong and brave warrior skilled in combat.",

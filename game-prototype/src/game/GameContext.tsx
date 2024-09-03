@@ -10,7 +10,7 @@ export type GameManager = {
 };
 
 export const [gameState, setGameState] = createStore<GameManager>({
-    currentPhase: GamePhases.Presentation,
+    currentPhase: GamePhases.presentation,
 });
 
 const GameContext = createContext<[GameManager, typeof setGameState]>([gameState, setGameState]);

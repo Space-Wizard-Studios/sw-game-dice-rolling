@@ -3,7 +3,7 @@ import { getRandomElement } from '@helpers/getRandomElement';
 import { Roles } from '@models/Roles';
 import type { Character } from '@models/Characters';
 
-const roles = [Roles.Fighter, Roles.Mage, Roles.Rogue];
+const roles = [Roles.Fighter, Roles.Assassin, Roles.Mage, Roles.Rogue];
 
 /** 
  * Generates a list of random characters with the specified prefix.

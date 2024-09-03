@@ -16,35 +16,35 @@ export function setGamePhase(phase: GamePhase) {
 
 export async function startGame() {
     console.log('Starting game...');
-    setGamePhase(GamePhases.Presentation);
+    setGamePhase(GamePhases.presentation);
     await Presentation();
     await transitionToPreparation();
 }
 
 export async function transitionToPreparation() {
     console.log('Transitioning to preparation phase...');
-    setGamePhase(GamePhases.Preparation);
+    setGamePhase(GamePhases.preparation);
     await Preparation();
     await transitionToBattleSetup();
 }
 
 export async function transitionToBattleSetup() {
     console.log('Transitioning to battle setup phase...');
-    setGamePhase(GamePhases.BattleSetup);
+    setGamePhase(GamePhases.battleSetup);
     await BattleSetup();
     await transitionToBattleStart();
 }
 
 export async function transitionToBattleStart() {
     console.log('Transitioning to battle start phase...');
-    setGamePhase(GamePhases.BattleStart);
+    setGamePhase(GamePhases.battleStart);
     await BattleStart();
     await transitionToBattleEnd();
 }
 
 export async function transitionToBattleEnd() {
     console.log('Transitioning to battle end phase...');
-    setGamePhase(GamePhases.BattleEnd);
+    setGamePhase(GamePhases.battleEnd);
     await BattleEnd();
     // TODO Decide next phase or end game
 }

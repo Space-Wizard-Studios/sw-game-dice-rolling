@@ -4,7 +4,3 @@ export type GameState = {
     bg: string;
     iconBg: string;
 };
-
-export type GameStatesType = {
-    [key: string]: GameState;
-};

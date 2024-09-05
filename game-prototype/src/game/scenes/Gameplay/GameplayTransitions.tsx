@@ -11,35 +11,35 @@ const scene = 'gameplay';
 
 export async function startGameplay() {
     console.log('Starting game...');
-    // setGameState(scene, GameplayStates.presentation);
+    setGameState(scene, GameplayStates.presentation);
     await Presentation();
     await transitionToPreparation();
 }
 
 export async function transitionToPreparation() {
     console.log('Transitioning to preparation phase...');
-    // setGameState(scene, GameplayStates.preparation);
+    setGameState(scene, GameplayStates.preparation);
     await Preparation();
     await transitionToBattleSetup();
 }
 
 export async function transitionToBattleSetup() {
     console.log('Transitioning to battle setup phase...');
-    // setGameState(scene, GameplayStates.battleSetup);
+    setGameState(scene, GameplayStates.battleSetup);
     await BattleSetup();
     await transitionToBattleStart();
 }
 
 export async function transitionToBattleStart() {
     console.log('Transitioning to battle start phase...');
-    // setGameState(scene, GameplayStates.battleStart);
+    setGameState(scene, GameplayStates.battleStart);
     await BattleStart();
     await transitionToBattleEnd();
 }
 
 export async function transitionToBattleEnd() {
     console.log('Transitioning to battle end phase...');
-    // setGameState(scene, GameplayStates.battleEnd);
+    setGameState(scene, GameplayStates.battleEnd);
     await BattleEnd();
     // TODO Decide next phase or end game
 }

@@ -4,12 +4,12 @@ import { Board } from "@components/Board/Board";
 import { Dialogue } from "@components/Dialogue/Dialogue";
 import { InteractivePanel } from "@components/InteractivePanel/Input";
 
-import { startGame } from "@game/PhaseTransitions";
+// import { startGame } from "@game/StateTransitions";
 import { GameProvider } from "@game/GameContext";
 
 const GameScreen = () => {
     onMount(() => {
-        startGame();
+        // startGame();
     });
 
     return (

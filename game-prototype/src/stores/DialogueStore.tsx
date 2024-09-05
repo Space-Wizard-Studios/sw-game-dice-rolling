@@ -1,6 +1,6 @@
 import { createStore } from 'solid-js/store';
 import { useGameManager } from '@game/GameContext';
-import type { GamePhase } from '@models/GamePhases';
+import type { GameState } from '@models/GameStates';
 
 type LineType = 'info' | 'failure' | 'success';
 
@@ -12,7 +12,7 @@ export type DialogueLine = {
 
 export type DialogueMessage = {
     lines: DialogueLine[];
-    phase?: GamePhase;
+    phase?: GameState;
 };
 
 export const [dialogueStore, setDialogueStore] = createStore<{ messages: DialogueMessage[] }>({
@@ -21,7 +21,7 @@ export const [dialogueStore, setDialogueStore] = createStore<{ messages: Dialogu
 
 export function addDialogueMessage(newMessage: DialogueMessage) {
     const [gameState] = useGameManager();
-    const currentPhase = gameState.currentPhase;
+    const currentPhase = gameState.currentState;
     const messagePhase = { ...newMessage, phase: { ...currentPhase } };
 
     setDialogueStore('messages', messages => [...messages, messagePhase]);

@@ -1,13 +1,8 @@
-export type GamePhase = {
-    name: string;
-    icon: string;
-    bg: string;
-    iconBg: string;
-};
+import type { GameState } from "@models/GameStates";
 
-export type GamePhasesType = 'presentation' | 'preparation' | 'battleSetup' | 'battleStart' | 'battleEnd';
+export type GameplayStateType = 'presentation' | 'preparation' | 'battleSetup' | 'battleStart' | 'battleEnd';
 
-export const GamePhases: Record<GamePhasesType, GamePhase> = {
+export const GameplayStates: Record<GameplayStateType, GameState> = {
     presentation: {
         name: "Presentation",
         icon: "presentation-icon",
@@ -38,4 +33,4 @@ export const GamePhases: Record<GamePhasesType, GamePhase> = {
         bg: "battle-end-bg",
         iconBg: "battle-end-icon-bg",
     }
-};
+} as const;

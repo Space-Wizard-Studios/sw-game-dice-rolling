@@ -1,5 +1,5 @@
 import { createEffect, onMount } from 'solid-js';
-import { gameState } from '@game/GameContext';
+import { gameStateStore } from '@stores/GameStateStore';
 import { dialogueStore } from '@stores/DialogueStore';
 
 import { Message } from './Message';
@@ -26,7 +26,7 @@ export const Dialogue: Component<{ message?: DialogueMessage }> = () => {
     return (
         <div class='flex flex-col flex-1 h-2/3 md:h-full p-2 gap-2 rounded-md bg-gray-500 bg-opacity-50'>
             <div class='flex flex-row justify-between'>
-                <h3>Phase: {gameState.currentPhase.name}</h3>
+                <h3>Phase: {gameStateStore.currentState.name}</h3>
             </div>
             <div
                 ref={messagesContainer}

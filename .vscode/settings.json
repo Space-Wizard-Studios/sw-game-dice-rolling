@@ -53,6 +53,9 @@
         "astrojs",
         "clsx",
         "esnext",
+        "gameover",
+        "Gameover",
+        "gameplay",
         "kobalte",
         "tsconfigs",
         "uuidv"

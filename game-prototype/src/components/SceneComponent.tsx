@@ -19,7 +19,7 @@ function renderScene(scene: GameScene) {
     }
 }
 
-export const SceneManager = () => {
+export const SceneComponent = () => {
     const [gameManager] = useGameManager();
 
     console.log('SceneManager mounted in', gameManager.currentScene.name, '/', gameManager.currentState.name);

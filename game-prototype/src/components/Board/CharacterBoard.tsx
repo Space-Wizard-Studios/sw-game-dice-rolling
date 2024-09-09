@@ -11,7 +11,7 @@ type CharacterBoardProps = {
 
 export const CharacterBoard: Component<CharacterBoardProps> = (props) => {
   return (
-    <div class={cn('flex flex-col p-2 gap-2 rounded-md', props.class)}>
+    <div class={cn('relative h-full flex flex-col p-2 gap-2 rounded-md', props.class)}>
       <h2>{props.title}</h2>
       <div class="flex flex-col gap-2 pr-2 overflow-auto">
         {props.characters.map(character => (

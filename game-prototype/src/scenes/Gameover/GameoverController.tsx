@@ -1,14 +1,13 @@
 import { Presentation } from '@scenes/Gameplay/states/Presentation';
 
 import { GameoverStates } from '@models/gameStates/GameoverStates';
-import { setGameState } from '@helpers/setGameState';
 
-import { GameScenes } from '@models/GameScenes';
+import { updateSceneState } from '@helpers/updateGameState';
 
 const scene = 'gameover';
 
 export async function startGameover() {
     console.log('Starting game...');
-    setGameState(scene, GameoverStates.gameOverPlaceholder);
+    updateSceneState(scene, GameoverStates.gameoverPlaceholder);
     await Presentation();
 }

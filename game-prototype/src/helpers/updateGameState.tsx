@@ -1,11 +1,10 @@
 import { GameScenes } from '@models/GameScenes';
-import { setGameStateStore } from '@stores/GameStateStore';
+import { setGameState } from '@stores/GameContext';
 import type { GameSceneType } from '@models/GameScenes';
 import type { GameState } from '@models/GameStates';
 
-
-export function setGameState(scene: GameSceneType, state: GameState) {
-    setGameStateStore({
+export function updateSceneState(scene: GameSceneType, state: GameState) {
+    setGameState({
         currentScene: GameScenes[scene],
         currentState: state,
     });

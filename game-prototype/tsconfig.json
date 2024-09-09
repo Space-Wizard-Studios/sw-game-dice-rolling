@@ -40,10 +40,7 @@
         "src/example/*"
       ],
       "@scenes/*": [
-        "src/game/scenes/*"
-      ],
-      "@game/*": [
-        "src/game/*"
+        "src/scenes/*"
       ],
       "@helpers/*": [
         "src/helpers/*"

@@ -2,7 +2,7 @@ import type { Component } from "solid-js";
 
 import { Line } from "./Line";
 
-import type { DialogueMessage } from '@stores/DialogueStore';
+import type { DialogueMessage } from '@stores/Dialogue';
 
 export const Message: Component<{ message?: DialogueMessage }> = (props) => {
     return (

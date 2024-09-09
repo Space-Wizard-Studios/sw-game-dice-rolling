@@ -1,5 +1,5 @@
 import type { Component } from "solid-js";
-import type { DialogueLine } from "@stores/DialogueStore";
+import type { DialogueLine } from "@stores/Dialogue";
 
 export const Line: Component<{ line?: DialogueLine }> = (props) => {
     let bg = '';

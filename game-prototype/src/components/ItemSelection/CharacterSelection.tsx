@@ -2,7 +2,7 @@ import { render } from 'solid-js/web';
 import { createSignal } from 'solid-js';
 import { ItemSelection } from '@components/ItemSelection/ItemSelection';
 import { renderCharacter } from '@components/ItemSelection/ItemSelection';
-import { playerCharacterStore } from '@stores/CharacterStore';
+import { playerCharacterStore } from '@stores/Character';
 import type { Character } from '@models/Characters';
 
 /**

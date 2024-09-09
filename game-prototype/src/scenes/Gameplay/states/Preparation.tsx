@@ -1,7 +1,7 @@
-import { addDialogueLine, addDialogueMessage } from '@stores/DialogueStore';
+import { addDialogueLine, addDialogueMessage } from '@stores/Dialogue';
 import { generateRandomCharacters } from '@helpers/generateRandomCharacters';
 import { CharacterSelection } from '@components/ItemSelection/CharacterSelection';
-import { enemyCharacterStore } from '@stores/CharacterStore';
+import { enemyCharacterStore } from '@stores/Character';
 
 export async function Preparation() {
     addDialogueMessage({

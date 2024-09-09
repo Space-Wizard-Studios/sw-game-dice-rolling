@@ -5,7 +5,7 @@ import { cn } from '@helpers/cn';
 import InventoryBoard from './InventoryBoard';
 import { CharacterBoard } from './CharacterBoard';
 
-import { playerCharacterStore, enemyCharacterStore } from '@stores/CharacterStore';
+import { playerCharacterStore, enemyCharacterStore } from '@stores/Character';
 
 type BoardProps = {
   class?: string;

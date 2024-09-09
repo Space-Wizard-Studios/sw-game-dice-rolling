@@ -1,4 +1,4 @@
-import { addDialogueLine, addDialogueMessage } from "@stores/DialogueStore";
+import { addDialogueLine, addDialogueMessage } from "@stores/Dialogue";
 
 export async function Presentation() {
     addDialogueMessage({

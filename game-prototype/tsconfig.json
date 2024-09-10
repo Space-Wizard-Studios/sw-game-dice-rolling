@@ -36,11 +36,8 @@
       "@components/*": [
         "src/components/*"
       ],
-      "@example/*": [
-        "src/example/*"
-      ],
-      "@scenes/*": [
-        "src/scenes/*"
+      "@controllers/*": [
+        "src/controllers/*"
       ],
       "@helpers/*": [
         "src/helpers/*"

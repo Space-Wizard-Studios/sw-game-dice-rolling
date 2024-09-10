@@ -2,20 +2,17 @@ import { createContext, useContext } from "solid-js";
 import type { Component, ParentProps } from 'solid-js';
 import { createStore } from "solid-js/store";
 
-import { GameplayStates } from "@models/gameStates/GameplayStates";
-import { GameScenes } from "@models/GameScenes";
-
-import type { GameState } from '@models/GameStates';
-import type { GameScene } from '@models/GameScenes';
+import type { GameSceneType } from '@models/scenes/Scenes';
+import type { GameStateType } from '@models/states/States';
 
 export type GameManager = {
-  currentScene: GameScene;
-  currentState: GameState;
+  currentScene: GameSceneType;
+  currentState: GameStateType;
 };
 
 export const [gameState, setGameState] = createStore<GameManager>({
-  currentScene: GameScenes.gameplay,
-  currentState: GameplayStates.presentation,
+  currentScene: "mainMenuScene",
+  currentState: "mainMenuPlaceholder",
 });
 
 const GameContext = createContext<[GameManager, typeof setGameState]>([gameState, setGameState]);
@@ -30,4 +27,6 @@ export const GameProvider: Component<ParentProps> = (props) => {
   );
 };
 
-export const useGameManager = () => useContext(GameContext);
+export function useGameManager() {
+  return useContext(GameContext);
+}

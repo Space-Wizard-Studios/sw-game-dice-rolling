@@ -1,6 +1,6 @@
 import { createStore } from 'solid-js/store';
 import { useGameManager } from '@stores/GameContext';
-import type { GameState } from '@models/GameStates';
+import type { GameState } from '@models/gameStates/GameStates';
 
 type LineType = 'info' | 'failure' | 'success';
 

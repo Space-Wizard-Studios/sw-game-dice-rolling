@@ -1,4 +1,4 @@
-import type { GameState } from "@models/GameStates";
+import type { GameState } from "@models/states/States";
 
 export type MainMenuStateType = 'mainMenuPlaceholder';
 

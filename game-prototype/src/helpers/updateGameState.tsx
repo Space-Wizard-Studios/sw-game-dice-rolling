@@ -1,17 +1,23 @@
-import { GameScenes } from '@models/GameScenes';
+import { GameScenes } from '@models/scenes/Scenes';
+import { GameStates } from '@models/states/States';
 import { setGameState } from '@stores/GameContext';
-import type { GameSceneType } from '@models/GameScenes';
-import type { GameState } from '@models/GameStates';
 
-/**
- * Updates the game state with the provided scene and state.
- *
- * @param {GameSceneType} scene - The scene to update to.
- * @param {GameState} state - The new state of the game.
- */
-export function updateSceneState(scene: GameSceneType, state: GameState) {
+import type { GameSceneType } from '@models/scenes/Scenes';
+import type { GameStateType } from '@models/states/States';
+
+export function updateGameScene(scene: GameSceneType) {
     setGameState({
-        currentScene: GameScenes[scene],
+        currentScene: scene,
+    });
+}
+
+export function updateGameState(state: GameStateType) {
+    setGameState({
         currentState: state,
     });
+}
+
+export function updateGameSceneState(scene: GameSceneType, state: GameStateType) {
+    updateGameScene(scene);
+    updateGameState(state);
 }

@@ -1,6 +1,6 @@
 import { createStore } from 'solid-js/store';
 import { useGameManager } from '@stores/GameContext';
-import type { GameState } from '@models/gameStates/GameStates';
+import type { GameStateType } from '@models/states/States';
 
 type LineType = 'info' | 'failure' | 'success';
 
@@ -9,10 +9,10 @@ export type DialogueLine = {
     type?: LineType;
 };
 
-
 export type DialogueMessage = {
     lines: DialogueLine[];
-    phase?: GameState;
+    gameState?: GameStateType;
+    state?: { currentState: string };
 };
 
 export const [dialogueStore, setDialogueStore] = createStore<{ messages: DialogueMessage[] }>({
@@ -21,16 +21,18 @@ export const [dialogueStore, setDialogueStore] = createStore<{ messages: Dialogu
 
 export function addDialogueMessage(newMessage: DialogueMessage) {
     const [gameState] = useGameManager();
-    const currentPhase = gameState.currentState;
-    const messagePhase = { ...newMessage, phase: { ...currentPhase } };
-
-    setDialogueStore('messages', messages => [...messages, messagePhase]);
+    const currentState = gameState.currentState;
+    const messageState = { ...newMessage, gameState: currentState };
+    setDialogueStore('messages', messages => [...messages, messageState]);
 }
 
 export function addDialogueLine(line: string, type?: LineType) {
+    const [gameState] = useGameManager();
+    const currentState = gameState.currentState;
+
     setDialogueStore('messages', messages => {
         if (messages.length === 0) {
-            return [...messages, { lines: [{ text: line, type }] }];
+            return [...messages, { lines: [{ text: line, type }], gameState: currentState }];
         } else {
             const lastMessage = messages[messages.length - 1];
             return [

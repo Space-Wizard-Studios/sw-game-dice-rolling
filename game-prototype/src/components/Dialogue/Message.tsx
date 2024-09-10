@@ -1,14 +1,16 @@
 import type { Component } from "solid-js";
 
+import { getGameStateName } from "@helpers/getGameState";
 import { Line } from "./Line";
 
 import type { DialogueMessage } from '@stores/Dialogue';
 
 export const Message: Component<{ message?: DialogueMessage }> = (props) => {
+
     return (
         <div class='p-2 rounded-md bg-gray-500 bg-opacity-50'>
             <div>
-                <h3>{props.message?.phase?.name}</h3>
+                {props.message?.gameState && <h3>{getGameStateName(props.message.gameState)}</h3>}
             </div>
             <div class={`rounded-lg overflow-hidden`}>
                 {props.message?.lines.map(line => (

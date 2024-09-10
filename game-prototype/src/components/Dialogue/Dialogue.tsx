@@ -1,13 +1,19 @@
 import { createEffect, onMount } from 'solid-js';
+import { cn } from '@helpers/cn';
+
 import { gameState } from '@stores/GameContext';
 import { dialogueStore } from '@stores/Dialogue';
-
 import { Message } from './Message';
 
 import type { Component } from 'solid-js';
 import type { DialogueMessage } from '@stores/Dialogue';
 
-export const Dialogue: Component<{ message?: DialogueMessage }> = () => {
+type DialogueProps = {
+    message?: DialogueMessage;
+    class?: string;
+}
+
+export const Dialogue: Component<DialogueProps> = (props) => {
     let messagesContainer: HTMLDivElement | undefined;
 
     const scrollToBottom = () => {
@@ -24,13 +30,11 @@ export const Dialogue: Component<{ message?: DialogueMessage }> = () => {
     });
 
     return (
-        <div class='flex flex-col flex-1 h-2/3 md:h-full p-2 gap-2 rounded-md bg-gray-500 bg-opacity-50'>
-            <div class='flex flex-row justify-between'>
-                {/* <h3>Phase: {gameState.currentState.name}</h3> */}
-            </div>
+        <div class={cn('p-2 gap-2 ', props.class)}>
+            {/* <h3>Phase: {gameState.currentState.name}</h3> */}
             <div
                 ref={messagesContainer}
-                class='flex flex-col p-2 gap-2 h-full overflow-y-auto bg-black bg-opacity-25 border-2 rounded-md border-black border-opacity-50'
+                class='flex flex-col h-full overflow-y-auto p-2 gap-2 bg-black bg-opacity-25 border-2 rounded-md border-black border-opacity-50'
             >
                 {dialogueStore.messages?.map(message => (
                     <Message message={message} />

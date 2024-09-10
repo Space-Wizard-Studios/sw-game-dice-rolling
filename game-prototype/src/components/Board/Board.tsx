@@ -24,10 +24,10 @@ export const Board: Component<BoardProps> = (props) => {
   });
 
   return (
-    <div class={cn('flex flex-col md:flex-row w-full p-2 pb-0 gap-2', props.class)}>
-      <CharacterBoard title='Player' characters={playerCharacters()} class='flex-[2] bg-blue-500 bg-opacity-25' />
-      <InventoryBoard class='bg-orange-700 bg-opacity-25' />
-      <CharacterBoard title='Enemy' characters={enemyCharacters()} class='flex-[2] bg-red-500 bg-opacity-25' />
+    <div class={cn('flex flex-col md:flex-row', props.class)}>
+      <CharacterBoard title='Player' characters={playerCharacters()} class='flex flex-[2] bg-blue-500 bg-opacity-25' />
+      <InventoryBoard class='flex flex-row md:flex-col flex-1 bg-orange-700 bg-opacity-25' />
+      <CharacterBoard title='Enemy' characters={enemyCharacters()} class='flex flex-[2] bg-red-500 bg-opacity-25' />
     </div>
   );
 };

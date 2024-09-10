@@ -20,7 +20,7 @@ type CharacterSheetProps = {
 export const CharacterSheet: Component<CharacterSheetProps> = (props) => {
     return (
         <div
-            class={cn(`flex flex-row items-center p-2 gap-2 rounded-md`,
+            class={cn(`flex flex-row w-full items-center p-2 gap-2 rounded-md`,
                 `bg-blue-100 bg-opacity-25 border-2 border-black border-opacity-50`,
                 props.class)
             }

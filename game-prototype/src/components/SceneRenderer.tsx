@@ -24,7 +24,7 @@ export const SceneRenderer = () => {
     const [gameManager] = useGameManager();
 
     return (
-        <main class="relative h-dvh w-dvh">
+        <main class="relative h-dvh w-dvh overflow-hidden">
             {renderScene(gameManager.currentScene)}
         </main>
     );

@@ -4,7 +4,7 @@ import { ItemSelection } from './ItemSelection';
 import { generateRandomDiceSet } from '@helpers/generateRandomDiceSet';
 
 import type { DiceType } from '@models/Dice';
-import { CharacterDiceButton } from '@components/Board/Character/CharacterDiceButton';
+import { DiceButton } from '@components/Dice/DiceButton';
 
 export function DiceSelection(quantity: number, dice: DiceType[]): Promise<DiceType> {
 	const [selectedDice, setSelectedDice] = createSignal<DiceType>();
@@ -36,6 +36,6 @@ const renderDice = (dice: DiceType, selectItem: () => void, isSelected: boolean)
 	<div onClick={selectItem} class={`p-1 border ${isSelected ? 'border-blue-500 bg-blue-200' : 'border-gray-300'}`}>
 		<p>{dice.name}</p>
 		<p>{dice.actions.length} sides</p>
-		<CharacterDiceButton dice={dice} />
+		<DiceButton dice={dice} />
 	</div >
 );

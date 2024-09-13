@@ -54,6 +54,9 @@
       "@styles/*": [
         "src/styles/*"
       ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
       "@/*": [
         "src/*"
       ]

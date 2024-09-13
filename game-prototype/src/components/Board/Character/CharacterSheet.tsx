@@ -2,7 +2,7 @@ import { CharacterName } from './CharacterName';
 import { CharacterRole } from './CharacterRole';
 import { CharacterImage } from './CharacterImage';
 import { CharacterHealth } from './CharacterHealth';
-import { CharacterDice } from './CharacterDice';
+import { CharacterDiceSet } from './CharacterDiceSet';
 import { CharacterAction } from './CharacterAction';
 import { cn } from '@helpers/cn';
 
@@ -31,7 +31,7 @@ export const CharacterSheet: Component<CharacterSheetProps> = (props) => {
 					<CharacterRole role={props.character.role} />
 				</div>
 				<CharacterHealth health={props.character.health ?? getRoleBaseHealth(props.character.role)} />
-				{props.character.diceSet && <CharacterDice diceSet={props.character.diceSet} />}
+				{props.character.diceSet && <CharacterDiceSet diceSet={props.character.diceSet} />}
 				{/* <CharacterAction /> */}
 			</div>
 		</div>

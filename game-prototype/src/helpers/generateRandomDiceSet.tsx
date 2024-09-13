@@ -12,7 +12,7 @@ export function generateRandomDiceSet(quantity: number, sides: number[]): DiceTy
 
 		diceSet.push({
 			name: `D${randomSides}`,
-			dice: diceActions as (D4 | D6 | D8 | D10 | D12 | D20 | D100)
+			actions: diceActions as (D4 | D6 | D8 | D10 | D12 | D20 | D100)
 		});
 	}
 

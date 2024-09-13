@@ -9,9 +9,9 @@ import type { GameStateType } from '@models/states/States';
  * @param {GameSceneType} scene - The new game scene to set.
  */
 export function updateGameScene(scene: GameSceneType) {
-    setGameState({
-        currentScene: scene,
-    });
+	setGameState({
+		currentScene: scene,
+	});
 }
 
 /**
@@ -20,9 +20,9 @@ export function updateGameScene(scene: GameSceneType) {
  * @param {GameStateType} state - The new game state to set.
  */
 export function updateGameState(state: GameStateType) {
-    setGameState({
-        currentState: state,
-    });
+	setGameState({
+		currentState: state,
+	});
 }
 
 /**
@@ -32,6 +32,6 @@ export function updateGameState(state: GameStateType) {
  * @param {GameStateType} state - The new game state to set.
  */
 export function updateGameSceneState(scene: GameSceneType, state: GameStateType) {
-    updateGameScene(scene);
-    updateGameState(state);
+	updateGameScene(scene);
+	updateGameState(state);
 }

@@ -8,7 +8,7 @@ import type { GameState, GameStateType } from '@models/states/States';
  * @returns {string | undefined} The name of the game state.
  */
 export const getGameStateName = (stateType: GameStateType) => {
-    return GameStates[stateType]?.name;
+	return GameStates[stateType]?.name;
 };
 
 /**
@@ -18,7 +18,7 @@ export const getGameStateName = (stateType: GameStateType) => {
  * @returns {string | undefined} The icon of the game state.
  */
 export const getGameStateIcon = (stateType: GameStateType) => {
-    return GameStates[stateType]?.icon;
+	return GameStates[stateType]?.icon;
 }
 
 /**
@@ -28,7 +28,7 @@ export const getGameStateIcon = (stateType: GameStateType) => {
  * @returns {string | undefined} The background of the game state.
  */
 export const getGameStateBg = (stateType: GameStateType) => {
-    return GameStates[stateType]?.bg;
+	return GameStates[stateType]?.bg;
 }
 
 /**
@@ -38,7 +38,7 @@ export const getGameStateBg = (stateType: GameStateType) => {
  * @returns {string | undefined} The icon background of the game state.
  */
 export const getGameStateIconBg = (stateType: GameStateType) => {
-    return GameStates[stateType]?.iconBg;
+	return GameStates[stateType]?.iconBg;
 }
 
 /**
@@ -48,5 +48,5 @@ export const getGameStateIconBg = (stateType: GameStateType) => {
  * @returns {Object} An object containing the name, icon, background, and icon background of the game state.
  */
 export const getGameState = (stateType: GameStateType): GameState => {
-    return GameStates[stateType];
+	return GameStates[stateType];
 }

@@ -14,31 +14,31 @@ import type { Character } from '@models/Characters';
  */
 
 export function generateRandomCharacters(n: number, prefix: string = ''): Character[] {
-    const roles: Role[] = [Roles.Fighter, Roles.Mage, Roles.Rogue];
-    const characters: Character[] = [];
+	const roles: Role[] = [Roles.Fighter, Roles.Mage, Roles.Rogue];
+	const characters: Character[] = [];
 
-    for (let i = 0; i < n; i++) {
-        const role = getRandomElement(roles);
-        if (!role) {
-            console.error('Failed to get a random role. Roles array:', roles);
-            continue;
-        }
-        const character: Character = {
-            id: uuidv4(),
-            name: `${prefix ?? ' '} ${i + 1}`,
-            role: role,
-            health: {
-                max: role.baseHealth.max,
-                current: role.baseHealth.max,
-            },
-            speed: {
-                max: role.baseSpeed.max,
-                current: role.baseSpeed.max,
-            },
-        };
+	for (let i = 0; i < n; i++) {
+		const role = getRandomElement(roles);
+		if (!role) {
+			console.error('Failed to get a random role. Roles array:', roles);
+			continue;
+		}
+		const character: Character = {
+			id: uuidv4(),
+			name: `${prefix ?? ' '} ${i + 1}`,
+			role: role,
+			health: {
+				max: role.baseHealth.max,
+				current: role.baseHealth.max,
+			},
+			speed: {
+				max: role.baseSpeed.max,
+				current: role.baseSpeed.max,
+			},
+		};
 
-        characters.push(character);
-    }
+		characters.push(character);
+	}
 
-    return characters;
+	return characters;
 }

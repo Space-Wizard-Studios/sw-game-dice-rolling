@@ -6,5 +6,5 @@
  * @returns {T} - A random element from the array.
  */
 export function getRandomElement<T>(array: T[]): T {
-    return array[Math.floor(Math.random() * array.length)];
+	return array[Math.floor(Math.random() * array.length)];
 }

@@ -5,29 +5,29 @@ import { Roles } from '@models/Roles';
 import type { Role } from '@models/Roles';
 
 export function getRoleName(role: Role): string {
-    return role.name;
+	return role.name;
 }
 
 export function getRoleImage(role: Role): string {
-    return role.image;
+	return role.image;
 }
 
 export function getRoleDescription(role: Role): string {
-    return role.description;
+	return role.description;
 }
 
 export function getRoleBaseHealth(role: Role): Health {
-    return role.baseHealth;
+	return role.baseHealth;
 }
 
 export function getRoleAllowedActions(role: Role): Action[] {
-    return role.allowedActions;
+	return role.allowedActions;
 }
 
 export function getRoleAllowedCombos(role: Role): ComboAction[] {
-    return role.allowedCombos ?? [];
+	return role.allowedCombos ?? [];
 }
 
 export function getRole(roleType: string): Role {
-    return Roles[roleType as keyof typeof Roles];
+	return Roles[roleType as keyof typeof Roles];
 }

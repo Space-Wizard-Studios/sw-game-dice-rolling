@@ -8,24 +8,24 @@ import { GameoverScene } from '@components/Scenes/Gameover';
 import { MainMenuScene } from '@components/Scenes/MainMenu';
 
 function renderScene(scene: GameSceneType | undefined) {
-    switch (scene) {
-        case 'gameplayScene':
-            return <GameplayScene />;
-        case 'gameoverScene':
-            return <GameoverScene />;
-        case 'mainMenuScene':
-            return <MainMenuScene />;
-        default:
-            return null;
-    }
+	switch (scene) {
+		case 'gameplayScene':
+			return <GameplayScene />;
+		case 'gameoverScene':
+			return <GameoverScene />;
+		case 'mainMenuScene':
+			return <MainMenuScene />;
+		default:
+			return null;
+	}
 }
 
 export const SceneRenderer = () => {
-    const [gameManager] = useGameManager();
+	const [gameManager] = useGameManager();
 
-    return (
-        <main class="relative h-dvh w-dvh overflow-hidden">
-            {renderScene(gameManager.currentScene)}
-        </main>
-    );
+	return (
+		<main class="relative h-dvh w-dvh overflow-hidden">
+			{renderScene(gameManager.currentScene)}
+		</main>
+	);
 };

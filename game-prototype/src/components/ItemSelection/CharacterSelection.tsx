@@ -12,29 +12,29 @@ import type { Character } from '@models/Characters';
  * @returns {Promise<Character>} - A promise that resolves with the selected character.
  */
 export function CharacterSelection(characters: Character[]): Promise<Character> {
-    const [selectedCharacter, setSelectedCharacter] = createSignal<Character>();
-    const [isDialogOpen, setDialogOpen] = createSignal(true);
+	const [selectedCharacter, setSelectedCharacter] = createSignal<Character>();
+	const [isDialogOpen, setDialogOpen] = createSignal(true);
 
-    return new Promise<Character>((resolve) => {
-        const handleConfirm = (character: Character) => {
-            setSelectedCharacter(character);
-            setDialogOpen(false);
-            resolve(character);
-        };
+	return new Promise<Character>((resolve) => {
+		const handleConfirm = (character: Character) => {
+			setSelectedCharacter(character);
+			setDialogOpen(false);
+			resolve(character);
+		};
 
-        render(() => (
-            <ItemSelection
-                open={isDialogOpen()}
-                items={characters}
-                renderItem={renderCharacter}
-                onConfirm={handleConfirm}
-            />
-        ), document.body);
-    });
+		render(() => (
+			<ItemSelection
+				open={isDialogOpen()}
+				items={characters}
+				renderItem={renderCharacter}
+				onConfirm={handleConfirm}
+			/>
+		), document.body);
+	});
 }
 
 export const renderCharacter = (character: Character, selectItem: () => void, isSelected: boolean) => (
-    <CharacterSheet character={character} onClick={selectItem}
-        class={isSelected ? 'border-2 border-blue-500 bg-blue-200' : ''}
-    />
+	<CharacterSheet character={character} onClick={selectItem}
+		class={isSelected ? 'border-2 border-blue-500 bg-blue-200' : ''}
+	/>
 );

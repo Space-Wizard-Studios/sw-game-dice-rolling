@@ -9,8 +9,8 @@ type CharacterImageProps = {
 
 export const CharacterImage: Component<CharacterImageProps> = (props) => {
     return (
-        <div class={cn(`overflow-hidden w-16 h-16`, props.class)}>
-            <img src={props.src} class='w-full h-full object-contain rounded-full' />
+        <div class={cn(`overflow-hidden h-12 md:w-14 md:h-14 rounded-full`, props.class)}>
+            <img src={props.src} class='w-full h-full object-cover' />
         </div>
     );
 };

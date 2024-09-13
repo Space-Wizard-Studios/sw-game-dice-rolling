@@ -30,7 +30,7 @@ export function DiceSelection(quantity: number, dice: DiceType[]): Promise<DiceT
 }
 
 const renderDice = (dice: DiceType, selectItem: () => void, isSelected: boolean) => (
-    <div onClick={selectItem} class={`p-2 border ${isSelected ? 'border-blue-500 bg-blue-200' : 'border-gray-300'}`}>
+    <div onClick={selectItem} class={`p-1 border ${isSelected ? 'border-blue-500 bg-blue-200' : 'border-gray-300'}`}>
         <p>{dice.name}</p>
         <p>{dice.dice.length} sides</p>
     </div>

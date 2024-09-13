@@ -17,14 +17,19 @@ type CharacterSheetProps = {
 }
 
 export const CharacterSheet: Component<CharacterSheetProps> = (props) => {
-    const containerStyle = 'flex flex-row w-full items-center p-2 gap-2 rounded-md bg-blue-100 bg-opacity-25 border-2 border-black border-opacity-50'
 
     return (
-        <div class={cn(containerStyle, props.class)} onClick={props.onClick} >
+        <div class={cn(
+            'flex flex-col md:flex-row w-full items-center p-1 gap-1 rounded-md',
+            'bg-blue-100 bg-opacity-25 border-2 border-black border-opacity-50',
+            props.class
+        )} onClick={props.onClick} >
             <CharacterImage src={props.character.role.image} />
-            <div class='flex flex-col p-2'>
-                <CharacterName name={props.character.name} />
-                <CharacterRole role={props.character.role} />
+            <div class='flex flex-col w-full p-1'>
+                <div class='flex flex-row w-full justify-between'>
+                    <CharacterName name={props.character.name} />
+                    <CharacterRole role={props.character.role} />
+                </div>
                 <CharacterHealth health={props.character.health ?? getRoleBaseHealth(props.character.role)} />
                 {props.character.diceSet && <CharacterDice diceSet={props.character.diceSet} />}
                 {/* <CharacterAction /> */}

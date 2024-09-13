@@ -20,7 +20,7 @@ export const ItemSelection = <T,>(props: SelectionDialogProps<T>) => {
                         Choose one of the items below:
                     </DialogDescription>
                 </DialogHeader>
-                <div class='flex flex-col gap-2'>
+                <div class='flex flex-col gap-1'>
                     {props.items.map(item => (
                         <div onClick={() => setSelectedItem(() => item)} class='cursor-pointer hover:bg-blue-100'>
                             {props.renderItem(item, () => setSelectedItem(() => item), selectedItem() === item)}

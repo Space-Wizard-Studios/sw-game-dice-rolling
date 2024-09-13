@@ -20,8 +20,8 @@ export async function Preparation() {
 
     const allSelectedDiceSets = [];
     // Loop to generate random dice and prompt the player to select 3 times
-    for (let i = 0; i < 3; i++) {
-        const dice = generateRandomDiceSet(3, [4, 6, 8]);
+    for (let i = 0; i < 2; i++) {
+        const dice = generateRandomDiceSet(5, [4, 6, 8]);
         const selectedDice = await DiceSelection(3, dice);
         allSelectedDiceSets.push(selectedDice);
     }

@@ -13,6 +13,9 @@ export const Line: Component<{ line?: DialogueLine }> = (props) => {
         case 'success':
             bg = 'bg-green-500';
             break;
+        case 'warning':
+            bg = 'bg-yellow-500';
+            break;
         default:
             bg = 'bg-gray-500';
             break;

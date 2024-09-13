@@ -15,11 +15,10 @@ export type Speed = {
 
 export type Character = {
     id: string;
-    image: string;
     name: string;
     role: Role;
-    health: Health;
-    speed: Speed;
+    health?: Health;
+    speed?: Speed;
     commonActions?: CommonAction[];
     diceSet?: DiceType[];
 }

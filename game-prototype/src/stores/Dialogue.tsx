@@ -2,7 +2,7 @@ import { createStore } from 'solid-js/store';
 import { useGameManager } from '@stores/GameContext';
 import type { GameStateType } from '@models/states/States';
 
-type LineType = 'info' | 'failure' | 'success';
+type LineType = 'info' | 'failure' | 'success' | 'warning';
 
 export type DialogueLine = {
     text: string;

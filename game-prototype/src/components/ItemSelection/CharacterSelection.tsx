@@ -1,8 +1,8 @@
 import { render } from 'solid-js/web';
 import { createSignal } from 'solid-js';
 import { ItemSelection } from '@components/ItemSelection/ItemSelection';
-import { renderCharacter } from '@components/ItemSelection/ItemSelection';
-import { playerCharacterStore } from '@stores/Character';
+import { CharacterSheet } from '@components/Board/Character/CharacterSheet';
+
 import type { Character } from '@models/Characters';
 
 /**
@@ -19,8 +19,6 @@ export function CharacterSelection(characters: Character[]): Promise<Character> 
         const handleConfirm = (character: Character) => {
             setSelectedCharacter(character);
             setDialogOpen(false);
-            console.log('Selected character:', character);
-            playerCharacterStore.addCharacter(character);
             resolve(character);
         };
 
@@ -34,3 +32,9 @@ export function CharacterSelection(characters: Character[]): Promise<Character> 
         ), document.body);
     });
 }
+
+export const renderCharacter = (character: Character, selectItem: () => void, isSelected: boolean) => (
+    <CharacterSheet character={character} onClick={selectItem}
+        class={isSelected ? 'border-2 border-blue-500 bg-blue-200' : ''}
+    />
+);

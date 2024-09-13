@@ -3,7 +3,7 @@ import { Preparation } from '@controllers/Gameplay/states/Preparation';
 import { BattleSetup } from '@controllers/Gameplay/states/BattleSetup';
 import { BattleStart } from '@controllers/Gameplay/states/BattleStart';
 import { BattleEnd } from '@controllers/Gameplay/states/BattleEnd';
-import { updateGameScene, updateGameState, updateGameSceneState } from '@helpers/updateGameState';
+import { updateGameState, updateGameSceneState } from '@helpers/updateGameState';
 
 import type { GameplaySceneType } from '@models/scenes/GameplayScene';
 import type { GameplayStateType } from '@models/states/GameplayStates';

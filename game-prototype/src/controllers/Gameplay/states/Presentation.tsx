@@ -26,6 +26,10 @@ export async function Presentation() {
                 text: 'Mensagem de sucesso.',
                 type: 'success',
             },
+            {
+                text: 'Mensagem de aviso.',
+                type: 'warning',
+            },
         ],
     });
 

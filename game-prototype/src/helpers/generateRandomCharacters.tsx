@@ -1,9 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 import { getRandomElement } from '@helpers/getRandomElement';
 import { Roles } from '@models/Roles';
-import type { Character } from '@models/Characters';
 
-const roles = [Roles.Fighter, Roles.Assassin, Roles.Mage, Roles.Rogue];
+import type { Role } from '@models/Roles';
+import type { Character } from '@models/Characters';
 
 /** 
  * Generates a list of random characters with the specified prefix.
@@ -14,6 +14,7 @@ const roles = [Roles.Fighter, Roles.Assassin, Roles.Mage, Roles.Rogue];
  */
 
 export function generateRandomCharacters(n: number, prefix: string = ''): Character[] {
+    const roles: Role[] = [Roles.Fighter, Roles.Mage, Roles.Rogue];
     const characters: Character[] = [];
 
     for (let i = 0; i < n; i++) {
@@ -24,16 +25,15 @@ export function generateRandomCharacters(n: number, prefix: string = ''): Charac
         }
         const character: Character = {
             id: uuidv4(),
-            name: `(${role.name}) ${prefix ? prefix + ' ' : ''} Character ${i + 1}`,
-            image: 'https://via.placeholder.com/150',
+            name: `${prefix ?? ' '} ${i + 1}`,
             role: role,
             health: {
-                max: 100,
-                current: 100,
+                max: role.baseHealth.max,
+                current: role.baseHealth.max,
             },
             speed: {
-                max: 10,
-                current: 10,
+                max: role.baseSpeed.max,
+                current: role.baseSpeed.max,
             },
         };
 

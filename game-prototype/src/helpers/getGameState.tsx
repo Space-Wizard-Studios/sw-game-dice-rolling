@@ -1,5 +1,5 @@
-import { GameplayStates } from '@models/states/GameplayStates';
-import type { GameStateType } from '@models/states/States';
+import { GameStates } from '@models/states/States';
+import type { GameState, GameStateType } from '@models/states/States';
 
 /**
  * Retrieves the name of the game state.
@@ -8,7 +8,7 @@ import type { GameStateType } from '@models/states/States';
  * @returns {string | undefined} The name of the game state.
  */
 export const getGameStateName = (stateType: GameStateType) => {
-    return GameplayStates[stateType as keyof typeof GameplayStates]?.name;
+    return GameStates[stateType]?.name;
 };
 
 /**
@@ -18,7 +18,7 @@ export const getGameStateName = (stateType: GameStateType) => {
  * @returns {string | undefined} The icon of the game state.
  */
 export const getGameStateIcon = (stateType: GameStateType) => {
-    return GameplayStates[stateType as keyof typeof GameplayStates]?.icon;
+    return GameStates[stateType]?.icon;
 }
 
 /**
@@ -28,7 +28,7 @@ export const getGameStateIcon = (stateType: GameStateType) => {
  * @returns {string | undefined} The background of the game state.
  */
 export const getGameStateBg = (stateType: GameStateType) => {
-    return GameplayStates[stateType as keyof typeof GameplayStates]?.bg;
+    return GameStates[stateType]?.bg;
 }
 
 /**
@@ -38,7 +38,7 @@ export const getGameStateBg = (stateType: GameStateType) => {
  * @returns {string | undefined} The icon background of the game state.
  */
 export const getGameStateIconBg = (stateType: GameStateType) => {
-    return GameplayStates[stateType as keyof typeof GameplayStates]?.iconBg;
+    return GameStates[stateType]?.iconBg;
 }
 
 /**
@@ -47,11 +47,6 @@ export const getGameStateIconBg = (stateType: GameStateType) => {
  * @param {GameStateType} stateType - The type of the game state.
  * @returns {Object} An object containing the name, icon, background, and icon background of the game state.
  */
-export const getGameState = (stateType: GameStateType) => {
-    return {
-        name: getGameStateName(stateType),
-        icon: getGameStateIcon(stateType),
-        bg: getGameStateBg(stateType),
-        iconBg: getGameStateIconBg(stateType),
-    }
+export const getGameState = (stateType: GameStateType): GameState => {
+    return GameStates[stateType];
 }

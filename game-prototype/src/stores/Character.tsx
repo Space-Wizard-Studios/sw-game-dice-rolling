@@ -26,12 +26,19 @@ function createCharacterStore() {
         return store.characters.find(c => c.id === characterId);
     }
 
+    function updateCharacter(characterId: string, updatedFields: Partial<Character>) {
+        setStore('characters', (characters) =>
+            characters.map(c => c.id === characterId ? { ...c, ...updatedFields } : c)
+        );
+    }
+
     return {
         store,
         addCharacter,
         addCharacters,
         removeCharacter,
         getCharacterById,
+        updateCharacter
     };
 }
 

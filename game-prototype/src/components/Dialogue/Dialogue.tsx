@@ -1,4 +1,4 @@
-import { createEffect, onMount } from 'solid-js';
+import { createEffect, onMount, createSignal } from 'solid-js';
 import { cn } from '@helpers/cn';
 
 import { gameState } from '@stores/GameContext';
@@ -7,6 +7,7 @@ import { Message } from './Message';
 
 import type { Component } from 'solid-js';
 import type { DialogueMessage } from '@stores/Dialogue';
+import { getGameStateName } from '@helpers/getGameState';
 
 type DialogueProps = {
     message?: DialogueMessage;
@@ -15,6 +16,7 @@ type DialogueProps = {
 
 export const Dialogue: Component<DialogueProps> = (props) => {
     let messagesContainer: HTMLDivElement | undefined;
+    const [title, setTitle] = createSignal('');
 
     const scrollToBottom = () => {
         if (messagesContainer) {
@@ -25,14 +27,16 @@ export const Dialogue: Component<DialogueProps> = (props) => {
     onMount(scrollToBottom);
 
     createEffect(() => {
+        setTitle(getGameStateName(gameState.currentState));
+        console.log('title:', title());
         dialogueStore.messages;
         scrollToBottom();
     });
 
     return (
         <div class={cn('gap-2', props.class)}>
-            <div class='flex p-2 h-full w-full bg-neutral-700 bg-opacity-25 rounded-md'>
-                {/* <h3>Phase: {gameState.currentState.name}</h3> */}
+            <div class='flex flex-col p-2 h-full w-full bg-neutral-700 bg-opacity-25 rounded-md'>
+                <h3>Phase: {title()}</h3>
                 <div
                     ref={messagesContainer}
                     class='flex flex-col h-full w-full overflow-y-auto p-2 gap-2 bg-black bg-opacity-25 border-2 rounded-md border-black border-opacity-50'
@@ -45,4 +49,3 @@ export const Dialogue: Component<DialogueProps> = (props) => {
         </div>
     );
 };
-

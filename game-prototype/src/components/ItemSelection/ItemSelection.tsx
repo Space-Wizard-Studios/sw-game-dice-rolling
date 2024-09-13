@@ -1,15 +1,6 @@
 import { createSignal, type JSX } from 'solid-js';
-
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@components/ui/dialog';
-import { CharacterSheet } from '@components/Board/Character/CharacterSheet';
 
-import type { Character } from '@models/Characters';
-
-export const renderCharacter = (character: Character, selectItem: () => void, isSelected: boolean) => (
-    <CharacterSheet character={character} onClick={selectItem}
-        class={isSelected ? 'border-2 border-blue-500 bg-blue-200' : ''}
-    />
-);
 interface SelectionDialogProps<T> {
     open: boolean;
     items: T[];

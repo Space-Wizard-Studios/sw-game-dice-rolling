@@ -1,13 +1,15 @@
 import { createEffect, onMount, createSignal } from 'solid-js';
-import { cn } from '@helpers/cn';
-
-import { gameState } from '@stores/GameContext';
-import { dialogueStore } from '@stores/Dialogue';
-import { Message } from './Message';
-
 import type { Component } from 'solid-js';
-import type { DialogueMessage } from '@stores/Dialogue';
+
+import { useGameManager } from '@stores/GameContext';
+import { dialogueStore } from '@stores/DialogueStore';
+
+import type { DialogueMessage } from '@stores/DialogueStore';
+import { Message } from '@components/Dialogue/Message';
+
+import { cn } from '@helpers/cn';
 import { getGameStateName } from '@helpers/getGameState';
+import { getGameSceneName } from '@helpers/getGameScene';
 
 type DialogueProps = {
 	message?: DialogueMessage;
@@ -15,8 +17,8 @@ type DialogueProps = {
 }
 
 export const Dialogue: Component<DialogueProps> = (props) => {
+	const [gameState] = useGameManager();
 	let messagesContainer: HTMLDivElement | undefined;
-	const [title, setTitle] = createSignal('');
 
 	const scrollToBottom = () => {
 		if (messagesContainer) {
@@ -27,22 +29,33 @@ export const Dialogue: Component<DialogueProps> = (props) => {
 	onMount(scrollToBottom);
 
 	createEffect(() => {
-		setTitle(getGameStateName(gameState.currentState));
-		console.log('title:', title());
 		dialogueStore.messages;
 		scrollToBottom();
 	});
 
+	console.log(gameState.currentScene, gameState.currentState);
+
+	const [title, setTitle] = createSignal('');
+
+	createEffect(() => {
+		const sceneName = getGameSceneName(gameState.currentScene);
+		console.log('Scene:', sceneName);
+		const stateName = getGameStateName(gameState.currentState);
+		setTitle(`${sceneName} - ${stateName}`);
+		console.log('Title:', title());
+	});
+
+
 	return (
-		<div class={cn('gap-1', props.class)}>
-			<div class='flex flex-col p-1 h-full w-full bg-neutral-700 bg-opacity-25 rounded-md'>
-				<h3>Phase: {title()}</h3>
+		<div class={cn('gap-2', props.class)}>
+			<div class='flex flex-col p-2 h-full w-full bg-neutral-700 bg-opacity-25 rounded-md'>
+				<h3>{`${title()}`}</h3>
 				<div
 					ref={messagesContainer}
-					class='flex flex-col h-full w-full overflow-y-auto p-1 gap-1 bg-black bg-opacity-25 border-2 rounded-md border-black border-opacity-50'
+					class='flex flex-col h-full w-full overflow-y-auto p-2 gap-2 bg-black bg-opacity-25 border-2 rounded-md border-black border-opacity-50'
 				>
 					{dialogueStore.messages?.map(message => (
-						<Message message={message} />
+						<Message {...message} />
 					))}
 				</div>
 			</div>

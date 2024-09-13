@@ -1,10 +1,11 @@
-import { addDialogueMessage, addDialogueLine } from "@stores/Dialogue";
+import { addDialogueMessage, addDialogueLine } from "@stores/DialogueStore";
 
 export async function BattleEnd() {
-	addDialogueMessage({
+	await addDialogueMessage({
 		lines: [
 			{ text: 'Esta é a fase do fim da Batalha.' },
-		]
+		],
+		requiresUserAction: true,
 	});
 
 	await new Promise(resolve => setTimeout(resolve, 3000));

@@ -1,15 +1,20 @@
-import { addDialogueLine, addDialogueMessage } from "@stores/Dialogue";
+import { addDialogueLine, addDialogueMessage } from "@stores/DialogueStore";
 
 export async function Presentation() {
-	addDialogueMessage({
+	await addDialogueMessage({
 		lines: [
 			{
 				text: 'Boas vindas ao maravilhoso jogo do Danilo :)',
 			},
+			{
+				text: 'Clique em continuar para prosseguir.',
+				align: 'right',
+			}
 		],
+		requiresUserAction: true,
 	});
 
-	addDialogueMessage({
+	await addDialogueMessage({
 		lines: [
 			{
 				text: "Vamos testar algumas mensagens.",
@@ -31,6 +36,7 @@ export async function Presentation() {
 				type: 'warning',
 			},
 		],
+		requiresUserAction: true,
 	});
 
 	await new Promise(resolve => setTimeout(resolve, 3000));

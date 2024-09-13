@@ -10,10 +10,13 @@ import { MainMenuScene } from '@components/Scenes/MainMenu';
 function renderScene(scene: GameSceneType | undefined) {
 	switch (scene) {
 		case 'gameplayScene':
+			console.log('Rendering Gameplay');
 			return <GameplayScene />;
 		case 'gameoverScene':
+			console.log('Rendering Game Over');
 			return <GameoverScene />;
 		case 'mainMenuScene':
+			console.log('Rendering Main Menu');
 			return <MainMenuScene />;
 		default:
 			return null;

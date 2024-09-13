@@ -27,6 +27,10 @@ export const GameProvider: Component<ParentProps> = (props) => {
   );
 };
 
-export function useGameManager() {
+/**
+ * Custom hook to use the game manager context.
+ * @returns {[GameManager, typeof setGameState]} - The game manager state and setter function.
+ */
+export function useGameManager(): [GameManager, typeof setGameState] {
   return useContext(GameContext);
 }

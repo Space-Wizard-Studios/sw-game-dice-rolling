@@ -1,11 +1,14 @@
 import { createSignal, type JSX } from 'solid-js';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@components/ui/dialog';
 
-interface SelectionDialogProps<T> {
-	open: boolean;
-	items: T[];
-	renderItem: (item: T, selectItem: () => void, isSelected: boolean) => JSX.Element;
-	onConfirm: (item: T) => void;
+type SelectionDialogProps<T> = {
+	title: string,
+	description: string,
+	buttonText?: string,
+	open: boolean,
+	items: T[],
+	renderItem: (item: T, selectItem: () => void, isSelected: boolean) => JSX.Element,
+	onConfirm: (item: T) => void,
 }
 
 export const ItemSelection = <T,>(props: SelectionDialogProps<T>) => {
@@ -15,10 +18,8 @@ export const ItemSelection = <T,>(props: SelectionDialogProps<T>) => {
 		<Dialog open={props.open} >
 			<DialogContent enableClose={false}>
 				<DialogHeader>
-					<DialogTitle>Choose wisely</DialogTitle>
-					<DialogDescription>
-						Choose one of the items below:
-					</DialogDescription>
+					<DialogTitle>{props.title}</DialogTitle>
+					<DialogDescription>{props.description}</DialogDescription>
 				</DialogHeader>
 				<div class='flex flex-col gap-1'>
 					{props.items.map(item => (
@@ -27,15 +28,7 @@ export const ItemSelection = <T,>(props: SelectionDialogProps<T>) => {
 						</div>
 					))}
 				</div>
-				<button
-					onClick={() => {
-						if (selectedItem()) {
-							props.onConfirm(selectedItem()!);
-						}
-					}}
-				>
-					Confirm Selection
-				</button>
+				<button onClick={() => { if (selectedItem()) { props.onConfirm(selectedItem()!); } }}>{props.buttonText ?? 'Confirmar'}</button>
 			</DialogContent>
 		</Dialog>
 	);

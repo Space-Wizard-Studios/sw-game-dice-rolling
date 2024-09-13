@@ -4,7 +4,7 @@ export type GameplaySceneType = 'gameplayScene';
 
 export const GameplayScenes: Record<GameplaySceneType, GameScene> = {
     gameplayScene: {
-        name: "Gameover Placeholder",
+        name: "Gameplay Placeholder",
         bg: "placeholder-bg",
     },
 } as const;

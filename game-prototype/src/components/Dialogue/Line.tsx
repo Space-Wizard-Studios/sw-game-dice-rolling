@@ -1,9 +1,9 @@
 import type { Component } from "solid-js";
-import type { DialogueLine } from "@stores/Dialogue";
+import type { DialogueLine } from "@stores/DialogueStore";
 
-export const Line: Component<{ line?: DialogueLine }> = (props) => {
-	let bg = '';
-	switch (props.line?.type) {
+export const Line: Component<DialogueLine> = (props) => {
+	let bg;
+	switch (props.type) {
 		case 'info':
 			bg = 'bg-blue-500';
 			break;
@@ -21,9 +21,25 @@ export const Line: Component<{ line?: DialogueLine }> = (props) => {
 			break;
 	}
 
+	let alignment;
+	switch (props.align) {
+		case 'left':
+			alignment = 'justify-start';
+			break;
+		case 'center':
+			alignment = 'justify-center';
+			break;
+		case 'right':
+			alignment = 'justify-end';
+			break;
+		default:
+			alignment = 'justify-start';
+			break;
+	}
+
 	return (
-		<p class={`p-1 ${bg} bg-opacity-50`}>
-			{props.line?.text}
+		<p class={`flex flex-row ${alignment} p-1 ${bg} bg-opacity-50`}>
+			{props.text}
 		</p>
 	);
 };

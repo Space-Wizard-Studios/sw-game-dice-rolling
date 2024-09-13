@@ -24,6 +24,8 @@ export function CharacterSelection(characters: Character[]): Promise<Character> 
 
 		render(() => (
 			<ItemSelection
+				title='Escolha um personagem'
+				description='Selecione um personagem para continuar.'
 				open={isDialogOpen()}
 				items={characters}
 				renderItem={renderCharacter}

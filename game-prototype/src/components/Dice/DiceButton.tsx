@@ -8,7 +8,8 @@ import {
 	PopoverTrigger,
 } from '@components/ui/popover';
 
-import { diceD4 } from '@assets/icons';
+import { getDiceIcon } from '@assets/diceIcons';
+import { getActionProbabilities, getActionList } from '@helpers/getDice';
 
 import type { PopoverTriggerProps } from '@kobalte/core/popover';
 import type { DiceType } from '@models/Dice';
@@ -18,45 +19,22 @@ type DiceButtonProps = {
 	class?: string;
 }
 
-const diceIcons = {
-	D4: diceD4,
-	// D6: diceD6,
-	// D8: diceD8,
-	// D10: diceD10,
-	// D12: diceD12,
-	// D20: diceD20,
-	// D100: diceD100,
-};
-
-export const DiceButton: Component<DiceButtonProps> = (props) => {
-	// store the count of each unique action
-	const actionCountMap = new Map<string, number>();
-
-	props.dice.actions.forEach(action => {
-		actionCountMap.set(action.name, (actionCountMap.get(action.name) || 0) + 1);
-	});
-
-	// total number of actions
-	const totalActions = props.dice.actions.length;
-
-	// probability for each unique action
-	const actionProbabilities = Array.from(actionCountMap.entries()).map(([name, count]) => ({
-		name,
-		probability: ((count / totalActions) * 100).toFixed(2)
-	}));
+export const DiceButton = (props: DiceButtonProps) => {
+	const actionProbabilities = getActionProbabilities(props.dice);
+	const actionList = getActionList(props.dice);
 
 	return (
 		<Popover>
 			<PopoverTrigger
 				as={(triggerProps: PopoverTriggerProps) => (
-					<Button {...triggerProps} class='w-4 h-4 p-4 bg-white rounded-full dark:bg-black text-blue-500'>
+					<Button {...triggerProps} class='flex w-8 h-8 p-1 bg-white rounded-full dark:bg-black text-blue-500 overflow-visible items-center justify-center'>
 						<div class='w-6 h-6'>
-							{diceIcons[props.dice.name as keyof typeof diceIcons]}
+							{getDiceIcon(props.dice.sides)}
 						</div>
 					</Button>
 				)}
 			/>
-			<PopoverContent class='w-80'>
+			<PopoverContent class='overflow-auto'>
 				<div class='grid gap-1'>
 					<PopoverTitle class='space-y-1'>
 						<h4 class='font-medium leading-none'>Actions for {props.dice.name}</h4>
@@ -75,9 +53,9 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 						<div>
 							<h5 class='font-medium'>Dice:</h5>
 							<ul>
-								{props.dice.actions.map((action) => (
+								{actionList.map((actionName) => (
 									<li>
-										{action.name}
+										{actionName}
 									</li>
 								))}
 							</ul>
@@ -86,5 +64,5 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 				</div>
 			</PopoverContent>
 		</Popover>
-	)
-}
+	);
+};

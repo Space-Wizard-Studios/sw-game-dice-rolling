@@ -1,12 +1,12 @@
 import { DiceActions } from './DiceAction';
-import type { Action } from './DiceAction';
+import type { DiceAction } from './DiceAction';
 
 type ComboActionType = 'chargedAttack' | 'heal' | 'magicBurst' | 'parry';
 
 export type ComboAction = {
     name: string;
     description: string;
-    requiredActions: Action[];
+    requiredActions: DiceAction[];
 };
 
 export const ComboActions: Record<ComboActionType, ComboAction> = {

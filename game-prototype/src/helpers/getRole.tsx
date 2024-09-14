@@ -1,5 +1,5 @@
 import type { ComboAction } from '@models/actions/ComboAction';
-import type { Action } from '@models/actions/DiceAction';
+import type { DiceAction } from '@models/actions/DiceAction';
 import type { Health } from '@models/Characters';
 import { Roles } from '@models/Roles';
 import type { Role } from '@models/Roles';
@@ -20,7 +20,7 @@ export function getRoleBaseHealth(role: Role): Health {
 	return role.baseHealth;
 }
 
-export function getRoleAllowedActions(role: Role): Action[] {
+export function getRoleAllowedActions(role: Role): DiceAction[] {
 	return role.allowedActions;
 }
 

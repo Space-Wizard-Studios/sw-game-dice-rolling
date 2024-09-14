@@ -13,7 +13,7 @@ import type { Character } from '@models/Characters';
  * @returns {Character[]} - An array of randomly generated characters.
  */
 
-export function generateRandomCharacters(n: number, prefix: string = ''): Character[] {
+export function generateRandomCharacter(n: number, prefix: string = ''): Character[] {
 	const roles: Role[] = [Roles.Fighter, Roles.Mage, Roles.Rogue];
 	const characters: Character[] = [];
 

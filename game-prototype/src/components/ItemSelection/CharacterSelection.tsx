@@ -5,12 +5,6 @@ import { CharacterSheet } from '@components/Board/Character/CharacterSheet';
 
 import type { Character } from '@models/Characters';
 
-/**
- * Displays a character selection dialog and returns a promise that resolves with the selected character.
- * 
- * @param {Character[]} characters - An array of characters to choose from.
- * @returns {Promise<Character>} - A promise that resolves with the selected character.
- */
 export function CharacterSelection(characters: Character[]): Promise<Character> {
 	const [selectedCharacter, setSelectedCharacter] = createSignal<Character>();
 	const [isDialogOpen, setDialogOpen] = createSignal(true);
@@ -35,8 +29,6 @@ export function CharacterSelection(characters: Character[]): Promise<Character> 
 	});
 }
 
-export const renderCharacter = (character: Character, selectItem: () => void, isSelected: boolean) => (
-	<CharacterSheet character={character} onClick={selectItem}
-		class={isSelected ? 'border-2 border-blue-500 bg-blue-200' : ''}
-	/>
+export const renderCharacter = (character: Character) => (
+	<CharacterSheet character={character} />
 );

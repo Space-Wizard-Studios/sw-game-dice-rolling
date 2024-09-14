@@ -1,5 +1,5 @@
 import type { Health, Speed } from "@models/Characters";
-import { type Action, DiceActions } from "@models/actions/DiceAction";
+import { type DiceAction, DiceActions } from "@models/actions/DiceAction";
 import { ComboActions, type ComboAction } from "@models/actions/ComboAction";
 
 export type Role = {
@@ -8,7 +8,7 @@ export type Role = {
     description: string;
     baseHealth: Health;
     baseSpeed: Speed;
-    allowedActions: Action[];
+    allowedActions: DiceAction[];
     allowedCombos?: ComboAction[];
 };
 

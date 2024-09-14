@@ -8,5 +8,4 @@ export async function BattleEnd() {
 		requiresUserAction: true,
 	});
 
-	await new Promise(resolve => setTimeout(resolve, 3000));
 }

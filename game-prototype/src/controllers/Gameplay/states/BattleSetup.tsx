@@ -7,6 +7,4 @@ export async function BattleSetup() {
 		],
 		requiresUserAction: true,
 	});
-
-	await new Promise(resolve => setTimeout(resolve, 3000));
 }

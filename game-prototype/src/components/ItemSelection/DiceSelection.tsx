@@ -1,16 +1,18 @@
 import { createSignal } from 'solid-js';
 import { render } from 'solid-js/web';
 import { ItemSelection } from './ItemSelection';
-import { generateRandomDiceSet } from '@helpers/generateRandomDiceSet';
+import { generateRandomDice } from '@helpers/generateRandomDiceSet';
 
-import type { DiceType } from '@models/Dice';
+import type { DiceActionsMap, DiceType } from '@models/Dice';
 import { DiceButton } from '@components/Dice/DiceButton';
+import { getMostProbableAction } from '@helpers/getDice';
 
 export function DiceSelection(quantity: number, dice: DiceType[]): Promise<DiceType> {
 	const [selectedDice, setSelectedDice] = createSignal<DiceType>();
 	const [isDialogOpen, setDialogOpen] = createSignal(true);
 
-	const diceOptions = generateRandomDiceSet(quantity, dice.map(d => parseInt(d.name.slice(1))));
+	const diceSides = dice.map(d => d.sides as keyof DiceActionsMap);
+	const diceOptions = generateRandomDice(quantity, diceSides);
 
 	return new Promise<DiceType>((resolve) => {
 		const handleConfirm = (dice: DiceType) => {
@@ -25,6 +27,7 @@ export function DiceSelection(quantity: number, dice: DiceType[]): Promise<DiceT
 				description='Selecione um dado para continuar.'
 				open={isDialogOpen()}
 				items={diceOptions}
+				renderIcon={renderIcon}
 				renderItem={renderDice}
 				onConfirm={handleConfirm}
 			/>
@@ -32,10 +35,15 @@ export function DiceSelection(quantity: number, dice: DiceType[]): Promise<DiceT
 	});
 }
 
-const renderDice = (dice: DiceType, selectItem: () => void, isSelected: boolean) => (
-	<div onClick={selectItem} class={`p-1 border ${isSelected ? 'border-blue-500 bg-blue-200' : 'border-gray-300'}`}>
-		<p>{dice.name}</p>
+const renderDice = (dice: DiceType) => (
+	<div class='flex justify-between'>
+		<p class='text-left'>
+			{dice.name}, {getMostProbableAction(dice).name} ({getMostProbableAction(dice).probability}%)
+		</p>
 		<p>{dice.actions.length} sides</p>
-		<DiceButton dice={dice} />
-	</div >
+	</div>
+);
+
+const renderIcon = (dice: DiceType) => (
+	<DiceButton dice={dice} />
 );

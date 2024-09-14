@@ -7,6 +7,8 @@ import { Line } from "./Line";
 import { setDialogueStore, dialogueStore } from '@stores/DialogueStore';
 import type { DialogueMessage } from '@stores/DialogueStore';
 
+import { Button } from "@components/ui/button";
+
 export const Message: Component<DialogueMessage> = (props) => {
 	const [isContinued, setIsContinued] = createSignal(false);
 
@@ -21,14 +23,16 @@ export const Message: Component<DialogueMessage> = (props) => {
 			<div>
 				{props.gameState && <h3 class='font-semibold pb-1'>{getGameStateName(props.gameState)}</h3>}
 			</div>
-			<div class={`w-full rounded-lg overflow-hidden`}>
-				{props.lines.map(line => (<Line {...line} />))}
+			<div class="flex flex-row gap-2 items-center justify-center">
+				<div class={`w-full rounded-lg overflow-hidden`}>
+					{props.lines.map(line => (<Line {...line} />))}
+				</div>
+				{props.requiresUserAction && !isContinued() && (
+					<Button onClick={handleContinue} class="">
+						Continuar
+					</Button>
+				)}
 			</div>
-			{props.requiresUserAction && !isContinued() && (
-				<button onClick={handleContinue} class='self-end mt-2 p-2 bg-blue-500 text-white rounded'>
-					Continuar
-				</button>
-			)}
 		</div>
 	);
 };

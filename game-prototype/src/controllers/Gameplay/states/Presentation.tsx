@@ -38,6 +38,4 @@ export async function Presentation() {
 		],
 		requiresUserAction: true,
 	});
-
-	await new Promise(resolve => setTimeout(resolve, 3000));
 }

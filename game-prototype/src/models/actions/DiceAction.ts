@@ -1,6 +1,6 @@
 import { Targets, type ActionTarget } from '@models/actions/Target';
 
-export type Action = {
+export type DiceAction = {
     name: string;
     description: string;
     targets: ActionTarget[];
@@ -8,7 +8,7 @@ export type Action = {
 
 type ActionType = 'empty' | 'physicalAttack' | 'magicAttack' | 'defend' | 'special';
 
-export const DiceActions: Record<ActionType, Action> = {
+export const DiceActions: Record<ActionType, DiceAction> = {
     empty: {
         name: 'Empty',
         description: 'Do nothing.',

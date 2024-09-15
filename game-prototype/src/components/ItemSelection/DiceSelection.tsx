@@ -9,6 +9,11 @@ import { getUniqueActionsCount } from '@helpers/getDiceActions';
 export function DiceSelection(diceSet: Dice[]): Promise<Dice> {
 	const [selectedDice, setSelectedDice] = createSignal<Dice>();
 	const [isDialogOpen, setDialogOpen] = createSignal(true);
+	const [diceList, setDiceList] = createSignal(diceSet);
+
+	const handleNameChange = (diceID: string, newName: string) => {
+		setDiceList(diceList().map(dice => dice.id === diceID ? { ...dice, name: newName } : dice));
+	};
 
 	return new Promise<Dice>((resolve) => {
 		const handleConfirm = (selectedDice: Dice) => {
@@ -17,12 +22,22 @@ export function DiceSelection(diceSet: Dice[]): Promise<Dice> {
 			resolve(selectedDice);
 		};
 
+		const renderDiceInfo = (dice: Dice) => (
+			<p>
+				{dice.name}: {dice.actions.length} lados, {getUniqueActionsCount(dice)} ações diferentes
+			</p>
+		);
+
+		const renderDiceIcon = (dice: Dice) => (
+			<DiceButton dice={dice} onNameChange={handleNameChange} />
+		);
+
 		render(() => (
 			<ItemSelection
 				title='Escolha um dado'
 				description='Selecione um dado para continuar.'
 				open={isDialogOpen()}
-				items={diceSet}
+				items={diceList()}
 				renderIcon={renderDiceIcon}
 				renderItem={renderDiceInfo}
 				onConfirm={handleConfirm}
@@ -30,13 +45,3 @@ export function DiceSelection(diceSet: Dice[]): Promise<Dice> {
 		), document.body);
 	});
 }
-
-const renderDiceInfo = (dice: Dice) => (
-	<p>
-		{dice.name}: {dice.actions.length} lados, {getUniqueActionsCount(dice)} ações diferentes
-	</p>
-);
-
-const renderDiceIcon = (dice: Dice) => (
-	<DiceButton dice={dice} />
-);

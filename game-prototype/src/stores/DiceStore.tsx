@@ -17,10 +17,6 @@ function createDiceStore() {
 		setStore('diceSet', (diceSet) => [...diceSet, ...diceArray]);
 	}
 
-	function removeDice(diceName: string): void {
-		setStore('diceSet', (diceSet) => diceSet.filter(d => d.name !== diceName));
-	}
-
 	function getDiceByID(diceID: string): Dice | undefined {
 		return store.diceSet.find(d => d.id === diceID);
 	}
@@ -41,15 +37,27 @@ function createDiceStore() {
 		return getMostProbableAction(dice);
 	}
 
+	function updateDiceName(diceID: string, newName: string): void {
+		setStore('diceSet', (diceSet) =>
+			diceSet.map(dice => dice.id === diceID ? { ...dice, name: newName } : dice)
+		);
+	}
+
+	function removeDice(diceName: string): void {
+		setStore('diceSet', (diceSet) => diceSet.filter(d => d.name !== diceName));
+	}
+
+
 	return {
 		store,
 		addDice,
 		addMultipleDice,
-		removeDice,
 		getDiceByID,
 		getDiceByName,
 		getActionProbabilities,
 		getActionList,
+		updateDiceName,
+		removeDice,
 	};
 }
 

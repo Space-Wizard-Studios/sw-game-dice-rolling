@@ -37,7 +37,6 @@ export const ItemSelection = <T,>(props: SelectionDialogProps<T>) => {
 		</div>
 	);
 
-
 	const renderItem = (item: T) => (
 		<div
 			onClick={() => handleItemClick(item)}

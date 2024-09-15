@@ -15,13 +15,14 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.41",
     "sass": "^1.77.8",
-    "tailwindcss": "^3.4.9",
+    "tailwindcss": "^3.4.11",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "@astrojs/solid-js": "^4.4.1",
+    "@astrojs/tailwind": "^5.1.0",
     "@astrojs/ts-plugin": "^1.10.1",
-    "@kobalte/core": "^0.13.4",
+    "@kobalte/core": "^0.13.6",
     "@types/uuid": "^10.0.0",
     "astro": "^4.14.6",
     "class-variance-authority": "^0.7.0",

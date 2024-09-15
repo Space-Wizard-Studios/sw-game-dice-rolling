@@ -1,29 +1,43 @@
 import type { Component } from 'solid-js';
-import { Button } from '@components/ui/button';
-import {
-	Popover,
-	PopoverContent,
-	PopoverDescription,
-	PopoverTitle,
-	PopoverTrigger,
-} from '@components/ui/popover';
+import { createSignal } from 'solid-js';
 
-import { getDiceIcon } from '@assets/diceIcons';
+import { Popover, PopoverContent, PopoverDescription, PopoverTitle, PopoverTrigger, } from '@components/ui/popover';
+import { Button } from '@components/ui/button';
+import { TextField, TextFieldRoot } from '@components/ui/textfield';
 import type { PopoverTriggerProps } from '@kobalte/core/popover';
 
+import { playerDiceStore } from '@stores/DiceStore';
+
 import type { Dice } from '@models/Dice';
-import { getActionList, getActionProbabilities, getMostProbableAction } from '@helpers/getDiceActions';
+import { getDiceIcon } from '@assets/diceIcons';
+import { getActionList, getActionProbabilities } from '@helpers/getDiceActions';
 
 type DiceButtonProps = {
 	dice: Dice;
 	class?: string;
+	onNameChange?: (diceID: string, newName: string) => void;
 }
 
 export const DiceButton: Component<DiceButtonProps> = (props) => {
+	const [name, setName] = createSignal(props.dice.name);
 
 	const actionProbabilities = getActionProbabilities(props.dice);
-	const mostProbableAction = getMostProbableAction(props.dice);
 	const actionList = getActionList(props.dice);
+
+	const handleNameChange = (event: Event) => {
+		const newName = (event.target as HTMLInputElement).value;
+		setName(newName);
+		
+		if (playerDiceStore.getDiceByID(props.dice.id)) {
+			playerDiceStore.updateDiceName(props.dice.id, newName);
+			console.log('Dice name updated at the store');
+		}
+		
+		if (props.onNameChange) {
+			props.onNameChange(props.dice.id, newName);
+			console.log('Dice name updated at the parent component');
+		}
+	};
 
 	return (
 		<Popover>
@@ -39,7 +53,16 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 			<PopoverContent class='overflow-auto'>
 				<div class='flex flex-col space-y-1'>
 					<PopoverTitle>
-						<h4 class='font-medium leading-none'>Actions for {props.dice.name}</h4>
+						<h4 class='font-medium leading-none'>
+							<TextFieldRoot>
+								<TextField
+									value={name()}
+									onBlur={handleNameChange}
+									class='w-full'
+									maxLength={20}
+								/>
+							</TextFieldRoot>
+						</h4>
 					</PopoverTitle>
 					<PopoverDescription>
 						<div>

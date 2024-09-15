@@ -1,9 +1,12 @@
+import { createSignal } from 'solid-js';
 import { DiceButton } from '@components/Dice/DiceButton';
 import { cn } from '@helpers/cn';
+import type { Dice } from '@models/Dice';
 import { playerDiceStore } from '@stores/DiceStore';
 import type { Component } from 'solid-js';
 
 type InventoryBoardProps = {
+	diceSet: Dice[];
 	class?: string;
 }
 

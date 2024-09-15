@@ -2,9 +2,10 @@ import { addDialogueMessage } from '@stores/DialogueStore';
 import { generateRandomCharacter } from '@helpers/generateRandomCharacter';
 import { CharacterSelection } from '@components/ItemSelection/CharacterSelection';
 import { enemyCharacterStore, playerCharacterStore } from '@stores/CharacterStore';
+import { playerDiceStore } from '@stores/DiceStore';
 
 import { DiceSelection } from '@components/ItemSelection/DiceSelection';
-import { generateRandomDice } from '@helpers/generateRandomDiceSet';
+import { generateRandomDice } from '@helpers/generateRandomDice';
 
 export async function Preparation() {
 	await addDialogueMessage({
@@ -15,10 +16,10 @@ export async function Preparation() {
 		requiresUserAction: true,
 	});
 
-	// Generate random characters and prompt player to select one
-	const playerCharacters = generateRandomCharacter(3, 'Player');
-	const playerSelectedCharacter = await CharacterSelection(playerCharacters);
-	playerCharacterStore.addCharacter(playerSelectedCharacter);
+	// Generate some random characters and prompt player to select one
+	const randomPlayerCharacters = generateRandomCharacter(3, 'Player');
+	const selectedCharacter = await CharacterSelection(randomPlayerCharacters);
+	playerCharacterStore.addCharacter(selectedCharacter);
 
 	await addDialogueMessage({
 		lines: [
@@ -28,16 +29,12 @@ export async function Preparation() {
 		requiresUserAction: true,
 	});
 
-	const allSelectedDiceSets = [];
-	// Loop to generate random dice and prompt the player to select 3 times
-	for (let i = 0; i < 2; i++) {
-		const diceOptions = generateRandomDice(5, [4, 6, 8]);
-		const selectedDice = await DiceSelection(3, diceOptions);
-		allSelectedDiceSets.push(selectedDice);
-	}
-	
-	// Update the player's character with all selected dice sets
-	playerCharacterStore.updateCharacter(playerSelectedCharacter.id, { diceSet: allSelectedDiceSets });
+
+	// Generate a random dice and prompt the player to select
+	const randomPlayerDice = generateRandomDice(5, [4, 6, 8]);
+	const selectedDice = await DiceSelection(randomPlayerDice);
+	playerDiceStore.addDice(selectedDice);
+
 
 	await addDialogueMessage({
 		lines: [

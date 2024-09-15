@@ -1,7 +1,7 @@
 import type { Component } from 'solid-js';
 import { CharacterSheet } from '@components/Board/Character/CharacterSheet';
 import { cn } from '@helpers/cn';
-import type { Character } from '@models/Characters';
+import type { Character } from '@models/Character';
 
 type CharacterBoardProps = {
 	title: string;

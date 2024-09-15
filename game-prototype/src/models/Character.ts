@@ -1,5 +1,5 @@
-import type { DiceType } from './Dice';
-import type { Role } from '@models/Roles';
+import type { Dice } from './Dice';
+import type { Role } from '@models/Role';
 
 import type { CommonAction } from './actions/CommonAction';
 
@@ -20,5 +20,5 @@ export type Character = {
     health?: Health;
     speed?: Speed;
     commonActions?: CommonAction[];
-    diceSet?: DiceType[];
+    diceIDs?: string[];
 }

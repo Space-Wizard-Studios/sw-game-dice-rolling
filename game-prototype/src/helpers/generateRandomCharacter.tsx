@@ -1,9 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 import { getRandomElement } from '@helpers/getRandomElement';
-import { Roles } from '@models/Roles';
+import { Roles } from '@models/Role';
 
-import type { Role } from '@models/Roles';
-import type { Character } from '@models/Characters';
+import type { Role } from '@models/Role';
+import type { Character } from '@models/Character';
 
 /** 
  * Generates a list of random characters with the specified prefix.

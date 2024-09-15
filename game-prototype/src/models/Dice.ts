@@ -13,22 +13,22 @@ type DiceSide = DiceAction;
  * @template T - The type of each side (default is DiceSide).
  * @template R - The accumulated sides (default is an empty array).
  */
-type Dice<
+type DiceType<
     Sides extends number,
     T = DiceSide,
     R extends T[] = []
-> = R['length'] extends Sides ? R : Dice<Sides, T, [T, ...R]>;
+> = R['length'] extends Sides ? R : DiceType<Sides, T, [T, ...R]>;
 
 /**
  * Specific dice types with a fixed number of sides.
  */
-export type D4Actions = Dice<4>;
-export type D6Actions = Dice<6>;
-export type D8Actions = Dice<8>;
-export type D10Actions = Dice<10>;
-export type D12Actions = Dice<12>;
-export type D20Actions = Dice<20>;
-export type D100Actions = Dice<100>;
+export type D4Actions = DiceType<4>;
+export type D6Actions = DiceType<6>;
+export type D8Actions = DiceType<8>;
+export type D10Actions = DiceType<10>;
+export type D12Actions = DiceType<12>;
+export type D20Actions = DiceType<20>;
+export type D100Actions = DiceType<100>;
 
 /**
  * Maps the number of actions to the corresponding dice type.
@@ -48,14 +48,15 @@ export type DiceActionsMap = {
  * 
  * @template T - The dice type.
  */
-export type ExtractSides<T> = T extends Dice<infer Sides> ? Sides : never;
+export type ExtractSides<T> = T extends DiceType<infer Sides> ? Sides : never;
 
 /**
  * Represents a dice with a specific number of sides and associated actions.
  * 
  * @template T - The key of DiceSidesMap (default is any key of DiceSidesMap).
  */
-export type DiceType<T extends keyof DiceActionsMap = keyof DiceActionsMap> = {
+export type Dice<T extends keyof DiceActionsMap = keyof DiceActionsMap> = {
+    id: string;
     name: string; // The name of the dice (e.g., "D6").
     actions: DiceActionsMap[T]; // The actions associated with each side of the dice.
     sides: ExtractSides<DiceActionsMap[T]>; // The number of sides on the dice.

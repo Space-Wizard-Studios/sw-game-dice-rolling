@@ -1,5 +1,6 @@
 import { createSignal, type JSX } from 'solid-js';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@components/ui/dialog';
+import { Button } from '@components/ui/button';
 
 type RenderIcon<T> = (icon: T) => JSX.Element;
 type RenderItem<T> = (item: T, selectItem: () => void, isSelected: boolean) => JSX.Element;
@@ -71,9 +72,9 @@ export const ItemSelection = <T,>(props: SelectionDialogProps<T>) => {
 						</div>
 					))}
 				</div>
-				<button onClick={handleConfirm}>
+				<Button onClick={handleConfirm}>
 					{props.buttonText ?? 'Confirmar'}
-				</button>
+				</Button>
 			</DialogContent>
 		</Dialog>
 	);

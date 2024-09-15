@@ -9,18 +9,20 @@ import {
 } from '@components/ui/popover';
 
 import { getDiceIcon } from '@assets/diceIcons';
-import { getActionProbabilities, getActionList } from '@helpers/getDice';
-
 import type { PopoverTriggerProps } from '@kobalte/core/popover';
-import type { DiceType } from '@models/Dice';
+
+import type { Dice } from '@models/Dice';
+import { getActionList, getActionProbabilities, getMostProbableAction } from '@helpers/getDiceActions';
 
 type DiceButtonProps = {
-	dice: DiceType;
+	dice: Dice;
 	class?: string;
 }
 
-export const DiceButton = (props: DiceButtonProps) => {
+export const DiceButton: Component<DiceButtonProps> = (props) => {
+
 	const actionProbabilities = getActionProbabilities(props.dice);
+	const mostProbableAction = getMostProbableAction(props.dice);
 	const actionList = getActionList(props.dice);
 
 	return (
@@ -35,11 +37,11 @@ export const DiceButton = (props: DiceButtonProps) => {
 				)}
 			/>
 			<PopoverContent class='overflow-auto'>
-				<div class='grid gap-1'>
-					<PopoverTitle class='space-y-1'>
+				<div class='flex flex-col space-y-1'>
+					<PopoverTitle>
 						<h4 class='font-medium leading-none'>Actions for {props.dice.name}</h4>
 					</PopoverTitle>
-					<PopoverDescription class='grid gap-1'>
+					<PopoverDescription>
 						<div>
 							<h5 class='font-medium'>Probability:</h5>
 							<ul>

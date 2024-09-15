@@ -1,8 +1,8 @@
 import type { ComboAction } from '@models/actions/ComboAction';
 import type { DiceAction } from '@models/actions/DiceAction';
-import type { Health } from '@models/Characters';
-import { Roles } from '@models/Roles';
-import type { Role } from '@models/Roles';
+import type { Health } from '@models/Character';
+import { Roles } from '@models/Role';
+import type { Role } from '@models/Role';
 
 export function getRoleName(role: Role): string {
 	return role.name;

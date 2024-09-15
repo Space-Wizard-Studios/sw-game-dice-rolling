@@ -1,4 +1,4 @@
-import type { Health, Speed } from "@models/Characters";
+import type { Health, Speed } from "@models/Character";
 import { type DiceAction, DiceActions } from "@models/actions/DiceAction";
 import { ComboActions, type ComboAction } from "@models/actions/ComboAction";
 

@@ -1,4 +1,4 @@
-import type { Role } from '@models/Roles';
+import type { Role } from '@models/Role';
 import type { Component } from 'solid-js';
 
 type CharacterNameProps = {

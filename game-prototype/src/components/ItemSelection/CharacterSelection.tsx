@@ -3,17 +3,17 @@ import { createSignal } from 'solid-js';
 import { ItemSelection } from '@components/ItemSelection/ItemSelection';
 import { CharacterSheet } from '@components/Board/Character/CharacterSheet';
 
-import type { Character } from '@models/Characters';
+import type { Character } from '@models/Character';
 
 export function CharacterSelection(characters: Character[]): Promise<Character> {
 	const [selectedCharacter, setSelectedCharacter] = createSignal<Character>();
 	const [isDialogOpen, setDialogOpen] = createSignal(true);
 
 	return new Promise<Character>((resolve) => {
-		const handleConfirm = (character: Character) => {
-			setSelectedCharacter(character);
+		const handleConfirm = (selectedCharacter: Character) => {
+			setSelectedCharacter(selectedCharacter);
 			setDialogOpen(false);
-			resolve(character);
+			resolve(selectedCharacter);
 		};
 
 		render(() => (

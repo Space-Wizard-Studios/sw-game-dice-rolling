@@ -1,24 +1,20 @@
 import { createSignal } from 'solid-js';
 import { render } from 'solid-js/web';
 import { ItemSelection } from './ItemSelection';
-import { generateRandomDice } from '@helpers/generateRandomDiceSet';
 
-import type { DiceActionsMap, DiceType } from '@models/Dice';
+import type { Dice } from '@models/Dice';
 import { DiceButton } from '@components/Dice/DiceButton';
-import { getMostProbableAction } from '@helpers/getDice';
+import { getUniqueActionsCount } from '@helpers/getDiceActions';
 
-export function DiceSelection(quantity: number, dice: DiceType[]): Promise<DiceType> {
-	const [selectedDice, setSelectedDice] = createSignal<DiceType>();
+export function DiceSelection(diceSet: Dice[]): Promise<Dice> {
+	const [selectedDice, setSelectedDice] = createSignal<Dice>();
 	const [isDialogOpen, setDialogOpen] = createSignal(true);
 
-	const diceSides = dice.map(d => d.sides as keyof DiceActionsMap);
-	const diceOptions = generateRandomDice(quantity, diceSides);
-
-	return new Promise<DiceType>((resolve) => {
-		const handleConfirm = (dice: DiceType) => {
-			setSelectedDice(dice);
+	return new Promise<Dice>((resolve) => {
+		const handleConfirm = (selectedDice: Dice) => {
+			setSelectedDice(selectedDice);
 			setDialogOpen(false);
-			resolve(dice);
+			resolve(selectedDice);
 		};
 
 		render(() => (
@@ -26,24 +22,21 @@ export function DiceSelection(quantity: number, dice: DiceType[]): Promise<DiceT
 				title='Escolha um dado'
 				description='Selecione um dado para continuar.'
 				open={isDialogOpen()}
-				items={diceOptions}
-				renderIcon={renderIcon}
-				renderItem={renderDice}
+				items={diceSet}
+				renderIcon={renderDiceIcon}
+				renderItem={renderDiceInfo}
 				onConfirm={handleConfirm}
 			/>
 		), document.body);
 	});
 }
 
-const renderDice = (dice: DiceType) => (
-	<div class='flex justify-between'>
-		<p class='text-left'>
-			{dice.name}, {getMostProbableAction(dice).name} ({getMostProbableAction(dice).probability}%)
-		</p>
-		<p>{dice.actions.length} sides</p>
-	</div>
+const renderDiceInfo = (dice: Dice) => (
+	<p>
+		{dice.name}: {dice.actions.length} lados, {getUniqueActionsCount(dice)} ações diferentes
+	</p>
 );
 
-const renderIcon = (dice: DiceType) => (
+const renderDiceIcon = (dice: Dice) => (
 	<DiceButton dice={dice} />
 );

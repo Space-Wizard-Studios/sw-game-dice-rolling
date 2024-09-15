@@ -1,5 +1,5 @@
 import type { Component } from 'solid-js';
-import { CharacterSheet } from '@components/Board/Character/CharacterSheet';
+import { CharacterSheet } from '@components/Character/CharacterSheet';
 import { cn } from '@helpers/cn';
 import type { Character } from '@models/Character';
 

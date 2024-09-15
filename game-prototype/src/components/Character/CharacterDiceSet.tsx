@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 import type { Dice } from '@models/Dice';
-import { DiceButton } from '../../Dice/DiceButton';
+import { DiceButton } from '../Dice/DiceButton';
 
 export type CharacterDiceProps = {
 	diceSet: Dice[];

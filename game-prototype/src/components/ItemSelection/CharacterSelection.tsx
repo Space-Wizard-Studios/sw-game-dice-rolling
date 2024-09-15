@@ -1,7 +1,7 @@
 import { render } from 'solid-js/web';
 import { createSignal } from 'solid-js';
 import { ItemSelection } from '@components/ItemSelection/ItemSelection';
-import { CharacterSheet } from '@components/Board/Character/CharacterSheet';
+import { CharacterSheet } from '@components/Character/CharacterSheet';
 
 import type { Character } from '@models/Character';
 

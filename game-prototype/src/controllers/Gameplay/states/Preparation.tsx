@@ -8,27 +8,26 @@ import { DiceSelection } from '@components/ItemSelection/DiceSelection';
 import { generateRandomDice } from '@helpers/generateRandomDice';
 
 export async function Preparation() {
-	// await addDialogueMessage({
-	// 	lines: [
-	// 		{ text: 'Esta é a fase de preparação.' },
-	// 		{ text: 'Vamos começar selecionando seu personagem.' },
-	// 	],
-	// 	requiresUserAction: true,
-	// });
+	await addDialogueMessage({
+		lines: [
+			{ text: 'Esta é a fase de preparação.' },
+			{ text: 'Vamos começar selecionando seu personagem.' },
+		],
+		requiresUserAction: true,
+	});
 
-	// // Generate some random characters and prompt player to select one
-	// const randomPlayerCharacters = generateRandomCharacter(3, 'Player');
-	// const selectedCharacter = await CharacterSelection(randomPlayerCharacters);
-	// playerCharacterStore.addCharacter(selectedCharacter);
+	// Generate some random characters and prompt player to select one
+	const randomPlayerCharacters = generateRandomCharacter(3, 'Player');
+	const selectedCharacter = await CharacterSelection(randomPlayerCharacters);
+	playerCharacterStore.addCharacter(selectedCharacter);
 
-	// await addDialogueMessage({
-	// 	lines: [
-	// 		{ text: 'Ótima escolha!' },
-	// 		{ text: 'Agora vamos selecionar seus dados.' },
-	// 	],
-	// 	requiresUserAction: true,
-	// });
-
+	await addDialogueMessage({
+		lines: [
+			{ text: 'Ótima escolha!' },
+			{ text: 'Agora vamos selecionar seus dados.' },
+		],
+		requiresUserAction: true,
+	});
 
 	// Generate a random dice and prompt the player to select
 	const randomPlayerDice = generateRandomDice(5, [4, 6, 8]);

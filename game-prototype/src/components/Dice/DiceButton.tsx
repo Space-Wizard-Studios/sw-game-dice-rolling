@@ -11,6 +11,7 @@ import { playerDiceStore } from '@stores/DiceStore';
 import type { Dice } from '@models/Dice';
 import { getDiceIcon } from '@assets/diceIcons';
 import { getActionList, getActionProbabilities } from '@helpers/getDiceActions';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@components/ui/tooltip';
 
 type DiceButtonProps = {
 	dice: Dice;
@@ -27,12 +28,12 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 	const handleNameChange = (event: Event) => {
 		const newName = (event.target as HTMLInputElement).value;
 		setName(newName);
-		
+
 		if (playerDiceStore.getDiceByID(props.dice.id)) {
 			playerDiceStore.updateDiceName(props.dice.id, newName);
 			console.log('Dice name updated at the store');
 		}
-		
+
 		if (props.onNameChange) {
 			props.onNameChange(props.dice.id, newName);
 			console.log('Dice name updated at the parent component');
@@ -41,15 +42,22 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 
 	return (
 		<Popover>
-			<PopoverTrigger
-				as={(triggerProps: PopoverTriggerProps) => (
-					<Button {...triggerProps} class='flex w-8 h-8 p-1 bg-white rounded-full dark:bg-black text-blue-500 overflow-visible items-center justify-center'>
-						<div class='w-6 h-6'>
-							{getDiceIcon(props.dice.sides)}
-						</div>
-					</Button>
-				)}
-			/>
+			<Tooltip>
+				<TooltipTrigger>
+					<PopoverTrigger
+						as={(triggerProps: PopoverTriggerProps) => (
+							<Button {...triggerProps} class='flex w-8 h-8 p-1 bg-white rounded-full dark:bg-black text-blue-500 overflow-visible items-center justify-center'>
+								<div class='w-6 h-6'>
+									{getDiceIcon(props.dice.sides)}
+								</div>
+							</Button>
+						)}
+					/>
+				</TooltipTrigger>
+				<TooltipContent>
+					<p>{props.dice.name}</p>
+				</TooltipContent>
+			</Tooltip>
 			<PopoverContent class='overflow-auto'>
 				<div class='flex flex-col space-y-1'>
 					<PopoverTitle>

@@ -5,19 +5,19 @@ import type { GameStateType } from '@models/states/States';
 type LineType = 'info' | 'failure' | 'success' | 'warning';
 
 export type DialogueLine = {
-    text: string;
-    align?: 'left' | 'center' | 'right';
-    type?: LineType;
+	text: string;
+	align?: 'left' | 'center' | 'right';
+	type?: LineType;
 };
 
 export type DialogueMessage = {
-    lines: DialogueLine[];
-    gameState?: GameStateType;
-    requiresUserAction?: boolean;
+	lines: DialogueLine[];
+	gameState?: GameStateType;
+	requiresUserAction?: boolean;
 };
 
 export const [dialogueStore, setDialogueStore] = createStore<{ messages: DialogueMessage[] }>({
-    messages: [],
+	messages: [],
 });
 
 /**
@@ -27,16 +27,16 @@ export const [dialogueStore, setDialogueStore] = createStore<{ messages: Dialogu
  * @returns A promise that resolves when the user action is completed, if required.
  */
 export function addDialogueMessage(message: DialogueMessage): Promise<void> {
-    const [gameState] = useGameManager();
-    const currentState = gameState.currentState;
-    const messageState = { ...message, gameState: currentState };
-    setDialogueStore('messages', messages => [...messages, messageState]);
+	const [gameState] = useGameManager();
+	const currentState = gameState.currentState;
+	const messageState = { ...message, gameState: currentState };
+	setDialogueStore('messages', messages => [...messages, messageState]);
 
-    if (message.requiresUserAction) {
-        return waitForUserAction();
-    } else {
-        return Promise.resolve();
-    }
+	if (message.requiresUserAction) {
+		return waitForUserAction();
+	} else {
+		return Promise.resolve();
+	}
 }
 
 /**
@@ -44,15 +44,15 @@ export function addDialogueMessage(message: DialogueMessage): Promise<void> {
  * @returns A promise that resolves when the user action is completed.
  */
 function waitForUserAction(): Promise<void> {
-    return new Promise<void>((resolve) => {
-        const interval = setInterval(() => {
-            const lastMessage = dialogueStore.messages[dialogueStore.messages.length - 1];
-            if (!lastMessage.requiresUserAction) {
-                clearInterval(interval);
-                resolve();
-            }
-        }, 100);
-    });
+	return new Promise<void>((resolve) => {
+		const interval = setInterval(() => {
+			const lastMessage = dialogueStore.messages[dialogueStore.messages.length - 1];
+			if (!lastMessage.requiresUserAction) {
+				clearInterval(interval);
+				resolve();
+			}
+		}, 100);
+	});
 }
 
 /**
@@ -60,7 +60,7 @@ function waitForUserAction(): Promise<void> {
  * @param line - The dialogue line to add.
  */
 export function addDialogueLine(line: DialogueLine): void {
-    const lastMessage = dialogueStore.messages[dialogueStore.messages.length - 1];
-    const newMessage = { ...lastMessage, lines: [...lastMessage.lines, line] };
-    setDialogueStore('messages', messages => [...messages.slice(0, -1), newMessage]);
+	const lastMessage = dialogueStore.messages[dialogueStore.messages.length - 1];
+	const newMessage = { ...lastMessage, lines: [...lastMessage.lines, line] };
+	setDialogueStore('messages', messages => [...messages.slice(0, -1), newMessage]);
 }

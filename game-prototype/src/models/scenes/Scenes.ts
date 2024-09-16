@@ -9,12 +9,12 @@ import { MainMenuScenes } from "@models/scenes/MainMenuScene";
 export type GameSceneType = GameplaySceneType | GameoverSceneType | MainMenuSceneType;
 
 export type GameScene = {
-    name: string;
-    bg: string;
+	name: string;
+	bg: string;
 };
 
 export const GameScenes: Record<GameSceneType, GameScene> = {
-    ...GameplayScenes,
-    ...GameoverScenes,
-    ...MainMenuScenes,
+	...GameplayScenes,
+	...GameoverScenes,
+	...MainMenuScenes,
 } as const;

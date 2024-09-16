@@ -5,17 +5,17 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  base: '/sw-game-dice-roll/',
-  trailingSlash: "always",
-  integrations: [
-    solid(),
-    tailwind(
-      {
-        applyBaseStyles: false,
-      }
-    )],
-  vite: {
-    plugins: [tsconfigPaths()],
-    types: ["vite/client"]
-  },
+	base: '/sw-game-dice-roll/',
+	trailingSlash: "always",
+	integrations: [
+		solid(),
+		tailwind(
+			{
+				applyBaseStyles: false,
+			}
+		)],
+	vite: {
+		plugins: [tsconfigPaths()],
+		types: ["vite/client"]
+	},
 });

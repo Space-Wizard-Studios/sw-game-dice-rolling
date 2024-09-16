@@ -9,14 +9,14 @@ import { GameplayStates } from "./GameplayStates";
 export type GameStateType = GameplayStateType | GameoverStateType | MainMenuStateType;
 
 export type GameState = {
-    name: string;
-    icon: string;
-    bg: string;
-    iconBg: string;
+	name: string;
+	icon: string;
+	bg: string;
+	iconBg: string;
 };
 
 export const GameStates: Record<GameStateType, GameState> = {
-    ...GameplayStates,
-    ...GameoverStates,
-    ...MainMenuStates,
+	...GameplayStates,
+	...GameoverStates,
+	...MainMenuStates,
 } as const;

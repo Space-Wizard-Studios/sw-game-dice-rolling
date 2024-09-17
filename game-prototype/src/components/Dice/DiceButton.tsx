@@ -21,7 +21,8 @@ type DiceButtonProps = {
 
 export const DiceButton: Component<DiceButtonProps> = (props) => {
 	const [name, setName] = createSignal(props.dice.name);
-
+	
+	const diceIcon = getDiceIcon(props.dice.sides);
 	const actionProbabilities = getActionProbabilities(props.dice);
 	const actionList = getActionList(props.dice);
 
@@ -40,6 +41,7 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 		}
 	};
 
+
 	return (
 		<Popover>
 			<Tooltip>
@@ -47,9 +49,10 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 					<PopoverTrigger
 						as={(triggerProps: PopoverTriggerProps) => (
 							<Button {...triggerProps} class='flex w-8 h-8 p-1 bg-white rounded-full dark:bg-black text-blue-500 overflow-visible items-center justify-center'>
-								<div class='w-6 h-6'>
-									{getDiceIcon(props.dice.sides)}
-								</div>
+								{
+									diceIcon ??
+									<div class='w-6 h-6'>{diceIcon}</div>
+								}
 							</Button>
 						)}
 					/>

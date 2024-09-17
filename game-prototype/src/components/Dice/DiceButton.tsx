@@ -64,7 +64,7 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 						as={(triggerProps: PopoverTriggerProps) => (
 							<Button {...triggerProps}
 								style={diceBackground}
-								class={cn(`flex w-8 h-8 p-1 rounded-full overflow-visible items-center justify-center`)}>
+								class={cn(`flex w-8 h-8 p-1 rounded-full overflow-visible items-center justify-center text-black`)}>
 								{<div class='w-6 h-6'>{diceIcon}</div>}
 							</Button>
 						)}

@@ -12,6 +12,8 @@ import type { Dice } from '@models/Dice';
 import { getDiceIcon } from '@assets/diceIcons';
 import { getActionList, getActionProbabilities } from '@helpers/getDiceActions';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@components/ui/tooltip';
+import { getDiceColor } from '@helpers/getDiceColor';
+import { cn } from '@helpers/cn';
 
 type DiceButtonProps = {
 	dice: Dice;
@@ -21,10 +23,12 @@ type DiceButtonProps = {
 
 export const DiceButton: Component<DiceButtonProps> = (props) => {
 	const [name, setName] = createSignal(props.dice.name);
-	
-	const diceIcon = getDiceIcon(props.dice.sides);
+
 	const actionProbabilities = getActionProbabilities(props.dice);
 	const actionList = getActionList(props.dice);
+
+	const diceIcon = getDiceIcon(props.dice.sides);
+	const diceColor = getDiceColor(props.dice);
 
 	const handleNameChange = (event: Event) => {
 		const newName = (event.target as HTMLInputElement).value;
@@ -41,18 +45,15 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 		}
 	};
 
-
 	return (
 		<Popover>
 			<Tooltip>
 				<TooltipTrigger>
 					<PopoverTrigger
 						as={(triggerProps: PopoverTriggerProps) => (
-							<Button {...triggerProps} class='flex w-8 h-8 p-1 bg-white rounded-full dark:bg-black text-blue-500 overflow-visible items-center justify-center'>
-								{
-									diceIcon ??
-									<div class='w-6 h-6'>{diceIcon}</div>
-								}
+							<Button {...triggerProps}
+								class={cn(`flex w-8 h-8 p-1 rounded-full overflow-visible items-center justify-center`, diceColor)}>
+								{<div class='w-6 h-6'>{diceIcon}</div>}
 							</Button>
 						)}
 					/>
@@ -80,9 +81,7 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 							<h5 class='font-medium'>Probability:</h5>
 							<ul>
 								{actionProbabilities.map(({ name, probability }) => (
-									<li>
-										{name} - {probability}%
-									</li>
+									<li>{name} - {probability}%</li>
 								))}
 							</ul>
 						</div>
@@ -99,6 +98,6 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 					</PopoverDescription>
 				</div>
 			</PopoverContent>
-		</Popover>
+		</Popover >
 	);
 };

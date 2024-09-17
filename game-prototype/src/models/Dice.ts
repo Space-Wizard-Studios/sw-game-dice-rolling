@@ -3,7 +3,7 @@ import type { DiceAction } from './actions/DiceAction';
 /**
  * Represents a single side of a dice, which is an action.
  */
-type DiceSide = DiceAction;
+export type DiceSide = DiceAction;
 
 /**
  * Recursive type to represent a dice with a specific number of sides.
@@ -13,7 +13,7 @@ type DiceSide = DiceAction;
  * @template T - The type of each side (default is DiceSide).
  * @template R - The accumulated sides (default is an empty array).
  */
-type DiceType<
+export type DiceType<
 	Sides extends number,
 	T = DiceSide,
 	R extends T[] = []

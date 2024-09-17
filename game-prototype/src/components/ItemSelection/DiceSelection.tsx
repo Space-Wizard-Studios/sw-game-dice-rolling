@@ -28,7 +28,7 @@ export function DiceSelection(diceSet: Dice[]): Promise<Dice> {
 			</p>
 		);
 
-		const renderDiceIcon = (dice: Dice) => (
+		const renderDiceButton = (dice: Dice) => (
 			<DiceButton dice={dice} onNameChange={handleNameChange} />
 		);
 
@@ -38,7 +38,7 @@ export function DiceSelection(diceSet: Dice[]): Promise<Dice> {
 				description='Selecione um dado para continuar.'
 				open={isDialogOpen()}
 				items={diceList()}
-				renderIcon={renderDiceIcon}
+				renderIcon={renderDiceButton}
 				renderItem={renderDiceInfo}
 				onConfirm={handleConfirm}
 			/>

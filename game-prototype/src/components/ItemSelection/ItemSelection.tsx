@@ -64,7 +64,7 @@ export const ItemSelection = <T,>(props: SelectionDialogProps<T>) => {
 				</DialogHeader>
 				<div class='flex flex-col gap-1'>
 					{props.items.map(item => (
-						<div class='flex flex-row w-full items-center justify-center'>
+						<div class='flex flex-row w-full gap-1 items-center justify-center'>
 							{renderIcon(item)}
 							{renderItem(item)}
 							{renderLabel(item)}

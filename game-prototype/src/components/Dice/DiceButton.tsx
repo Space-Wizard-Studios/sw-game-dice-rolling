@@ -62,7 +62,7 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 					<p>{props.dice.name}</p>
 				</TooltipContent>
 			</Tooltip>
-			<PopoverContent class='overflow-auto'>
+			<PopoverContent>
 				<div class='flex flex-col space-y-1'>
 					<PopoverTitle>
 						<h4 class='font-medium leading-none'>
@@ -76,26 +76,28 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 							</TextFieldRoot>
 						</h4>
 					</PopoverTitle>
-					<PopoverDescription>
-						<div>
-							<h5 class='font-medium'>Probability:</h5>
-							<ul>
-								{actionProbabilities.map(({ name, probability }) => (
-									<li>{name} - {probability}%</li>
-								))}
-							</ul>
-						</div>
-						<div>
-							<h5 class='font-medium'>Dice:</h5>
-							<ul>
-								{actionList.map((actionName) => (
-									<li>
-										{actionName}
-									</li>
-								))}
-							</ul>
-						</div>
-					</PopoverDescription>
+					<div class='overflow-auto max-h-64 p-2'>
+						<PopoverDescription>
+							<div>
+								<h5 class='font-medium'>Probability:</h5>
+								<ul>
+									{actionProbabilities.map(({ name, probability }) => (
+										<li>{name} - {probability}%</li>
+									))}
+								</ul>
+							</div>
+							<div>
+								<h5 class='font-medium'>Dice:</h5>
+								<ul>
+									{actionList.map((actionName) => (
+										<li>
+											{actionName}
+										</li>
+									))}
+								</ul>
+							</div>
+						</PopoverDescription>
+					</div>
 				</div>
 			</PopoverContent>
 		</Popover >

@@ -12,7 +12,7 @@ import type { Dice } from '@models/Dice';
 import { getDiceIcon } from '@assets/diceIcons';
 import { getActionList, getActionProbabilities } from '@helpers/getDiceActions';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@components/ui/tooltip';
-import { getDiceColor } from '@helpers/getDiceColor';
+import { getDiceColors } from '@helpers/getDiceColor';
 import { cn } from '@helpers/cn';
 
 type DiceButtonProps = {
@@ -24,11 +24,22 @@ type DiceButtonProps = {
 export const DiceButton: Component<DiceButtonProps> = (props) => {
 	const [name, setName] = createSignal(props.dice.name);
 
-	const actionProbabilities = getActionProbabilities(props.dice);
+	const actionProbabilities = getActionProbabilities(props.dice).sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
 	const actionList = getActionList(props.dice);
 
 	const diceIcon = getDiceIcon(props.dice.sides);
-	const diceColor = getDiceColor(props.dice);
+	const diceColors = getDiceColors(props.dice);
+
+	const diceBackground = (() => {
+		if (diceColors.length === 1) {
+			return `background-color: ${diceColors[0]};`;
+		} else if (diceColors.length === 2) {
+			return `background: linear-gradient(45deg, ${diceColors[0]} 50%, ${diceColors[1]} 50%);`;
+		} else {
+			const gradientColors = diceColors.join(', ');
+			return `background: linear-gradient(45deg, ${gradientColors});`;
+		}
+	})();
 
 	const handleNameChange = (event: Event) => {
 		const newName = (event.target as HTMLInputElement).value;
@@ -52,7 +63,8 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 					<PopoverTrigger
 						as={(triggerProps: PopoverTriggerProps) => (
 							<Button {...triggerProps}
-								class={cn(`flex w-8 h-8 p-1 rounded-full overflow-visible items-center justify-center`, diceColor)}>
+								style={diceBackground}
+								class={cn(`flex w-8 h-8 p-1 rounded-full overflow-visible items-center justify-center`)}>
 								{<div class='w-6 h-6'>{diceIcon}</div>}
 							</Button>
 						)}
@@ -76,23 +88,28 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 							</TextFieldRoot>
 						</h4>
 					</PopoverTitle>
-					<div class='overflow-auto max-h-64 p-2'>
-						<PopoverDescription>
+					<div class='overflow-auto max-h-40 p-2'>
+						<PopoverDescription class='space-y-2'>
 							<div>
-								<h5 class='font-medium'>Probability:</h5>
+								<h5 class='font-medium'>Probabilidade:</h5>
 								<ul>
 									{actionProbabilities.map(({ name, probability }) => (
-										<li>{name} - {probability}%</li>
+										<li class="flex flex-row justify-between even:bg-gray-100">
+											<span>
+												{name}
+											</span>
+											<span>
+												{probability}%
+											</span>
+										</li>
 									))}
 								</ul>
 							</div>
 							<div>
-								<h5 class='font-medium'>Dice:</h5>
+								<h5 class='font-medium'>Ações:</h5>
 								<ul>
-									{actionList.map((actionName) => (
-										<li>
-											{actionName}
-										</li>
+									{actionList.map((actionName, index) => (
+										<li>{index} - {actionName}</li>
 									))}
 								</ul>
 							</div>

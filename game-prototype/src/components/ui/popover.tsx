@@ -41,7 +41,7 @@ export const PopoverContent = <T extends ValidComponent = "div">(
 				)}
 				{...rest}
 			>
-				<div class='flex flex-row w-full justify-end m-1'>
+				<div class='flex flex-row w-full justify-end p-2'>
 					<PopoverPrimitive.CloseButton class="rounded-sm opacity-70 ring-offset-background transition-[opacity,box-shadow] hover:opacity-100 focus:outline-none focus:ring-[1.5px] focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +56,7 @@ export const PopoverContent = <T extends ValidComponent = "div">(
 								stroke-width="2"
 								d="M18 6L6 18M6 6l12 12"
 							/>
-							<title>Close</title>
+							<title>Fechar</title>
 						</svg>
 					</PopoverPrimitive.CloseButton>
 				</div>

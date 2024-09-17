@@ -5,45 +5,39 @@ export type DiceAction = {
 	description: string;
 	targets: ActionTarget[];
 	bgColor: string;
-	textColor: string;
 }
 
 type ActionType = 'empty' | 'physicalAttack' | 'magicAttack' | 'defend' | 'special';
 
 export const DiceActions: Record<ActionType, DiceAction> = {
 	empty: {
-		name: 'Empty',
+		name: 'Vazio',
 		description: 'Do nothing.',
 		targets: [Targets.self],
-		bgColor: 'bg-gray-300',
-		textColor: 'text-gray-800',
+		bgColor: '#d4d4d8',
 	},
 	physicalAttack: {
-		name: 'Physical Attack',
+		name: 'Ataque Físico',
 		description: 'Perform a physical attack.',
 		targets: [Targets.enemySingle],
-		bgColor: 'bg-red-300',
-		textColor: 'text-red-800',
+		bgColor: '#fca5a5',
 	},
 	magicAttack: {
-		name: 'Magic Attack',
+		name: 'Ataque Mágico',
 		description: 'Perform a magic attack.',
 		targets: [Targets.enemySingle, Targets.enemyAll],
-		bgColor: 'bg-blue-300',
-		textColor: 'text-blue-800',
+		bgColor: '#93c5fd',
 	},
 	defend: {
-		name: 'Defend',
+		name: 'Defender',
 		description: 'Take a defensive stance to reduce incoming damage.',
 		targets: [Targets.self],
-		bgColor: 'bg-green-300',
-		textColor: 'text-green-800',
+		bgColor: '#fde047',
 	},
 	special: {
-		name: 'Special',
+		name: 'Especial',
 		description: 'Use a special ability.',
 		targets: [Targets.any],
-		bgColor: 'bg-purple-300',
-		textColor: 'text-purple-800',
+		bgColor: '#d8b4fe',
 	},
 } as const;

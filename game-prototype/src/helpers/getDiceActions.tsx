@@ -22,11 +22,11 @@ export function getActionList(dice: Dice) {
 	return dice.actions.map(action => action.name);
 }
 
-export function getMostProbableAction(dice: Dice) {
-	const actionProbabilities = getActionProbabilities(dice);
-	return actionProbabilities.reduce((max, action) =>
-		parseFloat(action.probability) > parseFloat(max.probability) ? action : max
-	);
+
+export function getMostProbableActions(dice: Dice) {
+    const actionProbabilities = getActionProbabilities(dice);
+    const maxProbability = Math.max(...actionProbabilities.map(action => parseFloat(action.probability)));
+    return actionProbabilities.filter(action => parseFloat(action.probability) === maxProbability);
 }
 
 export function getActionsCount(dice: Dice) {

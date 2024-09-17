@@ -1,5 +1,5 @@
 import { createStore } from 'solid-js/store';
-import { getActionProbabilities, getActionList, getMostProbableAction } from '@helpers/getDiceActions';
+import { getActionProbabilities, getActionList, getMostProbableActions } from '@helpers/getDiceActions';
 import type { Dice } from '@models/Dice';
 
 export type DiceStore = {
@@ -33,8 +33,8 @@ function createDiceStore() {
 		return getActionList(dice);
 	}
 
-	function getMostProbableAction(dice: Dice) {
-		return getMostProbableAction(dice);
+	function getMostProbableActions(dice: Dice) {
+		return getMostProbableActions(dice);
 	}
 
 	function updateDiceName(diceID: string, newName: string): void {

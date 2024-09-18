@@ -23,7 +23,7 @@ export function DiceSelection(diceSet: Dice[]): Promise<Dice> {
 		};
 
 		const renderDiceInfo = (dice: Dice) => (
-			<p>
+			<p class='p-2 rounded-md border-2 border-black border-opacity-50'>
 				{dice.name}: {dice.actions.length} lados, {getUniqueActionsCount(dice)} ações diferentes
 			</p>
 		);

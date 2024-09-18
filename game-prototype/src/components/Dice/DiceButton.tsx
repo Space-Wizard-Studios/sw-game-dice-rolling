@@ -32,12 +32,12 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 
 	const diceBackground = (() => {
 		if (diceColors.length === 1) {
-			return `background-color: ${diceColors[0]};`;
+			return `background-color: ${diceColors[0].bgColor}; color: ${diceColors[0].textColor};`;
 		} else if (diceColors.length === 2) {
-			return `background: linear-gradient(45deg, ${diceColors[0]} 50%, ${diceColors[1]} 50%);`;
+			return `background: linear-gradient(45deg, ${diceColors[0].bgColor} 50%, ${diceColors[1].bgColor} 50%); color: ${diceColors[0].textColor};`;
 		} else {
-			const gradientColors = diceColors.join(', ');
-			return `background: linear-gradient(45deg, ${gradientColors});`;
+			const gradientColors = diceColors.map(color => color.bgColor).join(', ');
+			return `background: linear-gradient(45deg, ${gradientColors}); color: ${diceColors[0].textColor};`;
 		}
 	})();
 
@@ -64,7 +64,7 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 						as={(triggerProps: PopoverTriggerProps) => (
 							<Button {...triggerProps}
 								style={diceBackground}
-								class={cn(`flex w-8 h-8 p-1 rounded-full overflow-visible items-center justify-center text-black`)}>
+								class={cn(`flex w-8 h-8 p-1 rounded-full overflow-visible items-center justify-center`)}>
 								{<div class='w-6 h-6'>{diceIcon}</div>}
 							</Button>
 						)}

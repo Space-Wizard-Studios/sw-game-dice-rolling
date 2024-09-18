@@ -40,9 +40,9 @@ export const ItemSelection = <T,>(props: SelectionDialogProps<T>) => {
 	const renderItem = (item: T) => (
 		<div
 			onClick={() => handleItemClick(item)}
-			class={`w-full cursor-pointer rounded-md p-2 border-2 hover:bg-blue-200 
+			class={`w-full cursor-pointer rounded-md  hover:bg-blue-200 
 				${selectedItem() === item
-					? 'bg-blue-100 border-blue-300'
+					? 'bg-blue-100 '
 					: ''}`}
 		>
 			{props.renderItem(item, () => handleItemClick(item), selectedItem() === item)}

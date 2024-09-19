@@ -8,7 +8,7 @@ type CharacterActionProps = {
 export const CharacterAction: Component<CharacterActionProps> = () => {
 	return (
 		<p class='text-sm'>
-			Action: <span class='font-semibold'>X</span> on <span class='font-semibold'>Y</span>
+			{/* Action: <span class='font-semibold'>X</span> on <span class='font-semibold'>Y</span> */}
 		</p>
 	);
 };

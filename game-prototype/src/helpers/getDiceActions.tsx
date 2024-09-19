@@ -1,6 +1,24 @@
 import type { Dice } from '@models/Dice';
 import { DiceActions } from '@models/actions/DiceAction';
 
+export function getActionList(dice: Dice) {
+	return dice.actions.map(action => action.name);
+}
+
+export function getActionsCount(dice: Dice) {
+	return (
+		dice.actions.reduce((acc, action) => {
+			acc[action.name] = (acc[action.name] || 0) + 1;
+			return acc;
+		}, {} as Record<string, number>)
+	);
+}
+
+export function getUniqueActionsCount(dice: Dice): number {
+	const uniqueActions = new Set(dice.actions.map(action => action.name));
+	return uniqueActions.size;
+}
+
 export function getActionProbabilities(dice: Dice) {
 	const totalActions = dice.actions.length;
 	const actionCounts = dice.actions.reduce((acc, action) => {
@@ -18,27 +36,8 @@ export function getActionProbabilities(dice: Dice) {
 	});
 }
 
-export function getActionList(dice: Dice) {
-	return dice.actions.map(action => action.name);
-}
-
-
 export function getMostProbableActions(dice: Dice) {
-    const actionProbabilities = getActionProbabilities(dice);
-    const maxProbability = Math.max(...actionProbabilities.map(action => parseFloat(action.probability)));
-    return actionProbabilities.filter(action => parseFloat(action.probability) === maxProbability);
-}
-
-export function getActionsCount(dice: Dice) {
-	return (
-		dice.actions.reduce((acc, action) => {
-			acc[action.name] = (acc[action.name] || 0) + 1;
-			return acc;
-		}, {} as Record<string, number>)
-	);
-}
-
-export function getUniqueActionsCount(dice: Dice): number {
-	const uniqueActions = new Set(dice.actions.map(action => action.name));
-	return uniqueActions.size;
+	const actionProbabilities = getActionProbabilities(dice);
+	const maxProbability = Math.max(...actionProbabilities.map(action => parseFloat(action.probability)));
+	return actionProbabilities.filter(action => parseFloat(action.probability) === maxProbability);
 }

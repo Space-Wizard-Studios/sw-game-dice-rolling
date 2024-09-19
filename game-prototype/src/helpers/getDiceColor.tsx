@@ -3,24 +3,24 @@ import type { Dice } from "@models/Dice";
 import { type DiceAction, DiceActions } from "@models/actions/DiceAction";
 
 type DiceColor = {
-    bgColor: string;
-    textColor: string;
+	background: string;
+	text: string;
 };
 
 export function getDiceColors(dice: Dice): DiceColor[] {
-    const actions = getMostProbableActions(dice);
+	const actions = getMostProbableActions(dice);
 
-    if (actions.length === 1) {
-        const action = actions[0];
-        const diceBG = DiceActions[action.key as keyof typeof DiceActions].bgColor;
-        const diceText = DiceActions[action.key as keyof typeof DiceActions].textColor;
-        return [{ bgColor: diceBG, textColor: diceText }, { bgColor: diceBG, textColor: diceText }];
-    } else if (actions.length >= 2) {
-        return actions.map(action => ({
-            bgColor: DiceActions[action.key as keyof typeof DiceActions].bgColor,
-            textColor: DiceActions[action.key as keyof typeof DiceActions].textColor
-        }));
-    } else {
-        return [];
-    }
+	if (actions.length === 1) {
+		const action = actions[0];
+		const diceBG = DiceActions[action.key as keyof typeof DiceActions].colors.background;
+		const diceText = DiceActions[action.key as keyof typeof DiceActions].colors.text;
+		return [{ background: diceBG, text: diceText }, { background: diceBG, text: diceText }];
+	} else if (actions.length >= 2) {
+		return actions.map(action => ({
+			background: DiceActions[action.key as keyof typeof DiceActions].colors.background,
+			text: DiceActions[action.key as keyof typeof DiceActions].colors.text
+		}));
+	} else {
+		return [];
+	}
 }

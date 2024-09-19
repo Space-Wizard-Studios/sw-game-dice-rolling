@@ -55,6 +55,7 @@ function createDiceStore() {
 		getDiceByID,
 		getDiceByName,
 		getActionProbabilities,
+		getMostProbableActions,
 		getActionList,
 		updateDiceName,
 		removeDice,

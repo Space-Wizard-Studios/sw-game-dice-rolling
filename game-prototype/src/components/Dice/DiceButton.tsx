@@ -1,7 +1,7 @@
 import type { Component } from 'solid-js';
-import { createSignal } from 'solid-js';
+import { createSignal, createMemo } from 'solid-js';
 
-import { Popover, PopoverContent, PopoverDescription, PopoverTitle, PopoverTrigger, } from '@components/ui/popover';
+import { Popover, PopoverContent, PopoverDescription, PopoverTitle, PopoverTrigger } from '@components/ui/popover';
 import { Button } from '@components/ui/button';
 import { TextField, TextFieldRoot } from '@components/ui/textfield';
 import type { PopoverTriggerProps } from '@kobalte/core/popover';
@@ -24,22 +24,24 @@ type DiceButtonProps = {
 export const DiceButton: Component<DiceButtonProps> = (props) => {
 	const [name, setName] = createSignal(props.dice.name);
 
-	const actionProbabilities = getActionProbabilities(props.dice).sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
-	const actionList = getActionList(props.dice);
+	const actionProbabilities = createMemo(() => getActionProbabilities(props.dice).sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability)));
+	const actionList = createMemo(() => getActionList(props.dice));
 
-	const diceIcon = getDiceIcon(props.dice.sides);
-	const diceColors = getDiceColors(props.dice);
+	const diceIcon = createMemo(() => getDiceIcon(props.dice.sides));
+	const diceColors = createMemo(() => getDiceColors(props.dice));
 
-	const diceBackground = (() => {
-		if (diceColors.length === 1) {
-			return `background-color: ${diceColors[0].bgColor}; color: ${diceColors[0].textColor};`;
-		} else if (diceColors.length === 2) {
-			return `background: linear-gradient(45deg, ${diceColors[0].bgColor} 50%, ${diceColors[1].bgColor} 50%); color: ${diceColors[0].textColor};`;
+	const diceBackground = createMemo(() => {
+		if (diceColors().length === 1) {
+			return `background-color: ${diceColors()[0].background}; color: ${diceColors()[0].text};`;
+		} else if (diceColors().length === 2) {
+			return `background: linear-gradient(45deg, ${diceColors()[0].background} 50%, ${diceColors()[1].background} 50%); color: ${diceColors()[0].text};`;
 		} else {
-			const gradientColors = diceColors.map(color => color.bgColor).join(', ');
-			return `background: linear-gradient(45deg, ${gradientColors}); color: ${diceColors[0].textColor};`;
+			const gradientColors = diceColors().map(color => color.background).join(', ');
+			return `background: linear-gradient(45deg, ${gradientColors}); color: ${diceColors()[0].text};`;
 		}
-	})();
+	});
+
+	console.log(props.dice)
 
 	const handleNameChange = (event: Event) => {
 		const newName = (event.target as HTMLInputElement).value;
@@ -63,9 +65,9 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 					<PopoverTrigger
 						as={(triggerProps: PopoverTriggerProps) => (
 							<Button {...triggerProps}
-								style={diceBackground}
+								style={diceBackground()}
 								class={cn(`flex w-8 h-8 p-1 rounded-full overflow-visible items-center justify-center`)}>
-								{<div class='w-6 h-6'>{diceIcon}</div>}
+								{<div class='w-6 h-6'>{diceIcon()}</div>}
 							</Button>
 						)}
 					/>
@@ -93,7 +95,7 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 							<div>
 								<h5 class='font-medium'>Probabilidade:</h5>
 								<ul>
-									{actionProbabilities.map(({ name, probability }) => (
+									{actionProbabilities().map(({ name, probability }) => (
 										<li class="flex flex-row justify-between even:bg-gray-100">
 											<span>
 												{name}
@@ -108,7 +110,7 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 							<div>
 								<h5 class='font-medium'>Ações:</h5>
 								<ul>
-									{actionList.map((actionName, index) => (
+									{actionList().map((actionName, index) => (
 										<li>{index} - {actionName}</li>
 									))}
 								</ul>

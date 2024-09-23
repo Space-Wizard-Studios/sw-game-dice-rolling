@@ -6,7 +6,7 @@ import { Button } from '@components/ui/button';
 import { TextField, TextFieldRoot } from '@components/ui/textfield';
 import type { PopoverTriggerProps } from '@kobalte/core/popover';
 
-import { playerDiceStore } from '@stores/DiceStore';
+import { diceStore } from '@stores/DiceStore';
 
 import type { Dice } from '@models/Dice';
 import { getDiceIcon } from '@assets/diceIcons';
@@ -45,8 +45,8 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 		const newName = (event.target as HTMLInputElement).value;
 		setName(newName);
 
-		if (playerDiceStore.getDiceByID(props.dice.id)) {
-			playerDiceStore.updateDiceName(props.dice.id, newName);
+		if (diceStore.getDiceByID(props.dice.id)) {
+			diceStore.updateDiceName(props.dice.id, newName);
 			console.log('Dice name updated at the store');
 		}
 

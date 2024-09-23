@@ -1,8 +1,10 @@
 import { addDialogueMessage } from '@stores/DialogueStore';
 import { generateRandomCharacter } from '@helpers/generateRandomCharacter';
 import { CharacterSelection } from '@components/ItemSelection/CharacterSelection';
+
 import { enemyCharacterStore, playerCharacterStore } from '@stores/CharacterStore';
-import { playerDiceStore } from '@stores/DiceStore';
+import { diceStore } from '@stores/DiceStore';
+import { inventoryStore } from '@stores/InventoryStore';
 
 import { DiceSelection } from '@components/ItemSelection/DiceSelection';
 import { generateRandomDice } from '@helpers/generateRandomDice';
@@ -32,7 +34,8 @@ export async function Preparation() {
 	// Generate a random dice and prompt the player to select
 	const randomPlayerDice = generateRandomDice(5, [4, 6, 8]);
 	const selectedDice = await DiceSelection(randomPlayerDice);
-	playerDiceStore.addDice(selectedDice);
+	diceStore.addDice(selectedDice);
+	inventoryStore.addDiceToInventory(selectedDice.id);
 
 
 	await addDialogueMessage({

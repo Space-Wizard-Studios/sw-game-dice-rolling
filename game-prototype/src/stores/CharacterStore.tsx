@@ -1,8 +1,5 @@
 import { createStore } from 'solid-js/store';
 import type { Character } from '@models/Character';
-import type { Dice } from '@models/Dice';
-
-import { playerDiceStore } from '@stores/DiceStore';
 
 export type CharacterStore = {
 	characters: Character[];
@@ -35,11 +32,17 @@ function createCharacterStore() {
 		);
 	}
 
-	function addDiceToCharacter(characterID: string, dice: Dice): void {
+	function addDiceToCharacter(characterID: string, diceID: string): void {
 		const character = getCharacterById(characterID);
 		if (character) {
-			playerDiceStore.addDice(dice);
-			updateCharacter(characterID, { diceIDs: [...(character.diceIDs || []), dice.id] });
+			updateCharacter(characterID, { diceIDs: [...(character.diceIDs || []), diceID] });
+		}
+	}
+
+	function removeDiceFromCharacter(characterID: string, diceID: string): void {
+		const character = getCharacterById(characterID);
+		if (character) {
+			updateCharacter(characterID, { diceIDs: (character.diceIDs || []).filter(id => id !== diceID) });
 		}
 	}
 
@@ -50,7 +53,8 @@ function createCharacterStore() {
 		removeCharacter,
 		getCharacterById,
 		updateCharacter,
-		addDiceToCharacter
+		addDiceToCharacter,
+		removeDiceFromCharacter,
 	};
 }
 

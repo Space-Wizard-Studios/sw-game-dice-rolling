@@ -24,9 +24,9 @@ export function getActionList(dice: Dice) {
 
 
 export function getMostProbableActions(dice: Dice) {
-    const actionProbabilities = getActionProbabilities(dice);
-    const maxProbability = Math.max(...actionProbabilities.map(action => parseFloat(action.probability)));
-    return actionProbabilities.filter(action => parseFloat(action.probability) === maxProbability);
+	const actionProbabilities = getActionProbabilities(dice);
+	const maxProbability = Math.max(...actionProbabilities.map(action => parseFloat(action.probability)));
+	return actionProbabilities.filter(action => parseFloat(action.probability) === maxProbability);
 }
 
 export function getActionsCount(dice: Dice) {

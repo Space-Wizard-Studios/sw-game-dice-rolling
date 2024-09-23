@@ -2,8 +2,6 @@ import { CharacterName } from './CharacterName';
 import { CharacterRole } from './CharacterRole';
 import { CharacterImage } from './CharacterImage';
 import { CharacterHealth } from './CharacterHealth';
-import { CharacterDiceSet } from './CharacterDiceSet';
-import { CharacterAction } from './CharacterAction';
 import { cn } from '@helpers/cn';
 
 import type { Component } from 'solid-js';

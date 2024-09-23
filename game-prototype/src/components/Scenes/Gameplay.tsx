@@ -1,9 +1,5 @@
-import { onMount } from "solid-js";
-
 import { Board } from "@components/Board/Board";
 import { Dialogue } from "@components/Dialogue/Dialogue";
-
-import { startGameplay } from "@controllers/Gameplay/GameplayController";
 
 export const GameplayScene = () => {
 	console.log('Rendering GameplayScene...');

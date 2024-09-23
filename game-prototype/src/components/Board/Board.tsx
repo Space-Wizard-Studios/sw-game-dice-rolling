@@ -1,5 +1,5 @@
 import type { Component } from 'solid-js';
-import { createEffect, createMemo } from 'solid-js';
+import { createMemo } from 'solid-js';
 import { cn } from '@helpers/cn';
 
 import { InventoryBoard } from './InventoryBoard';

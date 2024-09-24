@@ -18,8 +18,6 @@ export const [gameState, setGameState] = createStore<GameManager>({
 const GameContext = createContext<[GameManager, typeof setGameState]>([gameState, setGameState]);
 
 export const GameProvider: Component<ParentProps> = (props) => {
-	console.log('GameProvider mounted');
-
 	return (
 		<GameContext.Provider value={[gameState, setGameState]}>
 			{props.children}

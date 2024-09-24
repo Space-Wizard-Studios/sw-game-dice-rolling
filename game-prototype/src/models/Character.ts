@@ -17,8 +17,9 @@ export type Character = {
 	id: string;
 	name: string;
 	role: Role;
+	diceCapacity: number;
 	health?: Health;
 	speed?: Speed;
+	diceIds?: string[];
 	commonActions?: CommonAction[];
-	diceIDs?: string[];
 }

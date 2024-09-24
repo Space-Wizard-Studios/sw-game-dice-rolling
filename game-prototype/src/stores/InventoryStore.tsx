@@ -1,32 +1,26 @@
 import { createStore } from 'solid-js/store';
-import { playerCharacterStore } from './CharacterStore';
-import type { Dice } from '@models/Dice';
+import { transferDice } from '@helpers/diceTransferHandler';
 
 export type InventoryStore = {
-	diceIDs: string[];
+	diceIds: string[];
 };
 
 function createInventoryStore() {
-	const [store, setStore] = createStore<InventoryStore>({ diceIDs: [] });
+	const [store, setStore] = createStore<InventoryStore>({ diceIds: [] });
 
-	function addDiceToInventory(diceID: string): void {
-		setStore('diceIDs', (diceIDs) => [...diceIDs, diceID]);
+	function addDiceToInventory(diceId: string): void {
+		setStore('diceIds', (diceIds) => [...diceIds, diceId]);
 	}
 
-	function removeDiceFromInventory(diceID: string): void {
-		setStore('diceIDs', (diceIDs) => diceIDs.filter(id => id !== diceID));
-	}
-
-	function transferDiceToCharacter(characterID: string, diceID: string): void {
-		removeDiceFromInventory(diceID);
-		playerCharacterStore.addDiceToCharacter(characterID, diceID);
+	function removeDiceFromInventory(diceId: string): void {
+		setStore('diceIds', (diceIDs) => diceIDs.filter(id => id !== diceId));
 	}
 
 	return {
 		store,
 		addDiceToInventory,
 		removeDiceFromInventory,
-		transferDiceToCharacter,
+		transferDice,
 	};
 }
 

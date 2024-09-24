@@ -33,16 +33,12 @@ export const Dialogue: Component<DialogueProps> = (props) => {
 		scrollToBottom();
 	});
 
-	console.log(gameState.currentScene, gameState.currentState);
-
 	const [title, setTitle] = createSignal('');
 
 	createEffect(() => {
 		const sceneName = getGameSceneName(gameState.currentScene);
-		console.log('Scene:', sceneName);
 		const stateName = getGameStateName(gameState.currentState);
 		setTitle(`${sceneName} - ${stateName}`);
-		console.log('Title:', title());
 	});
 
 

@@ -7,6 +7,7 @@ import { cn } from '@helpers/cn';
 import type { Component } from 'solid-js';
 import type { Character } from '@models/Character';
 import { getRoleBaseHealth } from '@helpers/getRole';
+import { CharacterDiceSet } from './CharacterDiceSet';
 
 type CharacterSheetProps = {
 	character: Character;
@@ -28,7 +29,7 @@ export const CharacterSheet: Component<CharacterSheetProps> = (props) => {
 					<CharacterRole role={props.character.role} />
 				</div>
 				<CharacterHealth health={props.character.health ?? getRoleBaseHealth(props.character.role)} />
-				{/* {props.character.diceIDs && <CharacterDiceSet diceSet={props.character.diceIDs} />} */}
+				{props.character.diceIds && <CharacterDiceSet diceIds={props.character.diceIds} />}
 				{/* <CharacterAction /> */}
 			</div>
 		</div>

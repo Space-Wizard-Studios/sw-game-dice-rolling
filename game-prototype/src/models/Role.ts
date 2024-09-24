@@ -8,6 +8,7 @@ export type Role = {
 	description: string;
 	baseHealth: Health;
 	baseSpeed: Speed;
+	baseDiceCapacity: number;
 	allowedActions: DiceAction[];
 	allowedCombos?: ComboAction[];
 };
@@ -25,6 +26,7 @@ export const Roles: Record<RoleType, Role> = {
 		baseSpeed: {
 			max: 10,
 		},
+		baseDiceCapacity: 2,
 		allowedActions: [DiceActions.physicalAttack, DiceActions.defend],
 		allowedCombos: [ComboActions.chargedAttack, ComboActions.parry],
 	},
@@ -38,6 +40,7 @@ export const Roles: Record<RoleType, Role> = {
 		baseSpeed: {
 			max: 10,
 		},
+		baseDiceCapacity: 2,
 		allowedActions: [DiceActions.magicAttack, DiceActions.defend],
 		allowedCombos: [ComboActions.magicBurst],
 	},
@@ -51,6 +54,7 @@ export const Roles: Record<RoleType, Role> = {
 		baseSpeed: {
 			max: 10,
 		},
+		baseDiceCapacity: 2,
 		allowedActions: [DiceActions.physicalAttack, DiceActions.defend],
 		allowedCombos: [],
 	}

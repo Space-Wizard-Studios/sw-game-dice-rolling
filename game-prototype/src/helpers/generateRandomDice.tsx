@@ -21,9 +21,9 @@ export function generateRandomDice(quantity: number, possibleSides: (keyof DiceA
 			name: `D${sides}`,
 			actions: actions as DiceActionsMap[typeof sides],
 			sides: sides as ExtractSides<DiceActionsMap[typeof sides]>,
+			location: null,
 		};
 		diceSet.push(dice);
-		console.log('generated dice:', dice.id);
 	}
 
 	return diceSet;

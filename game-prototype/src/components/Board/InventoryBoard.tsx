@@ -5,7 +5,7 @@ import { diceStore } from '@stores/DiceStore';
 
 
 type InventoryBoardProps = {
-	diceIDs: string[];
+	diceIds: string[];
 	class?: string;
 }
 
@@ -16,7 +16,7 @@ export const InventoryBoard: Component<InventoryBoardProps> = (props) => {
 				<h2>Bolsa de Dados</h2>
 				<div class='flex flex-row gap-1'>
 					{
-						props.diceIDs.map(id => {
+						props.diceIds.map(id => {
 							const dice = diceStore.getDiceByID(id);
 							if (!dice) {
 								console.warn(`Dice with ID ${id} not found`);

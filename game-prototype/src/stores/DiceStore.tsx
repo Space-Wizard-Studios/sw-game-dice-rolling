@@ -1,6 +1,6 @@
 import { createStore } from 'solid-js/store';
 import { getActionProbabilities, getActionList, getMostProbableActions } from '@helpers/getDiceActions';
-import type { Dice } from '@models/Dice';
+import type { Dice, DiceLocation } from '@models/Dice';
 
 export type DiceStore = {
 	diceSet: Dice[];
@@ -17,22 +17,29 @@ function createDiceStore() {
 		setStore('diceSet', (diceSet) => [...diceSet, ...diceArray]);
 	}
 
-	function getDiceByID(diceID: string): Dice | undefined {
-		return store.diceSet.find(d => d.id === diceID);
+	function getDiceByID(diceId: string): Dice {
+		const dice = store.diceSet.find(d => d.id === diceId);
+		if (!dice) {
+			throw new Error(`Dice with ID ${diceId} not found`);
+		}
+		return dice;
 	}
 
-	function getDiceByName(diceName: string): Dice | undefined {
-		return store.diceSet.find(d => d.name === diceName);
-	}
-
-	function updateDiceByID(diceID: string, updateFn: (dice: Dice) => Dice): void {
+	function updateDiceByID(diceId: string, updateFn: (dice: Dice) => Dice): void {
 		setStore('diceSet', (diceSet) =>
-			diceSet.map(dice => dice.id === diceID ? updateFn(dice) : dice)
+			diceSet.map(dice => dice.id === diceId ? updateFn(dice) : dice)
 		);
 	}
 
-	function updateDiceName(diceID: string, newName: string): void {
-		updateDiceByID(diceID, dice => ({ ...dice, name: newName }));
+	function updateDiceName(diceId: string, newName: string): void {
+		updateDiceByID(diceId, dice => ({ ...dice, name: newName }));
+	}
+
+	function updateDiceLocation(diceId: string, newLocation: DiceLocation): void {
+		setStore('diceSet', (diceSet) =>
+			diceSet.map(dice => dice.id === diceId ? { ...dice, location: newLocation } : dice)
+		);
+
 	}
 
 	function removeDice(diceID: string): void {
@@ -44,11 +51,11 @@ function createDiceStore() {
 		addDice,
 		addMultipleDice,
 		getDiceByID,
-		getDiceByName,
 		getActionProbabilities,
 		getActionList,
 		getMostProbableActions,
 		updateDiceName,
+		updateDiceLocation,
 		removeDice,
 	};
 }

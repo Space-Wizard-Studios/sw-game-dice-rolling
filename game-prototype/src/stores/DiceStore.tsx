@@ -52,7 +52,6 @@ function createDiceStore() {
 		addMultipleDice,
 		getDiceByID,
 		getActionProbabilities,
-		getMostProbableActions,
 		getActionList,
 		getMostProbableActions,
 		updateDiceName,

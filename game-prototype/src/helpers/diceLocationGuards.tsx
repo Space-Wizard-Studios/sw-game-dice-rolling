@@ -7,7 +7,6 @@ export function isInventory(location: DiceLocation): location is 'inventory' {
 
 export function isCharacterId(location: DiceLocation): location is string {
 	return typeof location === 'string' && !!playerCharacterStore.getCharacterById(location);
-	console.log('Character ID:', location);
 }
 
 export function isValidLocation(location: DiceLocation): boolean {

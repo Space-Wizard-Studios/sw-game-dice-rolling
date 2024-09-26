@@ -51,13 +51,19 @@ export type DiceActionsMap = {
 export type ExtractSides<T> = T extends DiceType<infer Sides> ? Sides : never;
 
 /**
+ * Represents the location of a dice.
+ */
+export type DiceLocation = 'inventory' | string | null;
+
+/**
  * Represents a dice with a specific number of sides and associated actions.
  * 
  * @template T - The key of DiceSidesMap (default is any key of DiceSidesMap).
  */
 export type Dice<T extends keyof DiceActionsMap = keyof DiceActionsMap> = {
 	id: string;
-	name: string; // The name of the dice (e.g., "D6").
+	name: string;
 	actions: DiceActionsMap[T]; // The actions associated with each side of the dice.
 	sides: ExtractSides<DiceActionsMap[T]>; // The number of sides on the dice.
+	location: DiceLocation;
 };

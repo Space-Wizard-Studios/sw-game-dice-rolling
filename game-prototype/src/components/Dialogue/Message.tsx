@@ -1,4 +1,4 @@
-import { createSignal, onCleanup } from "solid-js";
+import { createSignal } from "solid-js";
 import type { Component } from "solid-js";
 
 import { getGameStateName } from "@helpers/getGameState";

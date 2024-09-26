@@ -1,8 +1,6 @@
 import { createStore } from 'solid-js/store';
 import type { Character } from '@models/Character';
-import type { Dice } from '@models/Dice';
-
-import { playerDiceStore } from '@stores/DiceStore';
+import { transferDice } from '@helpers/diceTransferHandler';
 
 export type CharacterStore = {
 	characters: Character[];
@@ -15,7 +13,7 @@ function createCharacterStore() {
 		setStore('characters', (characters) => [...characters, character]);
 	}
 
-	function addCharacters(charactersToAdd: Character[]): void {
+	function addMultipleCharacters(charactersToAdd: Character[]): void {
 		setStore('characters', (characters) => [...characters, ...charactersToAdd]);
 	}
 
@@ -25,8 +23,16 @@ function createCharacterStore() {
 		);
 	}
 
-	function getCharacterById(characterID: string): Character | undefined {
-		return store.characters.find(c => c.id === characterID);
+	function getAllCharacterIds(): string[] {
+		return store.characters.map(c => c.id);
+	}
+
+	function getCharacterById(characterID: string): Character {
+		const character = store.characters.find(c => c.id === characterID);
+		if (!character) {
+			throw new Error(`Character with ID ${characterID} not found`);
+		}
+		return character;
 	}
 
 	function updateCharacter(characterID: string, updatedFields: Partial<Character>): void {
@@ -35,24 +41,33 @@ function createCharacterStore() {
 		);
 	}
 
-	function addDiceToCharacter(characterID: string, dice: Dice): void {
+	function addDiceToCharacter(characterID: string, diceID: string): void {
 		const character = getCharacterById(characterID);
-		if (character) {
-			playerDiceStore.addDice(dice);
-			updateCharacter(characterID, { diceIDs: [...(character.diceIDs || []), dice.id] });
+		const diceIds = character.diceIds ?? [];
+		if (diceIds.length >= character.diceCapacity) {
+			throw new Error(`Character with ID ${characterID} cannot have more than ${character.diceCapacity} dice`);
 		}
+		updateCharacter(characterID, { diceIds: [...diceIds, diceID] });
+	}
+
+	function removeDiceFromCharacter(characterID: string, diceID: string): void {
+		const character = getCharacterById(characterID);
+		const diceIds = character.diceIds ?? [];
+		updateCharacter(characterID, { diceIds: diceIds.filter(id => id !== diceID) });
 	}
 
 	return {
 		store,
 		addCharacter,
-		addCharacters,
+		addMultipleCharacters,
 		removeCharacter,
+		getAllCharacterIds,
 		getCharacterById,
 		updateCharacter,
-		addDiceToCharacter
+		addDiceToCharacter,
+		removeDiceFromCharacter,
+		transferDice,
 	};
 }
-
 export const playerCharacterStore = createCharacterStore();
 export const enemyCharacterStore = createCharacterStore();

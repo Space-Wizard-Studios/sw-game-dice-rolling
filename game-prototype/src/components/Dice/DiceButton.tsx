@@ -1,19 +1,23 @@
-import type { Component } from 'solid-js';
-import { createSignal, createMemo } from 'solid-js';
+import  { type Component, createMemo } from 'solid-js';
+import { createSignal, createEffect } from 'solid-js';
 
 import { Popover, PopoverContent, PopoverDescription, PopoverTitle, PopoverTrigger } from '@components/ui/popover';
 import { Button } from '@components/ui/button';
 import { TextField, TextFieldRoot } from '@components/ui/textfield';
 import type { PopoverTriggerProps } from '@kobalte/core/popover';
-
-import { playerDiceStore } from '@stores/DiceStore';
-
-import type { Dice } from '@models/Dice';
-import { getDiceIcon } from '@components/Dice/diceIcons';
-import { getActionList, getActionProbabilities } from '@helpers/getDiceActions';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@components/ui/tooltip';
+
+import { diceStore } from '@stores/DiceStore';
+
+import type { Dice, DiceLocation } from '@models/Dice';
+import { getActionList, getActionProbabilities } from '@helpers/getDiceActions';
+import { getDiceIcon } from '@components/Dice/diceIcons';
 import { getDiceColors } from '@helpers/getDiceColor';
+
 import { cn } from '@helpers/cn';
+import { isValidLocation } from '@helpers/diceLocationGuards';
+import { transferDice } from '@helpers/diceTransferHandler';
+import { playerCharacterStore } from '@stores/CharacterStore';
 
 type DiceButtonProps = {
 	dice: Dice;
@@ -23,6 +27,7 @@ type DiceButtonProps = {
 
 export const DiceButton: Component<DiceButtonProps> = (props) => {
 	const [name, setName] = createSignal(props.dice.name);
+	const [location, setLocation] = createSignal(props.dice.location);
 
 	const actionProbabilities = createMemo(() => getActionProbabilities(props.dice).sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability)));
 	const actionList = createMemo(() => getActionList(props.dice));
@@ -47,14 +52,22 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 		const newName = (event.target as HTMLInputElement).value;
 		setName(newName);
 
-		if (playerDiceStore.getDiceByID(props.dice.id)) {
-			playerDiceStore.updateDiceName(props.dice.id, newName);
-			console.log('Dice name updated at the store');
+		if (diceStore.getDiceByID(props.dice.id)) {
+			diceStore.updateDiceName(props.dice.id, newName);
 		}
 
 		if (props.onNameChange) {
 			props.onNameChange(props.dice.id, newName);
-			console.log('Dice name updated at the parent component');
+		}
+	};
+
+	const handleLocationChange = (event: Event) => {
+		const newLocation = (event.target as HTMLSelectElement).value as DiceLocation;
+		setLocation(newLocation);
+
+		if (isValidLocation(newLocation)) {
+			transferDice(props.dice.id, props.dice.location, newLocation);
+			setLocation(newLocation);
 		}
 	};
 
@@ -92,6 +105,19 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 					</PopoverTitle>
 					<div class='overflow-auto max-h-40 p-2'>
 						<PopoverDescription class='space-y-2'>
+							{props.dice.location !== null && (
+								<div>
+									<label for="location-select">Transfer to:</label>
+									<select id="location-select" value={location() as string} onChange={handleLocationChange}>
+										<option value="inventory" disabled={location() === 'inventory'}>Inventory</option>
+										{playerCharacterStore.getAllCharacterIds().map(characterId => (
+											<option value={characterId} disabled={location() === characterId}>
+												{playerCharacterStore.getCharacterById(characterId).name}
+											</option>
+										))}
+									</select>
+								</div>
+							)}
 							<div>
 								<h5 class='font-medium'>Probabilidade:</h5>
 								<ul>

@@ -4,7 +4,6 @@ import { startGameover } from "@controllers/Gameover/GameoverController";
 
 export const GameoverScene = () => {
 	onMount(() => {
-		console.log('Gameover mounted');
 		startGameover();
 	});
 

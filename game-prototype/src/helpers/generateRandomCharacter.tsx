@@ -35,6 +35,7 @@ export function generateRandomCharacter(n: number, prefix: string = ''): Charact
 				max: role.baseSpeed.max,
 				current: role.baseSpeed.max,
 			},
+			diceCapacity: role.baseDiceCapacity,
 		};
 
 		characters.push(character);

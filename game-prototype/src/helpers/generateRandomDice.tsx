@@ -4,6 +4,13 @@ import { getRandomElement } from "@helpers/getRandomElement";
 import { getMostProbableActions } from "@helpers/getDiceActions";
 import type { Dice, DiceActionsMap, ExtractSides } from "@models/Dice";
 
+/**
+ * Generates an array of random dice objects.
+ *
+ * @param {number} quantity - The number of dice to generate.
+ * @param {Array<keyof DiceActionsMap>} possibleSides - An array of possible sides for the dice.
+ * @returns {Array<Dice>} An array of generated dice objects.
+ */
 export function generateRandomDice(quantity: number, possibleSides: (keyof DiceActionsMap)[]): Dice[] {
 	const diceSet: Dice[] = [];
 
@@ -15,6 +22,7 @@ export function generateRandomDice(quantity: number, possibleSides: (keyof DiceA
 			name: `D${sides}`,
 			actions: actions as DiceActionsMap[typeof sides],
 			sides: sides as ExtractSides<DiceActionsMap[typeof sides]>,
+			location: null,
 		};
 
 		const mostProbableActions = getMostProbableActions(dice);
@@ -25,7 +33,6 @@ export function generateRandomDice(quantity: number, possibleSides: (keyof DiceA
 		}
 
 		diceSet.push(dice);
-		console.log('generated dice:', dice.id);
 	}
 
 	return diceSet;

@@ -9,7 +9,7 @@ import type { PopoverTriggerProps } from '@kobalte/core/popover';
 import { playerDiceStore } from '@stores/DiceStore';
 
 import type { Dice } from '@models/Dice';
-import { getDiceIcon } from '@assets/diceIcons';
+import { getDiceIcon } from '@components/Dice/diceIcons';
 import { getActionList, getActionProbabilities } from '@helpers/getDiceActions';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@components/ui/tooltip';
 import { getDiceColors } from '@helpers/getDiceColor';
@@ -111,7 +111,7 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 								<h5 class='font-medium'>Ações:</h5>
 								<ul>
 									{actionList().map((actionName, index) => (
-										<li>{index} - {actionName}</li>
+										<li>{(index + 1).toString().padStart(2, '0')} - {actionName}</li>
 									))}
 								</ul>
 							</div>

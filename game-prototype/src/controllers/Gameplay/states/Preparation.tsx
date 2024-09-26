@@ -30,7 +30,7 @@ export async function Preparation() {
 	});
 
 	// Generate a random dice and prompt the player to select
-	const randomPlayerDice = generateRandomDice(5, [4, 6, 8]);
+	const randomPlayerDice = generateRandomDice(10, [4, 6, 8, 10, 12, 20, 100]);
 	const selectedDice = await DiceSelection(randomPlayerDice);
 	playerDiceStore.addDice(selectedDice);
 

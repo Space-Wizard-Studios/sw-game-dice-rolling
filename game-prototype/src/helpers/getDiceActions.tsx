@@ -20,20 +20,22 @@ export function getUniqueActionsCount(dice: Dice): number {
 }
 
 export function getActionProbabilities(dice: Dice) {
-	const totalActions = dice.actions.length;
-	const actionCounts = dice.actions.reduce((acc, action) => {
-		acc[action.name] = (acc[action.name] || 0) + 1;
-		return acc;
-	}, {} as Record<string, number>);
+    const totalActions = dice.actions.length;
+    const actionCounts = dice.actions.reduce((acc, action) => {
+        acc[action.name] = (acc[action.name] || 0) + 1;
+        return acc;
+    }, {} as Record<string, number>);
 
-	return Object.entries(actionCounts).map(([name, count]) => {
-		const key = Object.keys(DiceActions).find(key => DiceActions[key as keyof typeof DiceActions].name === name);
-		return {
-			key: key as keyof typeof DiceActions,
-			name,
-			probability: ((count / totalActions) * 100).toFixed(2),
-		};
-	});
+    return Object.entries(actionCounts).map(([name, count]) => {
+        const key = Object.keys(DiceActions).find(key => DiceActions[key as keyof typeof DiceActions].name === name);
+        const abbreviation = key ? DiceActions[key as keyof typeof DiceActions].abbreviation : '';
+        return {
+            key: key as keyof typeof DiceActions,
+            name,
+            abbreviation,
+            probability: ((count / totalActions) * 100).toFixed(2),
+        };
+    });
 }
 
 export function getMostProbableActions(dice: Dice) {

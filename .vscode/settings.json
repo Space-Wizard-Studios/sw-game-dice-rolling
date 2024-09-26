@@ -57,6 +57,8 @@
         "Gameover",
         "gameplay",
         "kobalte",
+        "MATK",
+        "PATK",
         "tsconfigs",
         "uuidv"
     ],

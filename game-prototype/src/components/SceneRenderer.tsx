@@ -1,6 +1,4 @@
-import { createEffect, onMount } from 'solid-js';
 import { useGameManager } from "@stores/GameContext";
-import { updateGameScene } from "@helpers/updateGameState";
 import type { GameSceneType } from "@models/scenes/Scenes";
 
 import { GameplayScene } from '@components/Scenes/Gameplay';

@@ -1,13 +1,13 @@
-import { CharacterName } from './CharacterName';
-import { CharacterRole } from './CharacterRole';
-import { CharacterImage } from './CharacterImage';
-import { CharacterHealth } from './CharacterHealth';
+import { CharacterName } from '@components/Character/CharacterName';
+import { CharacterRole } from '@components/Character/CharacterRole';
+import { CharacterImage } from '@components/Character/CharacterImage';
+import { CharacterHealth } from '@components/Character/CharacterHealth';
 import { cn } from '@helpers/cn';
 
 import type { Component } from 'solid-js';
 import type { Character } from '@models/Character';
 import { getRoleBaseHealth } from '@helpers/getRole';
-import { CharacterDiceSet } from './CharacterDiceSet';
+import { CharacterDiceSet } from '@components/Character/CharacterDiceSet';
 
 type CharacterSheetProps = {
 	character: Character;

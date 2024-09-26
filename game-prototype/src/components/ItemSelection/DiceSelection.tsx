@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 import { render } from 'solid-js/web';
-import { ItemSelection } from './ItemSelection';
+import { ItemSelection } from '@components/ItemSelection/ItemSelection';
 
 import type { Dice } from '@models/Dice';
 import { DiceButton } from '@components/Dice/DiceButton';

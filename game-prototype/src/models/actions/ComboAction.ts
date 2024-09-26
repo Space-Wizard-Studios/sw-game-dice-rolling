@@ -1,5 +1,5 @@
-import { DiceActions } from './DiceAction';
-import type { DiceAction } from './DiceAction';
+import { DiceActions } from '@models/actions/DiceAction';
+import type { DiceAction } from '@models/actions/DiceAction';
 
 type ComboActionType = 'chargedAttack' | 'heal' | 'magicBurst' | 'parry';
 

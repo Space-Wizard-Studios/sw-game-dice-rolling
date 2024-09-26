@@ -2,7 +2,7 @@ import { createSignal } from "solid-js";
 import type { Component } from "solid-js";
 
 import { getGameStateName } from "@helpers/getGameState";
-import { Line } from "./Line";
+import { Line } from "@components/Dialogue/Line";
 
 import { setDialogueStore, dialogueStore } from '@stores/DialogueStore';
 import type { DialogueMessage } from '@stores/DialogueStore';

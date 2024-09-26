@@ -1,10 +1,10 @@
-import type { GameplayStateType } from "./GameplayStates";
-import type { GameoverStateType } from "./GameoverStates";
-import type { MainMenuStateType } from "./MainMenuStates";
+import type { GameplayStateType } from "@models/states/GameplayStates";
+import type { GameoverStateType } from "@models/states/GameoverStates";
+import type { MainMenuStateType } from "@models/states/MainMenuStates";
 
-import { GameoverStates } from "./GameoverStates";
-import { MainMenuStates } from "./MainMenuStates";
-import { GameplayStates } from "./GameplayStates";
+import { GameoverStates } from "@models/states/GameoverStates";
+import { MainMenuStates } from "@models/states/MainMenuStates";
+import { GameplayStates } from "@models/states/GameplayStates";
 
 export type GameStateType = GameplayStateType | GameoverStateType | MainMenuStateType;
 

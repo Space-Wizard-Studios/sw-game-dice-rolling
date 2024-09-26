@@ -1,4 +1,4 @@
-import { addDialogueMessage, addDialogueLine } from "@stores/DialogueStore";
+import { addDialogueMessage } from "@stores/DialogueStore";
 
 export async function BattleStart() {
 	await addDialogueMessage({

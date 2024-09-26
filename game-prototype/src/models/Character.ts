@@ -1,7 +1,6 @@
-import type { Dice } from './Dice';
 import type { Role } from '@models/Role';
 
-import type { CommonAction } from './actions/CommonAction';
+import type { CommonAction } from '@models/actions/CommonAction';
 
 export type Health = {
 	max: number;

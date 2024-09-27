@@ -31,7 +31,7 @@ export const CharacterSheet: Component<CharacterSheetProps> = (props) => {
 				<CharacterHealth health={props.character.health ?? getRoleBaseHealth(props.character.role)} />
 				<div class='flex flex-row gap-2'>
 					{diceSlots.map((_, index) => (
-						<div class='w-10 h-10 border-2 border-dashed border-gray-400 flex items-center justify-center'>
+						<div class='w-10 h-10 border-2 rounded-lg border-dashed border-gray-400 flex items-center justify-center'>
 							{props.character.diceIds && props.character.diceIds[index] && (
 								<CharacterDiceSet diceIds={[props.character.diceIds[index]]} />
 							)}

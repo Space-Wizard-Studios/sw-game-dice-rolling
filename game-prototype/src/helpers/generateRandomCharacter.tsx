@@ -25,7 +25,7 @@ export function generateRandomCharacter(n: number, prefix: string = ''): Charact
 		}
 		const character: Character = {
 			id: uuidv4(),
-			name: `${prefix ?? ' '} ${i + 1}`,
+			name: `${prefix ? prefix + ' ' : ''}${i + 1}`,
 			role: role,
 			health: {
 				max: role.baseHealth.max,

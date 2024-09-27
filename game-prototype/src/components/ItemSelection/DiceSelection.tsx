@@ -5,6 +5,7 @@ import { ItemSelection } from '@components/ItemSelection/ItemSelection';
 import type { Dice } from '@models/Dice';
 import { DiceButton } from '@components/Dice/DiceButton';
 import { getUniqueActionsCount } from '@helpers/getDiceActions';
+import { playerCharacterStore } from '@stores/CharacterStore';
 
 export function DiceSelection(diceSet: Dice[]): Promise<Dice> {
 	const [selectedDice, setSelectedDice] = createSignal<Dice>();
@@ -28,10 +29,13 @@ export function DiceSelection(diceSet: Dice[]): Promise<Dice> {
 			</p>
 		);
 
-		const renderDiceButton = (dice: Dice) => (
-			<DiceButton dice={dice} onNameChange={handleNameChange} />
-		);
-
+		const renderDiceButton = (dice: Dice) => {
+			const character = dice.location ? playerCharacterStore.getCharacterById(dice.location) : null;
+			const diceIds = character?.diceIds ?? [];
+			const isAtMaxCapacity = character ? diceIds.length >= character.role.baseDiceCapacity : false;
+			return <DiceButton dice={dice} onNameChange={handleNameChange} disabled={isAtMaxCapacity} />;
+		};
+		
 		render(() => (
 			<ItemSelection
 				title='Escolha um dado'

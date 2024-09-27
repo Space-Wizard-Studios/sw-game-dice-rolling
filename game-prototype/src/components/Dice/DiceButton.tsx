@@ -17,6 +17,7 @@ import { playerCharacterStore } from '@stores/CharacterStore';
 type DiceButtonProps = {
 	dice: Dice;
 	class?: string;
+	disabled?: boolean;
 	onNameChange?: (diceID: string, newName: string) => void;
 };
 
@@ -103,11 +104,16 @@ export const DiceButton: Component<DiceButtonProps> = (props) => {
 									<label for="location-select">Transfer to:</label>
 									<select id="location-select" value={location() as string} onChange={handleLocationChange}>
 										<option value="inventory" disabled={location() === 'inventory'}>Inventory</option>
-										{playerCharacterStore.getAllCharacterIds().map(characterId => (
-											<option value={characterId} disabled={location() === characterId}>
-												{playerCharacterStore.getCharacterById(characterId).name}
-											</option>
-										))}
+										{playerCharacterStore.getAllCharacterIds().map(characterId => {
+											const character = playerCharacterStore.getCharacterById(characterId);
+											const diceIds = character.diceIds ?? [];
+											const isAtMaxCapacity = diceIds.length >= character.role.baseDiceCapacity;
+											return (
+												<option value={characterId} disabled={location() === characterId || isAtMaxCapacity}>
+													{character.name} {isAtMaxCapacity ? '(Full)' : ''}
+												</option>
+											);
+										})}
 									</select>
 								</div>
 							)}

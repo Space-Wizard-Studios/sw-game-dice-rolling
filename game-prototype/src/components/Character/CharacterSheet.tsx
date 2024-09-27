@@ -15,7 +15,7 @@ type CharacterSheetProps = {
 }
 
 export const CharacterSheet: Component<CharacterSheetProps> = (props) => {
-
+	const diceSlots = Array.from({ length: props.character.diceCapacity });
 	return (
 		<div class={cn(
 			'flex flex-col md:flex-row w-full items-center rounded-md',
@@ -29,7 +29,15 @@ export const CharacterSheet: Component<CharacterSheetProps> = (props) => {
 					<CharacterRole role={props.character.role} />
 				</div>
 				<CharacterHealth health={props.character.health ?? getRoleBaseHealth(props.character.role)} />
-				{props.character.diceIds && <CharacterDiceSet diceIds={props.character.diceIds} />}
+				<div class='flex flex-row gap-2'>
+					{diceSlots.map((_, index) => (
+						<div class='w-10 h-10 border-2 border-dashed border-gray-400 flex items-center justify-center'>
+							{props.character.diceIds && props.character.diceIds[index] && (
+								<CharacterDiceSet diceIds={[props.character.diceIds[index]]} />
+							)}
+						</div>
+					))}
+				</div>
 				{/* <CharacterAction /> */}
 			</div>
 		</div>

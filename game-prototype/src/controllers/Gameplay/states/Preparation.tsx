@@ -55,6 +55,11 @@ export async function Preparation() {
 	diceStore.addDice(selectedDice2);
 	transferDice(selectedDice2.id, null, 'inventory');
 
+	const randomPlayerDice3 = generateRandomDice(3, [4, 6, 8]);
+	const selectedDice3 = await DiceSelection(randomPlayerDice3);
+	diceStore.addDice(selectedDice3);
+	transferDice(selectedDice3.id, null, 'inventory');
+
 	await addDialogueMessage({
 		lines: [
 			{ text: 'Ótima escolha!' },

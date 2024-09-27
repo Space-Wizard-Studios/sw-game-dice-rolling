@@ -15,7 +15,6 @@ type BoardProps = {
 export const Board: Component<BoardProps> = (props) => {
 	const playerCharacters = createMemo(() => playerCharacterStore.store.characters);
 	const enemyCharacters = createMemo(() => enemyCharacterStore.store.characters);
-
 	const inventoryDiceIDs = createMemo(() => inventoryStore.store.diceIds);
 
 	return (

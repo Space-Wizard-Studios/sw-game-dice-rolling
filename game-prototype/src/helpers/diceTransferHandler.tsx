@@ -7,6 +7,15 @@ import type { DiceLocation } from '@models/Dice';
 export function transferDice(diceId: string, fromLocation: DiceLocation, toLocation: DiceLocation): void {
 	if (fromLocation === toLocation) return;
 
+	if (isCharacterId(toLocation)) {
+		const character = playerCharacterStore.getCharacterById(toLocation);
+		const diceIds = character.diceIds ?? [];
+		if (diceIds.length >= character.role.baseDiceCapacity) {
+			console.warn(`Character ${toLocation} is at maximum dice capacity.`);
+			return;
+		}
+	}
+
 	if (isInventory(fromLocation)) {
 		inventoryStore.removeDiceFromInventory(diceId);
 	} else if (isCharacterId(fromLocation)) {

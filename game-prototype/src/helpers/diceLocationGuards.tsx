@@ -2,13 +2,13 @@ import { playerCharacterStore } from '@stores/CharacterStore';
 import type { DiceLocation } from '@models/Dice';
 
 export function isInventory(location: DiceLocation): location is 'inventory' {
-	return location === 'inventory';
+    return location === 'inventory';
 }
 
 export function isCharacterId(location: DiceLocation): location is string {
-	return typeof location === 'string' && !!playerCharacterStore.getCharacterById(location);
+    return typeof location === 'string' && location !== 'inventory' && !!playerCharacterStore.getCharacterById(location);
 }
 
 export function isValidLocation(location: DiceLocation): boolean {
-	return isInventory(location) || isCharacterId(location);
+    return isInventory(location) || isCharacterId(location);
 }

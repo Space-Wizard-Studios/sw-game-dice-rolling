@@ -19,7 +19,7 @@ export async function Preparation() {
 	});
 
 	// Generate some random characters and prompt player to select one
-	const randomPlayerCharacters = generateRandomCharacter(3, 'Player');
+	const randomPlayerCharacters = generateRandomCharacter(5, 'Player');
 	const selectedCharacter = await CharacterSelection(randomPlayerCharacters);
 	playerCharacterStore.addCharacter(selectedCharacter);
 
@@ -31,7 +31,7 @@ export async function Preparation() {
 		requiresUserAction: true,
 	});
 
-	const randomPlayerCharacters2 = generateRandomCharacter(3, 'Player');
+	const randomPlayerCharacters2 = generateRandomCharacter(5, 'Player');
 	const selectedCharacter2 = await CharacterSelection(randomPlayerCharacters2);
 	playerCharacterStore.addCharacter(selectedCharacter2);
 

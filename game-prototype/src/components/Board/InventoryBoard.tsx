@@ -13,7 +13,7 @@ export const InventoryBoard: Component<InventoryBoardProps> = (props) => {
 	return (
 		<div class={cn('justify-between p-1 gap-1 rounded-md', props.class)}>
 			<div class='flex flex-col h-full w-full p-1 space-y-1 rounded-md bg-black bg-opacity-25'>
-				<h2>Bolsa de Dados</h2>
+				<h2>Dados</h2>
 				<div class='flex flex-row gap-1'>
 					{
 						props.diceIds.map(id => {

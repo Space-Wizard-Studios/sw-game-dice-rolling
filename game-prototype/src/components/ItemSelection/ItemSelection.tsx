@@ -62,7 +62,7 @@ export const ItemSelection = <T,>(props: SelectionDialogProps<T>) => {
 					<DialogTitle>{props.title}</DialogTitle>
 					<DialogDescription>{props.description}</DialogDescription>
 				</DialogHeader>
-				<div class='flex flex-col gap-1'>
+				<div class='flex flex-col gap-1 max-h-96 overflow-scroll'>
 					{props.items.map(item => (
 						<div class='flex flex-row w-full gap-1 items-center justify-center'>
 							{renderIcon(item)}

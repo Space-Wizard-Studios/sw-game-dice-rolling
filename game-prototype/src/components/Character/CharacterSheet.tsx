@@ -18,27 +18,34 @@ export const CharacterSheet: Component<CharacterSheetProps> = (props) => {
 	const diceSlots = Array.from({ length: props.character.diceCapacity });
 	return (
 		<div class={cn(
-			'flex flex-col md:flex-row w-full items-center rounded-md',
+			'flex flex-col md:flex-row flex-grow h-full w-full p-1 gap-1 rounded-md items-center',
 			'bg-blue-100 bg-opacity-25 border-2 border-black border-opacity-50',
 			props.class
 		)}>
-			<CharacterImage src={props.character.role.image} />
-			<div class='flex flex-col w-full p-1'>
-				<div class='flex flex-row w-full justify-between'>
+			<div class='flex flex-row w-full justify-center md:justify-start '>
+				<CharacterImage src={props.character.role.image} />
+				<div class='flex flex-col justify-center'>
 					<CharacterName name={props.character.name} />
 					<CharacterRole role={props.character.role} />
+					<CharacterHealth health={props.character.health ?? getRoleBaseHealth(props.character.role)} />
 				</div>
-				<CharacterHealth health={props.character.health ?? getRoleBaseHealth(props.character.role)} />
-				<div class='flex flex-row gap-2'>
+			</div>
+			<div class='flex flex-col gap-2 w-full justify-center md:justify-start'>
+				<div class='flex flex-row flex-wrap gap-1 items-center justify-center'>
 					{diceSlots.map((_, index) => (
-						<div class='w-10 h-10 border-2 rounded-lg border-dashed border-gray-400 flex items-center justify-center'>
+						<div class='h-10 w-10 border-2 rounded-lg border-dashed border-gray-400 flex items-center justify-center'>
 							{props.character.diceIds && props.character.diceIds[index] && (
 								<CharacterDiceSet diceIds={[props.character.diceIds[index]]} />
 							)}
 						</div>
 					))}
 				</div>
-				{/* <CharacterAction /> */}
+				<div class='flex flex-col flex-1 h-10 items-center justify-end'>
+					<div class='h-full w-20 border-2 rounded-lg border-dashed border-gray-400 flex items-center justify-center'>
+						{/* <CharacterAction /> */}
+						ACTION
+					</div>
+				</div>
 			</div>
 		</div>
 	);

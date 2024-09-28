@@ -13,7 +13,7 @@ export type Role = {
 	allowedCombos?: ComboAction[];
 };
 
-export type RoleType = 'Fighter' | 'Mage' | 'Rogue';
+export type RoleType = 'Fighter' | 'Healer' | 'Mage' | 'Rogue';
 
 export const Roles: Record<RoleType, Role> = {
 	Fighter: {
@@ -26,7 +26,7 @@ export const Roles: Record<RoleType, Role> = {
 		baseSpeed: {
 			max: 10,
 		},
-		baseDiceCapacity: 2,
+		baseDiceCapacity: 4,
 		allowedActions: [DiceActions.physicalAttack, DiceActions.defend],
 		allowedCombos: [ComboActions.chargedAttack, ComboActions.parry],
 	},
@@ -40,7 +40,7 @@ export const Roles: Record<RoleType, Role> = {
 		baseSpeed: {
 			max: 10,
 		},
-		baseDiceCapacity: 2,
+		baseDiceCapacity: 3,
 		allowedActions: [DiceActions.magicAttack, DiceActions.defend],
 		allowedCombos: [ComboActions.magicBurst],
 	},
@@ -55,6 +55,20 @@ export const Roles: Record<RoleType, Role> = {
 			max: 10,
 		},
 		baseDiceCapacity: 2,
+		allowedActions: [DiceActions.physicalAttack, DiceActions.defend],
+		allowedCombos: [],
+	},
+	Healer: {
+		name: "Healer",
+		description: "A cunning and agile character skilled in stealth.",
+		image: "https://api.dicebear.com/9.x/initials/svg?seed=Healer",
+		baseHealth: {
+			max: 75,
+		},
+		baseSpeed: {
+			max: 10,
+		},
+		baseDiceCapacity: 1,
 		allowedActions: [DiceActions.physicalAttack, DiceActions.defend],
 		allowedCombos: [],
 	}

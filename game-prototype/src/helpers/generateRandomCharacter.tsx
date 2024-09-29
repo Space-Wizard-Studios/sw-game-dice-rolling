@@ -13,9 +13,9 @@ import type { Character } from '@models/Character';
  */
 
 export function generateRandomCharacter(n: number, prefix: string = '', isEnemy: boolean = false): Character[] {
-	const roles: Role[] = isEnemy
-		? [EnemyRoles.GiantRat]
-		: [PlayableRoles.Fighter, PlayableRoles.Mage, PlayableRoles.Rogue];
+    const roles: Role[] = isEnemy
+        ? Object.values(EnemyRoles)
+        : Object.values(PlayableRoles);
 	const characters: Character[] = [];
 
 	for (let i = 0; i < n; i++) {

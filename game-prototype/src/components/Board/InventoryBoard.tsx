@@ -3,7 +3,6 @@ import { cn } from '@helpers/cn';
 import type { Component } from 'solid-js';
 import { diceStore } from '@stores/DiceStore';
 
-
 type InventoryBoardProps = {
 	diceIds: string[];
 	class?: string;

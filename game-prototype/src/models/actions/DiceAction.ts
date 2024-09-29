@@ -68,3 +68,28 @@ export const DiceActions: Record<ActionType, DiceAction> = {
 		}
 	},
 } as const;
+
+type EnemyActionType = 'bite' | 'claw';
+
+export const EnemyDiceActions: Record<EnemyActionType, DiceAction> = {
+	bite: {
+		name: 'Morder',
+		abbreviation: 'BITE',
+		description: 'Bite the target.',
+		targets: [Targets.enemySingle],
+		colors: {
+			background: '#fca5a5',
+			text: '#7f1d1d',
+		},
+	},
+	claw: {
+		name: 'Arranhar',
+		abbreviation: 'CLAW',
+		description: 'Claw the target.',
+		targets: [Targets.enemyAll],
+		colors: {
+			background: '#fca5a5',
+			text: '#7f1d1d',
+		}
+	},
+} as const;

@@ -8,6 +8,7 @@ import type { Component } from 'solid-js';
 import type { Character } from '@models/Character';
 import { getRoleBaseHealth } from '@helpers/getRole';
 import { CharacterDiceSet } from '@components/Character/CharacterDiceSet';
+import { CharacterAction } from '@components/Character/CharacterAction';
 
 type CharacterSheetProps = {
 	character: Character;
@@ -40,12 +41,7 @@ export const CharacterSheet: Component<CharacterSheetProps> = (props) => {
 						</div>
 					))}
 				</div>
-				<div class='flex flex-col flex-1 h-10 items-center justify-end'>
-					<div class='h-full w-20 border-2 rounded-lg border-dashed border-gray-400 flex items-center justify-center'>
-						{/* <CharacterAction /> */}
-						ACTION
-					</div>
-				</div>
+				<CharacterAction />
 			</div>
 		</div>
 	);

@@ -21,7 +21,7 @@ export const DiceActions: Record<ActionType, DiceAction> = {
 		name: 'Falha',
 		abbreviation: 'FAIL',
 		description: 'Do nothing.',
-		targets: [Targets.self],
+		targets: [Targets.nothing],
 		colors: {
 			background: '#d4d4d8',
 			text: '#404040',

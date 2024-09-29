@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { getRandomElement } from '@helpers/getRandomElement';
-import { Roles } from '@models/Role';
-
+import { PlayableRoles, EnemyRoles } from '@models/Role';
 import type { Role } from '@models/Role';
 import type { Character } from '@models/Character';
 
@@ -13,8 +12,10 @@ import type { Character } from '@models/Character';
  * @returns {Character[]} - An array of randomly generated characters.
  */
 
-export function generateRandomCharacter(n: number, prefix: string = ''): Character[] {
-	const roles: Role[] = [Roles.Fighter, Roles.Mage, Roles.Rogue];
+export function generateRandomCharacter(n: number, prefix: string = '', isEnemy: boolean = false): Character[] {
+	const roles: Role[] = isEnemy
+		? [EnemyRoles.GiantRat]
+		: [PlayableRoles.Fighter, PlayableRoles.Mage, PlayableRoles.Rogue];
 	const characters: Character[] = [];
 
 	for (let i = 0; i < n; i++) {

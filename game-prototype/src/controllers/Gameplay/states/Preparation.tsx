@@ -69,8 +69,8 @@ export async function Preparation() {
 	});
 
 	// Generate random characters for the enemy
-	const enemyCharacters = generateRandomCharacter(5, 'Enemy');
-	enemyCharacterStore.addMultipleCharacters(enemyCharacters);
-
+    const enemyCharacters = generateRandomCharacter(3, 'Enemy', true);
+    enemyCharacterStore.addMultipleCharacters(enemyCharacters);
+	
 	return null;
 }

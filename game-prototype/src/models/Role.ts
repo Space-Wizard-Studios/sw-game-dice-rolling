@@ -15,7 +15,7 @@ export type Role = {
 
 export type RoleType = 'Fighter' | 'Healer' | 'Mage' | 'Rogue';
 
-export const Roles: Record<RoleType, Role> = {
+export const PlayableRoles: Record<RoleType, Role> = {
 	Fighter: {
 		name: "Fighter",
 		image: "https://api.dicebear.com/9.x/initials/svg?seed=Fighter",
@@ -72,4 +72,21 @@ export const Roles: Record<RoleType, Role> = {
 		allowedActions: [DiceActions.physicalAttack, DiceActions.defend],
 		allowedCombos: [],
 	}
+};
+
+export const EnemyRoles = {
+	GiantRat: {
+		name: "Giant Rat",
+		image: "https://api.dicebear.com/9.x/initials/svg?seed=GiantRat",
+		description: "A large and aggressive rat that bites.",
+		baseHealth: {
+			max: 50,
+		},
+		baseSpeed: {
+			max: 8,
+		},
+		baseDiceCapacity: 2,
+		allowedActions: [DiceActions.physicalAttack],
+		allowedCombos: [],
+	},
 };

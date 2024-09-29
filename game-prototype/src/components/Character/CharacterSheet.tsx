@@ -18,11 +18,11 @@ export const CharacterSheet: Component<CharacterSheetProps> = (props) => {
 	const diceSlots = Array.from({ length: props.character.diceCapacity });
 	return (
 		<div class={cn(
-			'flex flex-col md:flex-row flex-grow h-full w-full p-1 gap-1 rounded-md items-center',
+			'flex flex-col md:flex-row p-1 gap-1 rounded-md items-center',
 			'bg-blue-100 bg-opacity-25 border-2 border-black border-opacity-50',
 			props.class
 		)}>
-			<div class='flex flex-row w-full justify-center md:justify-start '>
+			<div class='flex flex-row gap-2 w-full justify-center md:justify-start '>
 				<CharacterImage src={props.character.role.image} />
 				<div class='flex flex-col justify-center'>
 					<CharacterName name={props.character.name} />

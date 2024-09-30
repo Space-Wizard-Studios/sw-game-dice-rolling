@@ -1,6 +1,7 @@
 import { createStore } from 'solid-js/store';
 import { getActionProbabilities, getActionList, getMostProbableActions } from '@helpers/getDiceActions';
 import type { Dice, DiceLocation } from '@models/Dice';
+import { transferDice } from '@helpers/diceTransferHandler';
 
 export type DiceStore = {
 	diceSet: Dice[];
@@ -56,7 +57,7 @@ function createDiceStore() {
 		getMostProbableActions,
 		updateDiceName,
 		updateDiceLocation,
-		removeDice,
+		removeDice
 	};
 }
 

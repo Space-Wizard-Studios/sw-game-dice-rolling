@@ -1,5 +1,6 @@
 ---
 import { Game } from "@components/Game";
+export const testMode = process.argv.includes('--test');
 ---
 
-<Game client:only="solid-js" />
+<Game client:only="solid-js" test={testMode} />

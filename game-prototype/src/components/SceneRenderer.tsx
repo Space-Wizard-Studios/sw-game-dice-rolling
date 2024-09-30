@@ -5,7 +5,7 @@ import { GameplayScene } from '@components/Scenes/Gameplay';
 import { GameoverScene } from '@components/Scenes/Gameover';
 import { MainMenuScene } from '@components/Scenes/MainMenu';
 
-function renderScene(scene: GameSceneType | undefined) {
+function renderScene(scene: GameSceneType) {
 	switch (scene) {
 		case 'gameplayScene':
 			return <GameplayScene />;

@@ -4,8 +4,8 @@ export async function BattleTurn() {
 	await addDialogueMessage({
 		lines: [
 			{
-				text: 'Este é um turno da batalha. Vamos seguir para o resultado porque ainda não fiz essa parte.',
-				type: 'wip',
+				text: `Este é um turno da batalha. Vamos rolar os dados dos personagens que estão em campo.`,
+				type: 'info',
 			},
 		],
 		requiresUserAction: true,

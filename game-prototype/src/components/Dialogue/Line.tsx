@@ -5,26 +5,28 @@ export const Line: Component<DialogueLine> = (props) => {
 	let bg;
 	let text;
 	let border;
+	let margin;
 	switch (props.type) {
 		case 'info':
-			bg = 'bg-blue-500';
-			text= 'text-blue-900 text-bold';
+			bg = 'bg-blue-400';
+			text= 'text-blue-900 font-bold';
 			break;
 		case 'failure':
 			bg = 'bg-red-500';
-			text = 'text-red-900 text-bold';
+			text = 'text-red-900 font-bold';
 			break;
 		case 'success':
 			bg = 'bg-green-500';
-			text = 'text-green-900 text-bold';
+			text = 'text-green-900 font-bold';
 			break;
 		case 'warning':
 			bg = 'bg-yellow-500';
-			text = 'text-yellow-900 text-bold';
+			text = 'text-yellow-900 font-bold';
 			break;
 		case 'wip':
+			margin = 'my-1';
 			bg = 'bg-gray-500';
-			text = 'text-gray-900 text-bold';
+			text = 'text-gray-900 font-bold';
 			border = 'border-2 rounded-lg border-dashed border-gray-400';
 			break;
 		default:
@@ -50,7 +52,7 @@ export const Line: Component<DialogueLine> = (props) => {
 	}
 
 	return (
-		<p class={`flex flex-row ${alignment} p-1 ${text} ${border} ${bg}`}>
+		<p class={`flex flex-row ${margin} ${alignment} p-1 ${text} ${border} ${bg}`}>
 			{props.text}
 		</p>
 	);

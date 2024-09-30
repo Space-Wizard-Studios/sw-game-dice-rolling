@@ -29,6 +29,10 @@ export async function GameplayIntroduction() {
 				text: 'Mensagem de aviso.',
 				type: 'warning',
 			},
+			{
+				text: 'Mensagem "work in progress".',
+				type: 'wip',
+			},
 		],
 		requiresUserAction: true,
 	});

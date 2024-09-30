@@ -19,7 +19,7 @@ export const Message: Component<DialogueMessage> = (props) => {
 	};
 
 	return (
-		<div class='flex flex-col p-1 rounded-md bg-gray-500 bg-opacity-50'>
+		<div class='flex flex-col p-1 rounded-md bg-gray-700'>
 			<div>
 				{props.gameState && <h3 class='font-semibold pb-1'>{getGameStateName(props.gameState)}</h3>}
 			</div>

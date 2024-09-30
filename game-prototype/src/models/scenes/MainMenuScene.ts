@@ -4,7 +4,7 @@ export type MainMenuSceneType = 'mainMenuScene';
 
 export const MainMenuScenes: Record<MainMenuSceneType, GameScene> = {
 	mainMenuScene: {
-		name: "Gameover Placeholder",
+		name: "Main Menu Placeholder",
 		bg: "placeholder-bg",
 	},
 } as const;

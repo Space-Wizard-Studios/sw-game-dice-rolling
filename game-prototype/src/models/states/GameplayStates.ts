@@ -1,33 +1,33 @@
 import type { GameState } from "@models/states/States";
 
 export type GameplayStateType =
-	| 'gameplayPresentation'
-	| 'gameplayPreparation'
-	| 'gameplaySetup'
-	| 'gameplayBattle'
+	| 'gameplayIntroduction'
+	| 'gameplayInitialSetup'
+	| 'gameplayBattleSetup'
+	| 'gameplayBattleTurn'
 	| 'gameplayBattleResult';
 
 export const GameplayStates: Record<GameplayStateType, GameState> = {
-	gameplayPresentation: {
-		name: "Apresentação",
+	gameplayIntroduction: {
+		name: "Introdução",
 		icon: "gameplayPresentation-icon",
 		bg: "gameplayPresentation-bg",
 		iconBg: "gameplayPresentation-icon-bg"
 	},
-	gameplayPreparation: {
-		name: "Preparação",
+	gameplayInitialSetup: {
+		name: "Início do Jogo",
 		icon: "gameplayPreparation-icon",
 		bg: "gameplayPreparation-bg",
 		iconBg: "gameplayPreparation-icon-bg"
 	},
-	gameplaySetup: {
+	gameplayBattleSetup: {
 		name: "Preparação para Batalha",
 		icon: "battle-setup-icon",
 		bg: "battle-setup-bg",
 		iconBg: "battle-setup-icon-bg"
 	},
-	gameplayBattle: {
-		name: "Início da Batalha",
+	gameplayBattleTurn: {
+		name: "Turno da Batalha",
 		icon: "battle-start-icon",
 		bg: "battle-start-bg",
 		iconBg: "battle-start-icon-bg",

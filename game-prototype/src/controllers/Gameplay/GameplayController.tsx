@@ -1,53 +1,54 @@
-import { Presentation } from '@controllers/Gameplay/states/Presentation';
-import { Preparation } from '@controllers/Gameplay/states/Preparation';
+import { GameplayIntroduction } from '@controllers/Gameplay/states/Introduction';
+import { InitialSetup } from '@controllers/Gameplay/states/InitialSetup';
 import { BattleSetup } from '@controllers/Gameplay/states/BattleSetup';
-import { BattleStart } from '@controllers/Gameplay/states/BattleStart';
+import { BattleTurn } from '@controllers/Gameplay/states/BattleTurn';
 import { BattleEnd } from '@controllers/Gameplay/states/BattleEnd';
 import { updateGameState, updateGameSceneState } from '@helpers/updateGameState';
 
 import type { GameplaySceneType } from '@models/scenes/GameplayScene';
 import type { GameplayStateType } from '@models/states/GameplayStates';
+import { startGameover } from '@controllers/Gameover/GameoverController';
 
 let scene: GameplaySceneType;
 let state: GameplayStateType;
 
-export async function startGameplay() {
+export async function transitionToIntroduction() {
 	scene = 'gameplayScene';
-	state = 'gameplayPresentation';
-	console.log('Starting gameplay...');
+	state = 'gameplayIntroduction';
 	updateGameSceneState(scene, state);
-	await Presentation();
-	await transitionToPreparation();
+	await GameplayIntroduction();
+	await transitionToInitialSetup();
 }
 
-export async function transitionToPreparation() {
-	console.log('Transitioning to preparation phase...');
-	state = 'gameplayPreparation';
+export async function transitionToInitialSetup() {
+	state = 'gameplayInitialSetup';
 	updateGameState(state);
-	await Preparation();
+	await InitialSetup();
 	await transitionToBattleSetup();
 }
 
 export async function transitionToBattleSetup() {
-	console.log('Transitioning to battle setup phase...');
-	state = 'gameplaySetup';
+	state = 'gameplayBattleSetup';
 	updateGameState(state);
 	await BattleSetup();
-	await transitionToBattleStart();
+	await transitionToBattleTurn();
 }
 
-export async function transitionToBattleStart() {
-	console.log('Transitioning to battle start phase...');
-	state = 'gameplayBattle';
+export async function transitionToBattleTurn() {
+	state = 'gameplayBattleTurn';
 	updateGameState(state);
-	await BattleStart();
-	await transitionToBattleEnd();
+	await BattleTurn();
+
+	const result = 'defeat';
+	await transitionToBattleEnd(result);
 }
 
-export async function transitionToBattleEnd() {
-	console.log('Transitioning to battle end phase...');
+export async function transitionToBattleEnd(result: 'victory' | 'defeat') {
 	state = 'gameplayBattleResult';
 	updateGameState(state);
-	await BattleEnd();
-	// TODO Decide next phase or end game
+	await BattleEnd(result);
+
+	if (result === 'defeat') {
+		startGameover();
+	}
 }

@@ -29,7 +29,7 @@ export const Message: Component<DialogueMessage> = (props) => {
 				</div>
 				{props.requiresUserAction && !isContinued() && (
 					<Button onClick={handleContinue} class="">
-						Continuar
+						{props.buttonText || 'Continuar'}
 					</Button>
 				)}
 			</div>

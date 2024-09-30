@@ -2,18 +2,18 @@ import { addDialogueMessage } from '@stores/DialogueStore';
 import { generateRandomCharacter } from '@helpers/generateRandomCharacter';
 import { CharacterSelection } from '@components/ItemSelection/CharacterSelection';
 
-import { enemyCharacterStore, playerCharacterStore } from '@stores/CharacterStore';
+import { playerCharacterStore } from '@stores/CharacterStore';
 import { diceStore } from '@stores/DiceStore';
 
 import { DiceSelection } from '@components/ItemSelection/DiceSelection';
 import { generateRandomDice } from '@helpers/generateRandomDice';
 import { transferDice } from '@helpers/diceTransferHandler';
 
-export async function Preparation() {
+export async function InitialSetup() {
 	await addDialogueMessage({
 		lines: [
 			{ text: 'Esta é a fase de preparação.' },
-			{ text: 'Vamos começar selecionando seu personagem.' },
+			{ text: 'Vamos começar selecionando seus personagens.' },
 		],
 		requiresUserAction: true,
 	});
@@ -22,14 +22,6 @@ export async function Preparation() {
 	const randomPlayerCharacters = generateRandomCharacter(5, 'Player');
 	const selectedCharacter = await CharacterSelection(randomPlayerCharacters);
 	playerCharacterStore.addCharacter(selectedCharacter);
-
-	await addDialogueMessage({
-		lines: [
-			{ text: 'Ótima escolha!' },
-			{ text: 'Agora vamos selecionar seus dados.' },
-		],
-		requiresUserAction: true,
-	});
 
 	const randomPlayerCharacters2 = generateRandomCharacter(5, 'Player');
 	const selectedCharacter2 = await CharacterSelection(randomPlayerCharacters2);
@@ -42,7 +34,6 @@ export async function Preparation() {
 		],
 		requiresUserAction: true,
 	});
-
 
 	// Generate a random dice and prompt the player to select
 	const randomPlayerDice = generateRandomDice(10, [4, 6, 8, 10, 12, 20, 100]);
@@ -63,14 +54,8 @@ export async function Preparation() {
 	await addDialogueMessage({
 		lines: [
 			{ text: 'Ótima escolha!' },
-			{ text: 'Agora vamos gerar alguns inimigos...' },
+			{ text: 'Agora vamos iniciar uma batalha.' },
 		],
 		requiresUserAction: true,
 	});
-
-	// Generate random characters for the enemy
-    const enemyCharacters = generateRandomCharacter(3, 'Enemy', true);
-    enemyCharacterStore.addMultipleCharacters(enemyCharacters);
-	
-	return null;
 }

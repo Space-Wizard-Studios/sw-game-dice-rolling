@@ -2,7 +2,7 @@ import { createStore } from 'solid-js/store';
 import { useGameManager } from '@stores/GameContext';
 import type { GameStateType } from '@models/states/States';
 
-type LineType = 'info' | 'failure' | 'success' | 'warning';
+type LineType = 'info' | 'failure' | 'success' | 'warning' | 'wip';
 
 export type DialogueLine = {
 	text: string;
@@ -14,6 +14,7 @@ export type DialogueMessage = {
 	lines: DialogueLine[];
 	gameState?: GameStateType;
 	requiresUserAction?: boolean;
+	buttonText?: string;
 };
 
 export const [dialogueStore, setDialogueStore] = createStore<{ messages: DialogueMessage[] }>({
@@ -27,10 +28,10 @@ export const [dialogueStore, setDialogueStore] = createStore<{ messages: Dialogu
  * @returns A promise that resolves when the user action is completed, if required.
  */
 export function addDialogueMessage(message: DialogueMessage): Promise<void> {
-	const [gameState] = useGameManager();
-	const currentState = gameState.currentState;
-	const messageState = { ...message, gameState: currentState };
-	setDialogueStore('messages', messages => [...messages, messageState]);
+    const [gameState] = useGameManager();
+    const currentState = gameState.currentState;
+    const messageState = { ...message, gameState: currentState };
+    setDialogueStore('messages', messages => [...messages, messageState]);
 
 	if (message.requiresUserAction) {
 		return waitForUserAction();

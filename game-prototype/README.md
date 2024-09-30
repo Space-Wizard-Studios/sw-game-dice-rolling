@@ -69,6 +69,15 @@ npm i
 npm run dev
 ```
 
+## Play Test
+
+Para testes em uma cena controlada, inicialize o server com `-- --test` como argumento.
+Se necessário, edite o arquivo [TestRenderer.tsx](/game-prototype/src/components/TestRenderer.tsx) para inicializar o teste como desejar.
+
+```shell
+npm run dev -- --test
+```
+
 ## Tecnologias e Frameworks
 
 - **Solid**: Para construir todo o jogo no client.

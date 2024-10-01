@@ -4,7 +4,6 @@ import type { Health } from '@models/Character';
 type CharacterHealthProps = {
 	class?: string;
 	health: Health;
-	onClick?: () => void;
 }
 
 export const CharacterHealth: Component<CharacterHealthProps> = (props) => {

@@ -4,7 +4,6 @@ import type { Component } from 'solid-js';
 type CharacterNameProps = {
 	role: Role;
 	class?: string;
-	onClick?: () => void;
 }
 
 export const CharacterRole: Component<CharacterNameProps> = (props) => {

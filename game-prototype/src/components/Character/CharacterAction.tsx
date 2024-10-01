@@ -2,7 +2,6 @@ import type { Component } from 'solid-js';
 
 type CharacterActionProps = {
 	class?: string;
-	onClick?: () => void;
 }
 
 export const CharacterAction: Component<CharacterActionProps> = () => {

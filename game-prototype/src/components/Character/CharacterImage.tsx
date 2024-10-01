@@ -4,7 +4,6 @@ import { cn } from '@helpers/cn';
 type CharacterImageProps = {
 	class?: string;
 	src: string;
-	onClick?: () => void;
 }
 
 export const CharacterImage: Component<CharacterImageProps> = (props) => {

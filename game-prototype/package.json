@@ -23,6 +23,7 @@
     "@astrojs/solid-js": "^4.4.2",
     "@astrojs/tailwind": "^5.1.1",
     "@astrojs/ts-plugin": "^1.10.2",
+    "@corvu/drawer": "^0.2.2",
     "@kobalte/core": "^0.13.6",
     "@types/uuid": "^10.0.0",
     "astro": "^4.15.9",

@@ -3,11 +3,11 @@ import { useGameManager, type UserActionType } from "@stores/GameContext";
 import { Button } from "@components/ui/button";
 import { rollAllPlayerDice } from "@helpers/rollDice";
 
-type ActionButtonsProps = {
+type ActionButtonProps = {
 	actionType: UserActionType | undefined;
 };
 
-export const ActionButtons: Component<ActionButtonsProps> = (props) => {
+export const ActionButton: Component<ActionButtonProps> = (props) => {
 	const [gameState, setGameState] = useGameManager();
 
 	const handleContinue = () => {
@@ -28,7 +28,7 @@ export const ActionButtons: Component<ActionButtonsProps> = (props) => {
 	};
 
 	return (
-		<Button onClick={handleClick}>
+		<Button onClick={handleClick} class='bg-green-700 bg-opacity-100'>
 			{props.actionType === 'continue' ? 'Continuar' : 'Rolar dados!'}
 		</Button>
 	);

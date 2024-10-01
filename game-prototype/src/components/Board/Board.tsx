@@ -7,7 +7,7 @@ import { CharacterBoard } from '@components/Board/CharacterBoard';
 
 import { playerCharacterStore, enemyCharacterStore } from '@stores/CharacterStore';
 import { inventoryStore } from '@stores/InventoryStore';
-import { ActionButtons } from '@components/Board/ActionButtons';
+import { ActionButton } from '@components/Board/ActionButton';
 import { useGameManager } from '@stores/GameContext';
 
 type BoardProps = {
@@ -35,7 +35,7 @@ export const Board: Component<BoardProps> = (props) => {
 
 				{gameState.requiredAction && (
 					<div class='flex h-full md:h-1/3 w-1/3 md:w-full items-center justify-center'>
-						<ActionButtons actionType={gameState.requiredAction} />
+						<ActionButton actionType={gameState.requiredAction} />
 					</div>
 				)}
 			</div>

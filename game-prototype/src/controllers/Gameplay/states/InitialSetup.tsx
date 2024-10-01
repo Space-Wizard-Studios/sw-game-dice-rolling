@@ -56,6 +56,6 @@ export async function InitialSetup() {
 			{ text: 'Ótima escolha!' },
 			{ text: 'Agora vamos iniciar uma batalha.' },
 		],
-		requiresUserAction: {type: 'rollDice'},
+		requiresUserAction: {type: 'continue'},
 	});
 }

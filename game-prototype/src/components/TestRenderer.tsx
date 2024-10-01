@@ -11,14 +11,9 @@ import { generateRandomDice } from "@helpers/generateRandomDice";
 import { generateRandomCharacter } from "@helpers/generateRandomCharacter";
 import { transferDice } from "@helpers/diceTransferHandler";
 
-
 export const TestRenderer = () => {
 	const [gameManager] = useGameManager();
 	updateGameSceneState("gameplayScene", "gameplayBattleTurn");
-
-	playerCharacterStore.store.characters = [];
-	enemyCharacterStore.store.characters = [];
-	diceStore.store.diceSet = [];
 
 	onMount(() => {
 		if (playerCharacterStore.store.characters.length === 0) {

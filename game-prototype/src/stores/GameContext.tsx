@@ -8,11 +8,13 @@ import type { GameStateType } from '@models/states/States';
 export type GameManager = {
 	currentScene: GameSceneType;
 	currentState: GameStateType;
+	paused: boolean;
 };
 
 export const [gameState, setGameState] = createStore<GameManager>({
 	currentScene: "mainMenuScene",
 	currentState: "mainMenuPlaceholder",
+	paused: false,
 });
 
 const GameContext = createContext<[GameManager, typeof setGameState]>([gameState, setGameState]);

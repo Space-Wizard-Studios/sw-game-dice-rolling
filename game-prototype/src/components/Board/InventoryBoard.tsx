@@ -10,21 +10,18 @@ type InventoryBoardProps = {
 
 export const InventoryBoard: Component<InventoryBoardProps> = (props) => {
 	return (
-		<div class={cn('justify-between p-1 gap-1 rounded-md', props.class)}>
-			<div class='flex flex-col h-full w-full p-1 space-y-1 rounded-md bg-black bg-opacity-25'>
-				<h2>Dados</h2>
-				<div class='flex flex-row gap-1'>
-					{
-						props.diceIds.map(id => {
-							const dice = diceStore.getDiceByID(id);
-							if (!dice) {
-								console.warn(`Dice with ID ${id} not found`);
-								return null;
-							}
-							return <DiceButton dice={dice} />
-						})
-					}
-				</div>
+		<div class={cn('flex flex-col w-full h-full overflow-auto p-1 space-y-1 rounded-md bg-black bg-opacity-25', props.class)}>
+			<div class='flex flex-row flex-wrap gap-1'>
+				{
+					props.diceIds.map(id => {
+						const dice = diceStore.getDiceByID(id);
+						if (!dice) {
+							console.warn(`Dice with ID ${id} not found`);
+							return null;
+						}
+						return <DiceButton dice={dice} />
+					})
+				}
 			</div>
 		</div>
 	);

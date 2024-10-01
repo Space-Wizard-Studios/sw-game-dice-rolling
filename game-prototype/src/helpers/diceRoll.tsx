@@ -1,12 +1,14 @@
+import type { DiceAction } from '@models/actions/DiceAction';
 import type { Dice } from '@models/Dice';
 
 /**
- * Rolls a dice and returns the result.
+ * Rolls a dice and returns the corresponding action.
  *
  * @param {Dice} dice - The dice object to roll.
- * @returns {number} The result of the dice roll.
+ * @returns {DiceAction} The action corresponding to the rolled side.
  */
-export function rollDice(dice: Dice): number {
-    const sides = dice.sides;
-    return Math.floor(Math.random() * sides) + 1;
+export function rollDice(dice: Dice): DiceAction {
+	const sides = dice.sides;
+	const rolledSide = Math.floor(Math.random() * sides);
+	return dice.actions[rolledSide];
 }

@@ -23,17 +23,18 @@ export const [dialogueStore, setDialogueStore] = createStore<{ messages: Dialogu
 
 /**
  * Adds a new dialogue message to the store.
- * If the message requires user action, returns a promise that resolves when the action is completed.
+ * Always returns a promise that resolves when the user action is completed, if required.
  * @param message - The dialogue message to add.
  * @returns A promise that resolves when the user action is completed, if required.
  */
 export function addDialogueMessage(message: DialogueMessage): Promise<void> {
-    const [gameState] = useGameManager();
-    const currentState = gameState.currentState;
-    const messageState = { ...message, gameState: currentState };
-    setDialogueStore('messages', messages => [...messages, messageState]);
+	const [gameState, setGameState] = useGameManager();
+	const currentState = gameState.currentState;
+	const messageState = { ...message, gameState: currentState };
+	setDialogueStore('messages', messages => [...messages, messageState]);
 
 	if (message.requiresUserAction) {
+		setGameState('paused', true);
 		return waitForUserAction();
 	} else {
 		return Promise.resolve();
@@ -45,10 +46,11 @@ export function addDialogueMessage(message: DialogueMessage): Promise<void> {
  * @returns A promise that resolves when the user action is completed.
  */
 function waitForUserAction(): Promise<void> {
+	const [gameState] = useGameManager();
+
 	return new Promise<void>((resolve) => {
 		const interval = setInterval(() => {
-			const lastMessage = dialogueStore.messages[dialogueStore.messages.length - 1];
-			if (!lastMessage.requiresUserAction) {
+			if (!gameState.paused) {
 				clearInterval(interval);
 				resolve();
 			}

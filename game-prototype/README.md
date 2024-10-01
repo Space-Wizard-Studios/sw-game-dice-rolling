@@ -2,12 +2,25 @@
 
 Este projeto é um protótipo para um jogo de turnos construído usando Solid.js e Astro. O jogo envolve gerenciar personagens, engajar-se em batalhas e navegar por diferentes cenas do jogo.
 
-## Estrutura
+## Sumário
+
+- [Protótipo](#protótipo)
+  - [Sumário](#sumário)
+  - [Estrutura de arquivos](#estrutura-de-arquivos)
+  - [Conceito Geral](#conceito-geral)
+    - [Principais componentes](#principais-componentes)
+  - [Instalação e Desenvolvimento](#instalação-e-desenvolvimento)
+  - [Play Test](#play-test)
+  - [Tecnologias e Frameworks](#tecnologias-e-frameworks)
+  - [Contribuindo](#contribuindo)
+  - [Licença](#licença)
+
+## Estrutura de arquivos
 
 ```txt
 game-prototype/
 ├── public/                 # Ativos estáticos
-├── src/                    # Arquivos fonte
+├── src/                    # Arquivos fonte  
 │   ├── components/         # Componentes React
 │   │   ├── Board/          # Componente de Tabuleiro
 │   │   ├── Character/      # Componente de Personagem

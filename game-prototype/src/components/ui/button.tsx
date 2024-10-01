@@ -12,7 +12,7 @@ export const buttonVariants = cva(
 	{
 		variants: {
 			variant: {
-				default:"shadow",
+				default:"bg-black bg-opacity-25 shadow",
 				link: "text-primary underline-offset-4",
 			},
 			size: {

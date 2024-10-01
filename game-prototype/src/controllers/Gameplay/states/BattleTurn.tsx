@@ -8,7 +8,7 @@ export async function BattleTurn() {
 				type: 'wip',
 			},
 			{
-				text: 'O que você pode fazer é ficar rolando os dados aí, sidivirta. 🤙',
+				text: 'O que você pode fazer é equipar os dados e ficar rolando aí, sidivirta. 🤙',
 				type: 'wip',
 			}
 		],

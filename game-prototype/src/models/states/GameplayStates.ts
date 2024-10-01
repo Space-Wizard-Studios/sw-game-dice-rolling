@@ -1,4 +1,4 @@
-import type { GameState } from "@models/states/States";
+import type { SceneState } from "@models/states/States";
 
 export type GameplayStateType =
 	| 'gameplayIntroduction'
@@ -7,7 +7,7 @@ export type GameplayStateType =
 	| 'gameplayBattleTurn'
 	| 'gameplayBattleResult';
 
-export const GameplayStates: Record<GameplayStateType, GameState> = {
+export const GameplayStates: Record<GameplayStateType, SceneState> = {
 	gameplayIntroduction: {
 		name: "Introdução",
 		icon: "gameplayPresentation-icon",

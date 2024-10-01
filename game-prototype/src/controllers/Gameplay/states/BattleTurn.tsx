@@ -8,6 +8,6 @@ export async function BattleTurn() {
 				type: 'wip',
 			},
 		],
-		requiresUserAction: true,
+		requiresUserAction: {type: 'continue'},
 	});
 }

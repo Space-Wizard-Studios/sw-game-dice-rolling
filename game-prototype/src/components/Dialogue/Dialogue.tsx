@@ -36,8 +36,8 @@ export const Dialogue: Component<DialogueProps> = (props) => {
 	const [title, setTitle] = createSignal('');
 
 	createEffect(() => {
-		const sceneName = getGameSceneName(gameState.currentScene);
-		const stateName = getGameStateName(gameState.currentState);
+		const sceneName = getGameSceneName(gameState.currentSceneState.scene);
+		const stateName = getGameStateName(gameState.currentSceneState.state);
 		setTitle(`${sceneName} - ${stateName}`);
 	});
 

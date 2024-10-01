@@ -6,5 +6,6 @@ export const MainMenuScenes: Record<MainMenuSceneType, GameScene> = {
 	mainMenuScene: {
 		name: "Main Menu Placeholder",
 		bg: "placeholder-bg",
+		defaultState: 'mainMenuPlaceholder',
 	},
 } as const;

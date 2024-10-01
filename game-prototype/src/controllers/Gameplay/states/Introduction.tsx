@@ -5,7 +5,7 @@ export async function GameplayIntroduction() {
 		lines: [
 			{ text: 'Olá, boas vindas ao jogo!' },
 		],
-		requiresUserAction: true,
+		requiresUserAction: { type: 'continue' },
 	});
 
 	await addDialogueMessage({
@@ -34,7 +34,7 @@ export async function GameplayIntroduction() {
 				type: 'wip',
 			},
 		],
-		requiresUserAction: true,
+		requiresUserAction: { type: 'continue' },
 	});
 
 	await addDialogueMessage({
@@ -45,13 +45,13 @@ export async function GameplayIntroduction() {
 			},
 			{ text: 'Neste jogo, os dados são apenas mais um recurso que você irá utilizar e melhorar.' },
 		],
-		requiresUserAction: true,
+		requiresUserAction: { type: 'continue', },
 	});
-	
+
 	await addDialogueMessage({
 		lines: [
 			{ text: 'Tente sobreviver e boa sorte!' }
 		],
-		requiresUserAction: true,
+		requiresUserAction: { type: 'continue' },
 	});
 }

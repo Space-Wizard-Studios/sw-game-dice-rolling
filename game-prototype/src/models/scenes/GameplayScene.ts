@@ -6,5 +6,6 @@ export const GameplayScenes: Record<GameplaySceneType, GameScene> = {
 	gameplayScene: {
 		name: "Gameplay",
 		bg: "placeholder-bg",
+		defaultState: 'gameplayIntroduction',
 	},
 } as const;

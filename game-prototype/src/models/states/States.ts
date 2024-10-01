@@ -6,16 +6,16 @@ import { GameoverStates } from "@models/states/GameoverStates";
 import { MainMenuStates } from "@models/states/MainMenuStates";
 import { GameplayStates } from "@models/states/GameplayStates";
 
-export type GameStateType = GameplayStateType | GameoverStateType | MainMenuStateType;
+export type SceneStateType = GameplayStateType | GameoverStateType | MainMenuStateType;
 
-export type GameState = {
+export type SceneState = {
 	name: string;
 	icon: string;
 	bg: string;
 	iconBg: string;
 };
 
-export const GameStates: Record<GameStateType, GameState> = {
+export const GameStates: Record<SceneStateType, SceneState> = {
 	...GameplayStates,
 	...GameoverStates,
 	...MainMenuStates,

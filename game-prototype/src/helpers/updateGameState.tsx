@@ -1,37 +1,17 @@
 import { setGameState } from '@stores/GameContext';
-
 import type { GameSceneType } from '@models/scenes/Scenes';
-import type { GameStateType } from '@models/states/States';
+import type { SceneStateType } from '@models/states/States';
+import { isValidSceneState } from '@helpers/validateSceneState';
 
-/**
- * Updates the current game scene.
- * 
- * @param {GameSceneType} scene - The new game scene to set.
- */
-export function updateGameScene(scene: GameSceneType) {
+export function updateGameScene(scene: GameSceneType, state: SceneStateType) {
+	if (!isValidSceneState(scene, state)) {
+		throw new Error(`Invalid state "${state}" for scene "${scene}"`);
+	}
+
 	setGameState({
-		currentScene: scene,
+		currentSceneState: {
+			scene,
+			state,
+		},
 	});
-}
-
-/**
- * Updates the current game state.
- * 
- * @param {GameStateType} state - The new game state to set.
- */
-export function updateGameState(state: GameStateType) {
-	setGameState({
-		currentState: state,
-	});
-}
-
-/**
- * Updates both the game scene and game state.
- * 
- * @param {GameSceneType} scene - The new game scene to set.
- * @param {GameStateType} state - The new game state to set.
- */
-export function updateGameSceneState(scene: GameSceneType, state: GameStateType) {
-	updateGameScene(scene);
-	updateGameState(state);
 }

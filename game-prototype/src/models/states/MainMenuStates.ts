@@ -1,8 +1,8 @@
-import type { GameState } from "@models/states/States";
+import type { SceneState } from "@models/states/States";
 
 export type MainMenuStateType = 'mainMenuPlaceholder';
 
-export const MainMenuStates: Record<MainMenuStateType, GameState> = {
+export const MainMenuStates: Record<MainMenuStateType, SceneState> = {
 	mainMenuPlaceholder: {
 		name: "Placeholder",
 		icon: "placeholder-icon",

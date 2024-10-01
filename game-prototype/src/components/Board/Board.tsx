@@ -7,7 +7,7 @@ import { CharacterBoard } from '@components/Board/CharacterBoard';
 
 import { playerCharacterStore, enemyCharacterStore } from '@stores/CharacterStore';
 import { inventoryStore } from '@stores/InventoryStore';
-import { ContinueButton } from '@components/Board/ContinueButton';
+import { ActionButtons } from '@components/Board/ActionButtons';
 import { useGameManager } from '@stores/GameContext';
 
 type BoardProps = {
@@ -33,9 +33,9 @@ export const Board: Component<BoardProps> = (props) => {
 					<InventoryBoard diceIds={inventoryDiceIDs()} />
 				</div>
 
-				{gameState.paused && (
+				{gameState.requiredAction && (
 					<div class='flex h-1/3 items-center justify-center'>
-						<ContinueButton />
+						<ActionButtons actionType={gameState.requiredAction} />
 					</div>
 				)}
 			</div>

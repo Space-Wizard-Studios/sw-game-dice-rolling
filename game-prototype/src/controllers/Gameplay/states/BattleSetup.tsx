@@ -7,7 +7,7 @@ export async function BattleSetup() {
 		lines: [
 			{ text: 'Esta é a fase de preparação da batalha.' },
 		],
-		requiresUserAction: true,
+		requiresUserAction: {type: 'continue'},
 	});
 
 	
@@ -15,7 +15,7 @@ export async function BattleSetup() {
 		lines: [
 			{ text: 'Agora vamos gerar alguns inimigos...' },
 		],
-		requiresUserAction: true,
+		requiresUserAction: {type: 'continue'},
 	});
 
 	// Generate random characters for the enemy

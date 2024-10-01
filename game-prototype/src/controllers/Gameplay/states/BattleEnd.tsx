@@ -10,6 +10,6 @@ export async function BattleEnd(result: BattleResult) {
 				type: 'wip',
 			},
 		],
-		requiresUserAction: true,
+		requiresUserAction: {type: 'continue'},
 	});
 }

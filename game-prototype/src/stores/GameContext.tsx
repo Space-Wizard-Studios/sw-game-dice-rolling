@@ -3,19 +3,46 @@ import type { Component, ParentProps } from 'solid-js';
 import { createStore } from "solid-js/store";
 
 import type { GameSceneType } from '@models/scenes/Scenes';
-import type { GameStateType } from '@models/states/States';
+import type { SceneStateType } from '@models/states/States';
+
+export type GameStatusType = 'paused' | 'running';
+export type UserActionType = 'continue' | 'rollDice';
+
 
 export type GameManager = {
-	currentScene: GameSceneType;
-	currentState: GameStateType;
-	paused: boolean;
+	currentSceneState: {
+		scene: GameSceneType;
+		state: SceneStateType;
+	};
+	status: GameStatusType;
+	requiredAction?: UserActionType;
 };
 
 export const [gameState, setGameState] = createStore<GameManager>({
-	currentScene: "mainMenuScene",
-	currentState: "mainMenuPlaceholder",
-	paused: false,
+	currentSceneState: {
+		scene: "mainMenuScene",
+		state: "mainMenuPlaceholder",
+	},
+	status: 'running',
 });
+
+export function waitUserAction(action: UserActionType): Promise<void> {
+	setGameState('status', 'paused');
+	setGameState('requiredAction', action);
+	return resumeOnAction();
+}
+
+export function resumeOnAction(): Promise<void> {
+	return new Promise<void>((resolve) => {
+		const interval = setInterval(() => {
+			if (gameState.status === 'running') {
+				clearInterval(interval);
+				setGameState('requiredAction', undefined);
+				resolve();
+			}
+		}, 100);
+	});
+}
 
 const GameContext = createContext<[GameManager, typeof setGameState]>([gameState, setGameState]);
 
@@ -27,10 +54,6 @@ export const GameProvider: Component<ParentProps> = (props) => {
 	);
 };
 
-/**
- * Custom hook to use the game manager context.
- * @returns {[GameManager, typeof setGameState]} - The game manager state and setter function.
- */
 export function useGameManager(): [GameManager, typeof setGameState] {
 	return useContext(GameContext);
 }

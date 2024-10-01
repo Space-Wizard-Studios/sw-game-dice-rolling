@@ -15,7 +15,7 @@ export async function InitialSetup() {
 			{ text: 'Esta é a fase de preparação.' },
 			{ text: 'Vamos começar selecionando seus personagens.' },
 		],
-		requiresUserAction: true,
+		requiresUserAction: {type: 'continue'},
 	});
 
 	// Generate some random characters and prompt player to select one
@@ -32,7 +32,7 @@ export async function InitialSetup() {
 			{ text: 'Ótima escolha!' },
 			{ text: 'Agora vamos selecionar seus dados.' },
 		],
-		requiresUserAction: true,
+		requiresUserAction: {type: 'continue'},
 	});
 
 	// Generate a random dice and prompt the player to select
@@ -56,6 +56,6 @@ export async function InitialSetup() {
 			{ text: 'Ótima escolha!' },
 			{ text: 'Agora vamos iniciar uma batalha.' },
 		],
-		requiresUserAction: true,
+		requiresUserAction: {type: 'rollDice'},
 	});
 }

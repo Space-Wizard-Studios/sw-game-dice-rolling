@@ -1,8 +1,8 @@
-import type { GameState } from "@models/states/States";
+import type { SceneState } from "@models/states/States";
 
 export type GameoverStateType = 'gameoverPlaceholder';
 
-export const GameoverStates: Record<GameoverStateType, GameState> = {
+export const GameoverStates: Record<GameoverStateType, SceneState> = {
 	gameoverPlaceholder: {
 		name: "Gameover Placeholder",
 		icon: "placeholder-icon",

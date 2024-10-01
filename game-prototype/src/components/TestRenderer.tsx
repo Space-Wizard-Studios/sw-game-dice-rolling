@@ -2,7 +2,7 @@ import { onMount } from "solid-js";
 
 import { useGameManager } from "@stores/GameContext";
 import { GameplayScene } from '@components/Scenes/Gameplay';
-import { updateGameSceneState } from "@helpers/updateGameState";
+import { updateGameScene } from "@helpers/updateGameState";
 
 import { diceStore } from "@stores/DiceStore";
 import { enemyCharacterStore, playerCharacterStore } from "@stores/CharacterStore";
@@ -10,12 +10,13 @@ import { enemyCharacterStore, playerCharacterStore } from "@stores/CharacterStor
 import { generateRandomDice } from "@helpers/generateRandomDice";
 import { generateRandomCharacter } from "@helpers/generateRandomCharacter";
 import { transferDice } from "@helpers/diceTransferHandler";
+import { addDialogueMessage } from "@stores/DialogueStore";
 
 export const TestRenderer = () => {
 	const [gameManager] = useGameManager();
-	updateGameSceneState("gameplayScene", "gameplayBattleTurn");
+	updateGameScene("gameplayScene", "gameplayBattleTurn");
 
-	onMount(() => {
+	onMount(async () => {
 		if (playerCharacterStore.store.characters.length === 0) {
 			const randomPlayerCharacters = generateRandomCharacter(3, 'Player');
 			playerCharacterStore.addMultipleCharacters(randomPlayerCharacters);
@@ -33,6 +34,13 @@ export const TestRenderer = () => {
 			const randomEnemyCharacters = generateRandomCharacter(3, 'Enemy');
 			enemyCharacterStore.addMultipleCharacters(randomEnemyCharacters);
 		}
+
+		await addDialogueMessage({
+			lines: [
+				{ text: 'Foram gerados personagens e dados, equipe e role!' }
+			],
+			requiresUserAction: { type: 'rollDice' },
+		});
 
 	});
 

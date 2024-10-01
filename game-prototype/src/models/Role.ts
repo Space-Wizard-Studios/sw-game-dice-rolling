@@ -85,7 +85,7 @@ export const EnemyRoles = {
 		baseSpeed: {
 			max: 8,
 		},
-		baseDiceCapacity: 2,
+		baseDiceCapacity: 0,
 		allowedActions: [DiceActions.physicalAttack],
 		allowedCombos: [],
 	},

@@ -1,6 +1,7 @@
 import { type Component } from "solid-js";
 import { useGameManager, type UserActionType } from "@stores/GameContext";
 import { Button } from "@components/ui/button";
+import { rollAllPlayerDice } from "@helpers/rollDice";
 
 type ActionButtonsProps = {
 	actionType: UserActionType | undefined;
@@ -14,8 +15,8 @@ export const ActionButtons: Component<ActionButtonsProps> = (props) => {
 	};
 
 	const handleRollDice = () => {
-		console.log('Rolling dice...');
-		setGameState('status', 'running');
+		rollAllPlayerDice();
+		// setGameState('status', 'running');
 	};
 
 	const handleClick = () => {

@@ -1,4 +1,4 @@
-import { addDialogueMessage } from '@stores/DialogueStore';
+import { addChatMessage } from '@stores/ChatStore';
 import { generateRandomCharacter } from '@helpers/generateRandomCharacter';
 import { CharacterSelection } from '@components/ItemSelection/CharacterSelection';
 
@@ -10,7 +10,7 @@ import { generateRandomDice } from '@helpers/generateRandomDice';
 import { transferDice } from '@helpers/diceTransferHandler';
 
 export async function InitialSetup() {
-	await addDialogueMessage({
+	await addChatMessage({
 		lines: [
 			{ text: 'Esta é a fase de preparação.' },
 			{ text: 'Vamos começar selecionando seus personagens.' },
@@ -27,7 +27,7 @@ export async function InitialSetup() {
 	const selectedCharacter2 = await CharacterSelection(randomPlayerCharacters2);
 	playerCharacterStore.addCharacter(selectedCharacter2);
 
-	await addDialogueMessage({
+	await addChatMessage({
 		lines: [
 			{ text: 'Ótima escolha!' },
 			{ text: 'Agora vamos selecionar seus dados.' },
@@ -51,7 +51,7 @@ export async function InitialSetup() {
 	diceStore.addDice(selectedDice3);
 	transferDice(selectedDice3.id, null, 'inventory');
 
-	await addDialogueMessage({
+	await addChatMessage({
 		lines: [
 			{ text: 'Ótima escolha!' },
 			{ text: 'Agora vamos iniciar uma batalha.' },

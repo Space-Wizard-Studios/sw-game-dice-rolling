@@ -10,7 +10,7 @@ import { enemyCharacterStore, playerCharacterStore } from "@stores/CharacterStor
 import { generateRandomDice } from "@helpers/generateRandomDice";
 import { generateRandomCharacter } from "@helpers/generateRandomCharacter";
 import { transferDice } from "@helpers/diceTransferHandler";
-import { addDialogueMessage } from "@stores/DialogueStore";
+import { addChatMessage } from "@stores/ChatStore";
 
 export const TestRenderer = () => {
 	const [gameManager] = useGameManager();
@@ -31,13 +31,16 @@ export const TestRenderer = () => {
 		}
 
 		if (enemyCharacterStore.store.characters.length === 0) {
-			const randomEnemyCharacters = generateRandomCharacter(3, 'Enemy');
+			const randomEnemyCharacters = generateRandomCharacter(3, 'Enemy', true);
 			enemyCharacterStore.addMultipleCharacters(randomEnemyCharacters);
 		}
 
-		await addDialogueMessage({
+		await addChatMessage({
 			lines: [
-				{ text: 'Foram gerados personagens e dados, equipe e role!' }
+				{
+					text: 'Foram gerados personagens e dados, equipe e role!',
+					type: 'info',
+				}
 			],
 			requiresUserAction: { type: 'rollDice' },
 		});

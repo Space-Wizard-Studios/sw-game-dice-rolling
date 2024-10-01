@@ -28,13 +28,13 @@ export const Board: Component<BoardProps> = (props) => {
 				<CharacterBoard characters={playerCharacters()} />
 			</div>
 
-			<div class='flex flex-col h-1/5 md:h-full w-full md:w-1/5 justify-between bg-orange-700 bg-opacity-25'>
-				<div class={cn('flex h-2/3 justify-between p-1 gap-1 rounded-md')}>
+			<div class='flex flex-row md:flex-col h-1/5 md:h-full w-full md:w-1/5 justify-between bg-orange-700 bg-opacity-25'>
+				<div class={cn('flex h-full md:h-2/3 w-2/3 md:w-full justify-between p-1 gap-1 rounded-md')}>
 					<InventoryBoard diceIds={inventoryDiceIDs()} />
 				</div>
 
 				{gameState.requiredAction && (
-					<div class='flex h-1/3 items-center justify-center'>
+					<div class='flex h-full md:h-1/3 w-1/3 md:w-full items-center justify-center'>
 						<ActionButtons actionType={gameState.requiredAction} />
 					</div>
 				)}

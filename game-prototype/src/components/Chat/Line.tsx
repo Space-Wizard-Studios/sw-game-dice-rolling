@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
-import type { DialogueLine } from "@stores/DialogueStore";
+import type { ChatLine } from "@stores/ChatStore";
 
-export const Line: Component<DialogueLine> = (props) => {
+export const Line: Component<ChatLine> = (props) => {
 	let bg;
 	let text;
 	let border;

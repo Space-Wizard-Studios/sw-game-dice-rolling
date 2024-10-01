@@ -8,7 +8,6 @@ import type { SceneStateType } from '@models/states/States';
 export type GameStatusType = 'paused' | 'running';
 export type UserActionType = 'continue' | 'rollDice';
 
-
 export type GameManager = {
 	currentSceneState: {
 		scene: GameSceneType;

@@ -1,9 +1,9 @@
 import type { Component } from "solid-js";
 import { getGameStateName } from "@helpers/getGameState";
-import { Line } from "@components/Dialogue/Line";
-import type { DialogueMessage } from '@stores/DialogueStore';
+import { Line } from "@components/Chat/Line";
+import type { ChatMessage } from '@stores/ChatStore';
 
-export const Message: Component<DialogueMessage> = (props) => {
+export const Message: Component<ChatMessage> = (props) => {
 	return (
 		<div class='flex flex-col p-1 rounded-md bg-gray-700'>
 			<div>

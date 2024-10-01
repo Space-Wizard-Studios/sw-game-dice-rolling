@@ -1,7 +1,7 @@
-import { addDialogueMessage } from "@stores/DialogueStore";
+import { addChatMessage } from "@stores/ChatStore";
 
 export async function BattleTurn() {
-	await addDialogueMessage({
+	await addChatMessage({
 		lines: [
 			{
 				text: `Este é um turno da batalha, mas não existe batalha ainda 🤙`,

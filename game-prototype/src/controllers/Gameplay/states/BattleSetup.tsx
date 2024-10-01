@@ -1,9 +1,9 @@
-import { addDialogueMessage } from "@stores/DialogueStore";
+import { addChatMessage } from "@stores/ChatStore";
 import { enemyCharacterStore } from '@stores/CharacterStore';
 import { generateRandomCharacter } from '@helpers/generateRandomCharacter';
 
 export async function BattleSetup() {
-	await addDialogueMessage({
+	await addChatMessage({
 		lines: [
 			{ text: 'Esta é a fase de preparação da batalha.' },
 		],
@@ -11,7 +11,7 @@ export async function BattleSetup() {
 	});
 
 	
-	await addDialogueMessage({
+	await addChatMessage({
 		lines: [
 			{ text: 'Agora vamos gerar alguns inimigos...' },
 		],

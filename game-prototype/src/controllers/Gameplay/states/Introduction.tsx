@@ -1,14 +1,14 @@
-import { addDialogueMessage } from "@stores/DialogueStore";
+import { addChatMessage } from "@stores/ChatStore";
 
 export async function GameplayIntroduction() {
-	await addDialogueMessage({
+	await addChatMessage({
 		lines: [
 			{ text: 'Olá, boas vindas ao jogo!' },
 		],
 		requiresUserAction: { type: 'continue' },
 	});
 
-	await addDialogueMessage({
+	await addChatMessage({
 		lines: [
 			{
 				text: "Vamos testar algumas mensagens.",
@@ -37,7 +37,7 @@ export async function GameplayIntroduction() {
 		requiresUserAction: { type: 'continue' },
 	});
 
-	await addDialogueMessage({
+	await addChatMessage({
 		lines: [
 			{
 				text: 'Este é um protótipo para um jogo de RPG por turnos onde você irá '
@@ -48,7 +48,7 @@ export async function GameplayIntroduction() {
 		requiresUserAction: { type: 'continue', },
 	});
 
-	await addDialogueMessage({
+	await addChatMessage({
 		lines: [
 			{ text: 'Tente sobreviver e boa sorte!' }
 		],

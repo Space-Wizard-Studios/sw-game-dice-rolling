@@ -2,21 +2,21 @@ import { createEffect, onMount, createSignal } from 'solid-js';
 import type { Component } from 'solid-js';
 
 import { useGameManager } from '@stores/GameContext';
-import { dialogueStore } from '@stores/DialogueStore';
+import { chatStore } from '@stores/ChatStore';
 
-import type { DialogueMessage } from '@stores/DialogueStore';
-import { Message } from '@components/Dialogue/Message';
+import type { ChatMessage } from '@stores/ChatStore';
+import { Message } from '@components/Chat/Message';
 
 import { cn } from '@helpers/cn';
 import { getGameStateName } from '@helpers/getGameState';
 import { getGameSceneName } from '@helpers/getGameScene';
 
-type DialogueProps = {
-	message?: DialogueMessage;
+type ChatProps = {
+	message?: ChatMessage;
 	class?: string;
 }
 
-export const Dialogue: Component<DialogueProps> = (props) => {
+export const Chat: Component<ChatProps> = (props) => {
 	const [gameState] = useGameManager();
 	let messagesContainer: HTMLDivElement | undefined;
 
@@ -29,7 +29,7 @@ export const Dialogue: Component<DialogueProps> = (props) => {
 	onMount(scrollToBottom);
 
 	createEffect(() => {
-		dialogueStore.messages;
+		chatStore.messages;
 		scrollToBottom();
 	});
 
@@ -50,7 +50,7 @@ export const Dialogue: Component<DialogueProps> = (props) => {
 					ref={messagesContainer}
 					class='flex flex-col h-full w-full overflow-y-auto p-2 gap-2 bg-black bg-opacity-25 border-2 rounded-md border-black border-opacity-50'
 				>
-					{dialogueStore.messages?.map(message => (
+					{chatStore.messages?.map(message => (
 						<Message {...message} />
 					))}
 				</div>

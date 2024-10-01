@@ -1,14 +1,14 @@
 import type { JSX } from "solid-js";
 import { GameProvider } from "@stores/GameContext";
 import { SceneRenderer } from "@components/SceneRenderer";
-import { TestRenderer } from "./TestRenderer";
+import { TestRenderer } from "@components/TestRenderer";
 
-interface GameProps {
+type GameProps = {
 	test?: boolean;
 }
 
-export const Game = ({ test = false }: GameProps): JSX.Element => (
+export const Game = (props:GameProps): JSX.Element => (
 	<GameProvider>
-		{test ? <TestRenderer /> : <SceneRenderer />}
+		{props.test ? <TestRenderer /> : <SceneRenderer />}
 	</GameProvider>
 );

@@ -6,6 +6,7 @@
   "exports": "./index.js",
   "scripts": {
     "dev": "astro dev",
+    "test": "astro dev --test",
     "build": "astro build",
     "preview": "astro preview"
   },

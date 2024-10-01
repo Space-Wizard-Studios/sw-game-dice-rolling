@@ -19,11 +19,11 @@ export async function InitialSetup() {
 	});
 
 	// Generate some random characters and prompt player to select one
-	const randomPlayerCharacters = generateRandomCharacter(5, 'Player');
+	const randomPlayerCharacters = generateRandomCharacter(5);
 	const selectedCharacter = await CharacterSelection(randomPlayerCharacters);
 	playerCharacterStore.addCharacter(selectedCharacter);
 
-	const randomPlayerCharacters2 = generateRandomCharacter(5, 'Player');
+	const randomPlayerCharacters2 = generateRandomCharacter(5);
 	const selectedCharacter2 = await CharacterSelection(randomPlayerCharacters2);
 	playerCharacterStore.addCharacter(selectedCharacter2);
 

@@ -18,7 +18,7 @@ export const TestRenderer = () => {
 
 	onMount(async () => {
 		if (playerCharacterStore.store.characters.length === 0) {
-			const randomPlayerCharacters = generateRandomCharacter(3, 'Player');
+			const randomPlayerCharacters = generateRandomCharacter(3);
 			playerCharacterStore.addMultipleCharacters(randomPlayerCharacters);
 		}
 

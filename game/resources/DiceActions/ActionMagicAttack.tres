@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cgt3kvfgx3l73"]
+
+[ext_resource type="Script" path="res://models/DiceAction.cs" id="1_yuvf4"]
+
+[resource]
+script = ExtResource("1_yuvf4")
+Name = "Magic Attack"
+Abbreviation = "MATK"
+Description = "Magic attack description."
+BackgroundColor = Color(0.576471, 0.772549, 0.992157, 1)
+TextColor = Color(0.117647, 0.227451, 0.541176, 1)

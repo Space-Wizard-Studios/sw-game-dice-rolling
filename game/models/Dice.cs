@@ -35,7 +35,12 @@ public static class DiceFactory {
 	private static Dice<DiceSide> CreateDice(int sides) {
 		var actions = new Godot.Collections.Array<DiceSide>();
 		for (int i = 0; i < sides; i++) {
-			actions.Add(new DiceSide($"Action {i + 1}", $"A{i + 1}", $"Description for action {i + 1}", new Godot.Collections.Array<ActionTarget>(), new ActionColor("#ffffff", "#000000")));
+			actions.Add(new DiceSide(
+				$"Action {i + 1}",
+				$"A{i + 1}",
+				$"Description for action {i + 1}",
+				new Color(1, 1, 1), new Color(0, 0, 0)
+			));
 		}
 		return new Dice<DiceSide>(Guid.NewGuid().ToString(), $"D{sides}", actions, DiceLocation.None);
 	}

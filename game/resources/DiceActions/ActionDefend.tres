@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cnfykne4hnexp"]
+
+[ext_resource type="Script" path="res://models/DiceAction.cs" id="1_8cl43"]
+
+[resource]
+script = ExtResource("1_8cl43")
+Name = "Defend"
+Abbreviation = "DEF"
+Description = "Defensive move."
+BackgroundColor = Color(0.992157, 0.878431, 0.278431, 1)
+TextColor = Color(0.470588, 0.207843, 0.0588235, 1)

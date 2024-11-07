@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://2miun4ox1np8"]
+
+[ext_resource type="Resource" uid="uid://o8arcte2odau" path="res://resources/DiceActions/MagicAttack.tres" id="1_e84mn"]
+[ext_resource type="Script" path="res://resources/DiceActions/DiceActionResource.cs" id="1_te5ed"]
+[ext_resource type="Resource" uid="uid://ta2jv77706a3" path="res://resources/DiceActions/PhysicalAttack.tres" id="2_7mcev"]
+
+[resource]
+script = ExtResource("1_te5ed")
+Actions = [ExtResource("1_e84mn"), ExtResource("2_7mcev")]

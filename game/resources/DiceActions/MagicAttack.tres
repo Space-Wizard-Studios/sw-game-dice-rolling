@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://o8arcte2odau"]
+
+[ext_resource type="Script" path="res://models/DiceAction.cs" id="1_yuvf4"]
+
+[resource]
+script = ExtResource("1_yuvf4")
+Name = "Magic Attack"
+Abbreviation = "MATK"
+Description = "Perform a magic attack."
+Targets = []

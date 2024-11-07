@@ -3,10 +3,19 @@ using System;
 
 public partial class DiceDisplay : Node2D {
 	private Dice<DiceSide> _dice;
+	private DiceActionResource _diceActionsResource;
 
 	public override void _Ready() {
-		// Generate a random D4 dice
-		_dice = DiceFactory.CreateD4();
+		// Load the DiceActions resource
+		_diceActionsResource = (DiceActionResource)GD.Load("res://resources/DiceActions/DiceActions.tres");
+
+		if (_diceActionsResource == null) {
+			GD.PrintErr("Failed to load DiceActions.tres");
+			return;
+		}
+
+		// Generate a random D4 dice using actions from the resource
+		_dice = CreateRandomD4Dice();
 
 		// Print dice information for debugging
 		GD.Print($"Generated Dice: {_dice.Name}");
@@ -14,6 +23,20 @@ public partial class DiceDisplay : Node2D {
 
 		// Display the dice information
 		DisplayDice();
+	}
+
+	private Dice<DiceSide> CreateRandomD4Dice() {
+		var actions = new Godot.Collections.Array<DiceSide>();
+
+		// Randomly select actions from the loaded resource
+		var random = new Random();
+		for (int i = 0; i < 4; i++) {
+			int randomIndex = random.Next(_diceActionsResource.Actions.Count);
+			var action = _diceActionsResource.Actions[randomIndex];
+			actions.Add(new DiceSide(action.Name, action.Abbreviation, action.Description, action.Targets, action.Colors));
+		}
+
+		return new Dice<DiceSide>(Guid.NewGuid().ToString(), "D4", actions, DiceLocation.None);
 	}
 
 	private void DisplayDice() {

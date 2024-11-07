@@ -1,18 +1,15 @@
 using System;
+using Godot;
 using System.Collections.Generic;
 
-public class DiceSide : DiceAction {
-	public DiceSide(string id, string name, string description) : base(id, name, description) { }
-}
-
-public class Dice<T> where T : DiceSide {
+public class Dice<[MustBeVariant] T> where T : DiceSide {
 	public string Id { get; set; }
 	public string Name { get; set; }
-	public List<T> Actions { get; set; }
+	public Godot.Collections.Array<T> Actions { get; set; }
 	public int Sides => Actions.Count;
 	public DiceLocation Location { get; set; }
 
-	public Dice(string id, string name, List<T> actions, DiceLocation location) {
+	public Dice(string id, string name, Godot.Collections.Array<T> actions, DiceLocation location) {
 		Id = id;
 		Name = name;
 		Actions = actions;
@@ -36,9 +33,9 @@ public static class DiceFactory {
 	public static Dice<DiceSide> CreateD100() => CreateDice(100);
 
 	private static Dice<DiceSide> CreateDice(int sides) {
-		var actions = new List<DiceSide>();
+		var actions = new Godot.Collections.Array<DiceSide>();
 		for (int i = 0; i < sides; i++) {
-			actions.Add(new DiceSide(Guid.NewGuid().ToString(), $"Action {i + 1}", $"Description for action {i + 1}"));
+			actions.Add(new DiceSide($"Action {i + 1}", $"A{i + 1}", $"Description for action {i + 1}", new Godot.Collections.Array<ActionTarget>(), new ActionColor("#ffffff", "#000000")));
 		}
 		return new Dice<DiceSide>(Guid.NewGuid().ToString(), $"D{sides}", actions, DiceLocation.None);
 	}

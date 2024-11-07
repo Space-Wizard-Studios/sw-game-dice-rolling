@@ -11,15 +11,18 @@ config_version=5
 [application]
 
 config/name="dice-roll"
-run/main_scene="res://scenes/Gameplay/Battle/battle.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+run/main_scene="res://scenes/DiceDisplay.tscn"
+config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+DiceStore="*res://managers/DiceStore.cs"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=2
+window/size/viewport_width=1024
+window/size/viewport_height=768
 window/stretch/mode="viewport"
 
 [dotnet]

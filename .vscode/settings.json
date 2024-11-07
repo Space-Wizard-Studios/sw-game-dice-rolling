@@ -63,7 +63,7 @@
 		"tsconfigs",
 		"uuidv"
 	],
-	"godotTools.editorPath.godot4": "d:\\Godot\\Godot_v4.3-stable_mono_win64\\Godot_v4.3-stable_mono_win64.exe",
+	"godotTools.editorPath.godot4": "d:\\projetos\\Godot\\Godot_v4.3-stable_mono_win64\\Godot_v4.3-stable_mono_win64.exe",
 	"[csharp]": {
 		"editor.defaultFormatter": "ms-dotnettools.csharp",
 		"editor.formatOnSave": true,

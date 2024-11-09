@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bchfan6m5k2qx"
-path="res://.godot/imported/saurabhkgp_the_dawn.png-49072968b3f2086ba03b4e1ecba84228.ctex"
+uid="uid://cl5cnclbw3g7s"
+path="res://.godot/imported/svg_2d.png-d15720ab87acf88ad1229bf6f8b4290d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/saurabhkgp_the_dawn.png"
-dest_files=["res://.godot/imported/saurabhkgp_the_dawn.png-49072968b3f2086ba03b4e1ecba84228.ctex"]
+source_file="res://addons/godot_svg/node/svg_2d.png"
+dest_files=["res://.godot/imported/svg_2d.png-d15720ab87acf88ad1229bf6f8b4290d.ctex"]
 
 [params]
 

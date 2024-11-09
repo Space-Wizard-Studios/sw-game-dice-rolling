@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public partial class Test : Node {
 	[Export]
-	public DiceActionResource DiceActionsResource { get; set; }
+	public DiceActionsResource DiceActionsResource { get; set; }
 
 	private Dice<DiceSide> _dice;
 	private Label _resultLabel;

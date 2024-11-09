@@ -1,22 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgxvl6lm82ex0"]
+[gd_scene load_steps=5 format=3 uid="uid://dnd41lodc2wam"]
 
-[ext_resource type="Script" path="res://scenes/Test/Test.cs" id="1_av60s"]
-[ext_resource type="PackedScene" uid="uid://ek22lhqi7fvd" path="res://scenes/Test/DiceDisplay.tscn" id="1_wamdu"]
-[ext_resource type="Resource" uid="uid://2miun4ox1np8" path="res://resources/DiceActions/DiceActions.tres" id="2_4er18"]
+[ext_resource type="PackedScene" uid="uid://7hqw3ff8sxc6" path="res://components/DiceDisplay.tscn" id="1_54jt2"]
+[ext_resource type="Script" path="res://components/DiceGeneator.cs" id="1_un4o5"]
+[ext_resource type="Resource" uid="uid://2miun4ox1np8" path="res://resources/DiceActions/DiceActionsResource.tres" id="2_7ux1q"]
+[ext_resource type="Resource" uid="uid://brnsqgtvg2ttv" path="res://resources/DiceIcons/DiceIconsResource.tres" id="3_jwh2d"]
 
-[node name="Test" type="Node"]
-script = ExtResource("1_av60s")
-DiceActionsResource = ExtResource("2_4er18")
+[node name="Test" type="Node2D"]
+script = ExtResource("1_un4o5")
+DiceActionsResource = ExtResource("2_7ux1q")
+DiceIconResource = ExtResource("3_jwh2d")
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="DiceDisplay" parent="BoxContainer" instance=ExtResource("1_wamdu")]
-layout_mode = 2
-size_flags_horizontal = 6
+[node name="DiceDisplay" parent="." instance=ExtResource("1_54jt2")]
+offset_left = 466.0
+offset_top = 620.0
+offset_right = 566.0
+offset_bottom = 720.0

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://2miun4ox1np8"]
+
+[ext_resource type="Script" path="res://resources/DiceActions/DiceActionsResource.cs" id="1_5t34e"]
+[ext_resource type="Resource" uid="uid://bbs464f13fhfo" path="res://resources/DiceActions/ActionEmpty.tres" id="1_j53ki"]
+[ext_resource type="Resource" uid="uid://cnfykne4hnexp" path="res://resources/DiceActions/ActionDefend.tres" id="2_ltufv"]
+[ext_resource type="Resource" uid="uid://b4ero4pmydc5" path="res://resources/DiceActions/ActionPhysicalAttack.tres" id="3_hdacw"]
+[ext_resource type="Resource" uid="uid://cgt3kvfgx3l73" path="res://resources/DiceActions/ActionMagicAttack.tres" id="4_wvd1l"]
+[ext_resource type="Resource" uid="uid://4mkginp8ribb" path="res://resources/DiceActions/ActionRangedAttack.tres" id="5_eai12"]
+[ext_resource type="Resource" uid="uid://cgm1pj41klhcj" path="res://resources/DiceActions/ActionSpecial.tres" id="6_0my2p"]
+
+[resource]
+script = ExtResource("1_5t34e")
+Actions = [ExtResource("2_ltufv"), ExtResource("1_j53ki"), ExtResource("4_wvd1l"), ExtResource("3_hdacw"), ExtResource("5_eai12"), ExtResource("6_0my2p")]

@@ -1,16 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://ek22lhqi7fvd"]
+[gd_scene load_steps=4 format=3 uid="uid://ek22lhqi7fvd"]
 
 [ext_resource type="Script" path="res://scenes/Test/DiceHover.cs" id="1_p8y04"]
+[ext_resource type="Texture2D" uid="uid://c6lstssc785up" path="res://assets/icons/dice/mdi_d4.svg" id="2_0uqec"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_h0h16"]
 
 [node name="DiceDisplay" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 4
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="DiceBackground" type="TextureRect" parent="."]
 modulate = Color(0.99558, 0.99558, 0.99558, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -26,52 +33,64 @@ grow_vertical = 2
 texture = SubResource("CanvasTexture_h0h16")
 script = ExtResource("1_p8y04")
 
-[node name="DiceName" type="Label" parent="TextureRect"]
+[node name="DiceIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 100.0
+texture = ExtResource("2_0uqec")
+
+[node name="DiceName" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -50.0
-offset_top = -50.0
+offset_top = 100.0
 offset_right = 50.0
-offset_bottom = 50.0
+offset_bottom = 125.0
 grow_horizontal = 2
-grow_vertical = 2
 text = "DICE NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 0
 clip_text = true
 
-[node name="SidesInfoContainer" type="ScrollContainer" parent="."]
-visible = false
+[node name="DiceInfo" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -213.0
-offset_top = -354.0
-offset_right = 213.0
+offset_left = -250.0
+offset_top = -550.0
+offset_right = 250.0
+offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SidesInfoContainer"]
+[node name="ActionsInfo" type="ScrollContainer" parent="DiceInfo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActionsList" type="VBoxContainer" parent="DiceInfo/ActionsInfo"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ColorRect" type="ColorRect" parent="SidesInfoContainer/VBoxContainer"]
+[node name="Action Color" type="ColorRect" parent="DiceInfo/ActionsInfo/ActionsList"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 color = Color(0.856874, 0.00152863, 0.973299, 1)
 
-[node name="Label" type="Label" parent="SidesInfoContainer/VBoxContainer/ColorRect"]
+[node name="Action Label" type="Label" parent="DiceInfo/ActionsInfo/ActionsList/Action Color"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5

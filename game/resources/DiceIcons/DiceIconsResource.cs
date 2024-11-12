@@ -1,16 +1,26 @@
 using Godot;
 using System.Collections.Generic;
 
+public class DiceIcon {
+	public Texture2D Icon { get; set; }
+	public string Path { get; set; }
+
+	public DiceIcon(Texture2D icon, string path) {
+		Icon = icon;
+		Path = path;
+	}
+}
+
 [Tool]
 public partial class DiceIconsResource : Resource {
 	[Export]
 	public Godot.Collections.Array<DiceIconEntry> DiceIcons { get; set; } = new Godot.Collections.Array<DiceIconEntry>();
 
-	public Texture2D GetIconForSides(int sides) {
+	public DiceIcon GetIconForSides(int sides) {
 		foreach (var entry in DiceIcons) {
 			if (entry is DiceIconEntry diceIconEntry) {
 				if (diceIconEntry.Sides == sides) {
-					return diceIconEntry.Icon;
+					return new DiceIcon(diceIconEntry.Icon, diceIconEntry.Path);
 				}
 			}
 			else {

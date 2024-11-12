@@ -25,3 +25,21 @@ offset_bottom = 680.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "Generate"
+
+[node name="RollButton" type="Button" parent="."]
+offset_left = 45.0
+offset_top = 689.0
+offset_right = 172.0
+offset_bottom = 720.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Roll"
+
+[node name="RollResult" type="RichTextLabel" parent="."]
+offset_left = 605.0
+offset_top = 644.0
+offset_right = 999.0
+offset_bottom = 703.0
+bbcode_enabled = true
+text = "Rolled 000 on Dice Example ([color=green]D000[/color]).
+Action: Action Name - Action Description"

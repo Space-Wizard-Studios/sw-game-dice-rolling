@@ -13,8 +13,6 @@ public partial class DiceGenerator : Node {
 	public DiceDisplay DiceDisplay;
 	private Dice<DiceSide> _dice;
 
-	private const int MinSides = 4;
-	private const int MaxSides = 100;
 	private static readonly int[] ValidSides = { 4, 6, 8, 10, 20, 100 };
 
 	public override void _Ready() {
@@ -30,6 +28,7 @@ public partial class DiceGenerator : Node {
 		GD.Print($"Number of Sides: {_dice.Sides}");
 
 		UpdateDiceDisplay();
+		HideRollResult();
 
 		var updateButton = GetNode<Button>("UpdateButton");
 		if (updateButton != null) {
@@ -38,11 +37,19 @@ public partial class DiceGenerator : Node {
 		else {
 			GD.PrintErr("UpdateButton node not found");
 		}
+
+		var rollButton = GetNode<Button>("RollButton");
+		if (rollButton != null) {
+			rollButton.Connect("pressed", new Callable(this, nameof(OnRollButtonPressed)));
+		}
+		else {
+			GD.PrintErr("RollButton node not found");
+		}
 	}
 
 	private void UpdateDiceDisplay() {
 		DiceDisplay.DiceNameLabel.Text = _dice.Name;
-		DiceDisplay.DiceIcon.Texture = DiceIconResource.GetIconForSides(_dice.Sides);
+		DiceDisplay.DiceIcon.Texture = DiceIconResource.GetIconForSides(_dice.Sides).Icon;
 
 		var actionsListContainer = DiceDisplay.ActionsListContainer;
 		var actionItemTemplate = DiceDisplay.ActionItemTemplate;
@@ -127,5 +134,38 @@ public partial class DiceGenerator : Node {
 	private void OnUpdateButtonPressed() {
 		_dice = CreateRandomDice();
 		UpdateDiceDisplay();
+		HideRollResult();
+	}
+
+	private void OnRollButtonPressed() {
+		var random = new Random();
+		int rolledSide = random.Next(1, _dice.Sides + 1);
+		var action = _dice.Actions[rolledSide - 1];
+
+		var rollResultLabel = GetNode<RichTextLabel>("RollResult");
+		if (rollResultLabel != null) {
+			rollResultLabel.BbcodeEnabled = true;
+			var diceIconResult = DiceIconResource.GetIconForSides(_dice.Sides);
+			if (diceIconResult != null) {
+				rollResultLabel.Text = $"Rolled {rolledSide} on {_dice.Name} ([img=24x24]{diceIconResult.Path}[/img]).\nAction: {action.Name} - {action.Description}";
+			}
+			else {
+				rollResultLabel.Text = $"Rolled {rolledSide} on {_dice.Name}.\nAction: {action.Name} - {action.Description}";
+			}
+			rollResultLabel.Visible = true;
+		}
+		else {
+			GD.PrintErr("RollResult label not found");
+		}
+	}
+
+	private void HideRollResult() {
+		var rollResultLabel = GetNode<RichTextLabel>("RollResult");
+		if (rollResultLabel != null) {
+			rollResultLabel.Visible = false;
+		}
+		else {
+			GD.PrintErr("RollResult label not found");
+		}
 	}
 }

@@ -128,7 +128,7 @@ public partial class DiceGenerator : Node {
 			}).ToArray()
 		);
 
-		return new Dice<DiceSide>(Guid.NewGuid().ToString(), $"D{sides}", actions, DiceLocation.None);
+		return new Dice<DiceSide>(Guid.NewGuid().ToString(), $"Dado D{sides}", actions, DiceLocation.None);
 	}
 
 	private void OnUpdateButtonPressed() {

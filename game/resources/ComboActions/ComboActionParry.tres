@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bh7us0a2ekes2"]
+
+[ext_resource type="Resource" uid="uid://b4ero4pmydc5" path="res://resources/DiceActions/DiceActionPhysicalAttack.tres" id="1_1tai3"]
+[ext_resource type="Resource" uid="uid://cnfykne4hnexp" path="res://resources/DiceActions/DiceActionDefend.tres" id="2_ubfv7"]
+[ext_resource type="Script" path="res://models/actions/ComboAction.cs" id="3_c67wk"]
+
+[resource]
+script = ExtResource("3_c67wk")
+Name = "Parry"
+Description = "Parry combo."
+RequiredActions = [ExtResource("1_1tai3"), ExtResource("2_ubfv7")]

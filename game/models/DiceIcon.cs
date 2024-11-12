@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class DiceIconEntry : Resource {
+public partial class DiceIcon : Resource {
 	[Export]
 	public int Sides { get; set; }
 

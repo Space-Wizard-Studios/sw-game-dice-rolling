@@ -121,8 +121,8 @@ public partial class DiceGenerator : Node {
 
 		var actions = new Godot.Collections.Array<DiceSide>(
 			Enumerable.Range(0, sides).Select(_ => {
-				int randomIndex = random.Next(DiceActionsResource.Actions.Count);
-				var action = DiceActionsResource.Actions[randomIndex];
+				int randomIndex = random.Next(DiceActionsResource.DiceActions.Count);
+				var action = DiceActionsResource.DiceActions[randomIndex];
 				GD.Print($"Selected Action: {action.Name} - {action.Description}");
 				return new DiceSide(action.Name, action.Abbreviation, action.Description, action.BackgroundColor, action.TextColor);
 			}).ToArray()
@@ -145,9 +145,9 @@ public partial class DiceGenerator : Node {
 		var rollResultLabel = GetNode<RichTextLabel>("RollResult");
 		if (rollResultLabel != null) {
 			rollResultLabel.BbcodeEnabled = true;
-			var diceIconResult = DiceIconResource.GetIconForSides(_dice.Sides);
-			if (diceIconResult != null) {
-				rollResultLabel.Text = $"Rolled {rolledSide} on {_dice.Name} ([img=24x24]{diceIconResult.Path}[/img]).\nAction: {action.Name} - {action.Description}";
+			var diceIcon = DiceIconResource.GetIconForSides(_dice.Sides);
+			if (diceIcon != null) {
+				rollResultLabel.Text = $"Rolled {rolledSide} on {_dice.Name} ([img=24x24]{diceIcon.Path}[/img]).\nAction: {action.Name} - {action.Description}";
 			}
 			else {
 				rollResultLabel.Text = $"Rolled {rolledSide} on {_dice.Name}.\nAction: {action.Name} - {action.Description}";

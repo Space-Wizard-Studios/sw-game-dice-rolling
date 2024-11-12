@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dy1r15ena0t2c"]
+
+[ext_resource type="Script" path="res://resources/CommonActions/CommonActionsResources.cs" id="1_h6bpn"]
+[ext_resource type="Resource" uid="uid://cbtdlv3g0b64f" path="res://resources/CommonActions/CommonActionFlee.tres" id="1_rm2h6"]
+
+[resource]
+script = ExtResource("1_h6bpn")
+CommonActions = [ExtResource("1_rm2h6")]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cbtdlv3g0b64f"]
+
+[ext_resource type="Script" path="res://models/actions/CommonAction.cs" id="1_wru1w"]
+
+[resource]
+script = ExtResource("1_wru1w")
+Name = "Flee"
+Description = "Flee Action"

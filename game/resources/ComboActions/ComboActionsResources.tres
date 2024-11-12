@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://ciwpynlnkhvlu"]
+
+[ext_resource type="Resource" uid="uid://cvojckruuqrn6" path="res://resources/ComboActions/ComboActionChargedAttack.tres" id="1_6ufrs"]
+[ext_resource type="Script" path="res://resources/ComboActions/ComboActionsResources.cs" id="1_xy36d"]
+[ext_resource type="Resource" uid="uid://bh7us0a2ekes2" path="res://resources/ComboActions/ComboActionParry.tres" id="2_25knh"]
+
+[resource]
+script = ExtResource("1_xy36d")
+ComboActions = [ExtResource("1_6ufrs"), ExtResource("2_25knh")]

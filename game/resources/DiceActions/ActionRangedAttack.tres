@@ -7,5 +7,5 @@ script = ExtResource("1_w15xa")
 Name = "Ranged Attack"
 Abbreviation = "RATK"
 Description = "Ranged attack description."
-BackgroundColor = Color(0, 0, 0, 1)
-TextColor = Color(1, 1, 1, 1)
+BackgroundColor = Color(0.686275, 0.988235, 0.647059, 1)
+TextColor = Color(0.113725, 0.498039, 0.223529, 1)

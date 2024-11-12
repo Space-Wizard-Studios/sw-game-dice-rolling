@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://7hqw3ff8sxc6"]
 
-[ext_resource type="Script" path="res://components/DiceHover.cs" id="1_c62fd"]
+[ext_resource type="Script" path="res://components/DiceInspector.cs" id="1_w618e"]
 [ext_resource type="Texture2D" uid="uid://c6lstssc785up" path="res://assets/icons/dice/mdi_d4.svg" id="2_0uqec"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_h0h16"]
@@ -20,10 +20,10 @@ grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 mouse_filter = 1
-script = ExtResource("1_c62fd")
+script = ExtResource("1_w618e")
 diceInfoPath = NodePath("DiceInfo")
 diceNamePath = NodePath("DiceContainer/DiceName")
-hoverNodePath = NodePath(".")
+interactiveNodePath = NodePath(".")
 
 [node name="DiceContainer" type="Control" parent="."]
 layout_mode = 1
@@ -113,19 +113,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 
 [node name="ActionsList" type="VBoxContainer" parent="DiceInfo/ActionsInfo"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+theme_override_constants/separation = 25
 
-[node name="ActionItem" type="Control" parent="DiceInfo/ActionsInfo/ActionsList"]
+[node name="ActionItemTemplate" type="Control" parent="DiceInfo/ActionsInfo/ActionsList"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ActionColor" type="ColorRect" parent="DiceInfo/ActionsInfo/ActionsList/ActionItem"]
+[node name="ActionColor" type="ColorRect" parent="DiceInfo/ActionsInfo/ActionsList/ActionItemTemplate"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 1
 anchors_preset = 15
@@ -137,7 +137,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.856874, 0.00152863, 0.973299, 1)
 
-[node name="ActionLabel" type="Label" parent="DiceInfo/ActionsInfo/ActionsList/ActionItem"]
+[node name="ActionLabel" type="Label" parent="DiceInfo/ActionsInfo/ActionsList/ActionItemTemplate"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0

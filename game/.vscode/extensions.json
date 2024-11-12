@@ -1,0 +1,10 @@
+{
+	"recommendations": [
+		"neikeq.godot-csharp-vscode",
+		"woberg.godot-dotnet-tools",
+		"altamkp.godot-docs-vscode-csharp",
+		"alfish.godot-files",
+		"altamkp.godot-snippets-vscode-csharp",
+		"geequlim.godot-tools"
+	]
+}

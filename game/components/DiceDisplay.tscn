@@ -48,7 +48,7 @@ diceNamePath = NodePath("DiceName")
 interactiveNodePath = NodePath(".")
 
 [node name="DiceBackground" type="TextureRect" parent="DiceContainer"]
-modulate = Color(0.99558, 0.99558, 0.99558, 1)
+modulate = Color(0.996078, 0.996078, 0.996078, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

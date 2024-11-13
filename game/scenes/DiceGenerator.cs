@@ -119,6 +119,11 @@ public partial class DiceGenerator : Node {
 		var random = new Random();
 		int sides = ValidSides[random.Next(ValidSides.Length)];
 
+		if (DiceActionsResource.DiceActions.Count == 0) {
+			GD.PrintErr("DiceActionsResource.DiceActions is empty");
+			return null;
+		}
+
 		var actions = new Godot.Collections.Array<DiceSide>(
 			Enumerable.Range(0, sides).Select(_ => {
 				int randomIndex = random.Next(DiceActionsResource.DiceActions.Count);

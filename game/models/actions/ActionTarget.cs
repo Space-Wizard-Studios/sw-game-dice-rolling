@@ -16,8 +16,6 @@ public enum TargetQuantity
     One
 }
 
-using Godot;
-
 public partial class ActionTarget : Resource
 {
     [Export]

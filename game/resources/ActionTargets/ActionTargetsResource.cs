@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public partial class TargetsResource : Resource
 {
     [Export]
-    public Dictionary<string, ActionTarget> Targets { get; set; } = new Dictionary<string, ActionTarget>
+    public Godot.Collections.Dictionary<string, ActionTarget> Targets { get; set; } = new Godot.Collections.Dictionary<string, ActionTarget>
     {
         { "allySingle", new ActionTarget("Ally Single", "Target a single ally.", TargetCategory.Ally, TargetQuantity.One) },
         { "allyAll", new ActionTarget("Ally All", "Target all allies.", TargetCategory.Ally, TargetQuantity.All) },

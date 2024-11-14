@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cvojckruuqrn6"]
+
+[ext_resource type="Script" path="res://models/DiceAction.cs" id="1_80l4b"]
+
+[resource]
+script = ExtResource("1_80l4b")
+Name = "Charged Attack"
+Description = ""
+RequiredMana = [null, null]
+TargetQuantity = 0

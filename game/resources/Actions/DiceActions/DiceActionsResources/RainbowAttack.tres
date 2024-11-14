@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://d4jeysptihjqw"]
+
+[ext_resource type="Resource" uid="uid://b4ero4pmydc5" path="res://resources/DiceMana/DiceManaResources/DiceManaRed.tres" id="1_qymfr"]
+[ext_resource type="Resource" uid="uid://cnfykne4hnexp" path="res://resources/DiceMana/DiceManaResources/DiceManaYellow.tres" id="2_7b1kh"]
+[ext_resource type="Script" path="res://models/DiceAction.cs" id="3_h1f2a"]
+
+[resource]
+script = ExtResource("3_h1f2a")
+Name = "Parry"
+Description = "Parry action description."
+RequiredMana = [ExtResource("1_qymfr"), ExtResource("2_7b1kh")]
+Category = 0
+TargetQuantity = 0

@@ -1,4 +1,4 @@
-import type { DiceAction } from '@models/actions/DiceAction';
+import type { DiceAction } from '@models/DiceAction';
 
 /**
  * Represents a single side of a dice, which is an action.

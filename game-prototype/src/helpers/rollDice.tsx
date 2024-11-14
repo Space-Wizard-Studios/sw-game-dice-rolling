@@ -1,7 +1,7 @@
 import { playerCharacterStore } from '@stores/CharacterStore';
 import { diceStore } from '@stores/DiceStore';
 
-import type { DiceAction } from '@models/actions/DiceAction';
+import type { DiceAction } from '@models/DiceAction';
 import type { Dice } from '@models/Dice';
 import { addChatLine, addChatMessage } from '@stores/ChatStore';
 

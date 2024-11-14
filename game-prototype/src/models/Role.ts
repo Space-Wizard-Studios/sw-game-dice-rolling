@@ -1,6 +1,6 @@
 import type { Health, Speed } from "@models/Character";
-import { type DiceAction, DiceActions } from "@models/actions/DiceAction";
-import { ComboActions, type ComboAction } from "@models/actions/ComboAction";
+import { type DiceAction, DiceActions } from "@models/DiceAction";
+import { DiceActions, type DiceAction } from "@models/DiceAction";
 
 export type Role = {
 	name: string;
@@ -10,7 +10,7 @@ export type Role = {
 	baseSpeed: Speed;
 	baseDiceCapacity: number;
 	allowedActions: DiceAction[];
-	allowedCombos?: ComboAction[];
+	allowedCombos?: DiceAction[];
 };
 
 export type RoleType = 'Fighter' | 'Healer' | 'Mage' | 'Rogue';
@@ -28,7 +28,7 @@ export const PlayableRoles: Record<RoleType, Role> = {
 		},
 		baseDiceCapacity: 4,
 		allowedActions: [DiceActions.physicalAttack, DiceActions.defend],
-		allowedCombos: [ComboActions.chargedAttack, ComboActions.parry],
+		allowedCombos: [DiceActions.chargedAttack, DiceActions.parry],
 	},
 	Mage: {
 		name: "Mage",
@@ -42,7 +42,7 @@ export const PlayableRoles: Record<RoleType, Role> = {
 		},
 		baseDiceCapacity: 3,
 		allowedActions: [DiceActions.magicAttack, DiceActions.defend],
-		allowedCombos: [ComboActions.magicBurst],
+		allowedCombos: [DiceActions.magicBurst],
 	},
 	Rogue: {
 		name: "Rogue",

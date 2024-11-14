@@ -4,7 +4,7 @@ using System.Linq;
 
 public partial class DiceGenerator : Node {
 	[Export]
-	public DiceActionsResource DiceActionsResource { get; set; }
+	public DiceManaResources DiceManaResources { get; set; }
 
 	[Export]
 	public DiceIconsResource DiceIconResource { get; set; }
@@ -102,8 +102,8 @@ public partial class DiceGenerator : Node {
 	}
 
 	private bool ValidateResources() {
-		if (DiceActionsResource == null) {
-			GD.PrintErr("DiceActionsResource is not assigned");
+		if (DiceManaResources == null) {
+			GD.PrintErr("DiceManaResources is not assigned");
 			return false;
 		}
 
@@ -119,15 +119,15 @@ public partial class DiceGenerator : Node {
 		var random = new Random();
 		int sides = ValidSides[random.Next(ValidSides.Length)];
 
-		if (DiceActionsResource.DiceActions.Count == 0) {
-			GD.PrintErr("DiceActionsResource.DiceActions is empty");
+		if (DiceManaResources.DiceManas.Count == 0) {
+			GD.PrintErr("DiceManaResources.DiceManas is empty");
 			return null;
 		}
 
 		var actions = new Godot.Collections.Array<DiceSide>(
 			Enumerable.Range(0, sides).Select(_ => {
-				int randomIndex = random.Next(DiceActionsResource.DiceActions.Count);
-				var action = DiceActionsResource.DiceActions[randomIndex];
+				int randomIndex = random.Next(DiceManaResources.DiceManas.Count);
+				var action = DiceManaResources.DiceManas[randomIndex];
 				GD.Print($"Selected Action: {action.Name} - {action.Description}");
 				return new DiceSide(action.Name, action.Abbreviation, action.Description, action.BackgroundColor, action.TextColor);
 			}).ToArray()

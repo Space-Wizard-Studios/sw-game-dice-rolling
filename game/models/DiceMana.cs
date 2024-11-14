@@ -2,7 +2,7 @@ using Godot;
 using System.Collections.Generic;
 
 [Tool]
-public partial class DiceAction : Resource {
+public partial class DiceMana : Resource {
 	[Export]
 	public string Name { get; set; }
 	[Export]
@@ -14,9 +14,9 @@ public partial class DiceAction : Resource {
 	[Export]
 	public Color TextColor { get; set; } = new Color(1, 1, 1);
 
-	public DiceAction() { }
+	public DiceMana() { }
 
-	public DiceAction(string name, string abbreviation, string description, Color backgroundColor, Color textColor) {
+	public DiceMana(string name, string abbreviation, string description, Color backgroundColor, Color textColor) {
 		Name = name;
 		Abbreviation = abbreviation;
 		Description = description;

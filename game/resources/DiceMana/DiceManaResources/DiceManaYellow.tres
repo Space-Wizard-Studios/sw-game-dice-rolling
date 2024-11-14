@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://cnfykne4hnexp"]
 
-[ext_resource type="Script" path="res://models/actions/DiceAction.cs" id="1_8cl43"]
+[ext_resource type="Script" path="res://models/DiceMana.cs" id="1_8cl43"]
 
 [resource]
 script = ExtResource("1_8cl43")

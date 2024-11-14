@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { DiceActions } from "@models/actions/DiceAction";
+import { DiceActions } from "@models/DiceAction";
 import { getRandomElement } from "@helpers/getRandomElement";
 import { getMostProbableActions } from "@helpers/getDiceActions";
 import type { Dice, DiceActionsMap, ExtractSides } from "@models/Dice";

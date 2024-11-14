@@ -1,5 +1,5 @@
 import type { Dice } from '@models/Dice';
-import { DiceActions } from '@models/actions/DiceAction';
+import { DiceActions } from '@models/DiceAction';
 
 /**
  * Retrieves a list of action names from a dice.

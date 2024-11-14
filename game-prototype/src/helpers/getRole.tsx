@@ -1,5 +1,5 @@
-import type { ComboAction } from '@models/actions/ComboAction';
-import type { DiceAction } from '@models/actions/DiceAction';
+import type { DiceAction } from '@models/DiceAction';
+import type { DiceAction } from '@models/DiceAction';
 import type { Health } from '@models/Character';
 import { PlayableRoles } from '@models/Role';
 import type { Role } from '@models/Role';
@@ -58,9 +58,9 @@ export function getRoleAllowedActions(role: Role): DiceAction[] {
  * Retrieves the allowed combo actions of a role.
  *
  * @param {Role} role - The role object.
- * @returns {ComboAction[]} An array of allowed combo actions for the role.
+ * @returns {DiceAction[]} An array of allowed combo actions for the role.
  */
-export function getRoleAllowedCombos(role: Role): ComboAction[] {
+export function getRoleAllowedCombos(role: Role): DiceAction[] {
 	return role.allowedCombos ?? [];
 }
 

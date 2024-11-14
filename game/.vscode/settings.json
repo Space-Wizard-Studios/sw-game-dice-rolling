@@ -1,9 +1,0 @@
-{
-	"godotTools.editorPath.godot4": "${env:GODOT_EDITOR_PATH}",
-	"[csharp]": {
-		"editor.defaultFormatter": "ms-dotnettools.csharp",
-		"editor.formatOnSave": true,
-		"editor.tabSize": 4,
-		"editor.detectIndentation": true,
-	},
-}

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://2miun4ox1np8"]
+
+[ext_resource type="Resource" uid="uid://cnfykne4hnexp" path="res://resources/DiceMana/DiceManaResources/DiceManaYellow.tres" id="1_a6nf5"]
+[ext_resource type="Resource" uid="uid://bbs464f13fhfo" path="res://resources/DiceMana/DiceManaResources/DiceManaGray.tres" id="2_odx2r"]
+[ext_resource type="Resource" uid="uid://cgt3kvfgx3l73" path="res://resources/DiceMana/DiceManaResources/DiceManaBlue.tres" id="3_tymv5"]
+[ext_resource type="Resource" uid="uid://b4ero4pmydc5" path="res://resources/DiceMana/DiceManaResources/DiceManaRed.tres" id="4_iosag"]
+[ext_resource type="Resource" uid="uid://4mkginp8ribb" path="res://resources/DiceMana/DiceManaResources/DiceManaGreen.tres" id="5_g6bvr"]
+[ext_resource type="Resource" uid="uid://cgm1pj41klhcj" path="res://resources/DiceMana/DiceManaResources/DiceManaPurple.tres" id="6_1duut"]
+[ext_resource type="Script" path="res://resources/DiceMana/DiceManaResources.cs" id="8_35rxq"]
+
+[resource]
+script = ExtResource("8_35rxq")
+DiceManas = [ExtResource("1_a6nf5"), ExtResource("2_odx2r"), ExtResource("3_tymv5"), ExtResource("4_iosag"), ExtResource("5_g6bvr"), ExtResource("6_1duut")]

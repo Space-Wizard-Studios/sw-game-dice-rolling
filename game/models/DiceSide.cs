@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class DiceSide : DiceAction {
+public partial class DiceSide : DiceMana {
 	public DiceSide(string name,
 	string abbreviation,
 	string description,

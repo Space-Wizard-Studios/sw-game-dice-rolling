@@ -1,6 +1,6 @@
 import { getMostProbableActions } from "@helpers/getDiceActions";
 import type { Dice } from "@models/Dice";
-import { DiceActions } from "@models/actions/DiceAction";
+import { DiceActions } from "@models/DiceAction";
 
 type DiceColor = {
 	background: string;

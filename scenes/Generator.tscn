@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/DiceGenerator.cs" id="1_88qdw"]
 [ext_resource type="Resource" uid="uid://2miun4ox1np8" path="res://resources/DiceMana/DiceManaResources.tres" id="2_netrj"]
 [ext_resource type="Resource" uid="uid://brnsqgtvg2ttv" path="res://resources/DiceIcons/DiceIconsResource.tres" id="3_4umlc"]
-[ext_resource type="PackedScene" uid="uid://7hqw3ff8sxc6" path="res://components/DiceDisplay.tscn" id="4_d4w0t"]
+[ext_resource type="PackedScene" uid="uid://7hqw3ff8sxc6" path="res://components/DiceDisplay/DiceDisplay.tscn" id="4_d4w0t"]
 
 [node name="Generator" type="Node2D" node_paths=PackedStringArray("DiceDisplay")]
 script = ExtResource("1_88qdw")

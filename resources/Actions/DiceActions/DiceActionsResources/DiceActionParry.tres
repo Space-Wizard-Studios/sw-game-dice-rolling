@@ -9,4 +9,5 @@ script = ExtResource("3_c67wk")
 Name = "Parry"
 Description = "Parry combo."
 RequiredMana = [ExtResource("1_1tai3"), ExtResource("2_ubfv7")]
-TargetQuantity = 0
+Category = 0
+Quantity = 2

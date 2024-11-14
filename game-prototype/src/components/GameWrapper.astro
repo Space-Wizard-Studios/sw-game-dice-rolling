@@ -1,7 +1,0 @@
----
-import { Game } from "@components/Game";
-export const testMode = process.argv.includes('--test');
-console.log('Game in test mode:', testMode);
----
-
-<Game client:only="solid-js" test={testMode} />

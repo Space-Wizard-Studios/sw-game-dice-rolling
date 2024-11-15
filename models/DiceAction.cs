@@ -27,22 +27,24 @@ public partial class DiceAction : Resource {
 		new Godot.Collections.Array<DiceMana>();
 
 	[ExportCategory("Target Options")]
-	[Export(PropertyHint.Enum, "Enemy,Ally,Self,Any,Nothing")]
-	public TargetCategory Category { get; set; }
 
-	private QuantityCategory _quantity = QuantityCategory.None;
-	[Export(PropertyHint.Enum, "None,All,Number")]
-	public QuantityCategory Quantity {
-		get => _quantity;
+	[Export]
+	public TargetCategory TargetCategory { get; set; }
+
+	private QuantityCategory _quantityCategory = QuantityCategory.None;
+	[Export]
+	public QuantityCategory QuantityCategory {
+		get => _quantityCategory;
 		set {
-			if (_quantity != value) {
-				_quantity = value;
+			if (_quantityCategory != value) {
+				_quantityCategory = value;
 				NotifyPropertyListChanged();
 			}
 		}
 	}
 
-	public int NumberQuantity { get; set; } = 1;
+	[Export(PropertyHint.Range, "0,100,1")]
+	public int NumberQuantity { get; set; }
 
 	public DiceAction() { }
 
@@ -56,19 +58,10 @@ public partial class DiceAction : Resource {
 		RequiredMana = requiredMana;
 	}
 
-	public override Godot.Collections.Array<Godot.Collections.Dictionary> _GetPropertyList() {
-		var propertyList = base._GetPropertyList();
-		bool isQuantityVisible = Quantity == QuantityCategory.Number;
-
-		if (isQuantityVisible) {
-			var numberQuantityProperty = new Godot.Collections.Dictionary {
-				{ "name", "NumberQuantity" },
-				{ "type", (int)Variant.Type.Int },
-				{ "usage", (int)PropertyUsageFlags.Default }
-			};
-			propertyList.Add(numberQuantityProperty);
+	public override void _ValidateProperty(Godot.Collections.Dictionary property) {
+		if (property["name"].AsStringName() == "NumberQuantity" && QuantityCategory != QuantityCategory.Number) {
+			var usage = property["usage"].As<PropertyUsageFlags>() | PropertyUsageFlags.ReadOnly;
+			property["usage"] = (int)usage;
 		}
-
-		return propertyList;
 	}
 }

@@ -1,3 +1,26 @@
-[gd_resource type="Resource" format=3 uid="uid://clrt1eby68x42"]
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://clrt1eby68x42"]
+
+[ext_resource type="Script" path="res://models/Health.cs" id="1_wxh22"]
+[ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://resources/Roles/RolesResources/RoleFiighter.tres" id="2_crqn7"]
+[ext_resource type="Script" path="res://models/Speed.cs" id="3_gyqnl"]
+[ext_resource type="Script" path="res://models/Character.cs" id="4_ol12w"]
+
+[sub_resource type="Resource" id="Resource_batcl"]
+script = ExtResource("1_wxh22")
+Max = 0
+Current = -1
+
+[sub_resource type="Resource" id="Resource_qg2t3"]
+script = ExtResource("3_gyqnl")
+Max = 0
+Current = -1
 
 [resource]
+script = ExtResource("4_ol12w")
+Id = "123"
+Name = "Jorginho"
+Role = ExtResource("2_crqn7")
+DiceCapacity = 0
+Health = SubResource("Resource_batcl")
+Speed = SubResource("Resource_qg2t3")
+CommonActions = []

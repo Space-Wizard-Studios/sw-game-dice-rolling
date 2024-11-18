@@ -1,5 +1,7 @@
 using Godot;
 
+namespace DiceRoll.Models;
+
 public partial class DiceIcon : Resource {
 	[Export]
 	public int Sides { get; set; }

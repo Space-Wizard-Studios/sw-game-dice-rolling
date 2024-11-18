@@ -1,5 +1,7 @@
 using Godot;
 
+namespace DiceRoll.Models;
+
 public enum TargetCategory {
 	Enemy,
 	Ally,

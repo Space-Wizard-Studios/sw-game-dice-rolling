@@ -1,6 +1,8 @@
 using Godot;
 using System.Collections.Generic;
 
+namespace DiceRoll.Models;
+
 [Tool]
 public partial class DiceMana : Resource {
 	[Export]

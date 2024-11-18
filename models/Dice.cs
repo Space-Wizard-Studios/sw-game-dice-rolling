@@ -2,6 +2,8 @@ using System;
 using Godot;
 using System.Collections.Generic;
 
+namespace DiceRoll.Models;
+
 public class Dice<[MustBeVariant] T> where T : DiceSide {
 	public string Id { get; set; }
 	public string Name { get; set; }

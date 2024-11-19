@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://10yhel1twdr6"
-path="res://.godot/imported/mdi_d8.svg-1a0b71a472731fdc255c64bc391e6adb.ctex"
+uid="uid://tax48gwkx4rt"
+path="res://.godot/imported/tabler_percentage.svg-091d297c67b200a5f106b9b4fc2e3e7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/dice/mdi_d8.svg"
-dest_files=["res://.godot/imported/mdi_d8.svg-1a0b71a472731fdc255c64bc391e6adb.ctex"]
+source_file="res://assets/placeholder/icons/dice/tabler_percentage.svg"
+dest_files=["res://.godot/imported/tabler_percentage.svg-091d297c67b200a5f106b9b4fc2e3e7b.ctex"]
 
 [params]
 

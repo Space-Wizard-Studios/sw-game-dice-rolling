@@ -1,14 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://8n50xik7xid3"]
+[gd_scene load_steps=4 format=3 uid="uid://8n50xik7xid3"]
 
 [ext_resource type="Script" path="res://scripts/scenes/gameplay/Battle.cs" id="1_oeh3a"]
 [ext_resource type="Script" path="res://scripts/ui/SceneTransitionButton.cs" id="2_4ip1d"]
+[ext_resource type="Texture2D" uid="uid://spssdr6q14p5" path="res://assets/placeholder/backgrounds/edermunizz_forest.png" id="2_a48vw"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_oeh3a")
+metadata/_edit_horizontal_guides_ = [534.0]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
 
-[node name="TopContainer" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="BackgroundLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -193.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.0823529, 0.0941176, 0.14902, 1)
+
+[node name="Background" type="TextureRect" parent="BackgroundLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -678.0
+offset_right = -250.0
+offset_bottom = -570.966
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 3
+texture = ExtResource("2_a48vw")
+expand_mode = 5
+stretch_mode = 1
+
+[node name="HUDLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TopContainer" type="Control" parent="HUDLayer"]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
@@ -20,21 +64,51 @@ grow_horizontal = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TopContainer"]
+[node name="Column" type="VBoxContainer" parent="HUDLayer/TopContainer"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/TopContainer/VBoxContainer"]
+[node name="Row" type="VBoxContainer" parent="HUDLayer/TopContainer/Column"]
 layout_mode = 2
-text = "BATTLE SCENE"
+size_flags_horizontal = 3
 
-[node name="BottomContainer" type="Control" parent="CanvasLayer"]
+[node name="LobbyButton" type="Button" parent="HUDLayer/TopContainer/Column/Row"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "Lobby"
+script = ExtResource("2_4ip1d")
+TypeOfTransition = 1
+MenuScene = 1
+
+[node name="Main" type="VBoxContainer" parent="HUDLayer/TopContainer/Column"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Board" type="VBoxContainer" parent="HUDLayer/TopContainer/Column/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Characters" type="HBoxContainer" parent="HUDLayer/TopContainer/Column/Main"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="Player" type="VBoxContainer" parent="HUDLayer/TopContainer/Column/Main/Characters"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Enemy" type="VBoxContainer" parent="HUDLayer/TopContainer/Column/Main/Characters"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BottomContainer" type="Control" parent="HUDLayer"]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -50,26 +124,18 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.3
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="CanvasLayer/BottomContainer"]
+[node name="Row" type="HBoxContainer" parent="HUDLayer/BottomContainer"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -37.5
-offset_top = -33.0
-offset_right = 37.5
-offset_bottom = 33.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="LobbyButton" type="Button" parent="CanvasLayer/BottomContainer/ButtonsContainer"]
+[node name="Column" type="VBoxContainer" parent="HUDLayer/BottomContainer/Row"]
 layout_mode = 2
-size_flags_vertical = 4
-text = "Lobby"
-script = ExtResource("2_4ip1d")
-TypeOfTransition = 1
-MenuScene = 1
+size_flags_horizontal = 3
+
+[node name="Column2" type="VBoxContainer" parent="HUDLayer/BottomContainer/Row"]
+layout_mode = 2
+size_flags_horizontal = 3

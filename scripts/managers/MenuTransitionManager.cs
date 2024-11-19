@@ -8,6 +8,7 @@ public enum MenuScenes {
 	GameOverMenu
 }
 
+[GlobalClass]
 public partial class MenuTransitionManager : Node {
 	[Export]
 	public PackedScene MainMenuScene { get; set; }

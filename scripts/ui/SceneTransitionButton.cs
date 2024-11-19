@@ -33,10 +33,12 @@ public partial class SceneTransitionButton : Button {
 	private GameplayTransitionManager _gameplayTransitionManager;
 
 	public override void _Ready() {
-		_menuTransitionManager = GetNode<MenuTransitionManager>("/root/MenuTransitionManager");
-		_gameplayTransitionManager = GetNode<GameplayTransitionManager>("/root/GameplayTransitionManager");
+		if (!Engine.IsEditorHint()) {
+			_menuTransitionManager = GetNode<MenuTransitionManager>("/root/MenuTransitionManager");
+			_gameplayTransitionManager = GetNode<GameplayTransitionManager>("/root/GameplayTransitionManager");
 
-		this.Pressed += OnButtonPressed;
+			this.Pressed += OnButtonPressed;
+		}
 	}
 
 	private void OnButtonPressed() {

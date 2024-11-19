@@ -68,6 +68,8 @@ size_flags_vertical = 3
 
 [node name="LobbyButton" type="Button" parent="CanvasLayer/BottomContainer/ButtonsContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 text = "Lobby"
 script = ExtResource("2_4ip1d")
-TypeOfTransition = 2
+TypeOfTransition = 1
+MenuScene = 1

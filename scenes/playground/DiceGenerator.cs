@@ -31,7 +31,7 @@ public partial class DiceGenerator : Node {
 		UpdateDiceDisplay();
 		HideRollResult();
 
-		var updateButton = GetNode<Button>("UpdateButton");
+		var updateButton = GetNode<Button>("CanvasLayer/UpdateButton");
 		if (updateButton != null) {
 			updateButton.Connect("pressed", new Callable(this, nameof(OnUpdateButtonPressed)));
 		}
@@ -39,7 +39,7 @@ public partial class DiceGenerator : Node {
 			GD.PrintErr("UpdateButton node not found");
 		}
 
-		var rollButton = GetNode<Button>("RollButton");
+		var rollButton = GetNode<Button>("CanvasLayer/RollButton");
 		if (rollButton != null) {
 			rollButton.Connect("pressed", new Callable(this, nameof(OnRollButtonPressed)));
 		}
@@ -148,7 +148,7 @@ public partial class DiceGenerator : Node {
 		int rolledSide = random.Next(1, _dice.Sides + 1);
 		var action = _dice.Actions[rolledSide - 1];
 
-		var rollResultLabel = GetNode<RichTextLabel>("RollResult");
+		var rollResultLabel = GetNode<RichTextLabel>("CanvasLayer/RollResult");
 		if (rollResultLabel != null) {
 			rollResultLabel.BbcodeEnabled = true;
 			var diceIcon = DiceIconResource.GetIconForSides(_dice.Sides);
@@ -166,7 +166,7 @@ public partial class DiceGenerator : Node {
 	}
 
 	private void HideRollResult() {
-		var rollResultLabel = GetNode<RichTextLabel>("RollResult");
+		var rollResultLabel = GetNode<RichTextLabel>("CanvasLayer/RollResult");
 		if (rollResultLabel != null) {
 			rollResultLabel.Visible = false;
 		}

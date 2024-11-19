@@ -73,6 +73,11 @@ text = "Start Game"
 script = ExtResource("2_u85me")
 TypeOfTransition = 2
 
+[node name="PlaygroundMenu" type="MenuButton" parent="CanvasLayer/BottomContainer/ButtonsContainer"]
+layout_mode = 2
+text = "Playground"
+flat = false
+
 [node name="ExitGameButton" type="Button" parent="CanvasLayer/BottomContainer/ButtonsContainer"]
 layout_mode = 2
 text = "Exit"

@@ -8,7 +8,7 @@ public partial class DiceGenerator : Node {
 	public DiceManaResources DiceManaResources { get; set; }
 
 	[Export]
-	public DiceIconsResource DiceIconResource { get; set; }
+	public DiceIconsResources DiceIconResource { get; set; }
 
 	[Export]
 	public DiceDisplay DiceDisplay;

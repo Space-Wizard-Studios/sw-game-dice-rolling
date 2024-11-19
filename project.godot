@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="dice-roll"
-run/main_scene="res://scenes/Generator.tscn"
+run/main_scene="res://scenes/menus/mainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameplayTransitionManager="*res://scripts/managers/GameplayTransitionManager.tscn"
 
 [display]
 

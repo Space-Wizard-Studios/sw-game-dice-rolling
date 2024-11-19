@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bejxsgio0w7kg"]
+
+[ext_resource type="Resource" uid="uid://dexdpdmbltdgh" path="res://scenes/menus/mainMenu/MainMenuEntry.tres" id="1_b57ik"]
+[ext_resource type="Resource" uid="uid://t7yl2q4u20g0" path="res://scenes/menus/gameOver/GameOverEntry.tres" id="2_fe4ov"]
+[ext_resource type="Script" path="res://scripts/scenes/SceneEntriesList.cs" id="3_5auld"]
+
+[resource]
+script = ExtResource("3_5auld")
+Scenes = [ExtResource("1_b57ik"), ExtResource("2_fe4ov")]

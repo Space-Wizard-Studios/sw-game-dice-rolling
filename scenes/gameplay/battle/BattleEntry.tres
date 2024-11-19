@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bcwsty2t4ueqe"]
+
+[ext_resource type="PackedScene" uid="uid://8n50xik7xid3" path="res://scenes/gameplay/battle/Battle.tscn" id="1_nmknc"]
+[ext_resource type="Script" path="res://scripts/scenes/SceneEntry.cs" id="2_uqx6x"]
+
+[resource]
+script = ExtResource("2_uqx6x")
+SceneName = "Game Battle"
+Scene = ExtResource("1_nmknc")

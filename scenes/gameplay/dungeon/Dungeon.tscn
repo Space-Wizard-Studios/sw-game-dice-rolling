@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbiewt2yq1klj"]
+
+[ext_resource type="Script" path="res://scripts/scenes/gameplay/Dungeon.cs" id="1_5cacr"]
+
+[node name="Dungeon" type="Node2D"]
+script = ExtResource("1_5cacr")

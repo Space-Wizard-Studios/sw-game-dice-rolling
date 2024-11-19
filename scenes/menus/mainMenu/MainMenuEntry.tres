@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dexdpdmbltdgh"]
+
+[ext_resource type="Script" path="res://scripts/scenes/SceneEntry.cs" id="1_jkiyq"]
+[ext_resource type="PackedScene" uid="uid://myouhbwr3b27" path="res://scenes/menus/mainMenu/MainMenu.tscn" id="1_nuk4o"]
+
+[resource]
+script = ExtResource("1_jkiyq")
+SceneName = "Main Menu"
+Scene = ExtResource("1_nuk4o")

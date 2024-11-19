@@ -2,6 +2,14 @@
 	"editor.quickSuggestions": {
 		"strings": true
 	},
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"**/Thumbs.db": true,
+	},
 	"[python]": {
 		"editor.defaultFormatter": "ms-python.autopep8"
 	},
@@ -11,4 +19,9 @@
 		"editor.tabSize": 4,
 		"editor.detectIndentation": true,
 	},
+	"cSpell.words": [
+		"gameplay",
+		"Gameplay",
+		"tscn"
+	]
 }

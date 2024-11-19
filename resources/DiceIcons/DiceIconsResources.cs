@@ -3,7 +3,7 @@ using Godot;
 namespace DiceRoll.Models;
 
 [Tool]
-public partial class DiceIconsResource : Resource {
+public partial class DiceIconsResources : Resource {
 	[Export]
 	public Godot.Collections.Array<DiceIcon> DiceIcons { get; set; } = new Godot.Collections.Array<DiceIcon>();
 

@@ -1,26 +1,63 @@
 using Godot;
+using DiceRoll.Managers;
 
+namespace DiceRoll.UI;
+
+public enum TransitionType {
+	None,
+	Menu,
+	Gameplay
+}
+
+[Tool]
 public partial class SceneTransitionButton : Button {
-	[Export] public SceneEntriesList SceneList { get; set; }
-	[Export] public string TargetScene { get; set; }
+	private TransitionType _typeOfTransition = TransitionType.None;
+	[Export]
+	public TransitionType TypeOfTransition {
+		get => _typeOfTransition;
+		set {
+			if (_typeOfTransition != value) {
+				_typeOfTransition = value;
+				NotifyPropertyListChanged();
+			}
+		}
+	}
+
+	[Export]
+	public MenuScenes MenuScene { get; set; } = MenuScenes.MainMenu;
+
+	[Export]
+	public GameplayScenes GameplayScene { get; set; } = GameplayScenes.GameplayLobby;
+
+	private MenuTransitionManager _menuTransitionManager;
+	private GameplayTransitionManager _gameplayTransitionManager;
 
 	public override void _Ready() {
+		_menuTransitionManager = GetNode<MenuTransitionManager>("/root/MenuTransitionManager");
+		_gameplayTransitionManager = GetNode<GameplayTransitionManager>("/root/GameplayTransitionManager");
+
 		this.Pressed += OnButtonPressed;
 	}
 
 	private void OnButtonPressed() {
-		var transitionManager = GetNode<TransitionManager>("/root/GameplayTransitionManager");
-		if (SceneList != null) {
-			foreach (var sceneEntry in SceneList.Scenes) {
-				if (sceneEntry.SceneName == TargetScene) {
-					transitionManager.TransitionTo(sceneEntry.SceneName);
-					return;
-				}
-			}
-			GD.PrintErr($"Scene {TargetScene} not found!");
+		switch (TypeOfTransition) {
+			case TransitionType.Menu:
+				_menuTransitionManager?.TransitionTo(MenuScene);
+				break;
+			case TransitionType.Gameplay:
+				_gameplayTransitionManager?.TransitionTo(GameplayScene);
+				break;
 		}
-		else {
-			GD.PrintErr("SceneList is not set!");
+	}
+
+	public override void _ValidateProperty(Godot.Collections.Dictionary property) {
+		if (property["name"].AsStringName() == "MenuScene" && TypeOfTransition != TransitionType.Menu) {
+			var usage = property["usage"].As<PropertyUsageFlags>() | PropertyUsageFlags.ReadOnly;
+			property["usage"] = (int)usage;
+		}
+		if (property["name"].AsStringName() == "GameplayScene" && TypeOfTransition != TransitionType.Gameplay) {
+			var usage = property["usage"].As<PropertyUsageFlags>() | PropertyUsageFlags.ReadOnly;
+			property["usage"] = (int)usage;
 		}
 	}
 }

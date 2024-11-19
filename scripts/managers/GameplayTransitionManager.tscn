@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://ugnyuw1ixa26"]
-
-[ext_resource type="Script" path="res://scripts/managers/TransitionManager.cs" id="1_8q6i7"]
-[ext_resource type="Resource" uid="uid://cy2adm2gipk1w" path="res://scenes/GameplayScenesEntries.tres" id="2_p4sm4"]
-
-[node name="GameplayManager" type="Node2D"]
-script = ExtResource("1_8q6i7")
-SceneEntriesList = ExtResource("2_p4sm4")

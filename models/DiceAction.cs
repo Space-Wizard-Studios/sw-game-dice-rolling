@@ -10,7 +10,7 @@ public enum TargetCategory {
 	Nothing,
 }
 
-public enum QuantityCategory {
+public enum QuantityType {
 	None,
 	All,
 	Number
@@ -33,13 +33,13 @@ public partial class DiceAction : Resource {
 	[Export]
 	public TargetCategory TargetCategory { get; set; }
 
-	private QuantityCategory _quantityCategory = QuantityCategory.None;
+	private QuantityType _typeOfQuantity = QuantityType.None;
 	[Export]
-	public QuantityCategory QuantityCategory {
-		get => _quantityCategory;
+	public QuantityType TypeOfQuantity {
+		get => _typeOfQuantity;
 		set {
-			if (_quantityCategory != value) {
-				_quantityCategory = value;
+			if (_typeOfQuantity != value) {
+				_typeOfQuantity = value;
 				NotifyPropertyListChanged();
 			}
 		}
@@ -61,7 +61,7 @@ public partial class DiceAction : Resource {
 	}
 
 	public override void _ValidateProperty(Godot.Collections.Dictionary property) {
-		if (property["name"].AsStringName() == "NumberQuantity" && QuantityCategory != QuantityCategory.Number) {
+		if (property["name"].AsStringName() == "NumberQuantity" && TypeOfQuantity != QuantityType.Number) {
 			var usage = property["usage"].As<PropertyUsageFlags>() | PropertyUsageFlags.ReadOnly;
 			property["usage"] = (int)usage;
 		}

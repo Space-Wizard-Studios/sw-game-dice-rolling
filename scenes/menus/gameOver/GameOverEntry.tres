@@ -1,9 +1,0 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://t7yl2q4u20g0"]
-
-[ext_resource type="PackedScene" uid="uid://dp330lfyi8bfk" path="res://scenes/menus/gameOver/GameOver.tscn" id="1_ne336"]
-[ext_resource type="Script" path="res://scripts/scenes/SceneEntry.cs" id="2_v2kwf"]
-
-[resource]
-script = ExtResource("2_v2kwf")
-SceneName = "Game Over Menu"
-Scene = ExtResource("1_ne336")

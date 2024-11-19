@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://8n50xik7xid3"]
+
+[ext_resource type="Script" path="res://scripts/scenes/gameplay/Battle.cs" id="1_oeh3a"]
+[ext_resource type="Script" path="res://scripts/ui/SceneTransitionButton.cs" id="2_4ip1d"]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_oeh3a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TopContainer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -512.0
+offset_right = 512.0
+offset_bottom = 534.0
+grow_horizontal = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TopContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TopContainer/VBoxContainer"]
+layout_mode = 2
+text = "BATTLE SCENE"
+
+[node name="BottomContainer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -230.0
+offset_right = 512.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="CanvasLayer/BottomContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -33.0
+offset_right = 37.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LobbyButton" type="Button" parent="CanvasLayer/BottomContainer/ButtonsContainer"]
+layout_mode = 2
+text = "Lobby"
+script = ExtResource("2_4ip1d")
+TypeOfTransition = 2

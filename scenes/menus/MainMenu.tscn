@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://myouhbwr3b27"]
+
+[ext_resource type="Script" path="res://scripts/scenes/menus/MainMenu.cs" id="1_hfxp8"]
+[ext_resource type="Script" path="res://scripts/ui/SceneTransitionButton.cs" id="2_u85me"]
+[ext_resource type="Script" path="res://scripts/ui/CloseGameButton.cs" id="3_rlojh"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_hfxp8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TopContainer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -512.0
+offset_right = 512.0
+offset_bottom = 534.0
+grow_horizontal = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TopContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TopContainer/VBoxContainer"]
+layout_mode = 2
+text = "MAIN MENU SCENE"
+
+[node name="BottomContainer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -230.0
+offset_right = 512.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="CanvasLayer/BottomContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -33.0
+offset_right = 37.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StartGameButton" type="Button" parent="CanvasLayer/BottomContainer/ButtonsContainer"]
+layout_mode = 2
+text = "Start Game"
+script = ExtResource("2_u85me")
+TypeOfTransition = 2
+
+[node name="ExitGameButton" type="Button" parent="CanvasLayer/BottomContainer/ButtonsContainer"]
+layout_mode = 2
+text = "Exit"
+script = ExtResource("3_rlojh")

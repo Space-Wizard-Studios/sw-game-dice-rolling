@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3lkjx05elcwq"]
+
+[ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/placeholder/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="1_e0xpb"]
+[ext_resource type="Script" path="res://components/CharacterSheet/CharacterComponent.cs" id="1_i0fqb"]
+[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://resources/Characters/CharactersResources/Eleonore.tres" id="2_0gsjl"]
+
+[node name="CharacterComponent" type="Node2D" node_paths=PackedStringArray("AnimatedSpriteNode")]
+script = ExtResource("1_i0fqb")
+CharacterResource = ExtResource("2_0gsjl")
+AnimatedSpriteNode = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_e0xpb")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.371037

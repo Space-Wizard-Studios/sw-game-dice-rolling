@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bgx5eoqdsu100"]
+
+[ext_resource type="Script" path="res://models/Health.cs" id="1_wt2pe"]
+[ext_resource type="Script" path="res://models/Speed.cs" id="2_f5e3t"]
+[ext_resource type="Script" path="res://models/Role.cs" id="3_4syty"]
+
+[sub_resource type="Resource" id="Resource_11uo6"]
+script = ExtResource("1_wt2pe")
+Max = 0
+Current = -1
+
+[sub_resource type="Resource" id="Resource_iix6a"]
+script = ExtResource("2_f5e3t")
+Max = 0
+Current = -1
+
+[resource]
+script = ExtResource("3_4syty")
+Name = "Mage"
+Description = "MageDescription"
+BaseHealth = SubResource("Resource_11uo6")
+BaseSpeed = SubResource("Resource_iix6a")
+AllowedActions = []

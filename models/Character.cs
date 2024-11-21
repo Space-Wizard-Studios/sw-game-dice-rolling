@@ -1,5 +1,4 @@
 using Godot;
-using System.Collections.Generic;
 
 namespace DiceRoll.Models;
 
@@ -24,4 +23,7 @@ public partial class Character : Resource {
 
 	[Export]
 	public Godot.Collections.Array<CommonAction> CommonActions { get; set; } = new Godot.Collections.Array<CommonAction>();
+
+	[Export]
+	public SpriteFrames CharacterSprite { get; set; }
 }

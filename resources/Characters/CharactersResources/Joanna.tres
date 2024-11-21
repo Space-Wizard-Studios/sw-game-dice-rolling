@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://bkolttux1bvi1"]
+
+[ext_resource type="Script" path="res://models/Health.cs" id="1_njiwe"]
+[ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/placeholder/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="1_p8ost"]
+[ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://resources/Roles/RolesResources/RoleFiighter.tres" id="2_w3glu"]
+[ext_resource type="Script" path="res://models/Speed.cs" id="3_slem7"]
+[ext_resource type="Script" path="res://models/Character.cs" id="4_b0lof"]
+
+[sub_resource type="Resource" id="Resource_batcl"]
+script = ExtResource("1_njiwe")
+Max = 0
+Current = -1
+
+[sub_resource type="Resource" id="Resource_qg2t3"]
+script = ExtResource("3_slem7")
+Max = 0
+Current = -1
+
+[resource]
+script = ExtResource("4_b0lof")
+Id = "2"
+Name = "Joanna"
+Role = ExtResource("2_w3glu")
+DiceCapacity = 0
+Health = SubResource("Resource_batcl")
+Speed = SubResource("Resource_qg2t3")
+CommonActions = []
+CharacterSprite = ExtResource("1_p8ost")

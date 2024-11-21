@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://clrt1eby68x42"]
+
+[ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/placeholder/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="1_0263e"]
+[ext_resource type="Script" path="res://models/Health.cs" id="1_ul1q0"]
+[ext_resource type="Resource" uid="uid://bgx5eoqdsu100" path="res://resources/Roles/RolesResources/RoleMage.tres" id="2_u0fjn"]
+[ext_resource type="Script" path="res://models/Speed.cs" id="3_2spkj"]
+[ext_resource type="Script" path="res://models/Character.cs" id="4_k4i6o"]
+
+[sub_resource type="Resource" id="Resource_batcl"]
+script = ExtResource("1_ul1q0")
+Max = 0
+Current = -1
+
+[sub_resource type="Resource" id="Resource_qg2t3"]
+script = ExtResource("3_2spkj")
+Max = 0
+Current = -1
+
+[resource]
+script = ExtResource("4_k4i6o")
+Id = "1"
+Name = "Eleonore"
+Role = ExtResource("2_u0fjn")
+DiceCapacity = 0
+Health = SubResource("Resource_batcl")
+Speed = SubResource("Resource_qg2t3")
+CommonActions = []
+CharacterSprite = ExtResource("1_0263e")

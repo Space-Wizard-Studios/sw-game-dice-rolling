@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://7hqw3ff8sxc6"]
 
-[ext_resource type="Script" path="res://components/DiceDisplay/DiceDisplay.cs" id="1_khac7"]
-[ext_resource type="Script" path="res://components/DiceDisplay/DiceInspector.cs" id="1_w618e"]
+[ext_resource type="Script" path="res://playground/DiceDisplay/DiceDisplay.cs" id="1_khac7"]
+[ext_resource type="Script" path="res://playground/DiceDisplay/DiceInspector.cs" id="1_w618e"]
 [ext_resource type="Texture2D" uid="uid://c6lstssc785up" path="res://assets/placeholder/icons/dice/mdi_d4.svg" id="2_0uqec"]
-[ext_resource type="Script" path="res://components/DiceDisplay/DisplayActionItem.cs" id="4_pgfjk"]
+[ext_resource type="Script" path="res://playground/DiceDisplay/DisplayActionItem.cs" id="4_pgfjk"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_h0h16"]
 

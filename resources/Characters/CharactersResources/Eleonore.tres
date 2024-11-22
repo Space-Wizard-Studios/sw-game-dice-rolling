@@ -1,28 +1,15 @@
-[gd_resource type="Resource" load_steps=8 format=3 uid="uid://clrt1eby68x42"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://clrt1eby68x42"]
 
-[ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="1_0263e"]
-[ext_resource type="Script" path="res://models/Health.cs" id="1_ul1q0"]
 [ext_resource type="Resource" uid="uid://bgx5eoqdsu100" path="res://resources/Roles/RolesResources/RoleMage.tres" id="2_u0fjn"]
-[ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="3_fdjb5"]
 [ext_resource type="Script" path="res://models/Character.cs" id="4_k4i6o"]
-[ext_resource type="SpriteFrames" uid="uid://4pntmv2e85vp" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaShadowSprites.tres" id="5_e6sts"]
-
-[sub_resource type="Resource" id="Resource_batcl"]
-script = ExtResource("1_ul1q0")
-Max = 100
-Current = 50
 
 [resource]
 script = ExtResource("4_k4i6o")
-Id = "1"
-Name = "Eleonore"
+Id = ""
+Name = ""
 Role = ExtResource("2_u0fjn")
 DiceCapacity = 0
-Health = SubResource("Resource_batcl")
 CommonActions = []
-Portrait = ExtResource("3_fdjb5")
-CharacterSprite = ExtResource("1_0263e")
 SpriteOffsetX = 0.0
 SpriteOffsetY = 0.0
-ShowShadow = true
-ShadowSprite = ExtResource("5_e6sts")
+ShowShadow = false

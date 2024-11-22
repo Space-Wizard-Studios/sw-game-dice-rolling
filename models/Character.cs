@@ -1,7 +1,6 @@
 using Godot;
 
 namespace DiceRoll.Models;
-
 public partial class Character : Resource {
 	[Export]
 	public string Id { get; set; }
@@ -41,4 +40,10 @@ public partial class Character : Resource {
 
 	[Export]
 	public SpriteFrames ShadowSprite { get; set; }
+
+	public Character() {
+		if (Role != null && Health != null) {
+			Health.SetMax(Role.BaseHealth.Max);
+		}
+	}
 }

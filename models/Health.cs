@@ -10,6 +10,9 @@ public partial class Health : Resource {
 	[Export]
 	public int Current { get; set; } = -1;
 
+	public Health() {
+	}
+
 	public Health(int max, int current = -1) {
 		Max = max;
 		Current = current;

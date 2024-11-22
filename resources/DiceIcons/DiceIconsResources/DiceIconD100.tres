@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://b74vrqn7d8gvt"]
 
-[ext_resource type="Texture2D" uid="uid://tax48gwkx4rt" path="res://assets/placeholder/icons/dice/tabler_percentage.svg" id="1_efih6"]
+[ext_resource type="Texture2D" uid="uid://tax48gwkx4rt" path="res://assets/icons/dice/tabler_percentage.svg" id="1_efih6"]
 [ext_resource type="Script" path="res://models/DiceIcon.cs" id="2_ph51v"]
 
 [resource]

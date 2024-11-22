@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://8n50xik7xid3"]
+[gd_scene load_steps=5 format=3 uid="uid://8n50xik7xid3"]
 
 [ext_resource type="Script" path="res://scripts/scenes/gameplay/Battle.cs" id="1_oeh3a"]
 [ext_resource type="Script" path="res://scripts/ui/SceneTransitionButton.cs" id="2_4ip1d"]
-[ext_resource type="PackedScene" uid="uid://d3lkjx05elcwq" path="res://components/CharacterSheet/CharacterComponent.tscn" id="3_ki7vi"]
+[ext_resource type="PackedScene" uid="uid://d3lkjx05elcwq" path="res://components/CharacterSheet/CharacterSheetComponent.tscn" id="3_ki7vi"]
+[ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://resources/Characters/CharactersResources/Joanna.tres" id="4_v5wnd"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_oeh3a")
@@ -17,11 +18,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0.0823529, 0.0941176, 0.14902, 1)
+color = Color(0, 0.234793, 0.205631, 1)
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="Canvas" type="CanvasLayer" parent="."]
 
-[node name="HUDContainer" type="VBoxContainer" parent="HUD"]
+[node name="HUDContainer" type="VBoxContainer" parent="Canvas"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -31,13 +32,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="TopContainer" type="Control" parent="HUD/HUDContainer"]
+[node name="TopContainer" type="Control" parent="Canvas/HUDContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
 mouse_filter = 2
 
-[node name="Column" type="VBoxContainer" parent="HUD/HUDContainer/TopContainer"]
+[node name="Column" type="VBoxContainer" parent="Canvas/HUDContainer/TopContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,20 +48,20 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Row" type="VBoxContainer" parent="HUD/HUDContainer/TopContainer/Column"]
+[node name="Row" type="VBoxContainer" parent="Canvas/HUDContainer/TopContainer/Column"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="HUD/HUDContainer/TopContainer/Column/Row"]
+[node name="ColorRect" type="ColorRect" parent="Canvas/HUDContainer/TopContainer/Column/Row"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 color = Color(0.49, 0.321848, 0.1421, 1)
 
-[node name="LobbyButton" type="Button" parent="HUD/HUDContainer/TopContainer/Column/Row/ColorRect"]
+[node name="LobbyButton" type="Button" parent="Canvas/HUDContainer/TopContainer/Column/Row/ColorRect"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -81,27 +82,27 @@ script = ExtResource("2_4ip1d")
 TypeOfTransition = 1
 MenuScene = 1
 
-[node name="Main" type="VBoxContainer" parent="HUD/HUDContainer/TopContainer/Column"]
+[node name="Main" type="VBoxContainer" parent="Canvas/HUDContainer/TopContainer/Column"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.9
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Turns" type="VBoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main"]
+[node name="Turns" type="VBoxContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="HUD/HUDContainer/TopContainer/Column/Main/Turns"]
+[node name="ColorRect" type="ColorRect" parent="Canvas/HUDContainer/TopContainer/Column/Main/Turns"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 color = Color(0.49, 0.1421, 0.229075, 1)
 
-[node name="Label" type="Label" parent="HUD/HUDContainer/TopContainer/Column/Main/Turns/ColorRect"]
+[node name="Label" type="Label" parent="Canvas/HUDContainer/TopContainer/Column/Main/Turns/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -116,104 +117,109 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "HUD / TURN ORDER"
 
-[node name="Characters" type="HBoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main"]
+[node name="Characters" type="HBoxContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.85
 mouse_filter = 2
 
-[node name="Player" type="HBoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters"]
+[node name="Player" type="HBoxContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="CharacterGrid" type="GridContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Player"]
+[node name="CharacterGrid" type="GridContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Player"]
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 2
 
-[node name="CharacterSheet1" type="VBoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid"]
+[node name="CharacterSheet1" type="BoxContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid/CharacterSheet1"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="CharacterSheetComponent" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid/CharacterSheet1/Control" instance=ExtResource("3_ki7vi")]
+
+[node name="Character2" type="BoxContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid/Character2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="CharacterSheetComponent" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid/Character2/Control" instance=ExtResource("3_ki7vi")]
+CharacterResource = ExtResource("4_v5wnd")
+
+[node name="Character3" type="BoxContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid/Character3"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="CharacterSheetComponent" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid/Character3/Control" instance=ExtResource("3_ki7vi")]
+CharacterResource = ExtResource("4_v5wnd")
+
+[node name="Character4" type="BoxContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid/Character4"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="CharacterSheetComponent" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid/Character4/Control" instance=ExtResource("3_ki7vi")]
+
+[node name="Enemy" type="HBoxContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="DiceRoll" type="HBoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid/CharacterSheet1"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.25
-
-[node name="Character" type="VBoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid/CharacterSheet1"]
-clip_contents = true
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.75
-
-[node name="Control" type="Control" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid/CharacterSheet1/Character"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-
-[node name="CharacterComponent" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid/CharacterSheet1/Character/Control" instance=ExtResource("3_ki7vi")]
-CharacterResource = null
-
-[node name="Status" type="HBoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid/CharacterSheet1"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.25
-
-[node name="Character2" type="BoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Character3" type="BoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Character4" type="BoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Player/CharacterGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Enemy" type="HBoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 0
-
-[node name="CharacterGrid" type="GridContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Enemy"]
+[node name="CharacterGrid" type="GridContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Enemy"]
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 2
 
-[node name="Character1" type="BoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Enemy/CharacterGrid"]
+[node name="Character1" type="BoxContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Enemy/CharacterGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Character2" type="BoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Enemy/CharacterGrid"]
+[node name="Character2" type="BoxContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Enemy/CharacterGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Character3" type="BoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Enemy/CharacterGrid"]
+[node name="Character3" type="BoxContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Enemy/CharacterGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Character4" type="BoxContainer" parent="HUD/HUDContainer/TopContainer/Column/Main/Characters/Enemy/CharacterGrid"]
+[node name="Character4" type="BoxContainer" parent="Canvas/HUDContainer/TopContainer/Column/Main/Characters/Enemy/CharacterGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="BottomContainer" type="Control" parent="HUD/HUDContainer"]
+[node name="BottomContainer" type="Control" parent="Canvas/HUDContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
 
-[node name="Row" type="HBoxContainer" parent="HUD/HUDContainer/BottomContainer"]
+[node name="Row" type="HBoxContainer" parent="Canvas/HUDContainer/BottomContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -221,12 +227,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="HUD/HUDContainer/BottomContainer/Row"]
+[node name="ColorRect" type="ColorRect" parent="Canvas/HUDContainer/BottomContainer/Row"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.1421, 0.194285, 0.49, 1)
 
-[node name="Label" type="Label" parent="HUD/HUDContainer/BottomContainer/Row/ColorRect"]
+[node name="Label" type="Label" parent="Canvas/HUDContainer/BottomContainer/Row/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,0 +1,171 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3lkjx05elcwq"]
+
+[ext_resource type="Script" path="res://components/CharacterSheet/CharacterSheetComponent.cs" id="1_i0fqb"]
+[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://resources/Characters/CharactersResources/Eleonore.tres" id="2_0gsjl"]
+[ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="3_hh78q"]
+[ext_resource type="SpriteFrames" uid="uid://4pntmv2e85vp" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaShadowSprites.tres" id="4_hatal"]
+[ext_resource type="PackedScene" uid="uid://b872smthv1tbq" path="res://components/CharacterSheet/HealthComponent.tscn" id="4_ndm2k"]
+[ext_resource type="Script" path="res://models/Health.cs" id="6_5evwl"]
+
+[sub_resource type="Resource" id="Resource_qxk5y"]
+script = ExtResource("6_5evwl")
+Max = 0
+Current = -1
+
+[node name="CharacterComponent" type="Node2D" node_paths=PackedStringArray("HealthComponentNode", "AnimatedSpriteNode", "ShadowNode")]
+script = ExtResource("1_i0fqb")
+CharacterResource = ExtResource("2_0gsjl")
+HealthComponentNode = NodePath("PropertiesContainer/Top/BoxContainer/Control/HealthComponent")
+AnimatedSpriteNode = NodePath("Control/Character/AnimatedCharacter")
+ShadowNode = NodePath("Control/Shadow/BoxContainer/AnimatedShadow")
+ShowShadow = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Character" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedCharacter" type="AnimatedSprite2D" parent="Control/Character"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_hh78q")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Shadow" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BoxContainer" type="BoxContainer" parent="Control/Shadow"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedShadow" type="AnimatedSprite2D" parent="Control/Shadow/BoxContainer"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("4_hatal")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.175099
+centered = false
+
+[node name="PropertiesContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Right" type="VBoxContainer" parent="PropertiesContainer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -64.0
+offset_right = 24.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Bottom" type="HBoxContainer" parent="PropertiesContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Left" type="VBoxContainer" parent="PropertiesContainer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -64.0
+offset_bottom = 64.0
+grow_vertical = 2
+
+[node name="Top" type="HBoxContainer" parent="PropertiesContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = -48.0
+offset_right = 64.0
+grow_horizontal = 2
+theme_override_constants/separation = 32
+
+[node name="BoxContainer" type="BoxContainer" parent="PropertiesContainer/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="PropertiesContainer/Top/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="HealthComponent" parent="PropertiesContainer/Top/BoxContainer/Control" instance=ExtResource("4_ndm2k")]
+HealthResource = SubResource("Resource_qxk5y")
+
+[node name="BoxContainer2" type="BoxContainer" parent="PropertiesContainer/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="PropertiesContainer/Top/BoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="HealthComponent" parent="PropertiesContainer/Top/BoxContainer2/Control" instance=ExtResource("4_ndm2k")]
+HealthResource = SubResource("Resource_qxk5y")

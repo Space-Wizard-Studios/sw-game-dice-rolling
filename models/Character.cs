@@ -1,6 +1,8 @@
 using Godot;
 
 namespace DiceRoll.Models;
+
+[GlobalClass]
 public partial class Character : Resource {
 	[Export]
 	public string Id { get; set; }
@@ -17,9 +19,6 @@ public partial class Character : Resource {
 	[Export]
 	public Health Health { get; set; }
 
-	// [Export]
-	// public Speed Speed { get; set; }
-
 	[Export]
 	public Godot.Collections.Array<CommonAction> CommonActions { get; set; } = new Godot.Collections.Array<CommonAction>();
 
@@ -30,10 +29,10 @@ public partial class Character : Resource {
 	public SpriteFrames CharacterSprite { get; set; }
 
 	[Export]
-	public float SpriteOffsetX { get; set; }
+	public float SpritePositionX { get; set; }
 
 	[Export]
-	public float SpriteOffsetY { get; set; }
+	public float SpritePositionY { get; set; }
 
 	[Export]
 	public bool ShowShadow { get; set; }

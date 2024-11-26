@@ -41,11 +41,13 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
+mouse_filter = 2
 
 [node name="Middle" type="Control" parent="Characters"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
+mouse_filter = 2
 
 [node name="Background" type="ColorRect" parent="Characters/Middle"]
 layout_mode = 1
@@ -66,18 +68,20 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.65
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="Player" type="Control" parent="Characters/Middle/Teams"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="PlayerRow2" parent="Characters/Middle/Teams/Player" instance=ExtResource("2_j8o3d")]
 layout_mode = 1
 offset_left = 96.0
-offset_top = -267.0
+offset_top = -304.0
 offset_right = 736.0
-offset_bottom = -35.0
+offset_bottom = -72.0
 
 [node name="PlayerRow1" parent="Characters/Middle/Teams/Player" instance=ExtResource("2_j8o3d")]
 layout_mode = 1
@@ -85,27 +89,20 @@ layout_mode = 1
 [node name="Enemy" type="Control" parent="Characters/Middle/Teams"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
-[node name="EnemyRow1" parent="Characters/Middle/Teams/Enemy" instance=ExtResource("2_j8o3d")]
+[node name="PlayerRow2" parent="Characters/Middle/Teams/Enemy" instance=ExtResource("2_j8o3d")]
+layout_direction = 3
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -736.0
-offset_top = -267.0
-offset_right = -96.0
-offset_bottom = -35.0
-grow_horizontal = 0
+offset_left = 96.0
+offset_top = -304.0
+offset_right = 736.0
+offset_bottom = -72.0
 Direction = 0
 
-[node name="EnemyRow2" parent="Characters/Middle/Teams/Enemy" instance=ExtResource("2_j8o3d")]
+[node name="PlayerRow1" parent="Characters/Middle/Teams/Enemy" instance=ExtResource("2_j8o3d")]
+layout_direction = 3
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -640.0
-offset_right = 0.0
-grow_horizontal = 0
 Direction = 0
 
 [node name="Rolling" type="HBoxContainer" parent="Characters/Middle"]
@@ -1033,6 +1030,7 @@ flip_h = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
+mouse_filter = 2
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -1045,27 +1043,26 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 0
-
-[node name="TopContainer" type="Control" parent="HUD/HUDContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.05
-
-[node name="Turns" type="HBoxContainer" parent="HUD/HUDContainer/TopContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.15
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="ColorRect" type="ColorRect" parent="HUD/HUDContainer/TopContainer/Turns"]
+[node name="TopContainer" type="HBoxContainer" parent="HUD/HUDContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect3" type="ColorRect" parent="HUD/HUDContainer/TopContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+mouse_filter = 2
+color = Color(0.49, 0.321848, 0.1421, 1)
+
+[node name="ColorRect" type="ColorRect" parent="HUD/HUDContainer/TopContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1073,7 +1070,7 @@ size_flags_stretch_ratio = 0.9
 mouse_filter = 2
 color = Color(0.49, 0.1421, 0.229075, 1)
 
-[node name="Label" type="Label" parent="HUD/HUDContainer/TopContainer/Turns/ColorRect"]
+[node name="Label" type="Label" parent="HUD/HUDContainer/TopContainer/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1088,7 +1085,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "HUD / TURN ORDER"
 
-[node name="ColorRect2" type="ColorRect" parent="HUD/HUDContainer/TopContainer/Turns"]
+[node name="ColorRect2" type="ColorRect" parent="HUD/HUDContainer/TopContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1096,7 +1093,7 @@ size_flags_stretch_ratio = 0.1
 mouse_filter = 2
 color = Color(0.49, 0.321848, 0.1421, 1)
 
-[node name="LobbyButton" type="Button" parent="HUD/HUDContainer/TopContainer/Turns/ColorRect2"]
+[node name="LobbyButton" type="Button" parent="HUD/HUDContainer/TopContainer/ColorRect2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1128,6 +1125,7 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
+mouse_filter = 2
 
 [node name="Row" type="HBoxContainer" parent="HUD/HUDContainer/BottomContainer"]
 layout_mode = 1

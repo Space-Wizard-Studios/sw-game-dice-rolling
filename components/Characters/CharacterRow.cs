@@ -21,10 +21,7 @@ public partial class CharacterRow : HBoxContainer {
 	public Control Character3Node { get; set; }
 
 	[Export]
-	public Control SpacingLeft { get; set; }
-
-	[Export]
-	public Control SpacingRight { get; set; }
+	public HBoxContainer RowContainer { get; set; }
 
 	private ForwardDirection _direction = ForwardDirection.Right;
 
@@ -59,18 +56,11 @@ public partial class CharacterRow : HBoxContainer {
 	private void OnDirectionSet() {
 		GD.Print("Forward Direction was set!");
 
-		if (SpacingLeft == null && SpacingRight == null) {
-			GD.PrintErr("SpacingLeft or SpacingRight is not set");
-			return;
-		}
-
 		if (Direction == ForwardDirection.Left) {
-			SpacingRight.Visible = false;
-			SpacingLeft.Visible = true;
+			RowContainer.LayoutDirection = LayoutDirectionEnum.Rtl;
 		}
 		else {
-			SpacingLeft.Visible = false;
-			SpacingRight.Visible = true;
+			RowContainer.LayoutDirection = LayoutDirectionEnum.Ltr;
 		}
 
 		FlipCharacters();

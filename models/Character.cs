@@ -2,6 +2,7 @@ using Godot;
 
 namespace DiceRoll.Models;
 
+[Tool]
 [GlobalClass]
 public partial class Character : Resource {
 	[Export]
@@ -28,11 +29,25 @@ public partial class Character : Resource {
 	[Export]
 	public SpriteFrames CharacterSprite { get; set; }
 
+	private float _spritePositionX;
 	[Export]
-	public float SpritePositionX { get; set; }
+	public float SpritePositionX {
+		get => _spritePositionX;
+		set {
+			_spritePositionX = value;
+			EmitChanged();
+		}
+	}
 
+	private float _spritePositionY;
 	[Export]
-	public float SpritePositionY { get; set; }
+	public float SpritePositionY {
+		get => _spritePositionY;
+		set {
+			_spritePositionY = value;
+			EmitChanged();
+		}
+	}
 
 	[Export]
 	public bool ShowShadow { get; set; }

@@ -1,36 +1,58 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3lkjx05elcwq"]
+[gd_scene load_steps=7 format=3 uid="uid://d3lkjx05elcwq"]
 
 [ext_resource type="Script" path="res://components/Characters/CharacterComponent.cs" id="1_t0krx"]
-[ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="2_v7l77"]
 [ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://resources/Characters/CharactersResources/Joanna.tres" id="2_ygyg3"]
+[ext_resource type="Texture2D" uid="uid://drfm6uc8yvpwi" path="res://assets/icons/hud/plain-arrow.png" id="3_a4vpw"]
+[ext_resource type="Texture2D" uid="uid://cytb6ea63fslt" path="res://assets/icons/hud/select.png" id="3_gxxii"]
 [ext_resource type="SpriteFrames" uid="uid://4pntmv2e85vp" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaShadowSprites.tres" id="4_kpvh4"]
+[ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="4_nf4ta"]
 
-[node name="CharacterComponent" type="Control" node_paths=PackedStringArray("AnimatedSpriteNode", "ShadowNode")]
+[node name="CharacterComponent" type="Control" node_paths=PackedStringArray("HoverSpriteNode", "SelectorSpriteNode", "SelectionAreaNode", "AnimatedSpriteNode", "ShadowNode")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 256.0
 offset_bottom = 256.0
+mouse_filter = 2
 script = ExtResource("1_t0krx")
-CharacterResource = ExtResource("2_ygyg3")
+HoverSpriteNode = NodePath("Selector/HoverSprite")
+SelectorSpriteNode = NodePath("Selector/SelectorSprite")
+SelectionAreaNode = NodePath("Selector/SelectionArea")
 AnimatedSpriteNode = NodePath("Character/AnimatedSprite")
 ShadowNode = NodePath("Shadow/Shadow")
-ShowShadow = true
+CharacterResource = ExtResource("2_ygyg3")
 
-[node name="Character" type="Control" parent="."]
+[node name="Selector" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="SelectionArea" type="Control" parent="Selector"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Character"]
-scale = Vector2(4, 4)
-sprite_frames = ExtResource("2_v7l77")
-animation = &"idle"
-autoplay = "idle"
+[node name="HoverSprite" type="Sprite2D" parent="Selector"]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_gxxii")
+
+[node name="SelectorSprite" type="Sprite2D" parent="Selector"]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_a4vpw")
 
 [node name="Shadow" type="Control" parent="."]
 layout_mode = 1
@@ -41,10 +63,30 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="Shadow" type="AnimatedSprite2D" parent="Shadow"]
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("4_kpvh4")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.175099
+frame_progress = 0.411122
+offset = Vector2(0, -3)
+
+[node name="Character" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Character"]
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("4_nf4ta")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.351007

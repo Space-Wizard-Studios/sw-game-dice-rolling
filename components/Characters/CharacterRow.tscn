@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://d3lkjx05elcwq" path="res://components/Characters/CharacterComponent.tscn" id="1_oap2j"]
 [ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://resources/Characters/CharactersResources/Eleonore.tres" id="3_orj87"]
 
-[node name="CharacterRow" type="HBoxContainer" node_paths=PackedStringArray("Character1Node", "Character2Node", "Character3Node", "SpacingLeft", "SpacingRight")]
+[node name="CharacterRow" type="HBoxContainer" node_paths=PackedStringArray("Character1Node", "Character2Node", "Character3Node", "RowContainer")]
+layout_direction = 2
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -13,36 +14,28 @@ offset_right = 640.0
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_constants/separation = 64
 script = ExtResource("1_6414q")
-Character1Node = NodePath("Character1")
-Character2Node = NodePath("Character2")
-Character3Node = NodePath("Character3")
-SpacingLeft = NodePath("SpacingLeft")
-SpacingRight = NodePath("SpacingRight")
+Character1Node = NodePath("BackCharacter")
+Character2Node = NodePath("MiddleCharacter")
+Character3Node = NodePath("FrontCharacter")
+RowContainer = NodePath(".")
 
-[node name="SpacingLeft" type="Control" parent="."]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Character1" parent="." instance=ExtResource("1_oap2j")]
+[node name="BackCharacter" parent="." instance=ExtResource("1_oap2j")]
 layout_mode = 2
 size_flags_horizontal = 3
 CharacterResource = ExtResource("3_orj87")
 
-[node name="Character2" parent="." instance=ExtResource("1_oap2j")]
+[node name="MiddleCharacter" parent="." instance=ExtResource("1_oap2j")]
 layout_mode = 2
 size_flags_horizontal = 3
-ShowShadow = false
-AnimatedSpritePositionY = 24.0
+CharacterResource = ExtResource("3_orj87")
 
-[node name="Character3" parent="." instance=ExtResource("1_oap2j")]
+[node name="FrontCharacter" parent="." instance=ExtResource("1_oap2j")]
 layout_mode = 2
 size_flags_horizontal = 3
-ShowShadow = false
-AnimatedSpritePositionY = 24.0
 
-[node name="SpacingRight" type="Control" parent="."]
+[node name="Spacing" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3

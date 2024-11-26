@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace DiceRoll.Models;
 
+[Tool]
 public partial class Role : Resource {
 	[Export]
 	public string Name { get; set; }
@@ -12,9 +13,6 @@ public partial class Role : Resource {
 
 	[Export]
 	public Health BaseHealth { get; set; }
-
-	// [Export]
-	// public Speed BaseSpeed { get; set; }
 
 	[Export]
 	public Godot.Collections.Array<DiceAction> AllowedActions { get; set; } = new Godot.Collections.Array<DiceAction>();

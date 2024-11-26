@@ -6,106 +6,126 @@ namespace DiceRoll.Components;
 [Tool]
 public partial class CharacterComponent : Control {
 
-	private Resource _characterResource;
+	private bool _isHovered;
+	[Export]
+	public bool IsHovered {
+		get => _isHovered;
+		set {
+			_isHovered = value;
+			OnIsHoveredSet(value);
+		}
+	}
 
 	[Export]
-	public Resource CharacterResource {
-		get; set;
+	public Sprite2D HoverSpriteNode { get; set; }
+
+	private bool _isSelected;
+	[Export]
+	public bool IsSelected {
+		get => _isSelected;
+		set {
+			_isSelected = value;
+			OnIsSelectedSet(value);
+		}
 	}
+
+	[Export]
+	public Sprite2D SelectorSpriteNode { get; set; }
+
+	[Export]
+	public Control SelectionAreaNode { get; set; }
 
 	[Export]
 	public AnimatedSprite2D AnimatedSpriteNode { get; set; }
 
-	[Export]
-	public AnimatedSprite2D ShadowNode { get; set; }
-
 	private bool _showShadow;
 
 	[Export]
-	public bool ShowShadow {
-		get => _showShadow;
-		set {
-			_showShadow = value;
-			OnShowShadowSet();
-		}
-	}
+	public AnimatedSprite2D ShadowNode { get; set; }
 
-	private float _animatedSpritePositionX;
+	private Character _characterResource;
+
 	[Export]
-	public float AnimatedSpritePositionX {
-		get => _animatedSpritePositionX;
+	public Character CharacterResource {
+		get => _characterResource;
 		set {
-			_animatedSpritePositionX = value;
-			OnAnimatedSpritePositionSet();
+			if (_characterResource != null) {
+				GD.Print("CharacterResource was set!");
+				OnCharacterResourceSet(value, AnimatedSpriteNode, ShadowNode);
+			}
+			_characterResource = value;
 		}
 	}
 
-	private float _animatedSpritePositionY;
-	[Export]
-	public float AnimatedSpritePositionY {
-		get => _animatedSpritePositionY;
-		set {
-			_animatedSpritePositionY = value;
-			OnAnimatedSpritePositionSet();
+	private void OnMouseEntered() {
+		IsHovered = true;
+	}
+
+	private void OnMouseExited() {
+		IsHovered = false;
+	}
+
+	private void OnGuiInput(InputEvent @event) {
+		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed) {
+			IsSelected = !IsSelected;
 		}
 	}
 
-	private void OnCharacterResourceSet() {
-		if (CharacterResource == null) {
-			GD.Print("CharacterResource is null");
+	private static void OnCharacterResourceSet(Character characterResource, AnimatedSprite2D animatedSpriteNode, AnimatedSprite2D shadowNode) {
+		if (characterResource == null) {
+			GD.PrintErr("Character resource is null");
 			return;
 		}
 
-		// Character character = CharacterResource as Character;
-		// if (character == null) {
-		// 	GD.PrintErr("CharacterResource is not of type Character");
-		// 	return;
-		// }
-
-		// if (character.CharacterSprite == null) {
-		// 	GD.PrintErr("CharacterSprite is null");
-		// 	return;
-		// }
-
-		// AnimatedSpriteNode.SpriteFrames = character.CharacterSprite;
-		// AnimatedSpriteNode.Play("idle");
-		// AnimatedSpriteNode.Position = new Godot.Vector2(character.SpritePositionX, character.SpritePositionY);
-	}
-
-	private void OnShowShadowSet() {
-		if (ShadowNode == null) {
-			GD.Print("ShadowNode is null");
+		if (animatedSpriteNode == null) {
+			GD.PrintErr("Animated sprite node is null");
 			return;
 		}
 
-		if (ShowShadow == true) {
-			ShadowNode.Visible = true;
+		if (shadowNode == null) {
+			GD.PrintErr("Shadow node is null");
+			return;
+		}
+
+		if (characterResource.CharacterSprite != null) {
+			animatedSpriteNode.SpriteFrames = characterResource.CharacterSprite;
+			animatedSpriteNode.Play("idle");
+		}
+
+		if (characterResource.ShadowSprite != null || characterResource.ShowShadow == true) {
+			shadowNode.Visible = characterResource.ShowShadow;
+			shadowNode.SpriteFrames = characterResource.ShadowSprite;
+			shadowNode.Play("idle");
 		}
 		else {
-			ShadowNode.Visible = false;
+			shadowNode.Visible = false;
+		}
+		animatedSpriteNode.Position = new Vector2(characterResource.SpritePositionX, characterResource.SpritePositionY);
+	}
+
+	private void OnIsHoveredSet(bool isHovered) {
+		GD.Print("IsHovered was set!");
+		if (HoverSpriteNode != null) {
+			HoverSpriteNode.Visible = isHovered;
 		}
 	}
 
-	private void OnAnimatedSpritePositionSet() {
-		if (AnimatedSpriteNode == null) {
-			GD.Print("AnimatedSpriteNode is null");
-			return;
+	private void OnIsSelectedSet(bool isSelected) {
+		GD.Print("IsSelected was set!");
+		if (SelectorSpriteNode != null) {
+			SelectorSpriteNode.Visible = isSelected;
 		}
-
-		AnimatedSpriteNode.Position = new Vector2(AnimatedSpritePositionX, AnimatedSpritePositionY);
 	}
 
 	public override void _Ready() {
-		// Ensure that the nodes are properly initialized
-		if (AnimatedSpriteNode == null) {
-			GD.PrintErr("AnimatedSpriteNode is not set");
-		}
-		if (ShadowNode == null) {
-			GD.PrintErr("ShadowNode is not set");
+		if (SelectionAreaNode != null) {
+			SelectionAreaNode.Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
+			SelectionAreaNode.Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
+			SelectionAreaNode.Connect("gui_input", new Callable(this, nameof(OnGuiInput)));
 		}
 
-		var character = CharacterResource as Character;
-		AnimatedSpriteNode.SpriteFrames = character.CharacterSprite;
-		AnimatedSpriteNode.Play("idle");
+		if (CharacterResource != null) {
+			OnCharacterResourceSet(CharacterResource, AnimatedSpriteNode, ShadowNode);
+		}
 	}
 }

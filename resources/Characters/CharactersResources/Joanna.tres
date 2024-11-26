@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=7 format=3 uid="uid://bkolttux1bvi1"]
+[gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://bkolttux1bvi1"]
 
 [ext_resource type="Script" path="res://models/Health.cs" id="1_njiwe"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="1_p8ost"]
@@ -21,6 +21,6 @@ Health = SubResource("Resource_batcl")
 CommonActions = []
 Portrait = ExtResource("3_25hax")
 CharacterSprite = ExtResource("1_p8ost")
-SpriteOffsetX = 0.0
-SpriteOffsetY = 24.0
+SpritePositionX = 0.0
+SpritePositionY = 24.0
 ShowShadow = false

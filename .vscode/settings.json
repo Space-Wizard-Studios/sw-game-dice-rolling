@@ -20,8 +20,10 @@
 		"editor.detectIndentation": true,
 	},
 	"cSpell.words": [
+		"autoplay",
 		"gameplay",
 		"Gameplay",
+		"godot",
 		"tscn"
 	]
 }

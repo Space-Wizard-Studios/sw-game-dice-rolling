@@ -20,7 +20,7 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
 ```txt
 sw-game-dice-roll/          # root
 ├── addons/                 # third party
-├── assets/                 # assets como sprites, sons, texturas e seus arquivos de configuração do Godot. 
+├── assets/                 # assets como sprites, sons, texturas e respectivos arquivos de configuração 
 ├── components/             # nodes a serem exibidos e manipulados nas cenas
 ├── models/                 # modelos de objetos (tipagem) 
 ├── playground/             # testes que não serão utilizados na build do projeto
@@ -38,8 +38,8 @@ sw-game-dice-roll/          # root
 
 O jogo possui dois managers responsáveis pelo controle dos estados do jogo.
 
-- **MenuTransitionManager**: Gerencia as transições entre os menus do jogo.
-- **GameplayTransitionManager**: Gerencia as transições durante a gameplay.
+- **[MenuTransitionManager](scripts/managers/MenuTransitionManager.cs)**: Gerencia as transições entre os menus do jogo.
+- **[GameplayTransitionManager](scripts/managers/GameplayTransitionManager.cs)**: Gerencia as transições durante a gameplay.
 
 ### Gameplay
 

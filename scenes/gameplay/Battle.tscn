@@ -1121,27 +1121,23 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
 mouse_filter = 2
 
-[node name="BottomContainer" type="Control" parent="HUD/HUDContainer"]
+[node name="Row" type="HBoxContainer" parent="HUD/HUDContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
-mouse_filter = 2
-
-[node name="Row" type="HBoxContainer" parent="HUD/HUDContainer/BottomContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="ColorRect" type="ColorRect" parent="HUD/HUDContainer/BottomContainer/Row"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/HUDContainer/Row"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="HUD/HUDContainer/Row/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 color = Color(0.1421, 0.194285, 0.49, 1)
 
-[node name="Label" type="Label" parent="HUD/HUDContainer/BottomContainer/Row/ColorRect"]
+[node name="Label" type="Label" parent="HUD/HUDContainer/Row/VBoxContainer/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1156,19 +1152,19 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "HUD / CHARACTER SELECTED"
 
-[node name="TabContainer" type="TabContainer" parent="HUD/HUDContainer/BottomContainer/Row"]
+[node name="TabContainer" type="TabContainer" parent="HUD/HUDContainer/Row"]
 layout_mode = 2
 size_flags_horizontal = 3
 current_tab = 1
 
-[node name="Selection" type="ColorRect" parent="HUD/HUDContainer/BottomContainer/Row/TabContainer"]
+[node name="Selection" type="ColorRect" parent="HUD/HUDContainer/Row/TabContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 0.160373, 0.27194, 1)
 metadata/_tab_index = 0
 
-[node name="Label" type="Label" parent="HUD/HUDContainer/BottomContainer/Row/TabContainer/Selection"]
+[node name="Label" type="Label" parent="HUD/HUDContainer/Row/TabContainer/Selection"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1183,13 +1179,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "HUD / SELECTION"
 
-[node name="Bag" type="ColorRect" parent="HUD/HUDContainer/BottomContainer/Row/TabContainer"]
+[node name="Bag" type="ColorRect" parent="HUD/HUDContainer/Row/TabContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.16, 0.0816, 0.0829066, 1)
 metadata/_tab_index = 1
 
-[node name="Label" type="Label" parent="HUD/HUDContainer/BottomContainer/Row/TabContainer/Bag"]
+[node name="Label" type="Label" parent="HUD/HUDContainer/Row/TabContainer/Bag"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1204,14 +1200,14 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "HUD / BAG"
 
-[node name="Map" type="ColorRect" parent="HUD/HUDContainer/BottomContainer/Row/TabContainer"]
+[node name="Map" type="ColorRect" parent="HUD/HUDContainer/Row/TabContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.27, 0.234, 0, 1)
 metadata/_tab_index = 2
 
-[node name="Label" type="Label" parent="HUD/HUDContainer/BottomContainer/Row/TabContainer/Map"]
+[node name="Label" type="Label" parent="HUD/HUDContainer/Row/TabContainer/Map"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1226,14 +1222,14 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "HUD / MAP"
 
-[node name="Battle Log" type="ColorRect" parent="HUD/HUDContainer/BottomContainer/Row/TabContainer"]
+[node name="Battle Log" type="ColorRect" parent="HUD/HUDContainer/Row/TabContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.1032, 0.1158, 0.12, 1)
 metadata/_tab_index = 3
 
-[node name="Label" type="Label" parent="HUD/HUDContainer/BottomContainer/Row/TabContainer/Battle Log"]
+[node name="Label" type="Label" parent="HUD/HUDContainer/Row/TabContainer/Battle Log"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

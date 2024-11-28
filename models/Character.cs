@@ -1,5 +1,4 @@
 using Godot;
-
 namespace DiceRoll.Models;
 
 [Tool]
@@ -19,9 +18,6 @@ public partial class Character : Resource {
 
 	[Export]
 	public Health Health { get; set; }
-
-	[Export]
-	public Godot.Collections.Array<CommonAction> CommonActions { get; set; } = new Godot.Collections.Array<CommonAction>();
 
 	[Export]
 	public Texture Portrait { get; set; }

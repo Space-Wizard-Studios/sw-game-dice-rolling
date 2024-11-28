@@ -1,5 +1,4 @@
 using Godot;
-
 namespace DiceRoll.Models;
 
 public enum TargetCategory {
@@ -17,12 +16,27 @@ public enum QuantityType {
 }
 
 [Tool]
-public partial class DiceAction : Resource {
+public partial class CharacterAction : Resource {
 	[Export]
 	public string Name { get; set; }
 
 	[Export]
 	public string Description { get; set; }
+
+	private Texture2D _icon;
+
+	[Export]
+	public Texture2D Icon {
+		get => _icon;
+		set {
+			_icon = value;
+			if (_icon != null) {
+				IconPath = _icon.ResourcePath;
+			}
+		}
+	}
+
+	public string IconPath { get; private set; }
 
 	[Export]
 	public Godot.Collections.Array<DiceMana> RequiredMana { get; set; } =
@@ -48,9 +62,9 @@ public partial class DiceAction : Resource {
 	[Export(PropertyHint.Range, "0,100,1")]
 	public int NumberQuantity { get; set; }
 
-	public DiceAction() { }
+	public CharacterAction() { }
 
-	public DiceAction(
+	public CharacterAction(
 		string name,
 		string description,
 		Godot.Collections.Array<DiceMana> requiredMana

@@ -1,20 +1,19 @@
 using System;
 using Godot;
-using System.Collections.Generic;
 
 namespace DiceRoll.Models;
 
 public class Dice<[MustBeVariant] T> where T : DiceSide {
 	public string Id { get; set; }
 	public string Name { get; set; }
-	public Godot.Collections.Array<T> Actions { get; set; }
-	public int Sides => Actions.Count;
+	public Godot.Collections.Array<T> Manas { get; set; }
+	public int Sides => Manas.Count;
 	public DiceLocation Location { get; set; }
 
-	public Dice(string id, string name, Godot.Collections.Array<T> actions, DiceLocation location) {
+	public Dice(string id, string name, Godot.Collections.Array<T> manas, DiceLocation location) {
 		Id = id;
 		Name = name;
-		Actions = actions;
+		Manas = manas;
 		Location = location;
 	}
 }
@@ -35,15 +34,15 @@ public static class DiceFactory {
 	public static Dice<DiceSide> CreateD100() => CreateDice(100);
 
 	private static Dice<DiceSide> CreateDice(int sides) {
-		var actions = new Godot.Collections.Array<DiceSide>();
+		var manas = new Godot.Collections.Array<DiceSide>();
 		for (int i = 0; i < sides; i++) {
-			actions.Add(new DiceSide(
-				$"Action {i + 1}",
+			manas.Add(new DiceSide(
+				$"Mana {i + 1}",
 				$"A{i + 1}",
-				$"Description for action {i + 1}",
+				$"Description for mana {i + 1}",
 				new Color(1, 1, 1), new Color(0, 0, 0)
 			));
 		}
-		return new Dice<DiceSide>(Guid.NewGuid().ToString(), $"D{sides}", actions, DiceLocation.None);
+		return new Dice<DiceSide>(Guid.NewGuid().ToString(), $"D{sides}", manas, DiceLocation.None);
 	}
 }

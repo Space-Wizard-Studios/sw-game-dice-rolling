@@ -1,7 +1,5 @@
 using Godot;
-
 namespace DiceRoll.Models;
-
 
 public partial class DiceSide : DiceMana {
 	public DiceSide(string name,

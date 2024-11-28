@@ -64,7 +64,7 @@ public partial class DiceGenerator : Node {
 			}
 		}
 
-		foreach (var action in _dice.Actions.Select((value, index) => new { value, index })) {
+		foreach (var action in _dice.Manas.Select((value, index) => new { value, index })) {
 			var actionItem = CreateActionItem(action.value, action.index + 1, actionItemTemplate);
 			actionsListContainer.AddChild(actionItem);
 		}
@@ -146,7 +146,7 @@ public partial class DiceGenerator : Node {
 	private void OnRollButtonPressed() {
 		var random = new Random();
 		int rolledSide = random.Next(1, _dice.Sides + 1);
-		var action = _dice.Actions[rolledSide - 1];
+		var action = _dice.Manas[rolledSide - 1];
 
 		var rollResultLabel = GetNode<RichTextLabel>("CanvasLayer/RollResult");
 		if (rollResultLabel != null) {

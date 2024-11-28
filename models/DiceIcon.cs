@@ -1,5 +1,4 @@
 using Godot;
-
 namespace DiceRoll.Models;
 
 public partial class DiceIcon : Resource {

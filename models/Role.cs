@@ -1,6 +1,4 @@
 using Godot;
-using System.Collections.Generic;
-
 namespace DiceRoll.Models;
 
 [Tool]
@@ -15,5 +13,5 @@ public partial class Role : Resource {
 	public Health BaseHealth { get; set; }
 
 	[Export]
-	public Godot.Collections.Array<DiceAction> AllowedActions { get; set; } = new Godot.Collections.Array<DiceAction>();
+	public Godot.Collections.Array<CharacterAction> AllowedActions { get; set; } = new Godot.Collections.Array<CharacterAction>();
 }

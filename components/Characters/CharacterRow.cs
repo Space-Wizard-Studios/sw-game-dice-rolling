@@ -4,8 +4,8 @@ using System;
 namespace DiceRoll.Components;
 
 public enum ForwardDirection {
+	Right,
 	Left,
-	Right
 }
 
 [Tool]
@@ -26,7 +26,7 @@ public partial class CharacterRow : HBoxContainer {
 	private ForwardDirection _direction;
 
 	[Export]
-	public ForwardDirection Direction {
+	public ForwardDirection ForwardDirection {
 		get => _direction;
 		set {
 			_direction = value;
@@ -46,15 +46,15 @@ public partial class CharacterRow : HBoxContainer {
 
 		foreach (var characterNode in CharacterNodesArray) {
 			if (characterNode != null && characterNode.AnimatedSpriteNode != null) {
-				characterNode.AnimatedSpriteNode.FlipH = Direction == ForwardDirection.Left;
+				characterNode.AnimatedSpriteNode.FlipH = ForwardDirection == ForwardDirection.Left;
 			}
 		}
 	}
 
 	private void OnDirectionSet() {
-		GD.Print("Forward Direction was set as " + Direction.ToString());
+		GD.Print("Forward Direction was set as " + ForwardDirection.ToString());
 
-		if (Direction == ForwardDirection.Left) {
+		if (ForwardDirection == ForwardDirection.Left) {
 			RowContainer.LayoutDirection = LayoutDirectionEnum.Rtl;
 		}
 		else {

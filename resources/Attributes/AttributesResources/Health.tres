@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bnhtlp4auad65"]
+
+[ext_resource type="Script" path="res://models/Attribute.cs" id="1_fiegv"]
+
+[resource]
+script = ExtResource("1_fiegv")
+Name = "Health"
+Description = "The character dies if it's health reaches 0."
+Color = Color(0, 0, 0, 0)
+MaxValue = 0
+CurrentValue = 0

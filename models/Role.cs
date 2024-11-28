@@ -10,7 +10,7 @@ public partial class Role : Resource {
 	public string Description { get; set; }
 
 	[Export]
-	public Health BaseHealth { get; set; }
+	public AttributesResources CharacterAttributes { get; set; }
 
 	[Export]
 	public Godot.Collections.Array<CharacterAction> AllowedActions { get; set; } = new Godot.Collections.Array<CharacterAction>();

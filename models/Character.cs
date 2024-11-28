@@ -17,7 +17,7 @@ public partial class Character : Resource {
 	public int DiceCapacity { get; set; }
 
 	[Export]
-	public Health Health { get; set; }
+	public AttributesResources CharacterAttributes { get; set; }
 
 	[Export]
 	public Texture Portrait { get; set; }
@@ -52,8 +52,5 @@ public partial class Character : Resource {
 	public SpriteFrames ShadowSprite { get; set; }
 
 	public Character() {
-		if (Role != null && Health != null) {
-			Health.SetMax(Role.BaseHealth.Max);
-		}
 	}
 }

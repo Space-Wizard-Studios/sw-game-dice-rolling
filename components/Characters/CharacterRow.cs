@@ -23,20 +23,17 @@ public partial class CharacterRow : HBoxContainer {
 	[Export]
 	public HBoxContainer RowContainer { get; set; }
 
-	private ForwardDirection _direction = ForwardDirection.Right;
+	private ForwardDirection _direction;
 
 	[Export]
 	public ForwardDirection Direction {
 		get => _direction;
 		set {
+			if ((Character1Node ?? Character2Node ?? Character3Node ?? RowContainer) != null && _direction == value) {
+				OnDirectionSet();
+			}
 			_direction = value;
-			OnDirectionSet();
 		}
-	}
-
-	public override void _Ready() {
-		base._Ready();
-		OnDirectionSet();
 	}
 
 	private void FlipCharacters() {
@@ -54,7 +51,7 @@ public partial class CharacterRow : HBoxContainer {
 	}
 
 	private void OnDirectionSet() {
-		GD.Print("Forward Direction was set!");
+		GD.Print("Forward Direction was set as " + Direction.ToString());
 
 		if (Direction == ForwardDirection.Left) {
 			RowContainer.LayoutDirection = LayoutDirectionEnum.Rtl;
@@ -64,5 +61,19 @@ public partial class CharacterRow : HBoxContainer {
 		}
 
 		FlipCharacters();
+	}
+
+	public override void _Ready() {
+		if ((Character1Node ?? Character2Node ?? Character3Node) == null) {
+			GD.PrintErr("CharacterRow is missing Character Nodes!");
+			return;
+		}
+
+		if (RowContainer == null) {
+			GD.PrintErr("CharacterRow is missing Row Container!");
+			return;
+		}
+
+		OnDirectionSet();
 	}
 }

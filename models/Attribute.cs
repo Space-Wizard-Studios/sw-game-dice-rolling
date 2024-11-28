@@ -14,6 +14,9 @@ public enum AttributeType {
 [Tool]
 public partial class Attribute : Resource {
 	[Export]
+	public AttributeType Type { get; set; }
+
+	[Export]
 	public string Name { get; set; }
 
 	[Export]
@@ -50,7 +53,8 @@ public partial class Attribute : Resource {
 
 	public Attribute() { }
 
-	public Attribute(string name, string description, Color color, Texture2D icon, int maxValue, int currentValue) {
+	public Attribute(AttributeType type, string name, string description, Color color, Texture2D icon, int maxValue, int currentValue) {
+		Type = type;
 		Name = name;
 		Description = description;
 		Color = color;

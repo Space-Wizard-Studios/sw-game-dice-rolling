@@ -1,8 +1,9 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bvjninyc1w7sg"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bvjninyc1w7sg"]
 
 [ext_resource type="Resource" uid="uid://bnhtlp4auad65" path="res://resources/Attributes/AttributesResources/Health.tres" id="1_5r6mb"]
 [ext_resource type="Script" path="res://resources/Attributes/AttributesResources.cs" id="2_f8a3m"]
+[ext_resource type="Resource" uid="uid://coxkally62yvi" path="res://resources/Attributes/AttributesResources/Armor.tres" id="2_rqc5d"]
 
 [resource]
 script = ExtResource("2_f8a3m")
-Attributes = [ExtResource("1_5r6mb")]
+Attributes = [ExtResource("1_5r6mb"), ExtResource("2_rqc5d")]

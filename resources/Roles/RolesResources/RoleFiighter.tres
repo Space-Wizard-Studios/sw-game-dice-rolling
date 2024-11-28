@@ -1,16 +1,11 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bad7cxgeb8mqp"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bad7cxgeb8mqp"]
 
-[ext_resource type="Script" path="res://models/Health.cs" id="1_ddeoa"]
+[ext_resource type="Resource" uid="uid://bvjninyc1w7sg" path="res://resources/Attributes/AttributesResources.tres" id="1_6i0vr"]
 [ext_resource type="Script" path="res://models/Role.cs" id="1_f6ku0"]
-
-[sub_resource type="Resource" id="Resource_11uo6"]
-script = ExtResource("1_ddeoa")
-Max = 200
-Current = 50
 
 [resource]
 script = ExtResource("1_f6ku0")
 Name = "Fighter"
 Description = "Fighter Description"
-BaseHealth = SubResource("Resource_11uo6")
+CharacterAttributes = ExtResource("1_6i0vr")
 AllowedActions = []

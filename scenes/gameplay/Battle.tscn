@@ -98,12 +98,12 @@ offset_left = 96.0
 offset_top = -304.0
 offset_right = 736.0
 offset_bottom = -72.0
-Direction = 0
+ForwardDirection = 1
 
 [node name="PlayerRow1" parent="Characters/Middle/Teams/Enemy" instance=ExtResource("2_j8o3d")]
 layout_direction = 3
 layout_mode = 1
-Direction = 0
+ForwardDirection = 1
 
 [node name="Rolling" type="HBoxContainer" parent="Characters/Middle"]
 visible = false

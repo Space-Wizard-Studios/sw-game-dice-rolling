@@ -29,22 +29,23 @@ public partial class CharacterRow : HBoxContainer {
 	public ForwardDirection Direction {
 		get => _direction;
 		set {
-			if ((Character1Node ?? Character2Node ?? Character3Node ?? RowContainer) != null && _direction == value) {
-				OnDirectionSet();
-			}
 			_direction = value;
+			if (Character1Node != null && Character2Node != null && Character3Node != null && RowContainer != null) {
+				OnDirectionSet();
+				FlipCharacters();
+			}
 		}
 	}
 
 	private void FlipCharacters() {
 		var CharacterNodesArray = new CharacterComponent[] {
-			Character1Node as CharacterComponent,
-			Character2Node as CharacterComponent,
-			Character3Node as CharacterComponent
-		};
+		Character1Node as CharacterComponent,
+		Character2Node as CharacterComponent,
+		Character3Node as CharacterComponent
+	};
 
 		foreach (var characterNode in CharacterNodesArray) {
-			if (characterNode != null) {
+			if (characterNode != null && characterNode.AnimatedSpriteNode != null) {
 				characterNode.AnimatedSpriteNode.FlipH = Direction == ForwardDirection.Left;
 			}
 		}
@@ -60,20 +61,10 @@ public partial class CharacterRow : HBoxContainer {
 			RowContainer.LayoutDirection = LayoutDirectionEnum.Ltr;
 		}
 
-		FlipCharacters();
 	}
 
 	public override void _Ready() {
-		if ((Character1Node ?? Character2Node ?? Character3Node) == null) {
-			GD.PrintErr("CharacterRow is missing Character Nodes!");
-			return;
-		}
-
-		if (RowContainer == null) {
-			GD.PrintErr("CharacterRow is missing Row Container!");
-			return;
-		}
-
 		OnDirectionSet();
+		FlipCharacters();
 	}
 }

@@ -21,6 +21,7 @@ Character1Node = NodePath("BackCharacter")
 Character2Node = NodePath("MiddleCharacter")
 Character3Node = NodePath("FrontCharacter")
 RowContainer = NodePath(".")
+Direction = 1
 
 [node name="BackCharacter" parent="." instance=ExtResource("1_oap2j")]
 layout_mode = 2

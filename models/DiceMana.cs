@@ -1,18 +1,30 @@
 using Godot;
 namespace DiceRoll.Models;
 
+public enum ManaType {
+	Empty,
+	Colorless,
+	Red,
+	Blue,
+	Green,
+	Yellow,
+	Purple
+}
+
 [Tool]
 public partial class DiceMana : Resource {
 	[Export]
+	public ManaType ManaType { get; set; }
+
+	[Export]
 	public string Name { get; set; }
-	[Export]
-	public string Abbreviation { get; set; }
-	[Export]
+
+	[Export(PropertyHint.MultilineText)]
 	public string Description { get; set; }
 	[Export]
 	public Color BackgroundColor { get; set; } = new Color(0, 0, 0);
 	[Export]
-	public Color TextColor { get; set; } = new Color(1, 1, 1);
+	public Color MainColor { get; set; } = new Color(1, 1, 1);
 
 	private Texture2D _icon;
 
@@ -31,11 +43,11 @@ public partial class DiceMana : Resource {
 
 	public DiceMana() { }
 
-	public DiceMana(string name, string abbreviation, string description, Color backgroundColor, Color textColor) {
+	public DiceMana(ManaType manaType, string name, string description, Color backgroundColor, Color mainColor) {
+		ManaType = manaType;
 		Name = name;
-		Abbreviation = abbreviation;
 		Description = description;
 		BackgroundColor = backgroundColor;
-		TextColor = textColor;
+		MainColor = mainColor;
 	}
 }

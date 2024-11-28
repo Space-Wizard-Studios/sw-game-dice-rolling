@@ -8,7 +8,7 @@ public enum AttributeType {
 	CriticalChance,
 	LifeSteal,
 	AttackDamage,
-	AbilityPower
+	AbilityPower,
 }
 
 [Tool]

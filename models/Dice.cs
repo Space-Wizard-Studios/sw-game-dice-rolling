@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Godot;
 
 namespace DiceRoll.Models;
@@ -35,10 +36,11 @@ public static class DiceFactory {
 
 	private static Dice<DiceSide> CreateDice(int sides) {
 		var manas = new Godot.Collections.Array<DiceSide>();
+		var manaTypes = Enum.GetValues(typeof(ManaType)).Cast<ManaType>().ToArray();
 		for (int i = 0; i < sides; i++) {
 			manas.Add(new DiceSide(
+				manaTypes[i % manaTypes.Length],
 				$"Mana {i + 1}",
-				$"A{i + 1}",
 				$"Description for mana {i + 1}",
 				new Color(1, 1, 1), new Color(0, 0, 0)
 			));

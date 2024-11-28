@@ -1,7 +1,7 @@
 using Godot;
 namespace DiceRoll.Models;
 
-public enum TargetCategory {
+public enum TargetType {
 	Enemy,
 	Ally,
 	Self,
@@ -45,7 +45,7 @@ public partial class CharacterAction : Resource {
 	[ExportCategory("Target Options")]
 
 	[Export]
-	public TargetCategory TargetCategory { get; set; }
+	public TargetType TargetType { get; set; }
 
 	private QuantityType _typeOfQuantity = QuantityType.None;
 	[Export]

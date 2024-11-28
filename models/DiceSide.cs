@@ -2,9 +2,10 @@ using Godot;
 namespace DiceRoll.Models;
 
 public partial class DiceSide : DiceMana {
-	public DiceSide(string name,
-	string abbreviation,
+	public DiceSide(
+	ManaType manaType,
+	string name,
 	string description,
 	Color backgroundColor,
-	Color textColor) : base(name, abbreviation, description, backgroundColor, textColor) { }
+	Color MainColor) : base(manaType, name, description, backgroundColor, MainColor) { }
 }

@@ -97,7 +97,7 @@ public partial class DiceGenerator : Node {
 			return null;
 		}
 		actionLabel.Text = $"Side {sideNumber}: {action.Name} - {action.Description}";
-		actionLabel.Modulate = action.TextColor;
+		actionLabel.Modulate = action.MainColor;
 
 		return actionItem;
 	}
@@ -130,7 +130,7 @@ public partial class DiceGenerator : Node {
 				int randomIndex = random.Next(DiceManaResources.DiceManas.Count);
 				var action = DiceManaResources.DiceManas[randomIndex];
 				GD.Print($"Selected Action: {action.Name} - {action.Description}");
-				return new DiceSide(action.Name, action.Abbreviation, action.Description, action.BackgroundColor, action.TextColor);
+				return new DiceSide(action.ManaType, action.Name, action.Description, action.BackgroundColor, action.MainColor);
 			}).ToArray()
 		);
 

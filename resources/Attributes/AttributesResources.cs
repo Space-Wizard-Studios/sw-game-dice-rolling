@@ -24,30 +24,5 @@ public partial class AttributesResources : Resource {
 				GD.PrintErr($"Missing attribute of type: {type}");
 			}
 		}
-
-		// Additional validation for each attribute
-		foreach (var attribute in Attributes) {
-			if (attribute is Attribute attr) {
-				// Perform validation based on AttributeType
-				switch (attr.Type) {
-					case AttributeType.Health:
-						// Validate Health attribute
-						break;
-					case AttributeType.Armor:
-						// Validate Armor attribute
-						break;
-					case AttributeType.Speed:
-						// Validate Speed attribute
-						break;
-					// Add cases for other AttributeTypes as needed
-					default:
-						GD.PrintErr($"Unknown attribute type: {attr.Type}");
-						break;
-				}
-			}
-			else {
-				GD.PrintErr($"Invalid attribute in Attributes array: {attribute.GetType().Name}");
-			}
-		}
 	}
 }

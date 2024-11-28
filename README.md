@@ -8,14 +8,14 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
   - [Sumário](#sumário)
   - [Estrutura de Arquivos](#estrutura-de-arquivos)
   - [Conceito Geral](#conceito-geral)
-    - [Transição entre cenas](#transição-entre-cenas)
-    - [Gameplay](#gameplay)
-      - [Lobby](#lobby)
-      - [Dungeon](#dungeon)
-      - [Batalha](#batalha)
+	- [Transição entre cenas](#transição-entre-cenas)
+	- [Gameplay](#gameplay)
+	  - [Lobby](#lobby)
+	  - [Dungeon](#dungeon)
+	  - [Batalha](#batalha)
   - [Instalação](#instalação)
-    - [Pré-requisitos](#pré-requisitos)
-    - [Passos para Instalação](#passos-para-instalação)
+	- [Pré-requisitos](#pré-requisitos)
+	- [Passos para Instalação](#passos-para-instalação)
   - [Tecnologias e Frameworks](#tecnologias-e-frameworks)
 
 ## Estrutura de Arquivos
@@ -30,9 +30,9 @@ sw-game-dice-roll/          # root
 ├── resources               # dicionários de dados que implementam os modelos
 ├── scenes/                 # cenas do jogo
 └── scripts                 # scripts do gameplay loop
-    ├── managers
-    ├── scenes
-    └── ui
+	├── managers
+	├── scenes
+	└── ui
 ```
 
 ## Conceito Geral
@@ -101,22 +101,22 @@ Para configurar o projeto localmente, siga os passos abaixo:
 
 1. Clone o repositório:
 
-    ```sh
-    git clone https://github.com/Space-Wizard-Studios/sw-game-dice-roll.git
-    ```
+	```sh
+	git clone https://github.com/Space-Wizard-Studios/sw-game-dice-roll.git
+	```
 
 2. Abra o projeto no Godot Engine:
-    - Inicie o Godot Engine.
-    - Clique em "Import" e navegue até o diretório onde você clonou o repositório.
-    - Selecione o arquivo `project.godot` e clique em "Open".
+	- Inicie o Godot Engine.
+	- Clique em "Import" e navegue até o diretório onde você clonou o repositório.
+	- Selecione o arquivo `project.godot` e clique em "Open".
 
 3. Certifique-se de que o Godot está configurado para usar o .NET SDK:
-    - Vá para `Editor` > `Editor Settings`.
-    - No painel esquerdo, expanda `Mono` e selecione `Editor`.
-    - Verifique se o caminho do `Mono Build` está apontando para o local correto do .NET SDK.
+	- Vá para `Editor` > `Editor Settings`.
+	- No painel esquerdo, expanda `Mono` e selecione `Editor`.
+	- Verifique se o caminho do `Mono Build` está apontando para o local correto do .NET SDK.
 
 4. Execute o projeto:
-    - Com o projeto aberto no Godot, clique no botão de "Play" (ícone de triângulo) na barra superior para executar o jogo.
+	- Com o projeto aberto no Godot, clique no botão de "Play" (ícone de triângulo) na barra superior para executar o jogo.
 
 Agora você deve estar pronto para começar a desenvolver e testar o jogo localmente.
 

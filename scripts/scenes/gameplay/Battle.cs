@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Collections.Generic;
 using DiceRoll.Models;
 using DiceRoll.Stores;
 
@@ -12,16 +11,6 @@ public partial class Battle : Control {
 
 	public override void _Ready() {
 		GD.Print("Battle _Ready called");
-
-		// Instantiate and add the GameLog UI component
-		if (GameLogScene != null) {
-			var gameLog = (ScrollContainer)GameLogScene.Instantiate();
-			AddChild(gameLog);
-			GD.Print("GameLog instantiated and added to the scene");
-		}
-		else {
-			GD.PrintErr("GameLogScene is not set in the editor.");
-		}
 
 		// CHARACTER TESTS
 		var newCharacter = new Character {
@@ -41,15 +30,10 @@ public partial class Battle : Control {
 		GD.Print("Character dice capacity: ", CharacterStore.Instance.GetCharacterById(characterIds[0]).DiceCapacity);
 
 		// GAME LOG TESTS
-		var newMessage = new GameLogMessage {
-			Lines = new List<GameLogLine>
-			{
-				new() { Text = "Welcome to the game!" }
-			},
-			GameState = "Introduction"
-		};
+		// Instantiate and add the GameLog UI component
+		var newMessage = new GameLogMessage(null, null, null);
 		GameLogStore.Instance.AddGameLogMessage(newMessage);
-		var newLine = new GameLogLine { Text = "Let's start the adventure." };
+		var newLine = new GameLogLine(GameLogLineType.Info, null);
 		GameLogStore.Instance.AddGameLogLine(newLine);
 	}
 }

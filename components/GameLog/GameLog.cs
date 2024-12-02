@@ -4,53 +4,68 @@ using DiceRoll.Stores;
 namespace DiceRoll.Components;
 
 public partial class GameLog : ScrollContainer {
-	[Export] private NodePath _messageContainerTemplatePath;
-	[Export] private NodePath _lineTemplatePath;
-
-	private VBoxContainer _messageContainerTemplate;
-	private RichTextLabel _lineTemplate;
+	[Export] public VBoxContainer _messageTemplateNode;
+	[Export] public RichTextLabel _lineTemplateNode;
+	[Export] public Label _headingLabelTemplateNode;
+	[Export] public Label _timestampLabelTemplateNode;
 
 	public override void _Ready() {
-		GD.Print("GameLog _Ready called");
-
-		// Get the template nodes
-		_messageContainerTemplate = GetNode<VBoxContainer>(_messageContainerTemplatePath);
-		_lineTemplate = GetNode<RichTextLabel>(_lineTemplatePath);
-
 		GameLogStore.Instance.Connect("GameLogUpdatedEventHandler", Callable.From(OnGameLogUpdated));
 		UpdateGameLog();
 	}
 
 	private void OnGameLogUpdated() {
 		GD.Print("GameLogUpdatedEventHandler signal received");
-		UpdateGameLog();
+		AddMessageToLog(GameLogStore.Instance.Messages[^1]);
 	}
 
 	private void UpdateGameLog() {
 		GD.Print("UpdateGameLog called");
+		_messageTemplateNode.Visible = false;
+		_headingLabelTemplateNode.Visible = false;
+		_timestampLabelTemplateNode.Visible = false;
+		_lineTemplateNode.Visible = false;
 
-		// Remove all existing children except the templates
-		foreach (Node child in GetChildren()) {
-			if (child != _messageContainerTemplate && child != _lineTemplate) {
-				GD.Print("Removing child: ", child.Name);
-				child.QueueFree();
-			}
-		}
-
-		// Add new messages
 		foreach (var message in GameLogStore.Instance.Messages) {
-			GD.Print("Adding message: ", message.GameState);
-			var messageContainer = (VBoxContainer)_messageContainerTemplate.Duplicate();
-			messageContainer.Visible = true;
-
-			foreach (var line in message.Lines) {
-				GD.Print("Adding line: ", line.Text);
-				var lineLabel = (RichTextLabel)_lineTemplate.Duplicate();
-				lineLabel.Visible = true;
-				lineLabel.AppendText($"[color=white]{line.Text}[/color]");
-				messageContainer.AddChild(lineLabel);
-			}
-			AddChild(messageContainer);
+			AddMessageToLog(message);
 		}
+	}
+
+	private void AddMessageToLog(GameLogMessage message) {
+		var messageContainer = (VBoxContainer)_messageTemplateNode.Duplicate();
+		messageContainer.Visible = true;
+
+		// Update Heading and Timestamp labels
+		var headerTemplate = messageContainer.GetNode<HBoxContainer>("HeaderTemplate");
+		var headingLabel = (Label)_headingLabelTemplateNode.Duplicate();
+		headingLabel.Visible = true;
+		headingLabel.Text = message.Heading;
+		headerTemplate.AddChild(headingLabel);
+
+		var timestampLabel = (Label)_timestampLabelTemplateNode.Duplicate();
+		timestampLabel.Visible = true;
+		timestampLabel.Text = message.Timestamp;
+		headerTemplate.AddChild(timestampLabel);
+
+		var linesContainer = messageContainer.GetNode<VBoxContainer>("LinesContainer");
+		foreach (var line in message.Lines) {
+			var lineLabel = (RichTextLabel)_lineTemplateNode.Duplicate();
+			lineLabel.Visible = true;
+			lineLabel.BbcodeEnabled = true;
+			lineLabel.AppendText($"[color={GetColorForLineType(line.Type)}]{line.Text}[/color]");
+			linesContainer.AddChild(lineLabel);
+		}
+		AddChild(messageContainer);
+	}
+
+	private static string GetColorForLineType(GameLogLineType type) {
+		return type switch {
+			GameLogLineType.Error => "red",
+			GameLogLineType.Info => "blue",
+			GameLogLineType.Success => "green",
+			GameLogLineType.Warning => "yellow",
+			GameLogLineType.Wip => "gray",
+			_ => "white",
+		};
 	}
 }

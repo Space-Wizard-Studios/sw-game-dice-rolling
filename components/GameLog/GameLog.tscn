@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://components/GameLog/GameLog.cs" id="1_am3vw"]
 
-[node name="GameLog" type="ScrollContainer"]
+[node name="GameLog" type="ScrollContainer" node_paths=PackedStringArray("_messageTemplateNode", "_lineTemplateNode", "_headingLabelTemplateNode", "_timestampLabelTemplateNode")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,15 +11,46 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_am3vw")
-_messageContainerTemplatePath = NodePath("VBoxContainer")
-_lineTemplatePath = NodePath("VBoxContainer/RichTextLabel")
+_messageTemplateNode = NodePath("MessageTemplate")
+_lineTemplateNode = NodePath("MessageTemplate/LinesContainer/LineTemplate")
+_headingLabelTemplateNode = NodePath("MessageTemplate/HeaderTemplate/Heading")
+_timestampLabelTemplateNode = NodePath("MessageTemplate/HeaderTemplate/Timestamp")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MessageTemplate" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HeaderTemplate" type="HBoxContainer" parent="MessageTemplate"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Heading" type="Label" parent="MessageTemplate/HeaderTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Game State"
+justification_flags = 3
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Timestamp" type="Label" parent="MessageTemplate/HeaderTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Timestamp"
+horizontal_alignment = 2
+justification_flags = 3
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="LinesContainer" type="VBoxContainer" parent="MessageTemplate"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="LineTemplate" type="RichTextLabel" parent="MessageTemplate/LinesContainer"]
 layout_mode = 2
 bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet. Est itaque veritatis non voluptas omnis At maiores velit. Et unde neque sed magni consequatur aut cupiditate sunt eos delectus dolores et dolorum eligendi."
 fit_content = true

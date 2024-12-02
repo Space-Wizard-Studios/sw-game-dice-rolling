@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DiceRoll.Models;
-
 namespace DiceRoll.Stores;
 
 public partial class CharacterStore : Node {
@@ -21,10 +20,6 @@ public partial class CharacterStore : Node {
 
 	public void AddCharacter(Character character) {
 		Characters.Add(character);
-	}
-
-	public void AddMultipleCharacters(IEnumerable<Character> charactersToAdd) {
-		Characters.AddRange(charactersToAdd);
 	}
 
 	public void RemoveCharacter(string characterID) {

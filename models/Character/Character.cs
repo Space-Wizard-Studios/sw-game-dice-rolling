@@ -17,9 +17,6 @@ public partial class Character : Resource {
 	public int DiceCapacity { get; set; } = 0;
 
 	[Export]
-	public CharacterAttributesResources? CharacterAttributes { get; set; }
-
-	[Export]
 	public Texture? Portrait { get; set; }
 
 	[Export]

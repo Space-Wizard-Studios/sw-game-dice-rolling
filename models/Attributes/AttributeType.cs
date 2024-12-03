@@ -2,7 +2,7 @@ using Godot;
 namespace DiceRoll.Models;
 
 [Tool]
-public partial class CharacterAttributeType : Resource {
+public partial class AttributeType : Resource {
 
 	[Export]
 	public string? Name { get; set; }
@@ -33,9 +33,9 @@ public partial class CharacterAttributeType : Resource {
 
 	public string? IconPath { get; private set; }
 
-	public CharacterAttributeType() { }
+	public AttributeType() { }
 
-	public CharacterAttributeType(string name, string description, Color color, Texture2D icon) {
+	public AttributeType(string name, string description, Color color, Texture2D icon) {
 		Name = name;
 		Description = description;
 		Color = color;

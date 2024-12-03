@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://clrt1eby68x42"]
 
 [ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="2_n1iay"]
-[ext_resource type="Resource" uid="uid://bgx5eoqdsu100" path="res://models/Roles/Roles/RolesResources/RoleMage.tres" id="2_ukcod"]
 [ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="3_1cjke"]
+[ext_resource type="Resource" uid="uid://bgx5eoqdsu100" path="res://models/Roles/Resources/Mage.tres" id="3_3pa43"]
 [ext_resource type="Script" path="res://models/Character/Character.cs" id="5_01s21"]
 [ext_resource type="SpriteFrames" uid="uid://4pntmv2e85vp" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaShadowSprites.tres" id="5_x2a24"]
 
 [resource]
 script = ExtResource("5_01s21")
 Name = "Eleonore"
-Role = ExtResource("2_ukcod")
+Role = ExtResource("3_3pa43")
 DiceCapacity = 0
 Portrait = ExtResource("3_1cjke")
 CharacterSprite = ExtResource("2_n1iay")

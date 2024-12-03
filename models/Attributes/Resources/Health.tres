@@ -1,9 +1,9 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://c765rrtwoaq76"]
 
-[ext_resource type="Script" path="res://models/CharacterAttributes/CharacterAttributeType.cs" id="1_i1fm2"]
+[ext_resource type="Script" path="res://models/Attributes/AttributeType.cs" id="1_rmadn"]
 
 [resource]
-script = ExtResource("1_i1fm2")
+script = ExtResource("1_rmadn")
 Name = "Health"
 Description = "Health description."
 Color = Color(1, 0, 0.0166664, 1)

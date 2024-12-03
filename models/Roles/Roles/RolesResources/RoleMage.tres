@@ -1,9 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bgx5eoqdsu100"]
-
-[ext_resource type="Script" path="res://models/Roles/Role.cs" id="3_4syty"]
-
-[resource]
-script = ExtResource("3_4syty")
-Name = "Mage"
-Description = "MageDescription"
-AllowedActions = []

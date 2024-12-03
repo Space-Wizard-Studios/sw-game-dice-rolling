@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://bgx5eoqdsu100"]
+
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attributes/Resources/Health.tres" id="1_3oclc"]
+[ext_resource type="Script" path="res://models/Attributes/RoleAttribute.cs" id="2_ht6qo"]
+[ext_resource type="Script" path="res://models/Roles/Role.cs" id="3_n1ag4"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="3_u8iqy"]
+
+[sub_resource type="Resource" id="Resource_gincr"]
+script = ExtResource("2_ht6qo")
+Type = ExtResource("1_3oclc")
+
+[sub_resource type="Resource" id="Resource_dsmvb"]
+script = ExtResource("2_ht6qo")
+Type = ExtResource("3_u8iqy")
+
+[resource]
+script = ExtResource("3_n1ag4")
+Name = "Mage"
+Description = "MageDescription"
+RoleAttributes = [SubResource("Resource_gincr"), SubResource("Resource_dsmvb")]
+AllowedActions = []

@@ -8,6 +8,7 @@
 
 [resource]
 script = ExtResource("5_01s21")
+Id = "4ea655f0-4c3e-4fba-bafe-fe361e68db9e"
 Name = "Eleonore"
 Role = ExtResource("3_3pa43")
 DiceCapacity = 0

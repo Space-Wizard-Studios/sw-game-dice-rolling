@@ -18,15 +18,15 @@ public enum QuantityType {
 [Tool]
 public partial class CharacterAction : Resource {
 	[Export]
-	public string Name { get; set; }
+	public string? Name { get; set; }
 
 	[Export]
-	public string Description { get; set; }
+	public string? Description { get; set; }
 
-	private Texture2D _icon;
+	private Texture2D? _icon;
 
 	[Export]
-	public Texture2D Icon {
+	public Texture2D? Icon {
 		get => _icon;
 		set {
 			_icon = value;
@@ -36,11 +36,10 @@ public partial class CharacterAction : Resource {
 		}
 	}
 
-	public string IconPath { get; private set; }
+	public string? IconPath { get; private set; }
 
 	[Export]
-	public Godot.Collections.Array<DiceMana> RequiredMana { get; set; } =
-		new Godot.Collections.Array<DiceMana>();
+	public Godot.Collections.Array<DiceMana> RequiredMana { get; set; } = new Godot.Collections.Array<DiceMana>();
 
 	[ExportCategory("Target Options")]
 

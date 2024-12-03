@@ -45,10 +45,12 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 
 [node name="HoverSprite" type="Sprite2D" parent="Selector"]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_gxxii")
 
 [node name="SelectorSprite" type="Sprite2D" parent="Selector"]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_a4vpw")
 
@@ -64,6 +66,7 @@ grow_vertical = 0
 mouse_filter = 2
 
 [node name="Shadow" type="AnimatedSprite2D" parent="Shadow"]
+visible = false
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("4_kpvh4")
 animation = &"idle"
@@ -88,4 +91,4 @@ scale = Vector2(4, 4)
 sprite_frames = ExtResource("6_wgq2l")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.406645
+frame_progress = 0.766528

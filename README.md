@@ -6,19 +6,19 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
 
 - [DICE ROLL GAME](#dice-roll-game)
   - [Sumário](#sumário)
-  - [Estrutura de Arquivos](#estrutura-de-arquivos)
+  - [Estrutura de Pastas](#estrutura-de-pastas)
   - [Conceito Geral](#conceito-geral)
-	- [Transição entre cenas](#transição-entre-cenas)
-	- [Gameplay](#gameplay)
-	  - [Lobby](#lobby)
-	  - [Dungeon](#dungeon)
-	  - [Batalha](#batalha)
+    - [Transição entre cenas](#transição-entre-cenas)
+    - [Gameplay](#gameplay)
+      - [Lobby](#lobby)
+      - [Dungeon](#dungeon)
+      - [Batalha](#batalha)
   - [Instalação](#instalação)
-	- [Pré-requisitos](#pré-requisitos)
-	- [Passos para Instalação](#passos-para-instalação)
+    - [Pré-requisitos](#pré-requisitos)
+    - [Passos para Instalação](#passos-para-instalação)
   - [Tecnologias e Frameworks](#tecnologias-e-frameworks)
 
-## Estrutura de Arquivos
+## Estrutura de Pastas
 
 ```txt
 sw-game-dice-roll/          # root
@@ -26,13 +26,14 @@ sw-game-dice-roll/          # root
 ├── assets/                 # assets como sprites, sons, texturas e respectivos arquivos de configuração
 ├── components/             # nodes a serem exibidos e manipulados nas cenas
 ├── models/                 # modelos de objetos (tipagem)
-├── playground/             # testes que não serão utilizados na build do projeto
-├── resources               # dicionários de dados que implementam os modelos
+  └── [DOMAIN]              #
+    └── [RESOURCES]         #
 ├── scenes/                 # cenas do jogo
 └── scripts                 # scripts do gameplay loop
-	├── managers
-	├── scenes
-	└── ui
+  ├── managers              #
+  ├── scenes                #
+  ├── stores                # singletons
+  └── ui                    #
 ```
 
 ## Conceito Geral

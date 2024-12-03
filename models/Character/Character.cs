@@ -5,6 +5,8 @@ namespace DiceRoll.Models;
 [Tool]
 [GlobalClass]
 public partial class Character : Resource {
+
+	[Export]
 	public string Id { get; set; } = Guid.NewGuid().ToString();
 
 	[Export]

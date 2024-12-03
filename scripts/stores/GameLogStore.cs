@@ -39,7 +39,7 @@ public class GameLogLine {
 }
 
 public partial class GameLogStore : Node {
-	private static GameLogStore _instance;
+	private static GameLogStore? _instance;
 	public static GameLogStore Instance {
 		get {
 			_instance ??= new GameLogStore();

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://bvjninyc1w7sg"]
+
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/CharacterAttributes/Resources/Health.tres" id="1_fcnwe"]
+[ext_resource type="Script" path="res://models/CharacterAttributes/CharacterAttributeValue.cs" id="2_4yux7"]
+[ext_resource type="Script" path="res://models/CharacterAttributes/CharacterAttribute.cs" id="3_yc5ix"]
+[ext_resource type="Script" path="res://models/CharacterAttributes/CharacterAttributesResources.cs" id="4_ifvml"]
+
+[sub_resource type="Resource" id="Resource_sn0dh"]
+script = ExtResource("2_4yux7")
+Value = 0
+
+[sub_resource type="Resource" id="Resource_sckcs"]
+script = ExtResource("3_yc5ix")
+Type = ExtResource("1_fcnwe")
+Value = SubResource("Resource_sn0dh")
+
+[resource]
+script = ExtResource("4_ifvml")
+Attributes = [SubResource("Resource_sckcs"), null]

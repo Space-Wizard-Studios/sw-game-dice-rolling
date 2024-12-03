@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://components/Characters/CharacterRow.cs" id="1_6414q"]
 [ext_resource type="PackedScene" uid="uid://d3lkjx05elcwq" path="res://components/Characters/CharacterComponent.tscn" id="1_oap2j"]
-[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://resources/Characters/CharactersResources/Eleonore.tres" id="3_orj87"]
+[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Resources/Eleonore.tres" id="3_orj87"]
 
 [node name="CharacterRow" type="HBoxContainer" node_paths=PackedStringArray("Character1Node", "Character2Node", "Character3Node", "RowContainer")]
 layout_direction = 2

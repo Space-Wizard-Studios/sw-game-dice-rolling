@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://durkekx3qanwb"]
+
+[ext_resource type="Texture2D" uid="uid://7edt57k6ta68" path="res://assets/icons/diceMana/drop.png" id="1_7goys"]
+[ext_resource type="Script" path="res://models/Dice/DiceMana/DiceMana.cs" id="2_ixep7"]
+
+[resource]
+script = ExtResource("2_ixep7")
+ManaType = 6
+Name = "Arcane Mana"
+Description = "Relacionada à magia misteriosa e poderosa; usada para conjurações complexas."
+BackgroundColor = Color(0.6, 0.337255, 0.768627, 1)
+MainColor = Color(0.470588, 0.333333, 0.0588235, 1)
+Icon = ExtResource("1_7goys")

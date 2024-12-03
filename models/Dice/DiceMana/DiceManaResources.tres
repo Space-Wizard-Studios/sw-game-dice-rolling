@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://2miun4ox1np8"]
+
+[ext_resource type="Script" path="res://models/Dice/DiceMana/DiceManaResources.cs" id="1_46bd6"]
+
+[resource]
+script = ExtResource("1_46bd6")
+DiceManas = []

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://qxd24e6b177u"]
+
+[ext_resource type="Texture2D" uid="uid://7edt57k6ta68" path="res://assets/icons/diceMana/drop.png" id="1_wj5qk"]
+[ext_resource type="Script" path="res://models/Dice/DiceMana/DiceMana.cs" id="2_sqy8i"]
+
+[resource]
+script = ExtResource("2_sqy8i")
+ManaType = 2
+Name = "Flame Mana"
+Description = "Energia ardente e destrutiva; associada a ataques e força bruta."
+BackgroundColor = Color(0.901961, 0.223529, 0.27451, 1)
+MainColor = Color(0.509804, 0.0431373, 0.0431373, 1)
+Icon = ExtResource("1_wj5qk")

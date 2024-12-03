@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bad7cxgeb8mqp"]
+
+[ext_resource type="Script" path="res://models/Roles/Role.cs" id="1_f6ku0"]
+
+[resource]
+script = ExtResource("1_f6ku0")
+Name = "Fighter"
+Description = "Fighter Description"
+AllowedActions = []

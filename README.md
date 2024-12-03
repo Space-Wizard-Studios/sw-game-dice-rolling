@@ -23,9 +23,9 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
 ```txt
 sw-game-dice-roll/          # root
 ├── addons/                 # third party libs
-├── assets/                 # assets como sprites, sons, texturas e respectivos arquivos de configuração 
+├── assets/                 # assets como sprites, sons, texturas e respectivos arquivos de configuração
 ├── components/             # nodes a serem exibidos e manipulados nas cenas
-├── models/                 # modelos de objetos (tipagem) 
+├── models/                 # modelos de objetos (tipagem)
 ├── playground/             # testes que não serão utilizados na build do projeto
 ├── resources               # dicionários de dados que implementam os modelos
 ├── scenes/                 # cenas do jogo
@@ -101,22 +101,24 @@ Para configurar o projeto localmente, siga os passos abaixo:
 
 1. Clone o repositório:
 
-	```sh
-	git clone https://github.com/Space-Wizard-Studios/sw-game-dice-roll.git
-	```
+   ```sh
+   git clone https://github.com/Space-Wizard-Studios/sw-game-dice-roll.git
+   ```
 
 2. Abra o projeto no Godot Engine:
-	- Inicie o Godot Engine.
-	- Clique em "Import" e navegue até o diretório onde você clonou o repositório.
-	- Selecione o arquivo `project.godot` e clique em "Open".
+
+   - Inicie o Godot Engine.
+   - Clique em "Import" e navegue até o diretório onde você clonou o repositório.
+   - Selecione o arquivo `project.godot` e clique em "Open".
 
 3. Certifique-se de que o Godot está configurado para usar o .NET SDK:
-	- Vá para `Editor` > `Editor Settings`.
-	- No painel esquerdo, expanda `Mono` e selecione `Editor`.
-	- Verifique se o caminho do `Mono Build` está apontando para o local correto do .NET SDK.
+
+   - Vá para `Editor` > `Editor Settings`.
+   - No painel esquerdo, expanda `Mono` e selecione `Editor`.
+   - Verifique se o caminho do `Mono Build` está apontando para o local correto do .NET SDK.
 
 4. Execute o projeto:
-	- Com o projeto aberto no Godot, clique no botão de "Play" (ícone de triângulo) na barra superior para executar o jogo.
+   - Com o projeto aberto no Godot, clique no botão de "Play" (ícone de triângulo) na barra superior para executar o jogo.
 
 Agora você deve estar pronto para começar a desenvolver e testar o jogo localmente.
 

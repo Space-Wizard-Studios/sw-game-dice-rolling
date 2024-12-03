@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cvojckruuqrn6"]
+
+[ext_resource type="Resource" uid="uid://dme7olxx1dsok" path="res://models/Dice/DiceMana/Resources/ManaColorless.tres" id="1_7wwft"]
+[ext_resource type="Script" path="res://models/CharacterActions/CharacterAction.cs" id="2_r3cj5"]
+
+[resource]
+script = ExtResource("2_r3cj5")
+Name = "BasicAttack"
+Description = "Basic attack move"
+RequiredMana = [ExtResource("1_7wwft")]
+TargetType = 0
+TypeOfQuantity = 2
+NumberQuantity = 1

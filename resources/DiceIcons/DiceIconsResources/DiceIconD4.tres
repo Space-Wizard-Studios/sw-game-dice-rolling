@@ -1,9 +1,0 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://s8serfaeaqbw"]
-
-[ext_resource type="Texture2D" uid="uid://c6lstssc785up" path="res://assets/icons/dice/mdi_d4.svg" id="1_t0k2x"]
-[ext_resource type="Script" path="res://models/DiceIcon.cs" id="2_x0pnn"]
-
-[resource]
-script = ExtResource("2_x0pnn")
-Sides = 4
-Icon = ExtResource("1_t0k2x")

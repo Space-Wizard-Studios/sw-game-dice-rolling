@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DiceMana" load_steps=3 format=3 uid="uid://xcyti3lh5xkx"]
+
+[ext_resource type="Texture2D" uid="uid://7edt57k6ta68" path="res://assets/icons/diceMana/drop.png" id="1_0qi7q"]
+[ext_resource type="Script" path="res://models/Dice/DiceMana/DiceMana.cs" id="2_6dvv5"]
+
+[resource]
+script = ExtResource("2_6dvv5")
+Name = "Void Mana"
+Description = "Representa ausência de energia; sem capacidade para realizar ações."
+BackgroundColor = Color(0.768627, 0.768627, 0.768627, 1)
+MainColor = Color(0.180392, 0.180392, 0.180392, 1)
+Icon = ExtResource("1_0qi7q")

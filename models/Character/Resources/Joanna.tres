@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://bkolttux1bvi1"]
+
+[ext_resource type="Resource" uid="uid://bvjninyc1w7sg" path="res://models/CharacterAttributes/CharacterAttributesResources.tres" id="1_oe32k"]
+[ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="1_p8ost"]
+[ext_resource type="Texture2D" uid="uid://8e45l4n0kh6" path="res://assets/characters/joannaOtsoga/JoannaOtsogaPortrait.png" id="3_25hax"]
+[ext_resource type="Script" path="res://models/Character/Character.cs" id="4_b0lof"]
+[ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://models/Roles/Roles/RolesResources/RoleFiighter.tres" id="4_sy6mv"]
+
+[resource]
+script = ExtResource("4_b0lof")
+Id = "d98ec50f-3df3-47e6-b266-cbc7b8fbb745"
+Name = "Joanna"
+Role = ExtResource("4_sy6mv")
+DiceCapacity = 0
+CharacterAttributesResources = ExtResource("1_oe32k")
+Portrait = ExtResource("3_25hax")
+CharacterSprite = ExtResource("1_p8ost")
+SpritePositionX = 0.0
+SpritePositionY = 24.0
+ShowShadow = false

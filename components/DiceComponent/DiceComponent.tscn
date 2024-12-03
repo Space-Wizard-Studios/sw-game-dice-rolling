@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://gelngx5giqwb"]
+
+[ext_resource type="Texture2D" uid="uid://c6lstssc785up" path="res://assets/icons/dice/mdi_d4.svg" id="1_20dt6"]
+
+[node name="DiceComponent" type="BoxContainer"]
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_20dt6")
+expand_mode = 4

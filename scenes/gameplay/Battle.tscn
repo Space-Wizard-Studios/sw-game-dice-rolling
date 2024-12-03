@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://8n50xik7xid3"]
+[gd_scene load_steps=8 format=3 uid="uid://8n50xik7xid3"]
 
 [ext_resource type="Script" path="res://scripts/scenes/gameplay/Battle.cs" id="1_oeh3a"]
 [ext_resource type="Script" path="res://scripts/ui/SceneTransitionButton.cs" id="2_4ip1d"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="2_cgh0m"]
 [ext_resource type="PackedScene" uid="uid://bhvfxwxj34u71" path="res://components/Characters/CharacterRow.tscn" id="2_j8o3d"]
-[ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://components/GameLog/GameLog.tscn" id="5_qac67"]
+[ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://components/GameLog/GameLogComponent.tscn" id="5_qac67"]
 [ext_resource type="Resource" uid="uid://2miun4ox1np8" path="res://models/Dice/DiceMana/DiceManaResources.tres" id="7_5jgc7"]
+[ext_resource type="PackedScene" uid="uid://6fbiblg8d1nx" path="res://components/InventoryComponent/InventoryComponent.tscn" id="7_ue61k"]
 
 [node name="Battle" type="Control"]
 layout_mode = 3
@@ -1159,18 +1160,14 @@ text = "HUD / CHARACTER SELECTED"
 [node name="TabContainer" type="TabContainer" parent="HUD/HUDContainer/Row"]
 layout_mode = 2
 size_flags_horizontal = 3
-current_tab = 0
-
-[node name="GameLog" parent="HUD/HUDContainer/Row/TabContainer" instance=ExtResource("5_qac67")]
-layout_mode = 2
-metadata/_tab_index = 0
+current_tab = 2
 
 [node name="Selection" type="ColorRect" parent="HUD/HUDContainer/Row/TabContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 0.160373, 0.27194, 1)
-metadata/_tab_index = 1
+metadata/_tab_index = 0
 
 [node name="Label" type="Label" parent="HUD/HUDContainer/Row/TabContainer/Selection"]
 layout_mode = 1
@@ -1187,27 +1184,14 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "HUD / SELECTION"
 
-[node name="Bag" type="ColorRect" parent="HUD/HUDContainer/Row/TabContainer"]
+[node name="GameLog" parent="HUD/HUDContainer/Row/TabContainer" instance=ExtResource("5_qac67")]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0.16, 0.0816, 0.0829066, 1)
-metadata/_tab_index = 2
+metadata/_tab_index = 1
 
-[node name="Label" type="Label" parent="HUD/HUDContainer/Row/TabContainer/Bag"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -69.0
-offset_top = -11.5
-offset_right = 69.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "HUD / BAG"
+[node name="Inventory" parent="HUD/HUDContainer/Row/TabContainer" instance=ExtResource("7_ue61k")]
+layout_mode = 2
+metadata/_tab_index = 2
 
 [node name="Map" type="ColorRect" parent="HUD/HUDContainer/Row/TabContainer"]
 visible = false

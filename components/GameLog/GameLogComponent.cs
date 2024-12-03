@@ -3,7 +3,7 @@ using DiceRoll.Stores;
 
 namespace DiceRoll.Components;
 
-public partial class GameLog : ScrollContainer {
+public partial class GameLogComponent : ScrollContainer {
 	[Export] public BoxContainer? _messageContainerNode;
 	[Export] public VBoxContainer? _messageTemplateNode;
 	[Export] public Label? _headingLabelTemplateNode;

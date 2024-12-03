@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://6fbiblg8d1nx"]
+
+[ext_resource type="PackedScene" uid="uid://gelngx5giqwb" path="res://components/DiceComponent/DiceComponent.tscn" id="1_muh3w"]
+
+[node name="DiceComponent" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 10
+
+[node name="DiceComponent" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DiceComponent2" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DiceComponent3" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DiceComponent4" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DiceComponent5" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DiceComponent6" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DiceComponent7" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DiceComponent8" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DiceComponent9" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DiceComponent10" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

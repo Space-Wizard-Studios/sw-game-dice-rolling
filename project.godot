@@ -24,10 +24,15 @@ DiceStore="*res://scripts/stores/DiceStore.cs"
 CharacterStore="*res://scripts/stores/CharacterStore.cs"
 GameLogStore="*res://scripts/stores/GameLogStore.cs"
 
+[collada]
+
+warnings/enable=true
+enable_file_logging=true
+
 [debug]
 
 file_logging/enable_file_logging=true
-settings/stdout/verbose_stdout=true
+shader_language/warnings/enable=false
 
 [display]
 

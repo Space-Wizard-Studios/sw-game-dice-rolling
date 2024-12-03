@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cnfykne4hnexp"]
+[gd_resource type="Resource" script_class="DiceMana" load_steps=2 format=3 uid="uid://cnfykne4hnexp"]
 
 [ext_resource type="Script" path="res://models/Dice/DiceMana/DiceMana.cs" id="1_7bur8"]
 

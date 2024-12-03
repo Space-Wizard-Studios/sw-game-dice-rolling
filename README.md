@@ -8,14 +8,14 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
   - [Sumário](#sumário)
   - [Estrutura de Arquivos](#estrutura-de-arquivos)
   - [Conceito Geral](#conceito-geral)
-    - [Transição entre cenas](#transição-entre-cenas)
-    - [Gameplay](#gameplay)
-      - [Lobby](#lobby)
-      - [Dungeon](#dungeon)
-      - [Batalha](#batalha)
+	- [Transição entre cenas](#transição-entre-cenas)
+	- [Gameplay](#gameplay)
+	  - [Lobby](#lobby)
+	  - [Dungeon](#dungeon)
+	  - [Batalha](#batalha)
   - [Instalação](#instalação)
-    - [Pré-requisitos](#pré-requisitos)
-    - [Passos para Instalação](#passos-para-instalação)
+	- [Pré-requisitos](#pré-requisitos)
+	- [Passos para Instalação](#passos-para-instalação)
   - [Tecnologias e Frameworks](#tecnologias-e-frameworks)
 
 ## Estrutura de Arquivos
@@ -30,9 +30,9 @@ sw-game-dice-roll/          # root
 ├── resources               # dicionários de dados que implementam os modelos
 ├── scenes/                 # cenas do jogo
 └── scripts                 # scripts do gameplay loop
-    ├── managers
-    ├── scenes
-    └── ui
+	├── managers
+	├── scenes
+	└── ui
 ```
 
 ## Conceito Geral

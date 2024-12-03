@@ -4,14 +4,18 @@ using DiceRoll.Stores;
 namespace DiceRoll.Components;
 
 public partial class GameLog : ScrollContainer {
-	[Export] public VBoxContainer _messageTemplateNode;
-	[Export] public RichTextLabel _lineTemplateNode;
-	[Export] public Label _headingLabelTemplateNode;
-	[Export] public Label _timestampLabelTemplateNode;
+	[Export] public BoxContainer? _messageContainerNode;
+	[Export] public VBoxContainer? _messageTemplateNode;
+	[Export] public Label? _headingLabelTemplateNode;
+	[Export] public Label? _timestampLabelTemplateNode;
+	[Export] public RichTextLabel? _lineTemplateNode;
 
 	public override void _Ready() {
 		GameLogStore.Instance.Connect("GameLogUpdatedEventHandler", Callable.From(OnGameLogUpdated));
 		UpdateGameLog();
+		_headingLabelTemplateNode.Text = "";
+		_timestampLabelTemplateNode.Text = "";
+		_lineTemplateNode.Text = "";
 	}
 
 	private void OnGameLogUpdated() {
@@ -21,10 +25,13 @@ public partial class GameLog : ScrollContainer {
 
 	private void UpdateGameLog() {
 		GD.Print("UpdateGameLog called");
+
+		if (_messageTemplateNode == null) {
+			GD.PrintErr("MessageTemplate node is not assigned.");
+			return;
+		}
+
 		_messageTemplateNode.Visible = false;
-		_headingLabelTemplateNode.Visible = false;
-		_timestampLabelTemplateNode.Visible = false;
-		_lineTemplateNode.Visible = false;
 
 		foreach (var message in GameLogStore.Instance.Messages) {
 			AddMessageToLog(message);
@@ -32,34 +39,43 @@ public partial class GameLog : ScrollContainer {
 	}
 
 	private void AddMessageToLog(GameLogMessage message) {
-		var messageContainer = (VBoxContainer)_messageTemplateNode.Duplicate();
-		messageContainer.Visible = true;
+		if (_messageTemplateNode == null) {
+			GD.PrintErr("MessageTemplate node is not assigned.");
+			return;
+		}
+
+		var messageTemplate = (VBoxContainer)_messageTemplateNode.Duplicate();
+		messageTemplate.Visible = true;
+
+		// Clear texts inside the labels and rich text
+		var headerTemplate = messageTemplate.GetNode<HBoxContainer>("HeaderTemplate");
+		var headingLabel = headerTemplate.GetNode<Label>("Heading");
+		var timestampLabel = headerTemplate.GetNode<Label>("Timestamp");
+		headingLabel.Text = "";
+		timestampLabel.Text = "";
+
+		var linesContainer = messageTemplate.GetNode<VBoxContainer>("LinesContainer");
 
 		// Update Heading and Timestamp labels
-		var headerTemplate = messageContainer.GetNode<HBoxContainer>("HeaderTemplate");
-		var headingLabel = (Label)_headingLabelTemplateNode.Duplicate();
-		headingLabel.Visible = true;
 		headingLabel.Text = message.Heading;
-		headerTemplate.AddChild(headingLabel);
-
-		var timestampLabel = (Label)_timestampLabelTemplateNode.Duplicate();
-		timestampLabel.Visible = true;
 		timestampLabel.Text = message.Timestamp;
-		headerTemplate.AddChild(timestampLabel);
 
-		var linesContainer = messageContainer.GetNode<VBoxContainer>("LinesContainer");
+		// Update Lines
 		foreach (var line in message.Lines) {
 			var lineLabel = (RichTextLabel)_lineTemplateNode.Duplicate();
 			lineLabel.Visible = true;
 			lineLabel.BbcodeEnabled = true;
+			lineLabel.Clear();
 			lineLabel.AppendText($"[color={GetColorForLineType(line.Type)}]{line.Text}[/color]");
 			linesContainer.AddChild(lineLabel);
 		}
-		AddChild(messageContainer);
+
+		_messageContainerNode?.AddChild(messageTemplate);
 	}
 
 	private static string GetColorForLineType(GameLogLineType type) {
 		return type switch {
+			GameLogLineType.Default => "white",
 			GameLogLineType.Error => "red",
 			GameLogLineType.Info => "blue",
 			GameLogLineType.Success => "green",

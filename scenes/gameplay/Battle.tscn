@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://8n50xik7xid3"]
+[gd_scene load_steps=7 format=3 uid="uid://8n50xik7xid3"]
 
 [ext_resource type="Script" path="res://scripts/scenes/gameplay/Battle.cs" id="1_oeh3a"]
 [ext_resource type="Script" path="res://scripts/ui/SceneTransitionButton.cs" id="2_4ip1d"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="2_cgh0m"]
 [ext_resource type="PackedScene" uid="uid://bhvfxwxj34u71" path="res://components/Characters/CharacterRow.tscn" id="2_j8o3d"]
 [ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://components/GameLog/GameLog.tscn" id="5_qac67"]
+[ext_resource type="Resource" uid="uid://2miun4ox1np8" path="res://models/Dice/DiceMana/DiceManaResources.tres" id="7_5jgc7"]
 
 [node name="Battle" type="Control"]
 layout_mode = 3
@@ -15,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oeh3a")
 GameLogScene = ExtResource("5_qac67")
+DiceManaResources = ExtResource("7_5jgc7")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1

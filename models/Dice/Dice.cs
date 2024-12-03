@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Godot;
 
 namespace DiceRoll.Models;
@@ -26,23 +25,24 @@ public enum DiceLocation {
 }
 
 public static class DiceFactory {
-	public static Dice<DiceSide> CreateD4() => CreateDice(4);
-	public static Dice<DiceSide> CreateD6() => CreateDice(6);
-	public static Dice<DiceSide> CreateD8() => CreateDice(8);
-	public static Dice<DiceSide> CreateD10() => CreateDice(10);
-	public static Dice<DiceSide> CreateD12() => CreateDice(12);
-	public static Dice<DiceSide> CreateD20() => CreateDice(20);
-	public static Dice<DiceSide> CreateD100() => CreateDice(100);
+	public static Dice<DiceSide> CreateD4(DiceManaResources diceManaResources) => CreateDice(4, diceManaResources);
+	public static Dice<DiceSide> CreateD6(DiceManaResources diceManaResources) => CreateDice(6, diceManaResources);
+	public static Dice<DiceSide> CreateD8(DiceManaResources diceManaResources) => CreateDice(8, diceManaResources);
+	public static Dice<DiceSide> CreateD10(DiceManaResources diceManaResources) => CreateDice(10, diceManaResources);
+	public static Dice<DiceSide> CreateD12(DiceManaResources diceManaResources) => CreateDice(12, diceManaResources);
+	public static Dice<DiceSide> CreateD20(DiceManaResources diceManaResources) => CreateDice(20, diceManaResources);
+	public static Dice<DiceSide> CreateD100(DiceManaResources diceManaResources) => CreateDice(100, diceManaResources);
 
-	private static Dice<DiceSide> CreateDice(int sides) {
+	private static Dice<DiceSide> CreateDice(int sides, DiceManaResources diceManaResources) {
 		var manas = new Godot.Collections.Array<DiceSide>();
-		var manaTypes = Enum.GetValues(typeof(ManaType)).Cast<ManaType>().ToArray();
+		var diceManas = diceManaResources.DiceManas;
 		for (int i = 0; i < sides; i++) {
+			var mana = diceManas[i % diceManas.Count];
 			manas.Add(new DiceSide(
-				manaTypes[i % manaTypes.Length],
-				$"Mana {i + 1}",
-				$"Description for mana {i + 1}",
-				new Color(1, 1, 1), new Color(0, 0, 0)
+				mana.Name ?? "Unknown",
+				mana.Description ?? "Unknown",
+				mana.BackgroundColor,
+				mana.MainColor
 			));
 		}
 		return new Dice<DiceSide>(Guid.NewGuid().ToString(), $"D{sides}", manas, DiceLocation.None);

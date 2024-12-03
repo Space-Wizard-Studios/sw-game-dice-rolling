@@ -1,21 +1,9 @@
 using Godot;
 namespace DiceRoll.Models;
 
-public enum ManaType {
-	Empty,
-	Colorless,
-	Red,
-	Blue,
-	Green,
-	Yellow,
-	Purple
-}
-
 [Tool]
+[GlobalClass]
 public partial class DiceMana : Resource {
-	[Export]
-	public ManaType ManaType { get; set; }
-
 	[Export]
 	public string? Name { get; set; }
 
@@ -43,8 +31,7 @@ public partial class DiceMana : Resource {
 
 	public DiceMana() { }
 
-	public DiceMana(ManaType manaType, string name, string description, Color backgroundColor, Color mainColor) {
-		ManaType = manaType;
+	public DiceMana(string name, string description, Color backgroundColor, Color mainColor) {
 		Name = name;
 		Description = description;
 		BackgroundColor = backgroundColor;

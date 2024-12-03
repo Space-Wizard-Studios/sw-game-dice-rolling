@@ -4,6 +4,7 @@ using System.Collections.Generic;
 namespace DiceRoll.Stores;
 
 public enum GameLogLineType {
+	Default,
 	Error,
 	Info,
 	Success,

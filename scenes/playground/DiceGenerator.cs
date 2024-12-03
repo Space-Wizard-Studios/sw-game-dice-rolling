@@ -130,7 +130,7 @@ public partial class DiceGenerator : Node {
 				int randomIndex = random.Next(DiceManaResources.DiceManas.Count);
 				var action = DiceManaResources.DiceManas[randomIndex];
 				GD.Print($"Selected Action: {action.Name} - {action.Description}");
-				return new DiceSide(action.ManaType, action.Name, action.Description, action.BackgroundColor, action.MainColor);
+				return new DiceSide(action.Name, action.Description, action.BackgroundColor, action.MainColor);
 			}).ToArray()
 		);
 

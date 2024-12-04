@@ -6,7 +6,7 @@ using DiceRoll.Models;
 namespace DiceRoll.Stores;
 
 public partial class CharacterStore : Node {
-	private static CharacterStore _instance;
+	private static CharacterStore? _instance;
 	public static CharacterStore Instance {
 		get {
 			_instance ??= new CharacterStore();

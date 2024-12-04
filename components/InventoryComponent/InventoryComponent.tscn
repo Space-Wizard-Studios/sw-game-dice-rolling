@@ -17,6 +17,7 @@ GridItemTemplatePath = NodePath("InventoryGrid/GridItemTemplateItem")
 InventoryGridPath = NodePath("InventoryGrid")
 
 [node name="InventoryGrid" type="Control" parent="."]
+custom_minimum_size = Vector2(1280, 320)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -25,5 +26,5 @@ size_flags_vertical = 3
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
-texture = ExtResource("3_kx7af")
+texture = ExtResource("4_faa6k")
 expand_mode = 1

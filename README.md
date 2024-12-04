@@ -8,14 +8,14 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
   - [Sumário](#sumário)
   - [Estrutura de Pastas](#estrutura-de-pastas)
   - [Conceito Geral](#conceito-geral)
-	- [Transição entre cenas](#transição-entre-cenas)
-	- [Gameplay](#gameplay)
-	  - [Lobby](#lobby)
-	  - [Dungeon](#dungeon)
-	  - [Batalha](#batalha)
+    - [Transição entre cenas](#transição-entre-cenas)
+    - [Gameplay](#gameplay)
+      - [Lobby](#lobby)
+      - [Dungeon](#dungeon)
+      - [Batalha](#batalha)
   - [Instalação](#instalação)
-	- [Pré-requisitos](#pré-requisitos)
-	- [Passos para Instalação](#passos-para-instalação)
+    - [Pré-requisitos](#pré-requisitos)
+    - [Passos para Instalação](#passos-para-instalação)
   - [Tecnologias e Frameworks](#tecnologias-e-frameworks)
 
 ## Estrutura de Pastas
@@ -24,16 +24,17 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
 sw-game-dice-roll/          # root
 ├── addons/                 # third party libs
 ├── assets/                 # assets como sprites, sons, texturas e respectivos arquivos de configuração
-├── components/             # nodes a serem exibidos e manipulados nas cenas
-├── models/                 # modelos de objetos (tipagem)
-  └── [DOMAIN]              #
-	└── [RESOURCES]         #
+├── components/             # nodes a serem exibidos nas cenas
+├── core/                   # core game logic and systems
+│ ├── managers/             # game managers
+│ ├── scenes/               # scene-specific scripts
+│ ├── stores/               # singletons
+│ └── ui/                   # UI-related scripts
+├── models/                 # modelos de objetos
+│ └── [DOMAIN]              #
+│   └── [RESOURCES]         #
 ├── scenes/                 # cenas do jogo
-└── scripts                 # scripts do gameplay loop
-  ├── managers              #
-  ├── scenes                #
-  ├── stores                # singletons
-  └── ui                    #
+└── scripts/                # additional scripts (if needed)
 ```
 
 ## Conceito Geral

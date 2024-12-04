@@ -20,9 +20,9 @@ config/icon="res://icon.svg"
 GameplayTransitionManager="*res://scenes/GameplayTransitionManager.tscn"
 MenuTransitionManager="*res://scenes/MenuTransitionManager.tscn"
 PlaygroundTransitionManager="*res://scenes/PlaygroundTransitionManager.tscn"
-DiceStore="*res://scripts/stores/DiceStore.cs"
-CharacterStore="*res://scripts/stores/CharacterStore.cs"
-GameLogStore="*res://scripts/stores/GameLogStore.cs"
+DiceStore="*res://core/stores/DiceStore.cs"
+CharacterStore="*res://core/stores/CharacterStore.cs"
+GameLogStore="*res://core/stores/GameLogStore.cs"
 
 [collada]
 
@@ -58,9 +58,9 @@ folder_colors={
 "res://addons/": "red",
 "res://assets/": "purple",
 "res://components/": "orange",
+"res://core/": "green",
 "res://models/": "blue",
-"res://scenes/": "pink",
-"res://scripts/": "green"
+"res://scenes/": "pink"
 }
 
 [input]

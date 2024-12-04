@@ -1,79 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://6fbiblg8d1nx"]
+[gd_scene load_steps=4 format=3 uid="uid://bt73g5fssa68h"]
 
-[ext_resource type="PackedScene" uid="uid://gelngx5giqwb" path="res://components/DiceComponent/DiceComponent.tscn" id="1_muh3w"]
+[ext_resource type="Script" path="res://components/InventoryComponent/InventoryComponent.cs" id="2"]
+[ext_resource type="Texture2D" uid="uid://c1flt0c431x4o" path="res://components/InventoryComponent/slot.png" id="3_kx7af"]
+[ext_resource type="Texture2D" uid="uid://dvfapg1a2gi00" path="res://components/InventoryComponent/icon.png" id="4_faa6k"]
 
-[node name="DiceComponent" type="ScrollContainer"]
+[node name="Inventory" type="ScrollContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+script = ExtResource("2")
+SlotTexture = ExtResource("3_kx7af")
+ItemTexture = ExtResource("4_faa6k")
+GridItemTemplatePath = NodePath("InventoryGrid/GridItemTemplateItem")
+InventoryGridPath = NodePath("InventoryGrid")
 
-[node name="HBoxContainer" type="GridContainer" parent="."]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 10
-
-[node name="DiceComponent" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
-clip_contents = true
+[node name="InventoryGrid" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="DiceComponent2" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="DiceComponent3" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="DiceComponent4" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="DiceComponent5" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="DiceComponent6" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="DiceComponent7" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="DiceComponent8" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="DiceComponent9" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="DiceComponent10" parent="HBoxContainer" instance=ExtResource("1_muh3w")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="GridItemTemplateItem" type="TextureRect" parent="InventoryGrid"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("3_kx7af")
+expand_mode = 1

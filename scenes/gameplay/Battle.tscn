@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhvfxwxj34u71" path="res://components/Characters/CharacterRow.tscn" id="2_j8o3d"]
 [ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://components/GameLog/GameLogComponent.tscn" id="5_qac67"]
 [ext_resource type="Resource" uid="uid://2miun4ox1np8" path="res://models/Dice/DiceMana/DiceManaResources.tres" id="7_5jgc7"]
-[ext_resource type="PackedScene" uid="uid://6fbiblg8d1nx" path="res://components/InventoryComponent/InventoryComponent.tscn" id="7_ue61k"]
+[ext_resource type="PackedScene" uid="uid://bt73g5fssa68h" path="res://components/InventoryComponent/InventoryComponent.tscn" id="7_ue61k"]
 
 [node name="Battle" type="Control"]
 layout_mode = 3
@@ -1160,7 +1160,8 @@ text = "HUD / CHARACTER SELECTED"
 [node name="TabContainer" type="TabContainer" parent="HUD/HUDContainer/Row"]
 layout_mode = 2
 size_flags_horizontal = 3
-current_tab = 2
+current_tab = 1
+drag_to_rearrange_enabled = true
 
 [node name="Selection" type="ColorRect" parent="HUD/HUDContainer/Row/TabContainer"]
 visible = false
@@ -1184,12 +1185,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "HUD / SELECTION"
 
-[node name="GameLog" parent="HUD/HUDContainer/Row/TabContainer" instance=ExtResource("5_qac67")]
-visible = false
+[node name="Inventory" parent="HUD/HUDContainer/Row/TabContainer" instance=ExtResource("7_ue61k")]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Inventory" parent="HUD/HUDContainer/Row/TabContainer" instance=ExtResource("7_ue61k")]
+[node name="GameLog" parent="HUD/HUDContainer/Row/TabContainer" instance=ExtResource("5_qac67")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

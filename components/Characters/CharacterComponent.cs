@@ -17,7 +17,7 @@ public partial class CharacterComponent : Control {
 	}
 
 	[Export]
-	public Sprite2D HoverSpriteNode { get; set; }
+	public Sprite2D? HoverSpriteNode { get; set; }
 
 	private bool _isSelected;
 	[Export]
@@ -30,27 +30,26 @@ public partial class CharacterComponent : Control {
 	}
 
 	[Export]
-	public Sprite2D SelectorSpriteNode { get; set; }
+	public Sprite2D? SelectorSpriteNode { get; set; }
 
 	[Export]
-	public Control SelectionAreaNode { get; set; }
+	public Control? SelectionAreaNode { get; set; }
 
 	[Export]
-	public AnimatedSprite2D AnimatedSpriteNode { get; set; }
+	public AnimatedSprite2D? AnimatedSpriteNode { get; set; }
 
 	private bool _showShadow;
 
 	[Export]
-	public AnimatedSprite2D ShadowNode { get; set; }
+	public AnimatedSprite2D? ShadowNode { get; set; }
 
-	private Character _characterResource;
+	private Character? _characterResource;
 
 	[Export]
-	public Character CharacterResource {
+	public Character? CharacterResource {
 		get => _characterResource;
 		set {
-			if (_characterResource != null) {
-				GD.Print("CharacterResource was set!");
+			if (_characterResource != null && value != null && AnimatedSpriteNode != null && ShadowNode != null) {
 				OnCharacterResourceSet(value, AnimatedSpriteNode, ShadowNode);
 			}
 			_characterResource = value;
@@ -104,14 +103,12 @@ public partial class CharacterComponent : Control {
 	}
 
 	private void OnIsHoveredSet(bool isHovered) {
-		GD.Print("IsHovered was set!");
 		if (HoverSpriteNode != null) {
 			HoverSpriteNode.Visible = isHovered;
 		}
 	}
 
 	private void OnIsSelectedSet(bool isSelected) {
-		GD.Print("IsSelected was set!");
 		if (SelectorSpriteNode != null) {
 			SelectorSpriteNode.Visible = isSelected;
 		}
@@ -124,7 +121,7 @@ public partial class CharacterComponent : Control {
 			SelectionAreaNode.Connect("gui_input", new Callable(this, nameof(OnGuiInput)));
 		}
 
-		if (CharacterResource != null) {
+		if (CharacterResource != null && AnimatedSpriteNode != null && ShadowNode != null) {
 			OnCharacterResourceSet(CharacterResource, AnimatedSpriteNode, ShadowNode);
 		}
 	}

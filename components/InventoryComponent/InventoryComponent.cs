@@ -58,7 +58,6 @@ public partial class InventoryComponent : ScrollContainer {
 	private void UpdateSlots() {
 		int rows = GetRowCount();
 		int columns = GetColumnCount();
-		GD.Print($"displaying {rows} rows and {columns} columns");
 
 		for (int slotIndex = 0; slotIndex < MaxSlots; slotIndex++) {
 			if (_inventoryGrid != null && _inventoryGrid.GetChildCount() - 1 < slotIndex) {
@@ -79,8 +78,6 @@ public partial class InventoryComponent : ScrollContainer {
 			}
 			gridItem.Texture = ItemCount > slotIndex ? ItemTexture : SlotTexture;
 		}
-
-		GD.Print($"Total slots: {MaxSlots}, Items: {ItemCount}");
 	}
 
 	private void UpdateGrid() {
@@ -90,7 +87,6 @@ public partial class InventoryComponent : ScrollContainer {
 
 	public override void _Input(InputEvent @event) {
 		if (@event.IsActionPressed("give_item", true)) {
-			GD.Print("Adding items...");
 			ItemCount += 1;
 			UpdateSlots();
 		}

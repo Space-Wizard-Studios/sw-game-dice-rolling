@@ -52,8 +52,6 @@ public partial class CharacterRow : HBoxContainer {
 	}
 
 	private void OnDirectionSet() {
-		GD.Print("Forward Direction was set as " + ForwardDirection.ToString());
-
 		if (ForwardDirection == ForwardDirection.Left) {
 			RowContainer.LayoutDirection = LayoutDirectionEnum.Rtl;
 		}

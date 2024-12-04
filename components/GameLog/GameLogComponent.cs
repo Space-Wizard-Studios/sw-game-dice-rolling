@@ -19,18 +19,14 @@ public partial class GameLogComponent : ScrollContainer {
 	}
 
 	private void OnGameLogUpdated() {
-		GD.Print("GameLogUpdatedEventHandler signal received");
 		AddMessageToLog(GameLogStore.Instance.Messages[^1]);
 	}
 
 	private void OnGameLogLineAdded() {
-		GD.Print("GameLogLineAddedEventHandler signal received");
 		UpdateLastMessageLines();
 	}
 
 	private void UpdateGameLog() {
-		GD.Print("UpdateGameLog called");
-
 		if (_messageTemplateNode == null) {
 			GD.PrintErr("MessageTemplate node is not assigned.");
 			return;
@@ -44,8 +40,6 @@ public partial class GameLogComponent : ScrollContainer {
 	}
 
 	private void AddMessageToLog(GameLogMessage message) {
-		GD.Print("AddMessageToLog called with heading: ", message.Heading);
-
 		if (_messageTemplateNode == null || _messageContainerNode == null) {
 			GD.PrintErr("MessageTemplate or MessageContainer node is not assigned.");
 			return;

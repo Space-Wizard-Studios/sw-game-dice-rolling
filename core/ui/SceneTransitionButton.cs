@@ -1,9 +1,10 @@
+using System;
 using Godot;
 using DiceRoll.Managers;
 
 namespace DiceRoll.UI;
 
-public enum TransitionType {
+public enum SceneTransitionType {
 	None,
 	Menu,
 	Gameplay
@@ -11,9 +12,9 @@ public enum TransitionType {
 
 [Tool]
 public partial class SceneTransitionButton : Button {
-	private TransitionType _typeOfTransition = TransitionType.None;
+	private SceneTransitionType _typeOfTransition = SceneTransitionType.None;
 	[Export]
-	public TransitionType TypeOfTransition {
+	public SceneTransitionType TypeOfTransition {
 		get => _typeOfTransition;
 		set {
 			if (_typeOfTransition != value) {
@@ -29,35 +30,37 @@ public partial class SceneTransitionButton : Button {
 	[Export]
 	public GameplayScenes GameplayScene { get; set; } = GameplayScenes.GameplayLobby;
 
-	private MenuTransitionManager _menuTransitionManager;
-	private GameplayTransitionManager _gameplayTransitionManager;
+	private readonly MenuTransitionManager _menuTransitionManager;
+	private readonly GameplayTransitionManager _gameplayTransitionManager;
+
+	public SceneTransitionButton(MenuTransitionManager menuTransitionManager, GameplayTransitionManager gameplayTransitionManager) {
+		_menuTransitionManager = menuTransitionManager ?? throw new ArgumentNullException(nameof(menuTransitionManager));
+		_gameplayTransitionManager = gameplayTransitionManager ?? throw new ArgumentNullException(nameof(gameplayTransitionManager));
+	}
 
 	public override void _Ready() {
 		if (!Engine.IsEditorHint()) {
-			_menuTransitionManager = GetNode<MenuTransitionManager>("/root/MenuTransitionManager");
-			_gameplayTransitionManager = GetNode<GameplayTransitionManager>("/root/GameplayTransitionManager");
-
 			this.Pressed += OnButtonPressed;
 		}
 	}
 
 	private void OnButtonPressed() {
 		switch (TypeOfTransition) {
-			case TransitionType.Menu:
+			case SceneTransitionType.Menu:
 				_menuTransitionManager?.TransitionTo(MenuScene);
 				break;
-			case TransitionType.Gameplay:
+			case SceneTransitionType.Gameplay:
 				_gameplayTransitionManager?.TransitionTo(GameplayScene);
 				break;
 		}
 	}
 
 	public override void _ValidateProperty(Godot.Collections.Dictionary property) {
-		if (property["name"].AsStringName() == "MenuScene" && TypeOfTransition != TransitionType.Menu) {
+		if (property["name"].AsStringName() == "MenuScene" && TypeOfTransition != SceneTransitionType.Menu) {
 			var usage = property["usage"].As<PropertyUsageFlags>() | PropertyUsageFlags.ReadOnly;
 			property["usage"] = (int)usage;
 		}
-		if (property["name"].AsStringName() == "GameplayScene" && TypeOfTransition != TransitionType.Gameplay) {
+		if (property["name"].AsStringName() == "GameplayScene" && TypeOfTransition != SceneTransitionType.Gameplay) {
 			var usage = property["usage"].As<PropertyUsageFlags>() | PropertyUsageFlags.ReadOnly;
 			property["usage"] = (int)usage;
 		}

@@ -1,0 +1,134 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwvsdedui54tw"]
+
+[ext_resource type="Script" path="res://components/TooltipComponent/TooltipComponent.cs" id="1_ma61s"]
+[ext_resource type="Texture2D" uid="uid://dvfapg1a2gi00" path="res://components/InventoryComponent/icon.png" id="2_jkd58"]
+
+[node name="TooltipComponent" type="Control"]
+custom_minimum_size = Vector2(290, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 290.0
+offset_bottom = 360.0
+mouse_filter = 1
+script = ExtResource("1_ma61s")
+ProgressBarPath = NodePath("ProgressBar")
+TextureIconPath = NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/IconContainer/Control/TextureIcon")
+TitlePath = NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Title")
+TagsPath = NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Tags")
+DescriptionPath = NodePath("Panel/MarginContainer/VBoxContainer/DescriptionsContainer/Description")
+AdvancedDescriptionPath = NodePath("Panel/MarginContainer/VBoxContainer/DescriptionsContainer/Advanced")
+LorePath = NodePath("Panel/MarginContainer/VBoxContainer/Lore")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="IconContainer" type="Control" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+mouse_filter = 1
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/IconContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="TextureIcon" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/IconContainer/Control"]
+layout_mode = 2
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+texture = ExtResource("2_jkd58")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+text = "Lorem Ipsum"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Tags" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+bbcode_enabled = true
+text = "Tag 1 - Tag 2 - Tag 3 - Tag 4"
+
+[node name="DescriptionsContainer" type="TabContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tab_alignment = 1
+current_tab = 0
+
+[node name="Description" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/DescriptionsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+metadata/_tab_index = 0
+
+[node name="Advanced" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/DescriptionsContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+metadata/_tab_index = 1
+
+[node name="Lore" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+mouse_filter = 1
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Estne, quaeso, inquam, sitienti in bibendo voluptas? Nam neque virtute retinetur ille in vita, nec iis, qui sine virtute sunt, mors est oppetenda. "
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 290.0
+offset_bottom = 8.0
+mouse_filter = 1
+step = 1.0
+value = 1.0
+show_percentage = false

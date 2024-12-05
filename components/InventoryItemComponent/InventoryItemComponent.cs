@@ -1,0 +1,40 @@
+using Godot;
+using System;
+
+public partial class InventoryItemComponent : Control {
+
+	[Export]
+	public PackedScene? TooltipComponentScene { get; set; }
+
+	private TooltipComponent? _tooltipInstance;
+
+	public override void _Ready() {
+		Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
+		Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
+	}
+
+	private void OnMouseEntered() {
+		if (_tooltipInstance == null || !IsInstanceValid(_tooltipInstance)) {
+			CreateTooltip();
+		}
+		_tooltipInstance?.ShowTooltip(GetGlobalMousePosition());
+	}
+
+	private void OnMouseExited() {
+		_tooltipInstance?.HideTooltip();
+	}
+
+	private void CreateTooltip() {
+		if (TooltipComponentScene == null) {
+			GD.PrintErr("TooltipComponentScene is null");
+			throw new Exception("TooltipComponentScene is null");
+		}
+
+		_tooltipInstance = TooltipComponentScene.Instantiate<TooltipComponent>();
+		_tooltipInstance.Initialize();
+		_tooltipInstance.SetTooltipTexts("Title", "Tags", "Description", "Advanced Description", "Lore");
+		// Add the tooltip to the root viewport
+		GetTree().Root.AddChild(_tooltipInstance);
+		_tooltipInstance.Visible = false;
+	}
+}

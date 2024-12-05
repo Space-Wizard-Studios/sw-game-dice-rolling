@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://components/Characters/CharacterRow.cs" id="1_6414q"]
 [ext_resource type="PackedScene" uid="uid://d3lkjx05elcwq" path="res://components/Characters/CharacterComponent.tscn" id="1_oap2j"]
-[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Resources/Eleonore.tres" id="3_orj87"]
+[ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://models/Character/Resources/Joanna.tres" id="3_mrl48"]
 
 [node name="CharacterRow" type="HBoxContainer" node_paths=PackedStringArray("Character1Node", "Character2Node", "Character3Node", "RowContainer")]
 layout_direction = 2
@@ -25,16 +25,15 @@ RowContainer = NodePath(".")
 [node name="BackCharacter" parent="." instance=ExtResource("1_oap2j")]
 layout_mode = 2
 size_flags_horizontal = 3
-CharacterResource = ExtResource("3_orj87")
 
 [node name="MiddleCharacter" parent="." instance=ExtResource("1_oap2j")]
 layout_mode = 2
 size_flags_horizontal = 3
-CharacterResource = ExtResource("3_orj87")
 
 [node name="FrontCharacter" parent="." instance=ExtResource("1_oap2j")]
 layout_mode = 2
 size_flags_horizontal = 3
+CharacterResource = ExtResource("3_mrl48")
 
 [node name="Spacing" type="Control" parent="."]
 layout_mode = 2

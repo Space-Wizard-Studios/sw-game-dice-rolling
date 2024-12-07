@@ -11,6 +11,11 @@ public partial class InventoryItemComponent : Control {
 	public override void _Ready() {
 		Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
 		Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
+		SetSize(new Vector2(64, 64));
+	}
+
+	private void SetSize(Vector2 size) {
+		Size = size;
 	}
 
 	private void OnMouseEntered() {

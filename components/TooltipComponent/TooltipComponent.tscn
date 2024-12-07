@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwvsdedui54tw"]
 
 [ext_resource type="Script" path="res://components/TooltipComponent/TooltipComponent.cs" id="1_ma61s"]
-[ext_resource type="Texture2D" uid="uid://dvfapg1a2gi00" path="res://components/InventoryComponent/icon.png" id="2_jkd58"]
+[ext_resource type="Texture2D" uid="uid://dvfapg1a2gi00" path="res://components/TooltipComponent/icon.png" id="2_jkd58"]
 
 [node name="TooltipComponent" type="Control"]
 custom_minimum_size = Vector2(290, 360)

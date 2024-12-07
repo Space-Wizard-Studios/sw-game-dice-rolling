@@ -1117,8 +1117,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "Lobby"
 script = ExtResource("2_4ip1d")
-TypeOfTransition = 1
-MenuScene = 1
+TypeOfTransition = 2
 
 [node name="MiddleContainer" type="Control" parent="HUD/HUDContainer"]
 layout_mode = 2

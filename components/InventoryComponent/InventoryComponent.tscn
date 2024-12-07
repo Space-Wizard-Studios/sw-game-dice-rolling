@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt73g5fssa68h"]
+[gd_scene load_steps=3 format=3 uid="uid://bt73g5fssa68h"]
 
 [ext_resource type="Script" path="res://components/InventoryComponent/InventoryComponent.cs" id="2"]
-[ext_resource type="Texture2D" uid="uid://c1flt0c431x4o" path="res://components/InventoryComponent/slot.png" id="3_kx7af"]
-[ext_resource type="Texture2D" uid="uid://dvfapg1a2gi00" path="res://components/InventoryComponent/icon.png" id="4_faa6k"]
+[ext_resource type="PackedScene" uid="uid://tomctv14euva" path="res://components/InventoryItemComponent/InventoryItemComponent.tscn" id="2_rwo4n"]
 
 [node name="Inventory" type="ScrollContainer"]
 anchors_preset = 15
@@ -11,10 +10,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2")
-SlotTexture = ExtResource("3_kx7af")
-ItemTexture = ExtResource("4_faa6k")
-GridItemTemplatePath = NodePath("InventoryGrid/GridItemTemplateItem")
 InventoryGridPath = NodePath("InventoryGrid")
+ItemComponentPath = NodePath("InventoryGrid/InventoryItemComponent")
 
 [node name="InventoryGrid" type="Control" parent="."]
 custom_minimum_size = Vector2(1280, 320)
@@ -22,9 +19,4 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="GridItemTemplateItem" type="TextureRect" parent="InventoryGrid"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-texture = ExtResource("4_faa6k")
-expand_mode = 1
+[node name="InventoryItemComponent" parent="InventoryGrid" instance=ExtResource("2_rwo4n")]

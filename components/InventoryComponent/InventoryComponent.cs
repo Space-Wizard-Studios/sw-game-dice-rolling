@@ -5,18 +5,16 @@ using System;
 public partial class InventoryComponent : ScrollContainer {
 	[Export] public int ItemSize { get; set; } = 64;
 	[Export] public int ItemCount { get; set; } = 6;
-	[Export] public Texture2D? SlotTexture { get; set; }
-	[Export] public Texture2D? ItemTexture { get; set; }
-	[Export] public NodePath? GridItemTemplatePath { get; set; }
 	[Export] public NodePath? InventoryGridPath { get; set; }
+	[Export] public NodePath? ItemComponentPath { get; set; }
 	[Export] public int MaxSlots = 100;
 
-	private TextureRect? _gridItemTemplate;
 	private Control? _inventoryGrid;
+	private Control? _itemComponent;
 
 	public override void _Ready() {
-		_gridItemTemplate = GetNode<TextureRect>(GridItemTemplatePath);
 		_inventoryGrid = GetNode<Control>(InventoryGridPath);
+		_itemComponent = GetNode<Control>(ItemComponentPath);
 		Connect("resized", Callable.From(OnResized));
 
 		// Check if the parent is a TabContainer and connect the tab_changed signal
@@ -24,14 +22,17 @@ public partial class InventoryComponent : ScrollContainer {
 			tabContainer.Connect("tab_changed", Callable.From<int>(OnTabChanged));
 		}
 
+		GD.Print("InventoryComponent Ready: Calling UpdateGrid");
 		CallDeferred(nameof(UpdateGrid));
 	}
 
 	private void OnTabChanged(int tabIndex) {
+		GD.Print("Tab changed: Calling UpdateGrid");
 		CallDeferred(nameof(UpdateGrid));
 	}
 
 	private void OnResized() {
+		GD.Print("Resized: Calling UpdateGrid");
 		UpdateGrid();
 	}
 
@@ -56,31 +57,35 @@ public partial class InventoryComponent : ScrollContainer {
 	}
 
 	private void UpdateSlots() {
-		int rows = GetRowCount();
-		int columns = GetColumnCount();
-
+		GD.Print("Updating slots with ItemCount: ", ItemCount);
 		for (int slotIndex = 0; slotIndex < MaxSlots; slotIndex++) {
 			if (_inventoryGrid != null && _inventoryGrid.GetChildCount() - 1 < slotIndex) {
-				if (_gridItemTemplate == null) {
-					GD.PrintErr("Grid item template is null, cannot duplicate.");
+				if (_itemComponent == null) {
+					GD.PrintErr("Item component is null, cannot instantiate.");
 					return;
 				}
-				var newGridItem = (TextureRect)_gridItemTemplate.Duplicate();
-				newGridItem.Position = IndexToPos(slotIndex) * ItemSize;
-				newGridItem.Texture = SlotTexture;
-				_inventoryGrid.AddChild(newGridItem);
+				var newItemComponent = _itemComponent.Duplicate() as InventoryItemComponent;
+				if (newItemComponent != null) {
+					newItemComponent.Position = IndexToPos(slotIndex) * ItemSize;
+					_inventoryGrid.AddChild(newItemComponent);
+				}
+				else {
+					GD.PrintErr("Duplicated item is not of type InventoryItemComponent.");
+					return;
+				}
 			}
 
-			var gridItem = _inventoryGrid?.GetChild(slotIndex) as TextureRect;
-			if (gridItem == null) {
-				GD.PrintErr("Grid item is null, cannot update slot.");
+			var existingItemComponent = _inventoryGrid?.GetChild(slotIndex) as InventoryItemComponent;
+			if (existingItemComponent == null) {
+				GD.PrintErr("Item component is null, cannot update slot.");
 				continue;
 			}
-			gridItem.Texture = ItemCount > slotIndex ? ItemTexture : SlotTexture;
+			existingItemComponent.Visible = ItemCount > slotIndex;
 		}
 	}
 
 	private void UpdateGrid() {
+		GD.Print("Updating grid");
 		ResizeGrid();
 		UpdateSlots();
 	}
@@ -88,19 +93,8 @@ public partial class InventoryComponent : ScrollContainer {
 	public override void _Input(InputEvent @event) {
 		if (@event.IsActionPressed("give_item", true)) {
 			ItemCount += 1;
+			GD.Print("Item added: New ItemCount is ", ItemCount);
 			UpdateSlots();
-		}
-		else if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed) {
-			var mousePos = MakeInputLocal(mouseEvent);
-			int itemColumn = (int)(mousePos.X / ItemSize);
-			if (itemColumn >= GetColumnCount()) {
-				return;
-			}
-
-			int itemRow = (int)(mousePos.Y / ItemSize);
-			if (itemRow >= GetRowCount()) {
-				return;
-			}
 		}
 	}
 

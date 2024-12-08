@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhvfxwxj34u71"]
 
 [ext_resource type="Script" path="res://components/Characters/CharacterRow.cs" id="1_6414q"]
-[ext_resource type="PackedScene" uid="uid://d3lkjx05elcwq" path="res://components/Characters/CharacterComponent.tscn" id="1_oap2j"]
-[ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://models/Character/Resources/Joanna.tres" id="3_mrl48"]
+[ext_resource type="Resource" uid="uid://snt34yslyn4f" path="res://core/stores/CharacterStore/PlayerCharacterStore.tres" id="2_73fxd"]
+[ext_resource type="PackedScene" uid="uid://d3lkjx05elcwq" path="res://components/Characters/CharacterComponent.tscn" id="3_j456c"]
 
-[node name="CharacterRow" type="HBoxContainer" node_paths=PackedStringArray("Character1Node", "Character2Node", "Character3Node", "RowContainer")]
+[node name="CharacterRow" type="HBoxContainer" node_paths=PackedStringArray("RowContainer")]
 layout_direction = 2
 anchors_preset = 2
 anchor_top = 1.0
@@ -17,23 +17,24 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 64
 script = ExtResource("1_6414q")
-Character1Node = NodePath("BackCharacter")
-Character2Node = NodePath("MiddleCharacter")
-Character3Node = NodePath("FrontCharacter")
+CharacterStore = ExtResource("2_73fxd")
+CharacterComponentScene = ExtResource("3_j456c")
+Container1Path = NodePath("BackContainer")
+Container2Path = NodePath("MiddleContainer")
+Container3Path = NodePath("FrontContainer")
 RowContainer = NodePath(".")
 
-[node name="BackCharacter" parent="." instance=ExtResource("1_oap2j")]
+[node name="BackContainer" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MiddleCharacter" parent="." instance=ExtResource("1_oap2j")]
+[node name="MiddleContainer" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FrontCharacter" parent="." instance=ExtResource("1_oap2j")]
+[node name="FrontContainer" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-CharacterResource = ExtResource("3_mrl48")
 
 [node name="Spacing" type="Control" parent="."]
 layout_mode = 2

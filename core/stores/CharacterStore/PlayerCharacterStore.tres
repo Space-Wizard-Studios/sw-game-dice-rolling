@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterStore" load_steps=4 format=3 uid="uid://snt34yslyn4f"]
+
+[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Resources/Eleonore.tres" id="1_8qg6e"]
+[ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://models/Character/Resources/Joanna.tres" id="2_qbdxb"]
+[ext_resource type="Script" path="res://core/stores/CharacterStore/CharacterStore.cs" id="3_0pcwr"]
+
+[resource]
+script = ExtResource("3_0pcwr")
+Characters = [ExtResource("1_8qg6e"), ExtResource("2_qbdxb"), ExtResource("2_qbdxb")]

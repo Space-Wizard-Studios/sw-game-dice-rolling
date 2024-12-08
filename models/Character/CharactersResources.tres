@@ -1,9 +1,0 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bj35l6klmrr4i"]
-
-[ext_resource type="Script" path="res://models/Character/CharactersResources.cs" id="1_4aom6"]
-[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Resources/Eleonore.tres" id="1_l203v"]
-[ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://models/Character/Resources/Joanna.tres" id="2_jq2wc"]
-
-[resource]
-script = ExtResource("1_4aom6")
-Characters = [ExtResource("1_l203v"), ExtResource("2_jq2wc")]

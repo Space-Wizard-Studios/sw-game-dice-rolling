@@ -21,7 +21,6 @@ GameplayTransitionManager="*res://scenes/GameplayTransitionManager.tscn"
 MenuTransitionManager="*res://scenes/MenuTransitionManager.tscn"
 PlaygroundTransitionManager="*res://scenes/PlaygroundTransitionManager.tscn"
 DiceStore="*res://core/stores/DiceStore.cs"
-CharacterStore="*res://core/stores/CharacterStore.cs"
 GameLogStore="*res://core/stores/GameLogStore.cs"
 
 [collada]

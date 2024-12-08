@@ -1,11 +1,13 @@
 using Godot;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using DiceRoll.Models;
+
 namespace DiceRoll.Stores;
 
-public partial class CharacterStore : Node {
+[Tool]
+[GlobalClass]
+public partial class CharacterStore : Resource {
 	private static CharacterStore? _instance;
 	public static CharacterStore Instance {
 		get {
@@ -14,20 +16,19 @@ public partial class CharacterStore : Node {
 		}
 	}
 
-	public List<Character> Characters { get; private set; } = new List<Character>();
-
-	private CharacterStore() { }
+	[Export]
+	public Godot.Collections.Array<Character> Characters { get; private set; } = new Godot.Collections.Array<Character>();
 
 	public void AddCharacter(Character character) {
 		Characters.Add(character);
 	}
 
 	public void RemoveCharacter(string characterID) {
-		Characters = Characters.Where(c => c.Id != characterID).ToList();
+		Characters = new Godot.Collections.Array<Character>(Characters.Where(c => c.Id != characterID));
 	}
 
-	public List<string> GetAllCharacterIds() {
-		return Characters.Select(c => c.Id).ToList();
+	public Godot.Collections.Array<string> GetAllCharacterIds() {
+		return new Godot.Collections.Array<string>(Characters.Select(c => c.Id));
 	}
 
 	public Character GetCharacterById(string characterID) {
@@ -35,11 +36,13 @@ public partial class CharacterStore : Node {
 		return character;
 	}
 
-	public void UpdateCharacter(string characterID, Dictionary<string, object> updatedFields) {
+	public void UpdateCharacter(string characterID, Godot.Collections.Dictionary<string, Variant> updatedFields) {
 		var character = GetCharacterById(characterID);
 		foreach (var field in updatedFields) {
 			var property = character.GetType().GetProperty(field.Key);
 			property?.SetValue(character, field.Value);
 		}
 	}
+
+	public CharacterStore() { }
 }

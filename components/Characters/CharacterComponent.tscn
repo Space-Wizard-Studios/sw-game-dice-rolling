@@ -9,9 +9,17 @@
 
 [node name="CharacterComponent" type="Control" node_paths=PackedStringArray("HoverSpriteNode", "SelectorSpriteNode", "SelectionAreaNode", "AnimatedSpriteNode", "ShadowNode")]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 256.0
-offset_bottom = 256.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_t0krx")
 HoverSpriteNode = NodePath("Selector/HoverSprite")
@@ -70,7 +78,7 @@ scale = Vector2(4, 4)
 sprite_frames = ExtResource("4_kpvh4")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.682887
+frame_progress = 0.240531
 offset = Vector2(0, -3)
 
 [node name="Character" type="Control" parent="."]
@@ -89,4 +97,4 @@ scale = Vector2(4, 4)
 sprite_frames = ExtResource("6_nsvg4")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.271761
+frame_progress = 0.829405

@@ -15,6 +15,11 @@ public enum QuantityType {
 	Number
 }
 
+public enum ActionType {
+	Attack,
+	Heal,
+}
+
 [Tool]
 public partial class CharacterAction : Resource {
 	[Export]
@@ -61,16 +66,21 @@ public partial class CharacterAction : Resource {
 	[Export(PropertyHint.Range, "0,100,1")]
 	public int NumberQuantity { get; set; }
 
+	[Export]
+	public ActionType ActionType { get; set; }
+
 	public CharacterAction() { }
 
 	public CharacterAction(
 		string name,
 		string description,
-		Godot.Collections.Array<DiceMana> requiredMana
+		Godot.Collections.Array<DiceMana> requiredMana,
+		ActionType actionType
 	) {
 		Name = name;
 		Description = description;
 		RequiredMana = requiredMana;
+		ActionType = actionType;
 	}
 
 	public override void _ValidateProperty(Godot.Collections.Dictionary property) {

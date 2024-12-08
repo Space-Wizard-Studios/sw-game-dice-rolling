@@ -52,4 +52,10 @@ public partial class Character : Resource {
 
     public Character() {
     }
+
+    public AttackResult PerformAction(CharacterAction characterAction, Character target) {
+        var context = new AttackContext(this, target);
+        var action = ActionFactory.CreateAction(characterAction.ActionType);
+        return action.Do(context);
+    }
 }

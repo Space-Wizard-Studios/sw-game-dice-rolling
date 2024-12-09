@@ -81,11 +81,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="PlayerRow2" parent="Characters/Middle/Teams/Player" instance=ExtResource("2_j8o3d")]
-layout_mode = 1
-offset_top = -304.0
-offset_bottom = -72.0
-
 [node name="PlayerRow1" parent="Characters/Middle/Teams/Player" instance=ExtResource("2_j8o3d")]
 layout_mode = 1
 
@@ -93,15 +88,6 @@ layout_mode = 1
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-
-[node name="EnemyRow2" parent="Characters/Middle/Teams/Enemy" instance=ExtResource("2_j8o3d")]
-layout_direction = 3
-layout_mode = 1
-offset_left = 96.0
-offset_top = -304.0
-offset_right = 736.0
-offset_bottom = -72.0
-ForwardDirection = 1
 
 [node name="EnemyRow1" parent="Characters/Middle/Teams/Enemy" instance=ExtResource("2_j8o3d")]
 layout_direction = 3

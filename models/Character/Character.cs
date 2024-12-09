@@ -1,5 +1,6 @@
 using Godot;
 using System;
+
 namespace DiceRoll.Models;
 
 [Tool]
@@ -49,6 +50,9 @@ public partial class Character : Resource {
 
     [Export]
     public SpriteFrames? ShadowSprite { get; set; }
+
+    [Export]
+    public bool IsEnemy { get; set; } = false;
 
     public Character() {
     }

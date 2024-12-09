@@ -29,6 +29,9 @@ public partial class CharacterRow : HBoxContainer {
     [Export]
     public HBoxContainer? RowContainer { get; set; }
 
+    [Export]
+    public bool IsEnemy { get; set; } = false;
+
     private ForwardDirection _direction;
 
     [Export]
@@ -57,6 +60,7 @@ public partial class CharacterRow : HBoxContainer {
 
         CallDeferred(nameof(OnDirectionSet));
         CallDeferred(nameof(LoadCharacters));
+        CallDeferred(nameof(FlipCharacters));
     }
 
     private void OnDirectionSet() {
@@ -114,6 +118,7 @@ public partial class CharacterRow : HBoxContainer {
                 }
 
                 characterComponent.CharacterResource = characters[i];
+                characterComponent.IsEnemy = IsEnemy; // Pass the IsEnemy flag
                 characterNodes[i].AddChild(characterComponent);
             }
         }

@@ -5,8 +5,9 @@ namespace DiceRoll.Components;
 
 [Tool]
 public partial class CharacterComponent : Control {
-
     private static CharacterComponent? _currentlySelectedCharacter;
+    private static CharacterComponent? _currentlySelectedEnemy;
+    private static ArcDrawer? _arcDrawer;
 
     private bool _isHovered;
     [Export]
@@ -58,6 +59,9 @@ public partial class CharacterComponent : Control {
         }
     }
 
+    [Export]
+    public bool IsEnemy { get; set; } = false;
+
     private void OnMouseEntered() {
         IsHovered = true;
     }
@@ -68,11 +72,22 @@ public partial class CharacterComponent : Control {
 
     private void OnGuiInput(InputEvent @event) {
         if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed) {
-            if (_currentlySelectedCharacter != null && _currentlySelectedCharacter != this) {
-                _currentlySelectedCharacter.IsSelected = false;
+            if (IsEnemy) {
+                if (_currentlySelectedEnemy != null && _currentlySelectedEnemy != this) {
+                    _currentlySelectedEnemy.IsSelected = false;
+                }
+                IsSelected = !IsSelected;
+                _currentlySelectedEnemy = IsSelected ? this : null;
+                _arcDrawer?.SetSelectedEnemy(_currentlySelectedEnemy);
             }
-            IsSelected = !IsSelected;
-            _currentlySelectedCharacter = IsSelected ? this : null;
+            else {
+                if (_currentlySelectedCharacter != null && _currentlySelectedCharacter != this) {
+                    _currentlySelectedCharacter.IsSelected = false;
+                }
+                IsSelected = !IsSelected;
+                _currentlySelectedCharacter = IsSelected ? this : null;
+                _arcDrawer?.SetSelectedCharacter(_currentlySelectedCharacter);
+            }
         }
     }
 
@@ -129,6 +144,10 @@ public partial class CharacterComponent : Control {
 
         if (CharacterResource != null && AnimatedSpriteNode != null && ShadowNode != null) {
             OnCharacterResourceSet(CharacterResource, AnimatedSpriteNode, ShadowNode);
+        }
+
+        if (_arcDrawer == null) {
+            _arcDrawer = GetNode<ArcDrawer>("/root/Battle/ArcDrawer");
         }
     }
 

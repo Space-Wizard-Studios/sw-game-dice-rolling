@@ -1,0 +1,44 @@
+using Godot;
+using System;
+
+namespace DiceRoll.Components;
+
+public partial class ArcDrawer : Node2D {
+    private CharacterComponent? _selectedCharacter;
+    private CharacterComponent? _selectedEnemy;
+    private Arc2D _arc;
+    private bool _isDrawing;
+
+    public override void _Ready() {
+        _arc = new Arc2D();
+        AddChild(_arc);
+    }
+
+    public override void _Process(double delta) {
+        if (_isDrawing && _selectedCharacter != null) {
+            Vector2 mousePosition = GetGlobalMousePosition();
+            DrawArc(_selectedCharacter.GlobalPosition, mousePosition);
+        }
+    }
+
+    public void SetSelectedCharacter(CharacterComponent character) {
+        _selectedCharacter = character;
+        _selectedEnemy = null; // Reset the selected enemy
+        _isDrawing = true;
+        QueueRedraw();
+    }
+
+    public void SetSelectedEnemy(CharacterComponent enemy) {
+        _selectedEnemy = enemy;
+        _isDrawing = false;
+        if (_selectedCharacter != null) {
+            DrawArc(_selectedCharacter.GlobalPosition, _selectedEnemy.GlobalPosition);
+        }
+        QueueRedraw();
+    }
+
+    private void DrawArc(Vector2 start, Vector2 end) {
+        _arc.Points = new Vector2[] { start, end };
+        _arc.QueueRedraw();
+    }
+}

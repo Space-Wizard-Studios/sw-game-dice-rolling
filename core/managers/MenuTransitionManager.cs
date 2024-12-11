@@ -11,13 +11,13 @@ public enum MenuScenes {
 [GlobalClass]
 public partial class MenuTransitionManager : Node {
 	[Export]
-	public PackedScene MainMenuScene { get; set; }
+	public PackedScene? MainMenuScene { get; set; }
 
 	[Export]
-	public PackedScene GameplayLobbyScene { get; set; }
+	public PackedScene? GameplayLobbyScene { get; set; }
 
 	[Export]
-	public PackedScene GameOverMenuScene { get; set; }
+	public PackedScene? GameOverMenuScene { get; set; }
 
 	public void TransitionTo(MenuScenes scene) {
 		switch (scene) {

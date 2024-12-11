@@ -6,7 +6,7 @@ namespace DiceRoll.UI;
 
 [Tool]
 public partial class PlaygroundTransitionMenu : MenuButton {
-	private PlaygroundTransitionManager _playgroundTransitionManager;
+	private PlaygroundTransitionManager? _playgroundTransitionManager;
 
 	public override void _Ready() {
 		if (!Engine.IsEditorHint()) {

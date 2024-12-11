@@ -78,7 +78,9 @@ public partial class CharacterComponent : Control {
                 }
                 IsSelected = !IsSelected;
                 _currentlySelectedEnemy = IsSelected ? this : null;
-                _arcDrawer?.SetSelectedEnemy(_currentlySelectedEnemy);
+                if (_currentlySelectedEnemy != null) {
+                    _arcDrawer?.SetSelectedEnemy(_currentlySelectedEnemy);
+                }
             }
             else {
                 if (_currentlySelectedCharacter != null && _currentlySelectedCharacter != this) {
@@ -86,7 +88,9 @@ public partial class CharacterComponent : Control {
                 }
                 IsSelected = !IsSelected;
                 _currentlySelectedCharacter = IsSelected ? this : null;
-                _arcDrawer?.SetSelectedCharacter(_currentlySelectedCharacter);
+                if (_currentlySelectedCharacter != null) {
+                    _arcDrawer?.SetSelectedCharacter(_currentlySelectedCharacter);
+                }
             }
         }
     }

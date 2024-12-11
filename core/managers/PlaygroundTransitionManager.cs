@@ -8,7 +8,7 @@ public enum PlaygroundScenes {
 }
 public partial class PlaygroundTransitionManager : Node {
 	[Export]
-	public PackedScene DiceGenerator { get; set; }
+	public PackedScene? DiceGenerator { get; set; }
 
 	public void TransitionTo(PlaygroundScenes scene) {
 		switch (scene) {

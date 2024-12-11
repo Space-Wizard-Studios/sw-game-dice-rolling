@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using DiceRoll.Stores;
 
 namespace DiceRoll.Components;
@@ -79,6 +78,10 @@ public partial class CharacterRow : HBoxContainer {
     }
 
     private void FlipCharacters() {
+        if (_container1 == null || _container2 == null || _container3 == null) {
+            GD.PrintErr("One or more containers are null");
+            return;
+        }
         var characterNodes = new Control[] { _container1, _container2, _container3 };
         foreach (var container in characterNodes) {
             if (container != null && container.GetChildCount() > 0) {
@@ -101,6 +104,11 @@ public partial class CharacterRow : HBoxContainer {
             return;
         }
 
+        if (_container1 == null || _container2 == null || _container3 == null) {
+            GD.PrintErr("One or more containers are null");
+            return;
+        }
+
         var characterNodes = new Control[] { _container1, _container2, _container3 };
         var characters = CharacterStore.Characters;
 
@@ -118,7 +126,7 @@ public partial class CharacterRow : HBoxContainer {
                 }
 
                 characterComponent.CharacterResource = characters[i];
-                characterComponent.IsEnemy = IsEnemy; // Pass the IsEnemy flag
+                characterComponent.IsEnemy = IsEnemy;
                 characterNodes[i].AddChild(characterComponent);
             }
         }

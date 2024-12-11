@@ -26,7 +26,7 @@ public partial class Battle : Control {
 		RunDiceTests();
 	}
 
-	private void RunCharacterTests() {
+	private static void RunCharacterTests() {
 		var newCharacter = new Character {
 			Id = Guid.NewGuid().ToString(),
 			Name = "Hero",
@@ -50,7 +50,7 @@ public partial class Battle : Control {
 		GD.Print("Character dice capacity: ", CharacterStore.Instance.GetCharacterById(characterIds[0]).DiceCapacity);
 	}
 
-	private void RunGameLogTests() {
+	private static void RunGameLogTests() {
 		GD.Print("RunGameLogTests called");
 
 		var timestamp = DateTime.Now.ToString("HH:mm");

@@ -1,12 +1,11 @@
 using Godot;
-using System;
 
 namespace DiceRoll.Components;
 
 public partial class ArcDrawer : Node2D {
     private CharacterComponent? _selectedCharacter;
     private CharacterComponent? _selectedEnemy;
-    private Arc2D _arc;
+    private Arc2D? _arc;
     private bool _isDrawing;
 
     public override void _Ready() {
@@ -38,7 +37,12 @@ public partial class ArcDrawer : Node2D {
     }
 
     private void DrawArc(Vector2 start, Vector2 end) {
-        _arc.Points = new Vector2[] { start, end };
-        _arc.QueueRedraw();
+        if (_arc != null) {
+            _arc.Points = new Vector2[] { start, end };
+            _arc.QueueRedraw();
+        }
+        else {
+            GD.PrintErr("_arc is null, cannot draw arc.");
+        }
     }
 }

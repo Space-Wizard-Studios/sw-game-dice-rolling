@@ -58,6 +58,7 @@ folder_colors={
 "res://assets/": "purple",
 "res://components/": "orange",
 "res://core/": "green",
+"res://helpers/": "gray",
 "res://models/": "blue",
 "res://scenes/": "pink"
 }

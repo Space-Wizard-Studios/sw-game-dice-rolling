@@ -1,6 +1,8 @@
 using Godot;
 using System;
 
+namespace DiceRoll.Components;
+
 [Tool]
 public partial class InventoryComponent : ScrollContainer {
     [Export] public int ItemSize { get; set; } = 64;

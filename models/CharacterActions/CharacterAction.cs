@@ -95,9 +95,9 @@ public partial class CharacterAction : Resource {
 public static class ActionFactory {
     public static IAction<IActionContext, AttackResult> CreateAction(ActionType actionType) {
         return actionType switch {
-            ActionType.Attack => new Attack() as IAction<IActionContext, AttackResult>,
+            ActionType.Attack => (IAction<IActionContext, AttackResult>)new Attack(),
             // Add other cases for different action types
-            _ => throw new ArgumentException("Invalid action type")
+            _ => throw new ArgumentException($"Invalid action type: {actionType}")
         };
     }
 }

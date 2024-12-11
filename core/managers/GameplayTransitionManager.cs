@@ -10,13 +10,13 @@ public enum GameplayScenes {
 
 public partial class GameplayTransitionManager : Node {
 	[Export]
-	public PackedScene GameplayLobbyScene { get; set; }
+	public PackedScene? GameplayLobbyScene { get; set; }
 
 	[Export]
-	public PackedScene GameplayDungeonScene { get; set; }
+	public PackedScene? GameplayDungeonScene { get; set; }
 
 	[Export]
-	public PackedScene GameplayBattleScene { get; set; }
+	public PackedScene? GameplayBattleScene { get; set; }
 
 	public void TransitionTo(GameplayScenes scene) {
 		switch (scene) {

@@ -3,18 +3,18 @@ using Godot;
 namespace DiceRoll.Managers;
 
 public enum PlaygroundScenes {
-	DiceGenerator,
+    DiceGenerator,
 
 }
 public partial class PlaygroundTransitionManager : Node {
-	[Export]
-	public PackedScene? DiceGenerator { get; set; }
+    [Export]
+    public PackedScene? DiceGenerator { get; set; }
 
-	public void TransitionTo(PlaygroundScenes scene) {
-		switch (scene) {
-			case PlaygroundScenes.DiceGenerator:
-				GetTree().ChangeSceneToPacked(DiceGenerator);
-				break;
-		}
-	}
+    public void TransitionTo(PlaygroundScenes scene) {
+        switch (scene) {
+            case PlaygroundScenes.DiceGenerator:
+                GetTree().ChangeSceneToPacked(DiceGenerator);
+                break;
+        }
+    }
 }

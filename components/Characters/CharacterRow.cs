@@ -39,7 +39,7 @@ public partial class CharacterRow : HBoxContainer {
         set {
             _direction = value;
             if (_container1 != null && _container2 != null && _container3 != null && RowContainer != null) {
-                OnDirectionSet();
+                CallDeferred(nameof(OnDirectionSet));
             }
         }
     }
@@ -49,13 +49,18 @@ public partial class CharacterRow : HBoxContainer {
     private Control? _container3;
 
     public override void _Ready() {
+        GD.Print("CharacterRow _Ready called");
         _container1 = GetNode<Control>(Container1Path);
         _container2 = GetNode<Control>(Container2Path);
         _container3 = GetNode<Control>(Container3Path);
 
-        if (_container1 == null) GD.PrintErr("Container1 is null");
-        if (_container2 == null) GD.PrintErr("Container2 is null");
-        if (_container3 == null) GD.PrintErr("Container3 is null");
+        GD.Print($"Container1Path: {Container1Path}");
+        GD.Print($"Container2Path: {Container2Path}");
+        GD.Print($"Container3Path: {Container3Path}");
+
+        GD.Print($"_container1: {_container1}");
+        GD.Print($"_container2: {_container2}");
+        GD.Print($"_container3: {_container3}");
 
         CallDeferred(nameof(OnDirectionSet));
         CallDeferred(nameof(LoadCharacters));

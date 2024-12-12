@@ -1,6 +1,7 @@
 using Godot;
+using DiceRoll.Components;
 
-namespace DiceRoll.Components;
+namespace DiceRoll.UI;
 
 public partial class ArcDrawer : Node2D {
     private CharacterComponent? _selectedCharacter;
@@ -9,6 +10,8 @@ public partial class ArcDrawer : Node2D {
     private bool _isDrawing;
 
     public override void _Ready() {
+        if (Engine.IsEditorHint()) return;
+
         _arc = new Arc2D();
         AddChild(_arc);
     }

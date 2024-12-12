@@ -1,5 +1,6 @@
 using Godot;
 using DiceRoll.Models;
+using DiceRoll.UI;
 
 namespace DiceRoll.Components;
 
@@ -140,6 +141,10 @@ public partial class CharacterComponent : Control {
     }
 
     public override void _Ready() {
+        if (Engine.IsEditorHint()) return;
+
+        _arcDrawer ??= GetNode<ArcDrawer>("/root/Battle/ArcDrawer");
+
         if (SelectionAreaNode != null) {
             SelectionAreaNode.Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
             SelectionAreaNode.Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
@@ -150,9 +155,6 @@ public partial class CharacterComponent : Control {
             OnCharacterResourceSet(CharacterResource, AnimatedSpriteNode, ShadowNode);
         }
 
-        if (_arcDrawer == null) {
-            _arcDrawer = GetNode<ArcDrawer>("/root/Battle/ArcDrawer");
-        }
     }
 
     public void FlipCharacter(bool flip) {

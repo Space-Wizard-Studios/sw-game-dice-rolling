@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8n50xik7xid3"]
+[gd_scene load_steps=11 format=3 uid="uid://8n50xik7xid3"]
 
 [ext_resource type="Script" path="res://core/scenes/gameplay/Battle.cs" id="1_oeh3a"]
 [ext_resource type="Script" path="res://core/ui/SceneTransitionButton.cs" id="2_4ip1d"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhvfxwxj34u71" path="res://components/Characters/CharacterRow.tscn" id="2_j8o3d"]
 [ext_resource type="Script" path="res://core/ui/ArcDrawer.cs" id="4_g5jea"]
 [ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://components/GameLog/GameLogComponent.tscn" id="5_qac67"]
+[ext_resource type="PackedScene" uid="uid://dsbegy218josn" path="res://components/TurnOrderComponent/TurnOrderComponent.tscn" id="6_xqnn1"]
 [ext_resource type="Resource" uid="uid://2miun4ox1np8" path="res://models/Dice/DiceMana/DiceManaResources.tres" id="7_5jgc7"]
 [ext_resource type="PackedScene" uid="uid://dgyegipn74jj5" path="res://components/Characters/CharacterInspector.tscn" id="7_ms447"]
 [ext_resource type="PackedScene" uid="uid://bt73g5fssa68h" path="res://components/InventoryComponent/InventoryComponent.tscn" id="7_ue61k"]
@@ -48,13 +49,13 @@ theme_override_constants/separation = 0
 [node name="SpacingTop" type="BoxContainer" parent="Characters"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.05
+size_flags_stretch_ratio = 0.1
 mouse_filter = 2
 
 [node name="Middle" type="Control" parent="Characters"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.7
+size_flags_stretch_ratio = 0.6
 mouse_filter = 2
 
 [node name="Background" type="ColorRect" parent="Characters/Middle"]
@@ -68,6 +69,7 @@ size_flags_horizontal = 3
 color = Color(0.537333, 0, 0.62, 0.494118)
 
 [node name="Teams" type="HBoxContainer" parent="Characters/Middle"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -984,6 +986,1693 @@ animation = &"idle"
 autoplay = "idle"
 offset = Vector2(0, -32)
 
+[node name="VBoxContainer7" type="VBoxContainer" parent="Characters/Middle/Rolling"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="GridContainer" parent="Characters/Middle/Rolling/VBoxContainer7"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="ColorRect" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer/ColorRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect4" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer/ColorRect4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect5" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer/ColorRect5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect6" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer/ColorRect6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect7" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer/ColorRect7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect8" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer/ColorRect8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect9" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer/ColorRect9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect10" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer7/BoxContainer/ColorRect10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="Characters/Middle/Rolling/VBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+
+[node name="AnimatedCharacter" type="AnimatedSprite2D" parent="Characters/Middle/Rolling/VBoxContainer7/Control3"]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2_cgh0m")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -32)
+
+[node name="VBoxContainer8" type="VBoxContainer" parent="Characters/Middle/Rolling"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="GridContainer" parent="Characters/Middle/Rolling/VBoxContainer8"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="ColorRect" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer/ColorRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect4" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer/ColorRect4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect5" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer/ColorRect5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect6" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer/ColorRect6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect7" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer/ColorRect7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect8" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer/ColorRect8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect9" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer/ColorRect9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect10" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer8/BoxContainer/ColorRect10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="Characters/Middle/Rolling/VBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+
+[node name="AnimatedCharacter" type="AnimatedSprite2D" parent="Characters/Middle/Rolling/VBoxContainer8/Control3"]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2_cgh0m")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -32)
+
+[node name="VBoxContainer9" type="VBoxContainer" parent="Characters/Middle/Rolling"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="GridContainer" parent="Characters/Middle/Rolling/VBoxContainer9"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="ColorRect" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer/ColorRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect4" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer/ColorRect4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect5" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer/ColorRect5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect6" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer/ColorRect6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect7" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer/ColorRect7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect8" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer/ColorRect8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect9" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer/ColorRect9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect10" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer9/BoxContainer/ColorRect10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="Characters/Middle/Rolling/VBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+
+[node name="AnimatedCharacter" type="AnimatedSprite2D" parent="Characters/Middle/Rolling/VBoxContainer9/Control3"]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2_cgh0m")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -32)
+
+[node name="VBoxContainer10" type="VBoxContainer" parent="Characters/Middle/Rolling"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="GridContainer" parent="Characters/Middle/Rolling/VBoxContainer10"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="ColorRect" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer/ColorRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect4" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer/ColorRect4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect5" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer/ColorRect5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect6" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer/ColorRect6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect7" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer/ColorRect7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect8" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer/ColorRect8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect9" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer/ColorRect9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect10" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer10/BoxContainer/ColorRect10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="Characters/Middle/Rolling/VBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+
+[node name="AnimatedCharacter" type="AnimatedSprite2D" parent="Characters/Middle/Rolling/VBoxContainer10/Control3"]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2_cgh0m")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -32)
+
+[node name="VBoxContainer11" type="VBoxContainer" parent="Characters/Middle/Rolling"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="GridContainer" parent="Characters/Middle/Rolling/VBoxContainer11"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="ColorRect" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer/ColorRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect4" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer/ColorRect4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect5" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer/ColorRect5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect6" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer/ColorRect6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect7" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer/ColorRect7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect8" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer/ColorRect8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect9" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer/ColorRect9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect10" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer11/BoxContainer/ColorRect10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="Characters/Middle/Rolling/VBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+
+[node name="AnimatedCharacter" type="AnimatedSprite2D" parent="Characters/Middle/Rolling/VBoxContainer11/Control3"]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2_cgh0m")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -32)
+
+[node name="VBoxContainer12" type="VBoxContainer" parent="Characters/Middle/Rolling"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="GridContainer" parent="Characters/Middle/Rolling/VBoxContainer12"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="ColorRect" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer/ColorRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect4" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer/ColorRect4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect5" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer/ColorRect5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect6" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer/ColorRect6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect7" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer/ColorRect7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect8" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer/ColorRect8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect9" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer/ColorRect9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect10" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer12/BoxContainer/ColorRect10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="Characters/Middle/Rolling/VBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+
+[node name="AnimatedCharacter" type="AnimatedSprite2D" parent="Characters/Middle/Rolling/VBoxContainer12/Control3"]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2_cgh0m")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -32)
+
+[node name="VBoxContainer13" type="VBoxContainer" parent="Characters/Middle/Rolling"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="GridContainer" parent="Characters/Middle/Rolling/VBoxContainer13"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="ColorRect" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer/ColorRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect4" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer/ColorRect4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect5" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer/ColorRect5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect6" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer/ColorRect6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect7" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer/ColorRect7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect8" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.91, 0, 0.0151664, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer/ColorRect8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect9" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer/ColorRect9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="ColorRect10" type="ColorRect" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.106167, 0.91, 0.32549)
+
+[node name="Label" type="Label" parent="Characters/Middle/Rolling/VBoxContainer13/BoxContainer/ColorRect10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DICE"
+horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="Characters/Middle/Rolling/VBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+
+[node name="AnimatedCharacter" type="AnimatedSprite2D" parent="Characters/Middle/Rolling/VBoxContainer13/Control3"]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2_cgh0m")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -32)
+
 [node name="Versus" type="HBoxContainer" parent="Characters/Middle"]
 visible = false
 layout_mode = 1
@@ -1043,7 +2732,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.05
+size_flags_stretch_ratio = 0.1
 mouse_filter = 2
 theme_override_constants/separation = 0
 
@@ -1055,28 +2744,8 @@ size_flags_stretch_ratio = 0.1
 mouse_filter = 2
 color = Color(0.49, 0.321848, 0.1421, 1)
 
-[node name="ColorRect" type="ColorRect" parent="HUD/HUDContainer/TopContainer"]
+[node name="TurnOrder" parent="HUD/HUDContainer/TopContainer" instance=ExtResource("6_xqnn1")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.9
-mouse_filter = 2
-color = Color(0.49, 0.1421, 0.229075, 1)
-
-[node name="Label" type="Label" parent="HUD/HUDContainer/TopContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "HUD / TURN ORDER"
 
 [node name="ColorRect2" type="ColorRect" parent="HUD/HUDContainer/TopContainer"]
 layout_mode = 2
@@ -1110,7 +2779,7 @@ TypeOfTransition = 2
 [node name="MiddleContainer" type="Control" parent="HUD/HUDContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.7
+size_flags_stretch_ratio = 0.6
 mouse_filter = 2
 
 [node name="Row" type="HBoxContainer" parent="HUD/HUDContainer"]

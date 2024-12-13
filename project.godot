@@ -64,6 +64,10 @@ folder_colors={
 "res://scenes/": "pink"
 }
 
+[gui]
+
+theme/custom="res://assets/themes/Globals.tres"
+
 [input]
 
 give_item={

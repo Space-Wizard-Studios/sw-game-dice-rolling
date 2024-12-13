@@ -5,43 +5,43 @@ namespace DiceRoll.Components;
 
 public partial class InventoryItemComponent : Control {
 
-    [Export]
-    public PackedScene? TooltipComponentScene { get; set; }
+	[Export]
+	public PackedScene? TooltipComponentScene { get; set; }
 
-    private TooltipComponent? _tooltipInstance;
+	private TooltipComponent? _tooltipInstance;
 
-    public override void _Ready() {
-        Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
-        Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
-        SetSize(new Vector2(64, 64));
-    }
+	public override void _Ready() {
+		Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
+		Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
+		SetSize(new Vector2(64, 64));
+	}
 
-    private void SetSize(Vector2 size) {
-        Size = size;
-    }
+	private void SetSize(Vector2 size) {
+		Size = size;
+	}
 
-    private void OnMouseEntered() {
-        if (_tooltipInstance == null || !IsInstanceValid(_tooltipInstance)) {
-            CreateTooltip();
-        }
-        _tooltipInstance?.ShowTooltip(GetGlobalMousePosition());
-    }
+	private void OnMouseEntered() {
+		if (_tooltipInstance == null || !IsInstanceValid(_tooltipInstance)) {
+			CreateTooltip();
+		}
+		_tooltipInstance?.ShowTooltip(GetGlobalMousePosition());
+	}
 
-    private void OnMouseExited() {
-        _tooltipInstance?.HideTooltip();
-    }
+	private void OnMouseExited() {
+		_tooltipInstance?.HideTooltip();
+	}
 
-    private void CreateTooltip() {
-        if (TooltipComponentScene == null) {
-            GD.PrintErr("TooltipComponentScene is null");
-            throw new Exception("TooltipComponentScene is null");
-        }
+	private void CreateTooltip() {
+		if (TooltipComponentScene == null) {
+			GD.PrintErr("TooltipComponentScene is null");
+			throw new Exception("TooltipComponentScene is null");
+		}
 
-        _tooltipInstance = TooltipComponentScene.Instantiate<TooltipComponent>();
-        _tooltipInstance.Initialize();
-        _tooltipInstance.SetTooltipTexts("Title", "Tags", "Description", "Advanced Description", "Lore");
-        // Add the tooltip to the root viewport
-        GetTree().Root.AddChild(_tooltipInstance);
-        _tooltipInstance.Visible = false;
-    }
+		_tooltipInstance = TooltipComponentScene.Instantiate<TooltipComponent>();
+		_tooltipInstance.Initialize();
+		_tooltipInstance.SetTooltipTexts("Title", "Tags", "Description", "Advanced Description", "Lore");
+		// Add the tooltip to the root viewport
+		GetTree().Root.AddChild(_tooltipInstance);
+		_tooltipInstance.Visible = false;
+	}
 }

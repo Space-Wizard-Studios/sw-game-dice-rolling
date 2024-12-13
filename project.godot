@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+EventBus="*res://core/EventBus.cs"
 GameplayTransitionManager="*res://scenes/GameplayTransitionManager.tscn"
 MenuTransitionManager="*res://scenes/MenuTransitionManager.tscn"
 PlaygroundTransitionManager="*res://scenes/PlaygroundTransitionManager.tscn"

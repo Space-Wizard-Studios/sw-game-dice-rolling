@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using DiceRoll.Models;
 using DiceRoll.Stores;
+using DiceRoll.Events;
+using DiceRoll.Components;
 
 namespace DiceRoll.Scenes.Gameplay;
 
@@ -13,8 +15,14 @@ public partial class Battle : Control {
     [Export]
     public DiceManaResources? DiceManaResources { get; set; }
 
+    [Export]
+    public CharacterInspector? CharacterInspector { get; set; }
+
     public override void _Ready() {
         GD.Print("Battle _Ready called");
+
+        // Connect the CharacterSelected signal from EventBus to the OnCharacterSelected method
+        EventBus.Instance.Connect(nameof(EventBus.CharacterSelected), new Callable(this, nameof(OnCharacterSelected)));
 
         // Run character tests
         RunCharacterTests();
@@ -24,6 +32,12 @@ public partial class Battle : Control {
 
         // Run dice tests
         RunDiceTests();
+    }
+
+    private void OnCharacterSelected(CharacterComponent characterComponent) {
+        if (CharacterInspector != null) {
+            CharacterInspector.Character = characterComponent.Character;
+        }
     }
 
     private static void RunCharacterTests() {

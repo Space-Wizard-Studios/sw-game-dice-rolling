@@ -10,26 +10,23 @@ public enum ForwardDirection {
 
 [Tool]
 public partial class CharacterRow : HBoxContainer {
-    [Export]
-    public CharacterStore? CharacterStore { get; set; }
+    [Export] public CharacterStore? CharacterStore { get; set; }
 
+    private bool _isEnemy;
     [Export]
-    public PackedScene? CharacterComponentScene { get; set; }
+    public bool IsEnemy {
+        get => _isEnemy;
+        set {
+            _isEnemy = value;
+            if (GroupLabel != null) {
+                CallDeferred(nameof(OnGroupLabelSet));
+            }
+        }
+    }
 
-    [Export]
-    public NodePath? Container1Path { get; set; }
+    [Export] public PackedScene? CharacterComponentScene { get; set; }
 
-    [Export]
-    public NodePath? Container2Path { get; set; }
-
-    [Export]
-    public NodePath? Container3Path { get; set; }
-
-    [Export]
-    public HBoxContainer? RowContainer { get; set; }
-
-    [Export]
-    public bool IsEnemy { get; set; } = false;
+    [Export] public HBoxContainer? RowContainer { get; set; }
 
     private ForwardDirection _direction;
 
@@ -38,33 +35,29 @@ public partial class CharacterRow : HBoxContainer {
         get => _direction;
         set {
             _direction = value;
-            if (_container1 != null && _container2 != null && _container3 != null && RowContainer != null) {
+            if (Container1Node != null && Container2Node != null && Container3Node != null && RowContainer != null) {
                 CallDeferred(nameof(OnDirectionSet));
             }
         }
     }
 
-    private Control? _container1;
-    private Control? _container2;
-    private Control? _container3;
+    [Export] public Control? Container1Node;
+    [Export] public Control? Container2Node;
+    [Export] public Control? Container3Node;
+    [Export] public Control? GroupNameRotationNode;
+    [Export] public Label? GroupLabel;
 
     public override void _Ready() {
-        GD.Print("CharacterRow _Ready called");
-        _container1 = GetNode<Control>(Container1Path);
-        _container2 = GetNode<Control>(Container2Path);
-        _container3 = GetNode<Control>(Container3Path);
-
-        GD.Print($"Container1Path: {Container1Path}");
-        GD.Print($"Container2Path: {Container2Path}");
-        GD.Print($"Container3Path: {Container3Path}");
-
-        GD.Print($"_container1: {_container1}");
-        GD.Print($"_container2: {_container2}");
-        GD.Print($"_container3: {_container3}");
-
         CallDeferred(nameof(OnDirectionSet));
         CallDeferred(nameof(LoadCharacters));
         CallDeferred(nameof(FlipCharacters));
+        CallDeferred(nameof(OnGroupLabelSet));
+    }
+
+    private void OnGroupLabelSet() {
+        if (GroupLabel != null) {
+            GroupLabel.Text = IsEnemy ? "Enemy" : "Player";
+        }
     }
 
     private void OnDirectionSet() {
@@ -74,26 +67,26 @@ public partial class CharacterRow : HBoxContainer {
         }
         if (ForwardDirection == ForwardDirection.Left) {
             RowContainer.LayoutDirection = LayoutDirectionEnum.Rtl;
+            GroupNameRotationNode?.SetRotationDegrees(-90);
         }
         else if (ForwardDirection == ForwardDirection.Right) {
             RowContainer.LayoutDirection = LayoutDirectionEnum.Ltr;
+            GroupNameRotationNode?.SetRotationDegrees(90);
         }
 
         FlipCharacters();
     }
 
     private void FlipCharacters() {
-        if (_container1 == null || _container2 == null || _container3 == null) {
+        if (Container1Node == null || Container2Node == null || Container3Node == null) {
             GD.PrintErr("One or more containers are null");
             return;
         }
-        var characterNodes = new Control[] { _container1, _container2, _container3 };
+        var characterNodes = new Control[] { Container1Node, Container2Node, Container3Node };
         foreach (var container in characterNodes) {
             if (container != null && container.GetChildCount() > 0) {
                 var characterComponent = container.GetChild<CharacterComponent>(0);
-                if (characterComponent != null) {
-                    characterComponent.FlipCharacter(ForwardDirection == ForwardDirection.Left);
-                }
+                characterComponent?.FlipSprite(ForwardDirection == ForwardDirection.Left);
             }
         }
     }
@@ -109,12 +102,12 @@ public partial class CharacterRow : HBoxContainer {
             return;
         }
 
-        if (_container1 == null || _container2 == null || _container3 == null) {
+        if (Container1Node == null || Container2Node == null || Container3Node == null) {
             GD.PrintErr("One or more containers are null");
             return;
         }
 
-        var characterNodes = new Control[] { _container1, _container2, _container3 };
+        var characterNodes = new Control[] { Container1Node, Container2Node, Container3Node };
         var characters = CharacterStore.Characters;
 
         for (int i = 0; i < characterNodes.Length; i++) {
@@ -130,7 +123,7 @@ public partial class CharacterRow : HBoxContainer {
                     continue;
                 }
 
-                characterComponent.CharacterResource = characters[i];
+                characterComponent.Character = characters[i];
                 characterComponent.IsEnemy = IsEnemy;
                 characterNodes[i].AddChild(characterComponent);
             }

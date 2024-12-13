@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://8n50xik7xid3"]
+[gd_scene load_steps=10 format=3 uid="uid://8n50xik7xid3"]
 
 [ext_resource type="Script" path="res://core/scenes/gameplay/Battle.cs" id="1_oeh3a"]
 [ext_resource type="Script" path="res://core/ui/SceneTransitionButton.cs" id="2_4ip1d"]
@@ -7,9 +7,10 @@
 [ext_resource type="Script" path="res://core/ui/ArcDrawer.cs" id="4_g5jea"]
 [ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://components/GameLog/GameLogComponent.tscn" id="5_qac67"]
 [ext_resource type="Resource" uid="uid://2miun4ox1np8" path="res://models/Dice/DiceMana/DiceManaResources.tres" id="7_5jgc7"]
+[ext_resource type="PackedScene" uid="uid://dgyegipn74jj5" path="res://components/Characters/CharacterInspector.tscn" id="7_ms447"]
 [ext_resource type="PackedScene" uid="uid://bt73g5fssa68h" path="res://components/InventoryComponent/InventoryComponent.tscn" id="7_ue61k"]
 
-[node name="Battle" type="Control"]
+[node name="Battle" type="Control" node_paths=PackedStringArray("CharacterInspector")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +20,7 @@ grow_vertical = 2
 script = ExtResource("1_oeh3a")
 GameLogScene = ExtResource("5_qac67")
 DiceManaResources = ExtResource("7_5jgc7")
+CharacterInspector = NodePath("HUD/HUDContainer/Row/VBoxContainer/CharacterInspector")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -1121,26 +1123,8 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ColorRect" type="ColorRect" parent="HUD/HUDContainer/Row/VBoxContainer"]
+[node name="CharacterInspector" parent="HUD/HUDContainer/Row/VBoxContainer" instance=ExtResource("7_ms447")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color(0.1421, 0.194285, 0.49, 1)
-
-[node name="Label" type="Label" parent="HUD/HUDContainer/Row/VBoxContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -69.0
-offset_top = -11.5
-offset_right = 69.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "HUD / CHARACTER SELECTED"
 
 [node name="TabContainer" type="TabContainer" parent="HUD/HUDContainer/Row"]
 layout_mode = 2

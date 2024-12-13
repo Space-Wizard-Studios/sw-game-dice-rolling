@@ -1,12 +1,12 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 namespace DiceRoll.Models;
 
 [Tool]
 [GlobalClass]
 public partial class Character : Resource {
-
     [Export]
     public string Id { get; set; } = Guid.NewGuid().ToString();
 
@@ -20,7 +20,7 @@ public partial class Character : Resource {
     public int DiceCapacity { get; set; } = 0;
 
     [Export]
-    public Texture? Portrait { get; set; }
+    public Texture2D? Portrait { get; set; }
 
     [Export]
     public SpriteFrames? CharacterSprite { get; set; }
@@ -54,7 +54,21 @@ public partial class Character : Resource {
     [Export]
     public bool IsEnemy { get; set; } = false;
 
+    public List<CharacterAttribute> Attributes { get; private set; } = new List<CharacterAttribute>();
+
     public Character() {
+    }
+
+    public void InitializeAttributes() {
+        if (Role == null) {
+            GD.PrintErr("Role is null");
+            return;
+        }
+
+        foreach (var roleAttribute in Role.RoleAttributes) {
+            var characterAttribute = new CharacterAttribute(roleAttribute);
+            Attributes.Add(characterAttribute);
+        }
     }
 
     public AttackResult PerformAction(CharacterAction characterAction, Character target) {

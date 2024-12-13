@@ -1,0 +1,154 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgyegipn74jj5"]
+
+[ext_resource type="Script" path="res://components/Characters/CharacterInspector.cs" id="1_72g88"]
+[ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="1_jybd2"]
+[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Resources/Eleonore.tres" id="2_7csti"]
+
+[node name="CharacterInspector" type="HBoxContainer" node_paths=PackedStringArray("Portrait", "CharacterName", "CharacterRole", "AttributesList", "AttributeTemplate")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_72g88")
+Portrait = NodePath("PortraitMargin/Portrait")
+CharacterName = NodePath("Details/DetailsMargin/CharacterProperties/CharacterName")
+CharacterRole = NodePath("Details/DetailsMargin/CharacterProperties/CharacterRole")
+AttributesList = NodePath("Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList")
+AttributeTemplate = NodePath("Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate")
+Character = ExtResource("2_7csti")
+
+[node name="PortraitMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Portrait" type="TextureRect" parent="PortraitMargin"]
+layout_mode = 2
+texture = ExtResource("1_jybd2")
+stretch_mode = 5
+
+[node name="Details" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="DetailsMargin" type="MarginContainer" parent="Details"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="CharacterProperties" type="VBoxContainer" parent="Details/DetailsMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="CharacterName" type="Label" parent="Details/DetailsMargin/CharacterProperties"]
+layout_mode = 2
+text = "CHARACTER NAME"
+
+[node name="CharacterRole" type="Label" parent="Details/DetailsMargin/CharacterProperties"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ROLE NAME"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Details"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AttributesScroll" type="ScrollContainer" parent="Details/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+vertical_scroll_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Details/HBoxContainer/AttributesScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="AttributesList" type="VBoxContainer" parent="Details/HBoxContainer/AttributesScroll/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="AttributeTemplate" type="VBoxContainer" parent="Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="Label" parent="Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate"]
+layout_mode = 2
+text = "ATTRIBUTE NAME"
+
+[node name="ValueContainer" type="HBoxContainer" parent="Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate"]
+layout_mode = 2
+
+[node name="CurrentValue" type="Label" parent="Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate/ValueContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CURRENT"
+
+[node name="Separator" type="Label" parent="Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate/ValueContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "/"
+horizontal_alignment = 1
+
+[node name="MaxValue" type="Label" parent="Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate/ValueContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MAX"
+horizontal_alignment = 2
+
+[node name="ActionsScroll" type="ScrollContainer" parent="Details/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+vertical_scroll_mode = 2
+
+[node name="ActionsMargin" type="MarginContainer" parent="Details/HBoxContainer/ActionsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ActionsContainer" type="VBoxContainer" parent="Details/HBoxContainer/ActionsScroll/ActionsMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionsLineTemplate" type="GridContainer" parent="Details/HBoxContainer/ActionsScroll/ActionsMargin/ActionsContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="ActionButton" type="Button" parent="Details/HBoxContainer/ActionsScroll/ActionsMargin/ActionsContainer/ActionsLineTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "ACTION"
+
+[node name="ActionButton2" type="Button" parent="Details/HBoxContainer/ActionsScroll/ActionsMargin/ActionsContainer/ActionsLineTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "ACTION"

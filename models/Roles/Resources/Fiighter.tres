@@ -1,9 +1,10 @@
-[gd_resource type="Resource" load_steps=7 format=3 uid="uid://bad7cxgeb8mqp"]
+[gd_resource type="Resource" load_steps=9 format=3 uid="uid://bad7cxgeb8mqp"]
 
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attributes/Resources/Health.tres" id="1_fv2up"]
 [ext_resource type="Script" path="res://models/Attributes/RoleAttribute.cs" id="2_kvf26"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="3_kn0ad"]
 [ext_resource type="Script" path="res://models/Roles/Role.cs" id="4_alphf"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attributes/Resources/Speed.tres" id="4_frksy"]
 
 [sub_resource type="Resource" id="Resource_g0hcp"]
 script = ExtResource("2_kvf26")
@@ -13,9 +14,13 @@ Type = ExtResource("1_fv2up")
 script = ExtResource("2_kvf26")
 Type = ExtResource("3_kn0ad")
 
+[sub_resource type="Resource" id="Resource_xurgi"]
+script = ExtResource("2_kvf26")
+Type = ExtResource("4_frksy")
+
 [resource]
 script = ExtResource("4_alphf")
 Name = "Fighter"
 Description = "Fighter Description"
-RoleAttributes = [SubResource("Resource_g0hcp"), SubResource("Resource_8w8fm")]
+RoleAttributes = [SubResource("Resource_g0hcp"), SubResource("Resource_8w8fm"), SubResource("Resource_xurgi")]
 AllowedActions = []

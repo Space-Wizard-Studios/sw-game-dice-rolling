@@ -16,3 +16,4 @@ CharacterSprite = ExtResource("1_p8ost")
 SpritePositionX = 0.0
 SpritePositionY = 24.0
 ShowShadow = false
+IsEnemy = false

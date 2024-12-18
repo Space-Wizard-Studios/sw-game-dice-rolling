@@ -22,7 +22,7 @@ public partial class CharacterComponent : Control {
 		}
 	}
 
-	[ExportGroup("⚑ Flags")]
+	[ExportGroup("🏳️ Flags")]
 	[Export]
 	public bool IsEnemy { get; set; }
 
@@ -35,7 +35,6 @@ public partial class CharacterComponent : Control {
 			OnIsHoveredSet(value);
 		}
 	}
-	private bool _showShadow;
 	private bool _isSelected;
 	[Export]
 	public bool IsSelected {
@@ -48,7 +47,7 @@ public partial class CharacterComponent : Control {
 		}
 	}
 
-	[ExportGroup("⚙ Nodes")]
+	[ExportGroup("⚙️ Nodes")]
 	[Export]
 	public AnimatedSprite2D? AnimatedSpriteNode { get; set; }
 	[Export]
@@ -93,17 +92,17 @@ public partial class CharacterComponent : Control {
 
 	private static void OnCharacterResourceSet(Character character, AnimatedSprite2D animatedSpriteNode, AnimatedSprite2D shadowNode) {
 		if (character == null) {
-			GD.PrintErr("Character resource is null");
+			GD.PrintErr("CharacterComponent: Character resource is null");
 			return;
 		}
 
 		if (animatedSpriteNode == null) {
-			GD.PrintErr("Animated sprite node is null");
+			GD.PrintErr("CharacterComponent: Animated sprite node is null");
 			return;
 		}
 
 		if (shadowNode == null) {
-			GD.PrintErr("Shadow node is null");
+			GD.PrintErr("CharacterComponent: Shadow node is null");
 			return;
 		}
 

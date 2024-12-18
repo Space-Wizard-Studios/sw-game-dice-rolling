@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://blv7vekuqpawn"]
+
+[ext_resource type="Script" path="res://models/Attributes/AttributeType.cs" id="1_8nsa1"]
+
+[resource]
+script = ExtResource("1_8nsa1")
+Name = "Armor"
+Description = "Armor description"
+Color = Color(1, 0.85, 0, 1)
+MinValue = 0
+MaxValue = 0

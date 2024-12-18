@@ -66,7 +66,7 @@ folder_colors={
 
 [gui]
 
-theme/custom="res://assets/themes/Globals.tres"
+theme/custom="res://assets/Globals.tres"
 
 [input]
 

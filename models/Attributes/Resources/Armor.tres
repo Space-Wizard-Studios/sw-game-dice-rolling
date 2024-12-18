@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_73wod")
-Name = "Armor"
-Description = "Armor description"
+Name = "Speed"
+Description = "Speed description"
 Color = Color(0, 0, 0, 0)
-MinValue = 0
-MaxValue = 0
+MinValue = 1
+MaxValue = 999

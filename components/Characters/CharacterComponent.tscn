@@ -80,7 +80,7 @@ scale = Vector2(4, 4)
 sprite_frames = ExtResource("4_kpvh4")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.240531
+frame_progress = 0.857679
 offset = Vector2(0, -3)
 
 [node name="Character" type="Control" parent="."]
@@ -99,4 +99,4 @@ scale = Vector2(4, 4)
 sprite_frames = ExtResource("6_nsvg4")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.829405
+frame_progress = 0.446555

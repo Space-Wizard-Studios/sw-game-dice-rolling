@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace DiceRoll.Models;
@@ -69,6 +70,21 @@ public partial class Character : Resource {
             var characterAttribute = new CharacterAttribute(roleAttribute);
             Attributes.Add(characterAttribute);
         }
+    }
+
+    public int GetAttributeCurrentValue(AttributeType type) {
+        var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
+        return attribute != null ? attribute.CurrentValue : 0;
+    }
+
+    public int GetAttributeMaxValue(AttributeType type) {
+        var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
+        return attribute != null ? attribute.MaxValue : 0;
+    }
+
+    public int GetAttributeBaseValue(AttributeType type) {
+        var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
+        return attribute != null ? attribute.BaseValue : 0;
     }
 
     public AttackResult PerformAction(CharacterAction characterAction, Character target) {

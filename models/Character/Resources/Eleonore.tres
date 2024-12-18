@@ -18,3 +18,4 @@ SpritePositionX = 0.0
 SpritePositionY = 0.0
 ShowShadow = true
 ShadowSprite = ExtResource("5_x2a24")
+IsEnemy = false

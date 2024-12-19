@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using System.Linq;
-using System.Collections.Generic;
 
 namespace DiceRoll.Models;
 
@@ -14,8 +13,16 @@ public partial class Character : Resource {
     [Export]
     public string? Name { get; set; }
 
+    private Role? _role;
     [Export]
-    public Role? Role { get; set; }
+    public Role? Role {
+        get => _role;
+        set {
+            _role = value;
+            EmitChanged();
+            InitializeAttributes();
+        }
+    }
 
     [Export]
     public int DiceCapacity { get; set; } = 0;
@@ -55,7 +62,8 @@ public partial class Character : Resource {
     [Export]
     public bool IsEnemy { get; set; } = false;
 
-    public List<CharacterAttribute> Attributes { get; private set; } = new List<CharacterAttribute>();
+    [Export]
+    public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = new Godot.Collections.Array<CharacterAttribute>();
 
     public Character() {
     }
@@ -66,9 +74,12 @@ public partial class Character : Resource {
             return;
         }
 
-        foreach (var roleAttribute in Role.RoleAttributes) {
-            var characterAttribute = new CharacterAttribute(roleAttribute);
-            Attributes.Add(characterAttribute);
+        // Initialize attributes only if they are not already set
+        if (Attributes.Count == 0) {
+            foreach (var roleAttribute in Role.RoleAttributes) {
+                var characterAttribute = new CharacterAttribute(roleAttribute);
+                Attributes.Add(characterAttribute);
+            }
         }
     }
 

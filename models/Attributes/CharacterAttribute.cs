@@ -11,6 +11,8 @@ public partial class CharacterAttribute : Resource {
     public int CurrentValue { get; set; }
     public int BaseValue { get; set; }
 
+    public CharacterAttribute() { }
+
     public CharacterAttribute(RoleAttribute roleAttribute) {
         Type = roleAttribute.Type;
         BaseValue = roleAttribute.BaseValue;

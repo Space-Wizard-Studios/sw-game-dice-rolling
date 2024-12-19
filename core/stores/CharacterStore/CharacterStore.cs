@@ -20,6 +20,7 @@ public partial class CharacterStore : Resource {
     public Godot.Collections.Array<Character> Characters { get; private set; } = new Godot.Collections.Array<Character>();
 
     public void AddCharacter(Character character) {
+        character.InitializeAttributes();
         Characters.Add(character);
     }
 
@@ -33,6 +34,7 @@ public partial class CharacterStore : Resource {
 
     public Character GetCharacterById(string characterID) {
         var character = Characters.FirstOrDefault(c => c.Id == characterID) ?? throw new Exception($"Character with ID {characterID} not found");
+        character.InitializeAttributes();
         return character;
     }
 
@@ -42,7 +44,7 @@ public partial class CharacterStore : Resource {
             var property = character.GetType().GetProperty(field.Key);
             property?.SetValue(character, field.Value);
         }
+        character.InitializeAttributes();
     }
-
     public CharacterStore() { }
 }

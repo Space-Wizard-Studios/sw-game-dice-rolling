@@ -10,7 +10,6 @@ public partial class CharacterInspector : HBoxContainer {
     [Export] private VBoxContainer? AttributeTemplate;
 
     private Character? _character;
-
     [Export]
     public Character? Character {
         get => _character;
@@ -35,10 +34,10 @@ public partial class CharacterInspector : HBoxContainer {
         }
 
         if (CharacterName != null) {
-            CharacterName.Text = _character.Name ?? "Unknown";
+            CharacterName.Text = _character?.Name ?? "Unknown";
         }
 
-        if (CharacterRole != null && _character.Role != null) {
+        if (CharacterRole != null && _character?.Role != null) {
             CharacterRole.Text = _character.Role.Name ?? "Unknown Role";
         }
     }

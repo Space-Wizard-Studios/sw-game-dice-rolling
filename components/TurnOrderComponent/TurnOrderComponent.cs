@@ -12,6 +12,7 @@ public partial class TurnOrderComponent : Control {
     private AttributeType? HealthAttributeType;
 
     [ExportGroup("🪵 Resources")]
+    private Character[] _characters = Array.Empty<Character>();
     [Export]
     public Character[] Characters {
         get => _characters;
@@ -38,7 +39,6 @@ public partial class TurnOrderComponent : Control {
             }
         }
     }
-    private Character[] _characters = Array.Empty<Character>();
 
     [ExportGroup("⚙️ Nodes")]
     [Export] public HBoxContainer? PortraitsContainerNode { get; set; }
@@ -130,8 +130,8 @@ public partial class TurnOrderComponent : Control {
             GD.PrintErr("TextureRect or character portrait is null for character: ", character.Name);
         }
 
-        int currentHealth = character.GetAttributeCurrentValue(HealthAttributeType);
-        int maxHealth = character.GetAttributeMaxValue(HealthAttributeType);
+        int currentHealth = HealthAttributeType != null ? character.GetAttributeCurrentValue(HealthAttributeType) : 0;
+        int maxHealth = HealthAttributeType != null ? character.GetAttributeMaxValue(HealthAttributeType) : 0;
 
         if (damageColor != null && maxHealth > 0) {
             float healthRatio = (float)currentHealth / maxHealth;

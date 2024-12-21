@@ -6,6 +6,9 @@ namespace DiceRoll.Events;
 
 public partial class EventBus : Node {
     [Signal]
+    public delegate void AttributeChangedEventHandler();
+
+    [Signal]
     public delegate void CharacterSelectedEventHandler(CharacterComponent character);
 
     private static EventBus? _instance;
@@ -35,6 +38,10 @@ public partial class EventBus : Node {
             root.AddChild(eventBus);
         }
         return eventBus;
+    }
+
+    public void EmitAttributeChanged(Character character, AttributeType attributeType) {
+        EmitSignal(nameof(AttributeChanged), character, attributeType);
     }
 
     public void OnCharacterInspected(Character character) {

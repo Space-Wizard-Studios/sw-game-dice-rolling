@@ -7,6 +7,10 @@ namespace DiceRoll.Models;
 [Tool]
 [GlobalClass]
 public partial class Character : Resource {
+    [Signal]
+    public delegate void AttributeChangedEventHandler(Character character, AttributeType attributeType);
+
+
     [ExportGroup("🧝 Character")]
     [Export] public string Id { get; set; } = Guid.NewGuid().ToString();
 
@@ -86,7 +90,7 @@ public partial class Character : Resource {
             return;
         }
 
-        Actions = new Godot.Collections.Array<CharacterAction>(Role.AllowedActions);
+        Actions = [.. Role.RoleActions];
     }
 
     public int GetAttributeCurrentValue(AttributeType type) {
@@ -102,6 +106,14 @@ public partial class Character : Resource {
     public int GetAttributeBaseValue(AttributeType type) {
         var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
         return attribute != null ? attribute.BaseValue : 0;
+    }
+
+    public void UpdateAttributeCurrentValue(AttributeType type, int newValue) {
+        var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
+        if (attribute != null) {
+            attribute.CurrentValue = newValue;
+            EmitSignal(nameof(AttributeChanged), this, type);
+        }
     }
 
     public AttackResult PerformAction(CharacterAction characterAction, Character target) {

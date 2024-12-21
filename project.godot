@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-EventBus="*res://core/EventBus.cs"
 GameplayTransitionManager="*res://scenes/GameplayTransitionManager.tscn"
 MenuTransitionManager="*res://scenes/MenuTransitionManager.tscn"
 PlaygroundTransitionManager="*res://scenes/PlaygroundTransitionManager.tscn"
@@ -50,7 +49,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/PaletteTools/plugin.cfg", "res://addons/imrp/plugin.cfg")
+enabled=PackedStringArray("res://addons/imrp/plugin.cfg")
 
 [file_customization]
 

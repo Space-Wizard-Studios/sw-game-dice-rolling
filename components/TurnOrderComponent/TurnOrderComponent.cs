@@ -1,9 +1,9 @@
 using Godot;
-using System;
 using System.Linq;
 using System.Collections.Generic;
 using DiceRoll.Helpers;
 using DiceRoll.Models;
+using DiceRoll.Events;
 
 namespace DiceRoll.Components;
 
@@ -12,12 +12,11 @@ public partial class TurnOrderComponent : Control {
     private AttributeType? SpeedAttributeType;
     private AttributeType? HealthAttributeType;
 
-
     private AttributesConfig? _attributesConfig;
     [ExportGroup("🪵 Resources")]
     [Export] private Resource? AttributeConfigResource;
 
-    private Character[] _characters = Array.Empty<Character>();
+    private Character[] _characters = [];
     [Export]
     public Character[] Characters {
         get => _characters;
@@ -99,6 +98,16 @@ public partial class TurnOrderComponent : Control {
         else {
             GD.PrintErr("AttributeConfigResource is not set or not of type AttributesConfig.");
         }
+
+        // Connect the AttributeChanged signal from EventBus to the OnCharacterAttributeChanged method
+        EventBus.Instance.Connect(nameof(EventBus.AttributeChanged), new Callable(this, nameof(OnCharacterAttributeChanged)));
+
+    }
+
+    private void OnCharacterAttributeChanged(Character character, AttributeType attributeType) {
+        if (attributeType == HealthAttributeType) {
+            UpdateTurnOrder([.. Characters]);
+        }
     }
 
     private void OnPortraitTemplateChanged() {
@@ -144,12 +153,9 @@ public partial class TurnOrderComponent : Control {
         int maxHealth = HealthAttributeType != null ? character.GetAttributeMaxValue(HealthAttributeType) : 0;
 
         if (damageColor != null && maxHealth > 0) {
-            float healthRatio = (float)currentHealth / maxHealth;
-            damageColor.Scale = new Vector2(1, healthRatio);
-            GD.Print("Setting damage color scale for character: ", character.Name, " Health ratio: ", healthRatio);
-        }
-        else {
-            GD.PrintErr("DamageColor is null or maxHealth is zero for character: ", character.Name);
+            float damageRatio = (float)(maxHealth - currentHealth) / maxHealth;
+            damageColor.Scale = new Vector2(1, damageRatio);
+            GD.Print("Setting damage color scale for character: ", character.Name, " Damage ratio: ", damageRatio);
         }
     }
     public void UpdateTurnOrder(List<Character> characters) {

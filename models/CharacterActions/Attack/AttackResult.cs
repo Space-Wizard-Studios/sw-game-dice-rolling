@@ -1,11 +1,6 @@
-namespace DiceRoll.Models;
+namespace DiceRoll.Models.CharacterActions.Attack;
 
-public class AttackResult {
-    public int DamageDealt { get; set; }
-    public bool ManaSpent { get; set; }
-
-    public AttackResult(int damageDealt, bool manaSpent) {
-        DamageDealt = damageDealt;
-        ManaSpent = manaSpent;
-    }
+public class AttackResult(int damageDealt, bool manaSpent) {
+    public int DamageDealt { get; set; } = damageDealt;
+    public bool ManaSpent { get; set; } = manaSpent;
 }

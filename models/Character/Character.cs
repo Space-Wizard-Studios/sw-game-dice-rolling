@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Linq;
+using DiceRoll.Models.CharacterActions.Attack;
 
 namespace DiceRoll.Models;
 
@@ -119,6 +120,6 @@ public partial class Character : Resource {
     public AttackResult PerformAction(CharacterAction characterAction, Character target) {
         var context = new AttackContext(this, target);
         var action = ActionFactory.CreateAction(characterAction.ActionType);
-        return action.Do(context);
+        return action.Do(context) ?? new AttackResult(0, false);
     }
 }

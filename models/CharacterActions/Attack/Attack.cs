@@ -1,4 +1,4 @@
-namespace DiceRoll.Models;
+namespace DiceRoll.Models.CharacterActions.Attack;
 
 
 public class Attack : IAction<AttackContext, AttackResult> {

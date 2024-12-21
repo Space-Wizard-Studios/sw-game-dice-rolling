@@ -1,11 +1,6 @@
-namespace DiceRoll.Models;
+namespace DiceRoll.Models.CharacterActions.Attack;
 
-public struct AttackContext : IActionContext {
-    public Character Attacker { get; set; }
-    public Character Target { get; set; }
-
-    public AttackContext(Character attacker, Character target) {
-        Attacker = attacker;
-        Target = target;
-    }
+public struct AttackContext(Character attacker, Character target) : IActionContext {
+    public Character Attacker { get; set; } = attacker;
+    public Character Target { get; set; } = target;
 }

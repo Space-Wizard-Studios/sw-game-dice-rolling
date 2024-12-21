@@ -8,33 +8,31 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
   - [Sumário](#sumário)
   - [Estrutura de Pastas](#estrutura-de-pastas)
   - [Conceito Geral](#conceito-geral)
-	- [Transição entre cenas](#transição-entre-cenas)
-	- [Gameplay](#gameplay)
-	  - [Lobby](#lobby)
-	  - [Dungeon](#dungeon)
-	  - [Batalha](#batalha)
+    - [Transição entre cenas](#transição-entre-cenas)
+    - [Gameplay](#gameplay)
+      - [Lobby](#lobby)
+      - [Dungeon](#dungeon)
+      - [Batalha](#batalha)
   - [Instalação](#instalação)
-	- [Pré-requisitos](#pré-requisitos)
-	- [Passos para Instalação](#passos-para-instalação)
+    - [Pré-requisitos](#pré-requisitos)
+    - [Passos para Instalação](#passos-para-instalação)
   - [Tecnologias e Frameworks](#tecnologias-e-frameworks)
 
 ## Estrutura de Pastas
 
 ```txt
 sw-game-dice-roll/          # root
-├── addons/                 # third party libs
+├── addons/                 # bibliotecas third party
 ├── assets/                 # assets como sprites, sons, texturas e respectivos arquivos de configuração
-├── components/             # nodes a serem exibidos nas cenas
+├── components/             # nodes a serem exibidos nas cenas e respectivos arquivos de
 ├── core/                   # core game logic and systems
 │ ├── managers/             # game managers
-│ ├── scenes/               # scene-specific scripts
 │ ├── stores/               # singletons
 │ └── ui/                   # UI-related scripts
 ├── models/                 # modelos de objetos
 │ └── [DOMAIN]              #
 │   └── [RESOURCES]         #
-├── scenes/                 # cenas do jogo
-└── scripts/                # additional scripts (if needed)
+└── scenes/                 # cenas do jogo
 ```
 
 ## Conceito Geral

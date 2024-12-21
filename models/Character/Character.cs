@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Linq;
+using DiceRoll.Models.CharacterActions;
 using DiceRoll.Models.CharacterActions.Attack;
 
 namespace DiceRoll.Models;

@@ -1,7 +1,6 @@
 namespace DiceRoll.Models.CharacterActions.Attack;
 
-
-public class Attack : IAction<AttackContext, AttackResult> {
+public class AttackAction : IAction<AttackContext, AttackResult> {
     public AttackResult Do(AttackContext context) {
         int damage = CalculateDamage(context);
         bool manaSpent = SpendMana(context);

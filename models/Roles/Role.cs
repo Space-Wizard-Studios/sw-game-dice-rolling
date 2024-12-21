@@ -1,4 +1,6 @@
 using Godot;
+using DiceRoll.Models.CharacterActions;
+
 namespace DiceRoll.Models;
 
 [Tool]

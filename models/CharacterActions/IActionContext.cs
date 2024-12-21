@@ -1,4 +1,4 @@
-namespace DiceRoll.Models;
+namespace DiceRoll.Models.CharacterActions;
 
 public interface IActionContext {
 }

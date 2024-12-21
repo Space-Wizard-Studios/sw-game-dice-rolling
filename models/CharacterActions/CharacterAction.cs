@@ -1,7 +1,8 @@
 using Godot;
 using System;
+using DiceRoll.Models.CharacterActions.Attack;
 
-namespace DiceRoll.Models;
+namespace DiceRoll.Models.CharacterActions;
 
 public enum TargetType {
     Enemy,
@@ -96,7 +97,7 @@ public partial class CharacterAction : Resource {
 public static class ActionFactory {
     public static IAction<IActionContext, AttackResult> CreateAction(ActionType actionType) {
         return actionType switch {
-            ActionType.Attack => (IAction<IActionContext, AttackResult>)new Attack(),
+            ActionType.Attack => (IAction<IActionContext, AttackResult>)new AttackAction(),
             // Add other cases for different action types
             _ => throw new ArgumentException($"Invalid action type: {actionType}")
         };

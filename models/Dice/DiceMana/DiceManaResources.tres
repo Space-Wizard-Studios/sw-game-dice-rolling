@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=9 format=3 uid="uid://2miun4ox1np8"]
+[gd_resource type="Resource" load_steps=10 format=3 uid="uid://2miun4ox1np8"]
 
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="1_2dewc"]
 [ext_resource type="Resource" uid="uid://xcyti3lh5xkx" path="res://models/Dice/DiceMana/Resources/ManaEmpty.tres" id="1_8d6cq"]
-[ext_resource type="Script" path="res://models/Dice/DiceMana/DiceManaResources.cs" id="1_46bd6"]
+[ext_resource type="Script" uid="uid://buhyteqd4veys" path="res://models/Dice/DiceMana/DiceManaResources.cs" id="1_46bd6"]
 [ext_resource type="Resource" uid="uid://dme7olxx1dsok" path="res://models/Dice/DiceMana/Resources/ManaColorless.tres" id="2_mlh7j"]
 [ext_resource type="Resource" uid="uid://d1fdrw7p7rywt" path="res://models/Dice/DiceMana/Resources/ManaBlue.tres" id="3_7172j"]
 [ext_resource type="Resource" uid="uid://djkgjo1axl23k" path="res://models/Dice/DiceMana/Resources/ManaGreen.tres" id="4_f05nf"]
@@ -11,4 +12,4 @@
 
 [resource]
 script = ExtResource("1_46bd6")
-DiceManas = [ExtResource("1_8d6cq"), ExtResource("2_mlh7j"), ExtResource("3_7172j"), ExtResource("4_f05nf"), ExtResource("5_ec7b3"), ExtResource("6_te70j"), ExtResource("7_ln7tk")]
+DiceManas = Array[ExtResource("1_2dewc")]([ExtResource("1_8d6cq"), ExtResource("2_mlh7j"), ExtResource("3_7172j"), ExtResource("4_f05nf"), ExtResource("5_ec7b3"), ExtResource("6_te70j"), ExtResource("7_ln7tk")])

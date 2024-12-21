@@ -13,7 +13,9 @@ public partial class CharacterInspector : HBoxContainer {
         get => _character;
         set {
             _character = value;
-            UpdateCharacterDetails();
+            if (_character != null) {
+                UpdateCharacterDetails();
+            }
         }
     }
 
@@ -51,7 +53,7 @@ public partial class CharacterInspector : HBoxContainer {
         }
 
         if (PortraitNode == null) {
-            GD.PrintErr("Portrait node is null");
+            GD.PrintErr("Portrait node is null.");
             return;
         }
 

@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="Character" load_steps=12 format=3 uid="uid://bkolttux1bvi1"]
+[gd_resource type="Resource" script_class="Character" load_steps=13 format=3 uid="uid://bkolttux1bvi1"]
 
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attributes/Resources/Health.tres" id="1_0bgf2"]
+[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/CharacterActions/CharacterAction.cs" id="1_lhq5r"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="1_p8ost"]
-[ext_resource type="Script" path="res://models/Attributes/CharacterAttribute.cs" id="2_dudko"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attributes/CharacterAttribute.cs" id="2_dudko"]
 [ext_resource type="Texture2D" uid="uid://8e45l4n0kh6" path="res://assets/characters/joannaOtsoga/JoannaOtsogaPortrait.png" id="3_25hax"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="3_rm216"]
-[ext_resource type="Script" path="res://models/Character/Character.cs" id="4_b0lof"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/Character.cs" id="4_b0lof"]
 [ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attributes/Resources/Speed.tres" id="4_rlhva"]
 [ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://models/Roles/Resources/Fiighter.tres" id="4_sy6mv"]
 
@@ -36,7 +37,8 @@ Id = "d98ec50f-3df3-47e6-b266-cbc7b8fbb745"
 Name = "Joanna"
 IsEnemy = false
 Role = ExtResource("4_sy6mv")
-Attributes = [SubResource("Resource_4p1nt"), SubResource("Resource_ebahj"), SubResource("Resource_b3bio")]
+Attributes = Array[ExtResource("2_dudko")]([SubResource("Resource_4p1nt"), SubResource("Resource_ebahj"), SubResource("Resource_b3bio")])
+Actions = Array[ExtResource("1_lhq5r")]([])
 DiceCapacity = 0
 Portrait = ExtResource("3_25hax")
 CharacterSprite = ExtResource("1_p8ost")

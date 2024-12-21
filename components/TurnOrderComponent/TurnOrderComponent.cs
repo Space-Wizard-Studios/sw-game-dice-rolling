@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using DiceRoll.Helpers;
 using DiceRoll.Models;
 
 namespace DiceRoll.Components;
@@ -11,7 +12,11 @@ public partial class TurnOrderComponent : Control {
     private AttributeType? SpeedAttributeType;
     private AttributeType? HealthAttributeType;
 
+
+    private AttributesConfig? _attributesConfig;
     [ExportGroup("🪵 Resources")]
+    [Export] private Resource? AttributeConfigResource;
+
     private Character[] _characters = Array.Empty<Character>();
     [Export]
     public Character[] Characters {
@@ -68,26 +73,31 @@ public partial class TurnOrderComponent : Control {
     public string PortraitDamageColorName => PortraitDamageColorNode?.Name ?? "PortraitDamageColor";
 
     public override void _Ready() {
-        // Load the Speed attribute type resource
-        SpeedAttributeType = GD.Load<AttributeType>("res://models/Attributes/Resources/Speed.tres");
-        GD.Print("SpeedAttributeType loaded: ", SpeedAttributeType != null);
-        // Load the Health attribute type resource
-        HealthAttributeType = GD.Load<AttributeType>("res://models/Attributes/Resources/Health.tres");
-        GD.Print("HealthAttributeType loaded: ", HealthAttributeType != null);
+        if (AttributeConfigResource is AttributesConfig attributeConfig) {
+            _attributesConfig = attributeConfig;
+            SpeedAttributeType = AttributesHelper.GetAttributeType(_attributesConfig, "Speed");
+            HealthAttributeType = AttributesHelper.GetAttributeType(_attributesConfig, "Health");
 
-        // Update turn order if characters are already set
-        if (_characters.Length > 0) {
-            var validCharacters = _characters.Where(c => c != null).ToList();
-            GD.Print("Initial valid characters count: ", validCharacters.Count);
-            if (validCharacters.Count > 0) {
-                UpdateTurnOrder(validCharacters);
+            GD.Print("SpeedAttributeType loaded: ", SpeedAttributeType != null);
+            GD.Print("HealthAttributeType loaded: ", HealthAttributeType != null);
+
+            // Update turn order if characters are already set
+            if (_characters.Length > 0) {
+                var validCharacters = _characters.Where(c => c != null).ToList();
+                GD.Print("Initial valid characters count: ", validCharacters.Count);
+                if (validCharacters.Count > 0) {
+                    UpdateTurnOrder(validCharacters);
+                }
+                else {
+                    GD.PrintErr("No valid characters found on _Ready.");
+                }
             }
             else {
-                GD.PrintErr("No valid characters found on _Ready.");
+                GD.PrintErr("Characters array is empty.");
             }
         }
         else {
-            GD.PrintErr("Characters array is empty on _Ready.");
+            GD.PrintErr("AttributeConfigResource is not set or not of type AttributesConfig.");
         }
     }
 

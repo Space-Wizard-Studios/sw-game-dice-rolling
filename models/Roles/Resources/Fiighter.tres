@@ -9,14 +9,17 @@
 [sub_resource type="Resource" id="Resource_g0hcp"]
 script = ExtResource("2_kvf26")
 Type = ExtResource("1_fv2up")
+BaseValue = 80
 
 [sub_resource type="Resource" id="Resource_8w8fm"]
 script = ExtResource("2_kvf26")
 Type = ExtResource("3_kn0ad")
+BaseValue = 50
 
 [sub_resource type="Resource" id="Resource_xurgi"]
 script = ExtResource("2_kvf26")
 Type = ExtResource("4_frksy")
+BaseValue = 20
 
 [resource]
 script = ExtResource("4_alphf")

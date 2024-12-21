@@ -9,14 +9,17 @@
 [sub_resource type="Resource" id="Resource_gincr"]
 script = ExtResource("2_ht6qo")
 Type = ExtResource("1_3oclc")
+BaseValue = 50
 
 [sub_resource type="Resource" id="Resource_dsmvb"]
 script = ExtResource("2_ht6qo")
 Type = ExtResource("3_u8iqy")
+BaseValue = 0
 
 [sub_resource type="Resource" id="Resource_42ch0"]
 script = ExtResource("2_ht6qo")
 Type = ExtResource("4_4ioeg")
+BaseValue = 40
 
 [resource]
 script = ExtResource("3_n1ag4")

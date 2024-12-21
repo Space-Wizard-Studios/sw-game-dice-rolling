@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="1_jybd2"]
 [ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Resources/Eleonore.tres" id="2_7csti"]
 
-[node name="CharacterInspector" type="HBoxContainer" node_paths=PackedStringArray("Portrait", "CharacterName", "CharacterRole", "AttributesList", "AttributeTemplate")]
+[node name="CharacterInspector" type="HBoxContainer" node_paths=PackedStringArray("PortraitNode", "CharacterNameNode", "CharacterRoleNode", "AttributesListNode", "AttributeTemplateNode", "AttributeTemplateTitleNode", "AttributeCurrentValueNode", "AttributeMaxValueNode")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,11 +13,14 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_72g88")
-Portrait = NodePath("PortraitMargin/Portrait")
-CharacterName = NodePath("Details/DetailsMargin/CharacterProperties/CharacterName")
-CharacterRole = NodePath("Details/DetailsMargin/CharacterProperties/CharacterRole")
-AttributesList = NodePath("Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList")
-AttributeTemplate = NodePath("Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate")
+PortraitNode = NodePath("PortraitMargin/Portrait")
+CharacterNameNode = NodePath("Details/DetailsMargin/CharacterProperties/CharacterName")
+CharacterRoleNode = NodePath("Details/DetailsMargin/CharacterProperties/CharacterRole")
+AttributesListNode = NodePath("Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList")
+AttributeTemplateNode = NodePath("Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate")
+AttributeTemplateTitleNode = NodePath("Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate/Title")
+AttributeCurrentValueNode = NodePath("Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate/ValueContainer/CurrentValue")
+AttributeMaxValueNode = NodePath("Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate/ValueContainer/MaxValue")
 Character = ExtResource("2_7csti")
 
 [node name="PortraitMargin" type="MarginContainer" parent="."]

@@ -10,8 +10,12 @@ public enum ForwardDirection {
 
 [Tool]
 public partial class CharacterRow : HBoxContainer {
-    [Export] public CharacterStore? CharacterStore { get; set; }
 
+    [ExportGroup("🪵 Resources")]
+    [Export] public CharacterStore? CharacterStore { get; set; }
+    [Export] public PackedScene? CharacterComponentScene { get; set; }
+
+    [ExportGroup("🏳️ Flags")]
     private bool _isEnemy;
     [Export]
     public bool IsEnemy {
@@ -24,22 +28,20 @@ public partial class CharacterRow : HBoxContainer {
         }
     }
 
-    [Export] public PackedScene? CharacterComponentScene { get; set; }
-
-    [Export] public HBoxContainer? RowContainer { get; set; }
-
     private ForwardDirection _direction;
     [Export]
     public ForwardDirection ForwardDirection {
         get => _direction;
         set {
             _direction = value;
-            if (Container1Node != null && Container2Node != null && Container3Node != null && RowContainer != null) {
-                CallDeferred(nameof(OnDirectionSet));
+            if (Container1Node != null && Container2Node != null && Container3Node != null && RowContainerNode != null) {
+                OnDirectionSet();
             }
         }
     }
 
+    [ExportGroup("🔘 Nodes")]
+    [Export] public HBoxContainer? RowContainerNode { get; set; }
     [Export] public Control? Container1Node;
     [Export] public Control? Container2Node;
     [Export] public Control? Container3Node;
@@ -47,10 +49,10 @@ public partial class CharacterRow : HBoxContainer {
     [Export] public Label? GroupLabel;
 
     public override void _Ready() {
-        CallDeferred(nameof(OnDirectionSet));
-        CallDeferred(nameof(LoadCharacters));
-        CallDeferred(nameof(FlipCharacters));
-        CallDeferred(nameof(OnGroupLabelSet));
+        OnDirectionSet();
+        LoadCharacters();
+        FlipCharacters();
+        OnGroupLabelSet();
     }
 
     private void OnGroupLabelSet() {
@@ -60,16 +62,16 @@ public partial class CharacterRow : HBoxContainer {
     }
 
     private void OnDirectionSet() {
-        if (RowContainer == null) {
+        if (RowContainerNode == null) {
             GD.PrintErr("RowContainer is null");
             return;
         }
         if (ForwardDirection == ForwardDirection.Left) {
-            RowContainer.LayoutDirection = LayoutDirectionEnum.Rtl;
+            RowContainerNode.LayoutDirection = LayoutDirectionEnum.Rtl;
             GroupNameRotationNode?.SetRotationDegrees(-90);
         }
         else if (ForwardDirection == ForwardDirection.Right) {
-            RowContainer.LayoutDirection = LayoutDirectionEnum.Ltr;
+            RowContainerNode.LayoutDirection = LayoutDirectionEnum.Ltr;
             GroupNameRotationNode?.SetRotationDegrees(90);
         }
 

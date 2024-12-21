@@ -6,4 +6,4 @@
 
 [resource]
 script = ExtResource("3_0pcwr")
-Characters = [ExtResource("1_8qg6e"), ExtResource("2_qbdxb"), ExtResource("2_qbdxb")]
+Characters = [ExtResource("1_8qg6e"), ExtResource("1_8qg6e"), ExtResource("2_qbdxb")]

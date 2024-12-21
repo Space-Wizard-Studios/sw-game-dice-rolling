@@ -40,7 +40,7 @@ public partial class TurnOrderComponent : Control {
         }
     }
 
-    [ExportGroup("⚙️ Nodes")]
+    [ExportGroup("🔘 Nodes")]
     [Export] public HBoxContainer? PortraitsContainerNode { get; set; }
 
     private PanelContainer? _portraitTemplate;

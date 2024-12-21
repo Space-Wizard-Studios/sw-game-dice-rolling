@@ -8,4 +8,4 @@ Name = "Health"
 Description = "Health description."
 Color = Color(1, 0, 0.0166664, 1)
 MinValue = 0
-MaxValue = 0
+MaxValue = 9999

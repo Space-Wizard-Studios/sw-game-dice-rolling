@@ -24,7 +24,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("1_t0krx")
-_characterResource = ExtResource("2_cqrrp")
+Character = ExtResource("2_cqrrp")
 AnimatedSpriteNode = NodePath("Character/AnimatedSprite")
 ShadowNode = NodePath("Shadow/Shadow")
 HoverSpriteNode = NodePath("Selector/HoverSprite")
@@ -80,7 +80,7 @@ scale = Vector2(4, 4)
 sprite_frames = ExtResource("4_kpvh4")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.377673
+frame_progress = 0.23402
 offset = Vector2(0, -3)
 
 [node name="Character" type="Control" parent="."]
@@ -99,4 +99,4 @@ scale = Vector2(4, 4)
 sprite_frames = ExtResource("6_nsvg4")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.966549
+frame_progress = 0.822894

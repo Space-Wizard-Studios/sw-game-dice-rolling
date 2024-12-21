@@ -53,7 +53,7 @@ public partial class CharacterComponent : Control {
     private static CharacterComponent? _currentlySelectedCharacter;
     private static CharacterComponent? _currentlySelectedEnemy;
 
-    [ExportGroup("⚙️ Nodes")]
+    [ExportGroup("🔘 Nodes")]
     [Export] public AnimatedSprite2D? AnimatedSpriteNode { get; set; }
     [Export] public AnimatedSprite2D? ShadowNode { get; set; }
     [Export] public Sprite2D? HoverSpriteNode { get; set; }
@@ -125,7 +125,7 @@ public partial class CharacterComponent : Control {
         }
 
         if (Character != null && !IsEnemy) {
-            EventBus.Instance.OnCharacterInspected(this);
+            EventBus.Instance.OnCharacterInspected(Character);
         }
     }
 

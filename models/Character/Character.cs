@@ -7,11 +7,12 @@ namespace DiceRoll.Models;
 [Tool]
 [GlobalClass]
 public partial class Character : Resource {
-    [Export]
-    public string Id { get; set; } = Guid.NewGuid().ToString();
+    [ExportGroup("🧝 Character")]
+    [Export] public string Id { get; set; } = Guid.NewGuid().ToString();
 
-    [Export]
-    public string? Name { get; set; }
+    [Export] public string? Name { get; set; }
+
+    [Export] public bool IsEnemy { get; set; } = false;
 
     private Role? _role;
     [Export]
@@ -24,14 +25,17 @@ public partial class Character : Resource {
         }
     }
 
-    [Export]
-    public int DiceCapacity { get; set; } = 0;
+    [Export] public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = new Godot.Collections.Array<CharacterAttribute>();
 
-    [Export]
-    public Texture2D? Portrait { get; set; }
+    [Export] public int DiceCapacity { get; set; } = 0;
 
-    [Export]
-    public SpriteFrames? CharacterSprite { get; set; }
+    [ExportGroup("🪵 Resources")]
+    [Export] public Texture2D? Portrait { get; set; }
+    [Export] public SpriteFrames? CharacterSprite { get; set; }
+    [Export] public SpriteFrames? ShadowSprite { get; set; }
+
+    [ExportGroup("⚙️ Config")]
+    [Export] public bool ShowShadow { get; set; }
 
     private float _spritePositionX;
     [Export]
@@ -53,20 +57,7 @@ public partial class Character : Resource {
         }
     }
 
-    [Export]
-    public bool ShowShadow { get; set; }
-
-    [Export]
-    public SpriteFrames? ShadowSprite { get; set; }
-
-    [Export]
-    public bool IsEnemy { get; set; } = false;
-
-    [Export]
-    public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = new Godot.Collections.Array<CharacterAttribute>();
-
-    public Character() {
-    }
+    public Character() { }
 
     public void InitializeAttributes() {
         if (Role == null) {
@@ -77,7 +68,10 @@ public partial class Character : Resource {
         // Initialize attributes only if they are not already set
         if (Attributes.Count == 0) {
             foreach (var roleAttribute in Role.RoleAttributes) {
-                var characterAttribute = new CharacterAttribute(roleAttribute);
+                var characterAttribute = new CharacterAttribute(roleAttribute) {
+                    MaxValue = roleAttribute.BaseValue,
+                    CurrentValue = roleAttribute.BaseValue
+                };
                 Attributes.Add(characterAttribute);
             }
         }

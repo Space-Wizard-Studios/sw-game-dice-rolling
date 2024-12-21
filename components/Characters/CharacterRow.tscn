@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://snt34yslyn4f" path="res://core/stores/CharacterStore/PlayerCharacterStore.tres" id="2_73fxd"]
 [ext_resource type="PackedScene" uid="uid://d3lkjx05elcwq" path="res://components/Characters/CharacterComponent.tscn" id="3_j456c"]
 
-[node name="CharacterRow" type="HBoxContainer" node_paths=PackedStringArray("RowContainer", "Container1Node", "Container2Node", "Container3Node", "GroupNameRotationNode", "GroupLabel")]
+[node name="CharacterRow" type="HBoxContainer" node_paths=PackedStringArray("RowContainerNode", "Container1Node", "Container2Node", "Container3Node", "GroupNameRotationNode", "GroupLabel")]
 layout_direction = 2
 anchors_preset = 2
 anchor_top = 1.0
@@ -19,7 +19,7 @@ theme_override_constants/separation = 64
 script = ExtResource("1_6414q")
 CharacterStore = ExtResource("2_73fxd")
 CharacterComponentScene = ExtResource("3_j456c")
-RowContainer = NodePath(".")
+RowContainerNode = NodePath(".")
 Container1Node = NodePath("BackContainer")
 Container2Node = NodePath("MiddleContainer")
 Container3Node = NodePath("FrontContainer")

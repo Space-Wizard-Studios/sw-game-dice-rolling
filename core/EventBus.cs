@@ -1,5 +1,6 @@
 using Godot;
 using DiceRoll.Components;
+using DiceRoll.Models;
 
 namespace DiceRoll.Events;
 
@@ -29,16 +30,23 @@ public partial class EventBus : Node {
         }
         var eventBus = root.GetNodeOrNull<EventBus>("/root/EventBus");
         if (eventBus == null) {
-            GD.PrintErr("EventBus not found in the scene tree.");
+            GD.Print("EventBus not found in the scene tree. Creating a new instance.");
             eventBus = new EventBus();
             root.AddChild(eventBus);
         }
         return eventBus;
     }
 
-    public void OnCharacterInspected(CharacterComponent character) {
-        if (Engine.IsEditorHint()) return;
-        GD.Print("Character inspection: ", character.Name);
-        EmitSignal(nameof(CharacterSelected), character);
+    public void OnCharacterInspected(Character character) {
+        var characterName = character?.Name ?? "Unknown";
+        GD.Print("Character inspection: ", characterName);
+
+        if (character is not null) {
+            GD.Print("Emitting CharacterSelected signal with character: ", characterName);
+            EmitSignal(nameof(CharacterSelected), character);
+        }
+        else {
+            GD.PrintErr("Character is null, cannot emit CharacterSelected signal.");
+        }
     }
 }

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dgyegipn74jj5" path="res://components/Characters/CharacterInspector.tscn" id="7_ms447"]
 [ext_resource type="PackedScene" uid="uid://bt73g5fssa68h" path="res://components/InventoryComponent/InventoryComponent.tscn" id="7_ue61k"]
 
-[node name="Battle" type="Control" node_paths=PackedStringArray("CharacterInspector")]
+[node name="Battle" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +21,6 @@ grow_vertical = 2
 script = ExtResource("1_oeh3a")
 GameLogScene = ExtResource("5_qac67")
 DiceManaResources = ExtResource("7_5jgc7")
-CharacterInspector = NodePath("HUD/HUDContainer/Row/VBoxContainer/CharacterInspector")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1

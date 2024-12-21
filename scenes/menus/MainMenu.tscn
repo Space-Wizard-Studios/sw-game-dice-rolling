@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://myouhbwr3b27"]
 
-[ext_resource type="Script" path="res://core/scenes/menus/MainMenu.cs" id="1_hfxp8"]
-[ext_resource type="Script" path="res://core/ui/SceneTransitionButton.cs" id="2_u85me"]
-[ext_resource type="Script" path="res://core/ui/PlaygroundTransitionMenu.cs" id="3_g6swa"]
-[ext_resource type="Script" path="res://core/ui/CloseGameButton.cs" id="3_rlojh"]
+[ext_resource type="Script" uid="uid://p2tg6o2lnf5" path="res://core/managers/menus/MainMenuManager.cs" id="1_hfxp8"]
+[ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://core/ui/SceneTransitionButton.cs" id="2_u85me"]
+[ext_resource type="Script" uid="uid://r0elhsj8rclk" path="res://core/ui/PlaygroundTransitionMenu.cs" id="3_g6swa"]
+[ext_resource type="Script" uid="uid://bk4vy3txoi8tv" path="res://core/ui/CloseGameButton.cs" id="3_rlojh"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_hfxp8")

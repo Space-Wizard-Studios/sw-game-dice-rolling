@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://8n50xik7xid3"]
 
-[ext_resource type="Script" uid="uid://jc3rfy1j13nu" path="res://core/scenes/gameplay/Battle.cs" id="1_oeh3a"]
+[ext_resource type="Script" uid="uid://jc3rfy1j13nu" path="res://core/managers/gameplay/BattleManager.cs" id="1_oeh3a"]
 [ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://core/ui/SceneTransitionButton.cs" id="2_4ip1d"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="2_cgh0m"]
 [ext_resource type="PackedScene" uid="uid://bhvfxwxj34u71" path="res://components/Characters/CharacterRow.tscn" id="2_j8o3d"]

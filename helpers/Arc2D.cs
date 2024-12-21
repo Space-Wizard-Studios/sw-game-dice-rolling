@@ -1,6 +1,8 @@
 using Godot;
 using System;
 
+namespace DiceRoll.Helpers;
+
 [Tool]
 public partial class Arc2D : Line2D {
     private int _bendStrength = 10;

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using DiceRoll.Models;
 using DiceRoll.Stores;
 
-namespace DiceRoll.Scenes;
+namespace DiceRoll.Managers;
 
-public partial class Battle : Control {
+public partial class BattleManager : Control {
     [Export]
     public PackedScene? GameLogScene { get; set; }
 

@@ -27,4 +27,4 @@ script = ExtResource("3_n1ag4")
 Name = "Mage"
 Description = "MageDescription"
 RoleAttributes = Array[ExtResource("2_ht6qo")]([SubResource("Resource_gincr"), SubResource("Resource_dsmvb"), SubResource("Resource_42ch0")])
-AllowedActions = Array[ExtResource("1_j7dyc")]([])
+RoleActions = Array[ExtResource("1_j7dyc")]([])

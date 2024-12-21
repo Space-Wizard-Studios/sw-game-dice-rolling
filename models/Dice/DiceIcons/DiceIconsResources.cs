@@ -5,7 +5,7 @@ namespace DiceRoll.Models;
 [Tool]
 public partial class DiceIconsResources : Resource {
     [Export]
-    public Godot.Collections.Array<DiceIcon> DiceIcons { get; set; } = new Godot.Collections.Array<DiceIcon>();
+    public Godot.Collections.Array<DiceIcon> DiceIcons { get; set; } = [];
 
     public DiceIcon? GetIconForSides(int sides) {
         foreach (var entry in DiceIcons) {

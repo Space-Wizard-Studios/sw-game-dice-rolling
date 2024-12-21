@@ -22,10 +22,13 @@ public partial class Character : Resource {
             _role = value;
             EmitChanged();
             InitializeAttributes();
+            InitializeActions();
         }
     }
 
     [Export] public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = new Godot.Collections.Array<CharacterAttribute>();
+
+    [Export] public Godot.Collections.Array<CharacterAction> Actions { get; private set; } = new Godot.Collections.Array<CharacterAction>();
 
     [Export] public int DiceCapacity { get; set; } = 0;
 
@@ -75,6 +78,15 @@ public partial class Character : Resource {
                 Attributes.Add(characterAttribute);
             }
         }
+    }
+
+    public void InitializeActions() {
+        if (Role == null) {
+            GD.PrintErr("Role is null");
+            return;
+        }
+
+        Actions = new Godot.Collections.Array<CharacterAction>(Role.AllowedActions);
     }
 
     public int GetAttributeCurrentValue(AttributeType type) {

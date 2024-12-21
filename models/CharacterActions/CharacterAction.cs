@@ -1,5 +1,6 @@
 using Godot;
 using System;
+
 namespace DiceRoll.Models;
 
 public enum TargetType {
@@ -45,7 +46,7 @@ public partial class CharacterAction : Resource {
     public string? IconPath { get; private set; }
 
     [Export]
-    public Godot.Collections.Array<DiceMana> RequiredMana { get; set; } = new Godot.Collections.Array<DiceMana>();
+    public Godot.Collections.Array<DiceMana> RequiredMana { get; set; } = [];
 
     [ExportCategory("Target Options")]
 

@@ -12,7 +12,7 @@ public partial class Character : Resource {
     public delegate void AttributeChangedEventHandler(Character character, AttributeType attributeType);
 
 
-    [ExportGroup("🧝 Character")]
+    [ExportGroup("🦸 Character")]
     [Export] public string Id { get; set; } = Guid.NewGuid().ToString();
 
     [Export] public string? Name { get; set; }

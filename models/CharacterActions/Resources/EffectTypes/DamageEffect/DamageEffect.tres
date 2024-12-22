@@ -1,6 +1,11 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b43duhk6atdos"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://b43duhk6atdos"]
 
+[ext_resource type="Resource" uid="uid://c8gj6ir2xiwcv" path="res://models/CharacterActions/Resources/QuantityTypes/NumberQuantity.tres" id="1_odpjh"]
 [ext_resource type="Script" uid="uid://dg2lc30fx0iba" path="res://models/CharacterActions/Resources/EffectTypes/DamageEffect/DamageEffect.cs" id="1_trb8w"]
+[ext_resource type="Resource" uid="uid://bwq2yimf5mb88" path="res://models/CharacterActions/Resources/TargetTypes/EnemyTarget.tres" id="2_nm5oe"]
 
 [resource]
 script = ExtResource("1_trb8w")
+TargetType = ExtResource("2_nm5oe")
+QuantityType = ExtResource("1_odpjh")
+NumberQuantity = 2

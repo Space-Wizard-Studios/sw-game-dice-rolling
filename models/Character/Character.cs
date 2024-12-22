@@ -2,22 +2,17 @@ using Godot;
 using System;
 using System.Linq;
 using DiceRoll.Models.CharacterActions;
-using DiceRoll.Models.CharacterActions.Attack;
 
 namespace DiceRoll.Models;
 
 [Tool]
 [GlobalClass]
 public partial class Character : Resource {
-    [Signal]
-    public delegate void AttributeChangedEventHandler(Character character, AttributeType attributeType);
-
+    [Signal] public delegate void AttributeChangedEventHandler(Character character, AttributeType attributeType);
 
     [ExportGroup("🦸 Character")]
     [Export] public string Id { get; set; } = Guid.NewGuid().ToString();
-
     [Export] public string? Name { get; set; }
-
     [Export] public bool IsEnemy { get; set; } = false;
 
     private Role? _role;
@@ -32,9 +27,8 @@ public partial class Character : Resource {
         }
     }
 
-    [Export] public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = new Godot.Collections.Array<CharacterAttribute>();
-
-    [Export] public Godot.Collections.Array<CharacterAction> Actions { get; private set; } = new Godot.Collections.Array<CharacterAction>();
+    [Export] public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = [];
+    [Export] public Godot.Collections.Array<CharacterAction> CharacterActions { get; private set; } = [];
 
     [Export] public int DiceCapacity { get; set; } = 0;
 
@@ -42,8 +36,6 @@ public partial class Character : Resource {
     [Export] public Texture2D? Portrait { get; set; }
     [Export] public SpriteFrames? CharacterSprite { get; set; }
     [Export] public SpriteFrames? ShadowSprite { get; set; }
-
-    [ExportGroup("⚙️ Config")]
     [Export] public bool ShowShadow { get; set; }
 
     private float _spritePositionX;
@@ -74,7 +66,6 @@ public partial class Character : Resource {
             return;
         }
 
-        // Initialize attributes only if they are not already set
         if (Attributes.Count == 0) {
             foreach (var roleAttribute in Role.RoleAttributes) {
                 var characterAttribute = new CharacterAttribute(roleAttribute) {
@@ -92,7 +83,7 @@ public partial class Character : Resource {
             return;
         }
 
-        Actions = [.. Role.RoleActions];
+        CharacterActions = new Godot.Collections.Array<CharacterAction>(Role.RoleActions);
     }
 
     public int GetAttributeCurrentValue(AttributeType type) {
@@ -116,11 +107,5 @@ public partial class Character : Resource {
             attribute.CurrentValue = newValue;
             EmitSignal(nameof(AttributeChanged), this, type);
         }
-    }
-
-    public AttackResult PerformAction(CharacterAction characterAction, Character target) {
-        var context = new AttackContext(this, target);
-        var action = ActionFactory.CreateAction(characterAction.ActionType);
-        return action.Do(context) ?? new AttackResult(0, false);
     }
 }

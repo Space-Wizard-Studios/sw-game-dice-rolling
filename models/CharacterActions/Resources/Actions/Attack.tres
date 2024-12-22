@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=9 format=3 uid="uid://cvojckruuqrn6"]
+
+[ext_resource type="Resource" uid="uid://dwtue01tv131s" path="res://models/CharacterActions/Resources/ActionTypes/AttackType.tres" id="1_b5ab8"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/CharacterActions/Effect.cs" id="1_baelh"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="2_3cgk7"]
+[ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://models/CharacterActions/Resources/EffectTypes/DamageEffect/DamageEffect.tres" id="3_mpgpb"]
+[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/CharacterActions/CharacterAction.cs" id="4_mpgpb"]
+[ext_resource type="Texture2D" uid="uid://dcvbx5mnjbwvh" path="res://assets/icons/attributes/attributes1/Attrs16x16.png" id="4_yhkgj"]
+[ext_resource type="Resource" uid="uid://dtykn5e4tgf0f" path="res://models/CharacterActions/Resources/TargetTypes/AnyTarget.tres" id="6_m8v4x"]
+[ext_resource type="Resource" uid="uid://c8gj6ir2xiwcv" path="res://models/CharacterActions/Resources/QuantityTypes/NumberQuantity.tres" id="7_yhkgj"]
+
+[resource]
+script = ExtResource("4_mpgpb")
+Name = "Attack"
+Description = "Simple attack. Everyone knows how to throw some punches."
+Icon = ExtResource("4_yhkgj")
+ActionType = ExtResource("1_b5ab8")
+TargetType = ExtResource("6_m8v4x")
+QuantityType = ExtResource("7_yhkgj")
+NumberQuantity = 1
+RequiredMana = Array[ExtResource("2_3cgk7")]([])
+Effects = Array[ExtResource("1_baelh")]([ExtResource("3_mpgpb")])

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ActionType" load_steps=3 format=3 uid="uid://dwtue01tv131s"]
+
+[ext_resource type="Texture2D" uid="uid://giqyw46uu1ru" path="res://assets/icons/actionTypes/attackType.png" id="1_50f2x"]
+[ext_resource type="Script" uid="uid://c2h1r5hcgno4f" path="res://models/CharacterActions/ActionType.cs" id="1_vsfwc"]
+
+[resource]
+script = ExtResource("1_vsfwc")
+Name = "Attack"
+Description = "Attack type description."
+Icon = ExtResource("1_50f2x")
+metadata/_custom_type_script = ExtResource("1_vsfwc")

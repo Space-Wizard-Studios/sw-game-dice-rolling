@@ -3,6 +3,7 @@ using Godot;
 namespace DiceRoll.Models;
 
 [Tool]
+[GlobalClass]
 public partial class AttributeType : Resource {
 
     [Export]

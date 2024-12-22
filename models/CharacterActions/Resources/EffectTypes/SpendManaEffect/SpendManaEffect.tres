@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://33p3316neaau"]
+
+[ext_resource type="Script" uid="uid://cscmx2t1hyu0w" path="res://models/CharacterActions/Resources/EffectTypes/SpendManaEffect/SpendManaEffect.cs" id="1_scon5"]
+
+[resource]
+script = ExtResource("1_scon5")

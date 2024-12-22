@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhvfxwxj34u71"]
 
-[ext_resource type="Script" path="res://components/Characters/CharacterRow.cs" id="1_6414q"]
+[ext_resource type="Script" uid="uid://4ar6iuolrrl2" path="res://components/Characters/CharacterRow.cs" id="1_6414q"]
 [ext_resource type="Resource" uid="uid://snt34yslyn4f" path="res://core/stores/CharacterStore/PlayerCharacterStore.tres" id="2_73fxd"]
 [ext_resource type="PackedScene" uid="uid://d3lkjx05elcwq" path="res://components/Characters/CharacterComponent.tscn" id="3_j456c"]
 

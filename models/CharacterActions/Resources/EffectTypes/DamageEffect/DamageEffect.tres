@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b43duhk6atdos"]
+
+[ext_resource type="Script" uid="uid://dg2lc30fx0iba" path="res://models/CharacterActions/Resources/EffectTypes/DamageEffect/DamageEffect.cs" id="1_trb8w"]
+
+[resource]
+script = ExtResource("1_trb8w")

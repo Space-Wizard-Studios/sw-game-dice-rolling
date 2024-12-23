@@ -13,7 +13,7 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
     - [Passos para Instalação](#passos-para-instalação)
   - [Documentação](#documentação)
     - [Gerar a Documentação da API](#gerar-a-documentação-da-api)
-    - [Executar Scripts do `package.json` de `/docs`](#executar-scripts-do-packagejson-de-docs)
+    - [Executar Scripts do /docs](#executar-scripts-do-docs)
 
 ## Estrutura de Pastas
 
@@ -92,7 +92,7 @@ Para gerar a documentação da API utilizando o DocFX, siga os passos abaixo:
 
    A documentação será gerada na pasta `api`.
 
-### Executar Scripts do `package.json` de `/docs`
+### Executar Scripts do /docs
 
 Para executar os scripts definidos no arquivo `package.json` dentro do diretório `/docs`, siga os passos abaixo:
 

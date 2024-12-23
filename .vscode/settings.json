@@ -1,35 +1,35 @@
 {
-	"editor.quickSuggestions": {
-		"strings": true
-	},
-	"files.exclude": {
-		"**/.git": true,
-		"**/.svn": true,
-		"**/.hg": true,
-		"**/CVS": true,
-		"**/.DS_Store": true,
-		"**/Thumbs.db": true,
-	},
-	"[python]": {
-		"editor.defaultFormatter": "ms-python.autopep8"
-	},
-	"[csharp]": {
-		"editor.defaultFormatter": "ms-dotnettools.csharp",
-		"editor.formatOnSave": true,
-		"editor.tabSize": 4,
-		"editor.detectIndentation": true,
-	},
-	"editor.tabSize": 4,
-	"editor.insertSpaces": true,
-	"editor.detectIndentation": false,
-	"cSpell.words": [
-		"autoplay",
-		"Bbcode",
-		"gameplay",
-		"Gameplay",
-		"godot",
-		"Lerp",
-		"Mathf",
-		"tscn"
-	]
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "[csharp]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.detectIndentation": true,
+    },
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "cSpell.words": [
+        "autoplay",
+        "Bbcode",
+        "gameplay",
+        "Gameplay",
+        "godot",
+        "Lerp",
+        "Mathf",
+        "tscn"
+    ]
 }

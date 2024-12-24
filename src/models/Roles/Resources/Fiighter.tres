@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=10 format=3 uid="uid://bad7cxgeb8mqp"]
+[gd_resource type="Resource" load_steps=11 format=3 uid="uid://bad7cxgeb8mqp"]
 
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attributes/Resources/Health.tres" id="1_fv2up"]
 [ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/CharacterActions/CharacterAction.cs" id="1_fwyng"]
+[ext_resource type="Resource" uid="uid://cvojckruuqrn6" path="res://models/CharacterActions/Resources/Actions/Attack.tres" id="2_e32wo"]
 [ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/Attributes/RoleAttribute.cs" id="2_kvf26"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="3_kn0ad"]
 [ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/Roles/Role.cs" id="4_alphf"]
@@ -27,4 +28,4 @@ script = ExtResource("4_alphf")
 Name = "Fighter"
 Description = "Fighter Description"
 RoleAttributes = Array[ExtResource("2_kvf26")]([SubResource("Resource_g0hcp"), SubResource("Resource_8w8fm"), SubResource("Resource_xurgi")])
-RoleActions = Array[ExtResource("1_fwyng")]([])
+RoleActions = Array[ExtResource("1_fwyng")]([ExtResource("2_e32wo")])

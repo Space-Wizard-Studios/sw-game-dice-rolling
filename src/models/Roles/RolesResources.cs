@@ -2,10 +2,12 @@ using Godot;
 
 namespace DiceRoll.Models;
 
+/// <summary>
+/// Represents a resource containing roles for the dice roll game.
+/// </summary>
 [Tool]
 public partial class RolesResources : Resource {
-    [Export]
-    public Godot.Collections.Array<Role> Roles { get; set; } = [];
+    [Export] public Godot.Collections.Array<Role> Roles { get; set; } = [];
 
     public RolesResources() { }
 }

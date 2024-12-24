@@ -4,14 +4,14 @@
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/CharacterActions/Effect.cs" id="1_baelh"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="2_3cgk7"]
 [ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://models/CharacterActions/Resources/EffectTypes/DamageEffect/DamageEffect.tres" id="3_mpgpb"]
+[ext_resource type="Texture2D" uid="uid://cb7vaooq0xpdy" path="res://assets/icons/actions/attack.png" id="4_b5ab8"]
 [ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/CharacterActions/CharacterAction.cs" id="4_mpgpb"]
-[ext_resource type="Texture2D" uid="uid://dcvbx5mnjbwvh" path="res://assets/icons/attributes/attributes1/Attrs16x16.png" id="4_yhkgj"]
 
 [resource]
 script = ExtResource("4_mpgpb")
 Name = "Attack"
 Description = "Simple attack. Everyone knows how to throw some punches."
-Icon = ExtResource("4_yhkgj")
+Icon = ExtResource("4_b5ab8")
 ActionType = ExtResource("1_b5ab8")
 RequiredMana = Array[ExtResource("2_3cgk7")]([])
 Effects = Array[ExtResource("1_baelh")]([ExtResource("3_mpgpb")])

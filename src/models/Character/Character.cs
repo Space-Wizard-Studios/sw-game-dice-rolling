@@ -5,6 +5,9 @@ using DiceRoll.Models.CharacterActions;
 
 namespace DiceRoll.Models;
 
+/// <summary>
+/// Represents a character in the game with attributes, actions, and other properties.
+/// </summary>
 [Tool]
 [GlobalClass]
 public partial class Character : Resource {
@@ -12,10 +15,13 @@ public partial class Character : Resource {
 
     [ExportGroup("🦸 Character")]
     [Export] public string Id { get; set; } = Guid.NewGuid().ToString();
+
     [Export] public string? Name { get; set; }
+
     [Export] public bool IsEnemy { get; set; } = false;
 
     private Role? _role;
+
     [Export]
     public Role? Role {
         get => _role;
@@ -28,17 +34,22 @@ public partial class Character : Resource {
     }
 
     [Export] public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = [];
+
     [Export] public Godot.Collections.Array<CharacterAction> CharacterActions { get; private set; } = [];
 
     [Export] public int DiceCapacity { get; set; } = 0;
 
     [ExportGroup("🪵 Resources")]
     [Export] public Texture2D? Portrait { get; set; }
+
     [Export] public SpriteFrames? CharacterSprite { get; set; }
+
     [Export] public SpriteFrames? ShadowSprite { get; set; }
+
     [Export] public bool ShowShadow { get; set; }
 
     private float _spritePositionX;
+
     [Export]
     public float SpritePositionX {
         get => _spritePositionX;
@@ -49,6 +60,7 @@ public partial class Character : Resource {
     }
 
     private float _spritePositionY;
+
     [Export]
     public float SpritePositionY {
         get => _spritePositionY;

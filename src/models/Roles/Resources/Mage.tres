@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=10 format=3 uid="uid://bgx5eoqdsu100"]
+[gd_resource type="Resource" load_steps=11 format=3 uid="uid://bgx5eoqdsu100"]
 
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attributes/Resources/Health.tres" id="1_3oclc"]
 [ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/CharacterActions/CharacterAction.cs" id="1_j7dyc"]
+[ext_resource type="Resource" uid="uid://cvojckruuqrn6" path="res://models/CharacterActions/Resources/Actions/Attack.tres" id="2_b0n47"]
 [ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/Attributes/RoleAttribute.cs" id="2_ht6qo"]
 [ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/Roles/Role.cs" id="3_n1ag4"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="3_u8iqy"]
@@ -27,4 +28,4 @@ script = ExtResource("3_n1ag4")
 Name = "Mage"
 Description = "MageDescription"
 RoleAttributes = Array[ExtResource("2_ht6qo")]([SubResource("Resource_gincr"), SubResource("Resource_dsmvb"), SubResource("Resource_42ch0")])
-RoleActions = Array[ExtResource("1_j7dyc")]([])
+RoleActions = Array[ExtResource("1_j7dyc")]([ExtResource("2_b0n47")])

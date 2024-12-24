@@ -25,6 +25,7 @@
     "cSpell.words": [
         "autoplay",
         "Bbcode",
+        "diceroll",
         "docfx",
         "dotnet",
         "gameplay",
@@ -32,6 +33,7 @@
         "godot",
         "Lerp",
         "Mathf",
+        "Newtonsoft",
         "tscn"
     ]
 }

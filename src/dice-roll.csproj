@@ -1,4 +1,5 @@
-<Project Sdk="Godot.NET.Sdk/4.4.0-dev.7">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="dice-roll.xsd" Sdk="Godot.NET.Sdk/4.4.0-dev.7">
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <EnableDynamicLoading>true</EnableDynamicLoading>
@@ -6,7 +7,4 @@
         <Nullable>enable</Nullable>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    </ItemGroup>
 </Project>

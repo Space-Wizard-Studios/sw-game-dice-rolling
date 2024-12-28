@@ -110,16 +110,16 @@ Para executar os scripts definidos no arquivo `package.json` dentro do diretóri
      npm run start
      ```
 
+     - Para processar os arquivos da API:
+
+     ```sh
+     npm run process-api
+     ```
+
    - Para construir o site estático:
 
      ```sh
      npm run build
-     ```
-
-   - Para processar os arquivos da API:
-
-     ```sh
-     npm run process-api
      ```
 
    - Para servir o site estático localmente:

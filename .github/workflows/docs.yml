@@ -21,6 +21,12 @@ jobs:
         with:
           args: docfx.json
 
+      - name: List Directories
+        run: ls -l
+
+      - name: List Directories on Docs Folder
+        run: ls -l docs
+
       - name: Process API Files
         run: npm run process-api
         working-directory: docs

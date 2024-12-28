@@ -44,7 +44,7 @@ jobs:
         run: npm run process-api
         working-directory: docs
         
-      - name: Install Packages in Docs Folder
+      - name: Install Packages in docs Folder
         run: npm install
         working-directory: docs
 
@@ -58,6 +58,9 @@ jobs:
           STATICRYPT_PASSWORD: ${{ secrets.STATICRYPT_PASSWORD }}
         working-directory: docs
 
+      - name: List Directories on docs Folder
+        run: ls -l docs
+
       - name: Deploy to Firebase
         id: deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
@@ -67,3 +70,6 @@ jobs:
           channelId: ${{ github.ref_name == 'main' && 'live' || github.ref_name }}
           expires: ${{ github.ref_name == 'dev' && '30d' || '7d' }}
           entryPoint: docs/encrypted/build        
+
+    outputs:
+        url: ${{ steps.deploy.outputs.details_url }}

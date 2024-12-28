@@ -110,7 +110,7 @@ Para executar os scripts definidos no arquivo `package.json` dentro do diretóri
      npm run start
      ```
 
-     - Para processar os arquivos da API:
+   - Para processar os arquivos da API:
 
      ```sh
      npm run process-api

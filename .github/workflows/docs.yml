@@ -40,14 +40,14 @@ jobs:
     #   - name: Change Directory to Root
     #     run: cd ..
 
-      - name: Process API Files
-        run: npm run process-api
-        working-directory: docs
-        
       - name: Install Packages in docs Folder
         run: npm install
         working-directory: docs
 
+      - name: Process API Files
+        run: npm run process-api
+        working-directory: docs
+        
       - name: Build Documentation
         run: npm run build
         working-directory: docs

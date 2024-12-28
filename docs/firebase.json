@@ -1,6 +1,6 @@
 {
 	"hosting": {
-		"public": "docs/encrypted/build",
+		"public": "encrypted/build",
 		"ignore": [],
 		"headers": [
 			{

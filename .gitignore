@@ -3,8 +3,5 @@ debug.log
 .godot/
 /android/
 
-# API processed files
-/docs/docs/api/
-
 # VsCode Stuff
 .VSCodeCounter

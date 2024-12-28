@@ -69,7 +69,7 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           channelId: ${{ github.ref_name == 'main' && 'live' || github.ref_name }}
           expires: ${{ github.ref_name == 'dev' && '30d' || '7d' }}
-          entryPoint: docs/encrypted/build        
+          entryPoint: docs
 
     outputs:
         url: ${{ steps.deploy.outputs.details_url }}

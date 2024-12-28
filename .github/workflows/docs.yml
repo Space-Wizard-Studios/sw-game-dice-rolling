@@ -15,33 +15,31 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-
-      - name: Build API Documentation
-        uses: nikeee/docfx-action@v1.0.0
         with:
-          args: docfx.json
+            path: docs
 
-      - name: List Directories
-        run: ls -l
+    #   - name: Build API Documentation
+    #     uses: nikeee/docfx-action@v1.0.0
+    #     with:
+    #       args: docfx.json
 
-      - name: List Directories on Docs Folder
-        run: ls -l docs
+    #   - name: List Directories
+    #     run: ls -l
+
+    #   - name: List Directories on Docs Folder
+    #     run: ls -l docs
 
       - name: Process API Files
         run: npm run process-api
-        working-directory: docs
 
       - name: Install Packages in Docs Folder
         run: npm install
-        working-directory: docs
 
       - name: Build Documentation
         run: npm run build
-        working-directory: docs
 
       - name: Encrypt Built Docs
         run: staticrypt build -r
-        working-directory: docs
         env:
           STATICRYPT_PASSWORD: ${{ secrets.STATICRYPT_PASSWORD }}
 

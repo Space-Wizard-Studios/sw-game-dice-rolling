@@ -21,7 +21,7 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
 
 ## Estrutura de arquivos
 
-```txt
+```powershell
 .
 ├── docs                    # Documentação
 └── src                     # Projeto

@@ -1,8 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+const yaml = require('js-yaml');
 
 const apiDir = path.join(__dirname, 'api');
 const docsApiDir = path.join(__dirname, 'docs', 'api');
+const tocFilePath = path.join(__dirname, 'api', 'toc.yml');
+const processedTocFilePath = path.join(__dirname, 'docs', 'api', 'toc_processed.json');
 
 // Ensure the destination directory exists
 if (!fs.existsSync(docsApiDir)) {
@@ -13,7 +16,12 @@ if (!fs.existsSync(docsApiDir)) {
 const processFiles = (dir, destDir) => {
     fs.readdirSync(dir).forEach(file => {
         const filePath = path.join(dir, file);
-        let destFilePath = path.join(destDir, file.replace('DiceRoll.', ''));
+
+        let destFilePath = path.join(destDir, file);
+        
+        // if (file !== 'DiceRoll.md') {
+        //     destFilePath = path.join(destDir, file.replace('DiceRoll.', ''));
+        // }
 
         if (fs.lstatSync(filePath).isDirectory()) {
             // Recursively process subdirectories
@@ -28,7 +36,7 @@ const processFiles = (dir, destDir) => {
             content = frontmatter + content;
 
             // Remove "DiceRoll." from the content
-            content = content.replace(/DiceRoll\./g, '');
+            // content = content.replace(/DiceRoll\./g, '');
 
             // Add backslash before '<' that aren't part of HTML tags or <xref> tags
             content = content.replace(/<(?!\/?[\w\s="'-]+>|xref)/g, '\\<');
@@ -56,7 +64,53 @@ const processFiles = (dir, destDir) => {
     });
 };
 
+// Function to process toc.yml
+const processToc = (tocFilePath, processedTocFilePath) => {
+    const toc = yaml.load(fs.readFileSync(tocFilePath, 'utf8'));
+
+    console.log('Loaded TOC:', toc);
+
+    const processItems = (items) => {
+        if (!Array.isArray(items)) {
+            return [];
+        }
+        return items.map(item => {
+            if (item.items) {
+                const category = {
+                    type: 'category',
+                    label: item.name,
+                    items: processItems(item.items),
+                };
+                if (item.href) {
+                    category.link = {
+                        type: 'doc',
+                        id: `api/${item.href.replace('.md', '')}`,
+                    };
+                }
+                return category;
+            } else {
+                return {
+                    type: 'doc',
+                    id: `api/${item.href.replace('.md', '')}`,
+                    label: item.name,
+                };
+            }
+        });
+    };
+
+    const sidebar = {
+        apiSidebar: processItems(toc),
+    };
+
+    console.log('Processed Sidebar:', sidebar);
+
+    fs.writeFileSync(processedTocFilePath, JSON.stringify(sidebar, null, 2), 'utf8');
+};
+
 // Process the files in the api directory
 processFiles(apiDir, docsApiDir);
+
+// Process the toc.yml file
+processToc(tocFilePath, processedTocFilePath);
 
 console.log('Files processed and copied successfully.');

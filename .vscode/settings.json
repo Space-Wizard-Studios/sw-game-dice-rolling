@@ -22,18 +22,37 @@
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
+    "cSpell.ignoreRegExpList": [
+        "uid://[^\\s]+",
+        "id=\"([^\"]+)\"",
+        "/.*SubResource\\(\".*\"\\).*/gm",
+        "/.*ExtResource\\(\".*\"\\).*/gm",
+        "\"res.+\"",
+        "\\w+\\s*=\\s*\"Lorem ipsum[^\"]*\""
+    ],
     "cSpell.words": [
+        "autoload",
         "autoplay",
+        "bbcode",
         "Bbcode",
+        "collada",
+        "deadzone",
         "diceroll",
         "docfx",
         "dotnet",
+        "firefox",
         "gameplay",
         "Gameplay",
         "godot",
+        "imrp",
+        "kovkel",
         "Lerp",
         "Mathf",
         "Newtonsoft",
-        "tscn"
+        "premult",
+        "srgb",
+        "tscn",
+        "unicode",
+        "vram"
     ]
 }

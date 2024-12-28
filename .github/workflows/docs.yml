@@ -53,7 +53,7 @@ jobs:
         working-directory: docs
 
       - name: Encrypt Built Docs
-        run: staticrypt build -r
+        run: npx staticrypt build -r
         env:
           STATICRYPT_PASSWORD: ${{ secrets.STATICRYPT_PASSWORD }}
         working-directory: docs

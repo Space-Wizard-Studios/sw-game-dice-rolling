@@ -13,6 +13,7 @@
       "properties": {
         "type": "API"
       },
+      "disableGitFeatures": false,
       "categoryLayout": "nested",
       "enumSortOrder": "declaringOrder",
       "memberLayout": "samePage",

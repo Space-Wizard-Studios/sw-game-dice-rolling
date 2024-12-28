@@ -50,8 +50,19 @@ const config: Config = {
                     label: 'API Reference',
                 },
                 {
-                    href: 'https://github.com/facebook/docusaurus',
+                    type: 'docSidebar',
+                    sidebarId: 'gameDesignSidebar',
+                    position: 'left',
+                    label: 'Game Design',
+                },
+                {
+                    href: 'https://github.com/Space-Wizard-Studios/sw-game-dice-roll',
                     label: 'GitHub',
+                    position: 'right',
+                },
+                {
+                    href: 'https://console.firebase.google.com/project/sw-game-dice-roll-docs/overview',
+                    label: 'FireBase',
                     position: 'right',
                 },
             ],

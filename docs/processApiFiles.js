@@ -48,7 +48,7 @@ const processFiles = (dir, destDir) => {
             content = content.replace(/,(?=\s*$)/gm, ',  ');
 
             // Remove <a>...</a> tags from headers
-            content = content.replace(/<a[^>]*>(.*?)<\/a>/g, '$1');
+            // content = content.replace(/<a[^>]*>(.*?)<\/a>/g, '$1');
 
             // Replace <pre><code class="lang-csharp"> blocks with Markdown code blocks
             content = content.replace(/<pre><code class="lang-csharp">([\s\S]*?)<\/code><\/pre>/g, '```csharp\n$1\n```');

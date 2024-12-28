@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const apiDir = path.join(__dirname, '../api');
+const apiDir = path.join(__dirname, 'api');
 const docsApiDir = path.join(__dirname, 'docs', 'api');
 
 // Ensure the destination directory exists

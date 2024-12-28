@@ -8,7 +8,7 @@
           "files": ["**/*.csproj"]
         }
       ],
-      "output": "api",
+      "output": "docs/api",
       "outputFormat": "markdown",
       "properties": {
         "type": "API"

@@ -6,8 +6,8 @@ const config: Config = {
     title: 'Space Wizard - Dice Roll Docs',
     tagline: 'Dinosaurs are cool',
     favicon: 'img/favicon.ico',
-    url: 'https://your-docusaurus-site.example.com',
-    baseUrl: '/build/', // For GitHub pages deployment, it is often '/<projectName>/'
+    url: 'https://sw-game-dice-roll-docs.web.app/',
+    baseUrl: '/', // For GitHub pages deployment, it is often '/<projectName>/'
 
     // GitHub pages deployment config.
     // organizationName: 'Space-Wizard-Studios',

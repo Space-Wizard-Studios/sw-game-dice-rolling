@@ -16,6 +16,9 @@ docs/api
 .docusaurus
 .cache-loader
 
+# Firebase
+.firebase
+
 # Misc
 .DS_Store
 .env.local

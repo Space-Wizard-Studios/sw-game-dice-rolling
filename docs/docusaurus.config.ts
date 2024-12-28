@@ -6,45 +6,27 @@ const config: Config = {
     title: 'Space Wizard - Dice Roll Docs',
     tagline: 'Dinosaurs are cool',
     favicon: 'img/favicon.ico',
-    url: 'https://your-docusaurus-site.example.com', // Set the production url of your site here
-    baseUrl: '/', // For GitHub pages deployment, it is often '/<projectName>/'
+    url: 'https://your-docusaurus-site.example.com',
+    baseUrl: '/build/', // For GitHub pages deployment, it is often '/<projectName>/'
 
     // GitHub pages deployment config.
-    organizationName: 'facebook', // Usually your GitHub org/user name.
-    projectName: 'docusaurus', // Usually your repo name.
+    // organizationName: 'Space-Wizard-Studios',
+    // projectName: 'sw-game-dice-roll',
 
-    onBrokenLinks: 'throw',
+    onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
 
     i18n: {
         defaultLocale: 'en',
         locales: ['en'],
     },
-
     presets: [
         [
             'classic',
             {
                 docs: {
                     sidebarPath: './sidebars.ts',
-                    // Please change this to your repo.
-                    // Remove this to remove the "edit this page" links.
-                    // editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
                 },
-                // blog: {
-                //     showReadingTime: true,
-                //     feedOptions: {
-                //         type: ['rss', 'atom'],
-                //         xslt: true,
-                //     },
-                //     // Please change this to your repo.
-                //     // Remove this to remove the "edit this page" links.
-                //     // editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-                //     // Useful options to enforce blogging best practices
-                //     onInlineTags: 'warn',
-                //     onInlineAuthors: 'warn',
-                //     onUntruncatedBlogPosts: 'warn',
-                // },
                 theme: {
                     customCss: './src/css/custom.css',
                 },
@@ -53,7 +35,7 @@ const config: Config = {
     ],
 
     themeConfig: {
-        image: 'img/docusaurus-social-card.jpg', // Replace with your project's social card
+        image: 'img/docusaurus-social-card.jpg',
         navbar: {
             title: 'My Site',
             logo: {
@@ -67,13 +49,6 @@ const config: Config = {
                     position: 'left',
                     label: 'API Reference',
                 },
-                // {
-                //     type: 'docSidebar',
-                //     sidebarId: 'tutorialSidebar',
-                //     position: 'left',
-                //     label: 'Tutorial',
-                // },
-                // { to: '/blog', label: 'Blog', position: 'left' },
                 {
                     href: 'https://github.com/facebook/docusaurus',
                     label: 'GitHub',

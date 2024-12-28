@@ -18,7 +18,7 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
 ## Estrutura de Pastas
 
 ```txt
-sw-game-dice-roll/          # repositório
+src/                        # repositório
 ├── addons/                 # bibliotecas third party
 ├── assets/                 # assets como sprites, sons, texturas e respectivos arquivos de configuração
 ├── components/             # nodes a serem exibidos nas cenas e respectivos arquivos de

@@ -6,19 +6,31 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
 
 - [DICE ROLL GAME](#dice-roll-game)
   - [Sumário](#sumário)
-  - [Estrutura de Pastas](#estrutura-de-pastas)
+  - [Estrutura de arquivos](#estrutura-de-arquivos)
+    - [Arquivos do Projeto](#arquivos-do-projeto)
+    - [Arquivos da Documentação](#arquivos-da-documentação)
   - [Tecnologias e Frameworks](#tecnologias-e-frameworks)
-  - [Instalação](#instalação)
+    - [Tecnologias do Jogo](#tecnologias-do-jogo)
+    - [Tecnologias da Documentação](#tecnologias-da-documentação)
+  - [Desenvolvimento do jogo](#desenvolvimento-do-jogo)
     - [Pré-requisitos](#pré-requisitos)
-    - [Passos para Instalação](#passos-para-instalação)
+    - [Instalação do projeto](#instalação-do-projeto)
   - [Documentação](#documentação)
     - [Gerar a Documentação da API](#gerar-a-documentação-da-api)
     - [Executar Scripts do /docs](#executar-scripts-do-docs)
 
-## Estrutura de Pastas
+## Estrutura de arquivos
 
 ```txt
-src/                        # repositório
+.
+├── docs                    # Documentação
+└── src                     # Projeto
+```
+
+### Arquivos do Projeto
+
+```powershell
+./src/
 ├── addons/                 # bibliotecas third party
 ├── assets/                 # assets como sprites, sons, texturas e respectivos arquivos de configuração
 ├── components/             # nodes a serem exibidos nas cenas e respectivos arquivos de
@@ -32,12 +44,35 @@ src/                        # repositório
 └── scenes/                 # cenas do jogo
 ```
 
+### Arquivos da Documentação
+
+```powershell
+./docs/
+├── api/                    #
+└── src/                    #
+ ├── components/            #
+ ├── css/                   #
+ └── pages/                 #
+
+```
+
 ## Tecnologias e Frameworks
+
+### Tecnologias do Jogo
 
 - **Godot Engine 4+**: Motor de jogo utilizado para desenvolver o projeto.
 - **C#**: Linguagem de programação utilizada para a lógica do jogo.
 
-## Instalação
+### Tecnologias da Documentação
+
+- **DocFX**: Utilizado para gerar as referências de API do projeto .NET em Markdown (md).
+- **Docusaurus**: Utilizado para construir o site estático a partir de arquivos Markdown, incluindo a API.
+- **StatiCrypt**: Utilizado para encriptar os arquivos construídos, protegendo-os com uma senha.
+- **Firebase**: Utilizado para servir a documentação no endereço [https://sw-game-dice-roll-docs.web.app](https://sw-game-dice-roll-docs.web.app).
+
+---
+
+## Desenvolvimento do jogo
 
 Para configurar o projeto localmente, siga os passos abaixo:
 
@@ -47,7 +82,7 @@ Para configurar o projeto localmente, siga os passos abaixo:
 
 2. **.NET SDK**: O projeto utiliza C#, então você precisará do .NET SDK instalado. Você pode baixar o .NET SDK [aqui](https://dotnet.microsoft.com/download).
 
-### Passos para Instalação
+### Instalação do projeto
 
 1. Clone o repositório:
 
@@ -71,6 +106,8 @@ Para configurar o projeto localmente, siga os passos abaixo:
    - Com o projeto aberto no Godot, clique no botão de "Play" (ícone de triângulo) na barra superior para executar o jogo.
 
 Agora você deve estar pronto para começar a desenvolver e testar o jogo localmente.
+
+---
 
 ## Documentação
 
@@ -102,18 +139,18 @@ Para executar os scripts definidos no arquivo `package.json` dentro do diretóri
    cd docs
    ```
 
-2. Execute o script desejado. Aqui estão alguns exemplos de scripts disponíveis:
-
-   - Para iniciar o servidor de desenvolvimento do Docusaurus:
-
-     ```sh
-     npm run start
-     ```
+2. Execute o script desejado:
 
    - Para processar os arquivos da API:
 
      ```sh
      npm run process-api
+     ```
+
+   - Para iniciar o servidor de desenvolvimento do Docusaurus:
+
+     ```sh
+     npm run start
      ```
 
    - Para construir o site estático:

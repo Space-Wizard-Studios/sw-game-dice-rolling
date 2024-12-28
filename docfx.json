@@ -13,10 +13,10 @@
       "properties": {
         "type": "API"
       },
-      "categoryLayout": "flattened",
+      "categoryLayout": "nested",
       "enumSortOrder": "declaringOrder",
       "memberLayout": "samePage",
-      "namespaceLayout": "flattened",
+      "namespaceLayout": "nested",
       "globalNamespaceId": "DiceRoll"
     }
   ]

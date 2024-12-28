@@ -10,11 +10,11 @@
 
  [CharacterAction](DiceRoll.Models.CharacterActions.CharacterAction.md)
 
- [CharacterAction.MethodName](DiceRoll.Models.CharacterActions.CharacterAction.MethodName.md)
+ [ActionType.MethodName](DiceRoll.Models.CharacterActions.ActionType.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [TargetType.MethodName](DiceRoll.Models.CharacterActions.TargetType.MethodName.md)
+ [CharacterAction.MethodName](DiceRoll.Models.CharacterActions.CharacterAction.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
@@ -22,7 +22,7 @@ Cached StringNames for the methods contained in this class, for fast lookup.
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [ActionType.MethodName](DiceRoll.Models.CharacterActions.ActionType.MethodName.md)
+ [TargetType.MethodName](DiceRoll.Models.CharacterActions.TargetType.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
@@ -52,11 +52,11 @@ Cached StringNames for the signals contained in this class, for fast lookup.
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
- [QuantityType.SignalName](DiceRoll.Models.CharacterActions.QuantityType.SignalName.md)
+ [TargetType.SignalName](DiceRoll.Models.CharacterActions.TargetType.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
- [TargetType.SignalName](DiceRoll.Models.CharacterActions.TargetType.SignalName.md)
+ [QuantityType.SignalName](DiceRoll.Models.CharacterActions.QuantityType.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 

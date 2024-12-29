@@ -118,6 +118,8 @@ const config: Config = {
             additionalLanguages: ['powershell', 'csharp'],
         },
     } satisfies Preset.ThemeConfig,
+    
+    plugins: [require.resolve('docusaurus-lunr-search')],
 };
 
 export default config;

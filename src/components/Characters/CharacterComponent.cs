@@ -60,6 +60,30 @@ public partial class CharacterComponent : Control {
     [Export] public Sprite2D? SelectorSpriteNode { get; set; }
     [Export] public Control? SelectionAreaNode { get; set; }
 
+    public override void _Ready() {
+        ConnectSignals();
+        InitializeCharacterResources();
+
+        if (Engine.IsEditorHint()) return;
+
+        // TODO: improve the ArcDrawer initialization
+        _arcDrawer ??= GetNode<ArcDrawer>("/root/Battle/ArcDrawer");
+    }
+
+    private void ConnectSignals() {
+        if (SelectionAreaNode != null) {
+            SelectionAreaNode.Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
+            SelectionAreaNode.Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
+            SelectionAreaNode.Connect("gui_input", new Callable(this, nameof(OnGuiInput)));
+        }
+    }
+
+    private void InitializeCharacterResources() {
+        if (Character != null && AnimatedSpriteNode != null && ShadowNode != null) {
+            OnCharacterResourceSet(Character, AnimatedSpriteNode, ShadowNode);
+        }
+    }
+
     private void OnMouseEntered() {
         IsHovered = true;
     }
@@ -84,6 +108,28 @@ public partial class CharacterComponent : Control {
         currentlySelected = current.IsSelected ? current : null;
         if (currentlySelected != null) {
             setSelectedAction?.Invoke(currentlySelected);
+        }
+    }
+
+    private void OnIsHoveredSet(bool isHovered) {
+        if (HoverSpriteNode != null) {
+            HoverSpriteNode.Visible = isHovered;
+        }
+
+        if (Character != null && !IsEnemy) {
+            EventBus.Instance.OnCharacterInspected(Character);
+        }
+    }
+
+    private void OnIsSelectedSet(bool isSelected) {
+        if (SelectorSpriteNode != null) {
+            SelectorSpriteNode.Visible = isSelected;
+        }
+    }
+
+    public void FlipSprite(bool flip) {
+        if (AnimatedSpriteNode != null) {
+            AnimatedSpriteNode.FlipH = flip;
         }
     }
 
@@ -117,45 +163,6 @@ public partial class CharacterComponent : Control {
             shadowNode.Visible = false;
         }
         animatedSpriteNode.Position = new Vector2(character.SpritePositionX, character.SpritePositionY);
-    }
-
-    private void OnIsHoveredSet(bool isHovered) {
-        if (HoverSpriteNode != null) {
-            HoverSpriteNode.Visible = isHovered;
-        }
-
-        if (Character != null && !IsEnemy) {
-            EventBus.Instance.OnCharacterInspected(Character);
-        }
-    }
-
-    private void OnIsSelectedSet(bool isSelected) {
-        if (SelectorSpriteNode != null) {
-            SelectorSpriteNode.Visible = isSelected;
-        }
-    }
-
-    public void FlipSprite(bool flip) {
-        if (AnimatedSpriteNode != null) {
-            AnimatedSpriteNode.FlipH = flip;
-        }
-    }
-
-    public override void _Ready() {
-        if (SelectionAreaNode != null) {
-            SelectionAreaNode.Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
-            SelectionAreaNode.Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
-            SelectionAreaNode.Connect("gui_input", new Callable(this, nameof(OnGuiInput)));
-        }
-
-        if (Character != null && AnimatedSpriteNode != null && ShadowNode != null) {
-            OnCharacterResourceSet(Character, AnimatedSpriteNode, ShadowNode);
-        }
-
-        if (Engine.IsEditorHint()) return;
-
-        _arcDrawer ??= GetNode<ArcDrawer>("/root/Battle/ArcDrawer");
-
     }
 
 }

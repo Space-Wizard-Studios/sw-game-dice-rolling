@@ -6,7 +6,7 @@ using DiceRoll.Stores;
 
 namespace DiceRoll.Managers;
 
-public partial class BattleManager : Control {
+public partial class BattleManager : Node3D {
     [Export]
     public PackedScene? GameLogScene { get; set; }
 

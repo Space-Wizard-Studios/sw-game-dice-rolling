@@ -27,6 +27,14 @@ public partial class CharacterGrid : Node3D {
     }
 
     private void GenerateGrids() {
+        // Clear existing grids
+        foreach (var child in GetChildren()) {
+            if (child is Grid3D grid) {
+                RemoveChild(grid);
+                grid.QueueFree();
+            }
+        }
+
         float currentXPosition = 0;
 
         foreach (var config in GridConfigurations) {
@@ -48,27 +56,16 @@ public partial class CharacterGrid : Node3D {
             currentXPosition += config.Columns;
 
             // Connect a signal or method to update the grid when the configuration changes
-            var callable = Callable.From(() => OnGridConfigurationChanged(grid, config));
-            config.Connect("changed", callable);
-            _connections[config] = callable;
+            if (!_connections.ContainsKey(config)) {
+                var callable = Callable.From(() => OnGridConfigurationChanged());
+                config.Connect("changed", callable);
+                _connections[config] = callable;
+            }
         }
     }
 
-    private void OnGridConfigurationChanged(Grid3D grid, CharacterGridType config) {
+    private void OnGridConfigurationChanged() {
         GD.PrintT("Grid configuration changed");
-        grid.Columns = config.Columns;
-        grid.Rows = config.Rows;
-        grid.Prefix = config.Prefix;
-        grid.GenerateGridCells();
-
-        // Update the grid's position based on the new offset value
-        if (_initialPositions.TryGetValue(grid, out var initialPosition)) {
-            float centerZPosition = -config.Rows / 2.0f;
-            grid.Transform = new Transform3D(Basis.Identity, new Vector3(initialPosition + config.Offset, 0, centerZPosition));
-        }
-
-        if (Engine.IsEditorHint()) {
-            grid.UpdateDebugMesh();
-        }
+        GenerateGrids();
     }
 }

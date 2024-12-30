@@ -51,7 +51,7 @@ public partial class CharacterGridType : Resource {
         }
     }
 
-    private string _prefix;
+    private string _prefix = "G";
     [Export]
     public string Prefix {
         get => _prefix;

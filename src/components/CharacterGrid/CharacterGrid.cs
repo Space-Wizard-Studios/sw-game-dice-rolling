@@ -5,11 +5,11 @@ using DiceRoll.Models.CharacterGrid;
 namespace DiceRoll.Components;
 
 [Tool]
-public partial class CharacterGrid3D : Node3D {
+public partial class CharacterGrid : Node3D {
     [Export] public CharacterGridType[] GridConfigurations { get; set; } = [];
 
-    private readonly Dictionary<CharacterGridType, Callable> _connections = new();
-    private readonly Dictionary<Grid3D, float> _initialPositions = new();
+    private readonly Dictionary<CharacterGridType, Callable> _connections = [];
+    private readonly Dictionary<Grid3D, float> _initialPositions = [];
 
     public override void _Ready() {
         base._Ready();

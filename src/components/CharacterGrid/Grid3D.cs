@@ -32,8 +32,8 @@ public partial class Grid3D : Node3D {
 
     [Export] public string Prefix { get; set; } = "G";
 
-    private readonly List<Marker3D> gridCells = new();
-    private readonly List<Label3D> debugLabels = new();
+    private readonly List<Marker3D> gridCells = [];
+    private readonly List<Label3D> debugLabels = [];
     private MeshInstance3D? debugMeshInstance;
     private ArrayMesh? debugMesh;
 
@@ -65,15 +65,17 @@ public partial class Grid3D : Node3D {
         int index = 0;
         for (int x = 0; x < Columns; x++) {
             for (int y = 0; y < Rows; y++) {
-                Marker3D cell = new Marker3D();
-                cell.Transform = new Transform3D(Basis.Identity, new Vector3(x, 0, y));
+                Marker3D cell = new() {
+                    Transform = new Transform3D(Basis.Identity, new Vector3(x, 0, y))
+                };
                 AddChild(cell);
                 gridCells.Add(cell);
 
                 // Create and add label for cell index
-                Label3D label = new Label3D();
-                label.Text = $"{Prefix}{index}({x},{y})";
-                label.Transform = new Transform3D(Basis.Identity, new Vector3(x + 0.5f, 0.5f, y + 0.5f));
+                Label3D label = new() {
+                    Text = $"{Prefix}{index}({x},{y})",
+                    Transform = new Transform3D(Basis.Identity, new Vector3(x + 0.5f, 0.5f, y + 0.5f))
+                };
                 AddChild(label);
                 debugLabels.Add(label);
 

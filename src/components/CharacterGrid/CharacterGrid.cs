@@ -64,7 +64,7 @@ public partial class CharacterGrid : Node3D {
         }
     }
 
-    private Array _add_inspector_buttons() {
+    private Array AddInspectorButtons() {
         var buttons = new Array();
         var buttonData = new Dictionary {
             { "name", "Generate Grids" },

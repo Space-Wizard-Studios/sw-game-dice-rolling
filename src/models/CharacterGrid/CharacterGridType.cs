@@ -15,49 +15,11 @@ public partial class CharacterGridType : Resource {
         Offset = offset;
         Prefix = prefix;
     }
+    [Export] public int Columns { get; set; } = 0;
 
-    private void OnPropertyChanged() {
-        EmitSignal(nameof(Changed));
-        EmitChanged();
-    }
+    [Export] public int Rows { get; set; } = 0;
 
-    private int _columns;
-    [Export]
-    public int Columns {
-        get => _columns;
-        set {
-            _columns = value;
-            OnPropertyChanged();
-        }
-    }
+    [Export] public int Offset { get; set; } = 0;
 
-    private int _rows;
-    [Export]
-    public int Rows {
-        get => _rows;
-        set {
-            _rows = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private int _offset;
-    [Export]
-    public int Offset {
-        get => _offset;
-        set {
-            _offset = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private string _prefix = "G";
-    [Export]
-    public string Prefix {
-        get => _prefix;
-        set {
-            _prefix = value;
-            OnPropertyChanged();
-        }
-    }
+    [Export] public string Prefix { get; set; } = "G";
 }

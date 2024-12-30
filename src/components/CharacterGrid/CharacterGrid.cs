@@ -1,15 +1,15 @@
 using Godot;
 using System.Collections.Generic;
+using Godot.Collections;
 using DiceRoll.Models.CharacterGrid;
 
 namespace DiceRoll.Components;
 
 [Tool]
 public partial class CharacterGrid : Node3D {
-    [Export] public CharacterGridType[] GridConfigurations { get; set; } = [];
-
-    private readonly Dictionary<CharacterGridType, Callable> _connections = [];
-    private readonly Dictionary<Grid3D, float> _initialPositions = [];
+    [Export] public CharacterGridType[] GridConfigurations = [];
+    private readonly Godot.Collections.Dictionary<CharacterGridType, Callable> _connections = [];
+    private readonly Godot.Collections.Dictionary<Grid3D, float> _initialPositions = [];
 
     public override void _Ready() {
         base._Ready();
@@ -27,6 +27,10 @@ public partial class CharacterGrid : Node3D {
     }
 
     private void GenerateGrids() {
+        if (GridConfigurations is null || GridConfigurations.Length == 0) {
+            return;
+        }
+
         // Clear existing grids
         foreach (var child in GetChildren()) {
             if (child is Grid3D grid) {
@@ -38,6 +42,10 @@ public partial class CharacterGrid : Node3D {
         float currentXPosition = 0;
 
         foreach (var config in GridConfigurations) {
+            if (config is null || config.Columns <= 0 || config.Rows <= 0) {
+                continue;
+            }
+
             Grid3D grid = new Grid3D {
                 Columns = config.Columns,
                 Rows = config.Rows,
@@ -50,22 +58,19 @@ public partial class CharacterGrid : Node3D {
             grid.Transform = new Transform3D(Basis.Identity, new Vector3(currentXPosition, 0, centerZPosition));
             AddChild(grid);
             grid.GenerateGridCells();
-
             _initialPositions[grid] = currentXPosition;
 
             currentXPosition += config.Columns;
-
-            // Connect a signal or method to update the grid when the configuration changes
-            if (!_connections.ContainsKey(config)) {
-                var callable = Callable.From(() => OnGridConfigurationChanged());
-                config.Connect("changed", callable);
-                _connections[config] = callable;
-            }
         }
     }
 
-    private void OnGridConfigurationChanged() {
-        GD.PrintT("Grid configuration changed");
-        GenerateGrids();
+    private Array _add_inspector_buttons() {
+        var buttons = new Array();
+        var buttonData = new Dictionary {
+            { "name", "Generate Grids" },
+            { "pressed", new Callable(this, nameof(GenerateGrids)) }
+        };
+        buttons.Add(buttonData);
+        return buttons;
     }
 }

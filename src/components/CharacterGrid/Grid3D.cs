@@ -6,29 +6,9 @@ namespace DiceRoll.Components;
 [Tool]
 public partial class Grid3D : Node3D {
 
-    private int columns;
-    [Export]
-    public int Columns {
-        get => columns;
-        set {
-            columns = value;
-            if (Engine.IsEditorHint()) {
-                UpdateDebugMesh();
-            }
-        }
-    }
+    [Export] public int Columns { get; set; } = 0;
 
-    private int rows;
-    [Export]
-    public int Rows {
-        get => rows;
-        set {
-            rows = value;
-            if (Engine.IsEditorHint()) {
-                UpdateDebugMesh();
-            }
-        }
-    }
+    [Export] public int Rows { get; set; } = 0;
 
     [Export] public string Prefix { get; set; } = "G";
 

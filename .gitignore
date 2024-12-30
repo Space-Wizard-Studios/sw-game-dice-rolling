@@ -1,7 +1,2 @@
-# Godot 4+ specific ignores
-debug.log
-.godot/
-/android/
-
 # VsCode Stuff
 .VSCodeCounter

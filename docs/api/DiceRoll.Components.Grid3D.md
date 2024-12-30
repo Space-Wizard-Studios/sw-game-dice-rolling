@@ -1,11 +1,12 @@
-# <a id="DiceRoll_Managers_BattleManager"></a> Class BattleManager
+# <a id="DiceRoll_Components_Grid3D"></a> Class Grid3D
 
-Namespace: [DiceRoll.Managers](DiceRoll.Managers.md)  
+Namespace: [DiceRoll.Components](DiceRoll.Components.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
-[ScriptPath("res://core/managers/gameplay/BattleManager.cs")]
-public class BattleManager : Node3D, IDisposable
+[Tool]
+[ScriptPath("res://components/CharacterGrid/Grid3D.cs")]
+public class Grid3D : Node3D, IDisposable
 ```
 
 #### Inheritance
@@ -14,7 +15,7 @@ public class BattleManager : Node3D, IDisposable
 GodotObject ← 
 Node ← 
 Node3D ← 
-[BattleManager](DiceRoll.Managers.BattleManager.md)
+[Grid3D](DiceRoll.Components.Grid3D.md)
 
 #### Implements
 
@@ -371,31 +372,54 @@ GodotObject.PropertyListChanged,
 
 ## Properties
 
-### <a id="DiceRoll_Managers_BattleManager_DiceManaResources"></a> DiceManaResources
+### <a id="DiceRoll_Components_Grid3D_Columns"></a> Columns
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public DiceManaResources? DiceManaResources { get; set; }
+public int Columns { get; set; }
 ```
 
 #### Property Value
 
- [DiceManaResources](DiceRoll.Models.DiceManaResources.md)?
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-### <a id="DiceRoll_Managers_BattleManager_GameLogScene"></a> GameLogScene
+### <a id="DiceRoll_Components_Grid3D_Prefix"></a> Prefix
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public PackedScene? GameLogScene { get; set; }
+public string Prefix { get; set; }
 ```
 
 #### Property Value
 
- PackedScene?
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### <a id="DiceRoll_Components_Grid3D_Rows"></a> Rows
+
+```csharp
+[Export(PropertyHint.None, "")]
+public int Rows { get; set; }
+```
+
+#### Property Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
 ## Methods
 
-### <a id="DiceRoll_Managers_BattleManager__Ready"></a> \_Ready\(\)
+### <a id="DiceRoll_Components_Grid3D_GenerateGridCells"></a> GenerateGridCells\(\)
+
+```csharp
+public void GenerateGridCells()
+```
+
+### <a id="DiceRoll_Components_Grid3D_UpdateDebugMesh"></a> UpdateDebugMesh\(\)
+
+```csharp
+public void UpdateDebugMesh()
+```
+
+### <a id="DiceRoll_Components_Grid3D__Ready"></a> \_Ready\(\)
 
 <p>Called when the node is "ready", i.e. when both the node and its children have entered the scene tree. If the node has children, their <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> callbacks get triggered first, and the parent node will receive the ready notification afterwards.</p>
 <p>Corresponds to the <xref href="Godot.Node.NotificationReady" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>. See also the <code>@onready</code> annotation for variables.</p>

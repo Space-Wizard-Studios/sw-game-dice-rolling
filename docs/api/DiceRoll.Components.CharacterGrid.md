@@ -1,11 +1,12 @@
-# <a id="DiceRoll_Managers_BattleManager"></a> Class BattleManager
+# <a id="DiceRoll_Components_CharacterGrid"></a> Class CharacterGrid
 
-Namespace: [DiceRoll.Managers](DiceRoll.Managers.md)  
+Namespace: [DiceRoll.Components](DiceRoll.Components.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
-[ScriptPath("res://core/managers/gameplay/BattleManager.cs")]
-public class BattleManager : Node3D, IDisposable
+[Tool]
+[ScriptPath("res://components/CharacterGrid/CharacterGrid.cs")]
+public class CharacterGrid : Node3D, IDisposable
 ```
 
 #### Inheritance
@@ -14,7 +15,7 @@ public class BattleManager : Node3D, IDisposable
 GodotObject ← 
 Node ← 
 Node3D ← 
-[BattleManager](DiceRoll.Managers.BattleManager.md)
+[CharacterGrid](DiceRoll.Components.CharacterGrid.md)
 
 #### Implements
 
@@ -371,31 +372,29 @@ GodotObject.PropertyListChanged,
 
 ## Properties
 
-### <a id="DiceRoll_Managers_BattleManager_DiceManaResources"></a> DiceManaResources
+### <a id="DiceRoll_Components_CharacterGrid_GridConfigurations"></a> GridConfigurations
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public DiceManaResources? DiceManaResources { get; set; }
+public CharacterGridType[] GridConfigurations { get; set; }
 ```
 
 #### Property Value
 
- [DiceManaResources](DiceRoll.Models.DiceManaResources.md)?
-
-### <a id="DiceRoll_Managers_BattleManager_GameLogScene"></a> GameLogScene
-
-```csharp
-[Export(PropertyHint.None, "")]
-public PackedScene? GameLogScene { get; set; }
-```
-
-#### Property Value
-
- PackedScene?
+ [CharacterGridType](DiceRoll.Models.CharacterGrid.CharacterGridType.md)\[\]
 
 ## Methods
 
-### <a id="DiceRoll_Managers_BattleManager__Ready"></a> \_Ready\(\)
+### <a id="DiceRoll_Components_CharacterGrid__ExitTree"></a> \_ExitTree\(\)
+
+<p>Called when the node is about to leave the <xref href="Godot.SceneTree" data-throw-if-not-resolved="false"></xref> (e.g. upon freeing, scene changing, or after calling <xref href="Godot.Node.RemoveChild(Godot.Node)" data-throw-if-not-resolved="false"></xref> in a script). If the node has children, its <xref href="Godot.Node._ExitTree" data-throw-if-not-resolved="false"></xref> callback will be called last, after all its children have left the tree.</p>
+<p>Corresponds to the <xref href="Godot.Node.NotificationExitTree" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref> and signal <xref href="Godot.Node.TreeExiting" data-throw-if-not-resolved="false"></xref>. To get notified when the node has already left the active tree, connect to the <xref href="Godot.Node.TreeExited" data-throw-if-not-resolved="false"></xref>.</p>
+
+```csharp
+public override void _ExitTree()
+```
+
+### <a id="DiceRoll_Components_CharacterGrid__Ready"></a> \_Ready\(\)
 
 <p>Called when the node is "ready", i.e. when both the node and its children have entered the scene tree. If the node has children, their <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> callbacks get triggered first, and the parent node will receive the ready notification afterwards.</p>
 <p>Corresponds to the <xref href="Godot.Node.NotificationReady" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>. See also the <code>@onready</code> annotation for variables.</p>

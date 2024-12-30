@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Managers_BattleManager_MethodName"></a> Class BattleManager.MethodName
+# <a id="DiceRoll_Components_Grid3D_MethodName"></a> Class Grid3D.MethodName
 
-Namespace: [DiceRoll.Managers](DiceRoll.Managers.md)  
+Namespace: [DiceRoll.Components](DiceRoll.Components.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
 ```csharp
-public class BattleManager.MethodName : Node3D.MethodName
+public class Grid3D.MethodName : Node3D.MethodName
 ```
 
 #### Inheritance
@@ -15,7 +15,7 @@ public class BattleManager.MethodName : Node3D.MethodName
 GodotObject.MethodName ← 
 Node.MethodName ← 
 Node3D.MethodName ← 
-[BattleManager.MethodName](DiceRoll.Managers.BattleManager.MethodName.md)
+[Grid3D.MethodName](DiceRoll.Components.Grid3D.MethodName.md)
 
 #### Inherited Members
 
@@ -288,43 +288,43 @@ GodotObject.MethodName.CancelFree,
 
 ## Fields
 
-### <a id="DiceRoll_Managers_BattleManager_MethodName_RunCharacterTests"></a> RunCharacterTests
+### <a id="DiceRoll_Components_Grid3D_MethodName_CreateDebugMesh"></a> CreateDebugMesh
 
-Cached name for the 'RunCharacterTests' method.
+Cached name for the 'CreateDebugMesh' method.
 
 ```csharp
-public static readonly StringName RunCharacterTests
+public static readonly StringName CreateDebugMesh
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_Managers_BattleManager_MethodName_RunDiceTests"></a> RunDiceTests
+### <a id="DiceRoll_Components_Grid3D_MethodName_GenerateGridCells"></a> GenerateGridCells
 
-Cached name for the 'RunDiceTests' method.
+Cached name for the 'GenerateGridCells' method.
 
 ```csharp
-public static readonly StringName RunDiceTests
+public static readonly StringName GenerateGridCells
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_Managers_BattleManager_MethodName_RunGameLogTests"></a> RunGameLogTests
+### <a id="DiceRoll_Components_Grid3D_MethodName_UpdateDebugMesh"></a> UpdateDebugMesh
 
-Cached name for the 'RunGameLogTests' method.
+Cached name for the 'UpdateDebugMesh' method.
 
 ```csharp
-public static readonly StringName RunGameLogTests
+public static readonly StringName UpdateDebugMesh
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_Managers_BattleManager_MethodName__Ready"></a> \_Ready
+### <a id="DiceRoll_Components_Grid3D_MethodName__Ready"></a> \_Ready
 
 Cached name for the '_Ready' method.
 

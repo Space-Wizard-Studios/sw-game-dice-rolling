@@ -15,6 +15,14 @@
         href: DiceRoll.Components.CharacterComponent.PropertyName.md
       - name: CharacterComponent.SignalName
         href: DiceRoll.Components.CharacterComponent.SignalName.md
+      - name: CharacterGrid
+        href: DiceRoll.Components.CharacterGrid.md
+      - name: CharacterGrid.MethodName
+        href: DiceRoll.Components.CharacterGrid.MethodName.md
+      - name: CharacterGrid.PropertyName
+        href: DiceRoll.Components.CharacterGrid.PropertyName.md
+      - name: CharacterGrid.SignalName
+        href: DiceRoll.Components.CharacterGrid.SignalName.md
       - name: CharacterInspector
         href: DiceRoll.Components.CharacterInspector.md
       - name: CharacterInspector.MethodName
@@ -39,6 +47,14 @@
         href: DiceRoll.Components.GameLogComponent.PropertyName.md
       - name: GameLogComponent.SignalName
         href: DiceRoll.Components.GameLogComponent.SignalName.md
+      - name: Grid3D
+        href: DiceRoll.Components.Grid3D.md
+      - name: Grid3D.MethodName
+        href: DiceRoll.Components.Grid3D.MethodName.md
+      - name: Grid3D.PropertyName
+        href: DiceRoll.Components.Grid3D.PropertyName.md
+      - name: Grid3D.SignalName
+        href: DiceRoll.Components.Grid3D.SignalName.md
       - name: InventoryComponent
         href: DiceRoll.Components.InventoryComponent.md
       - name: InventoryComponent.MethodName
@@ -253,6 +269,23 @@
           href: DiceRoll.Models.CharacterActions.IAction-2.md
         - name: IActionContext
           href: DiceRoll.Models.CharacterActions.IActionContext.md
+    - name: CharacterGrid
+      href: DiceRoll.Models.CharacterGrid.md
+      items:
+      - name: Classes
+        items:
+        - name: CharacterGridType
+          href: DiceRoll.Models.CharacterGrid.CharacterGridType.md
+        - name: CharacterGridType.MethodName
+          href: DiceRoll.Models.CharacterGrid.CharacterGridType.MethodName.md
+        - name: CharacterGridType.PropertyName
+          href: DiceRoll.Models.CharacterGrid.CharacterGridType.PropertyName.md
+        - name: CharacterGridType.SignalName
+          href: DiceRoll.Models.CharacterGrid.CharacterGridType.SignalName.md
+      - name: Delegates
+        items:
+        - name: CharacterGridType.ChangedEventHandler
+          href: DiceRoll.Models.CharacterGrid.CharacterGridType.ChangedEventHandler.md
     - name: Classes
       items:
       - name: AttributeType

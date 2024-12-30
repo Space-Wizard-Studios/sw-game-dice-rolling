@@ -10,15 +10,15 @@
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
+ [SceneTransitionButton.MethodName](DiceRoll.UI.SceneTransitionButton.MethodName.md)
+
+Cached StringNames for the methods contained in this class, for fast lookup.
+
  [CloseGameButton.MethodName](DiceRoll.UI.CloseGameButton.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
  [ArcDrawer.MethodName](DiceRoll.UI.ArcDrawer.MethodName.md)
-
-Cached StringNames for the methods contained in this class, for fast lookup.
-
- [SceneTransitionButton.MethodName](DiceRoll.UI.SceneTransitionButton.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
@@ -42,11 +42,7 @@ Cached StringNames for the properties and fields contained in this class, for fa
 
  [SceneTransitionButton](DiceRoll.UI.SceneTransitionButton.md)
 
- [ArcDrawer.SignalName](DiceRoll.UI.ArcDrawer.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
- [CloseGameButton.SignalName](DiceRoll.UI.CloseGameButton.SignalName.md)
+ [SceneTransitionButton.SignalName](DiceRoll.UI.SceneTransitionButton.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
@@ -54,7 +50,11 @@ Cached StringNames for the signals contained in this class, for fast lookup.
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
- [SceneTransitionButton.SignalName](DiceRoll.UI.SceneTransitionButton.SignalName.md)
+ [CloseGameButton.SignalName](DiceRoll.UI.CloseGameButton.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
+
+ [ArcDrawer.SignalName](DiceRoll.UI.ArcDrawer.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 

@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Managers_BattleManager_SignalName"></a> Class BattleManager.SignalName
+# <a id="DiceRoll_Components_CharacterGrid_SignalName"></a> Class CharacterGrid.SignalName
 
-Namespace: [DiceRoll.Managers](DiceRoll.Managers.md)  
+Namespace: [DiceRoll.Components](DiceRoll.Components.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
 ```csharp
-public class BattleManager.SignalName : Node3D.SignalName
+public class CharacterGrid.SignalName : Node3D.SignalName
 ```
 
 #### Inheritance
@@ -15,7 +15,7 @@ public class BattleManager.SignalName : Node3D.SignalName
 GodotObject.SignalName ← 
 Node.SignalName ← 
 Node3D.SignalName ← 
-[BattleManager.SignalName](DiceRoll.Managers.BattleManager.SignalName.md)
+[CharacterGrid.SignalName](DiceRoll.Components.CharacterGrid.SignalName.md)
 
 #### Inherited Members
 

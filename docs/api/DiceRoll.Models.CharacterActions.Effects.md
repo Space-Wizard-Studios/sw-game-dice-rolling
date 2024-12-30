@@ -6,11 +6,11 @@
 
  [Effect](DiceRoll.Models.CharacterActions.Effects.Effect.md)
 
- [DamageEffect.MethodName](DiceRoll.Models.CharacterActions.Effects.DamageEffect.MethodName.md)
+ [Effect.MethodName](DiceRoll.Models.CharacterActions.Effects.Effect.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [Effect.MethodName](DiceRoll.Models.CharacterActions.Effects.Effect.MethodName.md)
+ [DamageEffect.MethodName](DiceRoll.Models.CharacterActions.Effects.DamageEffect.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 

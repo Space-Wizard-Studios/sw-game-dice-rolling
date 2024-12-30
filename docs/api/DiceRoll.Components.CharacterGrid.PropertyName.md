@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Managers_BattleManager_PropertyName"></a> Class BattleManager.PropertyName
+# <a id="DiceRoll_Components_CharacterGrid_PropertyName"></a> Class CharacterGrid.PropertyName
 
-Namespace: [DiceRoll.Managers](DiceRoll.Managers.md)  
+Namespace: [DiceRoll.Components](DiceRoll.Components.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
 ```csharp
-public class BattleManager.PropertyName : Node3D.PropertyName
+public class CharacterGrid.PropertyName : Node3D.PropertyName
 ```
 
 #### Inheritance
@@ -15,7 +15,7 @@ public class BattleManager.PropertyName : Node3D.PropertyName
 GodotObject.PropertyName ← 
 Node.PropertyName ← 
 Node3D.PropertyName ← 
-[BattleManager.PropertyName](DiceRoll.Managers.BattleManager.PropertyName.md)
+[CharacterGrid.PropertyName](DiceRoll.Components.CharacterGrid.PropertyName.md)
 
 #### Inherited Members
 
@@ -61,24 +61,12 @@ Node.PropertyName.EditorDescription,
 
 ## Fields
 
-### <a id="DiceRoll_Managers_BattleManager_PropertyName_DiceManaResources"></a> DiceManaResources
+### <a id="DiceRoll_Components_CharacterGrid_PropertyName_GridConfigurations"></a> GridConfigurations
 
-Cached name for the 'DiceManaResources' property.
-
-```csharp
-public static readonly StringName DiceManaResources
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Managers_BattleManager_PropertyName_GameLogScene"></a> GameLogScene
-
-Cached name for the 'GameLogScene' property.
+Cached name for the 'GridConfigurations' property.
 
 ```csharp
-public static readonly StringName GameLogScene
+public static readonly StringName GridConfigurations
 ```
 
 #### Field Value

@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Managers_BattleManager_PropertyName"></a> Class BattleManager.PropertyName
+# <a id="DiceRoll_Components_Grid3D_PropertyName"></a> Class Grid3D.PropertyName
 
-Namespace: [DiceRoll.Managers](DiceRoll.Managers.md)  
+Namespace: [DiceRoll.Components](DiceRoll.Components.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
 ```csharp
-public class BattleManager.PropertyName : Node3D.PropertyName
+public class Grid3D.PropertyName : Node3D.PropertyName
 ```
 
 #### Inheritance
@@ -15,7 +15,7 @@ public class BattleManager.PropertyName : Node3D.PropertyName
 GodotObject.PropertyName ← 
 Node.PropertyName ← 
 Node3D.PropertyName ← 
-[BattleManager.PropertyName](DiceRoll.Managers.BattleManager.PropertyName.md)
+[Grid3D.PropertyName](DiceRoll.Components.Grid3D.PropertyName.md)
 
 #### Inherited Members
 
@@ -61,24 +61,84 @@ Node.PropertyName.EditorDescription,
 
 ## Fields
 
-### <a id="DiceRoll_Managers_BattleManager_PropertyName_DiceManaResources"></a> DiceManaResources
+### <a id="DiceRoll_Components_Grid3D_PropertyName_Columns"></a> Columns
 
-Cached name for the 'DiceManaResources' property.
+Cached name for the 'Columns' property.
 
 ```csharp
-public static readonly StringName DiceManaResources
+public static readonly StringName Columns
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_Managers_BattleManager_PropertyName_GameLogScene"></a> GameLogScene
+### <a id="DiceRoll_Components_Grid3D_PropertyName_Prefix"></a> Prefix
 
-Cached name for the 'GameLogScene' property.
+Cached name for the 'Prefix' property.
 
 ```csharp
-public static readonly StringName GameLogScene
+public static readonly StringName Prefix
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Components_Grid3D_PropertyName_Rows"></a> Rows
+
+Cached name for the 'Rows' property.
+
+```csharp
+public static readonly StringName Rows
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Components_Grid3D_PropertyName_columns"></a> columns
+
+Cached name for the 'columns' field.
+
+```csharp
+public static readonly StringName columns
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Components_Grid3D_PropertyName_debugMesh"></a> debugMesh
+
+Cached name for the 'debugMesh' field.
+
+```csharp
+public static readonly StringName debugMesh
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Components_Grid3D_PropertyName_debugMeshInstance"></a> debugMeshInstance
+
+Cached name for the 'debugMeshInstance' field.
+
+```csharp
+public static readonly StringName debugMeshInstance
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Components_Grid3D_PropertyName_rows"></a> rows
+
+Cached name for the 'rows' field.
+
+```csharp
+public static readonly StringName rows
 ```
 
 #### Field Value

@@ -453,12 +453,36 @@ GodotObject.MethodName.CancelFree,
 
 ## Fields
 
+### <a id="DiceRoll_Components_CharacterComponent_MethodName_ConnectSignals"></a> ConnectSignals
+
+Cached name for the 'ConnectSignals' method.
+
+```csharp
+public static readonly StringName ConnectSignals
+```
+
+#### Field Value
+
+ StringName
+
 ### <a id="DiceRoll_Components_CharacterComponent_MethodName_FlipSprite"></a> FlipSprite
 
 Cached name for the 'FlipSprite' method.
 
 ```csharp
 public static readonly StringName FlipSprite
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Components_CharacterComponent_MethodName_InitializeCharacterResources"></a> InitializeCharacterResources
+
+Cached name for the 'InitializeCharacterResources' method.
+
+```csharp
+public static readonly StringName InitializeCharacterResources
 ```
 
 #### Field Value

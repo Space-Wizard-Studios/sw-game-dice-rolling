@@ -5,7 +5,7 @@ Assembly: dice\-roll.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://components/Characters/CharacterRow.cs")]
+[ScriptPath("res://components/CharacterRow/CharacterRow.cs")]
 public class CharacterRow : HBoxContainer, IDisposable
 ```
 

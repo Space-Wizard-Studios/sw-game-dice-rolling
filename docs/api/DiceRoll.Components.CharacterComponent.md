@@ -5,7 +5,7 @@ Assembly: dice\-roll.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://components/Characters/CharacterComponent.cs")]
+[ScriptPath("res://components/CharacterComponent/CharacterComponent.cs")]
 public class CharacterComponent : Control, IDisposable
 ```
 

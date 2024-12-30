@@ -1,36 +1,26 @@
-# <a id="DiceRoll_Managers_BattleManager_SignalName"></a> Class BattleManager.SignalName
+# <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_SignalName"></a> Class CharacterGridType.SignalName
 
-Namespace: [DiceRoll.Managers](DiceRoll.Managers.md)  
+Namespace: [DiceRoll.Models.CharacterGrid](DiceRoll.Models.CharacterGrid.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
 ```csharp
-public class BattleManager.SignalName : Node3D.SignalName
+public class CharacterGridType.SignalName : Resource.SignalName
 ```
 
 #### Inheritance
 
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 GodotObject.SignalName ← 
-Node.SignalName ← 
-Node3D.SignalName ← 
-[BattleManager.SignalName](DiceRoll.Managers.BattleManager.SignalName.md)
+RefCounted.SignalName ← 
+Resource.SignalName ← 
+[CharacterGridType.SignalName](DiceRoll.Models.CharacterGrid.CharacterGridType.SignalName.md)
 
 #### Inherited Members
 
-Node3D.SignalName.VisibilityChanged, 
-Node.SignalName.Ready, 
-Node.SignalName.Renamed, 
-Node.SignalName.TreeEntered, 
-Node.SignalName.TreeExiting, 
-Node.SignalName.TreeExited, 
-Node.SignalName.ChildEnteredTree, 
-Node.SignalName.ChildExitingTree, 
-Node.SignalName.ChildOrderChanged, 
-Node.SignalName.ReplacingBy, 
-Node.SignalName.EditorDescriptionChanged, 
-Node.SignalName.EditorStateChanged, 
+Resource.SignalName.Changed, 
+Resource.SignalName.SetupLocalToSceneRequested, 
 GodotObject.SignalName.ScriptChanged, 
 GodotObject.SignalName.PropertyListChanged, 
 [object.Equals\(object?\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
@@ -40,4 +30,18 @@ GodotObject.SignalName.PropertyListChanged,
 [object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone), 
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
+
+## Fields
+
+### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_SignalName_Changed"></a> Changed
+
+Cached name for the 'Changed' signal.
+
+```csharp
+public static readonly StringName Changed
+```
+
+#### Field Value
+
+ StringName
 

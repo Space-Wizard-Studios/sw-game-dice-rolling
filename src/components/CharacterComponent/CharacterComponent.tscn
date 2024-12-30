@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d3lkjx05elcwq"]
 
-[ext_resource type="Script" uid="uid://f1lqpaw1xng7" path="res://components/Characters/CharacterComponent.cs" id="1_t0krx"]
+[ext_resource type="Script" uid="uid://f1lqpaw1xng7" path="res://components/CharacterComponent/CharacterComponent.cs" id="1_t0krx"]
 [ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Resources/Eleonore.tres" id="2_cqrrp"]
 [ext_resource type="Texture2D" uid="uid://drfm6uc8yvpwi" path="res://assets/icons/hud/plain-arrow.png" id="3_a4vpw"]
 [ext_resource type="Texture2D" uid="uid://cytb6ea63fslt" path="res://assets/icons/hud/select.png" id="3_gxxii"]

@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://jc3rfy1j13nu" path="res://core/managers/gameplay/BattleManager.cs" id="1_oeh3a"]
 [ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://core/ui/SceneTransitionButton.cs" id="2_4ip1d"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="2_cgh0m"]
-[ext_resource type="PackedScene" uid="uid://bhvfxwxj34u71" path="res://components/Characters/CharacterRow.tscn" id="2_j8o3d"]
+[ext_resource type="PackedScene" uid="uid://bhvfxwxj34u71" path="res://components/CharacterRow/CharacterRow.tscn" id="2_j8o3d"]
 [ext_resource type="Script" uid="uid://bopmf5e37n4kx" path="res://core/ui/ArcDrawer.cs" id="4_g5jea"]
 [ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://components/GameLog/GameLogComponent.tscn" id="5_qac67"]
 [ext_resource type="PackedScene" uid="uid://dsbegy218josn" path="res://components/TurnOrderComponent/TurnOrderComponent.tscn" id="6_xqnn1"]
-[ext_resource type="PackedScene" uid="uid://dgyegipn74jj5" path="res://components/Characters/CharacterInspector.tscn" id="7_ms447"]
+[ext_resource type="PackedScene" uid="uid://dgyegipn74jj5" path="res://components/CharacterInspector/CharacterInspector.tscn" id="7_ms447"]
 [ext_resource type="PackedScene" uid="uid://bt73g5fssa68h" path="res://components/InventoryComponent/InventoryComponent.tscn" id="7_ue61k"]
 [ext_resource type="PackedScene" uid="uid://dmw0cm136sn4p" path="res://components/CharacterGrid/CharacterGrid.tscn" id="10_hsrxk"]
 

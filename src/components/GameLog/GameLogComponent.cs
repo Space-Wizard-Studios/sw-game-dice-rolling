@@ -27,7 +27,7 @@ public partial class GameLogComponent : ScrollContainer {
     }
 
     private void UpdateGameLog() {
-        if (_messageTemplateNode == null) {
+        if (_messageTemplateNode is null) {
             GD.PrintErr("MessageTemplate node is not assigned.");
             return;
         }
@@ -40,7 +40,7 @@ public partial class GameLogComponent : ScrollContainer {
     }
 
     private void AddMessageToLog(GameLogMessage message) {
-        if (_messageTemplateNode == null || _messageContainerNode == null) {
+        if (_messageTemplateNode is null || _messageContainerNode is null) {
             GD.PrintErr("MessageTemplate or MessageContainer node is not assigned.");
             return;
         }
@@ -63,7 +63,7 @@ public partial class GameLogComponent : ScrollContainer {
     }
 
     private void UpdateLastMessageLines() {
-        if (_messageContainerNode == null) {
+        if (_messageContainerNode is null) {
             GD.PrintErr("MessageContainer node is not assigned.");
             return;
         }
@@ -85,7 +85,7 @@ public partial class GameLogComponent : ScrollContainer {
     }
 
     private void UpdateLines(VBoxContainer messageTemplate, GameLogMessage message) {
-        if (_lineTemplateNode == null) {
+        if (_lineTemplateNode is null) {
             GD.PrintErr("LineTemplate node is not assigned.");
             return;
         }

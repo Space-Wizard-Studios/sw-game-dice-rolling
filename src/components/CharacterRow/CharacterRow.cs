@@ -22,7 +22,7 @@ public partial class CharacterRow : HBoxContainer {
         get => _isEnemy;
         set {
             _isEnemy = value;
-            if (GroupLabel != null) {
+            if (GroupLabel is not null) {
                 CallDeferred(nameof(OnGroupLabelSet));
             }
         }
@@ -34,7 +34,7 @@ public partial class CharacterRow : HBoxContainer {
         get => _direction;
         set {
             _direction = value;
-            if (Container1Node != null && Container2Node != null && Container3Node != null && RowContainerNode != null) {
+            if (Container1Node is not null && Container2Node is not null && Container3Node is not null && RowContainerNode is not null) {
                 OnDirectionSet();
             }
         }
@@ -56,13 +56,13 @@ public partial class CharacterRow : HBoxContainer {
     }
 
     private void OnGroupLabelSet() {
-        if (GroupLabel != null) {
+        if (GroupLabel is not null) {
             GroupLabel.Text = IsEnemy ? "Enemy" : "Player";
         }
     }
 
     private void OnDirectionSet() {
-        if (RowContainerNode == null) {
+        if (RowContainerNode is null) {
             GD.PrintErr("RowContainer is null");
             return;
         }
@@ -79,13 +79,13 @@ public partial class CharacterRow : HBoxContainer {
     }
 
     private void FlipCharacters() {
-        if (Container1Node == null || Container2Node == null || Container3Node == null) {
+        if (Container1Node is null || Container2Node is null || Container3Node is null) {
             GD.PrintErr("One or more containers are null");
             return;
         }
         var characterNodes = new Control[] { Container1Node, Container2Node, Container3Node };
         foreach (var container in characterNodes) {
-            if (container != null && container.GetChildCount() > 0) {
+            if (container is not null && container.GetChildCount() > 0) {
                 var characterComponent = container.GetChild<CharacterComponent>(0);
                 characterComponent?.FlipSprite(ForwardDirection == ForwardDirection.Left);
             }
@@ -93,17 +93,17 @@ public partial class CharacterRow : HBoxContainer {
     }
 
     private void LoadCharacters() {
-        if (CharacterStore == null) {
+        if (CharacterStore is null) {
             GD.PrintErr("CharacterStore is null");
             return;
         }
 
-        if (CharacterComponentScene == null) {
+        if (CharacterComponentScene is null) {
             GD.PrintErr("CharacterComponentScene is null");
             return;
         }
 
-        if (Container1Node == null || Container2Node == null || Container3Node == null) {
+        if (Container1Node is null || Container2Node is null || Container3Node is null) {
             GD.PrintErr("One or more containers are null");
             return;
         }
@@ -112,14 +112,14 @@ public partial class CharacterRow : HBoxContainer {
         var characters = CharacterStore.Characters;
 
         for (int i = 0; i < characterNodes.Length; i++) {
-            if (characterNodes[i] == null) {
+            if (characterNodes[i] is null) {
                 GD.PrintErr($"Container {i + 1} is null");
                 continue;
             }
 
             if (i < characters.Count) {
                 var characterComponent = (CharacterComponent)CharacterComponentScene.Instantiate();
-                if (characterComponent == null) {
+                if (characterComponent is null) {
                     GD.PrintErr("Failed to instantiate CharacterComponent");
                     continue;
                 }

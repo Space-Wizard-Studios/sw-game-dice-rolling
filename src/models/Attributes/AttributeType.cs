@@ -21,7 +21,7 @@ public partial class AttributeType : Resource {
         get => _icon;
         set {
             _icon = value;
-            if (_icon != null) {
+            if (_icon is not null) {
                 IconPath = _icon.ResourcePath;
             }
         }

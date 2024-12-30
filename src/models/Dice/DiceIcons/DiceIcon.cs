@@ -12,7 +12,7 @@ public partial class DiceIcon : Resource {
         get => _icon;
         set {
             _icon = value;
-            if (_icon != null) {
+            if (_icon is not null) {
                 Path = _icon.ResourcePath;
             }
         }

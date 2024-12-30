@@ -73,7 +73,7 @@ public partial class Character : Resource {
     public Character() { }
 
     public void InitializeAttributes() {
-        if (Role == null) {
+        if (Role is null) {
             GD.PrintErr("Role is null");
             return;
         }
@@ -90,7 +90,7 @@ public partial class Character : Resource {
     }
 
     public void InitializeActions() {
-        if (Role == null) {
+        if (Role is null) {
             GD.PrintErr("Role is null");
             return;
         }
@@ -100,22 +100,22 @@ public partial class Character : Resource {
 
     public int GetAttributeCurrentValue(AttributeType type) {
         var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
-        return attribute != null ? attribute.CurrentValue : 0;
+        return attribute is not null ? attribute.CurrentValue : 0;
     }
 
     public int GetAttributeMaxValue(AttributeType type) {
         var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
-        return attribute != null ? attribute.MaxValue : 0;
+        return attribute is not null ? attribute.MaxValue : 0;
     }
 
     public int GetAttributeBaseValue(AttributeType type) {
         var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
-        return attribute != null ? attribute.BaseValue : 0;
+        return attribute is not null ? attribute.BaseValue : 0;
     }
 
     public void UpdateAttributeCurrentValue(AttributeType type, int newValue) {
         var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
-        if (attribute != null) {
+        if (attribute is not null) {
             attribute.CurrentValue = newValue;
             EmitSignal(nameof(AttributeChanged), this, type);
         }

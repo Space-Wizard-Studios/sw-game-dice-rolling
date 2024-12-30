@@ -19,7 +19,7 @@ public partial class DiceInspector : Control {
 		diceName = GetNode<Label>(diceNamePath);
 		interactiveNode = GetNode<Control>(interactiveNodePath);
 
-		if (diceInfo == null || diceName == null || interactiveNode == null) {
+		if (diceInfo is null || diceName is null || interactiveNode is null) {
 			GD.PrintErr("DiceInfo, DiceName, or HoverNode not found. Check the paths.");
 			return;
 		}

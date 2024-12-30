@@ -13,7 +13,7 @@ public partial class CharacterInspector : HBoxContainer {
         get => _character;
         set {
             _character = value;
-            if (_character != null) {
+            if (_character is not null) {
                 UpdateCharacterDetails();
             }
         }
@@ -47,32 +47,32 @@ public partial class CharacterInspector : HBoxContainer {
     private void UpdateCharacterDetails() {
         GD.Print("Updating character details");
 
-        if (_character == null) {
+        if (_character is null) {
             GD.PrintErr("Character is null");
             return;
         }
 
-        if (PortraitNode == null) {
+        if (PortraitNode is null) {
             GD.PrintErr("Portrait node is null.");
             return;
         }
 
-        if (CharacterNameNode == null) {
+        if (CharacterNameNode is null) {
             GD.PrintErr("Character name node is null");
             return;
         }
 
-        if (CharacterRoleNode == null) {
+        if (CharacterRoleNode is null) {
             GD.PrintErr("Character role node is null");
             return;
         }
 
-        if (AttributeCurrentValueNode == null) {
+        if (AttributeCurrentValueNode is null) {
             GD.PrintErr("AttributeCurrentValueNode is null");
             return;
         }
 
-        if (AttributeMaxValueNode == null) {
+        if (AttributeMaxValueNode is null) {
             GD.PrintErr("AttributeMaxValueNode is null");
             return;
         }
@@ -83,11 +83,11 @@ public partial class CharacterInspector : HBoxContainer {
 
         CharacterRoleNode.Text = _character?.Role?.Name ?? "Unknown Role";
 
-        if (AttributesListNode != null && AttributeTemplateNode != null) {
+        if (AttributesListNode is not null && AttributeTemplateNode is not null) {
             GD.Print("Updating attributes");
             AttributeTemplateNode.Visible = false;
 
-            if (_character == null) return;
+            if (_character is null) return;
 
             if (_character.Attributes.Count == 0) {
                 GD.PrintErr("Character has no attributes:", _character.Name);
@@ -110,17 +110,17 @@ public partial class CharacterInspector : HBoxContainer {
                 var currentValueNode = valueContainer.GetNodeOrNull<Label>(AttributeCurrentValueNodeName);
                 var maxValueNode = valueContainer.GetNodeOrNull<Label>(AttributeMaxValueNodeName);
 
-                if (titleNode != null) {
+                if (titleNode is not null) {
                     GD.Print("Attribute type: ", attribute.Type?.Name);
                     titleNode.Text = attribute.Type?.Name ?? "Unknown attribute";
                 }
 
-                if (currentValueNode != null) {
+                if (currentValueNode is not null) {
                     GD.Print("Current value: ", attribute.CurrentValue);
                     currentValueNode.Text = attribute.CurrentValue.ToString();
                 }
 
-                if (maxValueNode != null) {
+                if (maxValueNode is not null) {
                     GD.Print("Max value: ", attribute.MaxValue);
                     maxValueNode.Text = attribute.MaxValue.ToString();
                 }

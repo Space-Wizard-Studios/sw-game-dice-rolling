@@ -16,7 +16,7 @@ public partial class CharacterComponent : Control {
     public Character? Character {
         get => _characterResource;
         set {
-            if (value != null && AnimatedSpriteNode != null && ShadowNode != null) {
+            if (value is not null && AnimatedSpriteNode is not null && ShadowNode is not null) {
                 OnCharacterResourceSet(value, AnimatedSpriteNode, ShadowNode);
             }
             _characterResource = value;
@@ -71,7 +71,7 @@ public partial class CharacterComponent : Control {
     }
 
     private void ConnectSignals() {
-        if (SelectionAreaNode != null) {
+        if (SelectionAreaNode is not null) {
             SelectionAreaNode.Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
             SelectionAreaNode.Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
             SelectionAreaNode.Connect("gui_input", new Callable(this, nameof(OnGuiInput)));
@@ -79,7 +79,7 @@ public partial class CharacterComponent : Control {
     }
 
     private void InitializeCharacterResources() {
-        if (Character != null && AnimatedSpriteNode != null && ShadowNode != null) {
+        if (Character is not null && AnimatedSpriteNode is not null && ShadowNode is not null) {
             OnCharacterResourceSet(Character, AnimatedSpriteNode, ShadowNode);
         }
     }
@@ -95,66 +95,66 @@ public partial class CharacterComponent : Control {
     private void OnGuiInput(InputEvent @event) {
         if (@event is InputEventMouseButton { Pressed: true }) {
             if (!IsEnemy) {
-                HandleInspection(ref _currentlySelectedCharacter, this, _arcDrawer != null ? _arcDrawer.SetSelectedCharacter : null);
+                HandleInspection(ref _currentlySelectedCharacter, this, _arcDrawer is not null ? _arcDrawer.SetSelectedCharacter : null);
             }
         }
     }
 
     private static void HandleInspection(ref CharacterComponent? currentlySelected, CharacterComponent current, Action<CharacterComponent>? setSelectedAction) {
-        if (currentlySelected != null && currentlySelected != current) {
+        if (currentlySelected is not null && currentlySelected != current) {
             currentlySelected.IsSelected = false;
         }
         current.IsSelected = !current.IsSelected;
         currentlySelected = current.IsSelected ? current : null;
-        if (currentlySelected != null) {
+        if (currentlySelected is not null) {
             setSelectedAction?.Invoke(currentlySelected);
         }
     }
 
     private void OnIsHoveredSet(bool isHovered) {
-        if (HoverSpriteNode != null) {
+        if (HoverSpriteNode is not null) {
             HoverSpriteNode.Visible = isHovered;
         }
 
-        if (Character != null && !IsEnemy) {
+        if (Character is not null && !IsEnemy) {
             EventBus.Instance.OnCharacterInspected(Character);
         }
     }
 
     private void OnIsSelectedSet(bool isSelected) {
-        if (SelectorSpriteNode != null) {
+        if (SelectorSpriteNode is not null) {
             SelectorSpriteNode.Visible = isSelected;
         }
     }
 
     public void FlipSprite(bool flip) {
-        if (AnimatedSpriteNode != null) {
+        if (AnimatedSpriteNode is not null) {
             AnimatedSpriteNode.FlipH = flip;
         }
     }
 
     private static void OnCharacterResourceSet(Character character, AnimatedSprite2D animatedSpriteNode, AnimatedSprite2D shadowNode) {
-        if (character == null) {
+        if (character is null) {
             GD.PrintErr("CharacterComponent: Character resource is null");
             return;
         }
 
-        if (animatedSpriteNode == null) {
+        if (animatedSpriteNode is null) {
             GD.PrintErr("CharacterComponent: Animated sprite node is null");
             return;
         }
 
-        if (shadowNode == null) {
+        if (shadowNode is null) {
             GD.PrintErr("CharacterComponent: Shadow node is null");
             return;
         }
 
-        if (character.CharacterSprite != null) {
+        if (character.CharacterSprite is not null) {
             animatedSpriteNode.SpriteFrames = character.CharacterSprite;
             animatedSpriteNode.Play("idle");
         }
 
-        if (character.ShadowSprite != null && character.ShowShadow == true) {
+        if (character.ShadowSprite is not null && character.ShowShadow == true) {
             shadowNode.Visible = character.ShowShadow;
             shadowNode.SpriteFrames = character.ShadowSprite;
             shadowNode.Play("idle");

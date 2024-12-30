@@ -69,7 +69,7 @@ public partial class Grid3D : Node3D {
     }
 
     private void CreateDebugMesh() {
-        if (debugMeshInstance != null) {
+        if (debugMeshInstance is not null) {
             RemoveChild(debugMeshInstance);
             debugMeshInstance.QueueFree();
         }
@@ -82,7 +82,7 @@ public partial class Grid3D : Node3D {
     }
 
     public void UpdateDebugMesh() {
-        if (debugMesh == null) {
+        if (debugMesh is null) {
             return;
         }
 

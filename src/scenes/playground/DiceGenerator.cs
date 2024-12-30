@@ -19,7 +19,7 @@ public partial class DiceGenerator : Node {
 	public override void _Ready() {
 		if (!ValidateResources()) return;
 
-		if (DiceDisplay == null) {
+		if (DiceDisplay is null) {
 			GD.PrintErr("DiceDisplay node not found");
 			return;
 		}
@@ -32,7 +32,7 @@ public partial class DiceGenerator : Node {
 		HideRollResult();
 
 		var updateButton = GetNode<Button>("CanvasLayer/UpdateButton");
-		if (updateButton != null) {
+		if (updateButton is not null) {
 			updateButton.Connect("pressed", new Callable(this, nameof(OnUpdateButtonPressed)));
 		}
 		else {
@@ -40,7 +40,7 @@ public partial class DiceGenerator : Node {
 		}
 
 		var rollButton = GetNode<Button>("CanvasLayer/RollButton");
-		if (rollButton != null) {
+		if (rollButton is not null) {
 			rollButton.Connect("pressed", new Callable(this, nameof(OnRollButtonPressed)));
 		}
 		else {
@@ -54,7 +54,7 @@ public partial class DiceGenerator : Node {
 
 		var actionsListContainer = DiceDisplay.ActionsListContainer;
 		var actionItemTemplate = DiceDisplay.ActionItemTemplate;
-		if (actionItemTemplate != null) {
+		if (actionItemTemplate is not null) {
 			actionItemTemplate.Visible = false;
 		}
 
@@ -71,13 +71,13 @@ public partial class DiceGenerator : Node {
 	}
 
 	private Control CreateActionItem(DiceSide action, int sideNumber, Control actionItemTemplate) {
-		if (actionItemTemplate == null) {
+		if (actionItemTemplate is null) {
 			GD.PrintErr("ActionItemTemplate node not found");
 			return null;
 		}
 
 		var actionItem = actionItemTemplate.Duplicate() as DisplayActionItem;
-		if (actionItem == null) {
+		if (actionItem is null) {
 			GD.PrintErr("Failed to duplicate ActionItemTemplate");
 			return null;
 		}
@@ -85,14 +85,14 @@ public partial class DiceGenerator : Node {
 		actionItem.Visible = true;
 
 		var actionItemBackground = actionItem.ActionItemBackground;
-		if (actionItemBackground == null) {
+		if (actionItemBackground is null) {
 			GD.PrintErr("ActionItemBackground node not found in ActionItemTemplate");
 			return null;
 		}
 		actionItemBackground.Color = action.BackgroundColor;
 
 		var actionLabel = actionItem.ActionItemLabel;
-		if (actionLabel == null) {
+		if (actionLabel is null) {
 			GD.PrintErr("ActionItemLabel node not found in ActionItemTemplate");
 			return null;
 		}
@@ -103,12 +103,12 @@ public partial class DiceGenerator : Node {
 	}
 
 	private bool ValidateResources() {
-		if (DiceManaResources == null) {
+		if (DiceManaResources is null) {
 			GD.PrintErr("DiceManaResources is not assigned");
 			return false;
 		}
 
-		if (DiceIconResource == null) {
+		if (DiceIconResource is null) {
 			GD.PrintErr("DiceIconResource is not assigned");
 			return false;
 		}
@@ -149,10 +149,10 @@ public partial class DiceGenerator : Node {
 		var action = _dice.Manas[rolledSide - 1];
 
 		var rollResultLabel = GetNode<RichTextLabel>("CanvasLayer/RollResult");
-		if (rollResultLabel != null) {
+		if (rollResultLabel is not null) {
 			rollResultLabel.BbcodeEnabled = true;
 			var diceIcon = DiceIconResource.GetIconForSides(_dice.Sides);
-			if (diceIcon != null) {
+			if (diceIcon is not null) {
 				rollResultLabel.Text = $"Rolled {rolledSide} on {_dice.Name} ([img=24x24]{diceIcon.Path}[/img]).\nAction: {action.Name} - {action.Description}";
 			}
 			else {
@@ -167,7 +167,7 @@ public partial class DiceGenerator : Node {
 
 	private void HideRollResult() {
 		var rollResultLabel = GetNode<RichTextLabel>("CanvasLayer/RollResult");
-		if (rollResultLabel != null) {
+		if (rollResultLabel is not null) {
 			rollResultLabel.Visible = false;
 		}
 		else {

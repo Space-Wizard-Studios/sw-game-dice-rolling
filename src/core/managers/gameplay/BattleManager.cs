@@ -41,7 +41,7 @@ public partial class BattleManager : Node3D {
         GD.Print("Character IDs: ", string.Join(", ", characterIds));
         GD.Print("Character name: ", CharacterStore.Instance.GetCharacterById(characterIds[0]).Name);
         var character = CharacterStore.Instance.GetCharacterById(characterIds[0]);
-        if (character?.Role != null) {
+        if (character?.Role is not null) {
             GD.Print("Character role: ", character.Role.Name);
         }
         else {
@@ -67,7 +67,7 @@ public partial class BattleManager : Node3D {
     }
 
     private void RunDiceTests() {
-        if (DiceManaResources == null) {
+        if (DiceManaResources is null) {
             GD.PrintErr("DiceManaResources is not assigned");
             return;
         }

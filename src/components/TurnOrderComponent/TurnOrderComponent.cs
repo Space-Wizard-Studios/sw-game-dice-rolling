@@ -23,13 +23,13 @@ public partial class TurnOrderComponent : Control {
         set {
             _characters = value;
             GD.Print("Characters set. Length: ", _characters.Length);
-            if (SpeedAttributeType == null || HealthAttributeType == null) {
+            if (SpeedAttributeType is null || HealthAttributeType is null) {
                 GD.PrintErr("AttributeType resources not loaded.");
                 return;
             }
             if (_characters.Length > 0) {
                 // Filter out null or uninitialized characters
-                var validCharacters = _characters.Where(c => c != null).ToList();
+                var validCharacters = _characters.Where(c => c is not null).ToList();
                 GD.Print("Valid characters count: ", validCharacters.Count);
                 if (validCharacters.Count > 0) {
                     UpdateTurnOrder(validCharacters);
@@ -55,7 +55,7 @@ public partial class TurnOrderComponent : Control {
         get => _portraitTemplate;
         set {
             GD.Print("Setting PortraitTemplate");
-            if (value != null) {
+            if (value is not null) {
                 _portraitTemplate = value;
             }
             OnPortraitTemplateChanged();
@@ -77,12 +77,12 @@ public partial class TurnOrderComponent : Control {
             SpeedAttributeType = AttributesHelper.GetAttributeType(_attributesConfig, "Speed");
             HealthAttributeType = AttributesHelper.GetAttributeType(_attributesConfig, "Health");
 
-            GD.Print("SpeedAttributeType loaded: ", SpeedAttributeType != null);
-            GD.Print("HealthAttributeType loaded: ", HealthAttributeType != null);
+            GD.Print("SpeedAttributeType loaded: ", SpeedAttributeType is not null);
+            GD.Print("HealthAttributeType loaded: ", HealthAttributeType is not null);
 
             // Update turn order if characters are already set
             if (_characters.Length > 0) {
-                var validCharacters = _characters.Where(c => c != null).ToList();
+                var validCharacters = _characters.Where(c => c is not null).ToList();
                 GD.Print("Initial valid characters count: ", validCharacters.Count);
                 if (validCharacters.Count > 0) {
                     UpdateTurnOrder(validCharacters);
@@ -111,26 +111,26 @@ public partial class TurnOrderComponent : Control {
     }
 
     private void OnPortraitTemplateChanged() {
-        if (_portraitTemplate != null) {
+        if (_portraitTemplate is not null) {
             GD.Print("Theme: ", _portraitTemplate.Theme);
             GD.Print("Theme Type Variation:", _portraitTemplate.ThemeTypeVariation);
         }
     }
 
     private void SetupPortraitInstance(Character character, PanelContainer portraitInstance) {
-        if (PortraitPanelNode == null || PortraitTextureNode == null || PortraitDamageColorNode == null) {
+        if (PortraitPanelNode is null || PortraitTextureNode is null || PortraitDamageColorNode is null) {
             GD.PrintErr("One or more portrait nodes are not set.");
             return;
         }
 
-        if (PortraitPanelNode == null || PortraitTextureNode == null || PortraitDamageColorNode == null) {
+        if (PortraitPanelNode is null || PortraitTextureNode is null || PortraitDamageColorNode is null) {
             GD.PrintErr("One or more portrait nodes are not set.");
             return;
         }
 
         // Get the Panel node from the portrait instance
         var panel = portraitInstance.GetNodeOrNull<Panel>(PortraitPanelName);
-        if (panel == null) {
+        if (panel is null) {
             GD.PrintErr("Panel node not found in portrait instance.");
             return;
         }
@@ -141,7 +141,7 @@ public partial class TurnOrderComponent : Control {
 
         portraitInstance.Visible = true;
 
-        if (textureRect != null && character.Portrait != null) {
+        if (textureRect is not null && character.Portrait is not null) {
             GD.Print("Setting texture for character: ", character.Name);
             textureRect.Texture = character.Portrait;
         }
@@ -149,21 +149,21 @@ public partial class TurnOrderComponent : Control {
             GD.PrintErr("TextureRect or character portrait is null for character: ", character.Name);
         }
 
-        int currentHealth = HealthAttributeType != null ? character.GetAttributeCurrentValue(HealthAttributeType) : 0;
-        int maxHealth = HealthAttributeType != null ? character.GetAttributeMaxValue(HealthAttributeType) : 0;
+        int currentHealth = HealthAttributeType is not null ? character.GetAttributeCurrentValue(HealthAttributeType) : 0;
+        int maxHealth = HealthAttributeType is not null ? character.GetAttributeMaxValue(HealthAttributeType) : 0;
 
-        if (damageColor != null && maxHealth > 0) {
+        if (damageColor is not null && maxHealth > 0) {
             float damageRatio = (float)(maxHealth - currentHealth) / maxHealth;
             damageColor.Scale = new Vector2(1, damageRatio);
             GD.Print("Setting damage color scale for character: ", character.Name, " Damage ratio: ", damageRatio);
         }
     }
     public void UpdateTurnOrder(List<Character> characters) {
-        if (PortraitsContainerNode == null || PortraitTemplateNode == null) {
+        if (PortraitsContainerNode is null || PortraitTemplateNode is null) {
             GD.PrintErr("PortraitsContainerNode or PortraitTemplateNode is null");
             return;
         }
-        if (SpeedAttributeType == null || HealthAttributeType == null) {
+        if (SpeedAttributeType is null || HealthAttributeType is null) {
             GD.PrintErr("AttributeType resources not loaded.");
             return;
         }
@@ -178,13 +178,13 @@ public partial class TurnOrderComponent : Control {
         }
 
         var sortedCharacters = characters;
-        //     .Where(c => c != null && c.GetAttributeCurrentValue(SpeedAttributeType) != 0)
+        //     .Where(c => c is not null && c.GetAttributeCurrentValue(SpeedAttributeType) != 0)
         //     .OrderByDescending(c => c.GetAttributeCurrentValue(SpeedAttributeType))
         //     .ToList();
 
 
         foreach (var character in sortedCharacters) {
-            if (character == null) {
+            if (character is null) {
                 GD.PrintErr("Character is null, skipping...");
                 continue;
             }

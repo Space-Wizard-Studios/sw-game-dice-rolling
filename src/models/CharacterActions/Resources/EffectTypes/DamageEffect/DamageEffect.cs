@@ -7,7 +7,7 @@ public partial class DamageEffect(int damage) : Effect {
 
     public override void Apply(IActionContext context) {
         var healthAttribute = context.Target.Attributes.FirstOrDefault(attr => attr.Type?.Name == "Health");
-        if (healthAttribute != null) {
+        if (healthAttribute is not null) {
             healthAttribute.CurrentValue -= _damage;
             // TODO: can i do this?
             context.Target.EmitSignal(nameof(Character.AttributeChanged), context.Target, healthAttribute.Type!);

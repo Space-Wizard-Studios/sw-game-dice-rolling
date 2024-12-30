@@ -27,12 +27,12 @@ public partial class EventBus : Node {
 
     private static EventBus GetInstance() {
         var root = (Engine.GetMainLoop() as SceneTree)?.Root;
-        if (root == null) {
+        if (root is null) {
             GD.PrintErr("Root node not found.");
             return new EventBus();
         }
         var eventBus = root.GetNodeOrNull<EventBus>("/root/EventBus");
-        if (eventBus == null) {
+        if (eventBus is null) {
             GD.Print("EventBus not found in the scene tree. Creating a new instance.");
             eventBus = new EventBus();
             root.AddChild(eventBus);

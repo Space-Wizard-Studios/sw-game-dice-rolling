@@ -12,7 +12,7 @@ public partial class PlaygroundTransitionMenu : MenuButton {
         if (!Engine.IsEditorHint()) {
             _playgroundTransitionManager = (PlaygroundTransitionManager)GetNode("/root/PlaygroundTransitionManager");
 
-            if (_playgroundTransitionManager == null) {
+            if (_playgroundTransitionManager is null) {
                 GD.PrintErr("PlaygroundTransitionManager not found!");
                 return;
             }

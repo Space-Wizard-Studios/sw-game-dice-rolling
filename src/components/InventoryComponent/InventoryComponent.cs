@@ -55,7 +55,7 @@ public partial class InventoryComponent : ScrollContainer {
     }
 
     private void ResizeGrid() {
-        if (_inventoryGrid != null) {
+        if (_inventoryGrid is not null) {
             _inventoryGrid.CustomMinimumSize = new Vector2(GetColumnCount() * ItemSize, GetRowCount() * ItemSize);
         }
     }
@@ -67,13 +67,13 @@ public partial class InventoryComponent : ScrollContainer {
     private void UpdateSlots() {
         GD.Print("Updating slots with ItemCount: ", ItemCount);
         for (int slotIndex = 0; slotIndex < MaxSlots; slotIndex++) {
-            if (_inventoryGrid != null && _inventoryGrid.GetChildCount() - 1 < slotIndex) {
-                if (_itemComponent == null) {
+            if (_inventoryGrid is not null && _inventoryGrid.GetChildCount() - 1 < slotIndex) {
+                if (_itemComponent is null) {
                     GD.PrintErr("Item component is null, cannot instantiate.");
                     return;
                 }
                 var newItemComponent = _itemComponent.Duplicate() as InventoryItemComponent;
-                if (newItemComponent != null) {
+                if (newItemComponent is not null) {
                     newItemComponent.Position = IndexToPos(slotIndex) * ItemSize;
                     _inventoryGrid.AddChild(newItemComponent);
                 }
@@ -84,7 +84,7 @@ public partial class InventoryComponent : ScrollContainer {
             }
 
             var existingItemComponent = _inventoryGrid?.GetChild(slotIndex) as InventoryItemComponent;
-            if (existingItemComponent == null) {
+            if (existingItemComponent is null) {
                 GD.PrintErr("Item component is null, cannot update slot.");
                 continue;
             }

@@ -21,7 +21,7 @@ public partial class InventoryItemComponent : Control {
     }
 
     private void OnMouseEntered() {
-        if (_tooltipInstance == null || !IsInstanceValid(_tooltipInstance)) {
+        if (_tooltipInstance is null || !IsInstanceValid(_tooltipInstance)) {
             CreateTooltip();
         }
         _tooltipInstance?.ShowTooltip(GetGlobalMousePosition());
@@ -32,7 +32,7 @@ public partial class InventoryItemComponent : Control {
     }
 
     private void CreateTooltip() {
-        if (TooltipComponentScene == null) {
+        if (TooltipComponentScene is null) {
             GD.PrintErr("TooltipComponentScene is null");
             throw new Exception("TooltipComponentScene is null");
         }

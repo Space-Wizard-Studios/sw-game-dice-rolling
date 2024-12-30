@@ -57,7 +57,7 @@ public partial class TooltipComponent : Control {
 	}
 
 	public void SetTooltipTexts(string title, string tags, string description, string advancedDescription, string lore) {
-		if (_title == null || _tags == null || _description == null || _advancedDescription == null || _lore == null) {
+		if (_title is null || _tags is null || _description is null || _advancedDescription is null || _lore is null) {
 			GD.PrintErr("One or more tooltip nodes are null");
 			return;
 		}
@@ -73,7 +73,7 @@ public partial class TooltipComponent : Control {
 		_isMouseHovering = true;
 		Visible = true;
 		MouseFilter = MouseFilterEnum.Ignore;
-		if (_progressBar != null) {
+		if (_progressBar is not null) {
 			_progressBar.Value = 0;
 		}
 		_tooltipTimer?.Start();
@@ -83,14 +83,14 @@ public partial class TooltipComponent : Control {
 	public void HideTooltip() {
 		_isMouseHovering = false;
 		MouseFilter = MouseFilterEnum.Pass;
-		if (_progressBar != null && _progressBar.Value < 100) {
+		if (_progressBar is not null && _progressBar.Value < 100) {
 			QueueFree();
 		}
 	}
 
 	private void OnTooltipTimerTimeout() {
 		if (_isMouseHovering) {
-			if (_progressBar != null) {
+			if (_progressBar is not null) {
 				_progressBar.Value += 100.0f / (ProgressBarDuration / _tooltipTimer!.WaitTime);
 				if (_progressBar.Value >= 100) {
 					_tooltipTimer.Stop();
@@ -98,7 +98,7 @@ public partial class TooltipComponent : Control {
 			}
 		}
 		else {
-			if (_progressBar != null && _progressBar.Value < 100) {
+			if (_progressBar is not null && _progressBar.Value < 100) {
 				QueueFree();
 			}
 		}

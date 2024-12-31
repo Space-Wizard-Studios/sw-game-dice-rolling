@@ -7,4 +7,4 @@
 
 [resource]
 script = ExtResource("3_0pcwr")
-Characters = Array[ExtResource("1_mscso")]([ExtResource("1_8qg6e"), ExtResource("1_8qg6e"), ExtResource("2_qbdxb")])
+Characters = Array[ExtResource("1_mscso")]([ExtResource("1_8qg6e"), ExtResource("2_qbdxb")])

@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 using DiceRoll.Models.CharacterActions;
+using DiceRoll.Models.CharacterLocations;
 
 namespace DiceRoll.Models;
 
@@ -35,9 +36,13 @@ public partial class Character : Resource {
 
     [Export] public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = [];
 
-    [Export] public Godot.Collections.Array<CharacterAction> CharacterActions { get; private set; } = [];
+    // [Export] public Godot.Collections.Array<CharacterAction> CharacterActions { get; private set; } = [];
 
     [Export] public int DiceCapacity { get; set; } = 0;
+
+    [ExportGroup("📍 Character Location")]
+    [Export] public CharacterLocation? Location { get; set; }
+    [Export] public int SlotIndex { get; set; } = -1;
 
     [ExportGroup("🪵 Resources")]
     [Export] public Texture2D? Portrait { get; set; }
@@ -95,7 +100,7 @@ public partial class Character : Resource {
             return;
         }
 
-        CharacterActions = new Godot.Collections.Array<CharacterAction>(Role.RoleActions);
+        // CharacterActions = [.. Role.RoleActions];
     }
 
     public int GetAttributeCurrentValue(AttributeType type) {

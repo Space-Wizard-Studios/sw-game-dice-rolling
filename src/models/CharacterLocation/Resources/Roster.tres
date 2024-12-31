@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterLocation" load_steps=2 format=3 uid="uid://d33paxl6cc38l"]
+
+[ext_resource type="Script" uid="uid://cros738yxei40" path="res://models/CharacterLocation/CharacterLocation.cs" id="1_xwydy"]
+
+[resource]
+script = ExtResource("1_xwydy")
+Name = "Roster"
+Description = "roster description"
+metadata/_custom_type_script = ExtResource("1_xwydy")

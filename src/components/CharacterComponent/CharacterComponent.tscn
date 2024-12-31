@@ -1,102 +1,58 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3lkjx05elcwq"]
+[gd_scene load_steps=6 format=3 uid="uid://d3lkjx05elcwq"]
 
 [ext_resource type="Script" uid="uid://f1lqpaw1xng7" path="res://components/CharacterComponent/CharacterComponent.cs" id="1_t0krx"]
 [ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Resources/Eleonore.tres" id="2_cqrrp"]
-[ext_resource type="Texture2D" uid="uid://drfm6uc8yvpwi" path="res://assets/icons/hud/plain-arrow.png" id="3_a4vpw"]
 [ext_resource type="Texture2D" uid="uid://cytb6ea63fslt" path="res://assets/icons/hud/select.png" id="3_gxxii"]
-[ext_resource type="SpriteFrames" uid="uid://4pntmv2e85vp" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaShadowSprites.tres" id="4_kpvh4"]
-[ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="6_nsvg4"]
+[ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="4_svr47"]
 
-[node name="CharacterComponent" type="Control" node_paths=PackedStringArray("AnimatedSpriteNode", "ShadowNode", "HoverSpriteNode", "SelectorSpriteNode", "SelectionAreaNode")]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = -128.0
-offset_right = 128.0
-offset_bottom = 128.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-mouse_filter = 2
+[sub_resource type="BoxShape3D" id="BoxShape3D_tiklp"]
+size = Vector3(0.498047, 1, 0.5)
+
+[node name="CharacterComponent" type="Node3D" node_paths=PackedStringArray("AnimatedSpriteNode", "HoverSpriteNode", "SelectorSpriteNode", "InputAreaNode")]
 script = ExtResource("1_t0krx")
 Character = ExtResource("2_cqrrp")
-AnimatedSpriteNode = NodePath("Character/AnimatedSprite")
-ShadowNode = NodePath("Shadow/Shadow")
+AnimatedSpriteNode = NodePath("Character/AnimatedSprite3D")
 HoverSpriteNode = NodePath("Selector/HoverSprite")
 SelectorSpriteNode = NodePath("Selector/SelectorSprite")
-SelectionAreaNode = NodePath("Selector/SelectionArea")
+InputAreaNode = NodePath("Selector/Area3D")
 
-[node name="Selector" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-grow_horizontal = 2
-mouse_filter = 2
+[node name="Selector" type="Node3D" parent="."]
 
-[node name="SelectionArea" type="Control" parent="Selector"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_right = 64.0
-offset_bottom = 256.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-mouse_default_cursor_shape = 2
+[node name="Area3D" type="Area3D" parent="Selector"]
 
-[node name="HoverSprite" type="Sprite2D" parent="Selector"]
+[node name="SelectionArea" type="CollisionShape3D" parent="Selector/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_tiklp")
+
+[node name="HoverSprite" type="Sprite3D" parent="Selector"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
 visible = false
-scale = Vector2(0.1, 0.1)
+pixel_size = 0.002
+billboard = 1
+double_sided = false
+texture_filter = 0
 texture = ExtResource("3_gxxii")
 
-[node name="SelectorSprite" type="Sprite2D" parent="Selector"]
+[node name="SelectorSprite" type="Sprite3D" parent="Selector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_a4vpw")
+pixel_size = 0.002
+billboard = 1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("3_gxxii")
 
-[node name="Shadow" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
+[node name="Character" type="Node3D" parent="."]
 
-[node name="Shadow" type="AnimatedSprite2D" parent="Shadow"]
-scale = Vector2(4, 4)
-sprite_frames = ExtResource("4_kpvh4")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+extra_cull_margin = 1.0
+pixel_size = 0.0156
+billboard = 1
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("4_svr47")
 animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.543143
-offset = Vector2(0, -3)
-
-[node name="Character" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Character"]
-scale = Vector2(4, 4)
-sprite_frames = ExtResource("6_nsvg4")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.132015
+frame_progress = 0.520203

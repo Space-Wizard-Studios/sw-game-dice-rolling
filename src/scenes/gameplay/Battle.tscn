@@ -1,29 +1,40 @@
-[gd_scene load_steps=11 format=3 uid="uid://8n50xik7xid3"]
+[gd_scene load_steps=15 format=3 uid="uid://8n50xik7xid3"]
 
 [ext_resource type="Script" uid="uid://jc3rfy1j13nu" path="res://core/managers/gameplay/BattleManager.cs" id="1_oeh3a"]
 [ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://core/ui/SceneTransitionButton.cs" id="2_4ip1d"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="2_cgh0m"]
-[ext_resource type="PackedScene" uid="uid://bhvfxwxj34u71" path="res://components/CharacterRow/CharacterRow.tscn" id="2_j8o3d"]
-[ext_resource type="Script" uid="uid://bopmf5e37n4kx" path="res://core/ui/ArcDrawer.cs" id="4_g5jea"]
 [ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://components/GameLog/GameLogComponent.tscn" id="5_qac67"]
 [ext_resource type="PackedScene" uid="uid://dsbegy218josn" path="res://components/TurnOrderComponent/TurnOrderComponent.tscn" id="6_xqnn1"]
 [ext_resource type="PackedScene" uid="uid://dgyegipn74jj5" path="res://components/CharacterInspector/CharacterInspector.tscn" id="7_ms447"]
 [ext_resource type="PackedScene" uid="uid://bt73g5fssa68h" path="res://components/InventoryComponent/InventoryComponent.tscn" id="7_ue61k"]
+[ext_resource type="Texture2D" uid="uid://byujdpnhcw2vd" path="res://assets/prototype/Dark/texture_01.png" id="8_vpfel"]
 [ext_resource type="PackedScene" uid="uid://dmw0cm136sn4p" path="res://components/CharacterGrid/CharacterGrid.tscn" id="10_hsrxk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vpfel"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_hsrxk"]
+sky_material = SubResource("ProceduralSkyMaterial_vpfel")
+
+[sub_resource type="Environment" id="Environment_eybki"]
+background_mode = 2
+background_color = Color(0.231109, 0.274718, 0.411571, 1)
+sky = SubResource("Sky_hsrxk")
+tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsrxk"]
+albedo_texture = ExtResource("8_vpfel")
+uv1_scale = Vector3(5, 5, 5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_eybki"]
 
 [node name="Battle" type="Node3D"]
 script = ExtResource("1_oeh3a")
-
-[node name="Background" type="ColorRect" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color(0, 0.234793, 0.205631, 1)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -166,13 +177,8 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "HUD / MAP"
 
-[node name="ArcDrawer" type="Node2D" parent="."]
-script = ExtResource("4_g5jea")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.992982, 0.118265, 0, -0.118265, 0.992982, 0, 2.05746, 6.94201)
-
 [node name="Characters" type="VBoxContainer" parent="."]
+visible = false
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -205,37 +211,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 color = Color(0.537333, 0, 0.62, 0.494118)
-
-[node name="Teams" type="HBoxContainer" parent="Characters/Middle"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.65
-mouse_filter = 2
-theme_override_constants/separation = 0
-
-[node name="Player" type="Control" parent="Characters/Middle/Teams"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="PlayerRow1" parent="Characters/Middle/Teams/Player" instance=ExtResource("2_j8o3d")]
-layout_mode = 1
-
-[node name="Enemy" type="Control" parent="Characters/Middle/Teams"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="EnemyRow1" parent="Characters/Middle/Teams/Enemy" instance=ExtResource("2_j8o3d")]
-layout_direction = 3
-layout_mode = 1
-IsEnemy = true
-ForwardDirection = 1
 
 [node name="Rolling" type="HBoxContainer" parent="Characters/Middle"]
 visible = false
@@ -2851,4 +2826,22 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
 mouse_filter = 2
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eybki")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 0, 3, 3)
+shadow_enabled = true
+shadow_opacity = 0.6
+shadow_blur = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 2, 3.5)
+
 [node name="CharacterGrid3d" parent="." instance=ExtResource("10_hsrxk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, -0.05, 0)
+material_override = SubResource("StandardMaterial3D_hsrxk")
+mesh = SubResource("BoxMesh_eybki")

@@ -1,5 +1,4 @@
 using Godot;
-using System.Collections.Generic;
 using Godot.Collections;
 using DiceRoll.Models.CharacterGrid;
 
@@ -8,8 +7,9 @@ namespace DiceRoll.Components;
 [Tool]
 public partial class CharacterGrid : Node3D {
     [Export] public CharacterGridType[] GridConfigurations = [];
-    private readonly Godot.Collections.Dictionary<CharacterGridType, Callable> _connections = [];
-    private readonly Godot.Collections.Dictionary<Grid3D, float> _initialPositions = [];
+    [Export] public PackedScene? CharacterComponentScene { get; set; } // Add this line
+    private readonly Dictionary<CharacterGridType, Callable> _connections = [];
+    private readonly Dictionary<Grid3D, float> _initialPositions = [];
 
     public override void _Ready() {
         base._Ready();
@@ -49,7 +49,9 @@ public partial class CharacterGrid : Node3D {
             Grid3D grid = new Grid3D {
                 Columns = config.Columns,
                 Rows = config.Rows,
-                Prefix = config.Prefix
+                Prefix = config.Prefix,
+                CharacterStore = config.CharacterStore,
+                CharacterComponentScene = CharacterComponentScene // Pass the PackedScene
             };
 
             currentXPosition += config.Offset;

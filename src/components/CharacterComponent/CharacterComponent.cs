@@ -1,14 +1,14 @@
 using Godot;
 using System;
 using DiceRoll.Models;
-using DiceRoll.UI;
 using DiceRoll.Events;
 
 namespace DiceRoll.Components;
 
 [Tool]
-public partial class CharacterComponent : Control {
-    private static ArcDrawer? _arcDrawer;
+public partial class CharacterComponent : Node3D {
+    private static CharacterComponent? _currentlySelectedCharacter;
+    // private static CharacterComponent? _currentlySelectedEnemy;
 
     [ExportGroup("🪵 Resources")]
     private Character? _characterResource;
@@ -16,10 +16,8 @@ public partial class CharacterComponent : Control {
     public Character? Character {
         get => _characterResource;
         set {
-            if (value is not null && AnimatedSpriteNode is not null && ShadowNode is not null) {
-                OnCharacterResourceSet(value, AnimatedSpriteNode, ShadowNode);
-            }
             _characterResource = value;
+            OnCharacterResourceSet();
         }
     }
 
@@ -27,7 +25,7 @@ public partial class CharacterComponent : Control {
     [Export]
     public bool IsEnemy { get; set; }
 
-    private bool _isHovered;
+    private bool _isHovered = false;
     [Export]
     public bool IsHovered {
         get => _isHovered;
@@ -37,7 +35,7 @@ public partial class CharacterComponent : Control {
         }
     }
 
-    private bool _isSelected;
+    private bool _isSelected = false;
     [Export]
     public bool IsSelected {
         get => _isSelected;
@@ -49,53 +47,32 @@ public partial class CharacterComponent : Control {
         }
     }
 
-    // Static fields to keep track of selected characters
-    private static CharacterComponent? _currentlySelectedCharacter;
-    private static CharacterComponent? _currentlySelectedEnemy;
-
     [ExportGroup("🔘 Nodes")]
-    [Export] public AnimatedSprite2D? AnimatedSpriteNode { get; set; }
-    [Export] public AnimatedSprite2D? ShadowNode { get; set; }
-    [Export] public Sprite2D? HoverSpriteNode { get; set; }
-    [Export] public Sprite2D? SelectorSpriteNode { get; set; }
-    [Export] public Control? SelectionAreaNode { get; set; }
+    [Export] public AnimatedSprite3D? AnimatedSpriteNode { get; set; }
+    [Export] public Sprite3D? HoverSpriteNode { get; set; }
+    [Export] public Sprite3D? SelectorSpriteNode { get; set; }
+    [Export] public Area3D? InputAreaNode { get; set; }
 
     public override void _Ready() {
         ConnectSignals();
-        InitializeCharacterResources();
-
-        if (Engine.IsEditorHint()) return;
-
-        // TODO: improve the ArcDrawer initialization
-        _arcDrawer ??= GetNode<ArcDrawer>("/root/Battle/ArcDrawer");
+        if (HoverSpriteNode is not null) {
+            HoverSpriteNode.Visible = false;
+        }
+        if (SelectorSpriteNode is not null) {
+            SelectorSpriteNode.Visible = false;
+        }
     }
 
     private void ConnectSignals() {
-        if (SelectionAreaNode is not null) {
-            SelectionAreaNode.Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
-            SelectionAreaNode.Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
-            SelectionAreaNode.Connect("gui_input", new Callable(this, nameof(OnGuiInput)));
-        }
+        InputAreaNode?.Connect("input_event", new Callable(this, nameof(OnInputEvent)));
+        InputAreaNode?.Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
+        InputAreaNode?.Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
     }
 
-    private void InitializeCharacterResources() {
-        if (Character is not null && AnimatedSpriteNode is not null && ShadowNode is not null) {
-            OnCharacterResourceSet(Character, AnimatedSpriteNode, ShadowNode);
-        }
-    }
-
-    private void OnMouseEntered() {
-        IsHovered = true;
-    }
-
-    private void OnMouseExited() {
-        IsHovered = false;
-    }
-
-    private void OnGuiInput(InputEvent @event) {
+    private void OnInputEvent(Node camera, InputEvent @event, Vector3 click_position, Vector3 normal, int shape_idx) {
         if (@event is InputEventMouseButton { Pressed: true }) {
             if (!IsEnemy) {
-                HandleInspection(ref _currentlySelectedCharacter, this, _arcDrawer is not null ? _arcDrawer.SetSelectedCharacter : null);
+                HandleInspection(ref _currentlySelectedCharacter, this, null);
             }
         }
     }
@@ -111,13 +88,17 @@ public partial class CharacterComponent : Control {
         }
     }
 
+    private void OnMouseEntered() {
+        IsHovered = true;
+    }
+
+    private void OnMouseExited() {
+        IsHovered = false;
+    }
+
     private void OnIsHoveredSet(bool isHovered) {
         if (HoverSpriteNode is not null) {
             HoverSpriteNode.Visible = isHovered;
-        }
-
-        if (Character is not null && !IsEnemy) {
-            EventBus.Instance.OnCharacterInspected(Character);
         }
     }
 
@@ -125,6 +106,11 @@ public partial class CharacterComponent : Control {
         if (SelectorSpriteNode is not null) {
             SelectorSpriteNode.Visible = isSelected;
         }
+
+        if (Character is not null && !IsEnemy) {
+            EventBus.Instance.OnCharacterInspected(Character);
+        }
+
     }
 
     public void FlipSprite(bool flip) {
@@ -133,36 +119,21 @@ public partial class CharacterComponent : Control {
         }
     }
 
-    private static void OnCharacterResourceSet(Character character, AnimatedSprite2D animatedSpriteNode, AnimatedSprite2D shadowNode) {
-        if (character is null) {
-            GD.PrintErr("CharacterComponent: Character resource is null");
+    private void OnCharacterResourceSet() {
+        if (Character is null) {
             return;
         }
 
-        if (animatedSpriteNode is null) {
-            GD.PrintErr("CharacterComponent: Animated sprite node is null");
+        if (AnimatedSpriteNode is null) {
             return;
         }
 
-        if (shadowNode is null) {
-            GD.PrintErr("CharacterComponent: Shadow node is null");
-            return;
+        if (Character.CharacterSprite is not null) {
+            AnimatedSpriteNode.SpriteFrames = Character.CharacterSprite;
+            AnimatedSpriteNode.Transform = new Transform3D(Basis.Identity, new Vector3(Character.SpritePositionX, 0.5f + Character.SpritePositionY, 0));
+            AnimatedSpriteNode.Play("idle");
         }
 
-        if (character.CharacterSprite is not null) {
-            animatedSpriteNode.SpriteFrames = character.CharacterSprite;
-            animatedSpriteNode.Play("idle");
-        }
-
-        if (character.ShadowSprite is not null && character.ShowShadow == true) {
-            shadowNode.Visible = character.ShowShadow;
-            shadowNode.SpriteFrames = character.ShadowSprite;
-            shadowNode.Play("idle");
-        }
-        else {
-            shadowNode.Visible = false;
-        }
-        animatedSpriteNode.Position = new Vector2(character.SpritePositionX, character.SpritePositionY);
+        GD.Print($"Character set in OnCharacterResourceSet(): {Character.Name}");
     }
-
 }

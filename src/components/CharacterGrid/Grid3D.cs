@@ -1,17 +1,16 @@
 using Godot;
 using System.Collections.Generic;
+using DiceRoll.Stores;
 
 namespace DiceRoll.Components;
 
 [Tool]
 public partial class Grid3D : Node3D {
-
     [Export] public int Columns { get; set; } = 0;
-
     [Export] public int Rows { get; set; } = 0;
-
     [Export] public string Prefix { get; set; } = "G";
-
+    [Export] public CharacterStore? CharacterStore { get; set; }
+    [Export] public PackedScene? CharacterComponentScene { get; set; } // Ensure this line is present
     private readonly List<Marker3D> gridCells = [];
     private readonly List<Label3D> debugLabels = [];
     private MeshInstance3D? debugMeshInstance;
@@ -54,7 +53,8 @@ public partial class Grid3D : Node3D {
                 // Create and add label for cell index
                 Label3D label = new() {
                     Text = $"{Prefix}{index}({x},{y})",
-                    Transform = new Transform3D(Basis.Identity, new Vector3(x + 0.5f, 0.5f, y + 0.5f))
+                    Transform = new Transform3D(Basis.Identity, new Vector3(x + 0.55f, 0.25f, y + 1)),
+                    Billboard = BaseMaterial3D.BillboardModeEnum.Enabled,
                 };
                 AddChild(label);
                 debugLabels.Add(label);
@@ -66,6 +66,8 @@ public partial class Grid3D : Node3D {
         if (Engine.IsEditorHint()) {
             CreateDebugMesh();
         }
+
+        RenderBattleSquadCharacters();
     }
 
     private void CreateDebugMesh() {
@@ -101,5 +103,37 @@ public partial class Grid3D : Node3D {
         }
 
         surfaceTool.Commit(debugMesh);
+    }
+
+    private void RenderBattleSquadCharacters() {
+        if (CharacterStore is null) {
+            GD.PrintErr("CharacterStore is null");
+            return;
+        }
+
+        if (CharacterComponentScene is null) {
+            GD.PrintErr("CharacterComponentScene is null");
+            return;
+        }
+
+        foreach (var character in CharacterStore.Characters) {
+            if (character.Location?.Name == "Battle Squad" && character.SlotIndex >= 0) {
+                int x = character.SlotIndex % Columns;
+                int y = character.SlotIndex / Columns;
+
+                // Instantiate the CharacterComponent from the packed scene
+                var characterComponent = (CharacterComponent)CharacterComponentScene.Instantiate();
+                if (characterComponent is null) {
+                    GD.PrintErr("Failed to instantiate CharacterComponent");
+                    continue;
+                }
+
+                characterComponent.Character = character;
+
+                // Position the character at the middle point of the cell
+                characterComponent.Transform = new Transform3D(Basis.Identity, new Vector3(x + 0.5f, 0, y + 0.5f));
+                AddChild(characterComponent);
+            }
+        }
     }
 }

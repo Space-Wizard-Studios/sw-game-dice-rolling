@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="Character" load_steps=15 format=3 uid="uid://clrt1eby68x42"]
+[gd_resource type="Resource" script_class="Character" load_steps=24 format=3 uid="uid://clrt1eby68x42"]
 
-[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/CharacterActions/CharacterAction.cs" id="1_o11qe"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attributes/Resources/Health.tres" id="1_tjxkj"]
 [ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attributes/CharacterAttribute.cs" id="2_bg2oq"]
 [ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="2_n1iay"]
@@ -9,8 +8,7 @@
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="3_wmx46"]
 [ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attributes/Resources/Speed.tres" id="4_8gki7"]
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/Character.cs" id="5_01s21"]
-[ext_resource type="SpriteFrames" uid="uid://4pntmv2e85vp" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaShadowSprites.tres" id="5_x2a24"]
-[ext_resource type="Resource" uid="uid://cvojckruuqrn6" path="res://models/CharacterActions/Resources/Actions/Attack.tres" id="6_n00fg"]
+[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/CharacterLocation/Resources/BattleSquad.tres" id="8_gvxe5"]
 
 [sub_resource type="Resource" id="Resource_bq6xy"]
 script = ExtResource("2_bg2oq")
@@ -33,6 +31,80 @@ MaxValue = 40
 CurrentValue = 40
 BaseValue = 40
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ikwiv"]
+load_path = "res://.godot/imported/EleonoreOtsogaShadowSpritesheet.png-1811f1f20663ecdc0096f605a127680a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e3wj"]
+atlas = SubResource("CompressedTexture2D_ikwiv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5lu4"]
+atlas = SubResource("CompressedTexture2D_ikwiv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh8rn"]
+atlas = SubResource("CompressedTexture2D_ikwiv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4q6d"]
+atlas = SubResource("CompressedTexture2D_ikwiv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiqoq"]
+atlas = SubResource("CompressedTexture2D_ikwiv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b1fr"]
+atlas = SubResource("CompressedTexture2D_ikwiv")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g6tf"]
+atlas = SubResource("CompressedTexture2D_ikwiv")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huojm"]
+atlas = SubResource("CompressedTexture2D_ikwiv")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fiog"]
+atlas = SubResource("CompressedTexture2D_ikwiv")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o11qe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e3wj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5lu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh8rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4q6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiqoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b1fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g6tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huojm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fiog")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
 [resource]
 script = ExtResource("5_01s21")
 Id = "4ea655f0-4c3e-4fba-bafe-fe361e68db9e"
@@ -40,11 +112,12 @@ Name = "Eleonore"
 IsEnemy = false
 Role = ExtResource("3_3pa43")
 Attributes = Array[ExtResource("2_bg2oq")]([SubResource("Resource_bq6xy"), SubResource("Resource_8yo50"), SubResource("Resource_tc54a")])
-CharacterActions = Array[ExtResource("1_o11qe")]([ExtResource("6_n00fg")])
 DiceCapacity = 0
+Location = ExtResource("8_gvxe5")
+SlotIndex = 0
 Portrait = ExtResource("3_1cjke")
 CharacterSprite = ExtResource("2_n1iay")
-ShadowSprite = ExtResource("5_x2a24")
-ShowShadow = true
+ShadowSprite = SubResource("SpriteFrames_o11qe")
+ShowShadow = false
 SpritePositionX = 0.0
 SpritePositionY = 0.0

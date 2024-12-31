@@ -17,12 +17,12 @@ public partial class ArcDrawer : Node2D {
         AddChild(_arc);
     }
 
-    public override void _Process(double delta) {
-        if (_isDrawing && _selectedCharacter is not null) {
-            Vector2 mousePosition = GetGlobalMousePosition();
-            DrawArc(_selectedCharacter.GlobalPosition, mousePosition);
-        }
-    }
+    // public override void _Process(double delta) {
+    //     if (_isDrawing && _selectedCharacter is not null) {
+    //         Vector2 mousePosition = GetGlobalMousePosition();
+    //         DrawArc(_selectedCharacter.GlobalPosition, mousePosition);
+    //     }
+    // }
 
     public void SetSelectedCharacter(CharacterComponent character) {
         _selectedCharacter = character;
@@ -31,14 +31,14 @@ public partial class ArcDrawer : Node2D {
         QueueRedraw();
     }
 
-    public void SetSelectedEnemy(CharacterComponent enemy) {
-        _selectedEnemy = enemy;
-        _isDrawing = false;
-        if (_selectedCharacter is not null) {
-            DrawArc(_selectedCharacter.GlobalPosition, _selectedEnemy.GlobalPosition);
-        }
-        QueueRedraw();
-    }
+    // public void SetSelectedEnemy(CharacterComponent enemy) {
+    //     _selectedEnemy = enemy;
+    //     _isDrawing = false;
+    //     if (_selectedCharacter is not null) {
+    //         DrawArc(_selectedCharacter.GlobalPosition, _selectedEnemy.GlobalPosition);
+    //     }
+    //     QueueRedraw();
+    // }
 
     private void DrawArc(Vector2 start, Vector2 end) {
         if (_arc is not null) {

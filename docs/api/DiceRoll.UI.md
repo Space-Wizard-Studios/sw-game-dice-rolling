@@ -14,21 +14,21 @@ Cached StringNames for the methods contained in this class, for fast lookup.
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [CloseGameButton.MethodName](DiceRoll.UI.CloseGameButton.MethodName.md)
+ [ArcDrawer.MethodName](DiceRoll.UI.ArcDrawer.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [ArcDrawer.MethodName](DiceRoll.UI.ArcDrawer.MethodName.md)
+ [CloseGameButton.MethodName](DiceRoll.UI.CloseGameButton.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
  [PlaygroundTransitionMenu](DiceRoll.UI.PlaygroundTransitionMenu.md)
 
- [PlaygroundTransitionMenu.PropertyName](DiceRoll.UI.PlaygroundTransitionMenu.PropertyName.md)
+ [SceneTransitionButton.PropertyName](DiceRoll.UI.SceneTransitionButton.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
- [SceneTransitionButton.PropertyName](DiceRoll.UI.SceneTransitionButton.PropertyName.md)
+ [PlaygroundTransitionMenu.PropertyName](DiceRoll.UI.PlaygroundTransitionMenu.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 

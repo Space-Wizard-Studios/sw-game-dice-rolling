@@ -5,80 +5,95 @@
   - name: Components
     href: DiceRoll.Components.md
     items:
+    - name: Characters
+      href: DiceRoll.Components.Characters.md
+      items:
+      - name: Classes
+        items:
+        - name: CharacterComponent
+          href: DiceRoll.Components.Characters.CharacterComponent.md
+        - name: CharacterComponent.MethodName
+          href: DiceRoll.Components.Characters.CharacterComponent.MethodName.md
+        - name: CharacterComponent.PropertyName
+          href: DiceRoll.Components.Characters.CharacterComponent.PropertyName.md
+        - name: CharacterComponent.SignalName
+          href: DiceRoll.Components.Characters.CharacterComponent.SignalName.md
+        - name: CharacterInspector
+          href: DiceRoll.Components.Characters.CharacterInspector.md
+        - name: CharacterInspector.MethodName
+          href: DiceRoll.Components.Characters.CharacterInspector.MethodName.md
+        - name: CharacterInspector.PropertyName
+          href: DiceRoll.Components.Characters.CharacterInspector.PropertyName.md
+        - name: CharacterInspector.SignalName
+          href: DiceRoll.Components.Characters.CharacterInspector.SignalName.md
+    - name: Grids
+      href: DiceRoll.Components.Grids.md
+      items:
+      - name: Classes
+        items:
+        - name: CharacterGrid
+          href: DiceRoll.Components.Grids.CharacterGrid.md
+        - name: CharacterGrid.MethodName
+          href: DiceRoll.Components.Grids.CharacterGrid.MethodName.md
+        - name: CharacterGrid.PropertyName
+          href: DiceRoll.Components.Grids.CharacterGrid.PropertyName.md
+        - name: CharacterGrid.SignalName
+          href: DiceRoll.Components.Grids.CharacterGrid.SignalName.md
+        - name: Grid3D
+          href: DiceRoll.Components.Grids.Grid3D.md
+        - name: Grid3D.MethodName
+          href: DiceRoll.Components.Grids.Grid3D.MethodName.md
+        - name: Grid3D.PropertyName
+          href: DiceRoll.Components.Grids.Grid3D.PropertyName.md
+        - name: Grid3D.SignalName
+          href: DiceRoll.Components.Grids.Grid3D.SignalName.md
+        - name: GridCell3D
+          href: DiceRoll.Components.Grids.GridCell3D.md
+        - name: GridCell3D.MethodName
+          href: DiceRoll.Components.Grids.GridCell3D.MethodName.md
+        - name: GridCell3D.PropertyName
+          href: DiceRoll.Components.Grids.GridCell3D.PropertyName.md
+        - name: GridCell3D.SignalName
+          href: DiceRoll.Components.Grids.GridCell3D.SignalName.md
+    - name: UI
+      href: DiceRoll.Components.UI.md
+      items:
+      - name: Classes
+        items:
+        - name: GameLogComponent
+          href: DiceRoll.Components.UI.GameLogComponent.md
+        - name: GameLogComponent.MethodName
+          href: DiceRoll.Components.UI.GameLogComponent.MethodName.md
+        - name: GameLogComponent.PropertyName
+          href: DiceRoll.Components.UI.GameLogComponent.PropertyName.md
+        - name: GameLogComponent.SignalName
+          href: DiceRoll.Components.UI.GameLogComponent.SignalName.md
+        - name: InventoryComponent
+          href: DiceRoll.Components.UI.InventoryComponent.md
+        - name: InventoryComponent.MethodName
+          href: DiceRoll.Components.UI.InventoryComponent.MethodName.md
+        - name: InventoryComponent.PropertyName
+          href: DiceRoll.Components.UI.InventoryComponent.PropertyName.md
+        - name: InventoryComponent.SignalName
+          href: DiceRoll.Components.UI.InventoryComponent.SignalName.md
+        - name: InventoryItemComponent
+          href: DiceRoll.Components.UI.InventoryItemComponent.md
+        - name: InventoryItemComponent.MethodName
+          href: DiceRoll.Components.UI.InventoryItemComponent.MethodName.md
+        - name: InventoryItemComponent.PropertyName
+          href: DiceRoll.Components.UI.InventoryItemComponent.PropertyName.md
+        - name: InventoryItemComponent.SignalName
+          href: DiceRoll.Components.UI.InventoryItemComponent.SignalName.md
+        - name: TooltipComponent
+          href: DiceRoll.Components.UI.TooltipComponent.md
+        - name: TooltipComponent.MethodName
+          href: DiceRoll.Components.UI.TooltipComponent.MethodName.md
+        - name: TooltipComponent.PropertyName
+          href: DiceRoll.Components.UI.TooltipComponent.PropertyName.md
+        - name: TooltipComponent.SignalName
+          href: DiceRoll.Components.UI.TooltipComponent.SignalName.md
     - name: Classes
       items:
-      - name: CharacterComponent
-        href: DiceRoll.Components.CharacterComponent.md
-      - name: CharacterComponent.MethodName
-        href: DiceRoll.Components.CharacterComponent.MethodName.md
-      - name: CharacterComponent.PropertyName
-        href: DiceRoll.Components.CharacterComponent.PropertyName.md
-      - name: CharacterComponent.SignalName
-        href: DiceRoll.Components.CharacterComponent.SignalName.md
-      - name: CharacterGrid
-        href: DiceRoll.Components.CharacterGrid.md
-      - name: CharacterGrid.MethodName
-        href: DiceRoll.Components.CharacterGrid.MethodName.md
-      - name: CharacterGrid.PropertyName
-        href: DiceRoll.Components.CharacterGrid.PropertyName.md
-      - name: CharacterGrid.SignalName
-        href: DiceRoll.Components.CharacterGrid.SignalName.md
-      - name: CharacterInspector
-        href: DiceRoll.Components.CharacterInspector.md
-      - name: CharacterInspector.MethodName
-        href: DiceRoll.Components.CharacterInspector.MethodName.md
-      - name: CharacterInspector.PropertyName
-        href: DiceRoll.Components.CharacterInspector.PropertyName.md
-      - name: CharacterInspector.SignalName
-        href: DiceRoll.Components.CharacterInspector.SignalName.md
-      - name: CharacterRow
-        href: DiceRoll.Components.CharacterRow.md
-      - name: CharacterRow.MethodName
-        href: DiceRoll.Components.CharacterRow.MethodName.md
-      - name: CharacterRow.PropertyName
-        href: DiceRoll.Components.CharacterRow.PropertyName.md
-      - name: CharacterRow.SignalName
-        href: DiceRoll.Components.CharacterRow.SignalName.md
-      - name: GameLogComponent
-        href: DiceRoll.Components.GameLogComponent.md
-      - name: GameLogComponent.MethodName
-        href: DiceRoll.Components.GameLogComponent.MethodName.md
-      - name: GameLogComponent.PropertyName
-        href: DiceRoll.Components.GameLogComponent.PropertyName.md
-      - name: GameLogComponent.SignalName
-        href: DiceRoll.Components.GameLogComponent.SignalName.md
-      - name: Grid3D
-        href: DiceRoll.Components.Grid3D.md
-      - name: Grid3D.MethodName
-        href: DiceRoll.Components.Grid3D.MethodName.md
-      - name: Grid3D.PropertyName
-        href: DiceRoll.Components.Grid3D.PropertyName.md
-      - name: Grid3D.SignalName
-        href: DiceRoll.Components.Grid3D.SignalName.md
-      - name: InventoryComponent
-        href: DiceRoll.Components.InventoryComponent.md
-      - name: InventoryComponent.MethodName
-        href: DiceRoll.Components.InventoryComponent.MethodName.md
-      - name: InventoryComponent.PropertyName
-        href: DiceRoll.Components.InventoryComponent.PropertyName.md
-      - name: InventoryComponent.SignalName
-        href: DiceRoll.Components.InventoryComponent.SignalName.md
-      - name: InventoryItemComponent
-        href: DiceRoll.Components.InventoryItemComponent.md
-      - name: InventoryItemComponent.MethodName
-        href: DiceRoll.Components.InventoryItemComponent.MethodName.md
-      - name: InventoryItemComponent.PropertyName
-        href: DiceRoll.Components.InventoryItemComponent.PropertyName.md
-      - name: InventoryItemComponent.SignalName
-        href: DiceRoll.Components.InventoryItemComponent.SignalName.md
-      - name: TooltipComponent
-        href: DiceRoll.Components.TooltipComponent.md
-      - name: TooltipComponent.MethodName
-        href: DiceRoll.Components.TooltipComponent.MethodName.md
-      - name: TooltipComponent.PropertyName
-        href: DiceRoll.Components.TooltipComponent.PropertyName.md
-      - name: TooltipComponent.SignalName
-        href: DiceRoll.Components.TooltipComponent.SignalName.md
       - name: TurnOrderComponent
         href: DiceRoll.Components.TurnOrderComponent.md
       - name: TurnOrderComponent.MethodName
@@ -87,10 +102,6 @@
         href: DiceRoll.Components.TurnOrderComponent.PropertyName.md
       - name: TurnOrderComponent.SignalName
         href: DiceRoll.Components.TurnOrderComponent.SignalName.md
-    - name: Enums
-      items:
-      - name: ForwardDirection
-        href: DiceRoll.Components.ForwardDirection.md
   - name: Events
     href: DiceRoll.Events.md
     items:
@@ -286,6 +297,19 @@
         items:
         - name: CharacterGridType.ChangedEventHandler
           href: DiceRoll.Models.CharacterGrid.CharacterGridType.ChangedEventHandler.md
+    - name: CharacterLocations
+      href: DiceRoll.Models.CharacterLocations.md
+      items:
+      - name: Classes
+        items:
+        - name: CharacterLocation
+          href: DiceRoll.Models.CharacterLocations.CharacterLocation.md
+        - name: CharacterLocation.MethodName
+          href: DiceRoll.Models.CharacterLocations.CharacterLocation.MethodName.md
+        - name: CharacterLocation.PropertyName
+          href: DiceRoll.Models.CharacterLocations.CharacterLocation.PropertyName.md
+        - name: CharacterLocation.SignalName
+          href: DiceRoll.Models.CharacterLocations.CharacterLocation.SignalName.md
     - name: Classes
       items:
       - name: AttributeType

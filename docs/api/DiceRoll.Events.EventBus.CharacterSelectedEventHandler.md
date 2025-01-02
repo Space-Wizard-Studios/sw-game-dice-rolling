@@ -10,5 +10,5 @@ public delegate void EventBus.CharacterSelectedEventHandler(CharacterComponent c
 
 #### Parameters
 
-`character` [CharacterComponent](DiceRoll.Components.CharacterComponent.md)
+`character` [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)
 

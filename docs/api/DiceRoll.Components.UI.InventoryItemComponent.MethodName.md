@@ -1,12 +1,12 @@
-# <a id="DiceRoll_UI_ArcDrawer_MethodName"></a> Class ArcDrawer.MethodName
+# <a id="DiceRoll_Components_UI_InventoryItemComponent_MethodName"></a> Class InventoryItemComponent.MethodName
 
-Namespace: [DiceRoll.UI](DiceRoll.UI.md)  
+Namespace: [DiceRoll.Components.UI](DiceRoll.Components.UI.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
 ```csharp
-public class ArcDrawer.MethodName : Node2D.MethodName
+public class InventoryItemComponent.MethodName : Control.MethodName
 ```
 
 #### Inheritance
@@ -15,44 +15,158 @@ public class ArcDrawer.MethodName : Node2D.MethodName
 GodotObject.MethodName ← 
 Node.MethodName ← 
 CanvasItem.MethodName ← 
-Node2D.MethodName ← 
-[ArcDrawer.MethodName](DiceRoll.UI.ArcDrawer.MethodName.md)
+Control.MethodName ← 
+[InventoryItemComponent.MethodName](DiceRoll.Components.UI.InventoryItemComponent.MethodName.md)
 
 #### Inherited Members
 
-Node2D.MethodName.SetPosition, 
-Node2D.MethodName.SetRotation, 
-Node2D.MethodName.SetRotationDegrees, 
-Node2D.MethodName.SetSkew, 
-Node2D.MethodName.SetScale, 
-Node2D.MethodName.GetPosition, 
-Node2D.MethodName.GetRotation, 
-Node2D.MethodName.GetRotationDegrees, 
-Node2D.MethodName.GetSkew, 
-Node2D.MethodName.GetScale, 
-Node2D.MethodName.Rotate, 
-Node2D.MethodName.MoveLocalX, 
-Node2D.MethodName.MoveLocalY, 
-Node2D.MethodName.Translate, 
-Node2D.MethodName.GlobalTranslate, 
-Node2D.MethodName.ApplyScale, 
-Node2D.MethodName.SetGlobalPosition, 
-Node2D.MethodName.GetGlobalPosition, 
-Node2D.MethodName.SetGlobalRotation, 
-Node2D.MethodName.SetGlobalRotationDegrees, 
-Node2D.MethodName.GetGlobalRotation, 
-Node2D.MethodName.GetGlobalRotationDegrees, 
-Node2D.MethodName.SetGlobalSkew, 
-Node2D.MethodName.GetGlobalSkew, 
-Node2D.MethodName.SetGlobalScale, 
-Node2D.MethodName.GetGlobalScale, 
-Node2D.MethodName.SetTransform, 
-Node2D.MethodName.SetGlobalTransform, 
-Node2D.MethodName.LookAt, 
-Node2D.MethodName.GetAngleTo, 
-Node2D.MethodName.ToLocal, 
-Node2D.MethodName.ToGlobal, 
-Node2D.MethodName.GetRelativeTransformToParent, 
+Control.MethodName.\_CanDropData, 
+Control.MethodName.\_DropData, 
+Control.MethodName.\_GetDragData, 
+Control.MethodName.\_GetMinimumSize, 
+Control.MethodName.\_GetTooltip, 
+Control.MethodName.\_GuiInput, 
+Control.MethodName.\_HasPoint, 
+Control.MethodName.\_MakeCustomTooltip, 
+Control.MethodName.\_StructuredTextParser, 
+Control.MethodName.AcceptEvent, 
+Control.MethodName.GetMinimumSize, 
+Control.MethodName.GetCombinedMinimumSize, 
+Control.MethodName.\_SetLayoutMode, 
+Control.MethodName.\_GetLayoutMode, 
+Control.MethodName.\_SetAnchorsLayoutPreset, 
+Control.MethodName.\_GetAnchorsLayoutPreset, 
+Control.MethodName.SetAnchorsPreset, 
+Control.MethodName.SetOffsetsPreset, 
+Control.MethodName.SetAnchorsAndOffsetsPreset, 
+Control.MethodName.\_SetAnchor, 
+Control.MethodName.SetAnchor, 
+Control.MethodName.GetAnchor, 
+Control.MethodName.SetOffset, 
+Control.MethodName.GetOffset, 
+Control.MethodName.SetAnchorAndOffset, 
+Control.MethodName.SetBegin, 
+Control.MethodName.SetEnd, 
+Control.MethodName.SetPosition, 
+Control.MethodName.\_SetPosition, 
+Control.MethodName.SetSize, 
+Control.MethodName.ResetSize, 
+Control.MethodName.\_SetSize, 
+Control.MethodName.SetCustomMinimumSize, 
+Control.MethodName.SetGlobalPosition, 
+Control.MethodName.\_SetGlobalPosition, 
+Control.MethodName.SetRotation, 
+Control.MethodName.SetRotationDegrees, 
+Control.MethodName.SetScale, 
+Control.MethodName.SetPivotOffset, 
+Control.MethodName.GetBegin, 
+Control.MethodName.GetEnd, 
+Control.MethodName.GetPosition, 
+Control.MethodName.GetSize, 
+Control.MethodName.GetRotation, 
+Control.MethodName.GetRotationDegrees, 
+Control.MethodName.GetScale, 
+Control.MethodName.GetPivotOffset, 
+Control.MethodName.GetCustomMinimumSize, 
+Control.MethodName.GetParentAreaSize, 
+Control.MethodName.GetGlobalPosition, 
+Control.MethodName.GetScreenPosition, 
+Control.MethodName.GetRect, 
+Control.MethodName.GetGlobalRect, 
+Control.MethodName.SetFocusMode, 
+Control.MethodName.GetFocusMode, 
+Control.MethodName.HasFocus, 
+Control.MethodName.GrabFocus, 
+Control.MethodName.ReleaseFocus, 
+Control.MethodName.FindPrevValidFocus, 
+Control.MethodName.FindNextValidFocus, 
+Control.MethodName.FindValidFocusNeighbor, 
+Control.MethodName.SetHSizeFlags, 
+Control.MethodName.GetHSizeFlags, 
+Control.MethodName.SetStretchRatio, 
+Control.MethodName.GetStretchRatio, 
+Control.MethodName.SetVSizeFlags, 
+Control.MethodName.GetVSizeFlags, 
+Control.MethodName.SetTheme, 
+Control.MethodName.GetTheme, 
+Control.MethodName.SetThemeTypeVariation, 
+Control.MethodName.GetThemeTypeVariation, 
+Control.MethodName.BeginBulkThemeOverride, 
+Control.MethodName.EndBulkThemeOverride, 
+Control.MethodName.AddThemeIconOverride, 
+Control.MethodName.AddThemeStyleboxOverride, 
+Control.MethodName.AddThemeFontOverride, 
+Control.MethodName.AddThemeFontSizeOverride, 
+Control.MethodName.AddThemeColorOverride, 
+Control.MethodName.AddThemeConstantOverride, 
+Control.MethodName.RemoveThemeIconOverride, 
+Control.MethodName.RemoveThemeStyleboxOverride, 
+Control.MethodName.RemoveThemeFontOverride, 
+Control.MethodName.RemoveThemeFontSizeOverride, 
+Control.MethodName.RemoveThemeColorOverride, 
+Control.MethodName.RemoveThemeConstantOverride, 
+Control.MethodName.GetThemeIcon, 
+Control.MethodName.GetThemeStylebox, 
+Control.MethodName.GetThemeFont, 
+Control.MethodName.GetThemeFontSize, 
+Control.MethodName.GetThemeColor, 
+Control.MethodName.GetThemeConstant, 
+Control.MethodName.HasThemeIconOverride, 
+Control.MethodName.HasThemeStyleboxOverride, 
+Control.MethodName.HasThemeFontOverride, 
+Control.MethodName.HasThemeFontSizeOverride, 
+Control.MethodName.HasThemeColorOverride, 
+Control.MethodName.HasThemeConstantOverride, 
+Control.MethodName.HasThemeIcon, 
+Control.MethodName.HasThemeStylebox, 
+Control.MethodName.HasThemeFont, 
+Control.MethodName.HasThemeFontSize, 
+Control.MethodName.HasThemeColor, 
+Control.MethodName.HasThemeConstant, 
+Control.MethodName.GetThemeDefaultBaseScale, 
+Control.MethodName.GetThemeDefaultFont, 
+Control.MethodName.GetThemeDefaultFontSize, 
+Control.MethodName.GetParentControl, 
+Control.MethodName.SetHGrowDirection, 
+Control.MethodName.GetHGrowDirection, 
+Control.MethodName.SetVGrowDirection, 
+Control.MethodName.GetVGrowDirection, 
+Control.MethodName.SetTooltipAutoTranslateMode, 
+Control.MethodName.GetTooltipAutoTranslateMode, 
+Control.MethodName.SetTooltipText, 
+Control.MethodName.GetTooltipText, 
+Control.MethodName.GetTooltip, 
+Control.MethodName.SetDefaultCursorShape, 
+Control.MethodName.GetDefaultCursorShape, 
+Control.MethodName.GetCursorShape, 
+Control.MethodName.SetFocusNeighbor, 
+Control.MethodName.GetFocusNeighbor, 
+Control.MethodName.SetFocusNext, 
+Control.MethodName.GetFocusNext, 
+Control.MethodName.SetFocusPrevious, 
+Control.MethodName.GetFocusPrevious, 
+Control.MethodName.ForceDrag, 
+Control.MethodName.SetMouseFilter, 
+Control.MethodName.GetMouseFilter, 
+Control.MethodName.SetForcePassScrollEvents, 
+Control.MethodName.IsForcePassScrollEvents, 
+Control.MethodName.SetClipContents, 
+Control.MethodName.IsClippingContents, 
+Control.MethodName.GrabClickFocus, 
+Control.MethodName.SetDragForwarding, 
+Control.MethodName.SetDragPreview, 
+Control.MethodName.IsDragSuccessful, 
+Control.MethodName.WarpMouse, 
+Control.MethodName.SetShortcutContext, 
+Control.MethodName.GetShortcutContext, 
+Control.MethodName.UpdateMinimumSize, 
+Control.MethodName.SetLayoutDirection, 
+Control.MethodName.GetLayoutDirection, 
+Control.MethodName.IsLayoutRtl, 
+Control.MethodName.SetAutoTranslate, 
+Control.MethodName.IsAutoTranslating, 
+Control.MethodName.SetLocalizeNumeralSystem, 
+Control.MethodName.IsLocalizingNumeralSystem, 
 CanvasItem.MethodName.\_Draw, 
 CanvasItem.MethodName.GetCanvasItem, 
 CanvasItem.MethodName.SetVisible, 
@@ -339,31 +453,55 @@ GodotObject.MethodName.CancelFree,
 
 ## Fields
 
-### <a id="DiceRoll_UI_ArcDrawer_MethodName_DrawArc"></a> DrawArc
+### <a id="DiceRoll_Components_UI_InventoryItemComponent_MethodName_CreateTooltip"></a> CreateTooltip
 
-Cached name for the 'DrawArc' method.
+Cached name for the 'CreateTooltip' method.
 
 ```csharp
-public static readonly StringName DrawArc
+public static readonly StringName CreateTooltip
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_UI_ArcDrawer_MethodName_SetSelectedCharacter"></a> SetSelectedCharacter
+### <a id="DiceRoll_Components_UI_InventoryItemComponent_MethodName_OnMouseEntered"></a> OnMouseEntered
 
-Cached name for the 'SetSelectedCharacter' method.
+Cached name for the 'OnMouseEntered' method.
 
 ```csharp
-public static readonly StringName SetSelectedCharacter
+public static readonly StringName OnMouseEntered
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_UI_ArcDrawer_MethodName__Ready"></a> \_Ready
+### <a id="DiceRoll_Components_UI_InventoryItemComponent_MethodName_OnMouseExited"></a> OnMouseExited
+
+Cached name for the 'OnMouseExited' method.
+
+```csharp
+public static readonly StringName OnMouseExited
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Components_UI_InventoryItemComponent_MethodName_SetSize"></a> SetSize
+
+Cached name for the 'SetSize' method.
+
+```csharp
+public static readonly StringName SetSize
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Components_UI_InventoryItemComponent_MethodName__Ready"></a> \_Ready
 
 Cached name for the '_Ready' method.
 

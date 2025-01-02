@@ -1,11 +1,12 @@
-# <a id="DiceRoll_UI_ArcDrawer"></a> Class ArcDrawer
+# <a id="DiceRoll_Components_UI_InventoryComponent"></a> Class InventoryComponent
 
-Namespace: [DiceRoll.UI](DiceRoll.UI.md)  
+Namespace: [DiceRoll.Components.UI](DiceRoll.Components.UI.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
-[ScriptPath("res://core/ui/ArcDrawer.cs")]
-public class ArcDrawer : Node2D, IDisposable
+[Tool]
+[ScriptPath("res://components/InventoryComponent/InventoryComponent.cs")]
+public class InventoryComponent : ScrollContainer, IDisposable
 ```
 
 #### Inheritance
@@ -14,8 +15,10 @@ public class ArcDrawer : Node2D, IDisposable
 GodotObject ← 
 Node ← 
 CanvasItem ← 
-Node2D ← 
-[ArcDrawer](DiceRoll.UI.ArcDrawer.md)
+Control ← 
+Container ← 
+ScrollContainer ← 
+[InventoryComponent](DiceRoll.Components.UI.InventoryComponent.md)
 
 #### Implements
 
@@ -23,32 +26,191 @@ Node2D ←
 
 #### Inherited Members
 
-Node2D.Rotate\(float\), 
-Node2D.MoveLocalX\(float, bool\), 
-Node2D.MoveLocalY\(float, bool\), 
-Node2D.Translate\(Vector2\), 
-Node2D.GlobalTranslate\(Vector2\), 
-Node2D.ApplyScale\(Vector2\), 
-Node2D.LookAt\(Vector2\), 
-Node2D.GetAngleTo\(Vector2\), 
-Node2D.ToLocal\(Vector2\), 
-Node2D.ToGlobal\(Vector2\), 
-Node2D.GetRelativeTransformToParent\(Node\), 
-Node2D.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
-Node2D.HasGodotClassMethod\(in godot\_string\_name\), 
-Node2D.HasGodotClassSignal\(in godot\_string\_name\), 
-Node2D.Position, 
-Node2D.Rotation, 
-Node2D.RotationDegrees, 
-Node2D.Scale, 
-Node2D.Skew, 
-Node2D.Transform, 
-Node2D.GlobalPosition, 
-Node2D.GlobalRotation, 
-Node2D.GlobalRotationDegrees, 
-Node2D.GlobalScale, 
-Node2D.GlobalSkew, 
-Node2D.GlobalTransform, 
+ScrollContainer.GetHScrollBar\(\), 
+ScrollContainer.GetVScrollBar\(\), 
+ScrollContainer.EnsureControlVisible\(Control\), 
+ScrollContainer.EmitSignalScrollStarted\(\), 
+ScrollContainer.EmitSignalScrollEnded\(\), 
+ScrollContainer.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+ScrollContainer.HasGodotClassMethod\(in godot\_string\_name\), 
+ScrollContainer.HasGodotClassSignal\(in godot\_string\_name\), 
+ScrollContainer.FollowFocus, 
+ScrollContainer.DrawFocusBorder, 
+ScrollContainer.ScrollHorizontal, 
+ScrollContainer.ScrollVertical, 
+ScrollContainer.ScrollHorizontalCustomStep, 
+ScrollContainer.ScrollVerticalCustomStep, 
+ScrollContainer.HorizontalScrollMode, 
+ScrollContainer.VerticalScrollMode, 
+ScrollContainer.ScrollDeadzone, 
+ScrollContainer.ScrollStarted, 
+ScrollContainer.ScrollEnded, 
+Container.NotificationPreSortChildren, 
+Container.NotificationSortChildren, 
+Container.\_GetAllowedSizeFlagsHorizontal\(\), 
+Container.\_GetAllowedSizeFlagsVertical\(\), 
+Container.QueueSort\(\), 
+Container.FitChildInRect\(Control, Rect2\), 
+Container.EmitSignalPreSortChildren\(\), 
+Container.EmitSignalSortChildren\(\), 
+Container.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+Container.HasGodotClassMethod\(in godot\_string\_name\), 
+Container.HasGodotClassSignal\(in godot\_string\_name\), 
+Container.PreSortChildren, 
+Container.SortChildren, 
+Control.NotificationResized, 
+Control.NotificationMouseEnter, 
+Control.NotificationMouseExit, 
+Control.NotificationMouseEnterSelf, 
+Control.NotificationMouseExitSelf, 
+Control.NotificationFocusEnter, 
+Control.NotificationFocusExit, 
+Control.NotificationThemeChanged, 
+Control.NotificationScrollBegin, 
+Control.NotificationScrollEnd, 
+Control.NotificationLayoutDirectionChanged, 
+Control.\_CanDropData\(Vector2, Variant\), 
+Control.\_DropData\(Vector2, Variant\), 
+Control.\_GetDragData\(Vector2\), 
+Control.\_GetMinimumSize\(\), 
+Control.\_GetTooltip\(Vector2\), 
+Control.\_GuiInput\(InputEvent\), 
+Control.\_HasPoint\(Vector2\), 
+Control.\_MakeCustomTooltip\(string\), 
+Control.\_StructuredTextParser\(Array, string\), 
+Control.AcceptEvent\(\), 
+Control.GetMinimumSize\(\), 
+Control.GetCombinedMinimumSize\(\), 
+Control.SetAnchorsPreset\(Control.LayoutPreset, bool\), 
+Control.SetOffsetsPreset\(Control.LayoutPreset, Control.LayoutPresetMode, int\), 
+Control.SetAnchorsAndOffsetsPreset\(Control.LayoutPreset, Control.LayoutPresetMode, int\), 
+Control.SetAnchor\(Side, float, bool, bool\), 
+Control.SetAnchorAndOffset\(Side, float, float, bool\), 
+Control.SetBegin\(Vector2\), 
+Control.SetEnd\(Vector2\), 
+Control.SetPosition\(Vector2, bool\), 
+Control.SetSize\(Vector2, bool\), 
+Control.ResetSize\(\), 
+Control.SetGlobalPosition\(Vector2, bool\), 
+Control.GetBegin\(\), 
+Control.GetEnd\(\), 
+Control.GetParentAreaSize\(\), 
+Control.GetScreenPosition\(\), 
+Control.GetRect\(\), 
+Control.GetGlobalRect\(\), 
+Control.HasFocus\(\), 
+Control.GrabFocus\(\), 
+Control.ReleaseFocus\(\), 
+Control.FindPrevValidFocus\(\), 
+Control.FindNextValidFocus\(\), 
+Control.FindValidFocusNeighbor\(Side\), 
+Control.BeginBulkThemeOverride\(\), 
+Control.EndBulkThemeOverride\(\), 
+Control.AddThemeIconOverride\(StringName, Texture2D\), 
+Control.AddThemeStyleboxOverride\(StringName, StyleBox\), 
+Control.AddThemeFontOverride\(StringName, Font\), 
+Control.AddThemeFontSizeOverride\(StringName, int\), 
+Control.AddThemeColorOverride\(StringName, Color\), 
+Control.AddThemeConstantOverride\(StringName, int\), 
+Control.RemoveThemeIconOverride\(StringName\), 
+Control.RemoveThemeStyleboxOverride\(StringName\), 
+Control.RemoveThemeFontOverride\(StringName\), 
+Control.RemoveThemeFontSizeOverride\(StringName\), 
+Control.RemoveThemeColorOverride\(StringName\), 
+Control.RemoveThemeConstantOverride\(StringName\), 
+Control.GetThemeIcon\(StringName, StringName\), 
+Control.GetThemeStylebox\(StringName, StringName\), 
+Control.GetThemeFont\(StringName, StringName\), 
+Control.GetThemeFontSize\(StringName, StringName\), 
+Control.GetThemeColor\(StringName, StringName\), 
+Control.GetThemeConstant\(StringName, StringName\), 
+Control.HasThemeIconOverride\(StringName\), 
+Control.HasThemeStyleboxOverride\(StringName\), 
+Control.HasThemeFontOverride\(StringName\), 
+Control.HasThemeFontSizeOverride\(StringName\), 
+Control.HasThemeColorOverride\(StringName\), 
+Control.HasThemeConstantOverride\(StringName\), 
+Control.HasThemeIcon\(StringName, StringName\), 
+Control.HasThemeStylebox\(StringName, StringName\), 
+Control.HasThemeFont\(StringName, StringName\), 
+Control.HasThemeFontSize\(StringName, StringName\), 
+Control.HasThemeColor\(StringName, StringName\), 
+Control.HasThemeConstant\(StringName, StringName\), 
+Control.GetThemeDefaultBaseScale\(\), 
+Control.GetThemeDefaultFont\(\), 
+Control.GetThemeDefaultFontSize\(\), 
+Control.GetParentControl\(\), 
+Control.GetTooltip\(Vector2?\), 
+Control.GetCursorShape\(Vector2?\), 
+Control.ForceDrag\(Variant, Control\), 
+Control.GrabClickFocus\(\), 
+Control.SetDragForwarding\(Callable, Callable, Callable\), 
+Control.SetDragPreview\(Control\), 
+Control.IsDragSuccessful\(\), 
+Control.WarpMouse\(Vector2\), 
+Control.UpdateMinimumSize\(\), 
+Control.IsLayoutRtl\(\), 
+Control.EmitSignalResized\(\), 
+Control.EmitSignalGuiInput\(InputEvent\), 
+Control.EmitSignalMouseEntered\(\), 
+Control.EmitSignalMouseExited\(\), 
+Control.EmitSignalFocusEntered\(\), 
+Control.EmitSignalFocusExited\(\), 
+Control.EmitSignalSizeFlagsChanged\(\), 
+Control.EmitSignalMinimumSizeChanged\(\), 
+Control.EmitSignalThemeChanged\(\), 
+Control.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+Control.HasGodotClassMethod\(in godot\_string\_name\), 
+Control.HasGodotClassSignal\(in godot\_string\_name\), 
+Control.ClipContents, 
+Control.CustomMinimumSize, 
+Control.LayoutDirection, 
+Control.AnchorLeft, 
+Control.AnchorTop, 
+Control.AnchorRight, 
+Control.AnchorBottom, 
+Control.OffsetLeft, 
+Control.OffsetTop, 
+Control.OffsetRight, 
+Control.OffsetBottom, 
+Control.GrowHorizontal, 
+Control.GrowVertical, 
+Control.Size, 
+Control.Position, 
+Control.GlobalPosition, 
+Control.Rotation, 
+Control.RotationDegrees, 
+Control.Scale, 
+Control.PivotOffset, 
+Control.SizeFlagsHorizontal, 
+Control.SizeFlagsVertical, 
+Control.SizeFlagsStretchRatio, 
+Control.LocalizeNumeralSystem, 
+Control.AutoTranslate, 
+Control.TooltipText, 
+Control.TooltipAutoTranslateMode, 
+Control.FocusNeighborLeft, 
+Control.FocusNeighborTop, 
+Control.FocusNeighborRight, 
+Control.FocusNeighborBottom, 
+Control.FocusNext, 
+Control.FocusPrevious, 
+Control.FocusMode, 
+Control.MouseFilter, 
+Control.MouseForcePassScrollEvents, 
+Control.MouseDefaultCursorShape, 
+Control.ShortcutContext, 
+Control.Theme, 
+Control.ThemeTypeVariation, 
+Control.Resized, 
+Control.GuiInput, 
+Control.MouseEntered, 
+Control.MouseExited, 
+Control.FocusEntered, 
+Control.FocusExited, 
+Control.SizeFlagsChanged, 
+Control.MinimumSizeChanged, 
+Control.ThemeChanged, 
 CanvasItem.NotificationTransformChanged, 
 CanvasItem.NotificationLocalTransformChanged, 
 CanvasItem.NotificationDraw, 
@@ -430,19 +592,94 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Methods
+## Fields
 
-### <a id="DiceRoll_UI_ArcDrawer_SetSelectedCharacter_DiceRoll_Components_Characters_CharacterComponent_"></a> SetSelectedCharacter\(CharacterComponent\)
+### <a id="DiceRoll_Components_UI_InventoryComponent_MaxSlots"></a> MaxSlots
 
 ```csharp
-public void SetSelectedCharacter(CharacterComponent character)
+[Export(PropertyHint.None, "")]
+public int MaxSlots
+```
+
+#### Field Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+## Properties
+
+### <a id="DiceRoll_Components_UI_InventoryComponent_InventoryGridPath"></a> InventoryGridPath
+
+```csharp
+[Export(PropertyHint.None, "")]
+public NodePath? InventoryGridPath { get; set; }
+```
+
+#### Property Value
+
+ NodePath?
+
+### <a id="DiceRoll_Components_UI_InventoryComponent_ItemComponentPath"></a> ItemComponentPath
+
+```csharp
+[Export(PropertyHint.None, "")]
+public NodePath? ItemComponentPath { get; set; }
+```
+
+#### Property Value
+
+ NodePath?
+
+### <a id="DiceRoll_Components_UI_InventoryComponent_ItemCount"></a> ItemCount
+
+```csharp
+[Export(PropertyHint.None, "")]
+public int ItemCount { get; set; }
+```
+
+#### Property Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="DiceRoll_Components_UI_InventoryComponent_ItemSize"></a> ItemSize
+
+```csharp
+[Export(PropertyHint.None, "")]
+public int ItemSize { get; set; }
+```
+
+#### Property Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+## Methods
+
+### <a id="DiceRoll_Components_UI_InventoryComponent__ExitTree"></a> \_ExitTree\(\)
+
+<p>Called when the node is about to leave the <xref href="Godot.SceneTree" data-throw-if-not-resolved="false"></xref> (e.g. upon freeing, scene changing, or after calling <xref href="Godot.Node.RemoveChild(Godot.Node)" data-throw-if-not-resolved="false"></xref> in a script). If the node has children, its <xref href="Godot.Node._ExitTree" data-throw-if-not-resolved="false"></xref> callback will be called last, after all its children have left the tree.</p>
+<p>Corresponds to the <xref href="Godot.Node.NotificationExitTree" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref> and signal <xref href="Godot.Node.TreeExiting" data-throw-if-not-resolved="false"></xref>. To get notified when the node has already left the active tree, connect to the <xref href="Godot.Node.TreeExited" data-throw-if-not-resolved="false"></xref>.</p>
+
+```csharp
+public override void _ExitTree()
+```
+
+### <a id="DiceRoll_Components_UI_InventoryComponent__Input_Godot_InputEvent_"></a> \_Input\(InputEvent\)
+
+<p>Called when there is an input event. The input event propagates up through the node tree until a node consumes it.</p>
+<p>It is only called if input processing is enabled, which is done automatically if this method is overridden, and can be toggled with <xref href="Godot.Node.SetProcessInput(System.Boolean)" data-throw-if-not-resolved="false"></xref>.</p>
+<p>To consume the input event and stop it propagating further to other nodes, <xref href="Godot.Viewport.SetInputAsHandled" data-throw-if-not-resolved="false"></xref> can be called.</p>
+<p>For gameplay input, <xref href="Godot.Node._UnhandledInput(Godot.InputEvent)" data-throw-if-not-resolved="false"></xref> and <xref href="Godot.Node._UnhandledKeyInput(Godot.InputEvent)" data-throw-if-not-resolved="false"></xref> are usually a better fit as they allow the GUI to intercept the events first.</p>
+<p>
+  <b>Note:</b> This method is only called if the node is present in the scene tree (i.e. if it's not an orphan).</p>
+
+```csharp
+public override void _Input(InputEvent @event)
 ```
 
 #### Parameters
 
-`character` [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)
+`event` InputEvent
 
-### <a id="DiceRoll_UI_ArcDrawer__Ready"></a> \_Ready\(\)
+### <a id="DiceRoll_Components_UI_InventoryComponent__Ready"></a> \_Ready\(\)
 
 <p>Called when the node is "ready", i.e. when both the node and its children have entered the scene tree. If the node has children, their <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> callbacks get triggered first, and the parent node will receive the ready notification afterwards.</p>
 <p>Corresponds to the <xref href="Godot.Node.NotificationReady" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>. See also the <code>@onready</code> annotation for variables.</p>

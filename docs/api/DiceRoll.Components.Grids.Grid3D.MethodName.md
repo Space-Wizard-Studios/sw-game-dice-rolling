@@ -1,12 +1,12 @@
-# <a id="DiceRoll_UI_ArcDrawer_MethodName"></a> Class ArcDrawer.MethodName
+# <a id="DiceRoll_Components_Grids_Grid3D_MethodName"></a> Class Grid3D.MethodName
 
-Namespace: [DiceRoll.UI](DiceRoll.UI.md)  
+Namespace: [DiceRoll.Components.Grids](DiceRoll.Components.Grids.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
 ```csharp
-public class ArcDrawer.MethodName : Node2D.MethodName
+public class Grid3D.MethodName : Node3D.MethodName
 ```
 
 #### Inheritance
@@ -14,133 +14,82 @@ public class ArcDrawer.MethodName : Node2D.MethodName
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 GodotObject.MethodName ← 
 Node.MethodName ← 
-CanvasItem.MethodName ← 
-Node2D.MethodName ← 
-[ArcDrawer.MethodName](DiceRoll.UI.ArcDrawer.MethodName.md)
+Node3D.MethodName ← 
+[Grid3D.MethodName](DiceRoll.Components.Grids.Grid3D.MethodName.md)
 
 #### Inherited Members
 
-Node2D.MethodName.SetPosition, 
-Node2D.MethodName.SetRotation, 
-Node2D.MethodName.SetRotationDegrees, 
-Node2D.MethodName.SetSkew, 
-Node2D.MethodName.SetScale, 
-Node2D.MethodName.GetPosition, 
-Node2D.MethodName.GetRotation, 
-Node2D.MethodName.GetRotationDegrees, 
-Node2D.MethodName.GetSkew, 
-Node2D.MethodName.GetScale, 
-Node2D.MethodName.Rotate, 
-Node2D.MethodName.MoveLocalX, 
-Node2D.MethodName.MoveLocalY, 
-Node2D.MethodName.Translate, 
-Node2D.MethodName.GlobalTranslate, 
-Node2D.MethodName.ApplyScale, 
-Node2D.MethodName.SetGlobalPosition, 
-Node2D.MethodName.GetGlobalPosition, 
-Node2D.MethodName.SetGlobalRotation, 
-Node2D.MethodName.SetGlobalRotationDegrees, 
-Node2D.MethodName.GetGlobalRotation, 
-Node2D.MethodName.GetGlobalRotationDegrees, 
-Node2D.MethodName.SetGlobalSkew, 
-Node2D.MethodName.GetGlobalSkew, 
-Node2D.MethodName.SetGlobalScale, 
-Node2D.MethodName.GetGlobalScale, 
-Node2D.MethodName.SetTransform, 
-Node2D.MethodName.SetGlobalTransform, 
-Node2D.MethodName.LookAt, 
-Node2D.MethodName.GetAngleTo, 
-Node2D.MethodName.ToLocal, 
-Node2D.MethodName.ToGlobal, 
-Node2D.MethodName.GetRelativeTransformToParent, 
-CanvasItem.MethodName.\_Draw, 
-CanvasItem.MethodName.GetCanvasItem, 
-CanvasItem.MethodName.SetVisible, 
-CanvasItem.MethodName.IsVisible, 
-CanvasItem.MethodName.IsVisibleInTree, 
-CanvasItem.MethodName.Show, 
-CanvasItem.MethodName.Hide, 
-CanvasItem.MethodName.QueueRedraw, 
-CanvasItem.MethodName.MoveToFront, 
-CanvasItem.MethodName.SetAsTopLevel, 
-CanvasItem.MethodName.IsSetAsTopLevel, 
-CanvasItem.MethodName.SetLightMask, 
-CanvasItem.MethodName.GetLightMask, 
-CanvasItem.MethodName.SetModulate, 
-CanvasItem.MethodName.GetModulate, 
-CanvasItem.MethodName.SetSelfModulate, 
-CanvasItem.MethodName.GetSelfModulate, 
-CanvasItem.MethodName.SetZIndex, 
-CanvasItem.MethodName.GetZIndex, 
-CanvasItem.MethodName.SetZAsRelative, 
-CanvasItem.MethodName.IsZRelative, 
-CanvasItem.MethodName.SetYSortEnabled, 
-CanvasItem.MethodName.IsYSortEnabled, 
-CanvasItem.MethodName.SetDrawBehindParent, 
-CanvasItem.MethodName.IsDrawBehindParentEnabled, 
-CanvasItem.MethodName.DrawLine, 
-CanvasItem.MethodName.DrawDashedLine, 
-CanvasItem.MethodName.DrawPolyline, 
-CanvasItem.MethodName.DrawPolylineColors, 
-CanvasItem.MethodName.DrawArc, 
-CanvasItem.MethodName.DrawMultiline, 
-CanvasItem.MethodName.DrawMultilineColors, 
-CanvasItem.MethodName.DrawRect, 
-CanvasItem.MethodName.DrawCircle, 
-CanvasItem.MethodName.DrawTexture, 
-CanvasItem.MethodName.DrawTextureRect, 
-CanvasItem.MethodName.DrawTextureRectRegion, 
-CanvasItem.MethodName.DrawMsdfTextureRectRegion, 
-CanvasItem.MethodName.DrawLcdTextureRectRegion, 
-CanvasItem.MethodName.DrawStyleBox, 
-CanvasItem.MethodName.DrawPrimitive, 
-CanvasItem.MethodName.DrawPolygon, 
-CanvasItem.MethodName.DrawColoredPolygon, 
-CanvasItem.MethodName.DrawString, 
-CanvasItem.MethodName.DrawMultilineString, 
-CanvasItem.MethodName.DrawStringOutline, 
-CanvasItem.MethodName.DrawMultilineStringOutline, 
-CanvasItem.MethodName.DrawChar, 
-CanvasItem.MethodName.DrawCharOutline, 
-CanvasItem.MethodName.DrawMesh, 
-CanvasItem.MethodName.DrawMultimesh, 
-CanvasItem.MethodName.DrawSetTransform, 
-CanvasItem.MethodName.DrawSetTransformMatrix, 
-CanvasItem.MethodName.DrawAnimationSlice, 
-CanvasItem.MethodName.DrawEndAnimation, 
-CanvasItem.MethodName.GetTransform, 
-CanvasItem.MethodName.GetGlobalTransform, 
-CanvasItem.MethodName.GetGlobalTransformWithCanvas, 
-CanvasItem.MethodName.GetViewportTransform, 
-CanvasItem.MethodName.GetViewportRect, 
-CanvasItem.MethodName.GetCanvasTransform, 
-CanvasItem.MethodName.GetScreenTransform, 
-CanvasItem.MethodName.GetLocalMousePosition, 
-CanvasItem.MethodName.GetGlobalMousePosition, 
-CanvasItem.MethodName.GetCanvas, 
-CanvasItem.MethodName.GetCanvasLayerNode, 
-CanvasItem.MethodName.GetWorld2D, 
-CanvasItem.MethodName.SetMaterial, 
-CanvasItem.MethodName.GetMaterial, 
-CanvasItem.MethodName.SetUseParentMaterial, 
-CanvasItem.MethodName.GetUseParentMaterial, 
-CanvasItem.MethodName.SetNotifyLocalTransform, 
-CanvasItem.MethodName.IsLocalTransformNotificationEnabled, 
-CanvasItem.MethodName.SetNotifyTransform, 
-CanvasItem.MethodName.IsTransformNotificationEnabled, 
-CanvasItem.MethodName.ForceUpdateTransform, 
-CanvasItem.MethodName.MakeCanvasPositionLocal, 
-CanvasItem.MethodName.MakeInputLocal, 
-CanvasItem.MethodName.SetVisibilityLayer, 
-CanvasItem.MethodName.GetVisibilityLayer, 
-CanvasItem.MethodName.SetVisibilityLayerBit, 
-CanvasItem.MethodName.GetVisibilityLayerBit, 
-CanvasItem.MethodName.SetTextureFilter, 
-CanvasItem.MethodName.GetTextureFilter, 
-CanvasItem.MethodName.SetTextureRepeat, 
-CanvasItem.MethodName.GetTextureRepeat, 
-CanvasItem.MethodName.SetClipChildrenMode, 
-CanvasItem.MethodName.GetClipChildrenMode, 
+Node3D.MethodName.SetTransform, 
+Node3D.MethodName.GetTransform, 
+Node3D.MethodName.SetPosition, 
+Node3D.MethodName.GetPosition, 
+Node3D.MethodName.SetRotation, 
+Node3D.MethodName.GetRotation, 
+Node3D.MethodName.SetRotationDegrees, 
+Node3D.MethodName.GetRotationDegrees, 
+Node3D.MethodName.SetRotationOrder, 
+Node3D.MethodName.GetRotationOrder, 
+Node3D.MethodName.SetRotationEditMode, 
+Node3D.MethodName.GetRotationEditMode, 
+Node3D.MethodName.SetScale, 
+Node3D.MethodName.GetScale, 
+Node3D.MethodName.SetQuaternion, 
+Node3D.MethodName.GetQuaternion, 
+Node3D.MethodName.SetBasis, 
+Node3D.MethodName.GetBasis, 
+Node3D.MethodName.SetGlobalTransform, 
+Node3D.MethodName.GetGlobalTransform, 
+Node3D.MethodName.GetGlobalTransformInterpolated, 
+Node3D.MethodName.SetGlobalPosition, 
+Node3D.MethodName.GetGlobalPosition, 
+Node3D.MethodName.SetGlobalBasis, 
+Node3D.MethodName.GetGlobalBasis, 
+Node3D.MethodName.SetGlobalRotation, 
+Node3D.MethodName.GetGlobalRotation, 
+Node3D.MethodName.SetGlobalRotationDegrees, 
+Node3D.MethodName.GetGlobalRotationDegrees, 
+Node3D.MethodName.GetParentNode3D, 
+Node3D.MethodName.SetIgnoreTransformNotification, 
+Node3D.MethodName.SetAsTopLevel, 
+Node3D.MethodName.IsSetAsTopLevel, 
+Node3D.MethodName.SetDisableScale, 
+Node3D.MethodName.IsScaleDisabled, 
+Node3D.MethodName.GetWorld3D, 
+Node3D.MethodName.ForceUpdateTransform, 
+Node3D.MethodName.SetVisibilityParent, 
+Node3D.MethodName.GetVisibilityParent, 
+Node3D.MethodName.UpdateGizmos, 
+Node3D.MethodName.AddGizmo, 
+Node3D.MethodName.GetGizmos, 
+Node3D.MethodName.ClearGizmos, 
+Node3D.MethodName.SetSubgizmoSelection, 
+Node3D.MethodName.ClearSubgizmoSelection, 
+Node3D.MethodName.SetVisible, 
+Node3D.MethodName.IsVisible, 
+Node3D.MethodName.IsVisibleInTree, 
+Node3D.MethodName.Show, 
+Node3D.MethodName.Hide, 
+Node3D.MethodName.SetNotifyLocalTransform, 
+Node3D.MethodName.IsLocalTransformNotificationEnabled, 
+Node3D.MethodName.SetNotifyTransform, 
+Node3D.MethodName.IsTransformNotificationEnabled, 
+Node3D.MethodName.Rotate, 
+Node3D.MethodName.GlobalRotate, 
+Node3D.MethodName.GlobalScale, 
+Node3D.MethodName.GlobalTranslate, 
+Node3D.MethodName.RotateObjectLocal, 
+Node3D.MethodName.ScaleObjectLocal, 
+Node3D.MethodName.TranslateObjectLocal, 
+Node3D.MethodName.RotateX, 
+Node3D.MethodName.RotateY, 
+Node3D.MethodName.RotateZ, 
+Node3D.MethodName.Translate, 
+Node3D.MethodName.Orthonormalize, 
+Node3D.MethodName.SetIdentity, 
+Node3D.MethodName.LookAt, 
+Node3D.MethodName.LookAtFromPosition, 
+Node3D.MethodName.ToLocal, 
+Node3D.MethodName.ToGlobal, 
 Node.MethodName.\_EnterTree, 
 Node.MethodName.\_ExitTree, 
 Node.MethodName.\_GetConfigurationWarnings, 
@@ -339,31 +288,79 @@ GodotObject.MethodName.CancelFree,
 
 ## Fields
 
-### <a id="DiceRoll_UI_ArcDrawer_MethodName_DrawArc"></a> DrawArc
+### <a id="DiceRoll_Components_Grids_Grid3D_MethodName_ClearExistingCells"></a> ClearExistingCells
 
-Cached name for the 'DrawArc' method.
+Cached name for the 'ClearExistingCells' method.
 
 ```csharp
-public static readonly StringName DrawArc
+public static readonly StringName ClearExistingCells
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_UI_ArcDrawer_MethodName_SetSelectedCharacter"></a> SetSelectedCharacter
+### <a id="DiceRoll_Components_Grids_Grid3D_MethodName_CreateDebugMesh"></a> CreateDebugMesh
 
-Cached name for the 'SetSelectedCharacter' method.
+Cached name for the 'CreateDebugMesh' method.
 
 ```csharp
-public static readonly StringName SetSelectedCharacter
+public static readonly StringName CreateDebugMesh
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_UI_ArcDrawer_MethodName__Ready"></a> \_Ready
+### <a id="DiceRoll_Components_Grids_Grid3D_MethodName_CreateNewCells"></a> CreateNewCells
+
+Cached name for the 'CreateNewCells' method.
+
+```csharp
+public static readonly StringName CreateNewCells
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Components_Grids_Grid3D_MethodName_GenerateGridCells"></a> GenerateGridCells
+
+Cached name for the 'GenerateGridCells' method.
+
+```csharp
+public static readonly StringName GenerateGridCells
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Components_Grids_Grid3D_MethodName_RenderBattleSquadCharacters"></a> RenderBattleSquadCharacters
+
+Cached name for the 'RenderBattleSquadCharacters' method.
+
+```csharp
+public static readonly StringName RenderBattleSquadCharacters
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Components_Grids_Grid3D_MethodName_UpdateDebugMesh"></a> UpdateDebugMesh
+
+Cached name for the 'UpdateDebugMesh' method.
+
+```csharp
+public static readonly StringName UpdateDebugMesh
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Components_Grids_Grid3D_MethodName__Ready"></a> \_Ready
 
 Cached name for the '_Ready' method.
 

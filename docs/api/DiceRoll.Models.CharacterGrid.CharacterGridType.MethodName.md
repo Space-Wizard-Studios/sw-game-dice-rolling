@@ -114,17 +114,3 @@ GodotObject.MethodName.CancelFree,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Fields
-
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_MethodName_OnPropertyChanged"></a> OnPropertyChanged
-
-Cached name for the 'OnPropertyChanged' method.
-
-```csharp
-public static readonly StringName OnPropertyChanged
-```
-
-#### Field Value
-
- StringName
-

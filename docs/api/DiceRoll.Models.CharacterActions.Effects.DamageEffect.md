@@ -153,15 +153,25 @@ GodotObject.PropertyListChanged,
 
 ## Constructors
 
-### <a id="DiceRoll_Models_CharacterActions_Effects_DamageEffect__ctor_System_Int32_"></a> DamageEffect\(int\)
+### <a id="DiceRoll_Models_CharacterActions_Effects_DamageEffect__ctor"></a> DamageEffect\(\)
 
 ```csharp
-public DamageEffect(int damage)
+public DamageEffect()
+```
+
+### <a id="DiceRoll_Models_CharacterActions_Effects_DamageEffect__ctor_DiceRoll_Models_CharacterActions_TargetType_DiceRoll_Models_CharacterActions_QuantityType_System_Int32_"></a> DamageEffect\(TargetType, QuantityType, int\)
+
+```csharp
+public DamageEffect(TargetType targetType, QuantityType quantityType, int numberQuantity)
 ```
 
 #### Parameters
 
-`damage` [int](https://learn.microsoft.com/dotnet/api/system.int32)
+`targetType` [TargetType](DiceRoll.Models.CharacterActions.TargetType.md)
+
+`quantityType` [QuantityType](DiceRoll.Models.CharacterActions.QuantityType.md)
+
+`numberQuantity` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
 ## Methods
 

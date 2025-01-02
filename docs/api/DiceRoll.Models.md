@@ -6,6 +6,8 @@
 
  [DiceRoll.Models.CharacterGrid](DiceRoll.Models.CharacterGrid.md)
 
+ [DiceRoll.Models.CharacterLocations](DiceRoll.Models.CharacterLocations.md)
+
 ### Classes
 
  [AttributeType](DiceRoll.Models.AttributeType.md)
@@ -54,11 +56,11 @@ Cached StringNames for the methods contained in this class, for fast lookup.
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [DiceManaResources.MethodName](DiceRoll.Models.DiceManaResources.MethodName.md)
+ [AttributesConfig.MethodName](DiceRoll.Models.AttributesConfig.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [AttributesConfig.MethodName](DiceRoll.Models.AttributesConfig.MethodName.md)
+ [DiceMana.MethodName](DiceRoll.Models.DiceMana.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
@@ -78,27 +80,11 @@ Cached StringNames for the methods contained in this class, for fast lookup.
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [DiceMana.MethodName](DiceRoll.Models.DiceMana.MethodName.md)
+ [DiceManaResources.MethodName](DiceRoll.Models.DiceManaResources.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [CharacterAttribute.PropertyName](DiceRoll.Models.CharacterAttribute.PropertyName.md)
-
-Cached StringNames for the properties and fields contained in this class, for fast lookup.
-
- [RolesResources.PropertyName](DiceRoll.Models.RolesResources.PropertyName.md)
-
-Cached StringNames for the properties and fields contained in this class, for fast lookup.
-
- [DiceIcon.PropertyName](DiceRoll.Models.DiceIcon.PropertyName.md)
-
-Cached StringNames for the properties and fields contained in this class, for fast lookup.
-
- [DiceIconsResources.PropertyName](DiceRoll.Models.DiceIconsResources.PropertyName.md)
-
-Cached StringNames for the properties and fields contained in this class, for fast lookup.
-
- [RoleAttribute.PropertyName](DiceRoll.Models.RoleAttribute.PropertyName.md)
+ [DiceSide.PropertyName](DiceRoll.Models.DiceSide.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
@@ -110,15 +96,31 @@ Cached StringNames for the properties and fields contained in this class, for fa
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
+ [DiceIconsResources.PropertyName](DiceRoll.Models.DiceIconsResources.PropertyName.md)
+
+Cached StringNames for the properties and fields contained in this class, for fast lookup.
+
+ [DiceIcon.PropertyName](DiceRoll.Models.DiceIcon.PropertyName.md)
+
+Cached StringNames for the properties and fields contained in this class, for fast lookup.
+
  [DiceManaResources.PropertyName](DiceRoll.Models.DiceManaResources.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
- [DiceSide.PropertyName](DiceRoll.Models.DiceSide.PropertyName.md)
+ [RolesResources.PropertyName](DiceRoll.Models.RolesResources.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
- [Character.PropertyName](DiceRoll.Models.Character.PropertyName.md)
+ [RoleAttribute.PropertyName](DiceRoll.Models.RoleAttribute.PropertyName.md)
+
+Cached StringNames for the properties and fields contained in this class, for fast lookup.
+
+ [CharacterAttribute.PropertyName](DiceRoll.Models.CharacterAttribute.PropertyName.md)
+
+Cached StringNames for the properties and fields contained in this class, for fast lookup.
+
+ [AttributesConfig.PropertyName](DiceRoll.Models.AttributesConfig.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
@@ -126,7 +128,7 @@ Cached StringNames for the properties and fields contained in this class, for fa
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
- [AttributesConfig.PropertyName](DiceRoll.Models.AttributesConfig.PropertyName.md)
+ [Character.PropertyName](DiceRoll.Models.Character.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
@@ -140,39 +142,7 @@ Represents a role in the game with attributes and actions.
 
 Represents a resource containing roles for the dice roll game.
 
- [DiceMana.SignalName](DiceRoll.Models.DiceMana.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
- [RolesResources.SignalName](DiceRoll.Models.RolesResources.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
- [AttributeType.SignalName](DiceRoll.Models.AttributeType.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
- [AttributesConfig.SignalName](DiceRoll.Models.AttributesConfig.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
- [RoleAttribute.SignalName](DiceRoll.Models.RoleAttribute.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
- [Role.SignalName](DiceRoll.Models.Role.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
- [DiceSide.SignalName](DiceRoll.Models.DiceSide.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
- [DiceManaResources.SignalName](DiceRoll.Models.DiceManaResources.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
- [Character.SignalName](DiceRoll.Models.Character.SignalName.md)
+ [CharacterAttribute.SignalName](DiceRoll.Models.CharacterAttribute.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
@@ -180,11 +150,43 @@ Cached StringNames for the signals contained in this class, for fast lookup.
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
- [CharacterAttribute.SignalName](DiceRoll.Models.CharacterAttribute.SignalName.md)
+ [AttributesConfig.SignalName](DiceRoll.Models.AttributesConfig.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
  [DiceIconsResources.SignalName](DiceRoll.Models.DiceIconsResources.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
+
+ [AttributeType.SignalName](DiceRoll.Models.AttributeType.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
+
+ [DiceMana.SignalName](DiceRoll.Models.DiceMana.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
+
+ [Role.SignalName](DiceRoll.Models.Role.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
+
+ [RolesResources.SignalName](DiceRoll.Models.RolesResources.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
+
+ [RoleAttribute.SignalName](DiceRoll.Models.RoleAttribute.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
+
+ [Character.SignalName](DiceRoll.Models.Character.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
+
+ [DiceManaResources.SignalName](DiceRoll.Models.DiceManaResources.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
+
+ [DiceSide.SignalName](DiceRoll.Models.DiceSide.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 

@@ -1,13 +1,13 @@
-# <a id="DiceRoll_Stores_CharacterStore"></a> Class CharacterStore
+# <a id="DiceRoll_Models_CharacterLocations_CharacterLocation"></a> Class CharacterLocation
 
-Namespace: [DiceRoll.Stores](DiceRoll.Stores.md)  
+Namespace: [DiceRoll.Models.CharacterLocations](DiceRoll.Models.CharacterLocations.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
 [Tool]
 [GlobalClass]
-[ScriptPath("res://core/stores/CharacterStore/CharacterStore.cs")]
-public class CharacterStore : Resource, IDisposable
+[ScriptPath("res://models/CharacterLocation/CharacterLocation.cs")]
+public class CharacterLocation : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -16,7 +16,7 @@ public class CharacterStore : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[CharacterStore](DiceRoll.Stores.CharacterStore.md)
+[CharacterLocation](DiceRoll.Models.CharacterLocations.CharacterLocation.md)
 
 #### Implements
 
@@ -147,120 +147,38 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Constructors
-
-### <a id="DiceRoll_Stores_CharacterStore__ctor"></a> CharacterStore\(\)
-
-```csharp
-public CharacterStore()
-```
-
 ## Properties
 
-### <a id="DiceRoll_Stores_CharacterStore_Characters"></a> Characters
+### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_Description"></a> Description
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Array<Character> Characters { get; }
+public string Description { get; set; }
 ```
 
 #### Property Value
 
- Array<[Character](DiceRoll.Models.Character.md)\>
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-### <a id="DiceRoll_Stores_CharacterStore_Instance"></a> Instance
+### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_Name"></a> Name
 
 ```csharp
-public static CharacterStore Instance { get; }
+[Export(PropertyHint.None, "")]
+public string Name { get; set; }
 ```
 
 #### Property Value
 
- [CharacterStore](DiceRoll.Stores.CharacterStore.md)
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-## Methods
-
-### <a id="DiceRoll_Stores_CharacterStore_AddCharacter_DiceRoll_Models_Character_"></a> AddCharacter\(Character\)
+### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_TotalSlots"></a> TotalSlots
 
 ```csharp
-public void AddCharacter(Character character)
+[Export(PropertyHint.None, "")]
+public int TotalSlots { get; set; }
 ```
 
-#### Parameters
+#### Property Value
 
-`character` [Character](DiceRoll.Models.Character.md)
-
-### <a id="DiceRoll_Stores_CharacterStore_GetAllCharacterIds"></a> GetAllCharacterIds\(\)
-
-```csharp
-public Array<string> GetAllCharacterIds()
-```
-
-#### Returns
-
- Array<[string](https://learn.microsoft.com/dotnet/api/system.string)\>
-
-### <a id="DiceRoll_Stores_CharacterStore_GetCharacterById_System_String_"></a> GetCharacterById\(string\)
-
-```csharp
-public Character GetCharacterById(string characterID)
-```
-
-#### Parameters
-
-`characterID` [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-#### Returns
-
- [Character](DiceRoll.Models.Character.md)
-
-### <a id="DiceRoll_Stores_CharacterStore_GetCharacterLocation_System_String_"></a> GetCharacterLocation\(string\)
-
-```csharp
-public (CharacterLocation? location, int slotIndex) GetCharacterLocation(string characterID)
-```
-
-#### Parameters
-
-`characterID` [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-#### Returns
-
- \([CharacterLocation](DiceRoll.Models.CharacterLocations.CharacterLocation.md)? [location](https://learn.microsoft.com/dotnet/api/system.valuetuple\-diceroll.models.characterlocations.characterlocation,system.int32\-.location), [int](https://learn.microsoft.com/dotnet/api/system.int32) [slotIndex](https://learn.microsoft.com/dotnet/api/system.valuetuple\-diceroll.models.characterlocations.characterlocation,system.int32\-.slotindex)\)
-
-### <a id="DiceRoll_Stores_CharacterStore_RemoveCharacter_System_String_"></a> RemoveCharacter\(string\)
-
-```csharp
-public void RemoveCharacter(string characterID)
-```
-
-#### Parameters
-
-`characterID` [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-### <a id="DiceRoll_Stores_CharacterStore_SetCharacterLocation_System_String_DiceRoll_Models_CharacterLocations_CharacterLocation_System_Int32_"></a> SetCharacterLocation\(string, CharacterLocation, int\)
-
-```csharp
-public void SetCharacterLocation(string characterID, CharacterLocation location, int slotIndex)
-```
-
-#### Parameters
-
-`characterID` [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-`location` [CharacterLocation](DiceRoll.Models.CharacterLocations.CharacterLocation.md)
-
-`slotIndex` [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Stores_CharacterStore_UpdateCharacter_System_String_Godot_Collections_Dictionary_System_String_Godot_Variant__"></a> UpdateCharacter\(string, Dictionary<string, Variant\>\)
-
-```csharp
-public void UpdateCharacter(string characterID, Dictionary<string, Variant> updatedFields)
-```
-
-#### Parameters
-
-`characterID` [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-`updatedFields` Dictionary<[string](https://learn.microsoft.com/dotnet/api/system.string), Variant\>
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
 

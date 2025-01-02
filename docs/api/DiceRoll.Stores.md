@@ -12,7 +12,7 @@
 
  [GameLogStore](DiceRoll.Stores.GameLogStore.md)
 
- [CharacterStore.MethodName](DiceRoll.Stores.CharacterStore.MethodName.md)
+ [GameLogStore.MethodName](DiceRoll.Stores.GameLogStore.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
@@ -20,11 +20,11 @@ Cached StringNames for the methods contained in this class, for fast lookup.
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [GameLogStore.MethodName](DiceRoll.Stores.GameLogStore.MethodName.md)
+ [CharacterStore.MethodName](DiceRoll.Stores.CharacterStore.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [GameLogStore.PropertyName](DiceRoll.Stores.GameLogStore.PropertyName.md)
+ [DiceStore.PropertyName](DiceRoll.Stores.DiceStore.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
@@ -32,19 +32,19 @@ Cached StringNames for the properties and fields contained in this class, for fa
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
- [DiceStore.PropertyName](DiceRoll.Stores.DiceStore.PropertyName.md)
+ [GameLogStore.PropertyName](DiceRoll.Stores.GameLogStore.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
+
+ [CharacterStore.SignalName](DiceRoll.Stores.CharacterStore.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
 
  [DiceStore.SignalName](DiceRoll.Stores.DiceStore.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
  [GameLogStore.SignalName](DiceRoll.Stores.GameLogStore.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
- [CharacterStore.SignalName](DiceRoll.Stores.CharacterStore.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 

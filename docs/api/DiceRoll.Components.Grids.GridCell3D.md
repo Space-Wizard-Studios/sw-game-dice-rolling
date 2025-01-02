@@ -1,12 +1,11 @@
-# <a id="DiceRoll_Events_EventBus"></a> Class EventBus
+# <a id="DiceRoll_Components_Grids_GridCell3D"></a> Class GridCell3D
 
-Namespace: [DiceRoll.Events](DiceRoll.Events.md)  
+Namespace: [DiceRoll.Components.Grids](DiceRoll.Components.Grids.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
-[Tool]
-[ScriptPath("res://core/events/EventBus.cs")]
-public class EventBus : Node, IDisposable
+[ScriptPath("res://components/CharacterGrid/GridCell3D.cs")]
+public class GridCell3D : Node3D, IDisposable
 ```
 
 #### Inheritance
@@ -14,7 +13,8 @@ public class EventBus : Node, IDisposable
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 GodotObject ← 
 Node ← 
-[EventBus](DiceRoll.Events.EventBus.md)
+Node3D ← 
+[GridCell3D](DiceRoll.Components.Grids.GridCell3D.md)
 
 #### Implements
 
@@ -22,6 +22,70 @@ Node ←
 
 #### Inherited Members
 
+Node3D.NotificationTransformChanged, 
+Node3D.NotificationEnterWorld, 
+Node3D.NotificationExitWorld, 
+Node3D.NotificationVisibilityChanged, 
+Node3D.NotificationLocalTransformChanged, 
+Node3D.GetGlobalTransformInterpolated\(\), 
+Node3D.GetParentNode3D\(\), 
+Node3D.SetIgnoreTransformNotification\(bool\), 
+Node3D.SetDisableScale\(bool\), 
+Node3D.IsScaleDisabled\(\), 
+Node3D.GetWorld3D\(\), 
+Node3D.ForceUpdateTransform\(\), 
+Node3D.UpdateGizmos\(\), 
+Node3D.AddGizmo\(Node3DGizmo\), 
+Node3D.GetGizmos\(\), 
+Node3D.ClearGizmos\(\), 
+Node3D.SetSubgizmoSelection\(Node3DGizmo, int, Transform3D\), 
+Node3D.ClearSubgizmoSelection\(\), 
+Node3D.IsVisibleInTree\(\), 
+Node3D.Show\(\), 
+Node3D.Hide\(\), 
+Node3D.SetNotifyLocalTransform\(bool\), 
+Node3D.IsLocalTransformNotificationEnabled\(\), 
+Node3D.SetNotifyTransform\(bool\), 
+Node3D.IsTransformNotificationEnabled\(\), 
+Node3D.Rotate\(Vector3, float\), 
+Node3D.GlobalRotate\(Vector3, float\), 
+Node3D.GlobalScale\(Vector3\), 
+Node3D.GlobalTranslate\(Vector3\), 
+Node3D.RotateObjectLocal\(Vector3, float\), 
+Node3D.ScaleObjectLocal\(Vector3\), 
+Node3D.TranslateObjectLocal\(Vector3\), 
+Node3D.RotateX\(float\), 
+Node3D.RotateY\(float\), 
+Node3D.RotateZ\(float\), 
+Node3D.Translate\(Vector3\), 
+Node3D.Orthonormalize\(\), 
+Node3D.SetIdentity\(\), 
+Node3D.LookAt\(Vector3, Vector3?, bool\), 
+Node3D.LookAtFromPosition\(Vector3, Vector3, Vector3?, bool\), 
+Node3D.ToLocal\(Vector3\), 
+Node3D.ToGlobal\(Vector3\), 
+Node3D.EmitSignalVisibilityChanged\(\), 
+Node3D.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+Node3D.HasGodotClassMethod\(in godot\_string\_name\), 
+Node3D.HasGodotClassSignal\(in godot\_string\_name\), 
+Node3D.Transform, 
+Node3D.GlobalTransform, 
+Node3D.Position, 
+Node3D.Rotation, 
+Node3D.RotationDegrees, 
+Node3D.Quaternion, 
+Node3D.Basis, 
+Node3D.Scale, 
+Node3D.RotationEditMode, 
+Node3D.RotationOrder, 
+Node3D.TopLevel, 
+Node3D.GlobalPosition, 
+Node3D.GlobalBasis, 
+Node3D.GlobalRotation, 
+Node3D.GlobalRotationDegrees, 
+Node3D.Visible, 
+Node3D.VisibilityParent, 
+Node3D.VisibilityChanged, 
 Node.NotificationEnterTree, 
 Node.NotificationExitTree, 
 Node.NotificationMovedInParent, 
@@ -305,87 +369,67 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Properties
+## Constructors
 
-### <a id="DiceRoll_Events_EventBus_Instance"></a> Instance
+### <a id="DiceRoll_Components_Grids_GridCell3D__ctor"></a> GridCell3D\(\)
 
 ```csharp
-public static EventBus Instance { get; }
+public GridCell3D()
 ```
 
-#### Property Value
-
- [EventBus](DiceRoll.Events.EventBus.md)
-
-## Methods
-
-### <a id="DiceRoll_Events_EventBus_EmitAttributeChanged_DiceRoll_Models_Character_DiceRoll_Models_AttributeType_"></a> EmitAttributeChanged\(Character, AttributeType\)
+### <a id="DiceRoll_Components_Grids_GridCell3D__ctor_Godot_Vector3_System_String_"></a> GridCell3D\(Vector3, string\)
 
 ```csharp
-public void EmitAttributeChanged(Character character, AttributeType attributeType)
+public GridCell3D(Vector3 position, string labelText)
 ```
 
 #### Parameters
 
-`character` [Character](DiceRoll.Models.Character.md)
+`position` Vector3
 
-`attributeType` [AttributeType](DiceRoll.Models.AttributeType.md)
+`labelText` [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-### <a id="DiceRoll_Events_EventBus_EmitSignalAttributeChanged"></a> EmitSignalAttributeChanged\(\)
+## Properties
+
+### <a id="DiceRoll_Components_Grids_GridCell3D_CellLabel"></a> CellLabel
 
 ```csharp
-protected void EmitSignalAttributeChanged()
+public Label3D CellLabel { get; }
 ```
 
-### <a id="DiceRoll_Events_EventBus_EmitSignalCharacterSelected_DiceRoll_Components_Characters_CharacterComponent_"></a> EmitSignalCharacterSelected\(CharacterComponent\)
+#### Property Value
+
+ Label3D
+
+### <a id="DiceRoll_Components_Grids_GridCell3D_CellMarker"></a> CellMarker
 
 ```csharp
-protected void EmitSignalCharacterSelected(CharacterComponent character)
+public Marker3D CellMarker { get; }
+```
+
+#### Property Value
+
+ Marker3D
+
+### <a id="DiceRoll_Components_Grids_GridCell3D_Character"></a> Character
+
+```csharp
+public CharacterComponent? Character { get; }
+```
+
+#### Property Value
+
+ [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)?
+
+## Methods
+
+### <a id="DiceRoll_Components_Grids_GridCell3D_SetCharacter_DiceRoll_Components_Characters_CharacterComponent_"></a> SetCharacter\(CharacterComponent\)
+
+```csharp
+public void SetCharacter(CharacterComponent character)
 ```
 
 #### Parameters
 
 `character` [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)
-
-### <a id="DiceRoll_Events_EventBus_OnCharacterInspected_DiceRoll_Models_Character_"></a> OnCharacterInspected\(Character\)
-
-```csharp
-public void OnCharacterInspected(Character character)
-```
-
-#### Parameters
-
-`character` [Character](DiceRoll.Models.Character.md)
-
-### <a id="DiceRoll_Events_EventBus__Ready"></a> \_Ready\(\)
-
-<p>Called when the node is "ready", i.e. when both the node and its children have entered the scene tree. If the node has children, their <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> callbacks get triggered first, and the parent node will receive the ready notification afterwards.</p>
-<p>Corresponds to the <xref href="Godot.Node.NotificationReady" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>. See also the <code>@onready</code> annotation for variables.</p>
-<p>Usually used for initialization. For even earlier initialization, <xref href="Godot.GodotObject.%23ctor" data-throw-if-not-resolved="false"></xref> may be used. See also <xref href="Godot.Node._EnterTree" data-throw-if-not-resolved="false"></xref>.</p>
-<p>
-  <b>Note:</b> This method may be called only once for each node. After removing a node from the scene tree and adding it again, <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> will <b>not</b> be called a second time. This can be bypassed by requesting another call with <xref href="Godot.Node.RequestReady" data-throw-if-not-resolved="false"></xref>, which may be called anywhere before adding the node again.</p>
-
-```csharp
-public override void _Ready()
-```
-
-### <a id="DiceRoll_Events_EventBus_AttributeChanged"></a> AttributeChanged
-
-```csharp
-public event EventBus.AttributeChangedEventHandler AttributeChanged
-```
-
-#### Event Type
-
- [EventBus](DiceRoll.Events.EventBus.md).[AttributeChangedEventHandler](DiceRoll.Events.EventBus.AttributeChangedEventHandler.md)
-
-### <a id="DiceRoll_Events_EventBus_CharacterSelected"></a> CharacterSelected
-
-```csharp
-public event EventBus.CharacterSelectedEventHandler CharacterSelected
-```
-
-#### Event Type
-
- [EventBus](DiceRoll.Events.EventBus.md).[CharacterSelectedEventHandler](DiceRoll.Events.EventBus.CharacterSelectedEventHandler.md)
 

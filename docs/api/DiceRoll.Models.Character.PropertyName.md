@@ -45,18 +45,6 @@ public static readonly StringName Attributes
 
  StringName
 
-### <a id="DiceRoll_Models_Character_PropertyName_CharacterActions"></a> CharacterActions
-
-Cached name for the 'CharacterActions' property.
-
-```csharp
-public static readonly StringName CharacterActions
-```
-
-#### Field Value
-
- StringName
-
 ### <a id="DiceRoll_Models_Character_PropertyName_CharacterSprite"></a> CharacterSprite
 
 Cached name for the 'CharacterSprite' property.
@@ -99,6 +87,18 @@ Cached name for the 'IsEnemy' property.
 
 ```csharp
 public static readonly StringName IsEnemy
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Models_Character_PropertyName_Location"></a> Location
+
+Cached name for the 'Location' property.
+
+```csharp
+public static readonly StringName Location
 ```
 
 #### Field Value
@@ -159,6 +159,18 @@ Cached name for the 'ShowShadow' property.
 
 ```csharp
 public static readonly StringName ShowShadow
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Models_Character_PropertyName_SlotIndex"></a> SlotIndex
+
+Cached name for the 'SlotIndex' property.
+
+```csharp
+public static readonly StringName SlotIndex
 ```
 
 #### Field Value

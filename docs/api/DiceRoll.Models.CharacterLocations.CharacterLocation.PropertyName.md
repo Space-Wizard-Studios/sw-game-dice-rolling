@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_PropertyName"></a> Class CharacterGridType.PropertyName
+# <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_PropertyName"></a> Class CharacterLocation.PropertyName
 
-Namespace: [DiceRoll.Models.CharacterGrid](DiceRoll.Models.CharacterGrid.md)  
+Namespace: [DiceRoll.Models.CharacterLocations](DiceRoll.Models.CharacterLocations.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
 ```csharp
-public class CharacterGridType.PropertyName : Resource.PropertyName
+public class CharacterLocation.PropertyName : Resource.PropertyName
 ```
 
 #### Inheritance
@@ -15,7 +15,7 @@ public class CharacterGridType.PropertyName : Resource.PropertyName
 GodotObject.PropertyName ← 
 RefCounted.PropertyName ← 
 Resource.PropertyName ← 
-[CharacterGridType.PropertyName](DiceRoll.Models.CharacterGrid.CharacterGridType.PropertyName.md)
+[CharacterLocation.PropertyName](DiceRoll.Models.CharacterLocations.CharacterLocation.PropertyName.md)
 
 #### Inherited Members
 
@@ -33,60 +33,36 @@ Resource.PropertyName.ResourceSceneUniqueId,
 
 ## Fields
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_PropertyName_CharacterStore"></a> CharacterStore
+### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_PropertyName_Description"></a> Description
 
-Cached name for the 'CharacterStore' property.
+Cached name for the 'Description' property.
 
 ```csharp
-public static readonly StringName CharacterStore
+public static readonly StringName Description
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_PropertyName_Columns"></a> Columns
+### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_PropertyName_Name"></a> Name
 
-Cached name for the 'Columns' property.
+Cached name for the 'Name' property.
 
 ```csharp
-public static readonly StringName Columns
+public static readonly StringName Name
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_PropertyName_Offset"></a> Offset
+### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_PropertyName_TotalSlots"></a> TotalSlots
 
-Cached name for the 'Offset' property.
-
-```csharp
-public static readonly StringName Offset
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_PropertyName_Prefix"></a> Prefix
-
-Cached name for the 'Prefix' property.
+Cached name for the 'TotalSlots' property.
 
 ```csharp
-public static readonly StringName Prefix
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_PropertyName_Rows"></a> Rows
-
-Cached name for the 'Rows' property.
-
-```csharp
-public static readonly StringName Rows
+public static readonly StringName TotalSlots
 ```
 
 #### Field Value

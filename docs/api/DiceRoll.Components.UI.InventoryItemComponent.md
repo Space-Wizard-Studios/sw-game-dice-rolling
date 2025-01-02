@@ -1,12 +1,11 @@
-# <a id="DiceRoll_Events_EventBus"></a> Class EventBus
+# <a id="DiceRoll_Components_UI_InventoryItemComponent"></a> Class InventoryItemComponent
 
-Namespace: [DiceRoll.Events](DiceRoll.Events.md)  
+Namespace: [DiceRoll.Components.UI](DiceRoll.Components.UI.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
-[Tool]
-[ScriptPath("res://core/events/EventBus.cs")]
-public class EventBus : Node, IDisposable
+[ScriptPath("res://components/InventoryItemComponent/InventoryItemComponent.cs")]
+public class InventoryItemComponent : Control, IDisposable
 ```
 
 #### Inheritance
@@ -14,7 +13,9 @@ public class EventBus : Node, IDisposable
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 GodotObject ← 
 Node ← 
-[EventBus](DiceRoll.Events.EventBus.md)
+CanvasItem ← 
+Control ← 
+[InventoryItemComponent](DiceRoll.Components.UI.InventoryItemComponent.md)
 
 #### Implements
 
@@ -22,6 +23,257 @@ Node ←
 
 #### Inherited Members
 
+Control.NotificationResized, 
+Control.NotificationMouseEnter, 
+Control.NotificationMouseExit, 
+Control.NotificationMouseEnterSelf, 
+Control.NotificationMouseExitSelf, 
+Control.NotificationFocusEnter, 
+Control.NotificationFocusExit, 
+Control.NotificationThemeChanged, 
+Control.NotificationScrollBegin, 
+Control.NotificationScrollEnd, 
+Control.NotificationLayoutDirectionChanged, 
+Control.\_CanDropData\(Vector2, Variant\), 
+Control.\_DropData\(Vector2, Variant\), 
+Control.\_GetDragData\(Vector2\), 
+Control.\_GetMinimumSize\(\), 
+Control.\_GetTooltip\(Vector2\), 
+Control.\_GuiInput\(InputEvent\), 
+Control.\_HasPoint\(Vector2\), 
+Control.\_MakeCustomTooltip\(string\), 
+Control.\_StructuredTextParser\(Array, string\), 
+Control.AcceptEvent\(\), 
+Control.GetMinimumSize\(\), 
+Control.GetCombinedMinimumSize\(\), 
+Control.SetAnchorsPreset\(Control.LayoutPreset, bool\), 
+Control.SetOffsetsPreset\(Control.LayoutPreset, Control.LayoutPresetMode, int\), 
+Control.SetAnchorsAndOffsetsPreset\(Control.LayoutPreset, Control.LayoutPresetMode, int\), 
+Control.SetAnchor\(Side, float, bool, bool\), 
+Control.SetAnchorAndOffset\(Side, float, float, bool\), 
+Control.SetBegin\(Vector2\), 
+Control.SetEnd\(Vector2\), 
+Control.SetPosition\(Vector2, bool\), 
+Control.SetSize\(Vector2, bool\), 
+Control.ResetSize\(\), 
+Control.SetGlobalPosition\(Vector2, bool\), 
+Control.GetBegin\(\), 
+Control.GetEnd\(\), 
+Control.GetParentAreaSize\(\), 
+Control.GetScreenPosition\(\), 
+Control.GetRect\(\), 
+Control.GetGlobalRect\(\), 
+Control.HasFocus\(\), 
+Control.GrabFocus\(\), 
+Control.ReleaseFocus\(\), 
+Control.FindPrevValidFocus\(\), 
+Control.FindNextValidFocus\(\), 
+Control.FindValidFocusNeighbor\(Side\), 
+Control.BeginBulkThemeOverride\(\), 
+Control.EndBulkThemeOverride\(\), 
+Control.AddThemeIconOverride\(StringName, Texture2D\), 
+Control.AddThemeStyleboxOverride\(StringName, StyleBox\), 
+Control.AddThemeFontOverride\(StringName, Font\), 
+Control.AddThemeFontSizeOverride\(StringName, int\), 
+Control.AddThemeColorOverride\(StringName, Color\), 
+Control.AddThemeConstantOverride\(StringName, int\), 
+Control.RemoveThemeIconOverride\(StringName\), 
+Control.RemoveThemeStyleboxOverride\(StringName\), 
+Control.RemoveThemeFontOverride\(StringName\), 
+Control.RemoveThemeFontSizeOverride\(StringName\), 
+Control.RemoveThemeColorOverride\(StringName\), 
+Control.RemoveThemeConstantOverride\(StringName\), 
+Control.GetThemeIcon\(StringName, StringName\), 
+Control.GetThemeStylebox\(StringName, StringName\), 
+Control.GetThemeFont\(StringName, StringName\), 
+Control.GetThemeFontSize\(StringName, StringName\), 
+Control.GetThemeColor\(StringName, StringName\), 
+Control.GetThemeConstant\(StringName, StringName\), 
+Control.HasThemeIconOverride\(StringName\), 
+Control.HasThemeStyleboxOverride\(StringName\), 
+Control.HasThemeFontOverride\(StringName\), 
+Control.HasThemeFontSizeOverride\(StringName\), 
+Control.HasThemeColorOverride\(StringName\), 
+Control.HasThemeConstantOverride\(StringName\), 
+Control.HasThemeIcon\(StringName, StringName\), 
+Control.HasThemeStylebox\(StringName, StringName\), 
+Control.HasThemeFont\(StringName, StringName\), 
+Control.HasThemeFontSize\(StringName, StringName\), 
+Control.HasThemeColor\(StringName, StringName\), 
+Control.HasThemeConstant\(StringName, StringName\), 
+Control.GetThemeDefaultBaseScale\(\), 
+Control.GetThemeDefaultFont\(\), 
+Control.GetThemeDefaultFontSize\(\), 
+Control.GetParentControl\(\), 
+Control.GetTooltip\(Vector2?\), 
+Control.GetCursorShape\(Vector2?\), 
+Control.ForceDrag\(Variant, Control\), 
+Control.GrabClickFocus\(\), 
+Control.SetDragForwarding\(Callable, Callable, Callable\), 
+Control.SetDragPreview\(Control\), 
+Control.IsDragSuccessful\(\), 
+Control.WarpMouse\(Vector2\), 
+Control.UpdateMinimumSize\(\), 
+Control.IsLayoutRtl\(\), 
+Control.EmitSignalResized\(\), 
+Control.EmitSignalGuiInput\(InputEvent\), 
+Control.EmitSignalMouseEntered\(\), 
+Control.EmitSignalMouseExited\(\), 
+Control.EmitSignalFocusEntered\(\), 
+Control.EmitSignalFocusExited\(\), 
+Control.EmitSignalSizeFlagsChanged\(\), 
+Control.EmitSignalMinimumSizeChanged\(\), 
+Control.EmitSignalThemeChanged\(\), 
+Control.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+Control.HasGodotClassMethod\(in godot\_string\_name\), 
+Control.HasGodotClassSignal\(in godot\_string\_name\), 
+Control.ClipContents, 
+Control.CustomMinimumSize, 
+Control.LayoutDirection, 
+Control.AnchorLeft, 
+Control.AnchorTop, 
+Control.AnchorRight, 
+Control.AnchorBottom, 
+Control.OffsetLeft, 
+Control.OffsetTop, 
+Control.OffsetRight, 
+Control.OffsetBottom, 
+Control.GrowHorizontal, 
+Control.GrowVertical, 
+Control.Size, 
+Control.Position, 
+Control.GlobalPosition, 
+Control.Rotation, 
+Control.RotationDegrees, 
+Control.Scale, 
+Control.PivotOffset, 
+Control.SizeFlagsHorizontal, 
+Control.SizeFlagsVertical, 
+Control.SizeFlagsStretchRatio, 
+Control.LocalizeNumeralSystem, 
+Control.AutoTranslate, 
+Control.TooltipText, 
+Control.TooltipAutoTranslateMode, 
+Control.FocusNeighborLeft, 
+Control.FocusNeighborTop, 
+Control.FocusNeighborRight, 
+Control.FocusNeighborBottom, 
+Control.FocusNext, 
+Control.FocusPrevious, 
+Control.FocusMode, 
+Control.MouseFilter, 
+Control.MouseForcePassScrollEvents, 
+Control.MouseDefaultCursorShape, 
+Control.ShortcutContext, 
+Control.Theme, 
+Control.ThemeTypeVariation, 
+Control.Resized, 
+Control.GuiInput, 
+Control.MouseEntered, 
+Control.MouseExited, 
+Control.FocusEntered, 
+Control.FocusExited, 
+Control.SizeFlagsChanged, 
+Control.MinimumSizeChanged, 
+Control.ThemeChanged, 
+CanvasItem.NotificationTransformChanged, 
+CanvasItem.NotificationLocalTransformChanged, 
+CanvasItem.NotificationDraw, 
+CanvasItem.NotificationVisibilityChanged, 
+CanvasItem.NotificationEnterCanvas, 
+CanvasItem.NotificationExitCanvas, 
+CanvasItem.NotificationWorld2DChanged, 
+CanvasItem.\_Draw\(\), 
+CanvasItem.GetCanvasItem\(\), 
+CanvasItem.IsVisibleInTree\(\), 
+CanvasItem.Show\(\), 
+CanvasItem.Hide\(\), 
+CanvasItem.QueueRedraw\(\), 
+CanvasItem.MoveToFront\(\), 
+CanvasItem.DrawLine\(Vector2, Vector2, Color, float, bool\), 
+CanvasItem.DrawDashedLine\(Vector2, Vector2, Color, float, float, bool, bool\), 
+CanvasItem.DrawPolyline\(Vector2\[\], Color, float, bool\), 
+CanvasItem.DrawPolyline\(ReadOnlySpan<Vector2\>, Color, float, bool\), 
+CanvasItem.DrawPolylineColors\(Vector2\[\], Color\[\], float, bool\), 
+CanvasItem.DrawPolylineColors\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, float, bool\), 
+CanvasItem.DrawArc\(Vector2, float, float, float, int, Color, float, bool\), 
+CanvasItem.DrawMultiline\(Vector2\[\], Color, float, bool\), 
+CanvasItem.DrawMultiline\(ReadOnlySpan<Vector2\>, Color, float, bool\), 
+CanvasItem.DrawMultilineColors\(Vector2\[\], Color\[\], float, bool\), 
+CanvasItem.DrawMultilineColors\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, float, bool\), 
+CanvasItem.DrawRect\(Rect2, Color, bool, float, bool\), 
+CanvasItem.DrawCircle\(Vector2, float, Color, bool, float, bool\), 
+CanvasItem.DrawTexture\(Texture2D, Vector2, Color?\), 
+CanvasItem.DrawTextureRect\(Texture2D, Rect2, bool, Color?, bool\), 
+CanvasItem.DrawTextureRectRegion\(Texture2D, Rect2, Rect2, Color?, bool, bool\), 
+CanvasItem.DrawMsdfTextureRectRegion\(Texture2D, Rect2, Rect2, Color?, double, double, double\), 
+CanvasItem.DrawLcdTextureRectRegion\(Texture2D, Rect2, Rect2, Color?\), 
+CanvasItem.DrawStyleBox\(StyleBox, Rect2\), 
+CanvasItem.DrawPrimitive\(Vector2\[\], Color\[\], Vector2\[\], Texture2D\), 
+CanvasItem.DrawPrimitive\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, ReadOnlySpan<Vector2\>, Texture2D\), 
+CanvasItem.DrawPolygon\(Vector2\[\], Color\[\], Vector2\[\], Texture2D\), 
+CanvasItem.DrawPolygon\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, ReadOnlySpan<Vector2\>, Texture2D\), 
+CanvasItem.DrawColoredPolygon\(Vector2\[\], Color, Vector2\[\], Texture2D\), 
+CanvasItem.DrawColoredPolygon\(ReadOnlySpan<Vector2\>, Color, ReadOnlySpan<Vector2\>, Texture2D\), 
+CanvasItem.DrawString\(Font, Vector2, string, HorizontalAlignment, float, int, Color?, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation\), 
+CanvasItem.DrawMultilineString\(Font, Vector2, string, HorizontalAlignment, float, int, int, Color?, TextServer.LineBreakFlag, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation\), 
+CanvasItem.DrawStringOutline\(Font, Vector2, string, HorizontalAlignment, float, int, int, Color?, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation\), 
+CanvasItem.DrawMultilineStringOutline\(Font, Vector2, string, HorizontalAlignment, float, int, int, int, Color?, TextServer.LineBreakFlag, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation\), 
+CanvasItem.DrawChar\(Font, Vector2, string, int, Color?\), 
+CanvasItem.DrawCharOutline\(Font, Vector2, string, int, int, Color?\), 
+CanvasItem.DrawMesh\(Mesh, Texture2D, Transform2D?, Color?\), 
+CanvasItem.DrawMultimesh\(MultiMesh, Texture2D\), 
+CanvasItem.DrawSetTransform\(Vector2, float, Vector2?\), 
+CanvasItem.DrawSetTransformMatrix\(Transform2D\), 
+CanvasItem.DrawAnimationSlice\(double, double, double, double\), 
+CanvasItem.DrawEndAnimation\(\), 
+CanvasItem.GetTransform\(\), 
+CanvasItem.GetGlobalTransform\(\), 
+CanvasItem.GetGlobalTransformWithCanvas\(\), 
+CanvasItem.GetViewportTransform\(\), 
+CanvasItem.GetViewportRect\(\), 
+CanvasItem.GetCanvasTransform\(\), 
+CanvasItem.GetScreenTransform\(\), 
+CanvasItem.GetLocalMousePosition\(\), 
+CanvasItem.GetGlobalMousePosition\(\), 
+CanvasItem.GetCanvas\(\), 
+CanvasItem.GetCanvasLayerNode\(\), 
+CanvasItem.GetWorld2D\(\), 
+CanvasItem.SetNotifyLocalTransform\(bool\), 
+CanvasItem.IsLocalTransformNotificationEnabled\(\), 
+CanvasItem.SetNotifyTransform\(bool\), 
+CanvasItem.IsTransformNotificationEnabled\(\), 
+CanvasItem.ForceUpdateTransform\(\), 
+CanvasItem.MakeCanvasPositionLocal\(Vector2\), 
+CanvasItem.MakeInputLocal\(InputEvent\), 
+CanvasItem.SetVisibilityLayerBit\(uint, bool\), 
+CanvasItem.GetVisibilityLayerBit\(uint\), 
+CanvasItem.EmitSignalDraw\(\), 
+CanvasItem.EmitSignalVisibilityChanged\(\), 
+CanvasItem.EmitSignalHidden\(\), 
+CanvasItem.EmitSignalItemRectChanged\(\), 
+CanvasItem.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+CanvasItem.HasGodotClassMethod\(in godot\_string\_name\), 
+CanvasItem.HasGodotClassSignal\(in godot\_string\_name\), 
+CanvasItem.Visible, 
+CanvasItem.Modulate, 
+CanvasItem.SelfModulate, 
+CanvasItem.ShowBehindParent, 
+CanvasItem.TopLevel, 
+CanvasItem.ClipChildren, 
+CanvasItem.LightMask, 
+CanvasItem.VisibilityLayer, 
+CanvasItem.ZIndex, 
+CanvasItem.ZAsRelative, 
+CanvasItem.YSortEnabled, 
+CanvasItem.TextureFilter, 
+CanvasItem.TextureRepeat, 
+CanvasItem.Material, 
+CanvasItem.UseParentMaterial, 
+CanvasItem.Draw, 
+CanvasItem.VisibilityChanged, 
+CanvasItem.Hidden, 
+CanvasItem.ItemRectChanged, 
 Node.NotificationEnterTree, 
 Node.NotificationExitTree, 
 Node.NotificationMovedInParent, 
@@ -307,57 +559,20 @@ GodotObject.PropertyListChanged,
 
 ## Properties
 
-### <a id="DiceRoll_Events_EventBus_Instance"></a> Instance
+### <a id="DiceRoll_Components_UI_InventoryItemComponent_TooltipComponentScene"></a> TooltipComponentScene
 
 ```csharp
-public static EventBus Instance { get; }
+[Export(PropertyHint.None, "")]
+public PackedScene? TooltipComponentScene { get; set; }
 ```
 
 #### Property Value
 
- [EventBus](DiceRoll.Events.EventBus.md)
+ PackedScene?
 
 ## Methods
 
-### <a id="DiceRoll_Events_EventBus_EmitAttributeChanged_DiceRoll_Models_Character_DiceRoll_Models_AttributeType_"></a> EmitAttributeChanged\(Character, AttributeType\)
-
-```csharp
-public void EmitAttributeChanged(Character character, AttributeType attributeType)
-```
-
-#### Parameters
-
-`character` [Character](DiceRoll.Models.Character.md)
-
-`attributeType` [AttributeType](DiceRoll.Models.AttributeType.md)
-
-### <a id="DiceRoll_Events_EventBus_EmitSignalAttributeChanged"></a> EmitSignalAttributeChanged\(\)
-
-```csharp
-protected void EmitSignalAttributeChanged()
-```
-
-### <a id="DiceRoll_Events_EventBus_EmitSignalCharacterSelected_DiceRoll_Components_Characters_CharacterComponent_"></a> EmitSignalCharacterSelected\(CharacterComponent\)
-
-```csharp
-protected void EmitSignalCharacterSelected(CharacterComponent character)
-```
-
-#### Parameters
-
-`character` [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)
-
-### <a id="DiceRoll_Events_EventBus_OnCharacterInspected_DiceRoll_Models_Character_"></a> OnCharacterInspected\(Character\)
-
-```csharp
-public void OnCharacterInspected(Character character)
-```
-
-#### Parameters
-
-`character` [Character](DiceRoll.Models.Character.md)
-
-### <a id="DiceRoll_Events_EventBus__Ready"></a> \_Ready\(\)
+### <a id="DiceRoll_Components_UI_InventoryItemComponent__Ready"></a> \_Ready\(\)
 
 <p>Called when the node is "ready", i.e. when both the node and its children have entered the scene tree. If the node has children, their <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> callbacks get triggered first, and the parent node will receive the ready notification afterwards.</p>
 <p>Corresponds to the <xref href="Godot.Node.NotificationReady" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>. See also the <code>@onready</code> annotation for variables.</p>
@@ -368,24 +583,4 @@ public void OnCharacterInspected(Character character)
 ```csharp
 public override void _Ready()
 ```
-
-### <a id="DiceRoll_Events_EventBus_AttributeChanged"></a> AttributeChanged
-
-```csharp
-public event EventBus.AttributeChangedEventHandler AttributeChanged
-```
-
-#### Event Type
-
- [EventBus](DiceRoll.Events.EventBus.md).[AttributeChangedEventHandler](DiceRoll.Events.EventBus.AttributeChangedEventHandler.md)
-
-### <a id="DiceRoll_Events_EventBus_CharacterSelected"></a> CharacterSelected
-
-```csharp
-public event EventBus.CharacterSelectedEventHandler CharacterSelected
-```
-
-#### Event Type
-
- [EventBus](DiceRoll.Events.EventBus.md).[CharacterSelectedEventHandler](DiceRoll.Events.EventBus.CharacterSelectedEventHandler.md)
 

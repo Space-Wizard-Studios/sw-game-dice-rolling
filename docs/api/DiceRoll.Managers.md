@@ -16,30 +16,6 @@
 
  [MenuTransitionManager](DiceRoll.Managers.MenuTransitionManager.md)
 
- [GameplayTransitionManager.MethodName](DiceRoll.Managers.GameplayTransitionManager.MethodName.md)
-
-Cached StringNames for the methods contained in this class, for fast lookup.
-
- [MainMenuManager.MethodName](DiceRoll.Managers.MainMenuManager.MethodName.md)
-
-Cached StringNames for the methods contained in this class, for fast lookup.
-
- [BattleManager.MethodName](DiceRoll.Managers.BattleManager.MethodName.md)
-
-Cached StringNames for the methods contained in this class, for fast lookup.
-
- [GameOverManager.MethodName](DiceRoll.Managers.GameOverManager.MethodName.md)
-
-Cached StringNames for the methods contained in this class, for fast lookup.
-
- [MenuTransitionManager.MethodName](DiceRoll.Managers.MenuTransitionManager.MethodName.md)
-
-Cached StringNames for the methods contained in this class, for fast lookup.
-
- [LobbyManager.MethodName](DiceRoll.Managers.LobbyManager.MethodName.md)
-
-Cached StringNames for the methods contained in this class, for fast lookup.
-
  [PlaygroundTransitionManager.MethodName](DiceRoll.Managers.PlaygroundTransitionManager.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
@@ -48,9 +24,33 @@ Cached StringNames for the methods contained in this class, for fast lookup.
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
+ [LobbyManager.MethodName](DiceRoll.Managers.LobbyManager.MethodName.md)
+
+Cached StringNames for the methods contained in this class, for fast lookup.
+
+ [MainMenuManager.MethodName](DiceRoll.Managers.MainMenuManager.MethodName.md)
+
+Cached StringNames for the methods contained in this class, for fast lookup.
+
+ [MenuTransitionManager.MethodName](DiceRoll.Managers.MenuTransitionManager.MethodName.md)
+
+Cached StringNames for the methods contained in this class, for fast lookup.
+
+ [GameOverManager.MethodName](DiceRoll.Managers.GameOverManager.MethodName.md)
+
+Cached StringNames for the methods contained in this class, for fast lookup.
+
+ [BattleManager.MethodName](DiceRoll.Managers.BattleManager.MethodName.md)
+
+Cached StringNames for the methods contained in this class, for fast lookup.
+
+ [GameplayTransitionManager.MethodName](DiceRoll.Managers.GameplayTransitionManager.MethodName.md)
+
+Cached StringNames for the methods contained in this class, for fast lookup.
+
  [PlaygroundTransitionManager](DiceRoll.Managers.PlaygroundTransitionManager.md)
 
- [GameplayTransitionManager.PropertyName](DiceRoll.Managers.GameplayTransitionManager.PropertyName.md)
+ [BattleManager.PropertyName](DiceRoll.Managers.BattleManager.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
@@ -58,7 +58,7 @@ Cached StringNames for the properties and fields contained in this class, for fa
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
- [BattleManager.PropertyName](DiceRoll.Managers.BattleManager.PropertyName.md)
+ [GameplayTransitionManager.PropertyName](DiceRoll.Managers.GameplayTransitionManager.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
@@ -66,15 +66,11 @@ Cached StringNames for the properties and fields contained in this class, for fa
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
- [PlaygroundTransitionManager.PropertyName](DiceRoll.Managers.PlaygroundTransitionManager.PropertyName.md)
-
-Cached StringNames for the properties and fields contained in this class, for fast lookup.
-
  [MenuTransitionManager.PropertyName](DiceRoll.Managers.MenuTransitionManager.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
- [MainMenuManager.PropertyName](DiceRoll.Managers.MainMenuManager.PropertyName.md)
+ [PlaygroundTransitionManager.PropertyName](DiceRoll.Managers.PlaygroundTransitionManager.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
@@ -82,15 +78,19 @@ Cached StringNames for the properties and fields contained in this class, for fa
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
- [PlaygroundTransitionManager.SignalName](DiceRoll.Managers.PlaygroundTransitionManager.SignalName.md)
+ [MainMenuManager.PropertyName](DiceRoll.Managers.MainMenuManager.PropertyName.md)
 
-Cached StringNames for the signals contained in this class, for fast lookup.
+Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
  [MenuTransitionManager.SignalName](DiceRoll.Managers.MenuTransitionManager.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
- [MainMenuManager.SignalName](DiceRoll.Managers.MainMenuManager.SignalName.md)
+ [PlaygroundTransitionManager.SignalName](DiceRoll.Managers.PlaygroundTransitionManager.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
+
+ [GameOverManager.SignalName](DiceRoll.Managers.GameOverManager.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
@@ -98,19 +98,19 @@ Cached StringNames for the signals contained in this class, for fast lookup.
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
- [LobbyManager.SignalName](DiceRoll.Managers.LobbyManager.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
- [BattleManager.SignalName](DiceRoll.Managers.BattleManager.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
  [DungeonManager.SignalName](DiceRoll.Managers.DungeonManager.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
- [GameOverManager.SignalName](DiceRoll.Managers.GameOverManager.SignalName.md)
+ [LobbyManager.SignalName](DiceRoll.Managers.LobbyManager.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
+
+ [MainMenuManager.SignalName](DiceRoll.Managers.MainMenuManager.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
+
+ [BattleManager.SignalName](DiceRoll.Managers.BattleManager.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 

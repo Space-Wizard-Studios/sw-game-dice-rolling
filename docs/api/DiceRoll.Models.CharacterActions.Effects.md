@@ -22,11 +22,11 @@ Cached StringNames for the properties and fields contained in this class, for fa
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
- [DamageEffect.SignalName](DiceRoll.Models.CharacterActions.Effects.DamageEffect.SignalName.md)
+ [Effect.SignalName](DiceRoll.Models.CharacterActions.Effects.Effect.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
- [Effect.SignalName](DiceRoll.Models.CharacterActions.Effects.Effect.SignalName.md)
+ [DamageEffect.SignalName](DiceRoll.Models.CharacterActions.Effects.DamageEffect.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 

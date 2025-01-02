@@ -1,11 +1,11 @@
-# <a id="DiceRoll_UI_ArcDrawer"></a> Class ArcDrawer
+# <a id="DiceRoll_Components_UI_TooltipComponent"></a> Class TooltipComponent
 
-Namespace: [DiceRoll.UI](DiceRoll.UI.md)  
+Namespace: [DiceRoll.Components.UI](DiceRoll.Components.UI.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
-[ScriptPath("res://core/ui/ArcDrawer.cs")]
-public class ArcDrawer : Node2D, IDisposable
+[ScriptPath("res://components/TooltipComponent/TooltipComponent.cs")]
+public class TooltipComponent : Control, IDisposable
 ```
 
 #### Inheritance
@@ -14,8 +14,8 @@ public class ArcDrawer : Node2D, IDisposable
 GodotObject ← 
 Node ← 
 CanvasItem ← 
-Node2D ← 
-[ArcDrawer](DiceRoll.UI.ArcDrawer.md)
+Control ← 
+[TooltipComponent](DiceRoll.Components.UI.TooltipComponent.md)
 
 #### Implements
 
@@ -23,32 +23,159 @@ Node2D ←
 
 #### Inherited Members
 
-Node2D.Rotate\(float\), 
-Node2D.MoveLocalX\(float, bool\), 
-Node2D.MoveLocalY\(float, bool\), 
-Node2D.Translate\(Vector2\), 
-Node2D.GlobalTranslate\(Vector2\), 
-Node2D.ApplyScale\(Vector2\), 
-Node2D.LookAt\(Vector2\), 
-Node2D.GetAngleTo\(Vector2\), 
-Node2D.ToLocal\(Vector2\), 
-Node2D.ToGlobal\(Vector2\), 
-Node2D.GetRelativeTransformToParent\(Node\), 
-Node2D.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
-Node2D.HasGodotClassMethod\(in godot\_string\_name\), 
-Node2D.HasGodotClassSignal\(in godot\_string\_name\), 
-Node2D.Position, 
-Node2D.Rotation, 
-Node2D.RotationDegrees, 
-Node2D.Scale, 
-Node2D.Skew, 
-Node2D.Transform, 
-Node2D.GlobalPosition, 
-Node2D.GlobalRotation, 
-Node2D.GlobalRotationDegrees, 
-Node2D.GlobalScale, 
-Node2D.GlobalSkew, 
-Node2D.GlobalTransform, 
+Control.NotificationResized, 
+Control.NotificationMouseEnter, 
+Control.NotificationMouseExit, 
+Control.NotificationMouseEnterSelf, 
+Control.NotificationMouseExitSelf, 
+Control.NotificationFocusEnter, 
+Control.NotificationFocusExit, 
+Control.NotificationThemeChanged, 
+Control.NotificationScrollBegin, 
+Control.NotificationScrollEnd, 
+Control.NotificationLayoutDirectionChanged, 
+Control.\_CanDropData\(Vector2, Variant\), 
+Control.\_DropData\(Vector2, Variant\), 
+Control.\_GetDragData\(Vector2\), 
+Control.\_GetMinimumSize\(\), 
+Control.\_GetTooltip\(Vector2\), 
+Control.\_GuiInput\(InputEvent\), 
+Control.\_HasPoint\(Vector2\), 
+Control.\_MakeCustomTooltip\(string\), 
+Control.\_StructuredTextParser\(Array, string\), 
+Control.AcceptEvent\(\), 
+Control.GetMinimumSize\(\), 
+Control.GetCombinedMinimumSize\(\), 
+Control.SetAnchorsPreset\(Control.LayoutPreset, bool\), 
+Control.SetOffsetsPreset\(Control.LayoutPreset, Control.LayoutPresetMode, int\), 
+Control.SetAnchorsAndOffsetsPreset\(Control.LayoutPreset, Control.LayoutPresetMode, int\), 
+Control.SetAnchor\(Side, float, bool, bool\), 
+Control.SetAnchorAndOffset\(Side, float, float, bool\), 
+Control.SetBegin\(Vector2\), 
+Control.SetEnd\(Vector2\), 
+Control.SetPosition\(Vector2, bool\), 
+Control.SetSize\(Vector2, bool\), 
+Control.ResetSize\(\), 
+Control.SetGlobalPosition\(Vector2, bool\), 
+Control.GetBegin\(\), 
+Control.GetEnd\(\), 
+Control.GetParentAreaSize\(\), 
+Control.GetScreenPosition\(\), 
+Control.GetRect\(\), 
+Control.GetGlobalRect\(\), 
+Control.HasFocus\(\), 
+Control.GrabFocus\(\), 
+Control.ReleaseFocus\(\), 
+Control.FindPrevValidFocus\(\), 
+Control.FindNextValidFocus\(\), 
+Control.FindValidFocusNeighbor\(Side\), 
+Control.BeginBulkThemeOverride\(\), 
+Control.EndBulkThemeOverride\(\), 
+Control.AddThemeIconOverride\(StringName, Texture2D\), 
+Control.AddThemeStyleboxOverride\(StringName, StyleBox\), 
+Control.AddThemeFontOverride\(StringName, Font\), 
+Control.AddThemeFontSizeOverride\(StringName, int\), 
+Control.AddThemeColorOverride\(StringName, Color\), 
+Control.AddThemeConstantOverride\(StringName, int\), 
+Control.RemoveThemeIconOverride\(StringName\), 
+Control.RemoveThemeStyleboxOverride\(StringName\), 
+Control.RemoveThemeFontOverride\(StringName\), 
+Control.RemoveThemeFontSizeOverride\(StringName\), 
+Control.RemoveThemeColorOverride\(StringName\), 
+Control.RemoveThemeConstantOverride\(StringName\), 
+Control.GetThemeIcon\(StringName, StringName\), 
+Control.GetThemeStylebox\(StringName, StringName\), 
+Control.GetThemeFont\(StringName, StringName\), 
+Control.GetThemeFontSize\(StringName, StringName\), 
+Control.GetThemeColor\(StringName, StringName\), 
+Control.GetThemeConstant\(StringName, StringName\), 
+Control.HasThemeIconOverride\(StringName\), 
+Control.HasThemeStyleboxOverride\(StringName\), 
+Control.HasThemeFontOverride\(StringName\), 
+Control.HasThemeFontSizeOverride\(StringName\), 
+Control.HasThemeColorOverride\(StringName\), 
+Control.HasThemeConstantOverride\(StringName\), 
+Control.HasThemeIcon\(StringName, StringName\), 
+Control.HasThemeStylebox\(StringName, StringName\), 
+Control.HasThemeFont\(StringName, StringName\), 
+Control.HasThemeFontSize\(StringName, StringName\), 
+Control.HasThemeColor\(StringName, StringName\), 
+Control.HasThemeConstant\(StringName, StringName\), 
+Control.GetThemeDefaultBaseScale\(\), 
+Control.GetThemeDefaultFont\(\), 
+Control.GetThemeDefaultFontSize\(\), 
+Control.GetParentControl\(\), 
+Control.GetTooltip\(Vector2?\), 
+Control.GetCursorShape\(Vector2?\), 
+Control.ForceDrag\(Variant, Control\), 
+Control.GrabClickFocus\(\), 
+Control.SetDragForwarding\(Callable, Callable, Callable\), 
+Control.SetDragPreview\(Control\), 
+Control.IsDragSuccessful\(\), 
+Control.WarpMouse\(Vector2\), 
+Control.UpdateMinimumSize\(\), 
+Control.IsLayoutRtl\(\), 
+Control.EmitSignalResized\(\), 
+Control.EmitSignalGuiInput\(InputEvent\), 
+Control.EmitSignalMouseEntered\(\), 
+Control.EmitSignalMouseExited\(\), 
+Control.EmitSignalFocusEntered\(\), 
+Control.EmitSignalFocusExited\(\), 
+Control.EmitSignalSizeFlagsChanged\(\), 
+Control.EmitSignalMinimumSizeChanged\(\), 
+Control.EmitSignalThemeChanged\(\), 
+Control.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+Control.HasGodotClassMethod\(in godot\_string\_name\), 
+Control.HasGodotClassSignal\(in godot\_string\_name\), 
+Control.ClipContents, 
+Control.CustomMinimumSize, 
+Control.LayoutDirection, 
+Control.AnchorLeft, 
+Control.AnchorTop, 
+Control.AnchorRight, 
+Control.AnchorBottom, 
+Control.OffsetLeft, 
+Control.OffsetTop, 
+Control.OffsetRight, 
+Control.OffsetBottom, 
+Control.GrowHorizontal, 
+Control.GrowVertical, 
+Control.Size, 
+Control.Position, 
+Control.GlobalPosition, 
+Control.Rotation, 
+Control.RotationDegrees, 
+Control.Scale, 
+Control.PivotOffset, 
+Control.SizeFlagsHorizontal, 
+Control.SizeFlagsVertical, 
+Control.SizeFlagsStretchRatio, 
+Control.LocalizeNumeralSystem, 
+Control.AutoTranslate, 
+Control.TooltipText, 
+Control.TooltipAutoTranslateMode, 
+Control.FocusNeighborLeft, 
+Control.FocusNeighborTop, 
+Control.FocusNeighborRight, 
+Control.FocusNeighborBottom, 
+Control.FocusNext, 
+Control.FocusPrevious, 
+Control.FocusMode, 
+Control.MouseFilter, 
+Control.MouseForcePassScrollEvents, 
+Control.MouseDefaultCursorShape, 
+Control.ShortcutContext, 
+Control.Theme, 
+Control.ThemeTypeVariation, 
+Control.Resized, 
+Control.GuiInput, 
+Control.MouseEntered, 
+Control.MouseExited, 
+Control.FocusEntered, 
+Control.FocusExited, 
+Control.SizeFlagsChanged, 
+Control.MinimumSizeChanged, 
+Control.ThemeChanged, 
 CanvasItem.NotificationTransformChanged, 
 CanvasItem.NotificationLocalTransformChanged, 
 CanvasItem.NotificationDraw, 
@@ -430,19 +557,139 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Methods
+## Properties
 
-### <a id="DiceRoll_UI_ArcDrawer_SetSelectedCharacter_DiceRoll_Components_Characters_CharacterComponent_"></a> SetSelectedCharacter\(CharacterComponent\)
+### <a id="DiceRoll_Components_UI_TooltipComponent_AdvancedDescriptionPath"></a> AdvancedDescriptionPath
 
 ```csharp
-public void SetSelectedCharacter(CharacterComponent character)
+[Export(PropertyHint.None, "")]
+public NodePath? AdvancedDescriptionPath { get; set; }
+```
+
+#### Property Value
+
+ NodePath?
+
+### <a id="DiceRoll_Components_UI_TooltipComponent_DescriptionPath"></a> DescriptionPath
+
+```csharp
+[Export(PropertyHint.None, "")]
+public NodePath? DescriptionPath { get; set; }
+```
+
+#### Property Value
+
+ NodePath?
+
+### <a id="DiceRoll_Components_UI_TooltipComponent_LorePath"></a> LorePath
+
+```csharp
+[Export(PropertyHint.None, "")]
+public NodePath? LorePath { get; set; }
+```
+
+#### Property Value
+
+ NodePath?
+
+### <a id="DiceRoll_Components_UI_TooltipComponent_ProgressBarDuration"></a> ProgressBarDuration
+
+```csharp
+[Export(PropertyHint.Range, "0.1,10.0,0.1")]
+public float ProgressBarDuration { get; set; }
+```
+
+#### Property Value
+
+ [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+### <a id="DiceRoll_Components_UI_TooltipComponent_ProgressBarPath"></a> ProgressBarPath
+
+```csharp
+[Export(PropertyHint.None, "")]
+public NodePath? ProgressBarPath { get; set; }
+```
+
+#### Property Value
+
+ NodePath?
+
+### <a id="DiceRoll_Components_UI_TooltipComponent_TagsPath"></a> TagsPath
+
+```csharp
+[Export(PropertyHint.None, "")]
+public NodePath? TagsPath { get; set; }
+```
+
+#### Property Value
+
+ NodePath?
+
+### <a id="DiceRoll_Components_UI_TooltipComponent_TextureIconPath"></a> TextureIconPath
+
+```csharp
+[Export(PropertyHint.None, "")]
+public NodePath? TextureIconPath { get; set; }
+```
+
+#### Property Value
+
+ NodePath?
+
+### <a id="DiceRoll_Components_UI_TooltipComponent_TitlePath"></a> TitlePath
+
+```csharp
+[Export(PropertyHint.None, "")]
+public NodePath? TitlePath { get; set; }
+```
+
+#### Property Value
+
+ NodePath?
+
+## Methods
+
+### <a id="DiceRoll_Components_UI_TooltipComponent_HideTooltip"></a> HideTooltip\(\)
+
+```csharp
+public void HideTooltip()
+```
+
+### <a id="DiceRoll_Components_UI_TooltipComponent_Initialize"></a> Initialize\(\)
+
+```csharp
+public void Initialize()
+```
+
+### <a id="DiceRoll_Components_UI_TooltipComponent_SetTooltipTexts_System_String_System_String_System_String_System_String_System_String_"></a> SetTooltipTexts\(string, string, string, string, string\)
+
+```csharp
+public void SetTooltipTexts(string title, string tags, string description, string advancedDescription, string lore)
 ```
 
 #### Parameters
 
-`character` [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)
+`title` [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-### <a id="DiceRoll_UI_ArcDrawer__Ready"></a> \_Ready\(\)
+`tags` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+`description` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+`advancedDescription` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+`lore` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### <a id="DiceRoll_Components_UI_TooltipComponent_ShowTooltip_Godot_Vector2_"></a> ShowTooltip\(Vector2\)
+
+```csharp
+public void ShowTooltip(Vector2 mousePosition)
+```
+
+#### Parameters
+
+`mousePosition` Vector2
+
+### <a id="DiceRoll_Components_UI_TooltipComponent__Ready"></a> \_Ready\(\)
 
 <p>Called when the node is "ready", i.e. when both the node and its children have entered the scene tree. If the node has children, their <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> callbacks get triggered first, and the parent node will receive the ready notification afterwards.</p>
 <p>Corresponds to the <xref href="Godot.Node.NotificationReady" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>. See also the <code>@onready</code> annotation for variables.</p>

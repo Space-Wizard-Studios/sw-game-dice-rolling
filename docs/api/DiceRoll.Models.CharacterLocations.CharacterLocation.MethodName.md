@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Stores_CharacterStore_MethodName"></a> Class CharacterStore.MethodName
+# <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_MethodName"></a> Class CharacterLocation.MethodName
 
-Namespace: [DiceRoll.Stores](DiceRoll.Stores.md)  
+Namespace: [DiceRoll.Models.CharacterLocations](DiceRoll.Models.CharacterLocations.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
 ```csharp
-public class CharacterStore.MethodName : Resource.MethodName
+public class CharacterLocation.MethodName : Resource.MethodName
 ```
 
 #### Inheritance
@@ -15,7 +15,7 @@ public class CharacterStore.MethodName : Resource.MethodName
 GodotObject.MethodName ← 
 RefCounted.MethodName ← 
 Resource.MethodName ← 
-[CharacterStore.MethodName](DiceRoll.Stores.CharacterStore.MethodName.md)
+[CharacterLocation.MethodName](DiceRoll.Models.CharacterLocations.CharacterLocation.MethodName.md)
 
 #### Inherited Members
 
@@ -113,78 +113,4 @@ GodotObject.MethodName.CancelFree,
 [object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone), 
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
-
-## Fields
-
-### <a id="DiceRoll_Stores_CharacterStore_MethodName_AddCharacter"></a> AddCharacter
-
-Cached name for the 'AddCharacter' method.
-
-```csharp
-public static readonly StringName AddCharacter
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Stores_CharacterStore_MethodName_GetAllCharacterIds"></a> GetAllCharacterIds
-
-Cached name for the 'GetAllCharacterIds' method.
-
-```csharp
-public static readonly StringName GetAllCharacterIds
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Stores_CharacterStore_MethodName_GetCharacterById"></a> GetCharacterById
-
-Cached name for the 'GetCharacterById' method.
-
-```csharp
-public static readonly StringName GetCharacterById
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Stores_CharacterStore_MethodName_RemoveCharacter"></a> RemoveCharacter
-
-Cached name for the 'RemoveCharacter' method.
-
-```csharp
-public static readonly StringName RemoveCharacter
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Stores_CharacterStore_MethodName_SetCharacterLocation"></a> SetCharacterLocation
-
-Cached name for the 'SetCharacterLocation' method.
-
-```csharp
-public static readonly StringName SetCharacterLocation
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Stores_CharacterStore_MethodName_UpdateCharacter"></a> UpdateCharacter
-
-Cached name for the 'UpdateCharacter' method.
-
-```csharp
-public static readonly StringName UpdateCharacter
-```
-
-#### Field Value
-
- StringName
 

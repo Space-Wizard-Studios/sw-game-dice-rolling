@@ -173,10 +173,21 @@ public CharacterGridType(int columns, int rows, int offset, string prefix)
 
 ## Properties
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_Columns"></a> Columns
+### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_CharacterStore"></a> CharacterStore
 
 ```csharp
 [Export(PropertyHint.None, "")]
+public CharacterStore? CharacterStore { get; set; }
+```
+
+#### Property Value
+
+ [CharacterStore](DiceRoll.Stores.CharacterStore.md)?
+
+### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_Columns"></a> Columns
+
+```csharp
+[Export(PropertyHint.Range, "1,10,1,or_greater")]
 public int Columns { get; set; }
 ```
 
@@ -209,7 +220,7 @@ public string Prefix { get; set; }
 ### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_Rows"></a> Rows
 
 ```csharp
-[Export(PropertyHint.None, "")]
+[Export(PropertyHint.Range, "1,10,1,or_greater")]
 public int Rows { get; set; }
 ```
 

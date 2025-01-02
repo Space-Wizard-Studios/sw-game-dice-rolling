@@ -170,17 +170,6 @@ public Array<CharacterAttribute> Attributes { get; }
 
  Array<[CharacterAttribute](DiceRoll.Models.CharacterAttribute.md)\>
 
-### <a id="DiceRoll_Models_Character_CharacterActions"></a> CharacterActions
-
-```csharp
-[Export(PropertyHint.None, "")]
-public Array<CharacterAction> CharacterActions { get; }
-```
-
-#### Property Value
-
- Array<[CharacterAction](DiceRoll.Models.CharacterActions.CharacterAction.md)\>
-
 ### <a id="DiceRoll_Models_Character_CharacterSprite"></a> CharacterSprite
 
 ```csharp
@@ -225,6 +214,18 @@ public bool IsEnemy { get; set; }
 #### Property Value
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="DiceRoll_Models_Character_Location"></a> Location
+
+```csharp
+[ExportGroup("📍 Character Location", "")]
+[Export(PropertyHint.None, "")]
+public CharacterLocation? Location { get; set; }
+```
+
+#### Property Value
+
+ [CharacterLocation](DiceRoll.Models.CharacterLocations.CharacterLocation.md)?
 
 ### <a id="DiceRoll_Models_Character_Name"></a> Name
 
@@ -281,6 +282,17 @@ public bool ShowShadow { get; set; }
 #### Property Value
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="DiceRoll_Models_Character_SlotIndex"></a> SlotIndex
+
+```csharp
+[Export(PropertyHint.None, "")]
+public int SlotIndex { get; set; }
+```
+
+#### Property Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
 ### <a id="DiceRoll_Models_Character_SpritePositionX"></a> SpritePositionX
 

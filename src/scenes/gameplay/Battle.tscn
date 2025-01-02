@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://8n50xik7xid3"]
+[gd_scene load_steps=18 format=3 uid="uid://8n50xik7xid3"]
 
 [ext_resource type="Script" uid="uid://jc3rfy1j13nu" path="res://core/managers/gameplay/BattleManager.cs" id="1_oeh3a"]
 [ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://core/ui/SceneTransitionButton.cs" id="2_4ip1d"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dgyegipn74jj5" path="res://components/CharacterInspector/CharacterInspector.tscn" id="7_ms447"]
 [ext_resource type="PackedScene" uid="uid://bt73g5fssa68h" path="res://components/InventoryComponent/InventoryComponent.tscn" id="7_ue61k"]
 [ext_resource type="Texture2D" uid="uid://byujdpnhcw2vd" path="res://assets/prototype/Dark/texture_01.png" id="8_vpfel"]
+[ext_resource type="Resource" uid="uid://snt34yslyn4f" path="res://core/stores/CharacterStore/PlayerCharacterStore.tres" id="9_eybki"]
+[ext_resource type="Script" uid="uid://bdnimh7atef30" path="res://models/CharacterGrid/CharacterGridType.cs" id="10_c5xwm"]
 [ext_resource type="PackedScene" uid="uid://dmw0cm136sn4p" path="res://components/CharacterGrid/CharacterGrid.tscn" id="10_hsrxk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vpfel"]
@@ -25,6 +27,15 @@ tonemap_mode = 2
 ssao_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_7xgoa"]
+script = ExtResource("10_c5xwm")
+CharacterStore = ExtResource("9_eybki")
+Columns = 3
+Rows = 2
+Offset = 0
+Prefix = "P"
+metadata/_custom_type_script = ExtResource("10_c5xwm")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsrxk"]
 albedo_texture = ExtResource("8_vpfel")
@@ -2839,8 +2850,9 @@ shadow_blur = 3.0
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 2, 3.5)
 
-[node name="CharacterGrid3d" parent="." instance=ExtResource("10_hsrxk")]
+[node name="CharacterGrid3D" parent="." instance=ExtResource("10_hsrxk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+GridConfigurations = [SubResource("Resource_7xgoa")]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, -0.05, 0)

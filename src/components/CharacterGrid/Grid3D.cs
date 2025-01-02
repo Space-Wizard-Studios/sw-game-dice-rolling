@@ -7,68 +7,49 @@ namespace DiceRoll.Components.Grids;
 
 [Tool]
 public partial class Grid3D : Node3D {
-    [Export] public int Columns { get; set; } = 0;
-    [Export] public int Rows { get; set; } = 0;
+    [Export] public int Columns { get; set; } = 1;
+    [Export] public int Rows { get; set; } = 1;
     [Export] public string Prefix { get; set; } = "G";
     [Export] public CharacterStore? CharacterStore { get; set; }
     [Export] public PackedScene? CharacterComponentScene { get; set; }
-    private readonly List<Marker3D> gridCells = [];
-    private readonly List<Label3D> debugLabels = [];
+    private readonly List<GridCell3D> gridCells = [];
     private MeshInstance3D? debugMeshInstance;
     private ArrayMesh? debugMesh;
 
     public override void _Ready() {
         base._Ready();
         GenerateGridCells();
+        RenderBattleSquadCharacters();
+    }
+
+    public void GenerateGridCells() {
+        ClearExistingCells();
+        CreateNewCells();
         if (Engine.IsEditorHint()) {
             CreateDebugMesh();
         }
     }
 
-    public void GenerateGridCells() {
-        // Clear existing cells and labels
+    private void ClearExistingCells() {
         foreach (var cell in gridCells) {
             RemoveChild(cell);
             cell.QueueFree();
         }
-
         gridCells.Clear();
+    }
 
-        foreach (var label in debugLabels) {
-            RemoveChild(label);
-            label.QueueFree();
-        }
-
-        debugLabels.Clear();
-
-        // Generate new cells
+    private void CreateNewCells() {
         int index = 0;
         for (int x = 0; x < Columns; x++) {
             for (int y = 0; y < Rows; y++) {
-                Marker3D cell = new() {
-                    Transform = new Transform3D(Basis.Identity, new Vector3(x, 0, y))
-                };
-                AddChild(cell);
-                gridCells.Add(cell);
-
-                // Create and add label for cell index
-                Label3D label = new() {
-                    Text = $"{Prefix}{index}({x},{y})",
-                    Transform = new Transform3D(Basis.Identity, new Vector3(x + 0.55f, 0.25f, y + 1)),
-                    Billboard = BaseMaterial3D.BillboardModeEnum.Enabled,
-                };
-                AddChild(label);
-                debugLabels.Add(label);
-
+                var position = new Vector3(x, 0, y);
+                var labelText = $"{Prefix}{index}({x},{y})";
+                var gridCell = new GridCell3D(position, labelText);
+                AddChild(gridCell);
+                gridCells.Add(gridCell);
                 index++;
             }
         }
-
-        if (Engine.IsEditorHint()) {
-            CreateDebugMesh();
-        }
-
-        RenderBattleSquadCharacters();
     }
 
     private void CreateDebugMesh() {
@@ -78,8 +59,9 @@ public partial class Grid3D : Node3D {
         }
 
         debugMesh = new ArrayMesh();
-        debugMeshInstance = new MeshInstance3D();
-        debugMeshInstance.Mesh = debugMesh;
+        debugMeshInstance = new MeshInstance3D {
+            Mesh = debugMesh
+        };
         AddChild(debugMeshInstance);
         UpdateDebugMesh();
     }
@@ -118,12 +100,9 @@ public partial class Grid3D : Node3D {
         }
 
         foreach (var character in CharacterStore.Characters) {
-            if (character.Location?.Name == "Battle Squad" && character.SlotIndex >= 0) {
-                int x = character.SlotIndex % Columns;
-                int y = character.SlotIndex / Columns;
-
+            if (character.Location?.Name == "Battle Squad" && character.SlotIndex >= 0 && character.SlotIndex < gridCells.Count) {
                 // Instantiate the CharacterComponent from the packed scene
-                var characterComponent = (CharacterComponent)CharacterComponentScene.Instantiate();
+                var characterComponent = CharacterComponentScene.Instantiate<CharacterComponent>();
                 if (characterComponent is null) {
                     GD.PrintErr("Failed to instantiate CharacterComponent");
                     continue;
@@ -132,8 +111,10 @@ public partial class Grid3D : Node3D {
                 characterComponent.Character = character;
 
                 // Position the character at the middle point of the cell
-                characterComponent.Transform = new Transform3D(Basis.Identity, new Vector3(x + 0.5f, 0, y + 0.5f));
-                AddChild(characterComponent);
+                var gridCell = gridCells[character.SlotIndex];
+                var cellPosition = gridCell.CellMarker.Transform.Origin;
+                characterComponent.Transform = new Transform3D(Basis.Identity, new Vector3(cellPosition.X + 0.5f, 0, cellPosition.Z + 0.5f));
+                gridCell.SetCharacter(characterComponent);
             }
         }
     }

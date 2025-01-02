@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace DiceRoll.Components;
+namespace DiceRoll.Components.UI;
 
 public partial class InventoryItemComponent : Control {
 

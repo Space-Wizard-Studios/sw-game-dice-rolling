@@ -1,6 +1,6 @@
 using Godot;
 
-namespace DiceRoll.Components;
+namespace DiceRoll.Components.UI;
 
 public partial class TooltipComponent : Control {
 	[Export]

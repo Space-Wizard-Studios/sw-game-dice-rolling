@@ -3,7 +3,7 @@ using System;
 using DiceRoll.Models;
 using DiceRoll.Events;
 
-namespace DiceRoll.Components;
+namespace DiceRoll.Components.Characters;
 
 [Tool]
 public partial class CharacterComponent : Node3D {

@@ -1,8 +1,9 @@
 using Godot;
 using System.Collections.Generic;
+using DiceRoll.Components.Characters;
 using DiceRoll.Stores;
 
-namespace DiceRoll.Components;
+namespace DiceRoll.Components.Grids;
 
 [Tool]
 public partial class Grid3D : Node3D {

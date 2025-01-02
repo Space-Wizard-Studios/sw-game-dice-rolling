@@ -1,7 +1,7 @@
 using Godot;
 using DiceRoll.Stores;
 
-namespace DiceRoll.Components;
+namespace DiceRoll.Components.UI;
 
 public partial class GameLogComponent : ScrollContainer {
     [Export] public BoxContainer? _messageContainerNode;

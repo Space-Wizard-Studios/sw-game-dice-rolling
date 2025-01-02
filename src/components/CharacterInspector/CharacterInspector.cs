@@ -2,7 +2,7 @@ using Godot;
 using DiceRoll.Events;
 using DiceRoll.Models;
 
-namespace DiceRoll.Components;
+namespace DiceRoll.Components.Characters;
 
 [Tool]
 public partial class CharacterInspector : HBoxContainer {

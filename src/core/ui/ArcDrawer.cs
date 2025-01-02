@@ -1,5 +1,5 @@
 using Godot;
-using DiceRoll.Components;
+using DiceRoll.Components.Characters;
 using DiceRoll.Helpers;
 
 namespace DiceRoll.UI;

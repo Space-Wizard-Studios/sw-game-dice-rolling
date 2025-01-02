@@ -2,7 +2,7 @@ using Godot;
 using Godot.Collections;
 using DiceRoll.Models.CharacterGrid;
 
-namespace DiceRoll.Components;
+namespace DiceRoll.Components.Grids;
 
 [Tool]
 public partial class CharacterGrid : Node3D {

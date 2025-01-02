@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace DiceRoll.Components;
+namespace DiceRoll.Components.UI;
 
 [Tool]
 public partial class InventoryComponent : ScrollContainer {

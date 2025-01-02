@@ -52,7 +52,7 @@ public partial class TooltipComponent : Control {
 
 		_tooltipTimer = new Timer();
 		_tooltipTimer.WaitTime = 0.05f; // Update every 0.05 seconds
-		_tooltipTimer.Connect("timeout", new Callable(this, nameof(OnTooltipTimerTimeout)));
+		_tooltipTimer.Connect("timeout", Callable.From(OnTooltipTimerTimeout));
 		AddChild(_tooltipTimer);
 	}
 

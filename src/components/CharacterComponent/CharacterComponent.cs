@@ -65,8 +65,8 @@ public partial class CharacterComponent : Node3D {
 
     private void ConnectSignals() {
         InputAreaNode?.Connect("input_event", new Callable(this, nameof(OnInputEvent)));
-        InputAreaNode?.Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
-        InputAreaNode?.Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
+        InputAreaNode?.Connect("mouse_entered", Callable.From(OnMouseEntered));
+        InputAreaNode?.Connect("mouse_exited", Callable.From(OnMouseExited));
     }
 
     private void OnInputEvent(Node camera, InputEvent @event, Vector3 click_position, Vector3 normal, int shape_idx) {

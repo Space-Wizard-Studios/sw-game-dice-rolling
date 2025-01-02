@@ -33,7 +33,7 @@ public partial class DiceGenerator : Node {
 
 		var updateButton = GetNode<Button>("CanvasLayer/UpdateButton");
 		if (updateButton is not null) {
-			updateButton.Connect("pressed", new Callable(this, nameof(OnUpdateButtonPressed)));
+			updateButton.Connect("pressed", Callable.From(OnUpdateButtonPressed));
 		}
 		else {
 			GD.PrintErr("UpdateButton node not found");
@@ -41,7 +41,7 @@ public partial class DiceGenerator : Node {
 
 		var rollButton = GetNode<Button>("CanvasLayer/RollButton");
 		if (rollButton is not null) {
-			rollButton.Connect("pressed", new Callable(this, nameof(OnRollButtonPressed)));
+			rollButton.Connect("pressed", Callable.From(OnRollButtonPressed));
 		}
 		else {
 			GD.PrintErr("RollButton node not found");

@@ -11,8 +11,8 @@ public partial class InventoryItemComponent : Control {
     private TooltipComponent? _tooltipInstance;
 
     public override void _Ready() {
-        Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
-        Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
+        Connect("mouse_entered", Callable.From(OnMouseEntered));
+        Connect("mouse_exited", Callable.From(OnMouseExited));
         SetSize(new Vector2(64, 64));
     }
 

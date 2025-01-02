@@ -7,9 +7,13 @@ namespace DiceRoll.Components;
 [Tool]
 public partial class CharacterGrid : Node3D {
     [Export] public CharacterGridType[] GridConfigurations = [];
-    [Export] public PackedScene? CharacterComponentScene { get; set; } // Add this line
+    [Export] public PackedScene? CharacterComponentScene { get; set; }
     private readonly Dictionary<CharacterGridType, Callable> _connections = [];
     private readonly Dictionary<Grid3D, float> _initialPositions = [];
+
+    // TODO: testar
+    [ExportToolButton("Generate Grid")]
+    private Callable GenerateGridButton => Callable.From(GenerateGrids);
 
     public override void _Ready() {
         base._Ready();
@@ -51,7 +55,7 @@ public partial class CharacterGrid : Node3D {
                 Rows = config.Rows,
                 Prefix = config.Prefix,
                 CharacterStore = config.CharacterStore,
-                CharacterComponentScene = CharacterComponentScene // Pass the PackedScene
+                CharacterComponentScene = CharacterComponentScene
             };
 
             currentXPosition += config.Offset;
@@ -64,15 +68,5 @@ public partial class CharacterGrid : Node3D {
 
             currentXPosition += config.Columns;
         }
-    }
-
-    private Array AddInspectorButtons() {
-        var buttons = new Array();
-        var buttonData = new Dictionary {
-            { "name", "Generate Grids" },
-            { "pressed", new Callable(this, nameof(GenerateGrids)) }
-        };
-        buttons.Add(buttonData);
-        return buttons;
     }
 }

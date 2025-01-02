@@ -2831,6 +2831,7 @@ environment = SubResource("Environment_eybki")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 0, 3, 3)
+light_color = Color(0.9, 0.864, 0.81, 1)
 shadow_enabled = true
 shadow_opacity = 0.6
 shadow_blur = 3.0

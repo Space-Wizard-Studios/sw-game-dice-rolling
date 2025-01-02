@@ -32,7 +32,6 @@ CurrentValue = 40
 BaseValue = 40
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ikwiv"]
-load_path = "res://.godot/imported/EleonoreOtsogaShadowSpritesheet.png-1811f1f20663ecdc0096f605a127680a.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0e3wj"]
 atlas = SubResource("CompressedTexture2D_ikwiv")

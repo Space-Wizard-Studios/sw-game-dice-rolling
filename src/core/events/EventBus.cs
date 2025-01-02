@@ -4,6 +4,7 @@ using DiceRoll.Models;
 
 namespace DiceRoll.Events;
 
+[Tool]
 public partial class EventBus : Node {
     [Signal]
     public delegate void AttributeChangedEventHandler();

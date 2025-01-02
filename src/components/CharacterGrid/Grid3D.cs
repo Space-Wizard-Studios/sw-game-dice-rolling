@@ -11,7 +11,7 @@ public partial class Grid3D : Node3D {
     [Export] public int Rows { get; set; } = 0;
     [Export] public string Prefix { get; set; } = "G";
     [Export] public CharacterStore? CharacterStore { get; set; }
-    [Export] public PackedScene? CharacterComponentScene { get; set; } // Ensure this line is present
+    [Export] public PackedScene? CharacterComponentScene { get; set; }
     private readonly List<Marker3D> gridCells = [];
     private readonly List<Label3D> debugLabels = [];
     private MeshInstance3D? debugMeshInstance;

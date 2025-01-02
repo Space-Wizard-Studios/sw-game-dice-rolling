@@ -6,5 +6,10 @@
         <RootNamespace>diceroll</RootNamespace>
         <Nullable>enable</Nullable>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <PublishAot>true</PublishAot>
     </PropertyGroup>
+    <ItemGroup>
+        <TrimmerRootAssembly Include="GodotSharp" />
+        <TrimmerRootAssembly Include="$(TargetName)" />
+    </ItemGroup>
 </Project>

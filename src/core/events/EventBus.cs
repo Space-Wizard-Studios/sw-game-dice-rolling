@@ -1,5 +1,5 @@
 using Godot;
-using DiceRoll.Components;
+using DiceRoll.Components.Characters;
 using DiceRoll.Models;
 
 namespace DiceRoll.Events;

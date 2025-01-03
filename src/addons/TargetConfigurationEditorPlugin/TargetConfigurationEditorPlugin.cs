@@ -79,9 +79,7 @@ public partial class MatrixControl : Control {
 
     /// <summary>
     /// Draws the grid and its contents.
-    /// <list>
-    /// <item><inheritdoc cref="Godot.CanvasItem._Draw"/></item>
-    /// </list>
+    /// <inheritdoc cref="Godot.CanvasItem._Draw"/>
     /// </summary>
     public override void _Draw() {
         // Calculate the total width and height of the grid including padding

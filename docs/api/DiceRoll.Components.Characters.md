@@ -4,5 +4,7 @@
 
  [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)
 
+Represents a character in the game, managing character-specific properties and behaviors.
+
  [CharacterInspector](DiceRoll.Components.Characters.CharacterInspector.md)
 

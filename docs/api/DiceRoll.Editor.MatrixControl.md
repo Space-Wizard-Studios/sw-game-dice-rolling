@@ -632,6 +632,8 @@ The number of columns in the grid.
 
 Draws the grid and its contents.
 
+        <p>Called when <xref href="Godot.CanvasItem" data-throw-if-not-resolved="false"></xref> has been requested to redraw (after <xref href="Godot.CanvasItem.QueueRedraw" data-throw-if-not-resolved="false"></xref> is called, either manually or by the engine).</p><p>Corresponds to the <xref href="Godot.CanvasItem.NotificationDraw" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>.</p>
+
 ```csharp
 public override void _Draw()
 ```

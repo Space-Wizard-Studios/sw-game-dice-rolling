@@ -4,6 +4,14 @@ using DiceRoll.Models.CharacterGrid;
 
 namespace DiceRoll.Components.Grids;
 
+/// <summary>
+/// Represents a 3D grid of characters in the game.
+/// 
+/// <para>Fields:</para>
+/// <para><see cref="GridConfigurations"/>: Configurations for the character grid.</para>
+/// <para><see cref="CharacterComponentScene"/>: Scene to be used for character components.</para>
+/// <para><see cref="GenerateGridButton"/>: Button to generate the grid in the editor.</para>
+/// </summary>
 [Tool]
 public partial class CharacterGrid : Node3D {
     [Export] public CharacterGridType[] GridConfigurations = [];
@@ -24,6 +32,9 @@ public partial class CharacterGrid : Node3D {
         DisconnectGridConfigurations();
     }
 
+    /// <summary>
+    /// Generates the grids based on the configurations.
+    /// </summary>
     private void GenerateGrids() {
         if (GridConfigurations is null || GridConfigurations.Length == 0) {
             GD.PrintErr("GridConfigurations is null or empty");
@@ -34,6 +45,9 @@ public partial class CharacterGrid : Node3D {
         CreateNewGrids();
     }
 
+    /// <summary>
+    /// Clears existing grids from the scene.
+    /// </summary>
     private void ClearExistingGrids() {
         foreach (var child in GetChildren()) {
             if (child is Grid3D grid) {
@@ -43,6 +57,9 @@ public partial class CharacterGrid : Node3D {
         }
     }
 
+    /// <summary>
+    /// Creates new grids based on the configurations.
+    /// </summary>
     private void CreateNewGrids() {
         float currentXPosition = 0;
 
@@ -58,10 +75,21 @@ public partial class CharacterGrid : Node3D {
         }
     }
 
+    /// <summary>
+    /// Validates the grid configuration.
+    /// </summary>
+    /// <param name="config">The grid configuration to validate.</param>
+    /// <returns>True if the configuration is valid, otherwise false.</returns>
     private static bool IsValidGridConfiguration(CharacterGridType config) {
         return config is not null && config.Rows > 0 && config.Columns > 0;
     }
 
+    /// <summary>
+    /// Creates a new grid based on the configuration.
+    /// </summary>
+    /// <param name="config">The grid configuration.</param>
+    /// <param name="currentXPosition">The current X position for the grid.</param>
+    /// <returns>The created grid.</returns>
     private Grid3D CreateGrid(CharacterGridType config, ref float currentXPosition) {
         var grid = new Grid3D {
             Rows = config.Rows,
@@ -80,6 +108,9 @@ public partial class CharacterGrid : Node3D {
         return grid;
     }
 
+    /// <summary>
+    /// Disconnects the grid configurations.
+    /// </summary>
     private void DisconnectGridConfigurations() {
         foreach (var config in GridConfigurations) {
             if (_connections.TryGetValue(config, out var callable)) {

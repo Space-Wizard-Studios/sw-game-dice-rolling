@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://8n50xik7xid3"]
+[gd_scene load_steps=19 format=3 uid="uid://8n50xik7xid3"]
 
 [ext_resource type="Script" uid="uid://jc3rfy1j13nu" path="res://core/managers/gameplay/BattleManager.cs" id="1_oeh3a"]
 [ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://core/ui/SceneTransitionButton.cs" id="2_4ip1d"]
@@ -35,6 +35,14 @@ Rows = 2
 Columns = 3
 Offset = 0
 Prefix = "P"
+metadata/_custom_type_script = ExtResource("10_c5xwm")
+
+[sub_resource type="Resource" id="Resource_eybki"]
+script = ExtResource("10_c5xwm")
+Rows = 2
+Columns = 3
+Offset = 1
+Prefix = "G"
 metadata/_custom_type_script = ExtResource("10_c5xwm")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsrxk"]
@@ -2855,7 +2863,7 @@ transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 
 
 [node name="CharacterGrid3D" parent="." instance=ExtResource("10_hsrxk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-GridConfigurations = [SubResource("Resource_7xgoa")]
+GridConfigurations = [SubResource("Resource_7xgoa"), SubResource("Resource_eybki")]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, -0.05, 0)

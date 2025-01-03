@@ -5,6 +5,9 @@ using DiceRoll.Events;
 
 namespace DiceRoll.Components.Characters;
 
+/// <summary>
+/// Represents a character in the game, managing character-specific properties and behaviors.
+/// </summary>
 [Tool]
 public partial class CharacterComponent : Node3D {
     private static CharacterComponent? _currentlySelectedCharacter;
@@ -12,6 +15,11 @@ public partial class CharacterComponent : Node3D {
 
     [ExportGroup("🪵 Resources")]
     private Character? _characterResource;
+
+    /// <summary>
+    /// The character resource associated with this component.
+    /// Triggers <see cref="OnCharacterResourceSet"/> when set.
+    /// </summary>
     [Export]
     public Character? Character {
         get => _characterResource;
@@ -26,6 +34,11 @@ public partial class CharacterComponent : Node3D {
     public bool IsEnemy { get; set; }
 
     private bool _isHovered = false;
+
+    /// <summary>
+    /// Indicates if the character is currently hovered over.
+    /// Triggers <see cref="OnIsHoveredSet"/> when set.
+    /// </summary>
     [Export]
     public bool IsHovered {
         get => _isHovered;
@@ -36,6 +49,7 @@ public partial class CharacterComponent : Node3D {
     }
 
     private bool _isSelected = false;
+
     [Export]
     public bool IsSelected {
         get => _isSelected;
@@ -77,6 +91,9 @@ public partial class CharacterComponent : Node3D {
         }
     }
 
+    /// <summary>
+    /// Handles the inspection logic for the character.
+    /// </summary>
     private static void HandleInspection(ref CharacterComponent? currentlySelected, CharacterComponent current, Action<CharacterComponent>? setSelectedAction) {
         if (currentlySelected is not null && currentlySelected != current) {
             currentlySelected.IsSelected = false;
@@ -96,6 +113,10 @@ public partial class CharacterComponent : Node3D {
         IsHovered = false;
     }
 
+    /// <summary>
+    /// Called when the <see cref="IsHovered"/> property is set.
+    /// </summary>
+    /// <param name="value">The new value of the IsHovered property.</param>
     private void OnIsHoveredSet(bool isHovered) {
         if (HoverSpriteNode is not null) {
             HoverSpriteNode.Visible = isHovered;
@@ -119,6 +140,10 @@ public partial class CharacterComponent : Node3D {
         }
     }
 
+    /// <summary>
+    /// Gets or sets the character resource.
+    /// Invokes <see cref="OnCharacterResourceSet"/> when set.
+    /// </summary>
     private void OnCharacterResourceSet() {
         if (Character is null) {
             return;

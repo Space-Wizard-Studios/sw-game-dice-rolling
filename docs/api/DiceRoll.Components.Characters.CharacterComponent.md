@@ -3,6 +3,8 @@
 Namespace: [DiceRoll.Components.Characters](DiceRoll.Components.Characters.md)  
 Assembly: dice\-roll.dll  
 
+Represents a character in the game, managing character-specific properties and behaviors.
+
 ```csharp
 [Tool]
 [ScriptPath("res://components/CharacterComponent/CharacterComponent.cs")]
@@ -386,6 +388,9 @@ public AnimatedSprite3D? AnimatedSpriteNode { get; set; }
 
 ### <a id="DiceRoll_Components_Characters_CharacterComponent_Character"></a> Character
 
+The character resource associated with this component.
+Triggers <xref href="DiceRoll.Components.Characters.CharacterComponent.OnCharacterResourceSet" data-throw-if-not-resolved="false"></xref> when set.
+
 ```csharp
 [Export(PropertyHint.None, "")]
 public Character? Character { get; set; }
@@ -430,6 +435,9 @@ public bool IsEnemy { get; set; }
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 ### <a id="DiceRoll_Components_Characters_CharacterComponent_IsHovered"></a> IsHovered
+
+Indicates if the character is currently hovered over.
+Triggers <xref href="DiceRoll.Components.Characters.CharacterComponent.OnIsHoveredSet(System.Boolean)" data-throw-if-not-resolved="false"></xref> when set.
 
 ```csharp
 [Export(PropertyHint.None, "")]

@@ -14,11 +14,24 @@ if (!fs.existsSync(docsApiDir)) {
 
 // Function to process files
 const processFiles = (dir, destDir) => {
+    // Clear the destination directory
+    if (fs.existsSync(destDir)) {
+        fs.readdirSync(destDir).forEach(file => {
+            const filePath = path.join(destDir, file);
+            if (fs.lstatSync(filePath).isDirectory()) {
+                fs.rmdirSync(filePath, { recursive: true });
+            } else {
+                fs.unlinkSync(filePath);
+            }
+        });
+    } else {
+        fs.mkdirSync(destDir, { recursive: true });
+    }
+
     fs.readdirSync(dir).forEach(file => {
         const filePath = path.join(dir, file);
+        const destFilePath = path.join(destDir, file);
 
-        let destFilePath = path.join(destDir, file);
-        
         // if (file !== 'DiceRoll.md') {
         //     destFilePath = path.join(destDir, file.replace('DiceRoll.', ''));
         // }

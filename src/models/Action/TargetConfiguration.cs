@@ -10,6 +10,8 @@ public partial class TargetConfiguration : Resource {
     private int rows = 3;
     private int columns = 2;
 
+    [Export] public bool IsSingleTarget { get; set; } = false;
+
     [Export]
     public int Rows {
         get => rows;

@@ -15,18 +15,17 @@ public partial class TargetConfigurationEditorPlugin : EditorPlugin {
 }
 
 public partial class MatrixControl : Control {
-    private const int CellSize = 20;
+    private bool isFlippedHorizontally = false;
+    private const int CellSize = 40; // Increased to fit the new text format
     private const int Padding = 5;
-    private static readonly Color[] ColorsArray = [Colors.White, Colors.Yellow, Colors.Green, Colors.Red];
-
+    private static readonly Color[] ColorsArray = { Colors.White, Colors.Yellow, Colors.Green, Colors.Red };
     private Godot.Collections.Array<int> _grid;
     private int _rows;
     private int _columns;
-
     public TargetConfiguration? TargetConfiguration { get; }
 
     public MatrixControl() {
-        _grid = [];
+        _grid = new Godot.Collections.Array<int>();
         _rows = 0;
         _columns = 0;
         UpdateMinimumSize();
@@ -51,6 +50,11 @@ public partial class MatrixControl : Control {
         CustomMinimumSize = new Vector2(_columns * CellSize + 10, _rows * CellSize + 10); // Adding padding
     }
 
+    public void FlipHorizontally(bool flip) {
+        isFlippedHorizontally = flip;
+        QueueRedraw();
+    }
+
     public override void _Draw() {
         var totalWidth = _columns * CellSize + Padding * 2;
         var totalHeight = _rows * CellSize + Padding * 2;
@@ -59,7 +63,8 @@ public partial class MatrixControl : Control {
 
         for (int y = 0; y < _rows; y++) {
             for (int x = 0; x < _columns; x++) {
-                var rect = new Rect2(x * CellSize + Padding + offsetX, y * CellSize + Padding + offsetY, CellSize, CellSize);
+                int drawX = isFlippedHorizontally ? _columns - 1 - x : x;
+                var rect = new Rect2(drawX * CellSize + Padding + offsetX, y * CellSize + Padding + offsetY, CellSize, CellSize);
                 int index = y * _columns + x;
                 if (index < _grid.Count) {
                     int value = _grid[index];
@@ -67,9 +72,9 @@ public partial class MatrixControl : Control {
                     Color textColor = Colors.Black;
 
                     DrawRect(rect, bgColor);
-                    // Draw border
                     DrawRect(rect, Colors.Black, false);
-                    DrawString(GetThemeFont("font"), rect.Position + new Vector2(5, 15), value.ToString(), HorizontalAlignment.Left, -1, 12, textColor);
+                    string text = $"{index:D2} [{value}]";
+                    DrawString(GetThemeFont("font"), rect.Position + new Vector2(5, 15), text, HorizontalAlignment.Left, -1, 12, textColor);
                 }
             }
         }
@@ -84,6 +89,11 @@ public partial class MatrixControl : Control {
 
             var x = (int)((mouseEvent.Position.X - Padding - offsetX) / CellSize);
             var y = (int)((mouseEvent.Position.Y - Padding - offsetY) / CellSize);
+
+            if (isFlippedHorizontally) {
+                x = _columns - 1 - x;
+            }
+
             if (x >= 0 && x < _columns && y >= 0 && y < _rows) {
                 int index = y * _columns + x;
                 if (index < _grid.Count) {

@@ -1,3 +1,27 @@
-[gd_resource type="Resource" format=3 uid="uid://cvojckruuqrn6"]
+[gd_resource type="Resource" script_class="Action" load_steps=9 format=3 uid="uid://cvojckruuqrn6"]
+
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/EffectTypes/EffectType.cs" id="1_6cbhl"]
+[ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://models/Action/EffectTypes/DamageEffect/DamageEffect.tres" id="2_cj38k"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="3_qg6up"]
+[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://models/Dice/DiceMana/Resources/ManaRed.tres" id="4_ch8we"]
+[ext_resource type="Resource" uid="uid://blbpxamynh28s" path="res://models/Action/ActionSources/RoleSource.tres" id="5_0jduw"]
+[ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/Action/TargetConfiguration.cs" id="6_cj38k"]
+[ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/Action/Action.cs" id="6_jo2a4"]
+
+[sub_resource type="Resource" id="Resource_qg6up"]
+script = ExtResource("6_cj38k")
+Rows = 3
+Columns = 3
+Grid = Array[int]([1, 3, 3, 1, 3, 3, 1, 3, 3])
+metadata/_custom_type_script = ExtResource("6_cj38k")
 
 [resource]
+script = ExtResource("6_jo2a4")
+Id = "8626c3fe-f5cf-4c3b-8d82-33d688a47793"
+Source = ExtResource("5_0jduw")
+Name = "Magic Missiles"
+Description = "Magic Missiles description."
+RequiredMana = Array[ExtResource("3_qg6up")]([ExtResource("4_ch8we")])
+Effects = Array[ExtResource("1_6cbhl")]([ExtResource("2_cj38k")])
+NumberQuantity = 0
+TargetConfiguration = SubResource("Resource_qg6up")

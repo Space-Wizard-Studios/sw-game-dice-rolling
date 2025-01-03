@@ -7,8 +7,9 @@
 [resource]
 script = ExtResource("3_cvwtg")
 Id = "75ab151b-3832-4391-ab5b-77341639ec0e"
-Name = ""
-Description = ""
+Name = "Arcane Strike"
+Description = "Arcane Strike description"
 RequiredMana = Array[ExtResource("2_cspjt")]([])
 Effects = Array[ExtResource("1_opkhu")]([])
+NumberQuantity = 0
 metadata/_custom_type_script = ExtResource("3_cvwtg")

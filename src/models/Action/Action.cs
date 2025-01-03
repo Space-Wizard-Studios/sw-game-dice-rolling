@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using DiceRoll.Models.Actions.Effects;
+using DiceRoll.Models.Actions.Target;
 
 namespace DiceRoll.Models.Actions;
 
@@ -26,9 +27,7 @@ public partial class Action : Resource, IAction<IActionContext, bool> {
     public string? IconPath { get; private set; }
     [Export] public Godot.Collections.Array<DiceMana> RequiredMana { get; set; } = [];
     [Export] public Godot.Collections.Array<EffectType> Effects { get; set; } = [];
-    [Export] public TargetType? TargetType { get; set; }
-    [Export] public QuantityType? QuantityType { get; set; }
-    [Export(PropertyHint.Range, "0,100,1")] public int NumberQuantity { get; set; }
+    [Export] TargetConfiguration? TargetConfiguration { get; set; }
 
     public Action() { }
 
@@ -36,18 +35,12 @@ public partial class Action : Resource, IAction<IActionContext, bool> {
         ActionType actionType,
         ActionSource source,
         Godot.Collections.Array<DiceMana> requiredMana,
-        Godot.Collections.Array<EffectType> effects,
-        TargetType targetType,
-        QuantityType quantityType,
-        int numberQuantity
+        Godot.Collections.Array<EffectType> effects
     ) {
         ActionType = actionType;
         Source = source;
         RequiredMana = requiredMana;
         Effects = effects;
-        TargetType = targetType;
-        QuantityType = quantityType;
-        NumberQuantity = numberQuantity;
     }
 
     public bool Do(IActionContext context) {
@@ -55,12 +48,5 @@ public partial class Action : Resource, IAction<IActionContext, bool> {
             effect.Apply(context);
         }
         return true;
-    }
-
-    public override void _ValidateProperty(Godot.Collections.Dictionary property) {
-        if (property["name"].AsStringName() == "NumberQuantity" && QuantityType?.Name != "Number") {
-            var usage = property["usage"].As<PropertyUsageFlags>() | PropertyUsageFlags.ReadOnly;
-            property["usage"] = (int)usage;
-        }
     }
 }

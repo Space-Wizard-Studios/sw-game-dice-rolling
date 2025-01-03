@@ -3,6 +3,8 @@
 Namespace: [DiceRoll.Editor](DiceRoll.Editor.md)  
 Assembly: dice\-roll.dll  
 
+Custom inspector plugin for handling TargetConfiguration objects in the Godot Editor.
+
 ```csharp
 [ScriptPath("res://addons/TargetConfigurationEditorPlugin/TargetConfigurationInspectorPlugin.cs")]
 public class TargetConfigurationInspectorPlugin : EditorInspectorPlugin, IDisposable
@@ -135,7 +137,7 @@ GodotObject.PropertyListChanged,
 
 ### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin__CanHandle_Godot_GodotObject_"></a> \_CanHandle\(GodotObject\)
 
-<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this object can be handled by this plugin.</p>
+Determines if the plugin can handle the given object.
 
 ```csharp
 public override bool _CanHandle(GodotObject @object)
@@ -145,13 +147,17 @@ public override bool _CanHandle(GodotObject @object)
 
 `object` GodotObject
 
+The object to check.
+
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
+True if the object is a TargetConfiguration, otherwise false.
+
 ### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin__ParseBegin_Godot_GodotObject_"></a> \_ParseBegin\(GodotObject\)
 
-<p>Called to allow adding controls at the beginning of the property list for <code class="paramref">object</code>.</p>
+Initializes custom controls for the TargetConfiguration object.
 
 ```csharp
 public override void _ParseBegin(GodotObject @object)
@@ -160,6 +166,8 @@ public override void _ParseBegin(GodotObject @object)
 #### Parameters
 
 `object` GodotObject
+
+The TargetConfiguration object.
 
 ### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin__ParseEnd_Godot_GodotObject_"></a> \_ParseEnd\(GodotObject\)
 

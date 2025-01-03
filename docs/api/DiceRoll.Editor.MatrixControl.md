@@ -3,6 +3,8 @@
 Namespace: [DiceRoll.Editor](DiceRoll.Editor.md)  
 Assembly: dice\-roll.dll  
 
+Manages a grid configuration for a target.
+
 ```csharp
 public class MatrixControl : Control, IDisposable
 ```
@@ -560,11 +562,15 @@ GodotObject.PropertyListChanged,
 
 ### <a id="DiceRoll_Editor_MatrixControl__ctor"></a> MatrixControl\(\)
 
+Initializes a new instance of the <xref href="DiceRoll.Editor.MatrixControl" data-throw-if-not-resolved="false"></xref> class with an empty grid.
+
 ```csharp
 public MatrixControl()
 ```
 
 ### <a id="DiceRoll_Editor_MatrixControl__ctor_DiceRoll_Models_Actions_Target_TargetConfiguration_"></a> MatrixControl\(TargetConfiguration\)
+
+Initializes a new instance of the <xref href="DiceRoll.Editor.MatrixControl" data-throw-if-not-resolved="false"></xref> class with a given target configuration.
 
 ```csharp
 public MatrixControl(TargetConfiguration targetConfiguration)
@@ -573,6 +579,8 @@ public MatrixControl(TargetConfiguration targetConfiguration)
 #### Parameters
 
 `targetConfiguration` [TargetConfiguration](DiceRoll.Models.Actions.Target.TargetConfiguration.md)
+
+The target configuration to initialize the grid with.
 
 ## Properties
 
@@ -590,6 +598,8 @@ public TargetConfiguration? TargetConfiguration { get; }
 
 ### <a id="DiceRoll_Editor_MatrixControl_FlipHorizontally_System_Boolean_"></a> FlipHorizontally\(bool\)
 
+Flips the grid horizontally and triggers a redraw.
+
 ```csharp
 public void FlipHorizontally(bool flip)
 ```
@@ -598,7 +608,11 @@ public void FlipHorizontally(bool flip)
 
 `flip` [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
+If set to <code>true</code>, the grid will be flipped horizontally.
+
 ### <a id="DiceRoll_Editor_MatrixControl_UpdateDimensions_System_Int32_System_Int32_"></a> UpdateDimensions\(int, int\)
+
+Updates the grid dimensions and recalculates the minimum size.
 
 ```csharp
 public void UpdateDimensions(int rows, int columns)
@@ -608,12 +622,15 @@ public void UpdateDimensions(int rows, int columns)
 
 `rows` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
+The number of rows in the grid.
+
 `columns` [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+The number of columns in the grid.
 
 ### <a id="DiceRoll_Editor_MatrixControl__Draw"></a> \_Draw\(\)
 
-<p>Called when <xref href="Godot.CanvasItem" data-throw-if-not-resolved="false"></xref> has been requested to redraw (after <xref href="Godot.CanvasItem.QueueRedraw" data-throw-if-not-resolved="false"></xref> is called, either manually or by the engine).</p>
-<p>Corresponds to the <xref href="Godot.CanvasItem.NotificationDraw" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>.</p>
+Draws the grid and its contents.
 
 ```csharp
 public override void _Draw()
@@ -621,29 +638,7 @@ public override void _Draw()
 
 ### <a id="DiceRoll_Editor_MatrixControl__GuiInput_Godot_InputEvent_"></a> \_GuiInput\(InputEvent\)
 
-<p>Virtual method to be implemented by the user. Override this method to handle and accept inputs on UI elements. See also <xref href="Godot.Control.AcceptEvent" data-throw-if-not-resolved="false"></xref>.</p>
-<p>
-  <b>Example:</b> Click on the control to print a message:</p>
-<p>
-  <pre><code class="lang-csharp">public override void _GuiInput(InputEvent @event)
-  {
-      if (@event is InputEventMouseButton mb)
-      {
-          if (mb.ButtonIndex == MouseButton.Left &amp;&amp; mb.Pressed)
-          {
-              GD.Print("I've been clicked D:");
-          }
-      }
-  }</code></pre>
-</p>
-<p>If the <code class="paramref">event</code> inherits <xref href="Godot.InputEventMouse" data-throw-if-not-resolved="false"></xref>, this method will <b>not</b> be called when:</p>
-<p>- the control's <xref href="Godot.Control.MouseFilter" data-throw-if-not-resolved="false"></xref> is set to <xref href="Godot.Control.MouseFilterEnum.Ignore" data-throw-if-not-resolved="false"></xref>;</p>
-<p>- the control is obstructed by another control on top, that doesn't have <xref href="Godot.Control.MouseFilter" data-throw-if-not-resolved="false"></xref> set to <xref href="Godot.Control.MouseFilterEnum.Ignore" data-throw-if-not-resolved="false"></xref>;</p>
-<p>- the control's parent has <xref href="Godot.Control.MouseFilter" data-throw-if-not-resolved="false"></xref> set to <xref href="Godot.Control.MouseFilterEnum.Stop" data-throw-if-not-resolved="false"></xref> or has accepted the event;</p>
-<p>- the control's parent has <xref href="Godot.Control.ClipContents" data-throw-if-not-resolved="false"></xref> enabled and the <code class="paramref">event</code>'s position is outside the parent's rectangle;</p>
-<p>- the <code class="paramref">event</code>'s position is outside the control (see <xref href="Godot.Control._HasPoint(Godot.Vector2)" data-throw-if-not-resolved="false"></xref>).</p>
-<p>
-  <b>Note:</b> The <code class="paramref">event</code>'s position is relative to this control's origin.</p>
+Handles mouse input to update the grid values.
 
 ```csharp
 public override void _GuiInput(InputEvent @event)
@@ -652,4 +647,6 @@ public override void _GuiInput(InputEvent @event)
 #### Parameters
 
 `event` InputEvent
+
+The input event.
 

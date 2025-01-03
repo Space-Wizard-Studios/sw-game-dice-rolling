@@ -3,19 +3,33 @@ using DiceRoll.Models.Actions.Target;
 
 namespace DiceRoll.Editor;
 
+/// <summary>
+/// Custom inspector plugin for handling TargetConfiguration objects in the Godot Editor.
+/// </summary>
 public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin {
     private MatrixControl? matrixControl;
     private CheckBox? flipCheckBox;
 
+    /// <summary>
+    /// Determines if the plugin can handle the given object.
+    /// </summary>
+    /// <param name="object">The object to check.</param>
+    /// <returns>True if the object is a TargetConfiguration, otherwise false.</returns>
     public override bool _CanHandle(GodotObject @object) {
         return @object is TargetConfiguration;
     }
 
+    /// <summary>
+    /// Initializes custom controls for the TargetConfiguration object.
+    /// </summary>
+    /// <param name="object">The TargetConfiguration object.</param>
     public override void _ParseBegin(GodotObject @object) {
         if (@object is TargetConfiguration targetConfiguration) {
+            // Initialize and add MatrixControl
             matrixControl = new MatrixControl(targetConfiguration);
             AddCustomControl(matrixControl);
 
+            // Add RichTextLabel for matrix value descriptions
             var descriptionControl = new Control {
                 SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
                 SizeFlagsVertical = Control.SizeFlags.ExpandFill
@@ -34,12 +48,16 @@ public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin 
                 SizeFlagsVertical = Control.SizeFlags.ExpandFill,
                 CustomMinimumSize = new Vector2(0, 80)
             };
+
             AddCustomControl(descriptionRichTextLabel);
 
+            // Add CheckBox for flipping the matrix horizontally
             flipCheckBox = new CheckBox { Text = "Flip Horizontally (Preview)" };
             flipCheckBox.Toggled += OnFlipCheckBoxToggled;
+
             AddCustomControl(flipCheckBox);
 
+            // Connect to ConfigurationChanged signal if not already connected
             if (!targetConfiguration.IsConnected(nameof(TargetConfiguration.ConfigurationChanged), new Callable(this, nameof(OnConfigurationChanged)))) {
                 targetConfiguration.Connect(nameof(TargetConfiguration.ConfigurationChanged), new Callable(this, nameof(OnConfigurationChanged)));
             }
@@ -50,6 +68,7 @@ public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin 
         // Do not disconnect the signal here to avoid premature disconnection
     }
 
+    // Event handler for ConfigurationChanged signal
     private void OnConfigurationChanged() {
         if (matrixControl != null && matrixControl.TargetConfiguration is TargetConfiguration targetConfiguration) {
             matrixControl.UpdateDimensions(targetConfiguration.Rows, targetConfiguration.Columns);
@@ -57,6 +76,7 @@ public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin 
         }
     }
 
+    // Event handler for flipCheckBox toggled event
     private void OnFlipCheckBoxToggled(bool buttonPressed) {
         if (matrixControl != null) {
             matrixControl.FlipHorizontally(buttonPressed);

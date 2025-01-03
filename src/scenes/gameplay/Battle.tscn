@@ -1,15 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://8n50xik7xid3"]
+[gd_scene load_steps=18 format=3 uid="uid://8n50xik7xid3"]
 
 [ext_resource type="Script" uid="uid://jc3rfy1j13nu" path="res://core/managers/gameplay/BattleManager.cs" id="1_oeh3a"]
 [ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://core/ui/SceneTransitionButton.cs" id="2_4ip1d"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="2_cgh0m"]
-[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attributes/Resources/Speed.tres" id="3_8xwan"]
-[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attributes/Resources/Health.tres" id="4_pou1m"]
-[ext_resource type="Resource" uid="uid://b4niu7ewhuinj" path="res://models/Attributes/AttributesConfig.tres" id="5_a2p5b"]
 [ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://components/GameLog/GameLogComponent.tscn" id="5_qac67"]
-[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Resources/Eleonore.tres" id="6_ju3q0"]
 [ext_resource type="PackedScene" uid="uid://dsbegy218josn" path="res://components/TurnOrderComponent/TurnOrderComponent.tscn" id="6_xqnn1"]
-[ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://models/Character/Resources/Joanna.tres" id="7_jen7o"]
 [ext_resource type="PackedScene" uid="uid://dgyegipn74jj5" path="res://components/CharacterInspector/CharacterInspector.tscn" id="7_ms447"]
 [ext_resource type="PackedScene" uid="uid://bt73g5fssa68h" path="res://components/InventoryComponent/InventoryComponent.tscn" id="7_ue61k"]
 [ext_resource type="Texture2D" uid="uid://byujdpnhcw2vd" path="res://assets/prototype/Dark/texture_01.png" id="8_vpfel"]
@@ -82,13 +77,8 @@ size_flags_stretch_ratio = 0.1
 mouse_filter = 2
 color = Color(0.49, 0.321848, 0.1421, 1)
 
-[node name="TurnOrder" parent="HUD/HUDContainer/TopContainer" node_paths=PackedStringArray("_portraitTemplate") instance=ExtResource("6_xqnn1")]
+[node name="TurnOrder" parent="HUD/HUDContainer/TopContainer" instance=ExtResource("6_xqnn1")]
 layout_mode = 2
-SpeedAttributeType = ExtResource("3_8xwan")
-HealthAttributeType = ExtResource("4_pou1m")
-_attributesConfig = ExtResource("5_a2p5b")
-_characters = [ExtResource("6_ju3q0"), ExtResource("7_jen7o")]
-_portraitTemplate = NodePath("MarginContainer/HBoxContainer2/ScrollContainer/PortraitsContainer/PortraitTemplate")
 
 [node name="ColorRect2" type="ColorRect" parent="HUD/HUDContainer/TopContainer"]
 layout_mode = 2
@@ -118,9 +108,6 @@ mouse_default_cursor_shape = 2
 text = "Lobby"
 script = ExtResource("2_4ip1d")
 TypeOfTransition = 2
-_typeOfTransition = 2
-_menuTransitionManager = null
-_gameplayTransitionManager = null
 
 [node name="MiddleContainer" type="Control" parent="HUD/HUDContainer"]
 layout_mode = 2
@@ -140,7 +127,6 @@ size_flags_horizontal = 3
 
 [node name="CharacterInspector" parent="HUD/HUDContainer/Row/VBoxContainer" instance=ExtResource("7_ms447")]
 layout_mode = 2
-_character = ExtResource("6_ju3q0")
 
 [node name="TabContainer" type="TabContainer" parent="HUD/HUDContainer/Row"]
 layout_mode = 2
@@ -173,9 +159,6 @@ text = "HUD / SELECTION"
 [node name="Inventory" parent="HUD/HUDContainer/Row/TabContainer" instance=ExtResource("7_ue61k")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-_inventoryGrid = null
-_itemComponent = null
-_tabChangedConnected = false
 metadata/_tab_index = 1
 
 [node name="GameLog" parent="HUD/HUDContainer/Row/TabContainer" instance=ExtResource("5_qac67")]

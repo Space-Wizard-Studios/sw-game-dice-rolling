@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Character" load_steps=14 format=3 uid="uid://bkolttux1bvi1"]
 
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attributes/Resources/Health.tres" id="1_0bgf2"]
+[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Action/CharacterAction.cs" id="1_244n0"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="1_p8ost"]
 [ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attributes/CharacterAttribute.cs" id="2_dudko"]
 [ext_resource type="Texture2D" uid="uid://8e45l4n0kh6" path="res://assets/characters/joannaOtsoga/JoannaOtsogaPortrait.png" id="3_25hax"]
@@ -9,8 +10,6 @@
 [ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attributes/Resources/Speed.tres" id="4_rlhva"]
 [ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/CharacterLocation/Resources/BattleSquad.tres" id="8_imhpl"]
 [ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://models/Roles/Resources/Fighter.tres" id="8_lhq5r"]
-
-[sub_resource type="CSharpScript" id="CSharpScript_ikwiv"]
 
 [sub_resource type="Resource" id="Resource_4p1nt"]
 script = ExtResource("2_dudko")
@@ -40,7 +39,7 @@ Name = "Joanna"
 IsEnemy = false
 Role = ExtResource("8_lhq5r")
 Attributes = Array[ExtResource("2_dudko")]([SubResource("Resource_4p1nt"), SubResource("Resource_ebahj"), SubResource("Resource_b3bio")])
-Actions = Array[SubResource("CSharpScript_ikwiv")]([])
+Actions = Array[ExtResource("1_244n0")]([])
 DiceCapacity = 0
 Location = ExtResource("8_imhpl")
 SlotIndex = 3

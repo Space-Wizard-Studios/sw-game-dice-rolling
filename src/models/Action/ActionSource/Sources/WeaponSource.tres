@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ActionSource" load_steps=2 format=3 uid="uid://dlpcgjh3upxhe"]
+
+[ext_resource type="Script" uid="uid://bj4yqm0x3wqer" path="res://models/Action/ActionSource/ActionSource.cs" id="1_ow2lq"]
+
+[resource]
+script = ExtResource("1_ow2lq")
+Id = "ce699506-d6db-4e00-9366-a13a91c17741"
+Name = "Weapon Source"
+metadata/_custom_type_script = ExtResource("1_ow2lq")

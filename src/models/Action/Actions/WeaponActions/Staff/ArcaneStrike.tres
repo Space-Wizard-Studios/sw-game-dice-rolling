@@ -1,31 +1,29 @@
-[gd_resource type="Resource" load_steps=6 format=3 uid="uid://c8xr12tkory0k"]
+[gd_resource type="Resource" script_class="Action" load_steps=9 format=3 uid="uid://c8xr12tkory0k"]
 
-[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/EffectTypes/EffectType.cs" id="1_opkhu"]
+[ext_resource type="Resource" uid="uid://dwtue01tv131s" path="res://models/Action/ActionType/Types/AttackType.tres" id="1_rx0fi"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="2_cspjt"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/EffectType/EffectType.cs" id="2_s076j"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/Action/TargetConfiguration.cs" id="3_cspjt"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/Action/Action.cs" id="3_cvwtg"]
+[ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://models/Action/EffectType/DamageEffect/DamageEffect.tres" id="3_uhc3n"]
+[ext_resource type="Resource" uid="uid://dlpcgjh3upxhe" path="res://models/Action/ActionSource/Sources/WeaponSource.tres" id="5_6k1h4"]
 
 [sub_resource type="Resource" id="Resource_cvwtg"]
 script = ExtResource("3_cspjt")
 IsSingleTarget = true
-Rows = 1
+Rows = 2
 Columns = 3
-Grid = Array[int]([1, 3, 3])
-rows = 1
-columns = 3
+Grid = Array[int]([1, 3, 3, 1, 3, 3])
 metadata/_custom_type_script = ExtResource("3_cspjt")
 
 [resource]
 script = ExtResource("3_cvwtg")
 Id = "75ab151b-3832-4391-ab5b-77341639ec0e"
-ActionType = null
-Source = null
+ActionType = ExtResource("1_rx0fi")
+Source = ExtResource("5_6k1h4")
 Name = "Arcane Strike"
 Description = "Arcane Strike description"
-Icon = null
-IconPath = ""
 RequiredMana = Array[ExtResource("2_cspjt")]([])
-Effects = Array[ExtResource("1_opkhu")]([])
+Effects = Array[ExtResource("2_s076j")]([ExtResource("3_uhc3n")])
 TargetConfiguration = SubResource("Resource_cvwtg")
-_icon = null
 metadata/_custom_type_script = ExtResource("3_cvwtg")

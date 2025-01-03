@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ActionType" load_steps=3 format=3 uid="uid://c82rwp1352mje"]
 
 [ext_resource type="Texture2D" uid="uid://bqb2pbkkmyi6t" path="res://assets/icons/actionTypes/debuffType.png" id="1_jdi7h"]
-[ext_resource type="Script" uid="uid://c2h1r5hcgno4f" path="res://models/Actions/ActionTypes/ActionType.cs" id="2_vy8np"]
+[ext_resource type="Script" uid="uid://c2h1r5hcgno4f" path="res://models/Action/ActionType/ActionType.cs" id="2_vy8np"]
 
 [resource]
 script = ExtResource("2_vy8np")

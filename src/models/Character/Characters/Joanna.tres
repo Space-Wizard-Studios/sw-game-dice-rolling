@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="3_rm216"]
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/Character.cs" id="4_b0lof"]
 [ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attributes/Resources/Speed.tres" id="4_rlhva"]
-[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/CharacterLocation/Resources/BattleSquad.tres" id="8_imhpl"]
+[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/CharacterLocation/Locations/BattleSquad.tres" id="8_imhpl"]
 [ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://models/Roles/Resources/Fighter.tres" id="8_lhq5r"]
 
 [sub_resource type="Resource" id="Resource_4p1nt"]

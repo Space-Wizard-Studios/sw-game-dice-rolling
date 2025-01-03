@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b24cvjmwq5kc" path="res://components/CharacterInspector/CharacterInspector.cs" id="1_72g88"]
 [ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="1_jybd2"]
-[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Resources/Eleonore.tres" id="2_7csti"]
+[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Characters/Eleonore.tres" id="2_7csti"]
 
 [node name="CharacterInspector" type="HBoxContainer" node_paths=PackedStringArray("PortraitNode", "CharacterNameNode", "CharacterRoleNode", "AttributesListNode", "AttributeTemplateNode", "AttributeTemplateTitleNode", "ValueContainerNode", "AttributeCurrentValueNode", "AttributeMaxValueNode")]
 anchors_preset = 15

@@ -52,7 +52,7 @@ const processFiles = (dir, destDir) => {
             // content = content.replace(/DiceRoll\./g, '');
 
             // Add backslash before '<' that aren't part of HTML tags or <xref> tags
-            content = content.replace(/<(?!\/?[\w\s="'-]+>|xref)/g, '\\<');
+            content = content.replace(/<(?!\/?[\w\s="'-]+>|xref|a\s|\/a>)/g, '\\<');
 
             // Remove all <p> and </p> tags
             content = content.replace(/<\/?p>/g, '');

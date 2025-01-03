@@ -8,9 +8,9 @@ namespace DiceRoll.Components.Grids;
 /// Represents a 3D grid of characters in the game.
 /// 
 /// <para>Fields:</para>
-/// <para><see cref="GridConfigurations"/>: Configurations for the character grid.</para>
-/// <para><see cref="CharacterComponentScene"/>: Scene to be used for character components.</para>
-/// <para><see cref="GenerateGridButton"/>: Button to generate the grid in the editor.</para>
+/// <para><see cref="GridConfigurations">GridConfigurations</see>: Configurations for the character grid.</para>
+/// <para><see cref="CharacterComponentScene">CharacterComponentScene</see>: Scene to be used for character components.</para>
+/// <para><see cref="GenerateGridButton">GenerateGridButton</see>: Button to generate the grid in the editor.</para>
 /// </summary>
 [Tool]
 public partial class CharacterGrid : Node3D {

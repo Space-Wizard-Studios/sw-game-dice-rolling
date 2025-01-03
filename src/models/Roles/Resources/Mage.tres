@@ -1,31 +1,26 @@
-[gd_resource type="Resource" load_steps=11 format=3 uid="uid://bgx5eoqdsu100"]
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://bgx5eoqdsu100"]
 
-[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attributes/Resources/Health.tres" id="1_3oclc"]
-[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/CharacterActions/CharacterAction.cs" id="1_j7dyc"]
-[ext_resource type="Resource" uid="uid://cvojckruuqrn6" path="res://models/CharacterActions/Resources/Actions/Attack.tres" id="2_b0n47"]
+[ext_resource type="Script" path="res://models/Actions/ActionSources/RoleActions/RoleAction.cs" id="1_5plq8"]
 [ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/Attributes/RoleAttribute.cs" id="2_ht6qo"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Actions/EffectTypes/EffectType.cs" id="2_poh2l"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="3_j7dyc"]
 [ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/Roles/Role.cs" id="3_n1ag4"]
-[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="3_u8iqy"]
-[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attributes/Resources/Speed.tres" id="4_4ioeg"]
 
-[sub_resource type="Resource" id="Resource_gincr"]
-script = ExtResource("2_ht6qo")
-Type = ExtResource("1_3oclc")
-BaseValue = 50
+[sub_resource type="Resource" id="Resource_b0n47"]
+script = ExtResource("1_5plq8")
+BaseRequiredMana = Array[ExtResource("3_j7dyc")]([])
+BaseEffects = Array[ExtResource("2_poh2l")]([])
+metadata/_custom_type_script = ExtResource("1_5plq8")
 
-[sub_resource type="Resource" id="Resource_dsmvb"]
+[sub_resource type="Resource" id="Resource_5plq8"]
 script = ExtResource("2_ht6qo")
-Type = ExtResource("3_u8iqy")
+Name = ""
 BaseValue = 0
-
-[sub_resource type="Resource" id="Resource_42ch0"]
-script = ExtResource("2_ht6qo")
-Type = ExtResource("4_4ioeg")
-BaseValue = 40
+metadata/_custom_type_script = ExtResource("2_ht6qo")
 
 [resource]
 script = ExtResource("3_n1ag4")
 Name = "Mage"
 Description = "MageDescription"
-RoleAttributes = Array[ExtResource("2_ht6qo")]([SubResource("Resource_gincr"), SubResource("Resource_dsmvb"), SubResource("Resource_42ch0")])
-RoleActions = Array[ExtResource("1_j7dyc")]([ExtResource("2_b0n47")])
+RoleAttributes = Array[ExtResource("2_ht6qo")]([SubResource("Resource_5plq8")])
+RoleActions = Array[ExtResource("1_5plq8")]([SubResource("Resource_b0n47")])

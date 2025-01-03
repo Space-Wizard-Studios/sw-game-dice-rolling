@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ActionType" load_steps=3 format=3 uid="uid://dr76sufgv7u7n"]
+
+[ext_resource type="Texture2D" uid="uid://bd5uvw1enyb4k" path="res://assets/icons/actionTypes/auraType.png" id="1_04xlv"]
+[ext_resource type="Script" uid="uid://c2h1r5hcgno4f" path="res://models/Actions/ActionTypes/ActionType.cs" id="2_2apeu"]
+
+[resource]
+script = ExtResource("2_2apeu")
+Name = "Buff"
+Description = "Buff type description."
+Icon = ExtResource("1_04xlv")
+metadata/_custom_type_script = ExtResource("2_2apeu")

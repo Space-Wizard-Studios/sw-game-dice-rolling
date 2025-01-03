@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Action" load_steps=4 format=3 uid="uid://c8xr12tkory0k"]
+
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/EffectTypes/EffectType.cs" id="1_opkhu"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="2_cspjt"]
+[ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/Action/Action.cs" id="3_cvwtg"]
+
+[resource]
+script = ExtResource("3_cvwtg")
+Id = "75ab151b-3832-4391-ab5b-77341639ec0e"
+Name = ""
+Description = ""
+RequiredMana = Array[ExtResource("2_cspjt")]([])
+Effects = Array[ExtResource("1_opkhu")]([])
+metadata/_custom_type_script = ExtResource("3_cvwtg")

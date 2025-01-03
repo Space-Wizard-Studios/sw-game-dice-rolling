@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="QuantityType" load_steps=2 format=3 uid="uid://c5sac6af33saa"]
-
-[ext_resource type="Script" uid="uid://cfocj01xwqgq5" path="res://models/CharacterActions/QuantityType.cs" id="1_8bf1j"]
-
-[resource]
-script = ExtResource("1_8bf1j")
-Name = "All"
-metadata/_custom_type_script = ExtResource("1_8bf1j")

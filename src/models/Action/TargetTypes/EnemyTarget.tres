@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TargetType" load_steps=2 format=3 uid="uid://bwq2yimf5mb88"]
+
+[ext_resource type="Script" uid="uid://cwikxqolsw2va" path="res://models/Actions/TargetTypes/TargetType.cs" id="1_o415o"]
+
+[resource]
+script = ExtResource("1_o415o")
+Name = "EnemyTarget"

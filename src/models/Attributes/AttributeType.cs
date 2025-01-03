@@ -27,13 +27,13 @@ public partial class AttributeType : Resource {
         }
     }
 
+    public string? IconPath { get; private set; }
+
     [Export]
     public int MinValue { get; set; }
 
     [Export]
     public int MaxValue { get; set; }
-
-    public string? IconPath { get; private set; }
 
     public AttributeType() { }
 

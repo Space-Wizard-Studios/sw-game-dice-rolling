@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="TargetType" load_steps=2 format=3 uid="uid://dj7lshs4xmmtm"]
-
-[ext_resource type="Script" uid="uid://cwikxqolsw2va" path="res://models/CharacterActions/TargetType.cs" id="1_sb6li"]
-
-[resource]
-script = ExtResource("1_sb6li")
-Name = "Self"
-metadata/_custom_type_script = ExtResource("1_sb6li")

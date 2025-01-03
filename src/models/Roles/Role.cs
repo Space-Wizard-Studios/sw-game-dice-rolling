@@ -1,5 +1,5 @@
 using Godot;
-using DiceRoll.Models.CharacterActions;
+using DiceRoll.Models.Actions;
 
 namespace DiceRoll.Models;
 
@@ -14,5 +14,5 @@ public partial class Role : Resource {
 
     [Export] public Godot.Collections.Array<RoleAttribute> RoleAttributes { get; set; } = [];
 
-    [Export] public Godot.Collections.Array<CharacterAction> RoleActions { get; set; } = [];
+    // [Export] public Godot.Collections.Array<WeaponAction> RoleActions { get; set; } = [];
 }

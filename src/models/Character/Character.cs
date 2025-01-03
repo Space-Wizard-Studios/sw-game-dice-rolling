@@ -1,7 +1,7 @@
 using Godot;
 using System;
 using System.Linq;
-using DiceRoll.Models.CharacterActions;
+using DiceRoll.Models.Actions;
 using DiceRoll.Models.CharacterLocations;
 
 namespace DiceRoll.Models;
@@ -21,6 +21,7 @@ public partial class Character : Resource {
 
     [Export] public bool IsEnemy { get; set; } = false;
 
+    [ExportSubgroup("📊 Stats and Attributes")]
     private Role? _role;
 
     [Export]
@@ -30,13 +31,13 @@ public partial class Character : Resource {
             _role = value;
             EmitChanged();
             InitializeAttributes();
-            InitializeActions();
+            // InitializeActions();
         }
     }
 
     [Export] public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = [];
 
-    // [Export] public Godot.Collections.Array<CharacterAction> CharacterActions { get; private set; } = [];
+    [Export] public Godot.Collections.Array<CharacterAction> Actions { get; private set; } = [];
 
     [Export] public int DiceCapacity { get; set; } = 0;
 
@@ -77,6 +78,9 @@ public partial class Character : Resource {
 
     public Character() { }
 
+    /// <summary>
+    /// Initializes the character's attributes based on the assigned role.
+    /// </summary>
     public void InitializeAttributes() {
         if (Role is null) {
             GD.PrintErr("Role is null");
@@ -94,14 +98,31 @@ public partial class Character : Resource {
         }
     }
 
-    public void InitializeActions() {
-        if (Role is null) {
-            GD.PrintErr("Role is null");
-            return;
-        }
+    /// <summary>
+    /// Initializes the character's actions based on the assigned role.
+    /// </summary>
+    // public void InitializeActions() {
+    //     if (Role is null) {
+    //         GD.PrintErr("Role is null");
+    //         return;
+    //     }
 
-        // CharacterActions = [.. Role.RoleActions];
-    }
+    //     if (Actions.Count == 0) {
+    //         foreach (WeaponAction roleAction in Role.RoleActions) {
+    //             if (roleAction.ActionType is not null) {
+    //                 var characterAction = new CharacterAction {
+    //                     Name = roleAction.ActionType.Name,
+    //                     Description = roleAction.ActionType.Description,
+    //                     Icon = roleAction.ActionType.Icon,
+    //                     ActionType = roleAction.ActionType,
+    //                     RequiredMana = roleAction.BaseRequiredMana.Duplicate(),
+    //                     Effects = roleAction.BaseEffects.Duplicate()
+    //                 };
+    //                 Actions.Add(characterAction);
+    //             }
+    //         }
+    //     }
+    // }
 
     public int GetAttributeCurrentValue(AttributeType type) {
         var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);

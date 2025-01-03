@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TargetType" load_steps=2 format=3 uid="uid://dtykn5e4tgf0f"]
+
+[ext_resource type="Script" uid="uid://cwikxqolsw2va" path="res://models/Actions/TargetTypes/TargetType.cs" id="1_df3fy"]
+
+[resource]
+script = ExtResource("1_df3fy")
+Name = "Any"
+metadata/_custom_type_script = ExtResource("1_df3fy")

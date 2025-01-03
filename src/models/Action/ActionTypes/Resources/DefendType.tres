@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ActionType" load_steps=3 format=3 uid="uid://dw1d38425v5rd"]
+
+[ext_resource type="Texture2D" uid="uid://dnb0jt83wlu0g" path="res://assets/icons/actionTypes/defendType.png" id="1_anafr"]
+[ext_resource type="Script" uid="uid://c2h1r5hcgno4f" path="res://models/Actions/ActionTypes/ActionType.cs" id="2_31uqc"]
+
+[resource]
+script = ExtResource("2_31uqc")
+Name = "Defend"
+Description = "Defend type description."
+Icon = ExtResource("1_anafr")
+metadata/_custom_type_script = ExtResource("2_31uqc")

@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Managers_BattleManager_MethodName"></a> Class BattleManager.MethodName
+# <a id="DiceRoll_Editor_TargetConfigurationEditorPlugin_MethodName"></a> Class TargetConfigurationEditorPlugin.MethodName
 
-Namespace: [DiceRoll.Managers](DiceRoll.Managers.md)  
+Namespace: [DiceRoll.Editor](DiceRoll.Editor.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
 ```csharp
-public class BattleManager.MethodName : Node3D.MethodName
+public class TargetConfigurationEditorPlugin.MethodName : EditorPlugin.MethodName
 ```
 
 #### Inheritance
@@ -14,82 +14,84 @@ public class BattleManager.MethodName : Node3D.MethodName
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 GodotObject.MethodName ← 
 Node.MethodName ← 
-Node3D.MethodName ← 
-[BattleManager.MethodName](DiceRoll.Managers.BattleManager.MethodName.md)
+EditorPlugin.MethodName ← 
+[TargetConfigurationEditorPlugin.MethodName](DiceRoll.Editor.TargetConfigurationEditorPlugin.MethodName.md)
 
 #### Inherited Members
 
-Node3D.MethodName.SetTransform, 
-Node3D.MethodName.GetTransform, 
-Node3D.MethodName.SetPosition, 
-Node3D.MethodName.GetPosition, 
-Node3D.MethodName.SetRotation, 
-Node3D.MethodName.GetRotation, 
-Node3D.MethodName.SetRotationDegrees, 
-Node3D.MethodName.GetRotationDegrees, 
-Node3D.MethodName.SetRotationOrder, 
-Node3D.MethodName.GetRotationOrder, 
-Node3D.MethodName.SetRotationEditMode, 
-Node3D.MethodName.GetRotationEditMode, 
-Node3D.MethodName.SetScale, 
-Node3D.MethodName.GetScale, 
-Node3D.MethodName.SetQuaternion, 
-Node3D.MethodName.GetQuaternion, 
-Node3D.MethodName.SetBasis, 
-Node3D.MethodName.GetBasis, 
-Node3D.MethodName.SetGlobalTransform, 
-Node3D.MethodName.GetGlobalTransform, 
-Node3D.MethodName.GetGlobalTransformInterpolated, 
-Node3D.MethodName.SetGlobalPosition, 
-Node3D.MethodName.GetGlobalPosition, 
-Node3D.MethodName.SetGlobalBasis, 
-Node3D.MethodName.GetGlobalBasis, 
-Node3D.MethodName.SetGlobalRotation, 
-Node3D.MethodName.GetGlobalRotation, 
-Node3D.MethodName.SetGlobalRotationDegrees, 
-Node3D.MethodName.GetGlobalRotationDegrees, 
-Node3D.MethodName.GetParentNode3D, 
-Node3D.MethodName.SetIgnoreTransformNotification, 
-Node3D.MethodName.SetAsTopLevel, 
-Node3D.MethodName.IsSetAsTopLevel, 
-Node3D.MethodName.SetDisableScale, 
-Node3D.MethodName.IsScaleDisabled, 
-Node3D.MethodName.GetWorld3D, 
-Node3D.MethodName.ForceUpdateTransform, 
-Node3D.MethodName.SetVisibilityParent, 
-Node3D.MethodName.GetVisibilityParent, 
-Node3D.MethodName.UpdateGizmos, 
-Node3D.MethodName.AddGizmo, 
-Node3D.MethodName.GetGizmos, 
-Node3D.MethodName.ClearGizmos, 
-Node3D.MethodName.SetSubgizmoSelection, 
-Node3D.MethodName.ClearSubgizmoSelection, 
-Node3D.MethodName.SetVisible, 
-Node3D.MethodName.IsVisible, 
-Node3D.MethodName.IsVisibleInTree, 
-Node3D.MethodName.Show, 
-Node3D.MethodName.Hide, 
-Node3D.MethodName.SetNotifyLocalTransform, 
-Node3D.MethodName.IsLocalTransformNotificationEnabled, 
-Node3D.MethodName.SetNotifyTransform, 
-Node3D.MethodName.IsTransformNotificationEnabled, 
-Node3D.MethodName.Rotate, 
-Node3D.MethodName.GlobalRotate, 
-Node3D.MethodName.GlobalScale, 
-Node3D.MethodName.GlobalTranslate, 
-Node3D.MethodName.RotateObjectLocal, 
-Node3D.MethodName.ScaleObjectLocal, 
-Node3D.MethodName.TranslateObjectLocal, 
-Node3D.MethodName.RotateX, 
-Node3D.MethodName.RotateY, 
-Node3D.MethodName.RotateZ, 
-Node3D.MethodName.Translate, 
-Node3D.MethodName.Orthonormalize, 
-Node3D.MethodName.SetIdentity, 
-Node3D.MethodName.LookAt, 
-Node3D.MethodName.LookAtFromPosition, 
-Node3D.MethodName.ToLocal, 
-Node3D.MethodName.ToGlobal, 
+EditorPlugin.MethodName.\_ApplyChanges, 
+EditorPlugin.MethodName.\_Build, 
+EditorPlugin.MethodName.\_Clear, 
+EditorPlugin.MethodName.\_DisablePlugin, 
+EditorPlugin.MethodName.\_Edit, 
+EditorPlugin.MethodName.\_EnablePlugin, 
+EditorPlugin.MethodName.\_Forward3DDrawOverViewport, 
+EditorPlugin.MethodName.\_Forward3DForceDrawOverViewport, 
+EditorPlugin.MethodName.\_Forward3DGuiInput, 
+EditorPlugin.MethodName.\_ForwardCanvasDrawOverViewport, 
+EditorPlugin.MethodName.\_ForwardCanvasForceDrawOverViewport, 
+EditorPlugin.MethodName.\_ForwardCanvasGuiInput, 
+EditorPlugin.MethodName.\_GetBreakpoints, 
+EditorPlugin.MethodName.\_GetPluginIcon, 
+EditorPlugin.MethodName.\_GetPluginName, 
+EditorPlugin.MethodName.\_GetState, 
+EditorPlugin.MethodName.\_GetUnsavedStatus, 
+EditorPlugin.MethodName.\_GetWindowLayout, 
+EditorPlugin.MethodName.\_Handles, 
+EditorPlugin.MethodName.\_HasMainScreen, 
+EditorPlugin.MethodName.\_MakeVisible, 
+EditorPlugin.MethodName.\_SaveExternalData, 
+EditorPlugin.MethodName.\_SetState, 
+EditorPlugin.MethodName.\_SetWindowLayout, 
+EditorPlugin.MethodName.AddControlToContainer, 
+EditorPlugin.MethodName.AddControlToBottomPanel, 
+EditorPlugin.MethodName.AddControlToDock, 
+EditorPlugin.MethodName.RemoveControlFromDocks, 
+EditorPlugin.MethodName.RemoveControlFromBottomPanel, 
+EditorPlugin.MethodName.RemoveControlFromContainer, 
+EditorPlugin.MethodName.SetDockTabIcon, 
+EditorPlugin.MethodName.AddToolMenuItem, 
+EditorPlugin.MethodName.AddToolSubmenuItem, 
+EditorPlugin.MethodName.RemoveToolMenuItem, 
+EditorPlugin.MethodName.GetExportAsMenu, 
+EditorPlugin.MethodName.AddCustomType, 
+EditorPlugin.MethodName.RemoveCustomType, 
+EditorPlugin.MethodName.AddAutoloadSingleton, 
+EditorPlugin.MethodName.RemoveAutoloadSingleton, 
+EditorPlugin.MethodName.UpdateOverlays, 
+EditorPlugin.MethodName.MakeBottomPanelItemVisible, 
+EditorPlugin.MethodName.HideBottomPanel, 
+EditorPlugin.MethodName.GetUndoRedo, 
+EditorPlugin.MethodName.AddUndoRedoInspectorHookCallback, 
+EditorPlugin.MethodName.RemoveUndoRedoInspectorHookCallback, 
+EditorPlugin.MethodName.QueueSaveLayout, 
+EditorPlugin.MethodName.AddTranslationParserPlugin, 
+EditorPlugin.MethodName.RemoveTranslationParserPlugin, 
+EditorPlugin.MethodName.AddImportPlugin, 
+EditorPlugin.MethodName.RemoveImportPlugin, 
+EditorPlugin.MethodName.AddSceneFormatImporterPlugin, 
+EditorPlugin.MethodName.RemoveSceneFormatImporterPlugin, 
+EditorPlugin.MethodName.AddScenePostImportPlugin, 
+EditorPlugin.MethodName.RemoveScenePostImportPlugin, 
+EditorPlugin.MethodName.AddExportPlugin, 
+EditorPlugin.MethodName.RemoveExportPlugin, 
+EditorPlugin.MethodName.AddExportPlatform, 
+EditorPlugin.MethodName.RemoveExportPlatform, 
+EditorPlugin.MethodName.AddNode3DGizmoPlugin, 
+EditorPlugin.MethodName.RemoveNode3DGizmoPlugin, 
+EditorPlugin.MethodName.AddInspectorPlugin, 
+EditorPlugin.MethodName.RemoveInspectorPlugin, 
+EditorPlugin.MethodName.AddResourceConversionPlugin, 
+EditorPlugin.MethodName.RemoveResourceConversionPlugin, 
+EditorPlugin.MethodName.SetInputEventForwardingAlwaysEnabled, 
+EditorPlugin.MethodName.SetForceDrawOverForwardingEnabled, 
+EditorPlugin.MethodName.AddContextMenuPlugin, 
+EditorPlugin.MethodName.RemoveContextMenuPlugin, 
+EditorPlugin.MethodName.GetEditorInterface, 
+EditorPlugin.MethodName.GetScriptCreateDialog, 
+EditorPlugin.MethodName.AddDebuggerPlugin, 
+EditorPlugin.MethodName.RemoveDebuggerPlugin, 
+EditorPlugin.MethodName.GetPluginVersion, 
 Node.MethodName.\_EnterTree, 
 Node.MethodName.\_ExitTree, 
 Node.MethodName.\_GetConfigurationWarnings, 
@@ -288,36 +290,24 @@ GodotObject.MethodName.CancelFree,
 
 ## Fields
 
-### <a id="DiceRoll_Managers_BattleManager_MethodName_RunCharacterTests"></a> RunCharacterTests
+### <a id="DiceRoll_Editor_TargetConfigurationEditorPlugin_MethodName__EnterTree"></a> \_EnterTree
 
-Cached name for the 'RunCharacterTests' method.
+Cached name for the '_EnterTree' method.
 
 ```csharp
-public static readonly StringName RunCharacterTests
+public static readonly StringName _EnterTree
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_Managers_BattleManager_MethodName_RunGameLogTests"></a> RunGameLogTests
+### <a id="DiceRoll_Editor_TargetConfigurationEditorPlugin_MethodName__ExitTree"></a> \_ExitTree
 
-Cached name for the 'RunGameLogTests' method.
-
-```csharp
-public static readonly StringName RunGameLogTests
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Managers_BattleManager_MethodName__Ready"></a> \_Ready
-
-Cached name for the '_Ready' method.
+Cached name for the '_ExitTree' method.
 
 ```csharp
-public static readonly StringName _Ready
+public static readonly StringName _ExitTree
 ```
 
 #### Field Value

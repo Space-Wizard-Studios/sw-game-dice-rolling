@@ -12,10 +12,6 @@
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [TooltipComponent.MethodName](DiceRoll.Components.UI.TooltipComponent.MethodName.md)
-
-Cached StringNames for the methods contained in this class, for fast lookup.
-
  [InventoryComponent.MethodName](DiceRoll.Components.UI.InventoryComponent.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
@@ -24,9 +20,9 @@ Cached StringNames for the methods contained in this class, for fast lookup.
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [InventoryComponent.PropertyName](DiceRoll.Components.UI.InventoryComponent.PropertyName.md)
+ [TooltipComponent.MethodName](DiceRoll.Components.UI.TooltipComponent.MethodName.md)
 
-Cached StringNames for the properties and fields contained in this class, for fast lookup.
+Cached StringNames for the methods contained in this class, for fast lookup.
 
  [TooltipComponent.PropertyName](DiceRoll.Components.UI.TooltipComponent.PropertyName.md)
 
@@ -40,6 +36,14 @@ Cached StringNames for the properties and fields contained in this class, for fa
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
+ [InventoryComponent.PropertyName](DiceRoll.Components.UI.InventoryComponent.PropertyName.md)
+
+Cached StringNames for the properties and fields contained in this class, for fast lookup.
+
+ [InventoryComponent.SignalName](DiceRoll.Components.UI.InventoryComponent.SignalName.md)
+
+Cached StringNames for the signals contained in this class, for fast lookup.
+
  [TooltipComponent.SignalName](DiceRoll.Components.UI.TooltipComponent.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
@@ -49,10 +53,6 @@ Cached StringNames for the signals contained in this class, for fast lookup.
 Cached StringNames for the signals contained in this class, for fast lookup.
 
  [InventoryItemComponent.SignalName](DiceRoll.Components.UI.InventoryItemComponent.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
- [InventoryComponent.SignalName](DiceRoll.Components.UI.InventoryComponent.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 

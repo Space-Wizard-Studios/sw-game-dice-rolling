@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Models_RoleAttribute_PropertyName"></a> Class RoleAttribute.PropertyName
+# <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_PropertyName"></a> Class TargetConfigurationInspectorPlugin.PropertyName
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Editor](DiceRoll.Editor.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
 ```csharp
-public class RoleAttribute.PropertyName : Resource.PropertyName
+public class TargetConfigurationInspectorPlugin.PropertyName : EditorInspectorPlugin.PropertyName
 ```
 
 #### Inheritance
@@ -14,15 +14,11 @@ public class RoleAttribute.PropertyName : Resource.PropertyName
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 GodotObject.PropertyName ← 
 RefCounted.PropertyName ← 
-Resource.PropertyName ← 
-[RoleAttribute.PropertyName](DiceRoll.Models.RoleAttribute.PropertyName.md)
+EditorInspectorPlugin.PropertyName ← 
+[TargetConfigurationInspectorPlugin.PropertyName](DiceRoll.Editor.TargetConfigurationInspectorPlugin.PropertyName.md)
 
 #### Inherited Members
 
-Resource.PropertyName.ResourceLocalToScene, 
-Resource.PropertyName.ResourcePath, 
-Resource.PropertyName.ResourceName, 
-Resource.PropertyName.ResourceSceneUniqueId, 
 [object.Equals\(object?\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
 [object.Equals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
 [object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
@@ -33,36 +29,24 @@ Resource.PropertyName.ResourceSceneUniqueId,
 
 ## Fields
 
-### <a id="DiceRoll_Models_RoleAttribute_PropertyName_BaseValue"></a> BaseValue
+### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_PropertyName_flipCheckBox"></a> flipCheckBox
 
-Cached name for the 'BaseValue' property.
+Cached name for the 'flipCheckBox' field.
 
 ```csharp
-public static readonly StringName BaseValue
+public static readonly StringName flipCheckBox
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_Models_RoleAttribute_PropertyName_Name"></a> Name
+### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_PropertyName_matrixControl"></a> matrixControl
 
-Cached name for the 'Name' property.
-
-```csharp
-public static readonly StringName Name
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Models_RoleAttribute_PropertyName_Type"></a> Type
-
-Cached name for the 'Type' property.
+Cached name for the 'matrixControl' field.
 
 ```csharp
-public static readonly StringName Type
+public static readonly StringName matrixControl
 ```
 
 #### Field Value

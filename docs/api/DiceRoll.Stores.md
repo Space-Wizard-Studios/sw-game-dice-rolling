@@ -24,15 +24,15 @@ Cached StringNames for the methods contained in this class, for fast lookup.
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
+ [GameLogStore.PropertyName](DiceRoll.Stores.GameLogStore.PropertyName.md)
+
+Cached StringNames for the properties and fields contained in this class, for fast lookup.
+
  [DiceStore.PropertyName](DiceRoll.Stores.DiceStore.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
  [CharacterStore.PropertyName](DiceRoll.Stores.CharacterStore.PropertyName.md)
-
-Cached StringNames for the properties and fields contained in this class, for fast lookup.
-
- [GameLogStore.PropertyName](DiceRoll.Stores.GameLogStore.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 

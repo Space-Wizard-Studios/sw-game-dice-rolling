@@ -6,11 +6,11 @@
 
  [CharacterInspector](DiceRoll.Components.Characters.CharacterInspector.md)
 
- [CharacterInspector.MethodName](DiceRoll.Components.Characters.CharacterInspector.MethodName.md)
+ [CharacterComponent.MethodName](DiceRoll.Components.Characters.CharacterComponent.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
- [CharacterComponent.MethodName](DiceRoll.Components.Characters.CharacterComponent.MethodName.md)
+ [CharacterInspector.MethodName](DiceRoll.Components.Characters.CharacterInspector.MethodName.md)
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 

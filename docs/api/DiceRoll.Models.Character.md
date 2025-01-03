@@ -159,6 +159,17 @@ public Character()
 
 ## Properties
 
+### <a id="DiceRoll_Models_Character_Actions"></a> Actions
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Array<CharacterAction> Actions { get; }
+```
+
+#### Property Value
+
+ Array<[CharacterAction](DiceRoll.Models.Actions.CharacterAction.md)\>
+
 ### <a id="DiceRoll_Models_Character_Attributes"></a> Attributes
 
 ```csharp
@@ -346,6 +357,8 @@ public int GetAttributeBaseValue(AttributeType type)
 
 ### <a id="DiceRoll_Models_Character_GetAttributeCurrentValue_DiceRoll_Models_AttributeType_"></a> GetAttributeCurrentValue\(AttributeType\)
 
+Initializes the character's actions based on the assigned role.
+
 ```csharp
 public int GetAttributeCurrentValue(AttributeType type)
 ```
@@ -372,13 +385,9 @@ public int GetAttributeMaxValue(AttributeType type)
 
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-### <a id="DiceRoll_Models_Character_InitializeActions"></a> InitializeActions\(\)
-
-```csharp
-public void InitializeActions()
-```
-
 ### <a id="DiceRoll_Models_Character_InitializeAttributes"></a> InitializeAttributes\(\)
+
+Initializes the character's attributes based on the assigned role.
 
 ```csharp
 public void InitializeAttributes()

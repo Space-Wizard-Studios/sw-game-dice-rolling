@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Models_RoleAttribute_PropertyName"></a> Class RoleAttribute.PropertyName
+# <a id="DiceRoll_Models_Actions_ActionSource_PropertyName"></a> Class ActionSource.PropertyName
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Actions](DiceRoll.Models.Actions.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
 ```csharp
-public class RoleAttribute.PropertyName : Resource.PropertyName
+public class ActionSource.PropertyName : Resource.PropertyName
 ```
 
 #### Inheritance
@@ -15,7 +15,7 @@ public class RoleAttribute.PropertyName : Resource.PropertyName
 GodotObject.PropertyName ← 
 RefCounted.PropertyName ← 
 Resource.PropertyName ← 
-[RoleAttribute.PropertyName](DiceRoll.Models.RoleAttribute.PropertyName.md)
+[ActionSource.PropertyName](DiceRoll.Models.Actions.ActionSource.PropertyName.md)
 
 #### Inherited Members
 
@@ -33,36 +33,24 @@ Resource.PropertyName.ResourceSceneUniqueId,
 
 ## Fields
 
-### <a id="DiceRoll_Models_RoleAttribute_PropertyName_BaseValue"></a> BaseValue
+### <a id="DiceRoll_Models_Actions_ActionSource_PropertyName_Id"></a> Id
 
-Cached name for the 'BaseValue' property.
+Cached name for the 'Id' property.
 
 ```csharp
-public static readonly StringName BaseValue
+public static readonly StringName Id
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_Models_RoleAttribute_PropertyName_Name"></a> Name
+### <a id="DiceRoll_Models_Actions_ActionSource_PropertyName_Name"></a> Name
 
 Cached name for the 'Name' property.
 
 ```csharp
 public static readonly StringName Name
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Models_RoleAttribute_PropertyName_Type"></a> Type
-
-Cached name for the 'Type' property.
-
-```csharp
-public static readonly StringName Type
 ```
 
 #### Field Value

@@ -1,11 +1,12 @@
-# <a id="DiceRoll_Managers_BattleManager"></a> Class BattleManager
+# <a id="DiceRoll_Editor_TargetConfigurationEditorPlugin"></a> Class TargetConfigurationEditorPlugin
 
-Namespace: [DiceRoll.Managers](DiceRoll.Managers.md)  
+Namespace: [DiceRoll.Editor](DiceRoll.Editor.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
-[ScriptPath("res://core/managers/gameplay/BattleManager.cs")]
-public class BattleManager : Node3D, IDisposable
+[Tool]
+[ScriptPath("res://addons/TargetConfigurationEditorPlugin/TargetConfigurationEditorPlugin.cs")]
+public class TargetConfigurationEditorPlugin : EditorPlugin, IDisposable
 ```
 
 #### Inheritance
@@ -13,8 +14,8 @@ public class BattleManager : Node3D, IDisposable
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 GodotObject ← 
 Node ← 
-Node3D ← 
-[BattleManager](DiceRoll.Managers.BattleManager.md)
+EditorPlugin ← 
+[TargetConfigurationEditorPlugin](DiceRoll.Editor.TargetConfigurationEditorPlugin.md)
 
 #### Implements
 
@@ -22,70 +23,94 @@ Node3D ←
 
 #### Inherited Members
 
-Node3D.NotificationTransformChanged, 
-Node3D.NotificationEnterWorld, 
-Node3D.NotificationExitWorld, 
-Node3D.NotificationVisibilityChanged, 
-Node3D.NotificationLocalTransformChanged, 
-Node3D.GetGlobalTransformInterpolated\(\), 
-Node3D.GetParentNode3D\(\), 
-Node3D.SetIgnoreTransformNotification\(bool\), 
-Node3D.SetDisableScale\(bool\), 
-Node3D.IsScaleDisabled\(\), 
-Node3D.GetWorld3D\(\), 
-Node3D.ForceUpdateTransform\(\), 
-Node3D.UpdateGizmos\(\), 
-Node3D.AddGizmo\(Node3DGizmo\), 
-Node3D.GetGizmos\(\), 
-Node3D.ClearGizmos\(\), 
-Node3D.SetSubgizmoSelection\(Node3DGizmo, int, Transform3D\), 
-Node3D.ClearSubgizmoSelection\(\), 
-Node3D.IsVisibleInTree\(\), 
-Node3D.Show\(\), 
-Node3D.Hide\(\), 
-Node3D.SetNotifyLocalTransform\(bool\), 
-Node3D.IsLocalTransformNotificationEnabled\(\), 
-Node3D.SetNotifyTransform\(bool\), 
-Node3D.IsTransformNotificationEnabled\(\), 
-Node3D.Rotate\(Vector3, float\), 
-Node3D.GlobalRotate\(Vector3, float\), 
-Node3D.GlobalScale\(Vector3\), 
-Node3D.GlobalTranslate\(Vector3\), 
-Node3D.RotateObjectLocal\(Vector3, float\), 
-Node3D.ScaleObjectLocal\(Vector3\), 
-Node3D.TranslateObjectLocal\(Vector3\), 
-Node3D.RotateX\(float\), 
-Node3D.RotateY\(float\), 
-Node3D.RotateZ\(float\), 
-Node3D.Translate\(Vector3\), 
-Node3D.Orthonormalize\(\), 
-Node3D.SetIdentity\(\), 
-Node3D.LookAt\(Vector3, Vector3?, bool\), 
-Node3D.LookAtFromPosition\(Vector3, Vector3, Vector3?, bool\), 
-Node3D.ToLocal\(Vector3\), 
-Node3D.ToGlobal\(Vector3\), 
-Node3D.EmitSignalVisibilityChanged\(\), 
-Node3D.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
-Node3D.HasGodotClassMethod\(in godot\_string\_name\), 
-Node3D.HasGodotClassSignal\(in godot\_string\_name\), 
-Node3D.Transform, 
-Node3D.GlobalTransform, 
-Node3D.Position, 
-Node3D.Rotation, 
-Node3D.RotationDegrees, 
-Node3D.Quaternion, 
-Node3D.Basis, 
-Node3D.Scale, 
-Node3D.RotationEditMode, 
-Node3D.RotationOrder, 
-Node3D.TopLevel, 
-Node3D.GlobalPosition, 
-Node3D.GlobalBasis, 
-Node3D.GlobalRotation, 
-Node3D.GlobalRotationDegrees, 
-Node3D.Visible, 
-Node3D.VisibilityParent, 
-Node3D.VisibilityChanged, 
+EditorPlugin.\_ApplyChanges\(\), 
+EditorPlugin.\_Build\(\), 
+EditorPlugin.\_Clear\(\), 
+EditorPlugin.\_DisablePlugin\(\), 
+EditorPlugin.\_Edit\(GodotObject\), 
+EditorPlugin.\_EnablePlugin\(\), 
+EditorPlugin.\_Forward3DDrawOverViewport\(Control\), 
+EditorPlugin.\_Forward3DForceDrawOverViewport\(Control\), 
+EditorPlugin.\_Forward3DGuiInput\(Camera3D, InputEvent\), 
+EditorPlugin.\_ForwardCanvasDrawOverViewport\(Control\), 
+EditorPlugin.\_ForwardCanvasForceDrawOverViewport\(Control\), 
+EditorPlugin.\_ForwardCanvasGuiInput\(InputEvent\), 
+EditorPlugin.\_GetBreakpoints\(\), 
+EditorPlugin.\_GetPluginIcon\(\), 
+EditorPlugin.\_GetPluginName\(\), 
+EditorPlugin.\_GetState\(\), 
+EditorPlugin.\_GetUnsavedStatus\(string\), 
+EditorPlugin.\_GetWindowLayout\(ConfigFile\), 
+EditorPlugin.\_Handles\(GodotObject\), 
+EditorPlugin.\_HasMainScreen\(\), 
+EditorPlugin.\_MakeVisible\(bool\), 
+EditorPlugin.\_SaveExternalData\(\), 
+EditorPlugin.\_SetState\(Dictionary\), 
+EditorPlugin.\_SetWindowLayout\(ConfigFile\), 
+EditorPlugin.AddControlToContainer\(EditorPlugin.CustomControlContainer, Control\), 
+EditorPlugin.AddControlToBottomPanel\(Control, string, Shortcut\), 
+EditorPlugin.AddControlToDock\(EditorPlugin.DockSlot, Control, Shortcut\), 
+EditorPlugin.RemoveControlFromDocks\(Control\), 
+EditorPlugin.RemoveControlFromBottomPanel\(Control\), 
+EditorPlugin.RemoveControlFromContainer\(EditorPlugin.CustomControlContainer, Control\), 
+EditorPlugin.SetDockTabIcon\(Control, Texture2D\), 
+EditorPlugin.AddToolMenuItem\(string, Callable\), 
+EditorPlugin.AddToolSubmenuItem\(string, PopupMenu\), 
+EditorPlugin.RemoveToolMenuItem\(string\), 
+EditorPlugin.GetExportAsMenu\(\), 
+EditorPlugin.AddCustomType\(string, string, Script, Texture2D\), 
+EditorPlugin.RemoveCustomType\(string\), 
+EditorPlugin.AddAutoloadSingleton\(string, string\), 
+EditorPlugin.RemoveAutoloadSingleton\(string\), 
+EditorPlugin.UpdateOverlays\(\), 
+EditorPlugin.MakeBottomPanelItemVisible\(Control\), 
+EditorPlugin.HideBottomPanel\(\), 
+EditorPlugin.GetUndoRedo\(\), 
+EditorPlugin.AddUndoRedoInspectorHookCallback\(Callable\), 
+EditorPlugin.RemoveUndoRedoInspectorHookCallback\(Callable\), 
+EditorPlugin.QueueSaveLayout\(\), 
+EditorPlugin.AddTranslationParserPlugin\(EditorTranslationParserPlugin\), 
+EditorPlugin.RemoveTranslationParserPlugin\(EditorTranslationParserPlugin\), 
+EditorPlugin.AddImportPlugin\(EditorImportPlugin, bool\), 
+EditorPlugin.RemoveImportPlugin\(EditorImportPlugin\), 
+EditorPlugin.AddSceneFormatImporterPlugin\(EditorSceneFormatImporter, bool\), 
+EditorPlugin.RemoveSceneFormatImporterPlugin\(EditorSceneFormatImporter\), 
+EditorPlugin.AddScenePostImportPlugin\(EditorScenePostImportPlugin, bool\), 
+EditorPlugin.RemoveScenePostImportPlugin\(EditorScenePostImportPlugin\), 
+EditorPlugin.AddExportPlugin\(EditorExportPlugin\), 
+EditorPlugin.RemoveExportPlugin\(EditorExportPlugin\), 
+EditorPlugin.AddExportPlatform\(EditorExportPlatform\), 
+EditorPlugin.RemoveExportPlatform\(EditorExportPlatform\), 
+EditorPlugin.AddNode3DGizmoPlugin\(EditorNode3DGizmoPlugin\), 
+EditorPlugin.RemoveNode3DGizmoPlugin\(EditorNode3DGizmoPlugin\), 
+EditorPlugin.AddInspectorPlugin\(EditorInspectorPlugin\), 
+EditorPlugin.RemoveInspectorPlugin\(EditorInspectorPlugin\), 
+EditorPlugin.AddResourceConversionPlugin\(EditorResourceConversionPlugin\), 
+EditorPlugin.RemoveResourceConversionPlugin\(EditorResourceConversionPlugin\), 
+EditorPlugin.SetInputEventForwardingAlwaysEnabled\(\), 
+EditorPlugin.SetForceDrawOverForwardingEnabled\(\), 
+EditorPlugin.AddContextMenuPlugin\(EditorContextMenuPlugin.ContextMenuSlot, EditorContextMenuPlugin\), 
+EditorPlugin.RemoveContextMenuPlugin\(EditorContextMenuPlugin\), 
+EditorPlugin.GetEditorInterface\(\), 
+EditorPlugin.GetScriptCreateDialog\(\), 
+EditorPlugin.AddDebuggerPlugin\(EditorDebuggerPlugin\), 
+EditorPlugin.RemoveDebuggerPlugin\(EditorDebuggerPlugin\), 
+EditorPlugin.GetPluginVersion\(\), 
+EditorPlugin.EmitSignalSceneChanged\(Node\), 
+EditorPlugin.EmitSignalSceneClosed\(string\), 
+EditorPlugin.EmitSignalMainScreenChanged\(string\), 
+EditorPlugin.EmitSignalResourceSaved\(Resource\), 
+EditorPlugin.EmitSignalSceneSaved\(string\), 
+EditorPlugin.EmitSignalProjectSettingsChanged\(\), 
+EditorPlugin.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+EditorPlugin.HasGodotClassMethod\(in godot\_string\_name\), 
+EditorPlugin.HasGodotClassSignal\(in godot\_string\_name\), 
+EditorPlugin.SceneChanged, 
+EditorPlugin.SceneClosed, 
+EditorPlugin.MainScreenChanged, 
+EditorPlugin.ResourceSaved, 
+EditorPlugin.SceneSaved, 
+EditorPlugin.ProjectSettingsChanged, 
 Node.NotificationEnterTree, 
 Node.NotificationExitTree, 
 Node.NotificationMovedInParent, 
@@ -371,15 +396,21 @@ GodotObject.PropertyListChanged,
 
 ## Methods
 
-### <a id="DiceRoll_Managers_BattleManager__Ready"></a> \_Ready\(\)
+### <a id="DiceRoll_Editor_TargetConfigurationEditorPlugin__EnterTree"></a> \_EnterTree\(\)
 
-<p>Called when the node is "ready", i.e. when both the node and its children have entered the scene tree. If the node has children, their <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> callbacks get triggered first, and the parent node will receive the ready notification afterwards.</p>
-<p>Corresponds to the <xref href="Godot.Node.NotificationReady" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>. See also the <code>@onready</code> annotation for variables.</p>
-<p>Usually used for initialization. For even earlier initialization, <xref href="Godot.GodotObject.%23ctor" data-throw-if-not-resolved="false"></xref> may be used. See also <xref href="Godot.Node._EnterTree" data-throw-if-not-resolved="false"></xref>.</p>
-<p>
-  <b>Note:</b> This method may be called only once for each node. After removing a node from the scene tree and adding it again, <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> will <b>not</b> be called a second time. This can be bypassed by requesting another call with <xref href="Godot.Node.RequestReady" data-throw-if-not-resolved="false"></xref>, which may be called anywhere before adding the node again.</p>
+<p>Called when the node enters the <xref href="Godot.SceneTree" data-throw-if-not-resolved="false"></xref> (e.g. upon instantiating, scene changing, or after calling <xref href="Godot.Node.AddChild(Godot.Node%2cSystem.Boolean%2cGodot.Node.InternalMode)" data-throw-if-not-resolved="false"></xref> in a script). If the node has children, its <xref href="Godot.Node._EnterTree" data-throw-if-not-resolved="false"></xref> callback will be called first, and then that of the children.</p>
+<p>Corresponds to the <xref href="Godot.Node.NotificationEnterTree" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>.</p>
 
 ```csharp
-public override void _Ready()
+public override void _EnterTree()
+```
+
+### <a id="DiceRoll_Editor_TargetConfigurationEditorPlugin__ExitTree"></a> \_ExitTree\(\)
+
+<p>Called when the node is about to leave the <xref href="Godot.SceneTree" data-throw-if-not-resolved="false"></xref> (e.g. upon freeing, scene changing, or after calling <xref href="Godot.Node.RemoveChild(Godot.Node)" data-throw-if-not-resolved="false"></xref> in a script). If the node has children, its <xref href="Godot.Node._ExitTree" data-throw-if-not-resolved="false"></xref> callback will be called last, after all its children have left the tree.</p>
+<p>Corresponds to the <xref href="Godot.Node.NotificationExitTree" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref> and signal <xref href="Godot.Node.TreeExiting" data-throw-if-not-resolved="false"></xref>. To get notified when the node has already left the active tree, connect to the <xref href="Godot.Node.TreeExited" data-throw-if-not-resolved="false"></xref>.</p>
+
+```csharp
+public override void _ExitTree()
 ```
 

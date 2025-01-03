@@ -33,6 +33,18 @@ Resource.PropertyName.ResourceSceneUniqueId,
 
 ## Fields
 
+### <a id="DiceRoll_Models_Character_PropertyName_Actions"></a> Actions
+
+Cached name for the 'Actions' property.
+
+```csharp
+public static readonly StringName Actions
+```
+
+#### Field Value
+
+ StringName
+
 ### <a id="DiceRoll_Models_Character_PropertyName_Attributes"></a> Attributes
 
 Cached name for the 'Attributes' property.

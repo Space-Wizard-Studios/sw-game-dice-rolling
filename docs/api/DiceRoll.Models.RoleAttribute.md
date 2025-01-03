@@ -155,6 +155,20 @@ GodotObject.PropertyListChanged,
 public RoleAttribute()
 ```
 
+### <a id="DiceRoll_Models_RoleAttribute__ctor_DiceRoll_Models_AttributeType_System_String_System_Int32_"></a> RoleAttribute\(AttributeType, string, int\)
+
+```csharp
+public RoleAttribute(AttributeType type, string name, int baseValue)
+```
+
+#### Parameters
+
+`type` [AttributeType](DiceRoll.Models.AttributeType.md)
+
+`name` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+`baseValue` [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
 ## Properties
 
 ### <a id="DiceRoll_Models_RoleAttribute_BaseValue"></a> BaseValue
@@ -167,6 +181,17 @@ public int BaseValue { get; set; }
 #### Property Value
 
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="DiceRoll_Models_RoleAttribute_Name"></a> Name
+
+```csharp
+[Export(PropertyHint.None, "")]
+public string? Name { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
 ### <a id="DiceRoll_Models_RoleAttribute_Type"></a> Type
 

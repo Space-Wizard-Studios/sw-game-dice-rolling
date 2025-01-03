@@ -102,6 +102,35 @@
         href: DiceRoll.Components.TurnOrderComponent.PropertyName.md
       - name: TurnOrderComponent.SignalName
         href: DiceRoll.Components.TurnOrderComponent.SignalName.md
+  - name: Editor
+    href: DiceRoll.Editor.md
+    items:
+    - name: Classes
+      items:
+      - name: MatrixControl
+        href: DiceRoll.Editor.MatrixControl.md
+      - name: MatrixControl.MethodName
+        href: DiceRoll.Editor.MatrixControl.MethodName.md
+      - name: MatrixControl.PropertyName
+        href: DiceRoll.Editor.MatrixControl.PropertyName.md
+      - name: MatrixControl.SignalName
+        href: DiceRoll.Editor.MatrixControl.SignalName.md
+      - name: TargetConfigurationEditorPlugin
+        href: DiceRoll.Editor.TargetConfigurationEditorPlugin.md
+      - name: TargetConfigurationEditorPlugin.MethodName
+        href: DiceRoll.Editor.TargetConfigurationEditorPlugin.MethodName.md
+      - name: TargetConfigurationEditorPlugin.PropertyName
+        href: DiceRoll.Editor.TargetConfigurationEditorPlugin.PropertyName.md
+      - name: TargetConfigurationEditorPlugin.SignalName
+        href: DiceRoll.Editor.TargetConfigurationEditorPlugin.SignalName.md
+      - name: TargetConfigurationInspectorPlugin
+        href: DiceRoll.Editor.TargetConfigurationInspectorPlugin.md
+      - name: TargetConfigurationInspectorPlugin.MethodName
+        href: DiceRoll.Editor.TargetConfigurationInspectorPlugin.MethodName.md
+      - name: TargetConfigurationInspectorPlugin.PropertyName
+        href: DiceRoll.Editor.TargetConfigurationInspectorPlugin.PropertyName.md
+      - name: TargetConfigurationInspectorPlugin.SignalName
+        href: DiceRoll.Editor.TargetConfigurationInspectorPlugin.SignalName.md
   - name: Events
     href: DiceRoll.Events.md
     items:
@@ -216,70 +245,87 @@
   - name: Models
     href: DiceRoll.Models.md
     items:
-    - name: CharacterActions
-      href: DiceRoll.Models.CharacterActions.md
+    - name: Actions
+      href: DiceRoll.Models.Actions.md
       items:
       - name: Effects
-        href: DiceRoll.Models.CharacterActions.Effects.md
+        href: DiceRoll.Models.Actions.Effects.md
         items:
         - name: Classes
           items:
           - name: DamageEffect
-            href: DiceRoll.Models.CharacterActions.Effects.DamageEffect.md
+            href: DiceRoll.Models.Actions.Effects.DamageEffect.md
           - name: DamageEffect.MethodName
-            href: DiceRoll.Models.CharacterActions.Effects.DamageEffect.MethodName.md
+            href: DiceRoll.Models.Actions.Effects.DamageEffect.MethodName.md
           - name: DamageEffect.PropertyName
-            href: DiceRoll.Models.CharacterActions.Effects.DamageEffect.PropertyName.md
+            href: DiceRoll.Models.Actions.Effects.DamageEffect.PropertyName.md
           - name: DamageEffect.SignalName
-            href: DiceRoll.Models.CharacterActions.Effects.DamageEffect.SignalName.md
-          - name: Effect
-            href: DiceRoll.Models.CharacterActions.Effects.Effect.md
-          - name: Effect.MethodName
-            href: DiceRoll.Models.CharacterActions.Effects.Effect.MethodName.md
-          - name: Effect.PropertyName
-            href: DiceRoll.Models.CharacterActions.Effects.Effect.PropertyName.md
-          - name: Effect.SignalName
-            href: DiceRoll.Models.CharacterActions.Effects.Effect.SignalName.md
+            href: DiceRoll.Models.Actions.Effects.DamageEffect.SignalName.md
+          - name: EffectType
+            href: DiceRoll.Models.Actions.Effects.EffectType.md
+          - name: EffectType.MethodName
+            href: DiceRoll.Models.Actions.Effects.EffectType.MethodName.md
+          - name: EffectType.PropertyName
+            href: DiceRoll.Models.Actions.Effects.EffectType.PropertyName.md
+          - name: EffectType.SignalName
+            href: DiceRoll.Models.Actions.Effects.EffectType.SignalName.md
+      - name: Target
+        href: DiceRoll.Models.Actions.Target.md
+        items:
+        - name: Classes
+          items:
+          - name: TargetConfiguration
+            href: DiceRoll.Models.Actions.Target.TargetConfiguration.md
+          - name: TargetConfiguration.MethodName
+            href: DiceRoll.Models.Actions.Target.TargetConfiguration.MethodName.md
+          - name: TargetConfiguration.PropertyName
+            href: DiceRoll.Models.Actions.Target.TargetConfiguration.PropertyName.md
+          - name: TargetConfiguration.SignalName
+            href: DiceRoll.Models.Actions.Target.TargetConfiguration.SignalName.md
+        - name: Delegates
+          items:
+          - name: TargetConfiguration.ConfigurationChangedEventHandler
+            href: DiceRoll.Models.Actions.Target.TargetConfiguration.ConfigurationChangedEventHandler.md
       - name: Classes
         items:
+        - name: Action
+          href: DiceRoll.Models.Actions.Action.md
+        - name: Action.MethodName
+          href: DiceRoll.Models.Actions.Action.MethodName.md
+        - name: Action.PropertyName
+          href: DiceRoll.Models.Actions.Action.PropertyName.md
+        - name: Action.SignalName
+          href: DiceRoll.Models.Actions.Action.SignalName.md
+        - name: ActionSource
+          href: DiceRoll.Models.Actions.ActionSource.md
+        - name: ActionSource.MethodName
+          href: DiceRoll.Models.Actions.ActionSource.MethodName.md
+        - name: ActionSource.PropertyName
+          href: DiceRoll.Models.Actions.ActionSource.PropertyName.md
+        - name: ActionSource.SignalName
+          href: DiceRoll.Models.Actions.ActionSource.SignalName.md
         - name: ActionType
-          href: DiceRoll.Models.CharacterActions.ActionType.md
+          href: DiceRoll.Models.Actions.ActionType.md
         - name: ActionType.MethodName
-          href: DiceRoll.Models.CharacterActions.ActionType.MethodName.md
+          href: DiceRoll.Models.Actions.ActionType.MethodName.md
         - name: ActionType.PropertyName
-          href: DiceRoll.Models.CharacterActions.ActionType.PropertyName.md
+          href: DiceRoll.Models.Actions.ActionType.PropertyName.md
         - name: ActionType.SignalName
-          href: DiceRoll.Models.CharacterActions.ActionType.SignalName.md
+          href: DiceRoll.Models.Actions.ActionType.SignalName.md
         - name: CharacterAction
-          href: DiceRoll.Models.CharacterActions.CharacterAction.md
+          href: DiceRoll.Models.Actions.CharacterAction.md
         - name: CharacterAction.MethodName
-          href: DiceRoll.Models.CharacterActions.CharacterAction.MethodName.md
+          href: DiceRoll.Models.Actions.CharacterAction.MethodName.md
         - name: CharacterAction.PropertyName
-          href: DiceRoll.Models.CharacterActions.CharacterAction.PropertyName.md
+          href: DiceRoll.Models.Actions.CharacterAction.PropertyName.md
         - name: CharacterAction.SignalName
-          href: DiceRoll.Models.CharacterActions.CharacterAction.SignalName.md
-        - name: QuantityType
-          href: DiceRoll.Models.CharacterActions.QuantityType.md
-        - name: QuantityType.MethodName
-          href: DiceRoll.Models.CharacterActions.QuantityType.MethodName.md
-        - name: QuantityType.PropertyName
-          href: DiceRoll.Models.CharacterActions.QuantityType.PropertyName.md
-        - name: QuantityType.SignalName
-          href: DiceRoll.Models.CharacterActions.QuantityType.SignalName.md
-        - name: TargetType
-          href: DiceRoll.Models.CharacterActions.TargetType.md
-        - name: TargetType.MethodName
-          href: DiceRoll.Models.CharacterActions.TargetType.MethodName.md
-        - name: TargetType.PropertyName
-          href: DiceRoll.Models.CharacterActions.TargetType.PropertyName.md
-        - name: TargetType.SignalName
-          href: DiceRoll.Models.CharacterActions.TargetType.SignalName.md
+          href: DiceRoll.Models.Actions.CharacterAction.SignalName.md
       - name: Interfaces
         items:
         - name: IAction<TContext, TResult>
-          href: DiceRoll.Models.CharacterActions.IAction-2.md
+          href: DiceRoll.Models.Actions.IAction-2.md
         - name: IActionContext
-          href: DiceRoll.Models.CharacterActions.IActionContext.md
+          href: DiceRoll.Models.Actions.IActionContext.md
     - name: CharacterGrid
       href: DiceRoll.Models.CharacterGrid.md
       items:

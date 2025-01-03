@@ -1,14 +1,11 @@
-# <a id="DiceRoll_Models_Role"></a> Class Role
+# <a id="DiceRoll_Models_Actions_Effects_DamageEffect"></a> Class DamageEffect
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Actions.Effects](DiceRoll.Models.Actions.Effects.md)  
 Assembly: dice\-roll.dll  
 
-Represents a role in the game with attributes and actions.
-
 ```csharp
-[Tool]
-[ScriptPath("res://models/Roles/Role.cs")]
-public class Role : Resource, IDisposable
+[ScriptPath("res://models/Action/EffectType/DamageEffect/DamageEffect.cs")]
+public class DamageEffect : EffectType, IDisposable
 ```
 
 #### Inheritance
@@ -17,7 +14,8 @@ public class Role : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[Role](DiceRoll.Models.Role.md)
+[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md) ← 
+[DamageEffect](DiceRoll.Models.Actions.Effects.DamageEffect.md)
 
 #### Implements
 
@@ -25,6 +23,7 @@ Resource ←
 
 #### Inherited Members
 
+[EffectType.Apply\(IActionContext\)](DiceRoll.Models.Actions.Effects.EffectType.md\#DiceRoll\_Models\_Actions\_Effects\_EffectType\_Apply\_DiceRoll\_Models\_Actions\_IActionContext\_), 
 Resource.\_GetRid\(\), 
 Resource.\_ResetState\(\), 
 Resource.\_SetPathCache\(string\), 
@@ -148,38 +147,23 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Properties
+## Constructors
 
-### <a id="DiceRoll_Models_Role_Description"></a> Description
-
-```csharp
-[Export(PropertyHint.MultilineText, "")]
-public string? Description { get; set; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
-### <a id="DiceRoll_Models_Role_Name"></a> Name
+### <a id="DiceRoll_Models_Actions_Effects_DamageEffect__ctor"></a> DamageEffect\(\)
 
 ```csharp
-[Export(PropertyHint.None, "")]
-public string? Name { get; set; }
+public DamageEffect()
 ```
 
-#### Property Value
+## Methods
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
-### <a id="DiceRoll_Models_Role_RoleAttributes"></a> RoleAttributes
+### <a id="DiceRoll_Models_Actions_Effects_DamageEffect_Apply_DiceRoll_Models_Actions_IActionContext_"></a> Apply\(IActionContext\)
 
 ```csharp
-[Export(PropertyHint.None, "")]
-public Array<RoleAttribute> RoleAttributes { get; set; }
+public override void Apply(IActionContext context)
 ```
 
-#### Property Value
+#### Parameters
 
- Array<[RoleAttribute](DiceRoll.Models.RoleAttribute.md)\>
+`context` [IActionContext](DiceRoll.Models.Actions.IActionContext.md)
 

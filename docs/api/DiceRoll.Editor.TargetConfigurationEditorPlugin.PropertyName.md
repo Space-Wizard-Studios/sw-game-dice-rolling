@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Managers_BattleManager_PropertyName"></a> Class BattleManager.PropertyName
+# <a id="DiceRoll_Editor_TargetConfigurationEditorPlugin_PropertyName"></a> Class TargetConfigurationEditorPlugin.PropertyName
 
-Namespace: [DiceRoll.Managers](DiceRoll.Managers.md)  
+Namespace: [DiceRoll.Editor](DiceRoll.Editor.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
 ```csharp
-public class BattleManager.PropertyName : Node3D.PropertyName
+public class TargetConfigurationEditorPlugin.PropertyName : EditorPlugin.PropertyName
 ```
 
 #### Inheritance
@@ -14,28 +14,11 @@ public class BattleManager.PropertyName : Node3D.PropertyName
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 GodotObject.PropertyName ← 
 Node.PropertyName ← 
-Node3D.PropertyName ← 
-[BattleManager.PropertyName](DiceRoll.Managers.BattleManager.PropertyName.md)
+EditorPlugin.PropertyName ← 
+[TargetConfigurationEditorPlugin.PropertyName](DiceRoll.Editor.TargetConfigurationEditorPlugin.PropertyName.md)
 
 #### Inherited Members
 
-Node3D.PropertyName.Transform, 
-Node3D.PropertyName.GlobalTransform, 
-Node3D.PropertyName.Position, 
-Node3D.PropertyName.Rotation, 
-Node3D.PropertyName.RotationDegrees, 
-Node3D.PropertyName.Quaternion, 
-Node3D.PropertyName.Basis, 
-Node3D.PropertyName.Scale, 
-Node3D.PropertyName.RotationEditMode, 
-Node3D.PropertyName.RotationOrder, 
-Node3D.PropertyName.TopLevel, 
-Node3D.PropertyName.GlobalPosition, 
-Node3D.PropertyName.GlobalBasis, 
-Node3D.PropertyName.GlobalRotation, 
-Node3D.PropertyName.GlobalRotationDegrees, 
-Node3D.PropertyName.Visible, 
-Node3D.PropertyName.VisibilityParent, 
 Node.PropertyName.\_ImportPath, 
 Node.PropertyName.Name, 
 Node.PropertyName.UniqueNameInOwner, 

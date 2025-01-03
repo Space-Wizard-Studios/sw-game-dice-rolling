@@ -1,14 +1,13 @@
-# <a id="DiceRoll_Models_Role"></a> Class Role
+# <a id="DiceRoll_Models_Actions_ActionSource"></a> Class ActionSource
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Actions](DiceRoll.Models.Actions.md)  
 Assembly: dice\-roll.dll  
-
-Represents a role in the game with attributes and actions.
 
 ```csharp
 [Tool]
-[ScriptPath("res://models/Roles/Role.cs")]
-public class Role : Resource, IDisposable
+[GlobalClass]
+[ScriptPath("res://models/Action/ActionSource/ActionSource.cs")]
+public class ActionSource : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -17,7 +16,7 @@ public class Role : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[Role](DiceRoll.Models.Role.md)
+[ActionSource](DiceRoll.Models.Actions.ActionSource.md)
 
 #### Implements
 
@@ -148,20 +147,28 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Properties
+## Constructors
 
-### <a id="DiceRoll_Models_Role_Description"></a> Description
+### <a id="DiceRoll_Models_Actions_ActionSource__ctor"></a> ActionSource\(\)
 
 ```csharp
-[Export(PropertyHint.MultilineText, "")]
-public string? Description { get; set; }
+public ActionSource()
+```
+
+## Properties
+
+### <a id="DiceRoll_Models_Actions_ActionSource_Id"></a> Id
+
+```csharp
+[Export(PropertyHint.None, "")]
+public string Id { get; set; }
 ```
 
 #### Property Value
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-### <a id="DiceRoll_Models_Role_Name"></a> Name
+### <a id="DiceRoll_Models_Actions_ActionSource_Name"></a> Name
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -171,15 +178,4 @@ public string? Name { get; set; }
 #### Property Value
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
-### <a id="DiceRoll_Models_Role_RoleAttributes"></a> RoleAttributes
-
-```csharp
-[Export(PropertyHint.None, "")]
-public Array<RoleAttribute> RoleAttributes { get; set; }
-```
-
-#### Property Value
-
- Array<[RoleAttribute](DiceRoll.Models.RoleAttribute.md)\>
 

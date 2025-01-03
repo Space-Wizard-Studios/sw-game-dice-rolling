@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Models_RoleAttribute_PropertyName"></a> Class RoleAttribute.PropertyName
+# <a id="DiceRoll_Models_Actions_Effects_DamageEffect_PropertyName"></a> Class DamageEffect.PropertyName
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Actions.Effects](DiceRoll.Models.Actions.Effects.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
 ```csharp
-public class RoleAttribute.PropertyName : Resource.PropertyName
+public class DamageEffect.PropertyName : EffectType.PropertyName
 ```
 
 #### Inheritance
@@ -15,7 +15,8 @@ public class RoleAttribute.PropertyName : Resource.PropertyName
 GodotObject.PropertyName ← 
 RefCounted.PropertyName ← 
 Resource.PropertyName ← 
-[RoleAttribute.PropertyName](DiceRoll.Models.RoleAttribute.PropertyName.md)
+[EffectType.PropertyName](DiceRoll.Models.Actions.Effects.EffectType.PropertyName.md) ← 
+[DamageEffect.PropertyName](DiceRoll.Models.Actions.Effects.DamageEffect.PropertyName.md)
 
 #### Inherited Members
 
@@ -33,36 +34,12 @@ Resource.PropertyName.ResourceSceneUniqueId,
 
 ## Fields
 
-### <a id="DiceRoll_Models_RoleAttribute_PropertyName_BaseValue"></a> BaseValue
+### <a id="DiceRoll_Models_Actions_Effects_DamageEffect_PropertyName__damage"></a> \_damage
 
-Cached name for the 'BaseValue' property.
-
-```csharp
-public static readonly StringName BaseValue
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Models_RoleAttribute_PropertyName_Name"></a> Name
-
-Cached name for the 'Name' property.
+Cached name for the '_damage' field.
 
 ```csharp
-public static readonly StringName Name
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Models_RoleAttribute_PropertyName_Type"></a> Type
-
-Cached name for the 'Type' property.
-
-```csharp
-public static readonly StringName Type
+public static readonly StringName _damage
 ```
 
 #### Field Value

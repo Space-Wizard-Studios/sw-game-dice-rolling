@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Models_Role_PropertyName"></a> Class Role.PropertyName
+# <a id="DiceRoll_Models_Actions_ActionType_PropertyName"></a> Class ActionType.PropertyName
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Actions](DiceRoll.Models.Actions.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
 ```csharp
-public class Role.PropertyName : Resource.PropertyName
+public class ActionType.PropertyName : Resource.PropertyName
 ```
 
 #### Inheritance
@@ -15,7 +15,7 @@ public class Role.PropertyName : Resource.PropertyName
 GodotObject.PropertyName ← 
 RefCounted.PropertyName ← 
 Resource.PropertyName ← 
-[Role.PropertyName](DiceRoll.Models.Role.PropertyName.md)
+[ActionType.PropertyName](DiceRoll.Models.Actions.ActionType.PropertyName.md)
 
 #### Inherited Members
 
@@ -33,7 +33,31 @@ Resource.PropertyName.ResourceSceneUniqueId,
 
 ## Fields
 
-### <a id="DiceRoll_Models_Role_PropertyName_Description"></a> Description
+### <a id="DiceRoll_Models_Actions_ActionType_PropertyName_DefaultEffects"></a> DefaultEffects
+
+Cached name for the 'DefaultEffects' property.
+
+```csharp
+public static readonly StringName DefaultEffects
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Models_Actions_ActionType_PropertyName_DefaultRequiredMana"></a> DefaultRequiredMana
+
+Cached name for the 'DefaultRequiredMana' property.
+
+```csharp
+public static readonly StringName DefaultRequiredMana
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Models_Actions_ActionType_PropertyName_Description"></a> Description
 
 Cached name for the 'Description' property.
 
@@ -45,7 +69,31 @@ public static readonly StringName Description
 
  StringName
 
-### <a id="DiceRoll_Models_Role_PropertyName_Name"></a> Name
+### <a id="DiceRoll_Models_Actions_ActionType_PropertyName_Icon"></a> Icon
+
+Cached name for the 'Icon' property.
+
+```csharp
+public static readonly StringName Icon
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Models_Actions_ActionType_PropertyName_IconPath"></a> IconPath
+
+Cached name for the 'IconPath' property.
+
+```csharp
+public static readonly StringName IconPath
+```
+
+#### Field Value
+
+ StringName
+
+### <a id="DiceRoll_Models_Actions_ActionType_PropertyName_Name"></a> Name
 
 Cached name for the 'Name' property.
 
@@ -57,12 +105,12 @@ public static readonly StringName Name
 
  StringName
 
-### <a id="DiceRoll_Models_Role_PropertyName_RoleAttributes"></a> RoleAttributes
+### <a id="DiceRoll_Models_Actions_ActionType_PropertyName__icon"></a> \_icon
 
-Cached name for the 'RoleAttributes' property.
+Cached name for the '_icon' field.
 
 ```csharp
-public static readonly StringName RoleAttributes
+public static readonly StringName _icon
 ```
 
 #### Field Value

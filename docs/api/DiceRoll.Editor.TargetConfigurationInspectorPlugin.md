@@ -1,14 +1,11 @@
-# <a id="DiceRoll_Models_Role"></a> Class Role
+# <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin"></a> Class TargetConfigurationInspectorPlugin
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Editor](DiceRoll.Editor.md)  
 Assembly: dice\-roll.dll  
 
-Represents a role in the game with attributes and actions.
-
 ```csharp
-[Tool]
-[ScriptPath("res://models/Roles/Role.cs")]
-public class Role : Resource, IDisposable
+[ScriptPath("res://addons/TargetConfigurationEditorPlugin/TargetConfigurationInspectorPlugin.cs")]
+public class TargetConfigurationInspectorPlugin : EditorInspectorPlugin, IDisposable
 ```
 
 #### Inheritance
@@ -16,8 +13,8 @@ public class Role : Resource, IDisposable
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 GodotObject ← 
 RefCounted ← 
-Resource ← 
-[Role](DiceRoll.Models.Role.md)
+EditorInspectorPlugin ← 
+[TargetConfigurationInspectorPlugin](DiceRoll.Editor.TargetConfigurationInspectorPlugin.md)
 
 #### Implements
 
@@ -25,33 +22,19 @@ Resource ←
 
 #### Inherited Members
 
-Resource.\_GetRid\(\), 
-Resource.\_ResetState\(\), 
-Resource.\_SetPathCache\(string\), 
-Resource.\_SetupLocalToScene\(\), 
-Resource.TakeOverPath\(string\), 
-Resource.SetPathCache\(string\), 
-Resource.GetRid\(\), 
-Resource.GetLocalScene\(\), 
-Resource.SetupLocalToScene\(\), 
-Resource.ResetState\(\), 
-Resource.SetIdForPath\(string, string\), 
-Resource.GetIdForPath\(string\), 
-Resource.IsBuiltIn\(\), 
-Resource.GenerateSceneUniqueId\(\), 
-Resource.EmitChanged\(\), 
-Resource.Duplicate\(bool\), 
-Resource.EmitSignalChanged\(\), 
-Resource.EmitSignalSetupLocalToSceneRequested\(\), 
-Resource.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
-Resource.HasGodotClassMethod\(in godot\_string\_name\), 
-Resource.HasGodotClassSignal\(in godot\_string\_name\), 
-Resource.ResourceLocalToScene, 
-Resource.ResourcePath, 
-Resource.ResourceName, 
-Resource.ResourceSceneUniqueId, 
-Resource.Changed, 
-Resource.SetupLocalToSceneRequested, 
+EditorInspectorPlugin.\_CanHandle\(GodotObject\), 
+EditorInspectorPlugin.\_ParseBegin\(GodotObject\), 
+EditorInspectorPlugin.\_ParseCategory\(GodotObject, string\), 
+EditorInspectorPlugin.\_ParseEnd\(GodotObject\), 
+EditorInspectorPlugin.\_ParseGroup\(GodotObject, string\), 
+EditorInspectorPlugin.\_ParseProperty\(GodotObject, Variant.Type, string, PropertyHint, string, PropertyUsageFlags, bool\), 
+EditorInspectorPlugin.AddCustomControl\(Control\), 
+EditorInspectorPlugin.AddPropertyEditor\(string, Control, bool, string\), 
+EditorInspectorPlugin.AddPropertyEditorForMultipleProperties\(string, string\[\], Control\), 
+EditorInspectorPlugin.AddPropertyEditorForMultipleProperties\(string, ReadOnlySpan<string\>, Control\), 
+EditorInspectorPlugin.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+EditorInspectorPlugin.HasGodotClassMethod\(in godot\_string\_name\), 
+EditorInspectorPlugin.HasGodotClassSignal\(in godot\_string\_name\), 
 RefCounted.InitRef\(\), 
 RefCounted.Reference\(\), 
 RefCounted.Unreference\(\), 
@@ -148,38 +131,45 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Properties
+## Methods
 
-### <a id="DiceRoll_Models_Role_Description"></a> Description
+### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin__CanHandle_Godot_GodotObject_"></a> \_CanHandle\(GodotObject\)
 
-```csharp
-[Export(PropertyHint.MultilineText, "")]
-public string? Description { get; set; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
-### <a id="DiceRoll_Models_Role_Name"></a> Name
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this object can be handled by this plugin.</p>
 
 ```csharp
-[Export(PropertyHint.None, "")]
-public string? Name { get; set; }
+public override bool _CanHandle(GodotObject @object)
 ```
 
-#### Property Value
+#### Parameters
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
+`object` GodotObject
 
-### <a id="DiceRoll_Models_Role_RoleAttributes"></a> RoleAttributes
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin__ParseBegin_Godot_GodotObject_"></a> \_ParseBegin\(GodotObject\)
+
+<p>Called to allow adding controls at the beginning of the property list for <code class="paramref">object</code>.</p>
 
 ```csharp
-[Export(PropertyHint.None, "")]
-public Array<RoleAttribute> RoleAttributes { get; set; }
+public override void _ParseBegin(GodotObject @object)
 ```
 
-#### Property Value
+#### Parameters
 
- Array<[RoleAttribute](DiceRoll.Models.RoleAttribute.md)\>
+`object` GodotObject
+
+### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin__ParseEnd_Godot_GodotObject_"></a> \_ParseEnd\(GodotObject\)
+
+<p>Called to allow adding controls at the end of the property list for <code class="paramref">object</code>.</p>
+
+```csharp
+public override void _ParseEnd(GodotObject @object)
+```
+
+#### Parameters
+
+`object` GodotObject
 

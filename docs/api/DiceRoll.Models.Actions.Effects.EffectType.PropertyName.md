@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Models_RoleAttribute_PropertyName"></a> Class RoleAttribute.PropertyName
+# <a id="DiceRoll_Models_Actions_Effects_EffectType_PropertyName"></a> Class EffectType.PropertyName
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Actions.Effects](DiceRoll.Models.Actions.Effects.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
 ```csharp
-public class RoleAttribute.PropertyName : Resource.PropertyName
+public class EffectType.PropertyName : Resource.PropertyName
 ```
 
 #### Inheritance
@@ -15,7 +15,11 @@ public class RoleAttribute.PropertyName : Resource.PropertyName
 GodotObject.PropertyName ← 
 RefCounted.PropertyName ← 
 Resource.PropertyName ← 
-[RoleAttribute.PropertyName](DiceRoll.Models.RoleAttribute.PropertyName.md)
+[EffectType.PropertyName](DiceRoll.Models.Actions.Effects.EffectType.PropertyName.md)
+
+#### Derived
+
+[DamageEffect.PropertyName](DiceRoll.Models.Actions.Effects.DamageEffect.PropertyName.md)
 
 #### Inherited Members
 
@@ -30,42 +34,4 @@ Resource.PropertyName.ResourceSceneUniqueId,
 [object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone), 
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
-
-## Fields
-
-### <a id="DiceRoll_Models_RoleAttribute_PropertyName_BaseValue"></a> BaseValue
-
-Cached name for the 'BaseValue' property.
-
-```csharp
-public static readonly StringName BaseValue
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Models_RoleAttribute_PropertyName_Name"></a> Name
-
-Cached name for the 'Name' property.
-
-```csharp
-public static readonly StringName Name
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Models_RoleAttribute_PropertyName_Type"></a> Type
-
-Cached name for the 'Type' property.
-
-```csharp
-public static readonly StringName Type
-```
-
-#### Field Value
-
- StringName
 

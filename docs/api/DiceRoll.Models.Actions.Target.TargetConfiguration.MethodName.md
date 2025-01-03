@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Models_Character_MethodName"></a> Class Character.MethodName
+# <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_MethodName"></a> Class TargetConfiguration.MethodName
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Actions.Target](DiceRoll.Models.Actions.Target.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
 ```csharp
-public class Character.MethodName : Resource.MethodName
+public class TargetConfiguration.MethodName : Resource.MethodName
 ```
 
 #### Inheritance
@@ -15,7 +15,7 @@ public class Character.MethodName : Resource.MethodName
 GodotObject.MethodName ← 
 RefCounted.MethodName ← 
 Resource.MethodName ← 
-[Character.MethodName](DiceRoll.Models.Character.MethodName.md)
+[TargetConfiguration.MethodName](DiceRoll.Models.Actions.Target.TargetConfiguration.MethodName.md)
 
 #### Inherited Members
 
@@ -116,60 +116,12 @@ GodotObject.MethodName.CancelFree,
 
 ## Fields
 
-### <a id="DiceRoll_Models_Character_MethodName_GetAttributeBaseValue"></a> GetAttributeBaseValue
+### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_MethodName_UpdateGrid"></a> UpdateGrid
 
-Cached name for the 'GetAttributeBaseValue' method.
-
-```csharp
-public static readonly StringName GetAttributeBaseValue
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Models_Character_MethodName_GetAttributeCurrentValue"></a> GetAttributeCurrentValue
-
-Cached name for the 'GetAttributeCurrentValue' method.
+Cached name for the 'UpdateGrid' method.
 
 ```csharp
-public static readonly StringName GetAttributeCurrentValue
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Models_Character_MethodName_GetAttributeMaxValue"></a> GetAttributeMaxValue
-
-Cached name for the 'GetAttributeMaxValue' method.
-
-```csharp
-public static readonly StringName GetAttributeMaxValue
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Models_Character_MethodName_InitializeAttributes"></a> InitializeAttributes
-
-Cached name for the 'InitializeAttributes' method.
-
-```csharp
-public static readonly StringName InitializeAttributes
-```
-
-#### Field Value
-
- StringName
-
-### <a id="DiceRoll_Models_Character_MethodName_UpdateAttributeCurrentValue"></a> UpdateAttributeCurrentValue
-
-Cached name for the 'UpdateAttributeCurrentValue' method.
-
-```csharp
-public static readonly StringName UpdateAttributeCurrentValue
+public static readonly StringName UpdateGrid
 ```
 
 #### Field Value

@@ -1,14 +1,13 @@
-# <a id="DiceRoll_Models_Role"></a> Class Role
+# <a id="DiceRoll_Models_Actions_Target_TargetConfiguration"></a> Class TargetConfiguration
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Actions.Target](DiceRoll.Models.Actions.Target.md)  
 Assembly: dice\-roll.dll  
-
-Represents a role in the game with attributes and actions.
 
 ```csharp
 [Tool]
-[ScriptPath("res://models/Roles/Role.cs")]
-public class Role : Resource, IDisposable
+[GlobalClass]
+[ScriptPath("res://models/Action/TargetConfiguration.cs")]
+public class TargetConfiguration : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -17,7 +16,7 @@ public class Role : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[Role](DiceRoll.Models.Role.md)
+[TargetConfiguration](DiceRoll.Models.Actions.Target.TargetConfiguration.md)
 
 #### Implements
 
@@ -148,38 +147,81 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
+## Constructors
+
+### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration__ctor"></a> TargetConfiguration\(\)
+
+```csharp
+public TargetConfiguration()
+```
+
 ## Properties
 
-### <a id="DiceRoll_Models_Role_Description"></a> Description
-
-```csharp
-[Export(PropertyHint.MultilineText, "")]
-public string? Description { get; set; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
-### <a id="DiceRoll_Models_Role_Name"></a> Name
+### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_Columns"></a> Columns
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public string? Name { get; set; }
+public int Columns { get; set; }
 ```
 
 #### Property Value
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-### <a id="DiceRoll_Models_Role_RoleAttributes"></a> RoleAttributes
+### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_Grid"></a> Grid
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Array<RoleAttribute> RoleAttributes { get; set; }
+public Array<int> Grid { get; set; }
 ```
 
 #### Property Value
 
- Array<[RoleAttribute](DiceRoll.Models.RoleAttribute.md)\>
+ Array<[int](https://learn.microsoft.com/dotnet/api/system.int32)\>
+
+### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_IsSingleTarget"></a> IsSingleTarget
+
+```csharp
+[Export(PropertyHint.None, "")]
+public bool IsSingleTarget { get; set; }
+```
+
+#### Property Value
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_Rows"></a> Rows
+
+```csharp
+[Export(PropertyHint.None, "")]
+public int Rows { get; set; }
+```
+
+#### Property Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+## Methods
+
+### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_EmitSignalConfigurationChanged"></a> EmitSignalConfigurationChanged\(\)
+
+```csharp
+protected void EmitSignalConfigurationChanged()
+```
+
+### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_UpdateGrid"></a> UpdateGrid\(\)
+
+```csharp
+public void UpdateGrid()
+```
+
+### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_ConfigurationChanged"></a> ConfigurationChanged
+
+```csharp
+public event TargetConfiguration.ConfigurationChangedEventHandler ConfigurationChanged
+```
+
+#### Event Type
+
+ [TargetConfiguration](DiceRoll.Models.Actions.Target.TargetConfiguration.md).[ConfigurationChangedEventHandler](DiceRoll.Models.Actions.Target.TargetConfiguration.ConfigurationChangedEventHandler.md)
 

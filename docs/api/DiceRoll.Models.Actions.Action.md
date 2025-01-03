@@ -1,14 +1,13 @@
-# <a id="DiceRoll_Models_Role"></a> Class Role
+# <a id="DiceRoll_Models_Actions_Action"></a> Class Action
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Actions](DiceRoll.Models.Actions.md)  
 Assembly: dice\-roll.dll  
-
-Represents a role in the game with attributes and actions.
 
 ```csharp
 [Tool]
-[ScriptPath("res://models/Roles/Role.cs")]
-public class Role : Resource, IDisposable
+[GlobalClass]
+[ScriptPath("res://models/Action/Action.cs")]
+public class Action : Resource, IDisposable, IAction<IActionContext, bool>
 ```
 
 #### Inheritance
@@ -17,11 +16,12 @@ public class Role : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[Role](DiceRoll.Models.Role.md)
+[Action](DiceRoll.Models.Actions.Action.md)
 
 #### Implements
 
-[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
+[IAction<IActionContext, bool\>](DiceRoll.Models.Actions.IAction\-2.md)
 
 #### Inherited Members
 
@@ -148,9 +148,44 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
+## Constructors
+
+### <a id="DiceRoll_Models_Actions_Action__ctor"></a> Action\(\)
+
+```csharp
+public Action()
+```
+
+### <a id="DiceRoll_Models_Actions_Action__ctor_DiceRoll_Models_Actions_ActionType_DiceRoll_Models_Actions_ActionSource_Godot_Collections_Array_DiceRoll_Models_DiceMana__Godot_Collections_Array_DiceRoll_Models_Actions_Effects_EffectType__"></a> Action\(ActionType, ActionSource, Array<DiceMana\>, Array<EffectType\>\)
+
+```csharp
+public Action(ActionType actionType, ActionSource source, Array<DiceMana> requiredMana, Array<EffectType> effects)
+```
+
+#### Parameters
+
+`actionType` [ActionType](DiceRoll.Models.Actions.ActionType.md)
+
+`source` [ActionSource](DiceRoll.Models.Actions.ActionSource.md)
+
+`requiredMana` Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
+
+`effects` Array<[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)\>
+
 ## Properties
 
-### <a id="DiceRoll_Models_Role_Description"></a> Description
+### <a id="DiceRoll_Models_Actions_Action_ActionType"></a> ActionType
+
+```csharp
+[Export(PropertyHint.None, "")]
+public ActionType? ActionType { get; set; }
+```
+
+#### Property Value
+
+ [ActionType](DiceRoll.Models.Actions.ActionType.md)?
+
+### <a id="DiceRoll_Models_Actions_Action_Description"></a> Description
 
 ```csharp
 [Export(PropertyHint.MultilineText, "")]
@@ -161,7 +196,50 @@ public string? Description { get; set; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
-### <a id="DiceRoll_Models_Role_Name"></a> Name
+### <a id="DiceRoll_Models_Actions_Action_Effects"></a> Effects
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Array<EffectType> Effects { get; set; }
+```
+
+#### Property Value
+
+ Array<[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)\>
+
+### <a id="DiceRoll_Models_Actions_Action_Icon"></a> Icon
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Texture2D? Icon { get; set; }
+```
+
+#### Property Value
+
+ Texture2D?
+
+### <a id="DiceRoll_Models_Actions_Action_IconPath"></a> IconPath
+
+```csharp
+public string? IconPath { get; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
+### <a id="DiceRoll_Models_Actions_Action_Id"></a> Id
+
+```csharp
+[Export(PropertyHint.None, "")]
+public string Id { get; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### <a id="DiceRoll_Models_Actions_Action_Name"></a> Name
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -172,14 +250,41 @@ public string? Name { get; set; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
-### <a id="DiceRoll_Models_Role_RoleAttributes"></a> RoleAttributes
+### <a id="DiceRoll_Models_Actions_Action_RequiredMana"></a> RequiredMana
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Array<RoleAttribute> RoleAttributes { get; set; }
+public Array<DiceMana> RequiredMana { get; set; }
 ```
 
 #### Property Value
 
- Array<[RoleAttribute](DiceRoll.Models.RoleAttribute.md)\>
+ Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
+
+### <a id="DiceRoll_Models_Actions_Action_Source"></a> Source
+
+```csharp
+[Export(PropertyHint.None, "")]
+public ActionSource? Source { get; set; }
+```
+
+#### Property Value
+
+ [ActionSource](DiceRoll.Models.Actions.ActionSource.md)?
+
+## Methods
+
+### <a id="DiceRoll_Models_Actions_Action_Do_DiceRoll_Models_Actions_IActionContext_"></a> Do\(IActionContext\)
+
+```csharp
+public bool Do(IActionContext context)
+```
+
+#### Parameters
+
+`context` [IActionContext](DiceRoll.Models.Actions.IActionContext.md)
+
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 

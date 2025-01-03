@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Models_Character_MethodName"></a> Class Character.MethodName
+# <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_MethodName"></a> Class TargetConfigurationInspectorPlugin.MethodName
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Editor](DiceRoll.Editor.md)  
 Assembly: dice\-roll.dll  
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
 ```csharp
-public class Character.MethodName : Resource.MethodName
+public class TargetConfigurationInspectorPlugin.MethodName : EditorInspectorPlugin.MethodName
 ```
 
 #### Inheritance
@@ -14,35 +14,20 @@ public class Character.MethodName : Resource.MethodName
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 GodotObject.MethodName ← 
 RefCounted.MethodName ← 
-Resource.MethodName ← 
-[Character.MethodName](DiceRoll.Models.Character.MethodName.md)
+EditorInspectorPlugin.MethodName ← 
+[TargetConfigurationInspectorPlugin.MethodName](DiceRoll.Editor.TargetConfigurationInspectorPlugin.MethodName.md)
 
 #### Inherited Members
 
-Resource.MethodName.\_GetRid, 
-Resource.MethodName.\_ResetState, 
-Resource.MethodName.\_SetPathCache, 
-Resource.MethodName.\_SetupLocalToScene, 
-Resource.MethodName.SetPath, 
-Resource.MethodName.TakeOverPath, 
-Resource.MethodName.GetPath, 
-Resource.MethodName.SetPathCache, 
-Resource.MethodName.SetName, 
-Resource.MethodName.GetName, 
-Resource.MethodName.GetRid, 
-Resource.MethodName.SetLocalToScene, 
-Resource.MethodName.IsLocalToScene, 
-Resource.MethodName.GetLocalScene, 
-Resource.MethodName.SetupLocalToScene, 
-Resource.MethodName.ResetState, 
-Resource.MethodName.SetIdForPath, 
-Resource.MethodName.GetIdForPath, 
-Resource.MethodName.IsBuiltIn, 
-Resource.MethodName.GenerateSceneUniqueId, 
-Resource.MethodName.SetSceneUniqueId, 
-Resource.MethodName.GetSceneUniqueId, 
-Resource.MethodName.EmitChanged, 
-Resource.MethodName.Duplicate, 
+EditorInspectorPlugin.MethodName.\_CanHandle, 
+EditorInspectorPlugin.MethodName.\_ParseBegin, 
+EditorInspectorPlugin.MethodName.\_ParseCategory, 
+EditorInspectorPlugin.MethodName.\_ParseEnd, 
+EditorInspectorPlugin.MethodName.\_ParseGroup, 
+EditorInspectorPlugin.MethodName.\_ParseProperty, 
+EditorInspectorPlugin.MethodName.AddCustomControl, 
+EditorInspectorPlugin.MethodName.AddPropertyEditor, 
+EditorInspectorPlugin.MethodName.AddPropertyEditorForMultipleProperties, 
 RefCounted.MethodName.InitRef, 
 RefCounted.MethodName.Reference, 
 RefCounted.MethodName.Unreference, 
@@ -116,60 +101,60 @@ GodotObject.MethodName.CancelFree,
 
 ## Fields
 
-### <a id="DiceRoll_Models_Character_MethodName_GetAttributeBaseValue"></a> GetAttributeBaseValue
+### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_MethodName_OnConfigurationChanged"></a> OnConfigurationChanged
 
-Cached name for the 'GetAttributeBaseValue' method.
+Cached name for the 'OnConfigurationChanged' method.
 
 ```csharp
-public static readonly StringName GetAttributeBaseValue
+public static readonly StringName OnConfigurationChanged
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_Models_Character_MethodName_GetAttributeCurrentValue"></a> GetAttributeCurrentValue
+### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_MethodName_OnFlipCheckBoxToggled"></a> OnFlipCheckBoxToggled
 
-Cached name for the 'GetAttributeCurrentValue' method.
+Cached name for the 'OnFlipCheckBoxToggled' method.
 
 ```csharp
-public static readonly StringName GetAttributeCurrentValue
+public static readonly StringName OnFlipCheckBoxToggled
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_Models_Character_MethodName_GetAttributeMaxValue"></a> GetAttributeMaxValue
+### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_MethodName__CanHandle"></a> \_CanHandle
 
-Cached name for the 'GetAttributeMaxValue' method.
+Cached name for the '_CanHandle' method.
 
 ```csharp
-public static readonly StringName GetAttributeMaxValue
+public static readonly StringName _CanHandle
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_Models_Character_MethodName_InitializeAttributes"></a> InitializeAttributes
+### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_MethodName__ParseBegin"></a> \_ParseBegin
 
-Cached name for the 'InitializeAttributes' method.
+Cached name for the '_ParseBegin' method.
 
 ```csharp
-public static readonly StringName InitializeAttributes
+public static readonly StringName _ParseBegin
 ```
 
 #### Field Value
 
  StringName
 
-### <a id="DiceRoll_Models_Character_MethodName_UpdateAttributeCurrentValue"></a> UpdateAttributeCurrentValue
+### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_MethodName__ParseEnd"></a> \_ParseEnd
 
-Cached name for the 'UpdateAttributeCurrentValue' method.
+Cached name for the '_ParseEnd' method.
 
 ```csharp
-public static readonly StringName UpdateAttributeCurrentValue
+public static readonly StringName _ParseEnd
 ```
 
 #### Field Value

@@ -1,14 +1,12 @@
-# <a id="DiceRoll_Models_Role"></a> Class Role
+# <a id="DiceRoll_Models_Actions_Effects_EffectType"></a> Class EffectType
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Actions.Effects](DiceRoll.Models.Actions.Effects.md)  
 Assembly: dice\-roll.dll  
-
-Represents a role in the game with attributes and actions.
 
 ```csharp
 [Tool]
-[ScriptPath("res://models/Roles/Role.cs")]
-public class Role : Resource, IDisposable
+[ScriptPath("res://models/Action/EffectType/EffectType.cs")]
+public abstract class EffectType : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -17,7 +15,11 @@ public class Role : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[Role](DiceRoll.Models.Role.md)
+[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)
+
+#### Derived
+
+[DamageEffect](DiceRoll.Models.Actions.Effects.DamageEffect.md)
 
 #### Implements
 
@@ -148,38 +150,15 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Properties
+## Methods
 
-### <a id="DiceRoll_Models_Role_Description"></a> Description
-
-```csharp
-[Export(PropertyHint.MultilineText, "")]
-public string? Description { get; set; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
-### <a id="DiceRoll_Models_Role_Name"></a> Name
+### <a id="DiceRoll_Models_Actions_Effects_EffectType_Apply_DiceRoll_Models_Actions_IActionContext_"></a> Apply\(IActionContext\)
 
 ```csharp
-[Export(PropertyHint.None, "")]
-public string? Name { get; set; }
+public abstract void Apply(IActionContext context)
 ```
 
-#### Property Value
+#### Parameters
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
-### <a id="DiceRoll_Models_Role_RoleAttributes"></a> RoleAttributes
-
-```csharp
-[Export(PropertyHint.None, "")]
-public Array<RoleAttribute> RoleAttributes { get; set; }
-```
-
-#### Property Value
-
- Array<[RoleAttribute](DiceRoll.Models.RoleAttribute.md)\>
+`context` [IActionContext](DiceRoll.Models.Actions.IActionContext.md)
 

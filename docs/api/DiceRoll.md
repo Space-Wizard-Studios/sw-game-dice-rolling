@@ -4,6 +4,8 @@
 
  [DiceRoll.Components](DiceRoll.Components.md)
 
+ [DiceRoll.Editor](DiceRoll.Editor.md)
+
  [DiceRoll.Events](DiceRoll.Events.md)
 
  [DiceRoll.Helpers](DiceRoll.Helpers.md)

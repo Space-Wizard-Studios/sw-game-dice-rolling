@@ -20,6 +20,10 @@ Cached StringNames for the methods contained in this class, for fast lookup.
 
 Cached StringNames for the methods contained in this class, for fast lookup.
 
+ [Grid3D.PropertyName](DiceRoll.Components.Grids.Grid3D.PropertyName.md)
+
+Cached StringNames for the properties and fields contained in this class, for fast lookup.
+
  [CharacterGrid.PropertyName](DiceRoll.Components.Grids.CharacterGrid.PropertyName.md)
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
@@ -28,11 +32,7 @@ Cached StringNames for the properties and fields contained in this class, for fa
 
 Cached StringNames for the properties and fields contained in this class, for fast lookup.
 
- [Grid3D.PropertyName](DiceRoll.Components.Grids.Grid3D.PropertyName.md)
-
-Cached StringNames for the properties and fields contained in this class, for fast lookup.
-
- [CharacterGrid.SignalName](DiceRoll.Components.Grids.CharacterGrid.SignalName.md)
+ [GridCell3D.SignalName](DiceRoll.Components.Grids.GridCell3D.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
@@ -40,7 +40,7 @@ Cached StringNames for the signals contained in this class, for fast lookup.
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 
- [GridCell3D.SignalName](DiceRoll.Components.Grids.GridCell3D.SignalName.md)
+ [CharacterGrid.SignalName](DiceRoll.Components.Grids.CharacterGrid.SignalName.md)
 
 Cached StringNames for the signals contained in this class, for fast lookup.
 

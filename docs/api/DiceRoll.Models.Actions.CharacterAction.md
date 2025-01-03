@@ -1,14 +1,12 @@
-# <a id="DiceRoll_Models_Role"></a> Class Role
+# <a id="DiceRoll_Models_Actions_CharacterAction"></a> Class CharacterAction
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Actions](DiceRoll.Models.Actions.md)  
 Assembly: dice\-roll.dll  
-
-Represents a role in the game with attributes and actions.
 
 ```csharp
 [Tool]
-[ScriptPath("res://models/Roles/Role.cs")]
-public class Role : Resource, IDisposable
+[ScriptPath("res://models/Action/CharacterAction.cs")]
+public class CharacterAction : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -17,7 +15,7 @@ public class Role : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[Role](DiceRoll.Models.Role.md)
+[CharacterAction](DiceRoll.Models.Actions.CharacterAction.md)
 
 #### Implements
 
@@ -148,9 +146,42 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
+## Constructors
+
+### <a id="DiceRoll_Models_Actions_CharacterAction__ctor"></a> CharacterAction\(\)
+
+```csharp
+public CharacterAction()
+```
+
+### <a id="DiceRoll_Models_Actions_CharacterAction__ctor_DiceRoll_Models_Actions_ActionType_Godot_Collections_Array_DiceRoll_Models_DiceMana__Godot_Collections_Array_DiceRoll_Models_Actions_Effects_EffectType__"></a> CharacterAction\(ActionType, Array<DiceMana\>, Array<EffectType\>\)
+
+```csharp
+public CharacterAction(ActionType actionType, Array<DiceMana> requiredMana, Array<EffectType> effects)
+```
+
+#### Parameters
+
+`actionType` [ActionType](DiceRoll.Models.Actions.ActionType.md)
+
+`requiredMana` Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
+
+`effects` Array<[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)\>
+
 ## Properties
 
-### <a id="DiceRoll_Models_Role_Description"></a> Description
+### <a id="DiceRoll_Models_Actions_CharacterAction_ActionType"></a> ActionType
+
+```csharp
+[Export(PropertyHint.None, "")]
+public ActionType? ActionType { get; set; }
+```
+
+#### Property Value
+
+ [ActionType](DiceRoll.Models.Actions.ActionType.md)?
+
+### <a id="DiceRoll_Models_Actions_CharacterAction_Description"></a> Description
 
 ```csharp
 [Export(PropertyHint.MultilineText, "")]
@@ -161,7 +192,39 @@ public string? Description { get; set; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
-### <a id="DiceRoll_Models_Role_Name"></a> Name
+### <a id="DiceRoll_Models_Actions_CharacterAction_Effects"></a> Effects
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Array<EffectType> Effects { get; set; }
+```
+
+#### Property Value
+
+ Array<[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)\>
+
+### <a id="DiceRoll_Models_Actions_CharacterAction_Icon"></a> Icon
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Texture2D? Icon { get; set; }
+```
+
+#### Property Value
+
+ Texture2D?
+
+### <a id="DiceRoll_Models_Actions_CharacterAction_IconPath"></a> IconPath
+
+```csharp
+public string? IconPath { get; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
+### <a id="DiceRoll_Models_Actions_CharacterAction_Name"></a> Name
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -172,14 +235,26 @@ public string? Name { get; set; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
-### <a id="DiceRoll_Models_Role_RoleAttributes"></a> RoleAttributes
+### <a id="DiceRoll_Models_Actions_CharacterAction_RequiredMana"></a> RequiredMana
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Array<RoleAttribute> RoleAttributes { get; set; }
+public Array<DiceMana> RequiredMana { get; set; }
 ```
 
 #### Property Value
 
- Array<[RoleAttribute](DiceRoll.Models.RoleAttribute.md)\>
+ Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
+
+## Methods
+
+### <a id="DiceRoll_Models_Actions_CharacterAction_Resolve_DiceRoll_Models_Actions_IActionContext_"></a> Resolve\(IActionContext\)
+
+```csharp
+public void Resolve(IActionContext context)
+```
+
+#### Parameters
+
+`context` [IActionContext](DiceRoll.Models.Actions.IActionContext.md)
 

@@ -1,14 +1,13 @@
-# <a id="DiceRoll_Models_Role"></a> Class Role
+# <a id="DiceRoll_Models_Actions_ActionType"></a> Class ActionType
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Actions](DiceRoll.Models.Actions.md)  
 Assembly: dice\-roll.dll  
-
-Represents a role in the game with attributes and actions.
 
 ```csharp
 [Tool]
-[ScriptPath("res://models/Roles/Role.cs")]
-public class Role : Resource, IDisposable
+[GlobalClass]
+[ScriptPath("res://models/Action/ActionType/ActionType.cs")]
+public class ActionType : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -17,7 +16,7 @@ public class Role : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[Role](DiceRoll.Models.Role.md)
+[ActionType](DiceRoll.Models.Actions.ActionType.md)
 
 #### Implements
 
@@ -148,9 +147,53 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
+## Constructors
+
+### <a id="DiceRoll_Models_Actions_ActionType__ctor"></a> ActionType\(\)
+
+```csharp
+public ActionType()
+```
+
+### <a id="DiceRoll_Models_Actions_ActionType__ctor_System_String_System_String_Godot_Texture2D_"></a> ActionType\(string, string, Texture2D\)
+
+```csharp
+public ActionType(string name, string description, Texture2D icon)
+```
+
+#### Parameters
+
+`name` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+`description` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+`icon` Texture2D
+
 ## Properties
 
-### <a id="DiceRoll_Models_Role_Description"></a> Description
+### <a id="DiceRoll_Models_Actions_ActionType_DefaultEffects"></a> DefaultEffects
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Array<EffectType> DefaultEffects { get; set; }
+```
+
+#### Property Value
+
+ Array<[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)\>
+
+### <a id="DiceRoll_Models_Actions_ActionType_DefaultRequiredMana"></a> DefaultRequiredMana
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Array<DiceMana> DefaultRequiredMana { get; set; }
+```
+
+#### Property Value
+
+ Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
+
+### <a id="DiceRoll_Models_Actions_ActionType_Description"></a> Description
 
 ```csharp
 [Export(PropertyHint.MultilineText, "")]
@@ -161,7 +204,28 @@ public string? Description { get; set; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
-### <a id="DiceRoll_Models_Role_Name"></a> Name
+### <a id="DiceRoll_Models_Actions_ActionType_Icon"></a> Icon
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Texture2D? Icon { get; set; }
+```
+
+#### Property Value
+
+ Texture2D?
+
+### <a id="DiceRoll_Models_Actions_ActionType_IconPath"></a> IconPath
+
+```csharp
+public string? IconPath { get; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
+### <a id="DiceRoll_Models_Actions_ActionType_Name"></a> Name
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -171,15 +235,4 @@ public string? Name { get; set; }
 #### Property Value
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
-### <a id="DiceRoll_Models_Role_RoleAttributes"></a> RoleAttributes
-
-```csharp
-[Export(PropertyHint.None, "")]
-public Array<RoleAttribute> RoleAttributes { get; set; }
-```
-
-#### Property Value
-
- Array<[RoleAttribute](DiceRoll.Models.RoleAttribute.md)\>
 

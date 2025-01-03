@@ -18,7 +18,8 @@
       "enumSortOrder": "declaringOrder",
       "memberLayout": "samePage",
       "namespaceLayout": "nested",
-      "globalNamespaceId": "DiceRoll"
+      "globalNamespaceId": "DiceRoll",
+      "filter": "filterConfig.yml"
     }
   ]
 }

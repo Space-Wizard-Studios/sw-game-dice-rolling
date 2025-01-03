@@ -10,17 +10,5 @@
 
 ### Classes
 
- [TurnOrderComponent.MethodName](DiceRoll.Components.TurnOrderComponent.MethodName.md)
-
-Cached StringNames for the methods contained in this class, for fast lookup.
-
- [TurnOrderComponent.PropertyName](DiceRoll.Components.TurnOrderComponent.PropertyName.md)
-
-Cached StringNames for the properties and fields contained in this class, for fast lookup.
-
- [TurnOrderComponent.SignalName](DiceRoll.Components.TurnOrderComponent.SignalName.md)
-
-Cached StringNames for the signals contained in this class, for fast lookup.
-
  [TurnOrderComponent](DiceRoll.Components.TurnOrderComponent.md)
 

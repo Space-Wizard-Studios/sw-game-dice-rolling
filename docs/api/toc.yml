@@ -12,20 +12,8 @@
         items:
         - name: CharacterComponent
           href: DiceRoll.Components.Characters.CharacterComponent.md
-        - name: CharacterComponent.MethodName
-          href: DiceRoll.Components.Characters.CharacterComponent.MethodName.md
-        - name: CharacterComponent.PropertyName
-          href: DiceRoll.Components.Characters.CharacterComponent.PropertyName.md
-        - name: CharacterComponent.SignalName
-          href: DiceRoll.Components.Characters.CharacterComponent.SignalName.md
         - name: CharacterInspector
           href: DiceRoll.Components.Characters.CharacterInspector.md
-        - name: CharacterInspector.MethodName
-          href: DiceRoll.Components.Characters.CharacterInspector.MethodName.md
-        - name: CharacterInspector.PropertyName
-          href: DiceRoll.Components.Characters.CharacterInspector.PropertyName.md
-        - name: CharacterInspector.SignalName
-          href: DiceRoll.Components.Characters.CharacterInspector.SignalName.md
     - name: Grids
       href: DiceRoll.Components.Grids.md
       items:
@@ -33,28 +21,10 @@
         items:
         - name: CharacterGrid
           href: DiceRoll.Components.Grids.CharacterGrid.md
-        - name: CharacterGrid.MethodName
-          href: DiceRoll.Components.Grids.CharacterGrid.MethodName.md
-        - name: CharacterGrid.PropertyName
-          href: DiceRoll.Components.Grids.CharacterGrid.PropertyName.md
-        - name: CharacterGrid.SignalName
-          href: DiceRoll.Components.Grids.CharacterGrid.SignalName.md
         - name: Grid3D
           href: DiceRoll.Components.Grids.Grid3D.md
-        - name: Grid3D.MethodName
-          href: DiceRoll.Components.Grids.Grid3D.MethodName.md
-        - name: Grid3D.PropertyName
-          href: DiceRoll.Components.Grids.Grid3D.PropertyName.md
-        - name: Grid3D.SignalName
-          href: DiceRoll.Components.Grids.Grid3D.SignalName.md
         - name: GridCell3D
           href: DiceRoll.Components.Grids.GridCell3D.md
-        - name: GridCell3D.MethodName
-          href: DiceRoll.Components.Grids.GridCell3D.MethodName.md
-        - name: GridCell3D.PropertyName
-          href: DiceRoll.Components.Grids.GridCell3D.PropertyName.md
-        - name: GridCell3D.SignalName
-          href: DiceRoll.Components.Grids.GridCell3D.SignalName.md
     - name: UI
       href: DiceRoll.Components.UI.md
       items:
@@ -62,46 +32,16 @@
         items:
         - name: GameLogComponent
           href: DiceRoll.Components.UI.GameLogComponent.md
-        - name: GameLogComponent.MethodName
-          href: DiceRoll.Components.UI.GameLogComponent.MethodName.md
-        - name: GameLogComponent.PropertyName
-          href: DiceRoll.Components.UI.GameLogComponent.PropertyName.md
-        - name: GameLogComponent.SignalName
-          href: DiceRoll.Components.UI.GameLogComponent.SignalName.md
         - name: InventoryComponent
           href: DiceRoll.Components.UI.InventoryComponent.md
-        - name: InventoryComponent.MethodName
-          href: DiceRoll.Components.UI.InventoryComponent.MethodName.md
-        - name: InventoryComponent.PropertyName
-          href: DiceRoll.Components.UI.InventoryComponent.PropertyName.md
-        - name: InventoryComponent.SignalName
-          href: DiceRoll.Components.UI.InventoryComponent.SignalName.md
         - name: InventoryItemComponent
           href: DiceRoll.Components.UI.InventoryItemComponent.md
-        - name: InventoryItemComponent.MethodName
-          href: DiceRoll.Components.UI.InventoryItemComponent.MethodName.md
-        - name: InventoryItemComponent.PropertyName
-          href: DiceRoll.Components.UI.InventoryItemComponent.PropertyName.md
-        - name: InventoryItemComponent.SignalName
-          href: DiceRoll.Components.UI.InventoryItemComponent.SignalName.md
         - name: TooltipComponent
           href: DiceRoll.Components.UI.TooltipComponent.md
-        - name: TooltipComponent.MethodName
-          href: DiceRoll.Components.UI.TooltipComponent.MethodName.md
-        - name: TooltipComponent.PropertyName
-          href: DiceRoll.Components.UI.TooltipComponent.PropertyName.md
-        - name: TooltipComponent.SignalName
-          href: DiceRoll.Components.UI.TooltipComponent.SignalName.md
     - name: Classes
       items:
       - name: TurnOrderComponent
         href: DiceRoll.Components.TurnOrderComponent.md
-      - name: TurnOrderComponent.MethodName
-        href: DiceRoll.Components.TurnOrderComponent.MethodName.md
-      - name: TurnOrderComponent.PropertyName
-        href: DiceRoll.Components.TurnOrderComponent.PropertyName.md
-      - name: TurnOrderComponent.SignalName
-        href: DiceRoll.Components.TurnOrderComponent.SignalName.md
   - name: Editor
     href: DiceRoll.Editor.md
     items:
@@ -109,28 +49,10 @@
       items:
       - name: MatrixControl
         href: DiceRoll.Editor.MatrixControl.md
-      - name: MatrixControl.MethodName
-        href: DiceRoll.Editor.MatrixControl.MethodName.md
-      - name: MatrixControl.PropertyName
-        href: DiceRoll.Editor.MatrixControl.PropertyName.md
-      - name: MatrixControl.SignalName
-        href: DiceRoll.Editor.MatrixControl.SignalName.md
       - name: TargetConfigurationEditorPlugin
         href: DiceRoll.Editor.TargetConfigurationEditorPlugin.md
-      - name: TargetConfigurationEditorPlugin.MethodName
-        href: DiceRoll.Editor.TargetConfigurationEditorPlugin.MethodName.md
-      - name: TargetConfigurationEditorPlugin.PropertyName
-        href: DiceRoll.Editor.TargetConfigurationEditorPlugin.PropertyName.md
-      - name: TargetConfigurationEditorPlugin.SignalName
-        href: DiceRoll.Editor.TargetConfigurationEditorPlugin.SignalName.md
       - name: TargetConfigurationInspectorPlugin
         href: DiceRoll.Editor.TargetConfigurationInspectorPlugin.md
-      - name: TargetConfigurationInspectorPlugin.MethodName
-        href: DiceRoll.Editor.TargetConfigurationInspectorPlugin.MethodName.md
-      - name: TargetConfigurationInspectorPlugin.PropertyName
-        href: DiceRoll.Editor.TargetConfigurationInspectorPlugin.PropertyName.md
-      - name: TargetConfigurationInspectorPlugin.SignalName
-        href: DiceRoll.Editor.TargetConfigurationInspectorPlugin.SignalName.md
   - name: Events
     href: DiceRoll.Events.md
     items:
@@ -138,12 +60,6 @@
       items:
       - name: EventBus
         href: DiceRoll.Events.EventBus.md
-      - name: EventBus.MethodName
-        href: DiceRoll.Events.EventBus.MethodName.md
-      - name: EventBus.PropertyName
-        href: DiceRoll.Events.EventBus.PropertyName.md
-      - name: EventBus.SignalName
-        href: DiceRoll.Events.EventBus.SignalName.md
     - name: Delegates
       items:
       - name: EventBus.AttributeChangedEventHandler
@@ -157,12 +73,6 @@
       items:
       - name: Arc2D
         href: DiceRoll.Helpers.Arc2D.md
-      - name: Arc2D.MethodName
-        href: DiceRoll.Helpers.Arc2D.MethodName.md
-      - name: Arc2D.PropertyName
-        href: DiceRoll.Helpers.Arc2D.PropertyName.md
-      - name: Arc2D.SignalName
-        href: DiceRoll.Helpers.Arc2D.SignalName.md
       - name: AttributesHelper
         href: DiceRoll.Helpers.AttributesHelper.md
   - name: Managers
@@ -172,68 +82,20 @@
       items:
       - name: BattleManager
         href: DiceRoll.Managers.BattleManager.md
-      - name: BattleManager.MethodName
-        href: DiceRoll.Managers.BattleManager.MethodName.md
-      - name: BattleManager.PropertyName
-        href: DiceRoll.Managers.BattleManager.PropertyName.md
-      - name: BattleManager.SignalName
-        href: DiceRoll.Managers.BattleManager.SignalName.md
       - name: DungeonManager
         href: DiceRoll.Managers.DungeonManager.md
-      - name: DungeonManager.MethodName
-        href: DiceRoll.Managers.DungeonManager.MethodName.md
-      - name: DungeonManager.PropertyName
-        href: DiceRoll.Managers.DungeonManager.PropertyName.md
-      - name: DungeonManager.SignalName
-        href: DiceRoll.Managers.DungeonManager.SignalName.md
       - name: GameOverManager
         href: DiceRoll.Managers.GameOverManager.md
-      - name: GameOverManager.MethodName
-        href: DiceRoll.Managers.GameOverManager.MethodName.md
-      - name: GameOverManager.PropertyName
-        href: DiceRoll.Managers.GameOverManager.PropertyName.md
-      - name: GameOverManager.SignalName
-        href: DiceRoll.Managers.GameOverManager.SignalName.md
       - name: GameplayTransitionManager
         href: DiceRoll.Managers.GameplayTransitionManager.md
-      - name: GameplayTransitionManager.MethodName
-        href: DiceRoll.Managers.GameplayTransitionManager.MethodName.md
-      - name: GameplayTransitionManager.PropertyName
-        href: DiceRoll.Managers.GameplayTransitionManager.PropertyName.md
-      - name: GameplayTransitionManager.SignalName
-        href: DiceRoll.Managers.GameplayTransitionManager.SignalName.md
       - name: LobbyManager
         href: DiceRoll.Managers.LobbyManager.md
-      - name: LobbyManager.MethodName
-        href: DiceRoll.Managers.LobbyManager.MethodName.md
-      - name: LobbyManager.PropertyName
-        href: DiceRoll.Managers.LobbyManager.PropertyName.md
-      - name: LobbyManager.SignalName
-        href: DiceRoll.Managers.LobbyManager.SignalName.md
       - name: MainMenuManager
         href: DiceRoll.Managers.MainMenuManager.md
-      - name: MainMenuManager.MethodName
-        href: DiceRoll.Managers.MainMenuManager.MethodName.md
-      - name: MainMenuManager.PropertyName
-        href: DiceRoll.Managers.MainMenuManager.PropertyName.md
-      - name: MainMenuManager.SignalName
-        href: DiceRoll.Managers.MainMenuManager.SignalName.md
       - name: MenuTransitionManager
         href: DiceRoll.Managers.MenuTransitionManager.md
-      - name: MenuTransitionManager.MethodName
-        href: DiceRoll.Managers.MenuTransitionManager.MethodName.md
-      - name: MenuTransitionManager.PropertyName
-        href: DiceRoll.Managers.MenuTransitionManager.PropertyName.md
-      - name: MenuTransitionManager.SignalName
-        href: DiceRoll.Managers.MenuTransitionManager.SignalName.md
       - name: PlaygroundTransitionManager
         href: DiceRoll.Managers.PlaygroundTransitionManager.md
-      - name: PlaygroundTransitionManager.MethodName
-        href: DiceRoll.Managers.PlaygroundTransitionManager.MethodName.md
-      - name: PlaygroundTransitionManager.PropertyName
-        href: DiceRoll.Managers.PlaygroundTransitionManager.PropertyName.md
-      - name: PlaygroundTransitionManager.SignalName
-        href: DiceRoll.Managers.PlaygroundTransitionManager.SignalName.md
     - name: Enums
       items:
       - name: GameplayScenes
@@ -255,20 +117,8 @@
           items:
           - name: DamageEffect
             href: DiceRoll.Models.Actions.Effects.DamageEffect.md
-          - name: DamageEffect.MethodName
-            href: DiceRoll.Models.Actions.Effects.DamageEffect.MethodName.md
-          - name: DamageEffect.PropertyName
-            href: DiceRoll.Models.Actions.Effects.DamageEffect.PropertyName.md
-          - name: DamageEffect.SignalName
-            href: DiceRoll.Models.Actions.Effects.DamageEffect.SignalName.md
           - name: EffectType
             href: DiceRoll.Models.Actions.Effects.EffectType.md
-          - name: EffectType.MethodName
-            href: DiceRoll.Models.Actions.Effects.EffectType.MethodName.md
-          - name: EffectType.PropertyName
-            href: DiceRoll.Models.Actions.Effects.EffectType.PropertyName.md
-          - name: EffectType.SignalName
-            href: DiceRoll.Models.Actions.Effects.EffectType.SignalName.md
       - name: Target
         href: DiceRoll.Models.Actions.Target.md
         items:
@@ -276,12 +126,6 @@
           items:
           - name: TargetConfiguration
             href: DiceRoll.Models.Actions.Target.TargetConfiguration.md
-          - name: TargetConfiguration.MethodName
-            href: DiceRoll.Models.Actions.Target.TargetConfiguration.MethodName.md
-          - name: TargetConfiguration.PropertyName
-            href: DiceRoll.Models.Actions.Target.TargetConfiguration.PropertyName.md
-          - name: TargetConfiguration.SignalName
-            href: DiceRoll.Models.Actions.Target.TargetConfiguration.SignalName.md
         - name: Delegates
           items:
           - name: TargetConfiguration.ConfigurationChangedEventHandler
@@ -290,36 +134,12 @@
         items:
         - name: Action
           href: DiceRoll.Models.Actions.Action.md
-        - name: Action.MethodName
-          href: DiceRoll.Models.Actions.Action.MethodName.md
-        - name: Action.PropertyName
-          href: DiceRoll.Models.Actions.Action.PropertyName.md
-        - name: Action.SignalName
-          href: DiceRoll.Models.Actions.Action.SignalName.md
         - name: ActionSource
           href: DiceRoll.Models.Actions.ActionSource.md
-        - name: ActionSource.MethodName
-          href: DiceRoll.Models.Actions.ActionSource.MethodName.md
-        - name: ActionSource.PropertyName
-          href: DiceRoll.Models.Actions.ActionSource.PropertyName.md
-        - name: ActionSource.SignalName
-          href: DiceRoll.Models.Actions.ActionSource.SignalName.md
         - name: ActionType
           href: DiceRoll.Models.Actions.ActionType.md
-        - name: ActionType.MethodName
-          href: DiceRoll.Models.Actions.ActionType.MethodName.md
-        - name: ActionType.PropertyName
-          href: DiceRoll.Models.Actions.ActionType.PropertyName.md
-        - name: ActionType.SignalName
-          href: DiceRoll.Models.Actions.ActionType.SignalName.md
         - name: CharacterAction
           href: DiceRoll.Models.Actions.CharacterAction.md
-        - name: CharacterAction.MethodName
-          href: DiceRoll.Models.Actions.CharacterAction.MethodName.md
-        - name: CharacterAction.PropertyName
-          href: DiceRoll.Models.Actions.CharacterAction.PropertyName.md
-        - name: CharacterAction.SignalName
-          href: DiceRoll.Models.Actions.CharacterAction.SignalName.md
       - name: Interfaces
         items:
         - name: IAction<TContext, TResult>
@@ -333,12 +153,6 @@
         items:
         - name: CharacterGridType
           href: DiceRoll.Models.CharacterGrid.CharacterGridType.md
-        - name: CharacterGridType.MethodName
-          href: DiceRoll.Models.CharacterGrid.CharacterGridType.MethodName.md
-        - name: CharacterGridType.PropertyName
-          href: DiceRoll.Models.CharacterGrid.CharacterGridType.PropertyName.md
-        - name: CharacterGridType.SignalName
-          href: DiceRoll.Models.CharacterGrid.CharacterGridType.SignalName.md
       - name: Delegates
         items:
         - name: CharacterGridType.ChangedEventHandler
@@ -350,114 +164,36 @@
         items:
         - name: CharacterLocation
           href: DiceRoll.Models.CharacterLocations.CharacterLocation.md
-        - name: CharacterLocation.MethodName
-          href: DiceRoll.Models.CharacterLocations.CharacterLocation.MethodName.md
-        - name: CharacterLocation.PropertyName
-          href: DiceRoll.Models.CharacterLocations.CharacterLocation.PropertyName.md
-        - name: CharacterLocation.SignalName
-          href: DiceRoll.Models.CharacterLocations.CharacterLocation.SignalName.md
     - name: Classes
       items:
       - name: AttributeType
         href: DiceRoll.Models.AttributeType.md
-      - name: AttributeType.MethodName
-        href: DiceRoll.Models.AttributeType.MethodName.md
-      - name: AttributeType.PropertyName
-        href: DiceRoll.Models.AttributeType.PropertyName.md
-      - name: AttributeType.SignalName
-        href: DiceRoll.Models.AttributeType.SignalName.md
       - name: AttributesConfig
         href: DiceRoll.Models.AttributesConfig.md
-      - name: AttributesConfig.MethodName
-        href: DiceRoll.Models.AttributesConfig.MethodName.md
-      - name: AttributesConfig.PropertyName
-        href: DiceRoll.Models.AttributesConfig.PropertyName.md
-      - name: AttributesConfig.SignalName
-        href: DiceRoll.Models.AttributesConfig.SignalName.md
       - name: Character
         href: DiceRoll.Models.Character.md
-      - name: Character.MethodName
-        href: DiceRoll.Models.Character.MethodName.md
-      - name: Character.PropertyName
-        href: DiceRoll.Models.Character.PropertyName.md
-      - name: Character.SignalName
-        href: DiceRoll.Models.Character.SignalName.md
       - name: CharacterAttribute
         href: DiceRoll.Models.CharacterAttribute.md
-      - name: CharacterAttribute.MethodName
-        href: DiceRoll.Models.CharacterAttribute.MethodName.md
-      - name: CharacterAttribute.PropertyName
-        href: DiceRoll.Models.CharacterAttribute.PropertyName.md
-      - name: CharacterAttribute.SignalName
-        href: DiceRoll.Models.CharacterAttribute.SignalName.md
       - name: Dice<T>
         href: DiceRoll.Models.Dice-1.md
       - name: DiceFactory
         href: DiceRoll.Models.DiceFactory.md
       - name: DiceIcon
         href: DiceRoll.Models.DiceIcon.md
-      - name: DiceIcon.MethodName
-        href: DiceRoll.Models.DiceIcon.MethodName.md
-      - name: DiceIcon.PropertyName
-        href: DiceRoll.Models.DiceIcon.PropertyName.md
-      - name: DiceIcon.SignalName
-        href: DiceRoll.Models.DiceIcon.SignalName.md
       - name: DiceIconsResources
         href: DiceRoll.Models.DiceIconsResources.md
-      - name: DiceIconsResources.MethodName
-        href: DiceRoll.Models.DiceIconsResources.MethodName.md
-      - name: DiceIconsResources.PropertyName
-        href: DiceRoll.Models.DiceIconsResources.PropertyName.md
-      - name: DiceIconsResources.SignalName
-        href: DiceRoll.Models.DiceIconsResources.SignalName.md
       - name: DiceMana
         href: DiceRoll.Models.DiceMana.md
-      - name: DiceMana.MethodName
-        href: DiceRoll.Models.DiceMana.MethodName.md
-      - name: DiceMana.PropertyName
-        href: DiceRoll.Models.DiceMana.PropertyName.md
-      - name: DiceMana.SignalName
-        href: DiceRoll.Models.DiceMana.SignalName.md
       - name: DiceManaResources
         href: DiceRoll.Models.DiceManaResources.md
-      - name: DiceManaResources.MethodName
-        href: DiceRoll.Models.DiceManaResources.MethodName.md
-      - name: DiceManaResources.PropertyName
-        href: DiceRoll.Models.DiceManaResources.PropertyName.md
-      - name: DiceManaResources.SignalName
-        href: DiceRoll.Models.DiceManaResources.SignalName.md
       - name: DiceSide
         href: DiceRoll.Models.DiceSide.md
-      - name: DiceSide.MethodName
-        href: DiceRoll.Models.DiceSide.MethodName.md
-      - name: DiceSide.PropertyName
-        href: DiceRoll.Models.DiceSide.PropertyName.md
-      - name: DiceSide.SignalName
-        href: DiceRoll.Models.DiceSide.SignalName.md
       - name: Role
         href: DiceRoll.Models.Role.md
-      - name: Role.MethodName
-        href: DiceRoll.Models.Role.MethodName.md
-      - name: Role.PropertyName
-        href: DiceRoll.Models.Role.PropertyName.md
-      - name: Role.SignalName
-        href: DiceRoll.Models.Role.SignalName.md
       - name: RoleAttribute
         href: DiceRoll.Models.RoleAttribute.md
-      - name: RoleAttribute.MethodName
-        href: DiceRoll.Models.RoleAttribute.MethodName.md
-      - name: RoleAttribute.PropertyName
-        href: DiceRoll.Models.RoleAttribute.PropertyName.md
-      - name: RoleAttribute.SignalName
-        href: DiceRoll.Models.RoleAttribute.SignalName.md
       - name: RolesResources
         href: DiceRoll.Models.RolesResources.md
-      - name: RolesResources.MethodName
-        href: DiceRoll.Models.RolesResources.MethodName.md
-      - name: RolesResources.PropertyName
-        href: DiceRoll.Models.RolesResources.PropertyName.md
-      - name: RolesResources.SignalName
-        href: DiceRoll.Models.RolesResources.SignalName.md
     - name: Enums
       items:
       - name: DiceLocation
@@ -473,32 +209,14 @@
       items:
       - name: CharacterStore
         href: DiceRoll.Stores.CharacterStore.md
-      - name: CharacterStore.MethodName
-        href: DiceRoll.Stores.CharacterStore.MethodName.md
-      - name: CharacterStore.PropertyName
-        href: DiceRoll.Stores.CharacterStore.PropertyName.md
-      - name: CharacterStore.SignalName
-        href: DiceRoll.Stores.CharacterStore.SignalName.md
       - name: DiceStore
         href: DiceRoll.Stores.DiceStore.md
-      - name: DiceStore.MethodName
-        href: DiceRoll.Stores.DiceStore.MethodName.md
-      - name: DiceStore.PropertyName
-        href: DiceRoll.Stores.DiceStore.PropertyName.md
-      - name: DiceStore.SignalName
-        href: DiceRoll.Stores.DiceStore.SignalName.md
       - name: GameLogLine
         href: DiceRoll.Stores.GameLogLine.md
       - name: GameLogMessage
         href: DiceRoll.Stores.GameLogMessage.md
       - name: GameLogStore
         href: DiceRoll.Stores.GameLogStore.md
-      - name: GameLogStore.MethodName
-        href: DiceRoll.Stores.GameLogStore.MethodName.md
-      - name: GameLogStore.PropertyName
-        href: DiceRoll.Stores.GameLogStore.PropertyName.md
-      - name: GameLogStore.SignalName
-        href: DiceRoll.Stores.GameLogStore.SignalName.md
     - name: Enums
       items:
       - name: GameLogLineType
@@ -516,36 +234,12 @@
       items:
       - name: ArcDrawer
         href: DiceRoll.UI.ArcDrawer.md
-      - name: ArcDrawer.MethodName
-        href: DiceRoll.UI.ArcDrawer.MethodName.md
-      - name: ArcDrawer.PropertyName
-        href: DiceRoll.UI.ArcDrawer.PropertyName.md
-      - name: ArcDrawer.SignalName
-        href: DiceRoll.UI.ArcDrawer.SignalName.md
       - name: CloseGameButton
         href: DiceRoll.UI.CloseGameButton.md
-      - name: CloseGameButton.MethodName
-        href: DiceRoll.UI.CloseGameButton.MethodName.md
-      - name: CloseGameButton.PropertyName
-        href: DiceRoll.UI.CloseGameButton.PropertyName.md
-      - name: CloseGameButton.SignalName
-        href: DiceRoll.UI.CloseGameButton.SignalName.md
       - name: PlaygroundTransitionMenu
         href: DiceRoll.UI.PlaygroundTransitionMenu.md
-      - name: PlaygroundTransitionMenu.MethodName
-        href: DiceRoll.UI.PlaygroundTransitionMenu.MethodName.md
-      - name: PlaygroundTransitionMenu.PropertyName
-        href: DiceRoll.UI.PlaygroundTransitionMenu.PropertyName.md
-      - name: PlaygroundTransitionMenu.SignalName
-        href: DiceRoll.UI.PlaygroundTransitionMenu.SignalName.md
       - name: SceneTransitionButton
         href: DiceRoll.UI.SceneTransitionButton.md
-      - name: SceneTransitionButton.MethodName
-        href: DiceRoll.UI.SceneTransitionButton.MethodName.md
-      - name: SceneTransitionButton.PropertyName
-        href: DiceRoll.UI.SceneTransitionButton.PropertyName.md
-      - name: SceneTransitionButton.SignalName
-        href: DiceRoll.UI.SceneTransitionButton.SignalName.md
     - name: Enums
       items:
       - name: TransitionType

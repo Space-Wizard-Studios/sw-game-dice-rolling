@@ -59,13 +59,13 @@ public partial class CharacterGrid : Node3D {
     }
 
     private static bool IsValidGridConfiguration(CharacterGridType config) {
-        return config is not null && config.Columns > 0 && config.Rows > 0;
+        return config is not null && config.Rows > 0 && config.Columns > 0;
     }
 
     private Grid3D CreateGrid(CharacterGridType config, ref float currentXPosition) {
         var grid = new Grid3D {
-            Columns = config.Columns,
             Rows = config.Rows,
+            Columns = config.Columns,
             Prefix = config.Prefix,
             CharacterStore = config.CharacterStore,
             CharacterComponentScene = CharacterComponentScene

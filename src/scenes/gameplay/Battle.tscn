@@ -31,8 +31,8 @@ glow_enabled = true
 [sub_resource type="Resource" id="Resource_7xgoa"]
 script = ExtResource("10_c5xwm")
 CharacterStore = ExtResource("9_eybki")
-Columns = 3
 Rows = 2
+Columns = 3
 Offset = 0
 Prefix = "P"
 metadata/_custom_type_script = ExtResource("10_c5xwm")

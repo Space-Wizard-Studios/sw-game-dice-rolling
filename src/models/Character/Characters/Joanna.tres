@@ -1,50 +1,50 @@
 [gd_resource type="Resource" script_class="Character" load_steps=14 format=3 uid="uid://bkolttux1bvi1"]
 
-[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attributes/Resources/Health.tres" id="1_0bgf2"]
-[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Action/CharacterAction.cs" id="1_244n0"]
-[ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="1_p8ost"]
-[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attributes/CharacterAttribute.cs" id="2_dudko"]
-[ext_resource type="Texture2D" uid="uid://8e45l4n0kh6" path="res://assets/characters/joannaOtsoga/JoannaOtsogaPortrait.png" id="3_25hax"]
-[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="3_rm216"]
-[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/Character.cs" id="4_b0lof"]
-[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attributes/Resources/Speed.tres" id="4_rlhva"]
-[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/CharacterLocation/Locations/BattleSquad.tres" id="8_imhpl"]
-[ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://models/Roles/Resources/Fighter.tres" id="8_lhq5r"]
+[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Action/CharacterAction.cs" id="1_54hr6"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attributes/CharacterAttribute.cs" id="2_wf1x4"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attributes/Resources/Health.tres" id="3_8rhoj"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="4_byiuj"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attributes/Resources/Speed.tres" id="5_xumvl"]
+[ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="6_keqlw"]
+[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/CharacterLocation/Locations/BattleSquad.tres" id="7_87gay"]
+[ext_resource type="Texture2D" uid="uid://8e45l4n0kh6" path="res://assets/characters/joannaOtsoga/JoannaOtsogaPortrait.png" id="8_focbd"]
+[ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://models/Roles/Resources/Fighter.tres" id="9_co8f0"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/Character.cs" id="10_1h6mb"]
 
 [sub_resource type="Resource" id="Resource_4p1nt"]
-script = ExtResource("2_dudko")
-Type = ExtResource("1_0bgf2")
+script = ExtResource("2_wf1x4")
+Type = ExtResource("3_8rhoj")
 MaxValue = 80
 CurrentValue = 80
 BaseValue = 80
 
 [sub_resource type="Resource" id="Resource_ebahj"]
-script = ExtResource("2_dudko")
-Type = ExtResource("3_rm216")
+script = ExtResource("2_wf1x4")
+Type = ExtResource("4_byiuj")
 MaxValue = 50
 CurrentValue = 50
 BaseValue = 50
 
 [sub_resource type="Resource" id="Resource_b3bio"]
-script = ExtResource("2_dudko")
-Type = ExtResource("4_rlhva")
+script = ExtResource("2_wf1x4")
+Type = ExtResource("5_xumvl")
 MaxValue = 20
 CurrentValue = 20
 BaseValue = 20
 
 [resource]
-script = ExtResource("4_b0lof")
+script = ExtResource("10_1h6mb")
 Id = "d98ec50f-3df3-47e6-b266-cbc7b8fbb745"
 Name = "Joanna"
 IsEnemy = false
-Role = ExtResource("8_lhq5r")
-Attributes = Array[ExtResource("2_dudko")]([SubResource("Resource_4p1nt"), SubResource("Resource_ebahj"), SubResource("Resource_b3bio")])
-Actions = Array[ExtResource("1_244n0")]([])
+Role = ExtResource("9_co8f0")
+Attributes = Array[ExtResource("2_wf1x4")]([SubResource("Resource_4p1nt"), SubResource("Resource_ebahj"), SubResource("Resource_b3bio")])
+Actions = Array[ExtResource("1_54hr6")]([])
 DiceCapacity = 0
-Location = ExtResource("8_imhpl")
-SlotIndex = 3
-Portrait = ExtResource("3_25hax")
-CharacterSprite = ExtResource("1_p8ost")
+Location = ExtResource("7_87gay")
+SlotIndex = 2
+Portrait = ExtResource("8_focbd")
+CharacterSprite = ExtResource("6_keqlw")
 ShowShadow = false
 SpritePositionX = 0.0
 SpritePositionY = -0.167

@@ -7,8 +7,8 @@ namespace DiceRoll.Components.Grids;
 
 [Tool]
 public partial class Grid3D : Node3D {
-    [Export] public int Columns { get; set; } = 1;
     [Export] public int Rows { get; set; } = 1;
+    [Export] public int Columns { get; set; } = 1;
     [Export] public string Prefix { get; set; } = "G";
     [Export] public CharacterStore? CharacterStore { get; set; }
     [Export] public PackedScene? CharacterComponentScene { get; set; }
@@ -40,8 +40,8 @@ public partial class Grid3D : Node3D {
 
     private void CreateNewCells() {
         int index = 0;
-        for (int x = 0; x < Columns; x++) {
-            for (int y = 0; y < Rows; y++) {
+        for (int y = 0; y < Rows; y++) {
+            for (int x = 0; x < Columns; x++) {
                 var position = new Vector3(x, 0, y);
                 var labelText = $"{Prefix}{index}({x},{y})";
                 var gridCell = new GridCell3D(position, labelText);

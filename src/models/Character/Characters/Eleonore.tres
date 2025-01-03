@@ -1,33 +1,33 @@
 [gd_resource type="Resource" script_class="Character" load_steps=25 format=3 uid="uid://clrt1eby68x42"]
 
-[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Action/CharacterAction.cs" id="1_o11qe"]
-[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attributes/Resources/Health.tres" id="1_tjxkj"]
-[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attributes/CharacterAttribute.cs" id="2_bg2oq"]
-[ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="2_n1iay"]
-[ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="3_1cjke"]
-[ext_resource type="Resource" uid="uid://bgx5eoqdsu100" path="res://models/Roles/Resources/Mage.tres" id="3_3pa43"]
-[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="3_wmx46"]
-[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attributes/Resources/Speed.tres" id="4_8gki7"]
-[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/Character.cs" id="5_01s21"]
-[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/CharacterLocation/Locations/BattleSquad.tres" id="8_gvxe5"]
+[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Action/CharacterAction.cs" id="1_a8f08"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attributes/CharacterAttribute.cs" id="2_hmkjg"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attributes/Resources/Health.tres" id="3_4pt02"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="4_y2une"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attributes/Resources/Speed.tres" id="5_u1jip"]
+[ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="6_ae1so"]
+[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/CharacterLocation/Locations/BattleSquad.tres" id="7_22cqr"]
+[ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="8_o4pav"]
+[ext_resource type="Resource" uid="uid://bgx5eoqdsu100" path="res://models/Roles/Resources/Mage.tres" id="9_lgixm"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/Character.cs" id="10_p2s1v"]
 
 [sub_resource type="Resource" id="Resource_ikwiv"]
-script = ExtResource("2_bg2oq")
-Type = ExtResource("1_tjxkj")
+script = ExtResource("2_hmkjg")
+Type = ExtResource("3_4pt02")
 MaxValue = 50
 CurrentValue = 50
 BaseValue = 50
 
 [sub_resource type="Resource" id="Resource_o11qe"]
-script = ExtResource("2_bg2oq")
-Type = ExtResource("3_wmx46")
+script = ExtResource("2_hmkjg")
+Type = ExtResource("4_y2une")
 MaxValue = 0
 CurrentValue = 0
 BaseValue = 0
 
 [sub_resource type="Resource" id="Resource_n00fg"]
-script = ExtResource("2_bg2oq")
-Type = ExtResource("4_8gki7")
+script = ExtResource("2_hmkjg")
+Type = ExtResource("5_u1jip")
 MaxValue = 40
 CurrentValue = 40
 BaseValue = 40
@@ -106,18 +106,18 @@ animations = [{
 }]
 
 [resource]
-script = ExtResource("5_01s21")
+script = ExtResource("10_p2s1v")
 Id = "4ea655f0-4c3e-4fba-bafe-fe361e68db9e"
 Name = "Eleonore"
 IsEnemy = false
-Role = ExtResource("3_3pa43")
-Attributes = Array[ExtResource("2_bg2oq")]([SubResource("Resource_ikwiv"), SubResource("Resource_o11qe"), SubResource("Resource_n00fg")])
-Actions = Array[ExtResource("1_o11qe")]([])
+Role = ExtResource("9_lgixm")
+Attributes = Array[ExtResource("2_hmkjg")]([SubResource("Resource_ikwiv"), SubResource("Resource_o11qe"), SubResource("Resource_n00fg")])
+Actions = Array[ExtResource("1_a8f08")]([])
 DiceCapacity = 0
-Location = ExtResource("8_gvxe5")
-SlotIndex = 0
-Portrait = ExtResource("3_1cjke")
-CharacterSprite = ExtResource("2_n1iay")
+Location = ExtResource("7_22cqr")
+SlotIndex = 1
+Portrait = ExtResource("8_o4pav")
+CharacterSprite = ExtResource("6_ae1so")
 ShadowSprite = SubResource("SpriteFrames_o11qe")
 ShowShadow = false
 SpritePositionX = 0.0

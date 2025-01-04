@@ -14,15 +14,22 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-            sparse-checkout: |
-              !src/assets/
+            fetch-depth: 0 # Fetch all history so we can set up sparse-checkout
+    
+      - name: Set up sparse-checkout
+        run: |
+          git sparse-checkout init --cone
+          git sparse-checkout set docs
+      
+      - name: Checkout 'docs' Folder
+        run: git checkout
 
-      - name: Build API Documentation
-        uses: nunit/docfx-action@v2.4.0
-        with: 
-            args: docfx.json
+    #   - name: Build API Documentation
+    #     uses: nunit/docfx-action@v2.4.0
+    #     with: 
+    #         args: docfx.json
 
       - name: List Directories
         run: ls -l
@@ -30,8 +37,8 @@ jobs:
       - name: List Directories on docs/ Folder
         run: ls -l docs
 
-      - name: List Directories on src/ Folder
-        run: ls -l src
+    #   - name: List Directories on src/ Folder
+    #     run: ls -l src
 
       - name: Install Packages in docs Folder
         run: npm install

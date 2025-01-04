@@ -4,11 +4,11 @@
     {
       "src": [
         {
-          "src": "/src",
+          "src": "src",
           "files": ["**/*.csproj"]
         }
       ],
-      "output": "/docs/api",
+      "output": "docs/api",
       "outputFormat": "markdown",
       "properties": {
         "type": "API"

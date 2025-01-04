@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Action" load_steps=9 format=3 uid="uid://c8xr12tkory0k"]
+[gd_resource type="Resource" script_class="Action" load_steps=10 format=3 uid="uid://c8xr12tkory0k"]
 
 [ext_resource type="Resource" uid="uid://dwtue01tv131s" path="res://models/Action/ActionType/Types/AttackType.tres" id="1_rx0fi"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="2_cspjt"]
@@ -7,13 +7,12 @@
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/Action/Action.cs" id="3_cvwtg"]
 [ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://models/Action/EffectType/DamageEffect/DamageEffect.tres" id="3_uhc3n"]
 [ext_resource type="Resource" uid="uid://dlpcgjh3upxhe" path="res://models/Action/ActionSource/Sources/WeaponSource.tres" id="5_6k1h4"]
+[ext_resource type="Script" uid="uid://cevisa23ybann" path="res://models/Action/GridConfiguration.cs" id="6_s076j"]
 
 [sub_resource type="Resource" id="Resource_cvwtg"]
 script = ExtResource("3_cspjt")
 IsSingleTarget = true
-Rows = 2
-Columns = 3
-Grid = Array[int]([1, 3, 3, 1, 3, 3])
+Grids = Array[ExtResource("6_s076j")]([])
 metadata/_custom_type_script = ExtResource("3_cspjt")
 
 [resource]

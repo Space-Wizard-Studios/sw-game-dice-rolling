@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Action" load_steps=10 format=3 uid="uid://cvojckruuqrn6"]
+[gd_resource type="Resource" script_class="Action" load_steps=13 format=3 uid="uid://cvojckruuqrn6"]
 
 [ext_resource type="Resource" uid="uid://dwtue01tv131s" path="res://models/Action/ActionType/Types/AttackType.tres" id="1_qg6up"]
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/EffectType/EffectType.cs" id="2_ch8we"]
@@ -8,13 +8,28 @@
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/Action/TargetConfiguration.cs" id="6_cj38k"]
 [ext_resource type="Resource" uid="uid://blbpxamynh28s" path="res://models/Action/ActionSource/Sources/RoleSource.tres" id="6_gu2cs"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/Action/Action.cs" id="6_jo2a4"]
+[ext_resource type="Script" uid="uid://cevisa23ybann" path="res://models/Action/GridConfiguration.cs" id="7_ch8we"]
+
+[sub_resource type="Resource" id="Resource_jo2a4"]
+script = ExtResource("7_ch8we")
+Prefix = "P"
+Rows = 3
+Columns = 3
+Cells = Array[int]([1, 0, 0, 1, 0, 0, 1, 0, 0])
+metadata/_custom_type_script = ExtResource("7_ch8we")
+
+[sub_resource type="Resource" id="Resource_0jduw"]
+script = ExtResource("7_ch8we")
+Prefix = "E"
+Rows = 3
+Columns = 3
+Cells = Array[int]([0, 0, 3, 0, 0, 3, 0, 0, 3])
+metadata/_custom_type_script = ExtResource("7_ch8we")
 
 [sub_resource type="Resource" id="Resource_qg6up"]
 script = ExtResource("6_cj38k")
 IsSingleTarget = false
-Rows = 2
-Columns = 6
-Grid = Array[int]([1, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 3])
+Grids = Array[ExtResource("7_ch8we")]([SubResource("Resource_jo2a4"), SubResource("Resource_0jduw")])
 metadata/_custom_type_script = ExtResource("6_cj38k")
 
 [resource]

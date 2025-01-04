@@ -26,10 +26,8 @@ jobs:
       - name: Checkout 'docs' Folder
         run: git checkout
 
-    #   - name: Build API Documentation
-    #     uses: nikeee/docfx-action@v1.0.0
-    #     with:
-    #       args: docfx.json
+      - name: Build API Documentation
+        uses: nikeee/docfx-action@v1.0.0
 
       - name: List Directories
         run: ls -l

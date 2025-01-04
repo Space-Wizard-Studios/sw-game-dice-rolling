@@ -15,16 +15,16 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-        with:
-            fetch-depth: 0 # Fetch all history so we can set up sparse-checkout
+        # with:
+        #     fetch-depth: 0 # Fetch all history so we can set up sparse-checkout
     
-      - name: Set up sparse-checkout
-        run: |
-          git sparse-checkout init --cone
-          git sparse-checkout set docs
+    #   - name: Set up sparse-checkout
+    #     run: |
+    #       git sparse-checkout init --cone
+    #       git sparse-checkout set docs
       
-      - name: Checkout 'docs' Folder
-        run: git checkout
+    #   - name: Checkout 'docs' Folder
+    #     run: git checkout
 
       - name: Build API Documentation
         uses: nunit/docfx-action@v2.4.0

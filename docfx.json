@@ -4,7 +4,7 @@
     {
       "src": [
         {
-          "src": "src",
+          "src": "/src",
           "files": ["**/*.csproj"]
         }
       ],
@@ -14,11 +14,13 @@
         "type": "API"
       },
       "disableGitFeatures": false,
-      "categoryLayout": "nested",
-      "enumSortOrder": "declaringOrder",
-      "memberLayout": "samePage",
       "namespaceLayout": "nested",
+      "categoryLayout": "nested",
+      "memberLayout": "samePage",
+      "enumSortOrder": "declaringOrder",
       "globalNamespaceId": "DiceRoll",
+      "includePrivateMembers": true,
+      "disableDefaultFilter": true,
       "filter": "filterConfig.yml"
     }
   ]

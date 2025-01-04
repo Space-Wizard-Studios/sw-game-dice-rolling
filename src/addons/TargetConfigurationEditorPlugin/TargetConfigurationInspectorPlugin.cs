@@ -9,20 +9,9 @@ namespace DiceRoll.Editor;
 public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin {
     private MatrixControl? matrixControl;
     private CheckBox? flipCheckBox;
-
-    /// <summary>
-    /// Determines if the plugin can handle the given object.
-    /// </summary>
-    /// <param name="object">The object to check.</param>
-    /// <returns>True if the object is a TargetConfiguration, otherwise false.</returns>
     public override bool _CanHandle(GodotObject @object) {
         return @object is TargetConfiguration;
     }
-
-    /// <summary>
-    /// Initializes custom controls for the TargetConfiguration object.
-    /// </summary>
-    /// <param name="object">The TargetConfiguration object.</param>
     public override void _ParseBegin(GodotObject @object) {
         if (@object is TargetConfiguration targetConfiguration) {
             // Initialize and add MatrixControl

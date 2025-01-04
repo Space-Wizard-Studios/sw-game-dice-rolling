@@ -7,7 +7,7 @@
 /build
 
 # Generated API files
-docs/api
+/docs/api
 
 # Encrypted files
 /encrypted

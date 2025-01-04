@@ -27,7 +27,9 @@ jobs:
         run: git checkout
 
       - name: Build API Documentation
-        uses: nikeee/docfx-action@v1.0.0
+        uses: nunit/docfx-action@v2.4.0
+        # with: 
+        #     args: docfx.json
 
       - name: List Directories
         run: ls -l

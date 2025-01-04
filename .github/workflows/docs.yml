@@ -32,7 +32,7 @@ jobs:
         run: ls -l docs
 
       - name: List Directories on src/ Folder
-        run: ls -l docs
+        run: ls -l src
 
       - name: Install Packages in docs Folder
         run: npm install

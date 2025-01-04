@@ -19,7 +19,7 @@
       "memberLayout": "samePage",
       "enumSortOrder": "declaringOrder",
       "globalNamespaceId": "DiceRoll",
-      "includePrivateMembers": true,
+      "includePrivateMembers": false,
       "disableDefaultFilter": true,
       "filter": "filterConfig.yml"
     }

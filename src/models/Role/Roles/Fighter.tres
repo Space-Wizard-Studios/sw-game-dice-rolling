@@ -1,6 +1,5 @@
-[gd_resource type="Resource" load_steps=10 format=3 uid="uid://bad7cxgeb8mqp"]
+[gd_resource type="Resource" load_steps=9 format=3 uid="uid://bad7cxgeb8mqp"]
 
-[ext_resource type="Script" uid="uid://bj4yqm0x3wqer" path="res://models/Action/ActionSource/ActionSource.cs" id="1_gkx62"]
 [ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/Attribute/RoleAttribute.cs" id="1_vbyc7"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attribute/Attributes/Health.tres" id="2_gkx62"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attribute/Attributes/Armor.tres" id="3_218ky"]
@@ -27,4 +26,3 @@ script = ExtResource("5_02olr")
 Name = "Fighter"
 Description = "Fighter Description"
 RoleAttributes = Array[ExtResource("1_vbyc7")]([SubResource("Resource_g0hcp"), SubResource("Resource_8w8fm"), SubResource("Resource_xurgi")])
-RoleActions = Array[ExtResource("1_gkx62")]([])

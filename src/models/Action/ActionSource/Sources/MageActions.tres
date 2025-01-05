@@ -1,10 +1,15 @@
-[gd_resource type="Resource" script_class="RoleActionSource" load_steps=3 format=3 uid="uid://blbpxamynh28s"]
+[gd_resource type="Resource" script_class="RoleActionSource" load_steps=6 format=3 uid="uid://blbpxamynh28s"]
 
+[ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/Action/Action.cs" id="1_4ft7g"]
 [ext_resource type="Script" uid="uid://bj4yqm0x3wqer" path="res://models/Action/ActionSource/ActionSource.cs" id="1_5anc4"]
-[ext_resource type="Script" path="res://models/Action/ActionSource/RoleActionSource.cs" id="2_5ndws"]
+[ext_resource type="Script" uid="uid://7a687fpolwuy" path="res://models/Action/ActionSource/RoleActionSource.cs" id="2_5ndws"]
+[ext_resource type="Resource" uid="uid://cvojckruuqrn6" path="res://models/Action/Actions/RoleActions/Mage/MagicMissile.tres" id="2_loeyc"]
+[ext_resource type="Resource" uid="uid://bgx5eoqdsu100" path="res://models/Role/Roles/Mage.tres" id="3_qt1jh"]
 
 [resource]
 script = ExtResource("2_5ndws")
+Role = ExtResource("3_qt1jh")
 Id = "d9694c02-d43e-4d93-a968-7064dbc30c30"
 Name = "Role"
+Actions = Array[ExtResource("1_4ft7g")]([ExtResource("2_loeyc")])
 metadata/_custom_type_script = ExtResource("1_5anc4")

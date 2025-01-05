@@ -2,8 +2,9 @@ using Godot;
 using System.Linq;
 using System.Collections.Generic;
 using DiceRoll.Helpers;
-using DiceRoll.Models;
 using DiceRoll.Events;
+using DiceRoll.Models.Characters;
+using DiceRoll.Models.Attributes;
 
 namespace DiceRoll.Components;
 
@@ -104,7 +105,7 @@ public partial class TurnOrderComponent : Control {
 
     }
 
-    private void OnCharacterAttributeChanged(Character character, AttributeType attributeType) {
+    private void OnCharacterAttributeChanged(AttributeType attributeType) {
         if (attributeType == HealthAttributeType) {
             UpdateTurnOrder([.. Characters]);
         }

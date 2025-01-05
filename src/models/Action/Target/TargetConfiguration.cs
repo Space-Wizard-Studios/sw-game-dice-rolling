@@ -1,6 +1,6 @@
 using Godot;
 
-namespace DiceRoll.Models.Actions.Target;
+namespace DiceRoll.Models.Actions.Targets;
 
 [Tool]
 [GlobalClass]

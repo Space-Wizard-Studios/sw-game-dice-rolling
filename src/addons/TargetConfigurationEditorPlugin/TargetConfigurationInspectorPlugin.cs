@@ -1,5 +1,5 @@
 using Godot;
-using DiceRoll.Models.Actions.Target;
+using DiceRoll.Models.Actions.Targets;
 
 namespace DiceRoll.Editor;
 
@@ -61,7 +61,7 @@ public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin 
     /// Called when the target configuration changes.
     /// Updates the MatrixControl with the new configuration.
     /// </summary>
-    private void OnConfigurationChanged() {
+    private static void OnConfigurationChanged() {
         // Implementation here
     }
 
@@ -71,7 +71,7 @@ public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin 
     /// </summary>
     /// <param name="toggled">If set to <c>true</c>, the grid will be flipped horizontally.</param>
     private void OnFlipCheckBoxToggled(bool toggled) {
-        matrixControl.FlipHorizontally(toggled);
+        matrixControl?.FlipHorizontally(toggled);
     }
 
     /// <summary>
@@ -79,6 +79,6 @@ public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin 
     /// Clears all grid inputs in the MatrixControl.
     /// </summary>
     private void OnClearGridButtonPressed() {
-        matrixControl.ClearGridInputs();
+        matrixControl?.ClearGridInputs();
     }
 }

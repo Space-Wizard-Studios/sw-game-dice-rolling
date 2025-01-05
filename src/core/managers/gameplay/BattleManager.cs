@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using DiceRoll.Models;
 using DiceRoll.Stores;
+using DiceRoll.Models.Characters;
 
 namespace DiceRoll.Managers;
 

@@ -2,9 +2,10 @@ using Godot;
 using System;
 using System.Linq;
 using DiceRoll.Models.Actions;
-using DiceRoll.Models.CharacterLocations;
+using DiceRoll.Models.Attributes;
+using DiceRoll.Models.Characters.Locations;
 
-namespace DiceRoll.Models;
+namespace DiceRoll.Models.Characters;
 
 /// <summary>
 /// Represents a character in the game with attributes, actions, and other properties.

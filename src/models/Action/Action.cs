@@ -1,7 +1,7 @@
 using Godot;
 using System;
 using DiceRoll.Models.Actions.Effects;
-using DiceRoll.Models.Actions.Target;
+using DiceRoll.Models.Actions.Targets;
 
 namespace DiceRoll.Models.Actions;
 

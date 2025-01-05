@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="4_byiuj"]
 [ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attributes/Resources/Speed.tres" id="5_xumvl"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="6_keqlw"]
-[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/CharacterLocation/Locations/BattleSquad.tres" id="7_87gay"]
+[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/Character/CharacterLocation/Locations/BattleSquad.tres" id="7_87gay"]
 [ext_resource type="Texture2D" uid="uid://8e45l4n0kh6" path="res://assets/characters/joannaOtsoga/JoannaOtsogaPortrait.png" id="8_focbd"]
 [ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://models/Roles/Resources/Fighter.tres" id="9_co8f0"]
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/Character.cs" id="10_1h6mb"]

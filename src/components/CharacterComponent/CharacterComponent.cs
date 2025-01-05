@@ -1,7 +1,7 @@
 using Godot;
 using System;
-using DiceRoll.Models;
 using DiceRoll.Events;
+using DiceRoll.Models.Characters;
 
 namespace DiceRoll.Components.Characters;
 

@@ -1,8 +1,8 @@
 using Godot;
 using System;
 using System.Linq;
-using DiceRoll.Models;
-using DiceRoll.Models.CharacterLocations;
+using DiceRoll.Models.Characters;
+using DiceRoll.Models.Characters.Locations;
 
 namespace DiceRoll.Stores;
 

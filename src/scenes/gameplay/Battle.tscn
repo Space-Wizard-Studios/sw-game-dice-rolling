@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://jc3rfy1j13nu" path="res://core/managers/gameplay/BattleManager.cs" id="1_oeh3a"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="2_cgh0m"]
-[ext_resource type="PackedScene" uid="uid://c22tpnmaefgn4" path="res://components/HUDComponent/hud_container.tscn" id="2_k1t2d"]
+[ext_resource type="PackedScene" uid="uid://c22tpnmaefgn4" path="res://components/HUDComponent/HUDComponent.tscn" id="2_k1t2d"]
 [ext_resource type="Texture2D" uid="uid://byujdpnhcw2vd" path="res://assets/prototype/Dark/texture_01.png" id="8_vpfel"]
 [ext_resource type="Resource" uid="uid://snt34yslyn4f" path="res://core/stores/CharacterStore/PlayerCharacterStore.tres" id="9_eybki"]
-[ext_resource type="Script" uid="uid://bdnimh7atef30" path="res://models/CharacterGrid/CharacterGridType.cs" id="10_c5xwm"]
+[ext_resource type="Script" uid="uid://bdnimh7atef30" path="res://models/Character/CharacterGrid/CharacterGridType.cs" id="10_c5xwm"]
 [ext_resource type="PackedScene" uid="uid://dmw0cm136sn4p" path="res://components/CharacterGrid/CharacterGrid.tscn" id="10_hsrxk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vpfel"]

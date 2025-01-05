@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attributes/Resources/Armor.tres" id="4_y2une"]
 [ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attributes/Resources/Speed.tres" id="5_u1jip"]
 [ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="6_ae1so"]
-[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/CharacterLocation/Locations/BattleSquad.tres" id="7_22cqr"]
+[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/Character/CharacterLocation/Locations/BattleSquad.tres" id="7_22cqr"]
 [ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="8_o4pav"]
 [ext_resource type="Resource" uid="uid://bgx5eoqdsu100" path="res://models/Roles/Resources/Mage.tres" id="9_lgixm"]
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/Character.cs" id="10_p2s1v"]

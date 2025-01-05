@@ -75,7 +75,7 @@ public partial class GameLogComponent : ScrollContainer {
         UpdateLines(lastMessageTemplate, lastMessage);
     }
 
-    private void UpdateHeaderAndTimestamp(VBoxContainer messageTemplate, GameLogMessage message) {
+    private static void UpdateHeaderAndTimestamp(VBoxContainer messageTemplate, GameLogMessage message) {
         var headerTemplate = messageTemplate.GetNode<HBoxContainer>("HeaderTemplate");
         var headingLabel = headerTemplate.GetNode<Label>("Heading");
         var timestampLabel = headerTemplate.GetNode<Label>("Timestamp");

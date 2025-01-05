@@ -1,7 +1,7 @@
 using Godot;
 using DiceRoll.Stores;
 
-namespace DiceRoll.Models.CharacterGrid;
+namespace DiceRoll.Models.Characters.Grid;
 
 [Tool]
 [GlobalClass]

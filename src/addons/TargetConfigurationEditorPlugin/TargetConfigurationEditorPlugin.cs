@@ -1,5 +1,5 @@
 using Godot;
-using DiceRoll.Models.Actions.Target;
+using DiceRoll.Models.Actions.Targets;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,8 +23,8 @@ public partial class MatrixControl : Control {
     private bool isFlippedHorizontally = false;
     private const int CellSize = 40;
     private const int Padding = 10;
-    private static readonly Color[] ColorsArray = { Colors.White, Colors.Yellow, Colors.Green, Colors.Red };
-    private List<GridConfiguration> _grids = new();
+    private static readonly Color[] ColorsArray = [Colors.White, Colors.Yellow, Colors.Green, Colors.Red];
+    private readonly List<GridConfiguration> _grids = [];
     public TargetConfiguration? TargetConfiguration { get; }
 
     /// <summary>

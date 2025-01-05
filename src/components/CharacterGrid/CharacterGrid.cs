@@ -1,6 +1,6 @@
 using Godot;
 using Godot.Collections;
-using DiceRoll.Models.CharacterGrid;
+using DiceRoll.Models.Characters.Grid;
 
 namespace DiceRoll.Components.Grids;
 

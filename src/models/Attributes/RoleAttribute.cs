@@ -1,6 +1,6 @@
 using Godot;
 
-namespace DiceRoll.Models;
+namespace DiceRoll.Models.Attributes;
 
 [Tool]
 [GlobalClass]

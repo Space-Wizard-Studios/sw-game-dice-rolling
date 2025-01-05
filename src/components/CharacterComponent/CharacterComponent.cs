@@ -5,13 +5,8 @@ using DiceRoll.Models.Characters;
 
 namespace DiceRoll.Components.Characters;
 
-/// <summary>
-/// Represents a character in the game, managing character-specific properties and behaviors.
-/// </summary>
 [Tool]
 public partial class CharacterComponent : Node3D {
-    private static CharacterComponent? _currentlySelectedCharacter;
-    // private static CharacterComponent? _currentlySelectedEnemy;
 
     [ExportGroup("🪵 Resources")]
     private Character? _characterResource;
@@ -30,7 +25,6 @@ public partial class CharacterComponent : Node3D {
     public bool IsEnemy { get; set; }
 
     private bool _isHovered = false;
-
     [Export]
     public bool IsHovered {
         get => _isHovered;
@@ -41,7 +35,6 @@ public partial class CharacterComponent : Node3D {
     }
 
     private bool _isSelected = false;
-
     [Export]
     public bool IsSelected {
         get => _isSelected;
@@ -67,6 +60,9 @@ public partial class CharacterComponent : Node3D {
         if (SelectorSpriteNode is not null) {
             SelectorSpriteNode.Visible = false;
         }
+
+        // Connect the CharacterUnselected signal from EventBus to the OnCharacterUnselected method
+        EventBus.Instance.Connect(nameof(EventBus.CharacterUnselected), new Callable(this, nameof(OnCharacterUnselected)));
     }
 
     private void ConnectSignals() {
@@ -78,23 +74,24 @@ public partial class CharacterComponent : Node3D {
     private void OnInputEvent(Node camera, InputEvent @event, Vector3 click_position, Vector3 normal, int shape_idx) {
         if (@event is InputEventMouseButton { Pressed: true }) {
             if (!IsEnemy) {
-                HandleInspection(ref _currentlySelectedCharacter, this, null);
+                HandleSelection(this);
             }
         }
     }
 
-    /// <summary>
-    /// Handles the inspection logic for the character.
-    /// </summary>
-    private static void HandleInspection(ref CharacterComponent? currentlySelected, CharacterComponent current, Action<CharacterComponent>? setSelectedAction) {
-        if (currentlySelected is not null && currentlySelected != current) {
-            currentlySelected.IsSelected = false;
+    private static void HandleSelection(CharacterComponent current) {
+        if (current.IsSelected) {
+            current.IsSelected = false;
+            EventBus.Instance.EmitSignal(nameof(EventBus.CharacterUnselected));
         }
-        current.IsSelected = !current.IsSelected;
-        currentlySelected = current.IsSelected ? current : null;
-        if (currentlySelected is not null) {
-            setSelectedAction?.Invoke(currentlySelected);
+        else {
+            current.IsSelected = true;
+            EventBus.Instance.EmitSignal(nameof(EventBus.CharacterSelected), current);
         }
+    }
+
+    private void OnCharacterUnselected() {
+        IsSelected = false;
     }
 
     private void OnMouseEntered() {
@@ -105,10 +102,6 @@ public partial class CharacterComponent : Node3D {
         IsHovered = false;
     }
 
-    /// <summary>
-    /// Called when the <see cref="IsHovered"/> property is set.
-    /// </summary>
-    /// <param name="isHovered">The new value of the IsHovered property.</param>
     private void OnIsHoveredSet(bool isHovered) {
         if (HoverSpriteNode is not null) {
             HoverSpriteNode.Visible = isHovered;
@@ -119,11 +112,6 @@ public partial class CharacterComponent : Node3D {
         if (SelectorSpriteNode is not null) {
             SelectorSpriteNode.Visible = isSelected;
         }
-
-        if (Character is not null && !IsEnemy) {
-            EventBus.Instance.OnCharacterInspected(Character);
-        }
-
     }
 
     public void FlipSprite(bool flip) {
@@ -132,9 +120,6 @@ public partial class CharacterComponent : Node3D {
         }
     }
 
-    /// <summary>
-    /// Gets or sets the character resource.
-    /// </summary>
     private void OnCharacterResourceSet() {
         if (Character is null) {
             return;

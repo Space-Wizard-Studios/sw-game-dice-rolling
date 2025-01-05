@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="1_jybd2"]
 [ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Characters/Eleonore.tres" id="2_7csti"]
 
-[node name="CharacterInspector" type="HBoxContainer" node_paths=PackedStringArray("PortraitNode", "CharacterNameNode", "CharacterRoleNode", "AttributesListNode", "AttributeTemplateNode", "AttributeTemplateTitleNode", "ValueContainerNode", "AttributeCurrentValueNode", "AttributeMaxValueNode")]
+[node name="CharacterInspector" type="HBoxContainer" node_paths=PackedStringArray("PortraitNode", "CharacterNameNode", "CharacterRoleNode", "AttributesListNode", "AttributeTemplateNode", "AttributeTemplateTitleNode", "ValueContainerNode", "AttributeCurrentValueNode", "AttributeMaxValueNode", "ActionGridNode", "ActionButtonTemplate")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,6 +23,8 @@ AttributeTemplateTitleNode = NodePath("Details/HBoxContainer/AttributesScroll/Ma
 ValueContainerNode = NodePath("Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate/ValueContainer")
 AttributeCurrentValueNode = NodePath("Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate/ValueContainer/CurrentValue")
 AttributeMaxValueNode = NodePath("Details/HBoxContainer/AttributesScroll/MarginContainer/AttributesList/AttributeTemplate/ValueContainer/MaxValue")
+ActionGridNode = NodePath("Details/HBoxContainer/ActionsScroll/ActionsMargin/ActionsGrid")
+ActionButtonTemplate = NodePath("Details/HBoxContainer/ActionsScroll/ActionsMargin/ActionsGrid/ActionButtonTemplate")
 
 [node name="PortraitMargin" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -134,24 +136,14 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="ActionsContainer" type="VBoxContainer" parent="Details/HBoxContainer/ActionsScroll/ActionsMargin"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="ActionsLineTemplate" type="GridContainer" parent="Details/HBoxContainer/ActionsScroll/ActionsMargin/ActionsContainer"]
+[node name="ActionsGrid" type="GridContainer" parent="Details/HBoxContainer/ActionsScroll/ActionsMargin"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 0
 columns = 2
 
-[node name="ActionButton" type="Button" parent="Details/HBoxContainer/ActionsScroll/ActionsMargin/ActionsContainer/ActionsLineTemplate"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "ACTION"
-
-[node name="ActionButton2" type="Button" parent="Details/HBoxContainer/ActionsScroll/ActionsMargin/ActionsContainer/ActionsLineTemplate"]
+[node name="ActionButtonTemplate" type="Button" parent="Details/HBoxContainer/ActionsScroll/ActionsMargin/ActionsGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

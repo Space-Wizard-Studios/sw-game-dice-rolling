@@ -30,7 +30,7 @@ CharacterStore = ExtResource("9_eybki")
 Rows = 2
 Columns = 3
 Offset = 0
-Prefix = "P"
+Prefix = "Player"
 metadata/_custom_type_script = ExtResource("10_c5xwm")
 
 [sub_resource type="Resource" id="Resource_eybki"]
@@ -38,7 +38,7 @@ script = ExtResource("10_c5xwm")
 Rows = 2
 Columns = 3
 Offset = 2
-Prefix = "G"
+Prefix = "Enemy"
 metadata/_custom_type_script = ExtResource("10_c5xwm")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsrxk"]

@@ -23,6 +23,8 @@ public partial class CharacterInspector : HBoxContainer {
     [Export] private TextureRect? PortraitNode;
     [Export] private Label? CharacterNameNode;
     [Export] private Label? CharacterRoleNode;
+
+    [ExportSubgroup("Attributes")]
     [Export] private VBoxContainer? AttributesListNode;
     [Export] private VBoxContainer? AttributeTemplateNode;
     [Export] private Label? AttributeTemplateTitleNode;
@@ -34,14 +36,26 @@ public partial class CharacterInspector : HBoxContainer {
     [Export] private Label? AttributeMaxValueNode;
     private string AttributeMaxValueNodeName => AttributeMaxValueNode?.Name ?? "MaxValue";
 
+    [ExportSubgroup("Actions")]
+    [Export] private GridContainer? ActionGridNode;
+    [Export] private Button? ActionButtonTemplate;
+    private string ButtonTemplateNodeName => ActionButtonTemplate?.Name ?? "ActionButtonTemplate";
+
     public override void _Ready() {
-        // Connect the CharacterSelected signal from EventBus to the OnCharacterSelected method
-        EventBus.Instance.Connect(nameof(EventBus.CharacterSelected), new Callable(this, nameof(OnCharacterInspected)));
+        Visible = false;
+        EventBus.Instance.Connect(nameof(EventBus.CharacterSelected), new Callable(this, nameof(OnCharacterSelected)));
+        EventBus.Instance.Connect(nameof(EventBus.CharacterUnselected), new Callable(this, nameof(OnCharacterUnselected)));
     }
 
-    private void OnCharacterInspected(Character character) {
-        _character = character;
+    private void OnCharacterSelected(CharacterComponent characterComponent) {
+        _character = characterComponent.Character;
+        Visible = true;
         UpdateCharacterDetails();
+    }
+
+    private void OnCharacterUnselected() {
+        _character = null;
+        Visible = false;
     }
 
     private void UpdateCharacterDetails() {
@@ -78,9 +92,7 @@ public partial class CharacterInspector : HBoxContainer {
         }
 
         PortraitNode.Texture = _character.Portrait;
-
         CharacterNameNode.Text = _character?.Name ?? "Unknown";
-
         CharacterRoleNode.Text = _character?.Role?.Name ?? "Unknown Role";
 
         if (AttributesListNode is not null && AttributeTemplateNode is not null) {
@@ -99,7 +111,6 @@ public partial class CharacterInspector : HBoxContainer {
                     child.QueueFree();
                 }
             }
-
 
             foreach (var attribute in _character.Attributes) {
                 var attributeInstance = (VBoxContainer)AttributeTemplateNode.Duplicate();
@@ -126,6 +137,31 @@ public partial class CharacterInspector : HBoxContainer {
                 }
 
                 AttributesListNode.AddChild(attributeInstance);
+            }
+        }
+
+        if (ActionGridNode is not null && ActionButtonTemplate is not null) {
+            GD.Print("Updating actions");
+            ActionButtonTemplate.Visible = false;
+
+            if (_character is null) return;
+
+            if (_character.Actions.Count == 0) {
+                GD.PrintErr("Character has no actions:", _character.Name);
+                return;
+            }
+
+            foreach (Node child in ActionGridNode.GetChildren()) {
+                if (child != ActionButtonTemplate) {
+                    child.QueueFree();
+                }
+            }
+
+            foreach (var action in _character.Actions) {
+                var actionButton = (Button)ActionButtonTemplate.Duplicate();
+                actionButton.Visible = true;
+                actionButton.Text = action.Name ?? "Unknown Action";
+                ActionGridNode.AddChild(actionButton);
             }
         }
     }

@@ -7,11 +7,9 @@ namespace DiceRoll.Events;
 
 [Tool]
 public partial class EventBus : Node {
-    [Signal]
-    public delegate void AttributeChangedEventHandler();
-
-    [Signal]
-    public delegate void CharacterSelectedEventHandler(CharacterComponent character);
+    [Signal] public delegate void AttributeChangedEventHandler();
+    [Signal] public delegate void CharacterSelectedEventHandler(CharacterComponent character);
+    [Signal] public delegate void CharacterUnselectedEventHandler();
 
     private static EventBus? _instance;
 
@@ -25,6 +23,12 @@ public partial class EventBus : Node {
     public override void _Ready() {
         GD.Print("EventHandler is ready.");
         _instance = this;
+    }
+
+    public override void _Input(InputEvent @event) {
+        if (@event.IsActionPressed("ui_cancel")) {
+            OnCharacterUnselected();
+        }
     }
 
     private static EventBus GetInstance() {
@@ -46,9 +50,9 @@ public partial class EventBus : Node {
         EmitSignal(nameof(AttributeChanged), character, attributeType);
     }
 
-    public void OnCharacterInspected(Character character) {
-        var characterName = character?.Name ?? "Unknown";
-        GD.Print("Character inspection: ", characterName);
+    public void OnCharacterSelected(CharacterComponent character) {
+        var characterName = character?.Character?.Name ?? "Unknown";
+        GD.Print("Character selected: ", characterName);
 
         if (character is not null) {
             GD.Print("Emitting CharacterSelected signal with character: ", characterName);
@@ -58,4 +62,10 @@ public partial class EventBus : Node {
             GD.PrintErr("Character is null, cannot emit CharacterSelected signal.");
         }
     }
+
+    public void OnCharacterUnselected() {
+        GD.Print("Character unselected");
+        EmitSignal(nameof(CharacterUnselected));
+    }
+
 }

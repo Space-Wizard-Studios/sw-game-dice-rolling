@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RoleActionSource" load_steps=3 format=3 uid="uid://blbpxamynh28s"]
+
+[ext_resource type="Script" uid="uid://bj4yqm0x3wqer" path="res://models/Action/ActionSource/ActionSource.cs" id="1_5anc4"]
+[ext_resource type="Script" path="res://models/Action/ActionSource/RoleActionSource.cs" id="2_5ndws"]
+
+[resource]
+script = ExtResource("2_5ndws")
+Id = "d9694c02-d43e-4d93-a968-7064dbc30c30"
+Name = "Role"
+metadata/_custom_type_script = ExtResource("1_5anc4")

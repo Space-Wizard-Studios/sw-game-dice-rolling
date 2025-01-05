@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="3_qg6up"]
 [ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://models/Dice/DiceMana/Resources/ManaRed.tres" id="4_ch8we"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/Action/Target/TargetConfiguration.cs" id="6_cj38k"]
-[ext_resource type="Resource" uid="uid://blbpxamynh28s" path="res://models/Action/ActionSource/Sources/RoleSource.tres" id="6_gu2cs"]
+[ext_resource type="Resource" uid="uid://blbpxamynh28s" path="res://models/Action/ActionSource/Sources/MageActions.tres" id="6_gu2cs"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/Action/Action.cs" id="6_jo2a4"]
 [ext_resource type="Script" uid="uid://cevisa23ybann" path="res://models/Action/Target/GridConfiguration.cs" id="7_ch8we"]
 

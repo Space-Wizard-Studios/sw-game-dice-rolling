@@ -1,6 +1,6 @@
 using Godot;
 
-namespace DiceRoll.Models;
+namespace DiceRoll.Models.Roles;
 
 /// <summary>
 /// Represents a resource containing roles for the dice roll game.

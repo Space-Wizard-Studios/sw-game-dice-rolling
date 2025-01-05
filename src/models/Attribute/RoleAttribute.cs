@@ -6,14 +6,12 @@ namespace DiceRoll.Models.Attributes;
 [GlobalClass]
 public partial class RoleAttribute : Resource {
     [Export] public AttributeType? Type { get; set; }
-    [Export] public string? Name { get; set; }
     [Export] public int BaseValue { get; set; }
 
     public RoleAttribute() { }
 
-    public RoleAttribute(AttributeType type, string name, int baseValue) {
+    public RoleAttribute(AttributeType type, int baseValue) {
         Type = type;
-        Name = name;
         BaseValue = baseValue;
     }
 }

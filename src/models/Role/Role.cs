@@ -1,7 +1,8 @@
 using Godot;
 using DiceRoll.Models.Attributes;
+using DiceRoll.Models.Actions;
 
-namespace DiceRoll.Models;
+namespace DiceRoll.Models.Roles;
 
 /// <summary>
 /// Represents a role in the game with attributes and actions.
@@ -14,5 +15,5 @@ public partial class Role : Resource {
 
     [Export] public Godot.Collections.Array<RoleAttribute> RoleAttributes { get; set; } = [];
 
-    // [Export] public Godot.Collections.Array<WeaponAction> RoleActions { get; set; } = [];
+    [Export] public ActionSource? RoleActionSource { get; set; }
 }

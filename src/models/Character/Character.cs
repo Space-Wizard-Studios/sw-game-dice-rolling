@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Linq;
+using DiceRoll.Models.Roles;
 using DiceRoll.Models.Actions;
 using DiceRoll.Models.Attributes;
 using DiceRoll.Models.Characters.Locations;
@@ -32,7 +33,7 @@ public partial class Character : Resource {
             _role = value;
             EmitChanged();
             InitializeAttributes();
-            // InitializeActions();
+            InitializeActions();
         }
     }
 
@@ -102,28 +103,28 @@ public partial class Character : Resource {
     /// <summary>
     /// Initializes the character's actions based on the assigned role.
     /// </summary>
-    // public void InitializeActions() {
-    //     if (Role is null) {
-    //         GD.PrintErr("Role is null");
-    //         return;
-    //     }
+    public void InitializeActions() {
+        if (Role?.RoleActionSource is null) {
+            GD.PrintErr("RoleActionSource is null");
+            return;
+        }
 
-    //     if (Actions.Count == 0) {
-    //         foreach (WeaponAction roleAction in Role.RoleActions) {
-    //             if (roleAction.ActionType is not null) {
-    //                 var characterAction = new CharacterAction {
-    //                     Name = roleAction.ActionType.Name,
-    //                     Description = roleAction.ActionType.Description,
-    //                     Icon = roleAction.ActionType.Icon,
-    //                     ActionType = roleAction.ActionType,
-    //                     RequiredMana = roleAction.BaseRequiredMana.Duplicate(),
-    //                     Effects = roleAction.BaseEffects.Duplicate()
-    //                 };
-    //                 Actions.Add(characterAction);
-    //             }
-    //         }
-    //     }
-    // }
+        if (Actions.Count == 0) {
+            foreach (var action in Role.RoleActionSource.Actions) {
+                if (action.ActionType is not null) {
+                    var characterAction = new CharacterAction(action.ActionType, action.RequiredMana, action.Effects) {
+                        Name = action.Name,
+                        Description = action.Description,
+                        Icon = action.Icon
+                    };
+                    Actions.Add(characterAction);
+                }
+                else {
+                    GD.PrintErr("ActionType is null for action: ", action.Name);
+                }
+            }
+        }
+    }
 
     public int GetAttributeCurrentValue(AttributeType type) {
         var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);

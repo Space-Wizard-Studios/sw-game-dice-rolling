@@ -8,6 +8,6 @@ namespace DiceRoll.Models.Actions;
 public partial class ActionSource : Resource {
     [Export] public string Id { get; set; } = Guid.NewGuid().ToString();
     [Export] public string? Name { get; set; }
+    [Export] public Godot.Collections.Array<Action> Actions { get; set; } = [];
     public ActionSource() { }
-
 }

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="ActionSource" load_steps=2 format=3 uid="uid://blbpxamynh28s"]
-
-[ext_resource type="Script" uid="uid://bj4yqm0x3wqer" path="res://models/Action/ActionSource/ActionSource.cs" id="1_5anc4"]
-
-[resource]
-script = ExtResource("1_5anc4")
-Id = ""
-Name = "Role Source"
-metadata/_custom_type_script = ExtResource("1_5anc4")

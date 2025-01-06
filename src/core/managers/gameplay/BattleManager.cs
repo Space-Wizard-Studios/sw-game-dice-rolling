@@ -15,8 +15,6 @@ public partial class BattleManager : Node3D {
     // public DiceManaResources? DiceManaResources { get; set; }
 
     public override void _Ready() {
-        GD.Print("Battle _Ready called");
-
         // Run character tests
         RunCharacterTests();
 

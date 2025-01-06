@@ -135,6 +135,5 @@ public partial class CharacterComponent : Node3D {
             AnimatedSpriteNode.Play("idle");
         }
 
-        GD.Print($"Character set in OnCharacterResourceSet(): {Character.Name}");
     }
 }

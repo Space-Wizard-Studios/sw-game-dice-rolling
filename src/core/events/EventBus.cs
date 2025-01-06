@@ -21,7 +21,6 @@ public partial class EventBus : Node {
     }
 
     public override void _Ready() {
-        GD.Print("EventHandler is ready.");
         _instance = this;
     }
 
@@ -34,12 +33,10 @@ public partial class EventBus : Node {
     private static EventBus GetInstance() {
         var root = (Engine.GetMainLoop() as SceneTree)?.Root;
         if (root is null) {
-            GD.PrintErr("Root node not found.");
             return new EventBus();
         }
         var eventBus = root.GetNodeOrNull<EventBus>("/root/EventBus");
         if (eventBus is null) {
-            GD.Print("EventBus not found in the scene tree. Creating a new instance.");
             eventBus = new EventBus();
             root.AddChild(eventBus);
         }
@@ -52,7 +49,6 @@ public partial class EventBus : Node {
 
     public void OnCharacterSelected(CharacterComponent character) {
         var characterName = character?.Character?.Name ?? "Unknown";
-        GD.Print("Character selected: ", characterName);
 
         if (character is not null) {
             GD.Print("Emitting CharacterSelected signal with character: ", characterName);
@@ -64,7 +60,6 @@ public partial class EventBus : Node {
     }
 
     public void OnCharacterUnselected() {
-        GD.Print("Character unselected");
         EmitSignal(nameof(CharacterUnselected));
     }
 

@@ -30,17 +30,14 @@ public partial class InventoryComponent : ScrollContainer {
             _tabChangedConnected = true;
         }
 
-        GD.Print("InventoryComponent Ready: Calling UpdateGrid");
         CallDeferred(nameof(UpdateGrid));
     }
 
     private void OnTabChanged(int tabIndex) {
-        GD.Print("Tab changed: Calling UpdateGrid");
         CallDeferred(nameof(UpdateGrid));
     }
 
     private void OnResized() {
-        GD.Print("Resized: Calling UpdateGrid");
         CallDeferred(nameof(UpdateGrid));
     }
 
@@ -65,7 +62,6 @@ public partial class InventoryComponent : ScrollContainer {
     }
 
     private void UpdateSlots() {
-        GD.Print("Updating slots with ItemCount: ", ItemCount);
         for (int slotIndex = 0; slotIndex < MaxSlots; slotIndex++) {
             if (_inventoryGrid is not null && _inventoryGrid.GetChildCount() - 1 < slotIndex) {
                 if (_itemComponent is null) {
@@ -93,7 +89,6 @@ public partial class InventoryComponent : ScrollContainer {
     }
 
     private void UpdateGrid() {
-        GD.Print("Updating grid");
         ResizeGrid();
         UpdateSlots();
     }
@@ -101,7 +96,6 @@ public partial class InventoryComponent : ScrollContainer {
     public override void _Input(InputEvent @event) {
         if (@event.IsActionPressed("give_item", true)) {
             ItemCount += 1;
-            GD.Print("Item added: New ItemCount is ", ItemCount);
             UpdateSlots();
         }
     }

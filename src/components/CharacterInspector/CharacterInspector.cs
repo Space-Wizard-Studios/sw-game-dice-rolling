@@ -59,7 +59,6 @@ public partial class CharacterInspector : HBoxContainer {
     }
 
     private void UpdateCharacterDetails() {
-        GD.Print("Updating character details");
 
         if (_character is null) {
             GD.PrintErr("Character is null");
@@ -96,7 +95,6 @@ public partial class CharacterInspector : HBoxContainer {
         CharacterRoleNode.Text = _character?.Role?.Name ?? "Unknown Role";
 
         if (AttributesListNode is not null && AttributeTemplateNode is not null) {
-            GD.Print("Updating attributes");
             AttributeTemplateNode.Visible = false;
 
             if (_character is null) return;
@@ -122,17 +120,14 @@ public partial class CharacterInspector : HBoxContainer {
                 var maxValueNode = valueContainer.GetNodeOrNull<Label>(AttributeMaxValueNodeName);
 
                 if (titleNode is not null) {
-                    GD.Print("Attribute type: ", attribute.Type?.Name);
                     titleNode.Text = attribute.Type?.Name ?? "Unknown attribute";
                 }
 
                 if (currentValueNode is not null) {
-                    GD.Print("Current value: ", attribute.CurrentValue);
                     currentValueNode.Text = attribute.CurrentValue.ToString();
                 }
 
                 if (maxValueNode is not null) {
-                    GD.Print("Max value: ", attribute.MaxValue);
                     maxValueNode.Text = attribute.MaxValue.ToString();
                 }
 
@@ -141,7 +136,6 @@ public partial class CharacterInspector : HBoxContainer {
         }
 
         if (ActionGridNode is not null && ActionButtonTemplate is not null) {
-            GD.Print("Updating actions");
             ActionButtonTemplate.Visible = false;
 
             if (_character is null) return;
@@ -160,7 +154,6 @@ public partial class CharacterInspector : HBoxContainer {
             foreach (var action in _character.Actions) {
                 var actionButton = (Button)ActionButtonTemplate.Duplicate();
                 actionButton.Visible = true;
-                GD.Print("Action name: ", action.Name);
                 actionButton.Text = action.Name ?? "Unknown Action";
                 ActionGridNode.AddChild(actionButton);
             }

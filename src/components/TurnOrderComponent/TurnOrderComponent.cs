@@ -23,7 +23,6 @@ public partial class TurnOrderComponent : Control {
         get => _characters;
         set {
             _characters = value;
-            GD.Print("Characters set. Length: ", _characters.Length);
             if (SpeedAttributeType is null || HealthAttributeType is null) {
                 GD.PrintErr("AttributeType resources not loaded.");
                 return;
@@ -31,7 +30,6 @@ public partial class TurnOrderComponent : Control {
             if (_characters.Length > 0) {
                 // Filter out null or uninitialized characters
                 var validCharacters = _characters.Where(c => c is not null).ToList();
-                GD.Print("Valid characters count: ", validCharacters.Count);
                 if (validCharacters.Count > 0) {
                     UpdateTurnOrder(validCharacters);
                 }
@@ -55,11 +53,9 @@ public partial class TurnOrderComponent : Control {
     PanelContainer? PortraitTemplateNode {
         get => _portraitTemplate;
         set {
-            GD.Print("Setting PortraitTemplate");
             if (value is not null) {
                 _portraitTemplate = value;
             }
-            OnPortraitTemplateChanged();
         }
     }
 
@@ -78,26 +74,13 @@ public partial class TurnOrderComponent : Control {
             SpeedAttributeType = AttributesHelper.GetAttributeType(_attributesConfig, "Speed");
             HealthAttributeType = AttributesHelper.GetAttributeType(_attributesConfig, "Health");
 
-            GD.Print("SpeedAttributeType loaded: ", SpeedAttributeType is not null);
-            GD.Print("HealthAttributeType loaded: ", HealthAttributeType is not null);
-
             // Update turn order if characters are already set
             if (_characters.Length > 0) {
                 var validCharacters = _characters.Where(c => c is not null).ToList();
-                GD.Print("Initial valid characters count: ", validCharacters.Count);
                 if (validCharacters.Count > 0) {
                     UpdateTurnOrder(validCharacters);
                 }
-                else {
-                    GD.PrintErr("No valid characters found on _Ready.");
-                }
             }
-            else {
-                GD.PrintErr("Characters array is empty.");
-            }
-        }
-        else {
-            GD.PrintErr("AttributeConfigResource is not set or not of type AttributesConfig.");
         }
 
         // Connect the AttributeChanged signal from EventBus to the OnCharacterAttributeChanged method
@@ -108,13 +91,6 @@ public partial class TurnOrderComponent : Control {
     private void OnCharacterAttributeChanged(AttributeType attributeType) {
         if (attributeType == HealthAttributeType) {
             UpdateTurnOrder([.. Characters]);
-        }
-    }
-
-    private void OnPortraitTemplateChanged() {
-        if (_portraitTemplate is not null) {
-            GD.Print("Theme: ", _portraitTemplate.Theme);
-            GD.Print("Theme Type Variation:", _portraitTemplate.ThemeTypeVariation);
         }
     }
 
@@ -143,7 +119,6 @@ public partial class TurnOrderComponent : Control {
         portraitInstance.Visible = true;
 
         if (textureRect is not null && character.Portrait is not null) {
-            GD.Print("Setting texture for character: ", character.Name);
             textureRect.Texture = character.Portrait;
         }
         else {
@@ -156,20 +131,15 @@ public partial class TurnOrderComponent : Control {
         if (damageColor is not null && maxHealth > 0) {
             float damageRatio = (float)(maxHealth - currentHealth) / maxHealth;
             damageColor.Scale = new Vector2(1, damageRatio);
-            GD.Print("Setting damage color scale for character: ", character.Name, " Damage ratio: ", damageRatio);
         }
     }
     public void UpdateTurnOrder(List<Character> characters) {
         if (PortraitsContainerNode is null || PortraitTemplateNode is null) {
-            GD.PrintErr("PortraitsContainerNode or PortraitTemplateNode is null");
             return;
         }
         if (SpeedAttributeType is null || HealthAttributeType is null) {
-            GD.PrintErr("AttributeType resources not loaded.");
             return;
         }
-
-        GD.Print("Updating turn order. Characters count: ", characters.Count);
 
         foreach (Node child in PortraitsContainerNode.GetChildren()) {
             if (child != PortraitTemplateNode) {
@@ -190,8 +160,6 @@ public partial class TurnOrderComponent : Control {
                 continue;
             }
 
-            GD.Print("Processing character: ", character.Name);
-
             if (PortraitTemplateNode.Duplicate() is not PanelContainer portraitInstance) {
                 GD.PrintErr("Failed to duplicate PortraitTemplateNode for character: ", character.Name);
                 continue;
@@ -199,7 +167,6 @@ public partial class TurnOrderComponent : Control {
 
             SetupPortraitInstance(character, portraitInstance);
             PortraitsContainerNode.AddChild(portraitInstance);
-            GD.Print("Added portrait for character: ", character.Name);
         }
     }
 }

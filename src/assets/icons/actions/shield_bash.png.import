@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dacwf0odlbchb"
-path="res://.godot/imported/Attrs3216x16TickOutline.png-4eba6127a4f4b16507d64cd53e6eab38.ctex"
+uid="uid://uw8x3u65tf7c"
+path="res://.godot/imported/shield_bash.png-457747609a5a017f7d71d27e87980af2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/attributes/attributes3/Attrs3216x16TickOutline.png"
-dest_files=["res://.godot/imported/Attrs3216x16TickOutline.png-4eba6127a4f4b16507d64cd53e6eab38.ctex"]
+source_file="res://assets/icons/actions/shield_bash.png"
+dest_files=["res://.godot/imported/shield_bash.png-457747609a5a017f7d71d27e87980af2.ctex"]
 
 [params]
 

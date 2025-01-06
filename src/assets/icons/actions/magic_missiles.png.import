@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://giqyw46uu1ru"
-path="res://.godot/imported/attackType.png-ef4c600299c1955112b64d592de0da3a.ctex"
+uid="uid://bemp486qms5lb"
+path="res://.godot/imported/magic_missiles.png-d4d309f3a29c1903e275f9e911de659a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/actionTypes/attackType.png"
-dest_files=["res://.godot/imported/attackType.png-ef4c600299c1955112b64d592de0da3a.ctex"]
+source_file="res://assets/icons/actions/magic_missiles.png"
+dest_files=["res://.godot/imported/magic_missiles.png-d4d309f3a29c1903e275f9e911de659a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6eeq3l3fcseh"
-path="res://.godot/imported/Attrs216x16Outiline.png-f389a7b88a06cd86af5ec880167ed030.ctex"
+uid="uid://dkkmepxg2rx6r"
+path="res://.godot/imported/buff.png-c7c40caa76ea647b07b6c34918eb9475.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/attributes/attributes2/Attrs216x16Outiline.png"
-dest_files=["res://.godot/imported/Attrs216x16Outiline.png-f389a7b88a06cd86af5ec880167ed030.ctex"]
+source_file="res://assets/icons/actionCategories/buff.png"
+dest_files=["res://.godot/imported/buff.png-c7c40caa76ea647b07b6c34918eb9475.ctex"]
 
 [params]
 

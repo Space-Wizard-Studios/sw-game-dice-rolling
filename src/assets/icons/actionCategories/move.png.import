@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcvbx5mnjbwvh"
-path="res://.godot/imported/Attrs16x16.png-2e95c94ced7e15449e0d73affe1c8127.ctex"
+uid="uid://b7kefj02j5rth"
+path="res://.godot/imported/move.png-22d67ecd5b3b2da3f6c13b166df96cec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/attributes/attributes1/Attrs16x16.png"
-dest_files=["res://.godot/imported/Attrs16x16.png-2e95c94ced7e15449e0d73affe1c8127.ctex"]
+source_file="res://assets/icons/actionCategories/move.png"
+dest_files=["res://.godot/imported/move.png-22d67ecd5b3b2da3f6c13b166df96cec.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr5rrb7sdbr1j"
-path="res://.godot/imported/Attrs3216x16.png-96983dacf53164a1493dae2c92549419.ctex"
+uid="uid://fmaq315605ce"
+path="res://.godot/imported/wide_cleave.png-e975d81ee9deae952367984cff41a28a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/attributes/attributes3/Attrs3216x16.png"
-dest_files=["res://.godot/imported/Attrs3216x16.png-96983dacf53164a1493dae2c92549419.ctex"]
+source_file="res://assets/icons/actions/wide_cleave.png"
+dest_files=["res://.godot/imported/wide_cleave.png-e975d81ee9deae952367984cff41a28a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e7emkygd7q35"
-path="res://.godot/imported/Attrs16x16TickOutline.png-165aff7914228095f0fa134ab0ecf2ec.ctex"
+uid="uid://b1fr2n747j0en"
+path="res://.godot/imported/debuff.png-efabda8b5906163555ff6f9e17cb2b76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/attributes/attributes1/Attrs16x16TickOutline.png"
-dest_files=["res://.godot/imported/Attrs16x16TickOutline.png-165aff7914228095f0fa134ab0ecf2ec.ctex"]
+source_file="res://assets/icons/actionCategories/debuff.png"
+dest_files=["res://.godot/imported/debuff.png-efabda8b5906163555ff6f9e17cb2b76.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btmrd4fbd18s7"
-path="res://.godot/imported/Attrs3216x16Outline.png-1bbe6dd08b637cc675aa8517bf564ae0.ctex"
+uid="uid://q64eatkgts6s"
+path="res://.godot/imported/magic_strike.png-4a0a415db5c3811b6bd2d34342b4a1c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/attributes/attributes3/Attrs3216x16Outline.png"
-dest_files=["res://.godot/imported/Attrs3216x16Outline.png-1bbe6dd08b637cc675aa8517bf564ae0.ctex"]
+source_file="res://assets/icons/actions/magic_strike.png"
+dest_files=["res://.godot/imported/magic_strike.png-4a0a415db5c3811b6bd2d34342b4a1c2.ctex"]
 
 [params]
 

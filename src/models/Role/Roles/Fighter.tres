@@ -1,10 +1,17 @@
-[gd_resource type="Resource" load_steps=9 format=3 uid="uid://bad7cxgeb8mqp"]
+[gd_resource type="Resource" script_class="Role" load_steps=12 format=3 uid="uid://bad7cxgeb8mqp"]
 
+[ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://models/Action/RoleAction.cs" id="1_gkx62"]
 [ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/Attribute/RoleAttribute.cs" id="1_vbyc7"]
+[ext_resource type="Resource" uid="uid://cs65w4r75ugap" path="res://models/Action/Actions/QuickSlash.tres" id="2_218ky"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attribute/Attributes/Health.tres" id="2_gkx62"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attribute/Attributes/Armor.tres" id="3_218ky"]
 [ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attribute/Attributes/Speed.tres" id="4_rp15h"]
 [ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/Role/Role.cs" id="5_02olr"]
+
+[sub_resource type="Resource" id="Resource_rp15h"]
+script = ExtResource("1_gkx62")
+Type = ExtResource("2_218ky")
+metadata/_custom_type_script = ExtResource("1_gkx62")
 
 [sub_resource type="Resource" id="Resource_g0hcp"]
 script = ExtResource("1_vbyc7")
@@ -26,3 +33,4 @@ script = ExtResource("5_02olr")
 Name = "Fighter"
 Description = "Fighter Description"
 RoleAttributes = Array[ExtResource("1_vbyc7")]([SubResource("Resource_g0hcp"), SubResource("Resource_8w8fm"), SubResource("Resource_xurgi")])
+RoleActions = Array[ExtResource("1_gkx62")]([SubResource("Resource_rp15h")])

@@ -8,9 +8,6 @@ using DiceRoll.Models.Characters.Locations;
 
 namespace DiceRoll.Models.Characters;
 
-/// <summary>
-/// Represents a character in the game with attributes, actions, and other properties.
-/// </summary>
 [Tool]
 [GlobalClass]
 public partial class Character : Resource {
@@ -80,12 +77,14 @@ public partial class Character : Resource {
 
     public Character() { }
 
-    /// <summary>
-    /// Initializes the character's attributes based on the assigned role.
-    /// </summary>
     public void InitializeAttributes() {
         if (Role is null) {
             GD.PrintErr("Role is null");
+            return;
+        }
+
+        if (Role.RoleAttributes.Count == 0) {
+            GD.PrintErr("RoleAttributes is empty");
             return;
         }
 
@@ -100,28 +99,21 @@ public partial class Character : Resource {
         }
     }
 
-    /// <summary>
-    /// Initializes the character's actions based on the assigned role.
-    /// </summary>
     public void InitializeActions() {
-        if (Role?.RoleActionSource is null) {
-            GD.PrintErr("RoleActionSource is null");
+        if (Role is null) {
+            GD.PrintErr("Role is null");
+            return;
+        }
+
+        if (Role.RoleActions.Count == 0) {
+            GD.PrintErr("RoleActions is empty");
             return;
         }
 
         if (Actions.Count == 0) {
-            foreach (var action in Role.RoleActionSource.Actions) {
-                if (action.ActionType is not null) {
-                    var characterAction = new CharacterAction(action.ActionType, action.RequiredMana, action.Effects) {
-                        Name = action.Name,
-                        Description = action.Description,
-                        Icon = action.Icon
-                    };
-                    Actions.Add(characterAction);
-                }
-                else {
-                    GD.PrintErr("ActionType is null for action: ", action.Name);
-                }
+            foreach (var roleAction in Role.RoleActions) {
+                var characterAction = new CharacterAction(roleAction);
+                Actions.Add(characterAction);
             }
         }
     }

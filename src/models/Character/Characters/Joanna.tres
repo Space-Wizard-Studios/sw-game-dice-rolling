@@ -1,15 +1,27 @@
-[gd_resource type="Resource" script_class="Character" load_steps=14 format=3 uid="uid://bkolttux1bvi1"]
+[gd_resource type="Resource" script_class="Character" load_steps=19 format=3 uid="uid://bkolttux1bvi1"]
 
 [ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Action/CharacterAction.cs" id="1_54hr6"]
 [ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attribute/CharacterAttribute.cs" id="2_wf1x4"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/Effect/EffectType.cs" id="2_xumvl"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attribute/Attributes/Health.tres" id="3_8rhoj"]
+[ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://models/Action/Effect/Effects/DamageEffect.tres" id="3_keqlw"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="4_87gay"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attribute/Attributes/Armor.tres" id="4_byiuj"]
+[ext_resource type="Resource" uid="uid://cs65w4r75ugap" path="res://models/Action/Actions/QuickSlash.tres" id="5_focbd"]
 [ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attribute/Attributes/Speed.tres" id="5_xumvl"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="6_keqlw"]
 [ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/Character/Location/Locations/BattleSquad.tres" id="7_87gay"]
 [ext_resource type="Texture2D" uid="uid://8e45l4n0kh6" path="res://assets/characters/joannaOtsoga/JoannaOtsogaPortrait.png" id="8_focbd"]
 [ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://models/Role/Roles/Fighter.tres" id="9_co8f0"]
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/Character.cs" id="10_1h6mb"]
+
+[sub_resource type="Resource" id="Resource_co8f0"]
+script = ExtResource("1_54hr6")
+Type = ExtResource("5_focbd")
+Name = ""
+Description = ""
+RequiredMana = Array[ExtResource("4_87gay")]([])
+Effects = Array[ExtResource("2_xumvl")]([ExtResource("3_keqlw")])
 
 [sub_resource type="Resource" id="Resource_4p1nt"]
 script = ExtResource("2_wf1x4")
@@ -39,7 +51,7 @@ Name = "Joanna"
 IsEnemy = false
 Role = ExtResource("9_co8f0")
 Attributes = Array[ExtResource("2_wf1x4")]([SubResource("Resource_4p1nt"), SubResource("Resource_ebahj"), SubResource("Resource_b3bio")])
-Actions = Array[ExtResource("1_54hr6")]([])
+Actions = Array[ExtResource("1_54hr6")]([SubResource("Resource_co8f0")])
 DiceCapacity = 0
 Location = ExtResource("7_87gay")
 SlotIndex = 2

@@ -1,11 +1,11 @@
 using Godot;
 using DiceRoll.Models.Actions.Effects;
 
-namespace DiceRoll.Models.Actions;
+namespace DiceRoll.Models.Actions.Categories;
 
 [Tool]
 [GlobalClass]
-public partial class ActionType : Resource {
+public partial class ActionCategory : Resource {
     [Export] public string? Name { get; set; }
     [Export(PropertyHint.MultilineText)] public string? Description { get; set; }
     private Texture2D? _icon;
@@ -23,9 +23,9 @@ public partial class ActionType : Resource {
     [Export] public Godot.Collections.Array<DiceMana> DefaultRequiredMana { get; set; } = [];
     [Export] public Godot.Collections.Array<EffectType> DefaultEffects { get; set; } = [];
 
-    public ActionType() { }
+    public ActionCategory() { }
 
-    public ActionType(string name, string description, Texture2D icon) {
+    public ActionCategory(string name, string description, Texture2D icon) {
         Name = name;
         Description = description;
         Icon = icon;

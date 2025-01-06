@@ -160,6 +160,7 @@ public partial class CharacterInspector : HBoxContainer {
             foreach (var action in _character.Actions) {
                 var actionButton = (Button)ActionButtonTemplate.Duplicate();
                 actionButton.Visible = true;
+                GD.Print("Action name: ", action.Name);
                 actionButton.Text = action.Name ?? "Unknown Action";
                 ActionGridNode.AddChild(actionButton);
             }

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bt73g5fssa68h"]
 
-[ext_resource type="Script" path="res://components/InventoryComponent/InventoryComponent.cs" id="2"]
+[ext_resource type="Script" uid="uid://bx8bk0ye5tevv" path="res://components/InventoryComponent/InventoryComponent.cs" id="2"]
 [ext_resource type="PackedScene" uid="uid://tomctv14euva" path="res://components/InventoryItemComponent/InventoryItemComponent.tscn" id="2_rwo4n"]
 
 [node name="Inventory" type="ScrollContainer"]

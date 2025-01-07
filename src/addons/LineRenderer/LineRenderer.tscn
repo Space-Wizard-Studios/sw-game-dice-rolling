@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://djth012ehvnu2"]
+
+[ext_resource type="Script" uid="uid://bw8o3eaciox8a" path="res://addons/LineRenderer/LineRenderer.cs" id="1_2aqx6"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_2aqx6"]
+
+[node name="LineRenderer" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("ImmediateMesh_2aqx6")
+script = ExtResource("1_2aqx6")
+points = Array[Vector3]([Vector3(0, 0, 0), Vector3(-10, -10, -10), Vector3(5, 5, 5), Vector3(10, 10, 10)])
+endThickness = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 18, 16)

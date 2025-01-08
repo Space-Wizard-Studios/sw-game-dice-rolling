@@ -9,8 +9,11 @@
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("ImmediateMesh_2aqx6")
 script = ExtResource("1_2aqx6")
-points = Array[Vector3]([Vector3(0, 0, 0), Vector3(-10, -10, -10), Vector3(5, 5, 5), Vector3(10, 10, 10)])
+points = Array[Vector3]([Vector3(-20, 2, 0), Vector3(-15, 8, -5), Vector3(5, 5.5, -5), Vector3(10, 15, 0), Vector3(10, 12, 7.485)])
+startThickness = 0.25
 endThickness = 1.0
+cornerSmooth = 12
+capSmooth = 12
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 18, 16)

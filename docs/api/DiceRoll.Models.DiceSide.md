@@ -31,23 +31,13 @@ Resource ←
 [DiceMana.MainColor](DiceRoll.Models.DiceMana.md\#DiceRoll\_Models\_DiceMana\_MainColor), 
 [DiceMana.Icon](DiceRoll.Models.DiceMana.md\#DiceRoll\_Models\_DiceMana\_Icon), 
 [DiceMana.IconPath](DiceRoll.Models.DiceMana.md\#DiceRoll\_Models\_DiceMana\_IconPath), 
-[DiceMana.SaveGodotObjectData\(GodotSerializationInfo\)](DiceRoll.Models.DiceMana.md\#DiceRoll\_Models\_DiceMana\_SaveGodotObjectData\_Godot\_Bridge\_GodotSerializationInfo\_), 
-[DiceMana.RestoreGodotObjectData\(GodotSerializationInfo\)](DiceRoll.Models.DiceMana.md\#DiceRoll\_Models\_DiceMana\_RestoreGodotObjectData\_Godot\_Bridge\_GodotSerializationInfo\_), 
-[DiceMana.SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)](DiceRoll.Models.DiceMana.md\#DiceRoll\_Models\_DiceMana\_SetGodotClassPropertyValue\_Godot\_NativeInterop\_godot\_string\_name\_\_Godot\_NativeInterop\_godot\_variant\_\_), 
-[DiceMana.GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)](DiceRoll.Models.DiceMana.md\#DiceRoll\_Models\_DiceMana\_GetGodotClassPropertyValue\_Godot\_NativeInterop\_godot\_string\_name\_\_Godot\_NativeInterop\_godot\_variant\_\_), 
 Resource.\_GetRid\(\), 
 Resource.\_ResetState\(\), 
 Resource.\_SetPathCache\(string\), 
 Resource.\_SetupLocalToScene\(\), 
-Resource.SetPath\(string\), 
 Resource.TakeOverPath\(string\), 
-Resource.GetPath\(\), 
 Resource.SetPathCache\(string\), 
-Resource.SetName\(string\), 
-Resource.GetName\(\), 
 Resource.GetRid\(\), 
-Resource.SetLocalToScene\(bool\), 
-Resource.IsLocalToScene\(\), 
 Resource.GetLocalScene\(\), 
 Resource.SetupLocalToScene\(\), 
 Resource.ResetState\(\), 
@@ -55,8 +45,6 @@ Resource.SetIdForPath\(string, string\),
 Resource.GetIdForPath\(string\), 
 Resource.IsBuiltIn\(\), 
 Resource.GenerateSceneUniqueId\(\), 
-Resource.SetSceneUniqueId\(string\), 
-Resource.GetSceneUniqueId\(\), 
 Resource.EmitChanged\(\), 
 Resource.Duplicate\(bool\), 
 Resource.EmitSignalChanged\(\), 
@@ -88,11 +76,6 @@ GodotObject.Dispose\(\),
 GodotObject.Dispose\(bool\), 
 GodotObject.ToString\(\), 
 GodotObject.ToSignal\(GodotObject, StringName\), 
-GodotObject.SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\), 
-GodotObject.GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\), 
-GodotObject.RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\), 
-GodotObject.SaveGodotObjectData\(GodotSerializationInfo\), 
-GodotObject.RestoreGodotObjectData\(GodotSerializationInfo\), 
 GodotObject.\_Get\(StringName\), 
 GodotObject.\_GetPropertyList\(\), 
 GodotObject.\_IterGet\(Variant\), 
@@ -198,40 +181,4 @@ The background color of the dice side.
 `MainColor` Color
 
 The main color of the dice side.
-
-## Methods
-
-### <a id="DiceRoll_Models_DiceSide_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
-
-Restores this instance's state after reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void RestoreGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object that contains the previously saved data.
-
-### <a id="DiceRoll_Models_DiceSide_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
-
-Saves this instance's state to be restored when reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void SaveGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object used to save the data.
 

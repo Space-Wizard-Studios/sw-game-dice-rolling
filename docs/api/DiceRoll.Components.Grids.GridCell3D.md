@@ -27,55 +27,19 @@ Node3D.NotificationEnterWorld,
 Node3D.NotificationExitWorld, 
 Node3D.NotificationVisibilityChanged, 
 Node3D.NotificationLocalTransformChanged, 
-Node3D.LookAt\(Vector3, Vector3?\), 
-Node3D.LookAtFromPosition\(Vector3, Vector3, Vector3?\), 
-Node3D.SetTransform\(Transform3D\), 
-Node3D.GetTransform\(\), 
-Node3D.SetPosition\(Vector3\), 
-Node3D.GetPosition\(\), 
-Node3D.SetRotation\(Vector3\), 
-Node3D.GetRotation\(\), 
-Node3D.SetRotationDegrees\(Vector3\), 
-Node3D.GetRotationDegrees\(\), 
-Node3D.SetRotationOrder\(EulerOrder\), 
-Node3D.GetRotationOrder\(\), 
-Node3D.SetRotationEditMode\(Node3D.RotationEditModeEnum\), 
-Node3D.GetRotationEditMode\(\), 
-Node3D.SetScale\(Vector3\), 
-Node3D.GetScale\(\), 
-Node3D.SetQuaternion\(Quaternion\), 
-Node3D.GetQuaternion\(\), 
-Node3D.SetBasis\(Basis\), 
-Node3D.GetBasis\(\), 
-Node3D.SetGlobalTransform\(Transform3D\), 
-Node3D.GetGlobalTransform\(\), 
 Node3D.GetGlobalTransformInterpolated\(\), 
-Node3D.SetGlobalPosition\(Vector3\), 
-Node3D.GetGlobalPosition\(\), 
-Node3D.SetGlobalBasis\(Basis\), 
-Node3D.GetGlobalBasis\(\), 
-Node3D.SetGlobalRotation\(Vector3\), 
-Node3D.GetGlobalRotation\(\), 
-Node3D.SetGlobalRotationDegrees\(Vector3\), 
-Node3D.GetGlobalRotationDegrees\(\), 
 Node3D.GetParentNode3D\(\), 
 Node3D.SetIgnoreTransformNotification\(bool\), 
-Node3D.SetAsTopLevel\(bool\), 
-Node3D.IsSetAsTopLevel\(\), 
 Node3D.SetDisableScale\(bool\), 
 Node3D.IsScaleDisabled\(\), 
 Node3D.GetWorld3D\(\), 
 Node3D.ForceUpdateTransform\(\), 
-Node3D.SetVisibilityParent\(NodePath\), 
-Node3D.GetVisibilityParent\(\), 
 Node3D.UpdateGizmos\(\), 
 Node3D.AddGizmo\(Node3DGizmo\), 
 Node3D.GetGizmos\(\), 
 Node3D.ClearGizmos\(\), 
 Node3D.SetSubgizmoSelection\(Node3DGizmo, int, Transform3D\), 
 Node3D.ClearSubgizmoSelection\(\), 
-Node3D.SetVisible\(bool\), 
-Node3D.IsVisible\(\), 
 Node3D.IsVisibleInTree\(\), 
 Node3D.Show\(\), 
 Node3D.Hide\(\), 
@@ -185,8 +149,6 @@ Node.\_UnhandledInput\(InputEvent\),
 Node.\_UnhandledKeyInput\(InputEvent\), 
 Node.PrintOrphanNodes\(\), 
 Node.AddSibling\(Node, bool\), 
-Node.SetName\(string\), 
-Node.GetName\(\), 
 Node.AddChild\(Node, bool, Node.InternalMode\), 
 Node.RemoveChild\(Node\), 
 Node.Reparent\(Node, bool\), 
@@ -213,15 +175,11 @@ Node.RemoveFromGroup\(StringName\),
 Node.IsInGroup\(StringName\), 
 Node.MoveChild\(Node, int\), 
 Node.GetGroups\(\), 
-Node.SetOwner\(Node\), 
-Node.GetOwner\(\), 
 Node.GetIndex\(bool\), 
 Node.PrintTree\(\), 
 Node.PrintTreePretty\(\), 
 Node.GetTreeString\(\), 
 Node.GetTreeStringPretty\(\), 
-Node.SetSceneFilePath\(string\), 
-Node.GetSceneFilePath\(\), 
 Node.PropagateNotification\(int\), 
 Node.PropagateCall\(StringName, Array, bool\), 
 Node.SetPhysicsProcess\(bool\), 
@@ -229,10 +187,6 @@ Node.GetPhysicsProcessDeltaTime\(\),
 Node.IsPhysicsProcessing\(\), 
 Node.GetProcessDeltaTime\(\), 
 Node.SetProcess\(bool\), 
-Node.SetProcessPriority\(int\), 
-Node.GetProcessPriority\(\), 
-Node.SetPhysicsProcessPriority\(int\), 
-Node.GetPhysicsProcessPriority\(\), 
 Node.IsProcessing\(\), 
 Node.SetProcessInput\(bool\), 
 Node.IsProcessingInput\(\), 
@@ -242,28 +196,16 @@ Node.SetProcessUnhandledInput\(bool\),
 Node.IsProcessingUnhandledInput\(\), 
 Node.SetProcessUnhandledKeyInput\(bool\), 
 Node.IsProcessingUnhandledKeyInput\(\), 
-Node.SetProcessMode\(Node.ProcessModeEnum\), 
-Node.GetProcessMode\(\), 
 Node.CanProcess\(\), 
-Node.SetProcessThreadGroup\(Node.ProcessThreadGroupEnum\), 
-Node.GetProcessThreadGroup\(\), 
-Node.SetProcessThreadMessages\(Node.ProcessThreadMessagesEnum\), 
-Node.GetProcessThreadMessages\(\), 
-Node.SetProcessThreadGroupOrder\(int\), 
-Node.GetProcessThreadGroupOrder\(\), 
 Node.SetDisplayFolded\(bool\), 
 Node.IsDisplayedFolded\(\), 
 Node.SetProcessInternal\(bool\), 
 Node.IsProcessingInternal\(\), 
 Node.SetPhysicsProcessInternal\(bool\), 
 Node.IsPhysicsProcessingInternal\(\), 
-Node.SetPhysicsInterpolationMode\(Node.PhysicsInterpolationModeEnum\), 
-Node.GetPhysicsInterpolationMode\(\), 
 Node.IsPhysicsInterpolated\(\), 
 Node.IsPhysicsInterpolatedAndEnabled\(\), 
 Node.ResetPhysicsInterpolation\(\), 
-Node.SetAutoTranslateMode\(Node.AutoTranslateModeEnum\), 
-Node.GetAutoTranslateMode\(\), 
 Node.SetTranslationDomainInherited\(\), 
 Node.GetWindow\(\), 
 Node.GetLastExclusiveWindow\(\), 
@@ -282,13 +224,8 @@ Node.IsNodeReady\(\),
 Node.SetMultiplayerAuthority\(int, bool\), 
 Node.GetMultiplayerAuthority\(\), 
 Node.IsMultiplayerAuthority\(\), 
-Node.GetMultiplayer\(\), 
 Node.RpcConfig\(StringName, Variant\), 
 Node.GetRpcConfig\(\), 
-Node.SetEditorDescription\(string\), 
-Node.GetEditorDescription\(\), 
-Node.SetUniqueNameInOwner\(bool\), 
-Node.IsUniqueNameInOwner\(\), 
 Node.Atr\(string, StringName\), 
 Node.AtrN\(string, StringName, int, StringName\), 
 Node.Rpc\(StringName, params Variant\[\]\), 
@@ -318,7 +255,6 @@ Node.EmitSignalEditorStateChanged\(\),
 Node.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
 Node.HasGodotClassMethod\(in godot\_string\_name\), 
 Node.HasGodotClassSignal\(in godot\_string\_name\), 
-Node.\_ImportPath, 
 Node.Name, 
 Node.UniqueNameInOwner, 
 Node.SceneFilePath, 
@@ -355,11 +291,6 @@ GodotObject.Dispose\(\),
 GodotObject.Dispose\(bool\), 
 GodotObject.ToString\(\), 
 GodotObject.ToSignal\(GodotObject, StringName\), 
-GodotObject.SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\), 
-GodotObject.GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\), 
-GodotObject.RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\), 
-GodotObject.SaveGodotObjectData\(GodotSerializationInfo\), 
-GodotObject.RestoreGodotObjectData\(GodotSerializationInfo\), 
 GodotObject.\_Get\(StringName\), 
 GodotObject.\_GetPropertyList\(\), 
 GodotObject.\_IterGet\(Variant\), 
@@ -492,117 +423,6 @@ public CharacterComponent? Character { get; }
 
 ## Methods
 
-### <a id="DiceRoll_Components_Grids_GridCell3D_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
-
-Get the value of a property contained in this class.
-This method is used by Godot to retrieve property values.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool GetGodotClassPropertyValue(in godot_string_name name, out godot_variant value)
-```
-
-#### Parameters
-
-`name` godot\_string\_name
-
-Name of the property to get.
-
-`value` godot\_variant
-
-Value of the property if it was found.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Components_Grids_GridCell3D_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
-
-Check if the type contains a method with the given name.
-This method is used by Godot to check if a method exists before invoking it.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool HasGodotClassMethod(in godot_string_name method)
-```
-
-#### Parameters
-
-`method` godot\_string\_name
-
-Name of the method to check for.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_Grids_GridCell3D_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
-
-Invokes the method with the given name, using the given arguments.
-This method is used by Godot to invoke methods from the engine side.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)
-```
-
-#### Parameters
-
-`method` godot\_string\_name
-
-Name of the method to invoke.
-
-`args` NativeVariantPtrArgs
-
-Arguments to use with the invoked method.
-
-`ret` godot\_variant
-
-Value returned by the invoked method.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_Grids_GridCell3D_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
-
-Restores this instance's state after reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void RestoreGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object that contains the previously saved data.
-
-### <a id="DiceRoll_Components_Grids_GridCell3D_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
-
-Saves this instance's state to be restored when reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void SaveGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object used to save the data.
-
 ### <a id="DiceRoll_Components_Grids_GridCell3D_SetCharacter_DiceRoll_Components_Characters_CharacterComponent_"></a> SetCharacter\(CharacterComponent\)
 
 ```csharp
@@ -612,31 +432,4 @@ public void SetCharacter(CharacterComponent character)
 #### Parameters
 
 `character` [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)
-
-### <a id="DiceRoll_Components_Grids_GridCell3D_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
-
-Set the value of a property contained in this class.
-This method is used by Godot to assign property values.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool SetGodotClassPropertyValue(in godot_string_name name, in godot_variant value)
-```
-
-#### Parameters
-
-`name` godot\_string\_name
-
-Name of the property to set.
-
-`value` godot\_variant
-
-Value to set the property to if it was found.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 

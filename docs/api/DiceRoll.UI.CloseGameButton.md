@@ -26,30 +26,6 @@ Button ←
 
 #### Inherited Members
 
-Button.SetText\(string\), 
-Button.GetText\(\), 
-Button.SetTextOverrunBehavior\(TextServer.OverrunBehavior\), 
-Button.GetTextOverrunBehavior\(\), 
-Button.SetAutowrapMode\(TextServer.AutowrapMode\), 
-Button.GetAutowrapMode\(\), 
-Button.SetTextDirection\(Control.TextDirection\), 
-Button.GetTextDirection\(\), 
-Button.SetLanguage\(string\), 
-Button.GetLanguage\(\), 
-Button.SetButtonIcon\(Texture2D\), 
-Button.GetButtonIcon\(\), 
-Button.SetFlat\(bool\), 
-Button.IsFlat\(\), 
-Button.SetClipText\(bool\), 
-Button.GetClipText\(\), 
-Button.SetTextAlignment\(HorizontalAlignment\), 
-Button.GetTextAlignment\(\), 
-Button.SetIconAlignment\(HorizontalAlignment\), 
-Button.GetIconAlignment\(\), 
-Button.SetVerticalIconAlignment\(VerticalAlignment\), 
-Button.GetVerticalIconAlignment\(\), 
-Button.SetExpandIcon\(bool\), 
-Button.IsExpandIcon\(\), 
 Button.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
 Button.HasGodotClassMethod\(in godot\_string\_name\), 
 Button.HasGodotClassSignal\(in godot\_string\_name\), 
@@ -67,29 +43,9 @@ Button.TextDirection,
 Button.Language, 
 BaseButton.\_Pressed\(\), 
 BaseButton.\_Toggled\(bool\), 
-BaseButton.SetPressed\(bool\), 
-BaseButton.IsPressed\(\), 
 BaseButton.SetPressedNoSignal\(bool\), 
 BaseButton.IsHovered\(\), 
-BaseButton.SetToggleMode\(bool\), 
-BaseButton.IsToggleMode\(\), 
-BaseButton.SetShortcutInTooltip\(bool\), 
-BaseButton.IsShortcutInTooltipEnabled\(\), 
-BaseButton.SetDisabled\(bool\), 
-BaseButton.IsDisabled\(\), 
-BaseButton.SetActionMode\(BaseButton.ActionModeEnum\), 
-BaseButton.GetActionMode\(\), 
-BaseButton.SetButtonMask\(MouseButtonMask\), 
-BaseButton.GetButtonMask\(\), 
 BaseButton.GetDrawMode\(\), 
-BaseButton.SetKeepPressedOutside\(bool\), 
-BaseButton.IsKeepPressedOutside\(\), 
-BaseButton.SetShortcutFeedback\(bool\), 
-BaseButton.IsShortcutFeedback\(\), 
-BaseButton.SetShortcut\(Shortcut\), 
-BaseButton.GetShortcut\(\), 
-BaseButton.SetButtonGroup\(ButtonGroup\), 
-BaseButton.GetButtonGroup\(\), 
 BaseButton.EmitSignalPressed\(\), 
 BaseButton.EmitSignalButtonUp\(\), 
 BaseButton.EmitSignalButtonDown\(\), 
@@ -138,53 +94,25 @@ Control.SetAnchorsPreset\(Control.LayoutPreset, bool\),
 Control.SetOffsetsPreset\(Control.LayoutPreset, Control.LayoutPresetMode, int\), 
 Control.SetAnchorsAndOffsetsPreset\(Control.LayoutPreset, Control.LayoutPresetMode, int\), 
 Control.SetAnchor\(Side, float, bool, bool\), 
-Control.GetAnchor\(Side\), 
-Control.SetOffset\(Side, float\), 
-Control.GetOffset\(Side\), 
 Control.SetAnchorAndOffset\(Side, float, float, bool\), 
 Control.SetBegin\(Vector2\), 
 Control.SetEnd\(Vector2\), 
 Control.SetPosition\(Vector2, bool\), 
 Control.SetSize\(Vector2, bool\), 
 Control.ResetSize\(\), 
-Control.SetCustomMinimumSize\(Vector2\), 
 Control.SetGlobalPosition\(Vector2, bool\), 
-Control.SetRotation\(float\), 
-Control.SetRotationDegrees\(float\), 
-Control.SetScale\(Vector2\), 
-Control.SetPivotOffset\(Vector2\), 
 Control.GetBegin\(\), 
 Control.GetEnd\(\), 
-Control.GetPosition\(\), 
-Control.GetSize\(\), 
-Control.GetRotation\(\), 
-Control.GetRotationDegrees\(\), 
-Control.GetScale\(\), 
-Control.GetPivotOffset\(\), 
-Control.GetCustomMinimumSize\(\), 
 Control.GetParentAreaSize\(\), 
-Control.GetGlobalPosition\(\), 
 Control.GetScreenPosition\(\), 
 Control.GetRect\(\), 
 Control.GetGlobalRect\(\), 
-Control.SetFocusMode\(Control.FocusModeEnum\), 
-Control.GetFocusMode\(\), 
 Control.HasFocus\(\), 
 Control.GrabFocus\(\), 
 Control.ReleaseFocus\(\), 
 Control.FindPrevValidFocus\(\), 
 Control.FindNextValidFocus\(\), 
 Control.FindValidFocusNeighbor\(Side\), 
-Control.SetHSizeFlags\(Control.SizeFlags\), 
-Control.GetHSizeFlags\(\), 
-Control.SetStretchRatio\(float\), 
-Control.GetStretchRatio\(\), 
-Control.SetVSizeFlags\(Control.SizeFlags\), 
-Control.GetVSizeFlags\(\), 
-Control.SetTheme\(Theme\), 
-Control.GetTheme\(\), 
-Control.SetThemeTypeVariation\(StringName\), 
-Control.GetThemeTypeVariation\(\), 
 Control.BeginBulkThemeOverride\(\), 
 Control.EndBulkThemeOverride\(\), 
 Control.AddThemeIconOverride\(StringName, Texture2D\), 
@@ -221,46 +149,16 @@ Control.GetThemeDefaultBaseScale\(\),
 Control.GetThemeDefaultFont\(\), 
 Control.GetThemeDefaultFontSize\(\), 
 Control.GetParentControl\(\), 
-Control.SetHGrowDirection\(Control.GrowDirection\), 
-Control.GetHGrowDirection\(\), 
-Control.SetVGrowDirection\(Control.GrowDirection\), 
-Control.GetVGrowDirection\(\), 
-Control.SetTooltipAutoTranslateMode\(Node.AutoTranslateModeEnum\), 
-Control.GetTooltipAutoTranslateMode\(\), 
-Control.SetTooltipText\(string\), 
-Control.GetTooltipText\(\), 
 Control.GetTooltip\(Vector2?\), 
-Control.SetDefaultCursorShape\(Control.CursorShape\), 
-Control.GetDefaultCursorShape\(\), 
 Control.GetCursorShape\(Vector2?\), 
-Control.SetFocusNeighbor\(Side, NodePath\), 
-Control.GetFocusNeighbor\(Side\), 
-Control.SetFocusNext\(NodePath\), 
-Control.GetFocusNext\(\), 
-Control.SetFocusPrevious\(NodePath\), 
-Control.GetFocusPrevious\(\), 
 Control.ForceDrag\(Variant, Control\), 
-Control.SetMouseFilter\(Control.MouseFilterEnum\), 
-Control.GetMouseFilter\(\), 
-Control.SetForcePassScrollEvents\(bool\), 
-Control.IsForcePassScrollEvents\(\), 
-Control.SetClipContents\(bool\), 
-Control.IsClippingContents\(\), 
 Control.GrabClickFocus\(\), 
 Control.SetDragForwarding\(Callable, Callable, Callable\), 
 Control.SetDragPreview\(Control\), 
 Control.IsDragSuccessful\(\), 
 Control.WarpMouse\(Vector2\), 
-Control.SetShortcutContext\(Node\), 
-Control.GetShortcutContext\(\), 
 Control.UpdateMinimumSize\(\), 
-Control.SetLayoutDirection\(Control.LayoutDirectionEnum\), 
-Control.GetLayoutDirection\(\), 
 Control.IsLayoutRtl\(\), 
-Control.SetAutoTranslate\(bool\), 
-Control.IsAutoTranslating\(\), 
-Control.SetLocalizeNumeralSystem\(bool\), 
-Control.IsLocalizingNumeralSystem\(\), 
 Control.EmitSignalResized\(\), 
 Control.EmitSignalGuiInput\(InputEvent\), 
 Control.EmitSignalMouseEntered\(\), 
@@ -276,8 +174,6 @@ Control.HasGodotClassSignal\(in godot\_string\_name\),
 Control.ClipContents, 
 Control.CustomMinimumSize, 
 Control.LayoutDirection, 
-Control.LayoutMode, 
-Control.AnchorsPreset, 
 Control.AnchorLeft, 
 Control.AnchorTop, 
 Control.AnchorRight, 
@@ -333,29 +229,11 @@ CanvasItem.NotificationExitCanvas,
 CanvasItem.NotificationWorld2DChanged, 
 CanvasItem.\_Draw\(\), 
 CanvasItem.GetCanvasItem\(\), 
-CanvasItem.SetVisible\(bool\), 
-CanvasItem.IsVisible\(\), 
 CanvasItem.IsVisibleInTree\(\), 
 CanvasItem.Show\(\), 
 CanvasItem.Hide\(\), 
 CanvasItem.QueueRedraw\(\), 
 CanvasItem.MoveToFront\(\), 
-CanvasItem.SetAsTopLevel\(bool\), 
-CanvasItem.IsSetAsTopLevel\(\), 
-CanvasItem.SetLightMask\(int\), 
-CanvasItem.GetLightMask\(\), 
-CanvasItem.SetModulate\(Color\), 
-CanvasItem.GetModulate\(\), 
-CanvasItem.SetSelfModulate\(Color\), 
-CanvasItem.GetSelfModulate\(\), 
-CanvasItem.SetZIndex\(int\), 
-CanvasItem.GetZIndex\(\), 
-CanvasItem.SetZAsRelative\(bool\), 
-CanvasItem.IsZRelative\(\), 
-CanvasItem.SetYSortEnabled\(bool\), 
-CanvasItem.IsYSortEnabled\(\), 
-CanvasItem.SetDrawBehindParent\(bool\), 
-CanvasItem.IsDrawBehindParentEnabled\(\), 
 CanvasItem.DrawLine\(Vector2, Vector2, Color, float, bool\), 
 CanvasItem.DrawDashedLine\(Vector2, Vector2, Color, float, float, bool, bool\), 
 CanvasItem.DrawPolyline\(Vector2\[\], Color, float, bool\), 
@@ -405,10 +283,6 @@ CanvasItem.GetGlobalMousePosition\(\),
 CanvasItem.GetCanvas\(\), 
 CanvasItem.GetCanvasLayerNode\(\), 
 CanvasItem.GetWorld2D\(\), 
-CanvasItem.SetMaterial\(Material\), 
-CanvasItem.GetMaterial\(\), 
-CanvasItem.SetUseParentMaterial\(bool\), 
-CanvasItem.GetUseParentMaterial\(\), 
 CanvasItem.SetNotifyLocalTransform\(bool\), 
 CanvasItem.IsLocalTransformNotificationEnabled\(\), 
 CanvasItem.SetNotifyTransform\(bool\), 
@@ -416,23 +290,8 @@ CanvasItem.IsTransformNotificationEnabled\(\),
 CanvasItem.ForceUpdateTransform\(\), 
 CanvasItem.MakeCanvasPositionLocal\(Vector2\), 
 CanvasItem.MakeInputLocal\(InputEvent\), 
-CanvasItem.SetVisibilityLayer\(uint\), 
-CanvasItem.GetVisibilityLayer\(\), 
 CanvasItem.SetVisibilityLayerBit\(uint, bool\), 
 CanvasItem.GetVisibilityLayerBit\(uint\), 
-CanvasItem.SetTextureFilter\(CanvasItem.TextureFilterEnum\), 
-CanvasItem.GetTextureFilter\(\), 
-CanvasItem.SetTextureRepeat\(CanvasItem.TextureRepeatEnum\), 
-CanvasItem.GetTextureRepeat\(\), 
-CanvasItem.SetClipChildrenMode\(CanvasItem.ClipChildrenMode\), 
-CanvasItem.GetClipChildrenMode\(\), 
-CanvasItem.DrawMultilineColors\(Vector2\[\], Color\[\], float\), 
-CanvasItem.DrawMultilineColors\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, float\), 
-CanvasItem.DrawMultiline\(Vector2\[\], Color, float\), 
-CanvasItem.DrawMultiline\(ReadOnlySpan<Vector2\>, Color, float\), 
-CanvasItem.DrawDashedLine\(Vector2, Vector2, Color, float, float, bool\), 
-CanvasItem.DrawRect\(Rect2, Color, bool, float\), 
-CanvasItem.DrawCircle\(Vector2, float, Color\), 
 CanvasItem.EmitSignalDraw\(\), 
 CanvasItem.EmitSignalVisibilityChanged\(\), 
 CanvasItem.EmitSignalHidden\(\), 
@@ -522,8 +381,6 @@ Node.\_UnhandledInput\(InputEvent\),
 Node.\_UnhandledKeyInput\(InputEvent\), 
 Node.PrintOrphanNodes\(\), 
 Node.AddSibling\(Node, bool\), 
-Node.SetName\(string\), 
-Node.GetName\(\), 
 Node.AddChild\(Node, bool, Node.InternalMode\), 
 Node.RemoveChild\(Node\), 
 Node.Reparent\(Node, bool\), 
@@ -550,15 +407,11 @@ Node.RemoveFromGroup\(StringName\),
 Node.IsInGroup\(StringName\), 
 Node.MoveChild\(Node, int\), 
 Node.GetGroups\(\), 
-Node.SetOwner\(Node\), 
-Node.GetOwner\(\), 
 Node.GetIndex\(bool\), 
 Node.PrintTree\(\), 
 Node.PrintTreePretty\(\), 
 Node.GetTreeString\(\), 
 Node.GetTreeStringPretty\(\), 
-Node.SetSceneFilePath\(string\), 
-Node.GetSceneFilePath\(\), 
 Node.PropagateNotification\(int\), 
 Node.PropagateCall\(StringName, Array, bool\), 
 Node.SetPhysicsProcess\(bool\), 
@@ -566,10 +419,6 @@ Node.GetPhysicsProcessDeltaTime\(\),
 Node.IsPhysicsProcessing\(\), 
 Node.GetProcessDeltaTime\(\), 
 Node.SetProcess\(bool\), 
-Node.SetProcessPriority\(int\), 
-Node.GetProcessPriority\(\), 
-Node.SetPhysicsProcessPriority\(int\), 
-Node.GetPhysicsProcessPriority\(\), 
 Node.IsProcessing\(\), 
 Node.SetProcessInput\(bool\), 
 Node.IsProcessingInput\(\), 
@@ -579,28 +428,16 @@ Node.SetProcessUnhandledInput\(bool\),
 Node.IsProcessingUnhandledInput\(\), 
 Node.SetProcessUnhandledKeyInput\(bool\), 
 Node.IsProcessingUnhandledKeyInput\(\), 
-Node.SetProcessMode\(Node.ProcessModeEnum\), 
-Node.GetProcessMode\(\), 
 Node.CanProcess\(\), 
-Node.SetProcessThreadGroup\(Node.ProcessThreadGroupEnum\), 
-Node.GetProcessThreadGroup\(\), 
-Node.SetProcessThreadMessages\(Node.ProcessThreadMessagesEnum\), 
-Node.GetProcessThreadMessages\(\), 
-Node.SetProcessThreadGroupOrder\(int\), 
-Node.GetProcessThreadGroupOrder\(\), 
 Node.SetDisplayFolded\(bool\), 
 Node.IsDisplayedFolded\(\), 
 Node.SetProcessInternal\(bool\), 
 Node.IsProcessingInternal\(\), 
 Node.SetPhysicsProcessInternal\(bool\), 
 Node.IsPhysicsProcessingInternal\(\), 
-Node.SetPhysicsInterpolationMode\(Node.PhysicsInterpolationModeEnum\), 
-Node.GetPhysicsInterpolationMode\(\), 
 Node.IsPhysicsInterpolated\(\), 
 Node.IsPhysicsInterpolatedAndEnabled\(\), 
 Node.ResetPhysicsInterpolation\(\), 
-Node.SetAutoTranslateMode\(Node.AutoTranslateModeEnum\), 
-Node.GetAutoTranslateMode\(\), 
 Node.SetTranslationDomainInherited\(\), 
 Node.GetWindow\(\), 
 Node.GetLastExclusiveWindow\(\), 
@@ -619,13 +456,8 @@ Node.IsNodeReady\(\),
 Node.SetMultiplayerAuthority\(int, bool\), 
 Node.GetMultiplayerAuthority\(\), 
 Node.IsMultiplayerAuthority\(\), 
-Node.GetMultiplayer\(\), 
 Node.RpcConfig\(StringName, Variant\), 
 Node.GetRpcConfig\(\), 
-Node.SetEditorDescription\(string\), 
-Node.GetEditorDescription\(\), 
-Node.SetUniqueNameInOwner\(bool\), 
-Node.IsUniqueNameInOwner\(\), 
 Node.Atr\(string, StringName\), 
 Node.AtrN\(string, StringName, int, StringName\), 
 Node.Rpc\(StringName, params Variant\[\]\), 
@@ -655,7 +487,6 @@ Node.EmitSignalEditorStateChanged\(\),
 Node.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
 Node.HasGodotClassMethod\(in godot\_string\_name\), 
 Node.HasGodotClassSignal\(in godot\_string\_name\), 
-Node.\_ImportPath, 
 Node.Name, 
 Node.UniqueNameInOwner, 
 Node.SceneFilePath, 
@@ -692,11 +523,6 @@ GodotObject.Dispose\(\),
 GodotObject.Dispose\(bool\), 
 GodotObject.ToString\(\), 
 GodotObject.ToSignal\(GodotObject, StringName\), 
-GodotObject.SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\), 
-GodotObject.GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\), 
-GodotObject.RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\), 
-GodotObject.SaveGodotObjectData\(GodotSerializationInfo\), 
-GodotObject.RestoreGodotObjectData\(GodotSerializationInfo\), 
 GodotObject.\_Get\(StringName\), 
 GodotObject.\_GetPropertyList\(\), 
 GodotObject.\_IterGet\(Variant\), 
@@ -776,90 +602,6 @@ GodotObject.PropertyListChanged,
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
 ## Methods
-
-### <a id="DiceRoll_UI_CloseGameButton_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
-
-Check if the type contains a method with the given name.
-This method is used by Godot to check if a method exists before invoking it.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool HasGodotClassMethod(in godot_string_name method)
-```
-
-#### Parameters
-
-`method` godot\_string\_name
-
-Name of the method to check for.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_UI_CloseGameButton_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
-
-Invokes the method with the given name, using the given arguments.
-This method is used by Godot to invoke methods from the engine side.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)
-```
-
-#### Parameters
-
-`method` godot\_string\_name
-
-Name of the method to invoke.
-
-`args` NativeVariantPtrArgs
-
-Arguments to use with the invoked method.
-
-`ret` godot\_variant
-
-Value returned by the invoked method.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_UI_CloseGameButton_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
-
-Restores this instance's state after reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void RestoreGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object that contains the previously saved data.
-
-### <a id="DiceRoll_UI_CloseGameButton_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
-
-Saves this instance's state to be restored when reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void SaveGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object used to save the data.
 
 ### <a id="DiceRoll_UI_CloseGameButton__Ready"></a> \_Ready\(\)
 

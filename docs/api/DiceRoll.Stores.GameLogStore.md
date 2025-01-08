@@ -84,8 +84,6 @@ Node.\_UnhandledInput\(InputEvent\),
 Node.\_UnhandledKeyInput\(InputEvent\), 
 Node.PrintOrphanNodes\(\), 
 Node.AddSibling\(Node, bool\), 
-Node.SetName\(string\), 
-Node.GetName\(\), 
 Node.AddChild\(Node, bool, Node.InternalMode\), 
 Node.RemoveChild\(Node\), 
 Node.Reparent\(Node, bool\), 
@@ -112,15 +110,11 @@ Node.RemoveFromGroup\(StringName\),
 Node.IsInGroup\(StringName\), 
 Node.MoveChild\(Node, int\), 
 Node.GetGroups\(\), 
-Node.SetOwner\(Node\), 
-Node.GetOwner\(\), 
 Node.GetIndex\(bool\), 
 Node.PrintTree\(\), 
 Node.PrintTreePretty\(\), 
 Node.GetTreeString\(\), 
 Node.GetTreeStringPretty\(\), 
-Node.SetSceneFilePath\(string\), 
-Node.GetSceneFilePath\(\), 
 Node.PropagateNotification\(int\), 
 Node.PropagateCall\(StringName, Array, bool\), 
 Node.SetPhysicsProcess\(bool\), 
@@ -128,10 +122,6 @@ Node.GetPhysicsProcessDeltaTime\(\),
 Node.IsPhysicsProcessing\(\), 
 Node.GetProcessDeltaTime\(\), 
 Node.SetProcess\(bool\), 
-Node.SetProcessPriority\(int\), 
-Node.GetProcessPriority\(\), 
-Node.SetPhysicsProcessPriority\(int\), 
-Node.GetPhysicsProcessPriority\(\), 
 Node.IsProcessing\(\), 
 Node.SetProcessInput\(bool\), 
 Node.IsProcessingInput\(\), 
@@ -141,28 +131,16 @@ Node.SetProcessUnhandledInput\(bool\),
 Node.IsProcessingUnhandledInput\(\), 
 Node.SetProcessUnhandledKeyInput\(bool\), 
 Node.IsProcessingUnhandledKeyInput\(\), 
-Node.SetProcessMode\(Node.ProcessModeEnum\), 
-Node.GetProcessMode\(\), 
 Node.CanProcess\(\), 
-Node.SetProcessThreadGroup\(Node.ProcessThreadGroupEnum\), 
-Node.GetProcessThreadGroup\(\), 
-Node.SetProcessThreadMessages\(Node.ProcessThreadMessagesEnum\), 
-Node.GetProcessThreadMessages\(\), 
-Node.SetProcessThreadGroupOrder\(int\), 
-Node.GetProcessThreadGroupOrder\(\), 
 Node.SetDisplayFolded\(bool\), 
 Node.IsDisplayedFolded\(\), 
 Node.SetProcessInternal\(bool\), 
 Node.IsProcessingInternal\(\), 
 Node.SetPhysicsProcessInternal\(bool\), 
 Node.IsPhysicsProcessingInternal\(\), 
-Node.SetPhysicsInterpolationMode\(Node.PhysicsInterpolationModeEnum\), 
-Node.GetPhysicsInterpolationMode\(\), 
 Node.IsPhysicsInterpolated\(\), 
 Node.IsPhysicsInterpolatedAndEnabled\(\), 
 Node.ResetPhysicsInterpolation\(\), 
-Node.SetAutoTranslateMode\(Node.AutoTranslateModeEnum\), 
-Node.GetAutoTranslateMode\(\), 
 Node.SetTranslationDomainInherited\(\), 
 Node.GetWindow\(\), 
 Node.GetLastExclusiveWindow\(\), 
@@ -181,13 +159,8 @@ Node.IsNodeReady\(\),
 Node.SetMultiplayerAuthority\(int, bool\), 
 Node.GetMultiplayerAuthority\(\), 
 Node.IsMultiplayerAuthority\(\), 
-Node.GetMultiplayer\(\), 
 Node.RpcConfig\(StringName, Variant\), 
 Node.GetRpcConfig\(\), 
-Node.SetEditorDescription\(string\), 
-Node.GetEditorDescription\(\), 
-Node.SetUniqueNameInOwner\(bool\), 
-Node.IsUniqueNameInOwner\(\), 
 Node.Atr\(string, StringName\), 
 Node.AtrN\(string, StringName, int, StringName\), 
 Node.Rpc\(StringName, params Variant\[\]\), 
@@ -217,7 +190,6 @@ Node.EmitSignalEditorStateChanged\(\),
 Node.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
 Node.HasGodotClassMethod\(in godot\_string\_name\), 
 Node.HasGodotClassSignal\(in godot\_string\_name\), 
-Node.\_ImportPath, 
 Node.Name, 
 Node.UniqueNameInOwner, 
 Node.SceneFilePath, 
@@ -254,11 +226,6 @@ GodotObject.Dispose\(\),
 GodotObject.Dispose\(bool\), 
 GodotObject.ToString\(\), 
 GodotObject.ToSignal\(GodotObject, StringName\), 
-GodotObject.SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\), 
-GodotObject.GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\), 
-GodotObject.RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\), 
-GodotObject.SaveGodotObjectData\(GodotSerializationInfo\), 
-GodotObject.RestoreGodotObjectData\(GodotSerializationInfo\), 
 GodotObject.\_Get\(StringName\), 
 GodotObject.\_GetPropertyList\(\), 
 GodotObject.\_IterGet\(Variant\), 
@@ -392,82 +359,6 @@ protected void EmitSignalGameLogLineAdded()
 ```csharp
 protected void EmitSignalGameLogUpdated()
 ```
-
-### <a id="DiceRoll_Stores_GameLogStore_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassSignal\(in godot\_string\_name\)
-
-Check if the type contains a signal with the given name.
-This method is used by Godot to check if a signal exists before raising it.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool HasGodotClassSignal(in godot_string_name signal)
-```
-
-#### Parameters
-
-`signal` godot\_string\_name
-
-Name of the signal to check for.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Stores_GameLogStore_RaiseGodotClassSignalCallbacks_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_"></a> RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\)
-
-Raises the signal with the given name, using the given arguments.
-This method is used by Godot to raise signals from the engine side.\n"
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void RaiseGodotClassSignalCallbacks(in godot_string_name signal, NativeVariantPtrArgs args)
-```
-
-#### Parameters
-
-`signal` godot\_string\_name
-
-Name of the signal to raise.
-
-`args` NativeVariantPtrArgs
-
-Arguments to use with the raised signal.
-
-### <a id="DiceRoll_Stores_GameLogStore_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
-
-Restores this instance's state after reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void RestoreGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object that contains the previously saved data.
-
-### <a id="DiceRoll_Stores_GameLogStore_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
-
-Saves this instance's state to be restored when reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void SaveGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object used to save the data.
 
 ### <a id="DiceRoll_Stores_GameLogStore_GameLogLineAdded"></a> GameLogLineAdded
 

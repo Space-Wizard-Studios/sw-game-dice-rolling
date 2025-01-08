@@ -28,15 +28,9 @@ Resource.\_GetRid\(\),
 Resource.\_ResetState\(\), 
 Resource.\_SetPathCache\(string\), 
 Resource.\_SetupLocalToScene\(\), 
-Resource.SetPath\(string\), 
 Resource.TakeOverPath\(string\), 
-Resource.GetPath\(\), 
 Resource.SetPathCache\(string\), 
-Resource.SetName\(string\), 
-Resource.GetName\(\), 
 Resource.GetRid\(\), 
-Resource.SetLocalToScene\(bool\), 
-Resource.IsLocalToScene\(\), 
 Resource.GetLocalScene\(\), 
 Resource.SetupLocalToScene\(\), 
 Resource.ResetState\(\), 
@@ -44,8 +38,6 @@ Resource.SetIdForPath\(string, string\),
 Resource.GetIdForPath\(string\), 
 Resource.IsBuiltIn\(\), 
 Resource.GenerateSceneUniqueId\(\), 
-Resource.SetSceneUniqueId\(string\), 
-Resource.GetSceneUniqueId\(\), 
 Resource.EmitChanged\(\), 
 Resource.Duplicate\(bool\), 
 Resource.EmitSignalChanged\(\), 
@@ -77,11 +69,6 @@ GodotObject.Dispose\(\),
 GodotObject.Dispose\(bool\), 
 GodotObject.ToString\(\), 
 GodotObject.ToSignal\(GodotObject, StringName\), 
-GodotObject.SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\), 
-GodotObject.GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\), 
-GodotObject.RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\), 
-GodotObject.SaveGodotObjectData\(GodotSerializationInfo\), 
-GodotObject.RestoreGodotObjectData\(GodotSerializationInfo\), 
 GodotObject.\_Get\(StringName\), 
 GodotObject.\_GetPropertyList\(\), 
 GodotObject.\_IterGet\(Variant\), 
@@ -248,136 +235,6 @@ public int Rows { get; set; }
 ```csharp
 protected void EmitSignalChanged()
 ```
-
-### <a id="DiceRoll_Models_Characters_Grid_CharacterGridType_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
-
-Get the value of a property contained in this class.
-This method is used by Godot to retrieve property values.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool GetGodotClassPropertyValue(in godot_string_name name, out godot_variant value)
-```
-
-#### Parameters
-
-`name` godot\_string\_name
-
-Name of the property to get.
-
-`value` godot\_variant
-
-Value of the property if it was found.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Models_Characters_Grid_CharacterGridType_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassSignal\(in godot\_string\_name\)
-
-Check if the type contains a signal with the given name.
-This method is used by Godot to check if a signal exists before raising it.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool HasGodotClassSignal(in godot_string_name signal)
-```
-
-#### Parameters
-
-`signal` godot\_string\_name
-
-Name of the signal to check for.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Models_Characters_Grid_CharacterGridType_RaiseGodotClassSignalCallbacks_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_"></a> RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\)
-
-Raises the signal with the given name, using the given arguments.
-This method is used by Godot to raise signals from the engine side.\n"
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void RaiseGodotClassSignalCallbacks(in godot_string_name signal, NativeVariantPtrArgs args)
-```
-
-#### Parameters
-
-`signal` godot\_string\_name
-
-Name of the signal to raise.
-
-`args` NativeVariantPtrArgs
-
-Arguments to use with the raised signal.
-
-### <a id="DiceRoll_Models_Characters_Grid_CharacterGridType_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
-
-Restores this instance's state after reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void RestoreGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object that contains the previously saved data.
-
-### <a id="DiceRoll_Models_Characters_Grid_CharacterGridType_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
-
-Saves this instance's state to be restored when reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void SaveGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object used to save the data.
-
-### <a id="DiceRoll_Models_Characters_Grid_CharacterGridType_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
-
-Set the value of a property contained in this class.
-This method is used by Godot to assign property values.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool SetGodotClassPropertyValue(in godot_string_name name, in godot_variant value)
-```
-
-#### Parameters
-
-`name` godot\_string\_name
-
-Name of the property to set.
-
-`value` godot\_variant
-
-Value to set the property to if it was found.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
 ### <a id="DiceRoll_Models_Characters_Grid_CharacterGridType_Changed"></a> Changed
 

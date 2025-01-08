@@ -28,15 +28,9 @@ Resource.\_GetRid\(\),
 Resource.\_ResetState\(\), 
 Resource.\_SetPathCache\(string\), 
 Resource.\_SetupLocalToScene\(\), 
-Resource.SetPath\(string\), 
 Resource.TakeOverPath\(string\), 
-Resource.GetPath\(\), 
 Resource.SetPathCache\(string\), 
-Resource.SetName\(string\), 
-Resource.GetName\(\), 
 Resource.GetRid\(\), 
-Resource.SetLocalToScene\(bool\), 
-Resource.IsLocalToScene\(\), 
 Resource.GetLocalScene\(\), 
 Resource.SetupLocalToScene\(\), 
 Resource.ResetState\(\), 
@@ -44,8 +38,6 @@ Resource.SetIdForPath\(string, string\),
 Resource.GetIdForPath\(string\), 
 Resource.IsBuiltIn\(\), 
 Resource.GenerateSceneUniqueId\(\), 
-Resource.SetSceneUniqueId\(string\), 
-Resource.GetSceneUniqueId\(\), 
 Resource.EmitChanged\(\), 
 Resource.Duplicate\(bool\), 
 Resource.EmitSignalChanged\(\), 
@@ -77,11 +69,6 @@ GodotObject.Dispose\(\),
 GodotObject.Dispose\(bool\), 
 GodotObject.ToString\(\), 
 GodotObject.ToSignal\(GodotObject, StringName\), 
-GodotObject.SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\), 
-GodotObject.GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\), 
-GodotObject.RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\), 
-GodotObject.SaveGodotObjectData\(GodotSerializationInfo\), 
-GodotObject.RestoreGodotObjectData\(GodotSerializationInfo\), 
 GodotObject.\_Get\(StringName\), 
 GodotObject.\_GetPropertyList\(\), 
 GodotObject.\_IterGet\(Variant\), 
@@ -225,144 +212,6 @@ public AttributeType? Type { get; set; }
  [AttributeType](DiceRoll.Models.Attributes.AttributeType.md)?
 
 ## Methods
-
-### <a id="DiceRoll_Models_Attributes_CharacterAttribute_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
-
-Get the value of a property contained in this class.
-This method is used by Godot to retrieve property values.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool GetGodotClassPropertyValue(in godot_string_name name, out godot_variant value)
-```
-
-#### Parameters
-
-`name` godot\_string\_name
-
-Name of the property to get.
-
-`value` godot\_variant
-
-Value of the property if it was found.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Models_Attributes_CharacterAttribute_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
-
-Check if the type contains a method with the given name.
-This method is used by Godot to check if a method exists before invoking it.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool HasGodotClassMethod(in godot_string_name method)
-```
-
-#### Parameters
-
-`method` godot\_string\_name
-
-Name of the method to check for.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Models_Attributes_CharacterAttribute_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
-
-Invokes the method with the given name, using the given arguments.
-This method is used by Godot to invoke methods from the engine side.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)
-```
-
-#### Parameters
-
-`method` godot\_string\_name
-
-Name of the method to invoke.
-
-`args` NativeVariantPtrArgs
-
-Arguments to use with the invoked method.
-
-`ret` godot\_variant
-
-Value returned by the invoked method.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Models_Attributes_CharacterAttribute_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
-
-Restores this instance's state after reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void RestoreGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object that contains the previously saved data.
-
-### <a id="DiceRoll_Models_Attributes_CharacterAttribute_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
-
-Saves this instance's state to be restored when reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void SaveGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object used to save the data.
-
-### <a id="DiceRoll_Models_Attributes_CharacterAttribute_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
-
-Set the value of a property contained in this class.
-This method is used by Godot to assign property values.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool SetGodotClassPropertyValue(in godot_string_name name, in godot_variant value)
-```
-
-#### Parameters
-
-`name` godot\_string\_name
-
-Name of the property to set.
-
-`value` godot\_variant
-
-Value to set the property to if it was found.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
 ### <a id="DiceRoll_Models_Attributes_CharacterAttribute__ValidateProperty_Godot_Collections_Dictionary_"></a> \_ValidateProperty\(Dictionary\)
 

@@ -24,21 +24,13 @@ Resource ←
 #### Inherited Members
 
 [EffectType.Apply\(IActionContext\)](DiceRoll.Models.Actions.Effects.EffectType.md\#DiceRoll\_Models\_Actions\_Effects\_EffectType\_Apply\_DiceRoll\_Models\_Actions\_IActionContext\_), 
-[EffectType.SaveGodotObjectData\(GodotSerializationInfo\)](DiceRoll.Models.Actions.Effects.EffectType.md\#DiceRoll\_Models\_Actions\_Effects\_EffectType\_SaveGodotObjectData\_Godot\_Bridge\_GodotSerializationInfo\_), 
-[EffectType.RestoreGodotObjectData\(GodotSerializationInfo\)](DiceRoll.Models.Actions.Effects.EffectType.md\#DiceRoll\_Models\_Actions\_Effects\_EffectType\_RestoreGodotObjectData\_Godot\_Bridge\_GodotSerializationInfo\_), 
 Resource.\_GetRid\(\), 
 Resource.\_ResetState\(\), 
 Resource.\_SetPathCache\(string\), 
 Resource.\_SetupLocalToScene\(\), 
-Resource.SetPath\(string\), 
 Resource.TakeOverPath\(string\), 
-Resource.GetPath\(\), 
 Resource.SetPathCache\(string\), 
-Resource.SetName\(string\), 
-Resource.GetName\(\), 
 Resource.GetRid\(\), 
-Resource.SetLocalToScene\(bool\), 
-Resource.IsLocalToScene\(\), 
 Resource.GetLocalScene\(\), 
 Resource.SetupLocalToScene\(\), 
 Resource.ResetState\(\), 
@@ -46,8 +38,6 @@ Resource.SetIdForPath\(string, string\),
 Resource.GetIdForPath\(string\), 
 Resource.IsBuiltIn\(\), 
 Resource.GenerateSceneUniqueId\(\), 
-Resource.SetSceneUniqueId\(string\), 
-Resource.GetSceneUniqueId\(\), 
 Resource.EmitChanged\(\), 
 Resource.Duplicate\(bool\), 
 Resource.EmitSignalChanged\(\), 
@@ -79,11 +69,6 @@ GodotObject.Dispose\(\),
 GodotObject.Dispose\(bool\), 
 GodotObject.ToString\(\), 
 GodotObject.ToSignal\(GodotObject, StringName\), 
-GodotObject.SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\), 
-GodotObject.GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\), 
-GodotObject.RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\), 
-GodotObject.SaveGodotObjectData\(GodotSerializationInfo\), 
-GodotObject.RestoreGodotObjectData\(GodotSerializationInfo\), 
 GodotObject.\_Get\(StringName\), 
 GodotObject.\_GetPropertyList\(\), 
 GodotObject.\_IterGet\(Variant\), 
@@ -181,65 +166,4 @@ public override void Apply(IActionContext context)
 #### Parameters
 
 `context` [IActionContext](DiceRoll.Models.Actions.IActionContext.md)
-
-### <a id="DiceRoll_Models_Actions_Effects_DamageEffect_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
-
-Get the value of a property contained in this class.
-This method is used by Godot to retrieve property values.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool GetGodotClassPropertyValue(in godot_string_name name, out godot_variant value)
-```
-
-#### Parameters
-
-`name` godot\_string\_name
-
-Name of the property to get.
-
-`value` godot\_variant
-
-Value of the property if it was found.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Models_Actions_Effects_DamageEffect_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
-
-Restores this instance's state after reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void RestoreGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object that contains the previously saved data.
-
-### <a id="DiceRoll_Models_Actions_Effects_DamageEffect_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
-
-Saves this instance's state to be restored when reloading assemblies.
-Do not call or override this method.
-To add data to be saved and restored, implement <xref href="Godot.ISerializationListener" data-throw-if-not-resolved="false"></xref>.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void SaveGodotObjectData(GodotSerializationInfo info)
-```
-
-#### Parameters
-
-`info` GodotSerializationInfo
-
-Object used to save the data.
 

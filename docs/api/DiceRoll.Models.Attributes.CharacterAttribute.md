@@ -1,14 +1,13 @@
-# <a id="DiceRoll_Models_RolesResources"></a> Class RolesResources
+# <a id="DiceRoll_Models_Attributes_CharacterAttribute"></a> Class CharacterAttribute
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Attributes](DiceRoll.Models.Attributes.md)  
 Assembly: dice\-roll.dll  
-
-Represents a resource containing roles for the dice roll game.
 
 ```csharp
 [Tool]
-[ScriptPath("res://models/Roles/RolesResources.cs")]
-public class RolesResources : Resource, IDisposable
+[GlobalClass]
+[ScriptPath("res://models/Attribute/CharacterAttribute.cs")]
+public class CharacterAttribute : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -17,7 +16,7 @@ public class RolesResources : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[RolesResources](DiceRoll.Models.RolesResources.md)
+[CharacterAttribute](DiceRoll.Models.Attributes.CharacterAttribute.md)
 
 #### Implements
 
@@ -163,28 +162,71 @@ GodotObject.PropertyListChanged,
 
 ## Constructors
 
-### <a id="DiceRoll_Models_RolesResources__ctor"></a> RolesResources\(\)
+### <a id="DiceRoll_Models_Attributes_CharacterAttribute__ctor"></a> CharacterAttribute\(\)
 
 ```csharp
-public RolesResources()
+public CharacterAttribute()
 ```
+
+### <a id="DiceRoll_Models_Attributes_CharacterAttribute__ctor_DiceRoll_Models_Attributes_RoleAttribute_"></a> CharacterAttribute\(RoleAttribute\)
+
+```csharp
+public CharacterAttribute(RoleAttribute roleAttribute)
+```
+
+#### Parameters
+
+`roleAttribute` [RoleAttribute](DiceRoll.Models.Attributes.RoleAttribute.md)
 
 ## Properties
 
-### <a id="DiceRoll_Models_RolesResources_Roles"></a> Roles
+### <a id="DiceRoll_Models_Attributes_CharacterAttribute_BaseValue"></a> BaseValue
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Array<Role> Roles { get; set; }
+public int BaseValue { get; set; }
 ```
 
 #### Property Value
 
- Array<[Role](DiceRoll.Models.Role.md)\>
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="DiceRoll_Models_Attributes_CharacterAttribute_CurrentValue"></a> CurrentValue
+
+```csharp
+[Export(PropertyHint.None, "")]
+public int CurrentValue { get; set; }
+```
+
+#### Property Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="DiceRoll_Models_Attributes_CharacterAttribute_MaxValue"></a> MaxValue
+
+```csharp
+[Export(PropertyHint.None, "")]
+public int MaxValue { get; set; }
+```
+
+#### Property Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="DiceRoll_Models_Attributes_CharacterAttribute_Type"></a> Type
+
+```csharp
+[Export(PropertyHint.None, "")]
+public AttributeType? Type { get; set; }
+```
+
+#### Property Value
+
+ [AttributeType](DiceRoll.Models.Attributes.AttributeType.md)?
 
 ## Methods
 
-### <a id="DiceRoll_Models_RolesResources_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
+### <a id="DiceRoll_Models_Attributes_CharacterAttribute_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
 Get the value of a property contained in this class.
 This method is used by Godot to retrieve property values.
@@ -211,22 +253,57 @@ Value of the property if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Models_RolesResources_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
+### <a id="DiceRoll_Models_Attributes_CharacterAttribute_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
+Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.
 
 ```csharp
 [EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
+protected override bool HasGodotClassMethod(in godot_string_name method)
 ```
+
+#### Parameters
+
+`method` godot\_string\_name
+
+Name of the method to check for.
 
 #### Returns
 
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-### <a id="DiceRoll_Models_RolesResources_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Attributes_CharacterAttribute_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
+
+Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.
+
+```csharp
+[EditorBrowsable(EditorBrowsableState.Never)]
+protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)
+```
+
+#### Parameters
+
+`method` godot\_string\_name
+
+Name of the method to invoke.
+
+`args` NativeVariantPtrArgs
+
+Arguments to use with the invoked method.
+
+`ret` godot\_variant
+
+Value returned by the invoked method.
+
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="DiceRoll_Models_Attributes_CharacterAttribute_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
 Restores this instance's state after reloading assemblies.
 Do not call or override this method.
@@ -243,7 +320,7 @@ protected override void RestoreGodotObjectData(GodotSerializationInfo info)
 
 Object that contains the previously saved data.
 
-### <a id="DiceRoll_Models_RolesResources_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Attributes_CharacterAttribute_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
 
 Saves this instance's state to be restored when reloading assemblies.
 Do not call or override this method.
@@ -260,7 +337,7 @@ protected override void SaveGodotObjectData(GodotSerializationInfo info)
 
 Object used to save the data.
 
-### <a id="DiceRoll_Models_RolesResources_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
+### <a id="DiceRoll_Models_Attributes_CharacterAttribute_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
 
 Set the value of a property contained in this class.
 This method is used by Godot to assign property values.
@@ -286,4 +363,46 @@ Value to set the property to if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
+
+### <a id="DiceRoll_Models_Attributes_CharacterAttribute__ValidateProperty_Godot_Collections_Dictionary_"></a> \_ValidateProperty\(Dictionary\)
+
+<p>Override this method to customize existing properties. Every property info goes through this method, except properties added with <xref href="Godot.GodotObject._GetPropertyList" data-throw-if-not-resolved="false"></xref>. The dictionary contents is the same as in <xref href="Godot.GodotObject._GetPropertyList" data-throw-if-not-resolved="false"></xref>.</p>
+<p>
+  <pre><code class="lang-csharp">[Tool]
+  public partial class MyNode : Node
+  {
+      private bool _isNumberEditable;
+
+      [Export]
+      public bool IsNumberEditable
+      {
+          get => _isNumberEditable;
+          set
+          {
+              _isNumberEditable = value;
+              NotifyPropertyListChanged();
+          }
+      }
+
+      [Export]
+      public int Number { get; set; }
+
+      public override void _ValidateProperty(Godot.Collections.Dictionary property)
+      {
+          if (property["name"].AsStringName() == PropertyName.Number && !IsNumberEditable)
+          {
+              var usage = property["usage"].As<PropertyUsageFlags>() | PropertyUsageFlags.ReadOnly;
+              property["usage"] = (int)usage;
+          }
+      }
+  }</code></pre>
+</p>
+
+```csharp
+public override void _ValidateProperty(Dictionary property)
+```
+
+#### Parameters
+
+`property` Dictionary
 

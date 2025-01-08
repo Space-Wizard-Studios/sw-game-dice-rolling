@@ -576,98 +576,6 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Fields
-
-### <a id="DiceRoll_Helpers_Arc2D__arcMidpoint"></a> \_arcMidpoint
-
-```csharp
-private Vector2 _arcMidpoint
-```
-
-#### Field Value
-
- Vector2
-
-### <a id="DiceRoll_Helpers_Arc2D__bendDirection"></a> \_bendDirection
-
-```csharp
-private string _bendDirection
-```
-
-#### Field Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-### <a id="DiceRoll_Helpers_Arc2D__bendStrength"></a> \_bendStrength
-
-```csharp
-private int _bendStrength
-```
-
-#### Field Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Helpers_Arc2D__end"></a> \_end
-
-```csharp
-private Vector2 _end
-```
-
-#### Field Value
-
- Vector2
-
-### <a id="DiceRoll_Helpers_Arc2D__lastEndPosition"></a> \_lastEndPosition
-
-```csharp
-private Vector2 _lastEndPosition
-```
-
-#### Field Value
-
- Vector2
-
-### <a id="DiceRoll_Helpers_Arc2D__lastStartPosition"></a> \_lastStartPosition
-
-```csharp
-private Vector2 _lastStartPosition
-```
-
-#### Field Value
-
- Vector2
-
-### <a id="DiceRoll_Helpers_Arc2D__midpoint"></a> \_midpoint
-
-```csharp
-private Vector2 _midpoint
-```
-
-#### Field Value
-
- Vector2
-
-### <a id="DiceRoll_Helpers_Arc2D__smoothness"></a> \_smoothness
-
-```csharp
-private int _smoothness
-```
-
-#### Field Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Helpers_Arc2D__start"></a> \_start
-
-```csharp
-private Vector2 _start
-```
-
-#### Field Value
-
- Vector2
-
 ## Properties
 
 ### <a id="DiceRoll_Helpers_Arc2D_BendDirection"></a> BendDirection
@@ -705,16 +613,6 @@ public int Smoothness { get; set; }
 
 ## Methods
 
-### <a id="DiceRoll_Helpers_Arc2D_GetBendDirection"></a> GetBendDirection\(\)
-
-```csharp
-private Vector2 GetBendDirection()
-```
-
-#### Returns
-
- Vector2
-
 ### <a id="DiceRoll_Helpers_Arc2D_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
 Get the value of a property contained in this class.
@@ -742,36 +640,6 @@ Value of the property if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Helpers_Arc2D_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Helpers_Arc2D_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
-
 ### <a id="DiceRoll_Helpers_Arc2D_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
 Check if the type contains a method with the given name.
@@ -792,20 +660,6 @@ Name of the method to check for.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Helpers_Arc2D_InterpolateArcPoint_System_Single_"></a> InterpolateArcPoint\(float\)
-
-```csharp
-private Vector2 InterpolateArcPoint(float segment)
-```
-
-#### Parameters
-
-`segment` [float](https://learn.microsoft.com/dotnet/api/system.single)
-
-#### Returns
-
- Vector2
 
 ### <a id="DiceRoll_Helpers_Arc2D_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
 
@@ -835,22 +689,6 @@ Value returned by the invoked method.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Helpers_Arc2D_IsPositionTheSame"></a> IsPositionTheSame\(\)
-
-```csharp
-private bool IsPositionTheSame()
-```
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Helpers_Arc2D_ResetPoints"></a> ResetPoints\(\)
-
-```csharp
-private void ResetPoints()
-```
 
 ### <a id="DiceRoll_Helpers_Arc2D_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
@@ -886,18 +724,6 @@ protected override void SaveGodotObjectData(GodotSerializationInfo info)
 
 Object used to save the data.
 
-### <a id="DiceRoll_Helpers_Arc2D_SetArcSegments"></a> SetArcSegments\(\)
-
-```csharp
-private void SetArcSegments()
-```
-
-### <a id="DiceRoll_Helpers_Arc2D_SetExtremePoints"></a> SetExtremePoints\(\)
-
-```csharp
-private void SetExtremePoints()
-```
-
 ### <a id="DiceRoll_Helpers_Arc2D_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
 
 Set the value of a property contained in this class.
@@ -924,24 +750,6 @@ Value to set the property to if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Helpers_Arc2D_SetMidpoints"></a> SetMidpoints\(\)
-
-```csharp
-private void SetMidpoints()
-```
-
-### <a id="DiceRoll_Helpers_Arc2D_SetupArcFlexible"></a> SetupArcFlexible\(\)
-
-```csharp
-private void SetupArcFlexible()
-```
-
-### <a id="DiceRoll_Helpers_Arc2D_SetupArcStatic"></a> SetupArcStatic\(\)
-
-```csharp
-private void SetupArcStatic()
-```
 
 ### <a id="DiceRoll_Helpers_Arc2D__Process_System_Double_"></a> \_Process\(double\)
 

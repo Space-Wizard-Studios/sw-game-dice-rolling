@@ -337,32 +337,12 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Constructors
-
-### <a id="DiceRoll_Stores_DiceStore__ctor"></a> DiceStore\(\)
-
-```csharp
-private DiceStore()
-```
-
-## Fields
-
-### <a id="DiceRoll_Stores_DiceStore__instance"></a> \_instance
-
-```csharp
-private static DiceStore? _instance
-```
-
-#### Field Value
-
- [DiceStore](DiceRoll.Stores.DiceStore.md)?
-
 ## Properties
 
 ### <a id="DiceRoll_Stores_DiceStore_DiceSet"></a> DiceSet
 
 ```csharp
-public List<Dice<DiceSide>> DiceSet { get; private set; }
+public List<Dice<DiceSide>> DiceSet { get; }
 ```
 
 #### Property Value
@@ -404,21 +384,6 @@ public Dice<DiceSide> GetDiceByID(string diceId)
 #### Returns
 
  [Dice](DiceRoll.Models.Dice\-1.md)<[DiceSide](DiceRoll.Models.DiceSide.md)\>
-
-### <a id="DiceRoll_Stores_DiceStore_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
 
 ### <a id="DiceRoll_Stores_DiceStore_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 

@@ -687,18 +687,6 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Fields
-
-### <a id="DiceRoll_Components_UI_InventoryItemComponent__tooltipInstance"></a> \_tooltipInstance
-
-```csharp
-private TooltipComponent? _tooltipInstance
-```
-
-#### Field Value
-
- [TooltipComponent](DiceRoll.Components.UI.TooltipComponent.md)?
-
 ## Properties
 
 ### <a id="DiceRoll_Components_UI_InventoryItemComponent_TooltipComponentScene"></a> TooltipComponentScene
@@ -713,12 +701,6 @@ public PackedScene? TooltipComponentScene { get; set; }
  PackedScene?
 
 ## Methods
-
-### <a id="DiceRoll_Components_UI_InventoryItemComponent_CreateTooltip"></a> CreateTooltip\(\)
-
-```csharp
-private void CreateTooltip()
-```
 
 ### <a id="DiceRoll_Components_UI_InventoryItemComponent_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
@@ -746,36 +728,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Components_UI_InventoryItemComponent_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Components_UI_InventoryItemComponent_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
 
 ### <a id="DiceRoll_Components_UI_InventoryItemComponent_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
@@ -826,18 +778,6 @@ Value returned by the invoked method.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_UI_InventoryItemComponent_OnMouseEntered"></a> OnMouseEntered\(\)
-
-```csharp
-private void OnMouseEntered()
-```
-
-### <a id="DiceRoll_Components_UI_InventoryItemComponent_OnMouseExited"></a> OnMouseExited\(\)
-
-```csharp
-private void OnMouseExited()
-```
 
 ### <a id="DiceRoll_Components_UI_InventoryItemComponent_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
@@ -899,16 +839,6 @@ Value to set the property to if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Components_UI_InventoryItemComponent_SetSize_Godot_Vector2_"></a> SetSize\(Vector2\)
-
-```csharp
-private void SetSize(Vector2 size)
-```
-
-#### Parameters
-
-`size` Vector2
 
 ### <a id="DiceRoll_Components_UI_InventoryItemComponent__Ready"></a> \_Ready\(\)
 

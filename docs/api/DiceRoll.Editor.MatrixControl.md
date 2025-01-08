@@ -698,7 +698,7 @@ Initializes a new instance of the <xref href="DiceRoll.Editor.MatrixControl" dat
 public MatrixControl()
 ```
 
-### <a id="DiceRoll_Editor_MatrixControl__ctor_DiceRoll_Models_Actions_Target_TargetConfiguration_"></a> MatrixControl\(TargetConfiguration\)
+### <a id="DiceRoll_Editor_MatrixControl__ctor_DiceRoll_Models_Actions_Targets_TargetConfiguration_"></a> MatrixControl\(TargetConfiguration\)
 
 Initializes a new instance of the <xref href="DiceRoll.Editor.MatrixControl" data-throw-if-not-resolved="false"></xref> class with a given target configuration.
 
@@ -708,81 +708,9 @@ public MatrixControl(TargetConfiguration targetConfiguration)
 
 #### Parameters
 
-`targetConfiguration` [TargetConfiguration](DiceRoll.Models.Actions.Target.TargetConfiguration.md)
+`targetConfiguration` [TargetConfiguration](DiceRoll.Models.Actions.Targets.TargetConfiguration.md)
 
 The target configuration to initialize the grid with.
-
-## Fields
-
-### <a id="DiceRoll_Editor_MatrixControl_CellSize"></a> CellSize
-
-```csharp
-private const int CellSize = 40
-```
-
-#### Field Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Editor_MatrixControl_ColorsArray"></a> ColorsArray
-
-```csharp
-private static readonly Color[] ColorsArray
-```
-
-#### Field Value
-
- Color\[\]
-
-### <a id="DiceRoll_Editor_MatrixControl_Padding"></a> Padding
-
-```csharp
-private const int Padding = 5
-```
-
-#### Field Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Editor_MatrixControl__columns"></a> \_columns
-
-```csharp
-private int _columns
-```
-
-#### Field Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Editor_MatrixControl__grid"></a> \_grid
-
-```csharp
-private Array<int> _grid
-```
-
-#### Field Value
-
- Array<[int](https://learn.microsoft.com/dotnet/api/system.int32)\>
-
-### <a id="DiceRoll_Editor_MatrixControl__rows"></a> \_rows
-
-```csharp
-private int _rows
-```
-
-#### Field Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Editor_MatrixControl_isFlippedHorizontally"></a> isFlippedHorizontally
-
-```csharp
-private bool isFlippedHorizontally
-```
-
-#### Field Value
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 ## Properties
 
@@ -794,9 +722,37 @@ public TargetConfiguration? TargetConfiguration { get; }
 
 #### Property Value
 
- [TargetConfiguration](DiceRoll.Models.Actions.Target.TargetConfiguration.md)?
+ [TargetConfiguration](DiceRoll.Models.Actions.Targets.TargetConfiguration.md)?
 
 ## Methods
+
+### <a id="DiceRoll_Editor_MatrixControl_AddGrid_DiceRoll_Models_Actions_Targets_GridConfiguration_"></a> AddGrid\(GridConfiguration\)
+
+Adds a new grid to the MatrixControl.
+
+```csharp
+public void AddGrid(GridConfiguration grid)
+```
+
+#### Parameters
+
+`grid` [GridConfiguration](DiceRoll.Models.Actions.Targets.GridConfiguration.md)
+
+The grid configuration.
+
+### <a id="DiceRoll_Editor_MatrixControl_ClearGridInputs"></a> ClearGridInputs\(\)
+
+```csharp
+public void ClearGridInputs()
+```
+
+### <a id="DiceRoll_Editor_MatrixControl_ClearGrids"></a> ClearGrids\(\)
+
+Clears all grids from the MatrixControl.
+
+```csharp
+public void ClearGrids()
+```
 
 ### <a id="DiceRoll_Editor_MatrixControl_FlipHorizontally_System_Boolean_"></a> FlipHorizontally\(bool\)
 
@@ -838,36 +794,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Editor_MatrixControl_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Editor_MatrixControl_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
 
 ### <a id="DiceRoll_Editor_MatrixControl_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
@@ -979,32 +905,6 @@ Value to set the property to if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Editor_MatrixControl_UpdateDimensions_System_Int32_System_Int32_"></a> UpdateDimensions\(int, int\)
-
-Updates the grid dimensions and recalculates the minimum size.
-
-```csharp
-public void UpdateDimensions(int rows, int columns)
-```
-
-#### Parameters
-
-`rows` [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-The number of rows in the grid.
-
-`columns` [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-The number of columns in the grid.
-
-### <a id="DiceRoll_Editor_MatrixControl_UpdateMinimumSize"></a> UpdateMinimumSize\(\)
-
-Recalculates the minimum size of the grid based on its dimensions.
-
-```csharp
-private void UpdateMinimumSize()
-```
 
 ### <a id="DiceRoll_Editor_MatrixControl__Draw"></a> \_Draw\(\)
 

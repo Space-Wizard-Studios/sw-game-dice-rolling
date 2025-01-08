@@ -717,149 +717,7 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Fields
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_AttributeCurrentValueNode"></a> AttributeCurrentValueNode
-
-```csharp
-[Export(PropertyHint.None, "")]
-private Label? AttributeCurrentValueNode
-```
-
-#### Field Value
-
- Label?
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_AttributeMaxValueNode"></a> AttributeMaxValueNode
-
-```csharp
-[Export(PropertyHint.None, "")]
-private Label? AttributeMaxValueNode
-```
-
-#### Field Value
-
- Label?
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_AttributeTemplateNode"></a> AttributeTemplateNode
-
-```csharp
-[Export(PropertyHint.None, "")]
-private VBoxContainer? AttributeTemplateNode
-```
-
-#### Field Value
-
- VBoxContainer?
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_AttributeTemplateTitleNode"></a> AttributeTemplateTitleNode
-
-```csharp
-[Export(PropertyHint.None, "")]
-private Label? AttributeTemplateTitleNode
-```
-
-#### Field Value
-
- Label?
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_AttributesListNode"></a> AttributesListNode
-
-```csharp
-[Export(PropertyHint.None, "")]
-private VBoxContainer? AttributesListNode
-```
-
-#### Field Value
-
- VBoxContainer?
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_CharacterNameNode"></a> CharacterNameNode
-
-```csharp
-[Export(PropertyHint.None, "")]
-private Label? CharacterNameNode
-```
-
-#### Field Value
-
- Label?
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_CharacterRoleNode"></a> CharacterRoleNode
-
-```csharp
-[Export(PropertyHint.None, "")]
-private Label? CharacterRoleNode
-```
-
-#### Field Value
-
- Label?
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_PortraitNode"></a> PortraitNode
-
-```csharp
-[ExportGroup("🔘 Nodes", "")]
-[Export(PropertyHint.None, "")]
-private TextureRect? PortraitNode
-```
-
-#### Field Value
-
- TextureRect?
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_ValueContainerNode"></a> ValueContainerNode
-
-```csharp
-[Export(PropertyHint.None, "")]
-private HBoxContainer? ValueContainerNode
-```
-
-#### Field Value
-
- HBoxContainer?
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector__character"></a> \_character
-
-```csharp
-private Character? _character
-```
-
-#### Field Value
-
- [Character](DiceRoll.Models.Character.md)?
-
 ## Properties
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_AttributeCurrentValueNodeName"></a> AttributeCurrentValueNodeName
-
-```csharp
-private string AttributeCurrentValueNodeName { get; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_AttributeMaxValueNodeName"></a> AttributeMaxValueNodeName
-
-```csharp
-private string AttributeMaxValueNodeName { get; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_AttributeTitleNodeName"></a> AttributeTitleNodeName
-
-```csharp
-private string AttributeTitleNodeName { get; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
 
 ### <a id="DiceRoll_Components_Characters_CharacterInspector_Character"></a> Character
 
@@ -871,17 +729,7 @@ public Character? Character { get; set; }
 
 #### Property Value
 
- [Character](DiceRoll.Models.Character.md)?
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_ValueContainerNodeName"></a> ValueContainerNodeName
-
-```csharp
-private string ValueContainerNodeName { get; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
+ [Character](DiceRoll.Models.Characters.Character.md)?
 
 ## Methods
 
@@ -911,36 +759,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
 
 ### <a id="DiceRoll_Components_Characters_CharacterInspector_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
@@ -991,16 +809,6 @@ Value returned by the invoked method.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_OnCharacterInspected_DiceRoll_Models_Character_"></a> OnCharacterInspected\(Character\)
-
-```csharp
-private void OnCharacterInspected(Character character)
-```
-
-#### Parameters
-
-`character` [Character](DiceRoll.Models.Character.md)
 
 ### <a id="DiceRoll_Components_Characters_CharacterInspector_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
@@ -1062,12 +870,6 @@ Value to set the property to if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Components_Characters_CharacterInspector_UpdateCharacterDetails"></a> UpdateCharacterDetails\(\)
-
-```csharp
-private void UpdateCharacterDetails()
-```
 
 ### <a id="DiceRoll_Components_Characters_CharacterInspector__Ready"></a> \_Ready\(\)
 

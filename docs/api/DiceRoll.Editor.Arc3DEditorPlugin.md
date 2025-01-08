@@ -1,11 +1,14 @@
-# <a id="DiceRoll_Managers_LobbyManager"></a> Class LobbyManager
+# <a id="DiceRoll_Editor_Arc3DEditorPlugin"></a> Class Arc3DEditorPlugin
 
-Namespace: [DiceRoll.Managers](DiceRoll.Managers.md)  
+Namespace: [DiceRoll.Editor](DiceRoll.Editor.md)  
 Assembly: dice\-roll.dll  
 
+A plugin for managing the Arc3D gizmo in the editor.
+
 ```csharp
-[ScriptPath("res://core/managers/gameplay/LobbyManager.cs")]
-public class LobbyManager : Node2D, IDisposable
+[Tool]
+[ScriptPath("res://addons/@spacewiz/Arc3DEditorPlugin/Arc3DEditorPlugin.cs")]
+public class Arc3DEditorPlugin : EditorPlugin, IDisposable
 ```
 
 #### Inheritance
@@ -13,9 +16,8 @@ public class LobbyManager : Node2D, IDisposable
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 GodotObject ← 
 Node ← 
-CanvasItem ← 
-Node2D ← 
-[LobbyManager](DiceRoll.Managers.LobbyManager.md)
+EditorPlugin ← 
+[Arc3DEditorPlugin](DiceRoll.Editor.Arc3DEditorPlugin.md)
 
 #### Implements
 
@@ -23,189 +25,96 @@ Node2D ←
 
 #### Inherited Members
 
-Node2D.SetPosition\(Vector2\), 
-Node2D.SetRotation\(float\), 
-Node2D.SetRotationDegrees\(float\), 
-Node2D.SetSkew\(float\), 
-Node2D.SetScale\(Vector2\), 
-Node2D.GetPosition\(\), 
-Node2D.GetRotation\(\), 
-Node2D.GetRotationDegrees\(\), 
-Node2D.GetSkew\(\), 
-Node2D.GetScale\(\), 
-Node2D.Rotate\(float\), 
-Node2D.MoveLocalX\(float, bool\), 
-Node2D.MoveLocalY\(float, bool\), 
-Node2D.Translate\(Vector2\), 
-Node2D.GlobalTranslate\(Vector2\), 
-Node2D.ApplyScale\(Vector2\), 
-Node2D.SetGlobalPosition\(Vector2\), 
-Node2D.GetGlobalPosition\(\), 
-Node2D.SetGlobalRotation\(float\), 
-Node2D.SetGlobalRotationDegrees\(float\), 
-Node2D.GetGlobalRotation\(\), 
-Node2D.GetGlobalRotationDegrees\(\), 
-Node2D.SetGlobalSkew\(float\), 
-Node2D.GetGlobalSkew\(\), 
-Node2D.SetGlobalScale\(Vector2\), 
-Node2D.GetGlobalScale\(\), 
-Node2D.SetTransform\(Transform2D\), 
-Node2D.SetGlobalTransform\(Transform2D\), 
-Node2D.LookAt\(Vector2\), 
-Node2D.GetAngleTo\(Vector2\), 
-Node2D.ToLocal\(Vector2\), 
-Node2D.ToGlobal\(Vector2\), 
-Node2D.GetRelativeTransformToParent\(Node\), 
-Node2D.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
-Node2D.HasGodotClassMethod\(in godot\_string\_name\), 
-Node2D.HasGodotClassSignal\(in godot\_string\_name\), 
-Node2D.Position, 
-Node2D.Rotation, 
-Node2D.RotationDegrees, 
-Node2D.Scale, 
-Node2D.Skew, 
-Node2D.Transform, 
-Node2D.GlobalPosition, 
-Node2D.GlobalRotation, 
-Node2D.GlobalRotationDegrees, 
-Node2D.GlobalScale, 
-Node2D.GlobalSkew, 
-Node2D.GlobalTransform, 
-CanvasItem.NotificationTransformChanged, 
-CanvasItem.NotificationLocalTransformChanged, 
-CanvasItem.NotificationDraw, 
-CanvasItem.NotificationVisibilityChanged, 
-CanvasItem.NotificationEnterCanvas, 
-CanvasItem.NotificationExitCanvas, 
-CanvasItem.NotificationWorld2DChanged, 
-CanvasItem.\_Draw\(\), 
-CanvasItem.GetCanvasItem\(\), 
-CanvasItem.SetVisible\(bool\), 
-CanvasItem.IsVisible\(\), 
-CanvasItem.IsVisibleInTree\(\), 
-CanvasItem.Show\(\), 
-CanvasItem.Hide\(\), 
-CanvasItem.QueueRedraw\(\), 
-CanvasItem.MoveToFront\(\), 
-CanvasItem.SetAsTopLevel\(bool\), 
-CanvasItem.IsSetAsTopLevel\(\), 
-CanvasItem.SetLightMask\(int\), 
-CanvasItem.GetLightMask\(\), 
-CanvasItem.SetModulate\(Color\), 
-CanvasItem.GetModulate\(\), 
-CanvasItem.SetSelfModulate\(Color\), 
-CanvasItem.GetSelfModulate\(\), 
-CanvasItem.SetZIndex\(int\), 
-CanvasItem.GetZIndex\(\), 
-CanvasItem.SetZAsRelative\(bool\), 
-CanvasItem.IsZRelative\(\), 
-CanvasItem.SetYSortEnabled\(bool\), 
-CanvasItem.IsYSortEnabled\(\), 
-CanvasItem.SetDrawBehindParent\(bool\), 
-CanvasItem.IsDrawBehindParentEnabled\(\), 
-CanvasItem.DrawLine\(Vector2, Vector2, Color, float, bool\), 
-CanvasItem.DrawDashedLine\(Vector2, Vector2, Color, float, float, bool, bool\), 
-CanvasItem.DrawPolyline\(Vector2\[\], Color, float, bool\), 
-CanvasItem.DrawPolyline\(ReadOnlySpan<Vector2\>, Color, float, bool\), 
-CanvasItem.DrawPolylineColors\(Vector2\[\], Color\[\], float, bool\), 
-CanvasItem.DrawPolylineColors\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, float, bool\), 
-CanvasItem.DrawArc\(Vector2, float, float, float, int, Color, float, bool\), 
-CanvasItem.DrawMultiline\(Vector2\[\], Color, float, bool\), 
-CanvasItem.DrawMultiline\(ReadOnlySpan<Vector2\>, Color, float, bool\), 
-CanvasItem.DrawMultilineColors\(Vector2\[\], Color\[\], float, bool\), 
-CanvasItem.DrawMultilineColors\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, float, bool\), 
-CanvasItem.DrawRect\(Rect2, Color, bool, float, bool\), 
-CanvasItem.DrawCircle\(Vector2, float, Color, bool, float, bool\), 
-CanvasItem.DrawTexture\(Texture2D, Vector2, Color?\), 
-CanvasItem.DrawTextureRect\(Texture2D, Rect2, bool, Color?, bool\), 
-CanvasItem.DrawTextureRectRegion\(Texture2D, Rect2, Rect2, Color?, bool, bool\), 
-CanvasItem.DrawMsdfTextureRectRegion\(Texture2D, Rect2, Rect2, Color?, double, double, double\), 
-CanvasItem.DrawLcdTextureRectRegion\(Texture2D, Rect2, Rect2, Color?\), 
-CanvasItem.DrawStyleBox\(StyleBox, Rect2\), 
-CanvasItem.DrawPrimitive\(Vector2\[\], Color\[\], Vector2\[\], Texture2D\), 
-CanvasItem.DrawPrimitive\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, ReadOnlySpan<Vector2\>, Texture2D\), 
-CanvasItem.DrawPolygon\(Vector2\[\], Color\[\], Vector2\[\], Texture2D\), 
-CanvasItem.DrawPolygon\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, ReadOnlySpan<Vector2\>, Texture2D\), 
-CanvasItem.DrawColoredPolygon\(Vector2\[\], Color, Vector2\[\], Texture2D\), 
-CanvasItem.DrawColoredPolygon\(ReadOnlySpan<Vector2\>, Color, ReadOnlySpan<Vector2\>, Texture2D\), 
-CanvasItem.DrawString\(Font, Vector2, string, HorizontalAlignment, float, int, Color?, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation\), 
-CanvasItem.DrawMultilineString\(Font, Vector2, string, HorizontalAlignment, float, int, int, Color?, TextServer.LineBreakFlag, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation\), 
-CanvasItem.DrawStringOutline\(Font, Vector2, string, HorizontalAlignment, float, int, int, Color?, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation\), 
-CanvasItem.DrawMultilineStringOutline\(Font, Vector2, string, HorizontalAlignment, float, int, int, int, Color?, TextServer.LineBreakFlag, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation\), 
-CanvasItem.DrawChar\(Font, Vector2, string, int, Color?\), 
-CanvasItem.DrawCharOutline\(Font, Vector2, string, int, int, Color?\), 
-CanvasItem.DrawMesh\(Mesh, Texture2D, Transform2D?, Color?\), 
-CanvasItem.DrawMultimesh\(MultiMesh, Texture2D\), 
-CanvasItem.DrawSetTransform\(Vector2, float, Vector2?\), 
-CanvasItem.DrawSetTransformMatrix\(Transform2D\), 
-CanvasItem.DrawAnimationSlice\(double, double, double, double\), 
-CanvasItem.DrawEndAnimation\(\), 
-CanvasItem.GetTransform\(\), 
-CanvasItem.GetGlobalTransform\(\), 
-CanvasItem.GetGlobalTransformWithCanvas\(\), 
-CanvasItem.GetViewportTransform\(\), 
-CanvasItem.GetViewportRect\(\), 
-CanvasItem.GetCanvasTransform\(\), 
-CanvasItem.GetScreenTransform\(\), 
-CanvasItem.GetLocalMousePosition\(\), 
-CanvasItem.GetGlobalMousePosition\(\), 
-CanvasItem.GetCanvas\(\), 
-CanvasItem.GetCanvasLayerNode\(\), 
-CanvasItem.GetWorld2D\(\), 
-CanvasItem.SetMaterial\(Material\), 
-CanvasItem.GetMaterial\(\), 
-CanvasItem.SetUseParentMaterial\(bool\), 
-CanvasItem.GetUseParentMaterial\(\), 
-CanvasItem.SetNotifyLocalTransform\(bool\), 
-CanvasItem.IsLocalTransformNotificationEnabled\(\), 
-CanvasItem.SetNotifyTransform\(bool\), 
-CanvasItem.IsTransformNotificationEnabled\(\), 
-CanvasItem.ForceUpdateTransform\(\), 
-CanvasItem.MakeCanvasPositionLocal\(Vector2\), 
-CanvasItem.MakeInputLocal\(InputEvent\), 
-CanvasItem.SetVisibilityLayer\(uint\), 
-CanvasItem.GetVisibilityLayer\(\), 
-CanvasItem.SetVisibilityLayerBit\(uint, bool\), 
-CanvasItem.GetVisibilityLayerBit\(uint\), 
-CanvasItem.SetTextureFilter\(CanvasItem.TextureFilterEnum\), 
-CanvasItem.GetTextureFilter\(\), 
-CanvasItem.SetTextureRepeat\(CanvasItem.TextureRepeatEnum\), 
-CanvasItem.GetTextureRepeat\(\), 
-CanvasItem.SetClipChildrenMode\(CanvasItem.ClipChildrenMode\), 
-CanvasItem.GetClipChildrenMode\(\), 
-CanvasItem.DrawMultilineColors\(Vector2\[\], Color\[\], float\), 
-CanvasItem.DrawMultilineColors\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, float\), 
-CanvasItem.DrawMultiline\(Vector2\[\], Color, float\), 
-CanvasItem.DrawMultiline\(ReadOnlySpan<Vector2\>, Color, float\), 
-CanvasItem.DrawDashedLine\(Vector2, Vector2, Color, float, float, bool\), 
-CanvasItem.DrawRect\(Rect2, Color, bool, float\), 
-CanvasItem.DrawCircle\(Vector2, float, Color\), 
-CanvasItem.EmitSignalDraw\(\), 
-CanvasItem.EmitSignalVisibilityChanged\(\), 
-CanvasItem.EmitSignalHidden\(\), 
-CanvasItem.EmitSignalItemRectChanged\(\), 
-CanvasItem.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
-CanvasItem.HasGodotClassMethod\(in godot\_string\_name\), 
-CanvasItem.HasGodotClassSignal\(in godot\_string\_name\), 
-CanvasItem.Visible, 
-CanvasItem.Modulate, 
-CanvasItem.SelfModulate, 
-CanvasItem.ShowBehindParent, 
-CanvasItem.TopLevel, 
-CanvasItem.ClipChildren, 
-CanvasItem.LightMask, 
-CanvasItem.VisibilityLayer, 
-CanvasItem.ZIndex, 
-CanvasItem.ZAsRelative, 
-CanvasItem.YSortEnabled, 
-CanvasItem.TextureFilter, 
-CanvasItem.TextureRepeat, 
-CanvasItem.Material, 
-CanvasItem.UseParentMaterial, 
-CanvasItem.Draw, 
-CanvasItem.VisibilityChanged, 
-CanvasItem.Hidden, 
-CanvasItem.ItemRectChanged, 
+EditorPlugin.\_ApplyChanges\(\), 
+EditorPlugin.\_Build\(\), 
+EditorPlugin.\_Clear\(\), 
+EditorPlugin.\_DisablePlugin\(\), 
+EditorPlugin.\_Edit\(GodotObject\), 
+EditorPlugin.\_EnablePlugin\(\), 
+EditorPlugin.\_Forward3DDrawOverViewport\(Control\), 
+EditorPlugin.\_Forward3DForceDrawOverViewport\(Control\), 
+EditorPlugin.\_Forward3DGuiInput\(Camera3D, InputEvent\), 
+EditorPlugin.\_ForwardCanvasDrawOverViewport\(Control\), 
+EditorPlugin.\_ForwardCanvasForceDrawOverViewport\(Control\), 
+EditorPlugin.\_ForwardCanvasGuiInput\(InputEvent\), 
+EditorPlugin.\_GetBreakpoints\(\), 
+EditorPlugin.\_GetPluginIcon\(\), 
+EditorPlugin.\_GetPluginName\(\), 
+EditorPlugin.\_GetState\(\), 
+EditorPlugin.\_GetUnsavedStatus\(string\), 
+EditorPlugin.\_GetWindowLayout\(ConfigFile\), 
+EditorPlugin.\_Handles\(GodotObject\), 
+EditorPlugin.\_HasMainScreen\(\), 
+EditorPlugin.\_MakeVisible\(bool\), 
+EditorPlugin.\_SaveExternalData\(\), 
+EditorPlugin.\_SetState\(Dictionary\), 
+EditorPlugin.\_SetWindowLayout\(ConfigFile\), 
+EditorPlugin.AddControlToContainer\(EditorPlugin.CustomControlContainer, Control\), 
+EditorPlugin.AddControlToBottomPanel\(Control, string, Shortcut\), 
+EditorPlugin.AddControlToDock\(EditorPlugin.DockSlot, Control, Shortcut\), 
+EditorPlugin.RemoveControlFromDocks\(Control\), 
+EditorPlugin.RemoveControlFromBottomPanel\(Control\), 
+EditorPlugin.RemoveControlFromContainer\(EditorPlugin.CustomControlContainer, Control\), 
+EditorPlugin.SetDockTabIcon\(Control, Texture2D\), 
+EditorPlugin.AddToolMenuItem\(string, Callable\), 
+EditorPlugin.AddToolSubmenuItem\(string, PopupMenu\), 
+EditorPlugin.RemoveToolMenuItem\(string\), 
+EditorPlugin.GetExportAsMenu\(\), 
+EditorPlugin.AddCustomType\(string, string, Script, Texture2D\), 
+EditorPlugin.RemoveCustomType\(string\), 
+EditorPlugin.AddAutoloadSingleton\(string, string\), 
+EditorPlugin.RemoveAutoloadSingleton\(string\), 
+EditorPlugin.UpdateOverlays\(\), 
+EditorPlugin.MakeBottomPanelItemVisible\(Control\), 
+EditorPlugin.HideBottomPanel\(\), 
+EditorPlugin.GetUndoRedo\(\), 
+EditorPlugin.AddUndoRedoInspectorHookCallback\(Callable\), 
+EditorPlugin.RemoveUndoRedoInspectorHookCallback\(Callable\), 
+EditorPlugin.QueueSaveLayout\(\), 
+EditorPlugin.AddTranslationParserPlugin\(EditorTranslationParserPlugin\), 
+EditorPlugin.RemoveTranslationParserPlugin\(EditorTranslationParserPlugin\), 
+EditorPlugin.AddImportPlugin\(EditorImportPlugin, bool\), 
+EditorPlugin.RemoveImportPlugin\(EditorImportPlugin\), 
+EditorPlugin.AddSceneFormatImporterPlugin\(EditorSceneFormatImporter, bool\), 
+EditorPlugin.RemoveSceneFormatImporterPlugin\(EditorSceneFormatImporter\), 
+EditorPlugin.AddScenePostImportPlugin\(EditorScenePostImportPlugin, bool\), 
+EditorPlugin.RemoveScenePostImportPlugin\(EditorScenePostImportPlugin\), 
+EditorPlugin.AddExportPlugin\(EditorExportPlugin\), 
+EditorPlugin.RemoveExportPlugin\(EditorExportPlugin\), 
+EditorPlugin.AddExportPlatform\(EditorExportPlatform\), 
+EditorPlugin.RemoveExportPlatform\(EditorExportPlatform\), 
+EditorPlugin.AddNode3DGizmoPlugin\(EditorNode3DGizmoPlugin\), 
+EditorPlugin.RemoveNode3DGizmoPlugin\(EditorNode3DGizmoPlugin\), 
+EditorPlugin.AddInspectorPlugin\(EditorInspectorPlugin\), 
+EditorPlugin.RemoveInspectorPlugin\(EditorInspectorPlugin\), 
+EditorPlugin.AddResourceConversionPlugin\(EditorResourceConversionPlugin\), 
+EditorPlugin.RemoveResourceConversionPlugin\(EditorResourceConversionPlugin\), 
+EditorPlugin.SetInputEventForwardingAlwaysEnabled\(\), 
+EditorPlugin.SetForceDrawOverForwardingEnabled\(\), 
+EditorPlugin.AddContextMenuPlugin\(EditorContextMenuPlugin.ContextMenuSlot, EditorContextMenuPlugin\), 
+EditorPlugin.RemoveContextMenuPlugin\(EditorContextMenuPlugin\), 
+EditorPlugin.GetEditorInterface\(\), 
+EditorPlugin.GetScriptCreateDialog\(\), 
+EditorPlugin.AddDebuggerPlugin\(EditorDebuggerPlugin\), 
+EditorPlugin.RemoveDebuggerPlugin\(EditorDebuggerPlugin\), 
+EditorPlugin.GetPluginVersion\(\), 
+EditorPlugin.AddControlToDock\(EditorPlugin.DockSlot, Control\), 
+EditorPlugin.AddControlToBottomPanel\(Control, string\), 
+EditorPlugin.EmitSignalSceneChanged\(Node\), 
+EditorPlugin.EmitSignalSceneClosed\(string\), 
+EditorPlugin.EmitSignalMainScreenChanged\(string\), 
+EditorPlugin.EmitSignalResourceSaved\(Resource\), 
+EditorPlugin.EmitSignalSceneSaved\(string\), 
+EditorPlugin.EmitSignalProjectSettingsChanged\(\), 
+EditorPlugin.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+EditorPlugin.HasGodotClassMethod\(in godot\_string\_name\), 
+EditorPlugin.HasGodotClassSignal\(in godot\_string\_name\), 
+EditorPlugin.SceneChanged, 
+EditorPlugin.SceneClosed, 
+EditorPlugin.MainScreenChanged, 
+EditorPlugin.ResourceSaved, 
+EditorPlugin.SceneSaved, 
+EditorPlugin.ProjectSettingsChanged, 
 Node.NotificationEnterTree, 
 Node.NotificationExitTree, 
 Node.NotificationMovedInParent, 
@@ -524,7 +433,34 @@ GodotObject.PropertyListChanged,
 
 ## Methods
 
-### <a id="DiceRoll_Managers_LobbyManager_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
+### <a id="DiceRoll_Editor_Arc3DEditorPlugin_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
+
+Get the value of a property contained in this class.
+This method is used by Godot to retrieve property values.
+Do not call or override this method.
+
+```csharp
+[EditorBrowsable(EditorBrowsableState.Never)]
+protected override bool GetGodotClassPropertyValue(in godot_string_name name, out godot_variant value)
+```
+
+#### Parameters
+
+`name` godot\_string\_name
+
+Name of the property to get.
+
+`value` godot\_variant
+
+Value of the property if it was found.
+
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
+
+### <a id="DiceRoll_Editor_Arc3DEditorPlugin_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
 Check if the type contains a method with the given name.
 This method is used by Godot to check if a method exists before invoking it.
@@ -545,7 +481,7 @@ Name of the method to check for.
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-### <a id="DiceRoll_Managers_LobbyManager_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
+### <a id="DiceRoll_Editor_Arc3DEditorPlugin_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
 
 Invokes the method with the given name, using the given arguments.
 This method is used by Godot to invoke methods from the engine side.
@@ -574,7 +510,7 @@ Value returned by the invoked method.
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-### <a id="DiceRoll_Managers_LobbyManager_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Editor_Arc3DEditorPlugin_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
 Restores this instance's state after reloading assemblies.
 Do not call or override this method.
@@ -591,7 +527,7 @@ protected override void RestoreGodotObjectData(GodotSerializationInfo info)
 
 Object that contains the previously saved data.
 
-### <a id="DiceRoll_Managers_LobbyManager_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Editor_Arc3DEditorPlugin_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
 
 Saves this instance's state to be restored when reloading assemblies.
 Do not call or override this method.
@@ -608,15 +544,50 @@ protected override void SaveGodotObjectData(GodotSerializationInfo info)
 
 Object used to save the data.
 
-### <a id="DiceRoll_Managers_LobbyManager__Ready"></a> \_Ready\(\)
+### <a id="DiceRoll_Editor_Arc3DEditorPlugin_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
 
-<p>Called when the node is "ready", i.e. when both the node and its children have entered the scene tree. If the node has children, their <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> callbacks get triggered first, and the parent node will receive the ready notification afterwards.</p>
-<p>Corresponds to the <xref href="Godot.Node.NotificationReady" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>. See also the <code>@onready</code> annotation for variables.</p>
-<p>Usually used for initialization. For even earlier initialization, <xref href="Godot.GodotObject.%23ctor" data-throw-if-not-resolved="false"></xref> may be used. See also <xref href="Godot.Node._EnterTree" data-throw-if-not-resolved="false"></xref>.</p>
-<p>
-  <b>Note:</b> This method may be called only once for each node. After removing a node from the scene tree and adding it again, <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> will <b>not</b> be called a second time. This can be bypassed by requesting another call with <xref href="Godot.Node.RequestReady" data-throw-if-not-resolved="false"></xref>, which may be called anywhere before adding the node again.</p>
+Set the value of a property contained in this class.
+This method is used by Godot to assign property values.
+Do not call or override this method.
 
 ```csharp
-public override void _Ready()
+[EditorBrowsable(EditorBrowsableState.Never)]
+protected override bool SetGodotClassPropertyValue(in godot_string_name name, in godot_variant value)
+```
+
+#### Parameters
+
+`name` godot\_string\_name
+
+Name of the property to set.
+
+`value` godot\_variant
+
+Value to set the property to if it was found.
+
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
+
+### <a id="DiceRoll_Editor_Arc3DEditorPlugin__EnterTree"></a> \_EnterTree\(\)
+
+Called when the plugin is added to the editor.
+
+        <p>Called when the node enters the <xref href="Godot.SceneTree" data-throw-if-not-resolved="false"></xref> (e.g. upon instantiating, scene changing, or after calling <xref href="Godot.Node.AddChild(Godot.Node%2cSystem.Boolean%2cGodot.Node.InternalMode)" data-throw-if-not-resolved="false"></xref> in a script). If the node has children, its <xref href="Godot.Node._EnterTree" data-throw-if-not-resolved="false"></xref> callback will be called first, and then that of the children.</p><p>Corresponds to the <xref href="Godot.Node.NotificationEnterTree" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>.</p>
+
+```csharp
+public override void _EnterTree()
+```
+
+### <a id="DiceRoll_Editor_Arc3DEditorPlugin__ExitTree"></a> \_ExitTree\(\)
+
+Called when the plugin is removed from the editor.
+
+        <p>Called when the node is about to leave the <xref href="Godot.SceneTree" data-throw-if-not-resolved="false"></xref> (e.g. upon freeing, scene changing, or after calling <xref href="Godot.Node.RemoveChild(Godot.Node)" data-throw-if-not-resolved="false"></xref> in a script). If the node has children, its <xref href="Godot.Node._ExitTree" data-throw-if-not-resolved="false"></xref> callback will be called last, after all its children have left the tree.</p><p>Corresponds to the <xref href="Godot.Node.NotificationExitTree" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref> and signal <xref href="Godot.Node.TreeExiting" data-throw-if-not-resolved="false"></xref>. To get notified when the node has already left the active tree, connect to the <xref href="Godot.Node.TreeExited" data-throw-if-not-resolved="false"></xref>.</p>
+
+```csharp
+public override void _ExitTree()
 ```
 

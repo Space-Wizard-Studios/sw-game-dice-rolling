@@ -122,19 +122,3 @@ public static Dice<DiceSide> CreateD8(DiceManaResources diceManaResources)
 
  [Dice](DiceRoll.Models.Dice\-1.md)<[DiceSide](DiceRoll.Models.DiceSide.md)\>
 
-### <a id="DiceRoll_Models_DiceFactory_CreateDice_System_Int32_DiceRoll_Models_DiceManaResources_"></a> CreateDice\(int, DiceManaResources\)
-
-```csharp
-private static Dice<DiceSide> CreateDice(int sides, DiceManaResources diceManaResources)
-```
-
-#### Parameters
-
-`sides` [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-`diceManaResources` [DiceManaResources](DiceRoll.Models.DiceManaResources.md)
-
-#### Returns
-
- [Dice](DiceRoll.Models.Dice\-1.md)<[DiceSide](DiceRoll.Models.DiceSide.md)\>
-

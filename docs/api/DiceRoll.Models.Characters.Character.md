@@ -1,13 +1,13 @@
-# <a id="DiceRoll_Models_CharacterGrid_CharacterGridType"></a> Class CharacterGridType
+# <a id="DiceRoll_Models_Characters_Character"></a> Class Character
 
-Namespace: [DiceRoll.Models.CharacterGrid](DiceRoll.Models.CharacterGrid.md)  
+Namespace: [DiceRoll.Models.Characters](DiceRoll.Models.Characters.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
 [Tool]
 [GlobalClass]
-[ScriptPath("res://models/CharacterGrid/CharacterGridType.cs")]
-public class CharacterGridType : Resource, IDisposable
+[ScriptPath("res://models/Character/Character.cs")]
+public class Character : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -16,7 +16,7 @@ public class CharacterGridType : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[CharacterGridType](DiceRoll.Models.CharacterGrid.CharacterGridType.md)
+[Character](DiceRoll.Models.Characters.Character.md)
 
 #### Implements
 
@@ -162,106 +162,239 @@ GodotObject.PropertyListChanged,
 
 ## Constructors
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType__ctor"></a> CharacterGridType\(\)
+### <a id="DiceRoll_Models_Characters_Character__ctor"></a> Character\(\)
 
 ```csharp
-public CharacterGridType()
+public Character()
 ```
-
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType__ctor_System_Int32_System_Int32_System_Int32_System_String_"></a> CharacterGridType\(int, int, int, string\)
-
-```csharp
-public CharacterGridType(int columns, int rows, int offset, string prefix)
-```
-
-#### Parameters
-
-`columns` [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-`rows` [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-`offset` [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-`prefix` [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-## Fields
-
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_backing_Changed"></a> backing\_Changed
-
-```csharp
-private CharacterGridType.ChangedEventHandler backing_Changed
-```
-
-#### Field Value
-
- [CharacterGridType](DiceRoll.Models.CharacterGrid.CharacterGridType.md).[ChangedEventHandler](DiceRoll.Models.CharacterGrid.CharacterGridType.ChangedEventHandler.md)
 
 ## Properties
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_CharacterStore"></a> CharacterStore
+### <a id="DiceRoll_Models_Characters_Character_Actions"></a> Actions
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public CharacterStore? CharacterStore { get; set; }
+public Array<CharacterAction> Actions { get; }
 ```
 
 #### Property Value
 
- [CharacterStore](DiceRoll.Stores.CharacterStore.md)?
+ Array<[CharacterAction](DiceRoll.Models.Actions.CharacterAction.md)\>
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_Columns"></a> Columns
+### <a id="DiceRoll_Models_Characters_Character_Attributes"></a> Attributes
 
 ```csharp
-[Export(PropertyHint.Range, "1,10,1,or_greater")]
-public int Columns { get; set; }
+[Export(PropertyHint.None, "")]
+public Array<CharacterAttribute> Attributes { get; }
+```
+
+#### Property Value
+
+ Array<[CharacterAttribute](DiceRoll.Models.Attributes.CharacterAttribute.md)\>
+
+### <a id="DiceRoll_Models_Characters_Character_CharacterSprite"></a> CharacterSprite
+
+```csharp
+[Export(PropertyHint.None, "")]
+public SpriteFrames? CharacterSprite { get; set; }
+```
+
+#### Property Value
+
+ SpriteFrames?
+
+### <a id="DiceRoll_Models_Characters_Character_DiceCapacity"></a> DiceCapacity
+
+```csharp
+[Export(PropertyHint.None, "")]
+public int DiceCapacity { get; set; }
 ```
 
 #### Property Value
 
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_Offset"></a> Offset
+### <a id="DiceRoll_Models_Characters_Character_Id"></a> Id
 
 ```csharp
+[ExportGroup("🦸 Character", "")]
 [Export(PropertyHint.None, "")]
-public int Offset { get; set; }
-```
-
-#### Property Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_Prefix"></a> Prefix
-
-```csharp
-[Export(PropertyHint.None, "")]
-public string Prefix { get; set; }
+public string Id { get; set; }
 ```
 
 #### Property Value
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_Rows"></a> Rows
+### <a id="DiceRoll_Models_Characters_Character_IsEnemy"></a> IsEnemy
 
 ```csharp
-[Export(PropertyHint.Range, "1,10,1,or_greater")]
-public int Rows { get; set; }
+[Export(PropertyHint.None, "")]
+public bool IsEnemy { get; set; }
+```
+
+#### Property Value
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="DiceRoll_Models_Characters_Character_Location"></a> Location
+
+```csharp
+[ExportGroup("📍 Character Location", "")]
+[Export(PropertyHint.None, "")]
+public CharacterLocation? Location { get; set; }
+```
+
+#### Property Value
+
+ [CharacterLocation](DiceRoll.Models.Characters.Locations.CharacterLocation.md)?
+
+### <a id="DiceRoll_Models_Characters_Character_Name"></a> Name
+
+```csharp
+[Export(PropertyHint.None, "")]
+public string? Name { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
+### <a id="DiceRoll_Models_Characters_Character_Portrait"></a> Portrait
+
+```csharp
+[ExportGroup("🪵 Resources", "")]
+[Export(PropertyHint.None, "")]
+public Texture2D? Portrait { get; set; }
+```
+
+#### Property Value
+
+ Texture2D?
+
+### <a id="DiceRoll_Models_Characters_Character_Role"></a> Role
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Role? Role { get; set; }
+```
+
+#### Property Value
+
+ [Role](DiceRoll.Models.Roles.Role.md)?
+
+### <a id="DiceRoll_Models_Characters_Character_ShadowSprite"></a> ShadowSprite
+
+```csharp
+[Export(PropertyHint.None, "")]
+public SpriteFrames? ShadowSprite { get; set; }
+```
+
+#### Property Value
+
+ SpriteFrames?
+
+### <a id="DiceRoll_Models_Characters_Character_ShowShadow"></a> ShowShadow
+
+```csharp
+[Export(PropertyHint.None, "")]
+public bool ShowShadow { get; set; }
+```
+
+#### Property Value
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="DiceRoll_Models_Characters_Character_SlotIndex"></a> SlotIndex
+
+```csharp
+[Export(PropertyHint.None, "")]
+public int SlotIndex { get; set; }
 ```
 
 #### Property Value
 
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-## Methods
-
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_EmitSignalChanged"></a> EmitSignalChanged\(\)
+### <a id="DiceRoll_Models_Characters_Character_SpritePositionX"></a> SpritePositionX
 
 ```csharp
-protected void EmitSignalChanged()
+[Export(PropertyHint.None, "")]
+public float SpritePositionX { get; set; }
 ```
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
+#### Property Value
+
+ [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+### <a id="DiceRoll_Models_Characters_Character_SpritePositionY"></a> SpritePositionY
+
+```csharp
+[Export(PropertyHint.None, "")]
+public float SpritePositionY { get; set; }
+```
+
+#### Property Value
+
+ [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+## Methods
+
+### <a id="DiceRoll_Models_Characters_Character_EmitSignalAttributeChanged_DiceRoll_Models_Characters_Character_DiceRoll_Models_Attributes_AttributeType_"></a> EmitSignalAttributeChanged\(Character, AttributeType\)
+
+```csharp
+protected void EmitSignalAttributeChanged(Character character, AttributeType attributeType)
+```
+
+#### Parameters
+
+`character` [Character](DiceRoll.Models.Characters.Character.md)
+
+`attributeType` [AttributeType](DiceRoll.Models.Attributes.AttributeType.md)
+
+### <a id="DiceRoll_Models_Characters_Character_GetAttributeBaseValue_DiceRoll_Models_Attributes_AttributeType_"></a> GetAttributeBaseValue\(AttributeType\)
+
+```csharp
+public int GetAttributeBaseValue(AttributeType type)
+```
+
+#### Parameters
+
+`type` [AttributeType](DiceRoll.Models.Attributes.AttributeType.md)
+
+#### Returns
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="DiceRoll_Models_Characters_Character_GetAttributeCurrentValue_DiceRoll_Models_Attributes_AttributeType_"></a> GetAttributeCurrentValue\(AttributeType\)
+
+```csharp
+public int GetAttributeCurrentValue(AttributeType type)
+```
+
+#### Parameters
+
+`type` [AttributeType](DiceRoll.Models.Attributes.AttributeType.md)
+
+#### Returns
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="DiceRoll_Models_Characters_Character_GetAttributeMaxValue_DiceRoll_Models_Attributes_AttributeType_"></a> GetAttributeMaxValue\(AttributeType\)
+
+```csharp
+public int GetAttributeMaxValue(AttributeType type)
+```
+
+#### Parameters
+
+`type` [AttributeType](DiceRoll.Models.Attributes.AttributeType.md)
+
+#### Returns
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="DiceRoll_Models_Characters_Character_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
 Get the value of a property contained in this class.
 This method is used by Godot to retrieve property values.
@@ -288,37 +421,28 @@ Value of the property if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
+### <a id="DiceRoll_Models_Characters_Character_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
-
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_GetGodotSignalList"></a> GetGodotSignalList\(\)
-
-Get the signal information for all the signals declared in this class.
-This method is used by Godot to register the available signals in the editor.
-Do not call this method.
+Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.
 
 ```csharp
 [EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotSignalList()
+protected override bool HasGodotClassMethod(in godot_string_name method)
 ```
+
+#### Parameters
+
+`method` godot\_string\_name
+
+Name of the method to check for.
 
 #### Returns
 
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassSignal\(in godot\_string\_name\)
+### <a id="DiceRoll_Models_Characters_Character_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassSignal\(in godot\_string\_name\)
 
 Check if the type contains a signal with the given name.
 This method is used by Godot to check if a signal exists before raising it.
@@ -339,7 +463,48 @@ Name of the signal to check for.
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_RaiseGodotClassSignalCallbacks_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_"></a> RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\)
+### <a id="DiceRoll_Models_Characters_Character_InitializeActions"></a> InitializeActions\(\)
+
+```csharp
+public void InitializeActions()
+```
+
+### <a id="DiceRoll_Models_Characters_Character_InitializeAttributes"></a> InitializeAttributes\(\)
+
+```csharp
+public void InitializeAttributes()
+```
+
+### <a id="DiceRoll_Models_Characters_Character_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
+
+Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.
+
+```csharp
+[EditorBrowsable(EditorBrowsableState.Never)]
+protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)
+```
+
+#### Parameters
+
+`method` godot\_string\_name
+
+Name of the method to invoke.
+
+`args` NativeVariantPtrArgs
+
+Arguments to use with the invoked method.
+
+`ret` godot\_variant
+
+Value returned by the invoked method.
+
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="DiceRoll_Models_Characters_Character_RaiseGodotClassSignalCallbacks_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_"></a> RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\)
 
 Raises the signal with the given name, using the given arguments.
 This method is used by Godot to raise signals from the engine side.\n"
@@ -360,7 +525,7 @@ Name of the signal to raise.
 
 Arguments to use with the raised signal.
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Characters_Character_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
 Restores this instance's state after reloading assemblies.
 Do not call or override this method.
@@ -377,7 +542,7 @@ protected override void RestoreGodotObjectData(GodotSerializationInfo info)
 
 Object that contains the previously saved data.
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Characters_Character_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
 
 Saves this instance's state to be restored when reloading assemblies.
 Do not call or override this method.
@@ -394,7 +559,7 @@ protected override void SaveGodotObjectData(GodotSerializationInfo info)
 
 Object used to save the data.
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
+### <a id="DiceRoll_Models_Characters_Character_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
 
 Set the value of a property contained in this class.
 This method is used by Godot to assign property values.
@@ -421,13 +586,25 @@ Value to set the property to if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Models_CharacterGrid_CharacterGridType_Changed"></a> Changed
+### <a id="DiceRoll_Models_Characters_Character_UpdateAttributeCurrentValue_DiceRoll_Models_Attributes_AttributeType_System_Int32_"></a> UpdateAttributeCurrentValue\(AttributeType, int\)
 
 ```csharp
-public event CharacterGridType.ChangedEventHandler Changed
+public void UpdateAttributeCurrentValue(AttributeType type, int newValue)
+```
+
+#### Parameters
+
+`type` [AttributeType](DiceRoll.Models.Attributes.AttributeType.md)
+
+`newValue` [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="DiceRoll_Models_Characters_Character_AttributeChanged"></a> AttributeChanged
+
+```csharp
+public event Character.AttributeChangedEventHandler AttributeChanged
 ```
 
 #### Event Type
 
- [CharacterGridType](DiceRoll.Models.CharacterGrid.CharacterGridType.md).[ChangedEventHandler](DiceRoll.Models.CharacterGrid.CharacterGridType.ChangedEventHandler.md)
+ [Character](DiceRoll.Models.Characters.Character.md).[AttributeChangedEventHandler](DiceRoll.Models.Characters.Character.AttributeChangedEventHandler.md)
 

@@ -2,19 +2,19 @@
 
 ### Namespaces
 
+ [DiceRoll.Models.Actions.Categories](DiceRoll.Models.Actions.Categories.md)
+
  [DiceRoll.Models.Actions.Effects](DiceRoll.Models.Actions.Effects.md)
 
- [DiceRoll.Models.Actions.Target](DiceRoll.Models.Actions.Target.md)
+ [DiceRoll.Models.Actions.Targets](DiceRoll.Models.Actions.Targets.md)
 
 ### Classes
-
- [Action](DiceRoll.Models.Actions.Action.md)
-
- [ActionSource](DiceRoll.Models.Actions.ActionSource.md)
 
  [ActionType](DiceRoll.Models.Actions.ActionType.md)
 
  [CharacterAction](DiceRoll.Models.Actions.CharacterAction.md)
+
+ [RoleAction](DiceRoll.Models.Actions.RoleAction.md)
 
 ### Interfaces
 

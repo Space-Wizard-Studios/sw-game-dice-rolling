@@ -1,13 +1,13 @@
-# <a id="DiceRoll_Models_Actions_Target_TargetConfiguration"></a> Class TargetConfiguration
+# <a id="DiceRoll_Models_Attributes_AttributeType"></a> Class AttributeType
 
-Namespace: [DiceRoll.Models.Actions.Target](DiceRoll.Models.Actions.Target.md)  
+Namespace: [DiceRoll.Models.Attributes](DiceRoll.Models.Attributes.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
 [Tool]
 [GlobalClass]
-[ScriptPath("res://models/Action/TargetConfiguration.cs")]
-public class TargetConfiguration : Resource, IDisposable
+[ScriptPath("res://models/Attribute/AttributeType.cs")]
+public class AttributeType : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -16,7 +16,7 @@ public class TargetConfiguration : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[TargetConfiguration](DiceRoll.Models.Actions.Target.TargetConfiguration.md)
+[AttributeType](DiceRoll.Models.Attributes.AttributeType.md)
 
 #### Implements
 
@@ -162,99 +162,109 @@ GodotObject.PropertyListChanged,
 
 ## Constructors
 
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration__ctor"></a> TargetConfiguration\(\)
+### <a id="DiceRoll_Models_Attributes_AttributeType__ctor"></a> AttributeType\(\)
 
 ```csharp
-public TargetConfiguration()
+public AttributeType()
 ```
 
-## Fields
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_backing_ConfigurationChanged"></a> backing\_ConfigurationChanged
+### <a id="DiceRoll_Models_Attributes_AttributeType__ctor_System_String_System_String_Godot_Color_Godot_Texture2D_"></a> AttributeType\(string, string, Color, Texture2D\)
 
 ```csharp
-private TargetConfiguration.ConfigurationChangedEventHandler backing_ConfigurationChanged
+public AttributeType(string name, string description, Color color, Texture2D icon)
 ```
 
-#### Field Value
+#### Parameters
 
- [TargetConfiguration](DiceRoll.Models.Actions.Target.TargetConfiguration.md).[ConfigurationChangedEventHandler](DiceRoll.Models.Actions.Target.TargetConfiguration.ConfigurationChangedEventHandler.md)
+`name` [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_columns"></a> columns
+`description` [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-```csharp
-private int columns
-```
+`color` Color
 
-#### Field Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_rows"></a> rows
-
-```csharp
-private int rows
-```
-
-#### Field Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
+`icon` Texture2D
 
 ## Properties
 
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_Columns"></a> Columns
+### <a id="DiceRoll_Models_Attributes_AttributeType_Color"></a> Color
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public int Columns { get; set; }
+public Color Color { get; set; }
+```
+
+#### Property Value
+
+ Color
+
+### <a id="DiceRoll_Models_Attributes_AttributeType_Description"></a> Description
+
+```csharp
+[Export(PropertyHint.MultilineText, "")]
+public string? Description { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
+### <a id="DiceRoll_Models_Attributes_AttributeType_Icon"></a> Icon
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Texture2D? Icon { get; set; }
+```
+
+#### Property Value
+
+ Texture2D?
+
+### <a id="DiceRoll_Models_Attributes_AttributeType_IconPath"></a> IconPath
+
+```csharp
+public string? IconPath { get; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
+### <a id="DiceRoll_Models_Attributes_AttributeType_MaxValue"></a> MaxValue
+
+```csharp
+[Export(PropertyHint.None, "")]
+public int MaxValue { get; set; }
 ```
 
 #### Property Value
 
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_Grid"></a> Grid
+### <a id="DiceRoll_Models_Attributes_AttributeType_MinValue"></a> MinValue
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Array<int> Grid { get; set; }
-```
-
-#### Property Value
-
- Array<[int](https://learn.microsoft.com/dotnet/api/system.int32)\>
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_IsSingleTarget"></a> IsSingleTarget
-
-```csharp
-[Export(PropertyHint.None, "")]
-public bool IsSingleTarget { get; set; }
-```
-
-#### Property Value
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_Rows"></a> Rows
-
-```csharp
-[Export(PropertyHint.None, "")]
-public int Rows { get; set; }
+public int MinValue { get; set; }
 ```
 
 #### Property Value
 
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="DiceRoll_Models_Attributes_AttributeType_Name"></a> Name
+
+```csharp
+[Export(PropertyHint.None, "")]
+public string? Name { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
 ## Methods
 
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_EmitSignalConfigurationChanged"></a> EmitSignalConfigurationChanged\(\)
-
-```csharp
-protected void EmitSignalConfigurationChanged()
-```
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
+### <a id="DiceRoll_Models_Attributes_AttributeType_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
 Get the value of a property contained in this class.
 This method is used by Godot to retrieve property values.
@@ -281,144 +291,7 @@ Value of the property if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_GetGodotSignalList"></a> GetGodotSignalList\(\)
-
-Get the signal information for all the signals declared in this class.
-This method is used by Godot to register the available signals in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotSignalList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
-
-Check if the type contains a method with the given name.
-This method is used by Godot to check if a method exists before invoking it.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool HasGodotClassMethod(in godot_string_name method)
-```
-
-#### Parameters
-
-`method` godot\_string\_name
-
-Name of the method to check for.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassSignal\(in godot\_string\_name\)
-
-Check if the type contains a signal with the given name.
-This method is used by Godot to check if a signal exists before raising it.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool HasGodotClassSignal(in godot_string_name signal)
-```
-
-#### Parameters
-
-`signal` godot\_string\_name
-
-Name of the signal to check for.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
-
-Invokes the method with the given name, using the given arguments.
-This method is used by Godot to invoke methods from the engine side.
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)
-```
-
-#### Parameters
-
-`method` godot\_string\_name
-
-Name of the method to invoke.
-
-`args` NativeVariantPtrArgs
-
-Arguments to use with the invoked method.
-
-`ret` godot\_variant
-
-Value returned by the invoked method.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_RaiseGodotClassSignalCallbacks_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_"></a> RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\)
-
-Raises the signal with the given name, using the given arguments.
-This method is used by Godot to raise signals from the engine side.\n"
-Do not call or override this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override void RaiseGodotClassSignalCallbacks(in godot_string_name signal, NativeVariantPtrArgs args)
-```
-
-#### Parameters
-
-`signal` godot\_string\_name
-
-Name of the signal to raise.
-
-`args` NativeVariantPtrArgs
-
-Arguments to use with the raised signal.
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Attributes_AttributeType_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
 Restores this instance's state after reloading assemblies.
 Do not call or override this method.
@@ -435,7 +308,7 @@ protected override void RestoreGodotObjectData(GodotSerializationInfo info)
 
 Object that contains the previously saved data.
 
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Attributes_AttributeType_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
 
 Saves this instance's state to be restored when reloading assemblies.
 Do not call or override this method.
@@ -452,7 +325,7 @@ protected override void SaveGodotObjectData(GodotSerializationInfo info)
 
 Object used to save the data.
 
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
+### <a id="DiceRoll_Models_Attributes_AttributeType_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
 
 Set the value of a property contained in this class.
 This method is used by Godot to assign property values.
@@ -478,20 +351,4 @@ Value to set the property to if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_UpdateGrid"></a> UpdateGrid\(\)
-
-```csharp
-public void UpdateGrid()
-```
-
-### <a id="DiceRoll_Models_Actions_Target_TargetConfiguration_ConfigurationChanged"></a> ConfigurationChanged
-
-```csharp
-public event TargetConfiguration.ConfigurationChangedEventHandler ConfigurationChanged
-```
-
-#### Event Type
-
- [TargetConfiguration](DiceRoll.Models.Actions.Target.TargetConfiguration.md).[ConfigurationChangedEventHandler](DiceRoll.Models.Actions.Target.TargetConfiguration.ConfigurationChangedEventHandler.md)
 

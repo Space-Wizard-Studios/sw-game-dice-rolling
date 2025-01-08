@@ -1,12 +1,12 @@
-# <a id="DiceRoll_Models_DiceManaResources"></a> Class DiceManaResources
+# <a id="DiceRoll_Models_Attributes_AttributesConfig"></a> Class AttributesConfig
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Attributes](DiceRoll.Models.Attributes.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
 [Tool]
-[ScriptPath("res://models/Dice/DiceMana/DiceManaResources.cs")]
-public class DiceManaResources : Resource, IDisposable
+[ScriptPath("res://models/Attribute/AttributesConfig.cs")]
+public class AttributesConfig : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -15,7 +15,7 @@ public class DiceManaResources : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[DiceManaResources](DiceRoll.Models.DiceManaResources.md)
+[AttributesConfig](DiceRoll.Models.Attributes.AttributesConfig.md)
 
 #### Implements
 
@@ -159,30 +159,22 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Constructors
-
-### <a id="DiceRoll_Models_DiceManaResources__ctor"></a> DiceManaResources\(\)
-
-```csharp
-public DiceManaResources()
-```
-
 ## Properties
 
-### <a id="DiceRoll_Models_DiceManaResources_DiceManas"></a> DiceManas
+### <a id="DiceRoll_Models_Attributes_AttributesConfig_Attributes"></a> Attributes
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Array<DiceMana> DiceManas { get; set; }
+public Dictionary<string, AttributeType> Attributes { get; set; }
 ```
 
 #### Property Value
 
- Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
+ Dictionary<[string](https://learn.microsoft.com/dotnet/api/system.string), [AttributeType](DiceRoll.Models.Attributes.AttributeType.md)\>
 
 ## Methods
 
-### <a id="DiceRoll_Models_DiceManaResources_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
+### <a id="DiceRoll_Models_Attributes_AttributesConfig_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
 Get the value of a property contained in this class.
 This method is used by Godot to retrieve property values.
@@ -209,7 +201,7 @@ Value of the property if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Models_DiceManaResources_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Attributes_AttributesConfig_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
 Restores this instance's state after reloading assemblies.
 Do not call or override this method.
@@ -226,7 +218,7 @@ protected override void RestoreGodotObjectData(GodotSerializationInfo info)
 
 Object that contains the previously saved data.
 
-### <a id="DiceRoll_Models_DiceManaResources_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Attributes_AttributesConfig_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
 
 Saves this instance's state to be restored when reloading assemblies.
 Do not call or override this method.
@@ -243,7 +235,7 @@ protected override void SaveGodotObjectData(GodotSerializationInfo info)
 
 Object used to save the data.
 
-### <a id="DiceRoll_Models_DiceManaResources_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
+### <a id="DiceRoll_Models_Attributes_AttributesConfig_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
 
 Set the value of a property contained in this class.
 This method is used by Godot to assign property values.

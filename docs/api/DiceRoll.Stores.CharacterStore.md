@@ -168,30 +168,18 @@ GodotObject.PropertyListChanged,
 public CharacterStore()
 ```
 
-## Fields
-
-### <a id="DiceRoll_Stores_CharacterStore__instance"></a> \_instance
-
-```csharp
-private static CharacterStore? _instance
-```
-
-#### Field Value
-
- [CharacterStore](DiceRoll.Stores.CharacterStore.md)?
-
 ## Properties
 
 ### <a id="DiceRoll_Stores_CharacterStore_Characters"></a> Characters
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Array<Character> Characters { get; private set; }
+public Array<Character> Characters { get; }
 ```
 
 #### Property Value
 
- Array<[Character](DiceRoll.Models.Character.md)\>
+ Array<[Character](DiceRoll.Models.Characters.Character.md)\>
 
 ### <a id="DiceRoll_Stores_CharacterStore_Instance"></a> Instance
 
@@ -205,7 +193,7 @@ public static CharacterStore Instance { get; }
 
 ## Methods
 
-### <a id="DiceRoll_Stores_CharacterStore_AddCharacter_DiceRoll_Models_Character_"></a> AddCharacter\(Character\)
+### <a id="DiceRoll_Stores_CharacterStore_AddCharacter_DiceRoll_Models_Characters_Character_"></a> AddCharacter\(Character\)
 
 ```csharp
 public void AddCharacter(Character character)
@@ -213,7 +201,7 @@ public void AddCharacter(Character character)
 
 #### Parameters
 
-`character` [Character](DiceRoll.Models.Character.md)
+`character` [Character](DiceRoll.Models.Characters.Character.md)
 
 ### <a id="DiceRoll_Stores_CharacterStore_GetAllCharacterIds"></a> GetAllCharacterIds\(\)
 
@@ -237,7 +225,7 @@ public Character GetCharacterById(string characterID)
 
 #### Returns
 
- [Character](DiceRoll.Models.Character.md)
+ [Character](DiceRoll.Models.Characters.Character.md)
 
 ### <a id="DiceRoll_Stores_CharacterStore_GetCharacterLocation_System_String_"></a> GetCharacterLocation\(string\)
 
@@ -251,7 +239,7 @@ public (CharacterLocation? location, int slotIndex) GetCharacterLocation(string 
 
 #### Returns
 
- \([CharacterLocation](DiceRoll.Models.CharacterLocations.CharacterLocation.md)? [location](https://learn.microsoft.com/dotnet/api/system.valuetuple\-diceroll.models.characterlocations.characterlocation,system.int32\-.location), [int](https://learn.microsoft.com/dotnet/api/system.int32) [slotIndex](https://learn.microsoft.com/dotnet/api/system.valuetuple\-diceroll.models.characterlocations.characterlocation,system.int32\-.slotindex)\)
+ \([CharacterLocation](DiceRoll.Models.Characters.Locations.CharacterLocation.md)? [location](https://learn.microsoft.com/dotnet/api/system.valuetuple\-diceroll.models.characters.locations.characterlocation,system.int32\-.location), [int](https://learn.microsoft.com/dotnet/api/system.int32) [slotIndex](https://learn.microsoft.com/dotnet/api/system.valuetuple\-diceroll.models.characters.locations.characterlocation,system.int32\-.slotindex)\)
 
 ### <a id="DiceRoll_Stores_CharacterStore_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
@@ -279,36 +267,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Stores_CharacterStore_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Stores_CharacterStore_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
 
 ### <a id="DiceRoll_Stores_CharacterStore_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
@@ -404,7 +362,7 @@ protected override void SaveGodotObjectData(GodotSerializationInfo info)
 
 Object used to save the data.
 
-### <a id="DiceRoll_Stores_CharacterStore_SetCharacterLocation_System_String_DiceRoll_Models_CharacterLocations_CharacterLocation_System_Int32_"></a> SetCharacterLocation\(string, CharacterLocation, int\)
+### <a id="DiceRoll_Stores_CharacterStore_SetCharacterLocation_System_String_DiceRoll_Models_Characters_Locations_CharacterLocation_System_Int32_"></a> SetCharacterLocation\(string, CharacterLocation, int\)
 
 ```csharp
 public void SetCharacterLocation(string characterID, CharacterLocation location, int slotIndex)
@@ -414,7 +372,7 @@ public void SetCharacterLocation(string characterID, CharacterLocation location,
 
 `characterID` [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-`location` [CharacterLocation](DiceRoll.Models.CharacterLocations.CharacterLocation.md)
+`location` [CharacterLocation](DiceRoll.Models.Characters.Locations.CharacterLocation.md)
 
 `slotIndex` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 

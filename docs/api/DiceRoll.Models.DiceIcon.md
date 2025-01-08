@@ -158,18 +158,6 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Fields
-
-### <a id="DiceRoll_Models_DiceIcon__icon"></a> \_icon
-
-```csharp
-private Texture2D? _icon
-```
-
-#### Field Value
-
- Texture2D?
-
 ## Properties
 
 ### <a id="DiceRoll_Models_DiceIcon_Icon"></a> Icon
@@ -186,7 +174,7 @@ public Texture2D? Icon { get; set; }
 ### <a id="DiceRoll_Models_DiceIcon_Path"></a> Path
 
 ```csharp
-public string? Path { get; private set; }
+public string? Path { get; }
 ```
 
 #### Property Value
@@ -232,21 +220,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Models_DiceIcon_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
 
 ### <a id="DiceRoll_Models_DiceIcon_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 

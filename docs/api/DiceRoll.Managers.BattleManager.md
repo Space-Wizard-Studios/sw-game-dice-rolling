@@ -440,21 +440,6 @@ GodotObject.PropertyListChanged,
 
 ## Methods
 
-### <a id="DiceRoll_Managers_BattleManager_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
 ### <a id="DiceRoll_Managers_BattleManager_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
 Check if the type contains a method with the given name.
@@ -505,25 +490,6 @@ Value returned by the invoked method.
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-### <a id="DiceRoll_Managers_BattleManager_InvokeGodotClassStaticMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassStaticMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static bool InvokeGodotClassStaticMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)
-```
-
-#### Parameters
-
-`method` godot\_string\_name
-
-`args` NativeVariantPtrArgs
-
-`ret` godot\_variant
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
 ### <a id="DiceRoll_Managers_BattleManager_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
 Restores this instance's state after reloading assemblies.
@@ -540,18 +506,6 @@ protected override void RestoreGodotObjectData(GodotSerializationInfo info)
 `info` GodotSerializationInfo
 
 Object that contains the previously saved data.
-
-### <a id="DiceRoll_Managers_BattleManager_RunCharacterTests"></a> RunCharacterTests\(\)
-
-```csharp
-private static void RunCharacterTests()
-```
-
-### <a id="DiceRoll_Managers_BattleManager_RunGameLogTests"></a> RunGameLogTests\(\)
-
-```csharp
-private static void RunGameLogTests()
-```
 
 ### <a id="DiceRoll_Managers_BattleManager_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
 

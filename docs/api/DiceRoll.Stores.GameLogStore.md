@@ -337,46 +337,6 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Constructors
-
-### <a id="DiceRoll_Stores_GameLogStore__ctor"></a> GameLogStore\(\)
-
-```csharp
-private GameLogStore()
-```
-
-## Fields
-
-### <a id="DiceRoll_Stores_GameLogStore__instance"></a> \_instance
-
-```csharp
-private static GameLogStore? _instance
-```
-
-#### Field Value
-
- [GameLogStore](DiceRoll.Stores.GameLogStore.md)?
-
-### <a id="DiceRoll_Stores_GameLogStore_backing_GameLogLineAdded"></a> backing\_GameLogLineAdded
-
-```csharp
-private GameLogStore.GameLogLineAddedEventHandler backing_GameLogLineAdded
-```
-
-#### Field Value
-
- [GameLogStore](DiceRoll.Stores.GameLogStore.md).[GameLogLineAddedEventHandler](DiceRoll.Stores.GameLogStore.GameLogLineAddedEventHandler.md)
-
-### <a id="DiceRoll_Stores_GameLogStore_backing_GameLogUpdated"></a> backing\_GameLogUpdated
-
-```csharp
-private GameLogStore.GameLogUpdatedEventHandler backing_GameLogUpdated
-```
-
-#### Field Value
-
- [GameLogStore](DiceRoll.Stores.GameLogStore.md).[GameLogUpdatedEventHandler](DiceRoll.Stores.GameLogStore.GameLogUpdatedEventHandler.md)
-
 ## Properties
 
 ### <a id="DiceRoll_Stores_GameLogStore_Instance"></a> Instance
@@ -392,7 +352,7 @@ public static GameLogStore Instance { get; }
 ### <a id="DiceRoll_Stores_GameLogStore_Messages"></a> Messages
 
 ```csharp
-public List<GameLogMessage> Messages { get; private set; }
+public List<GameLogMessage> Messages { get; }
 ```
 
 #### Property Value
@@ -432,21 +392,6 @@ protected void EmitSignalGameLogLineAdded()
 ```csharp
 protected void EmitSignalGameLogUpdated()
 ```
-
-### <a id="DiceRoll_Stores_GameLogStore_GetGodotSignalList"></a> GetGodotSignalList\(\)
-
-Get the signal information for all the signals declared in this class.
-This method is used by Godot to register the available signals in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotSignalList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
 
 ### <a id="DiceRoll_Stores_GameLogStore_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassSignal\(in godot\_string\_name\)
 

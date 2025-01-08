@@ -522,61 +522,7 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Fields
-
-### <a id="DiceRoll_UI_ArcDrawer__arc"></a> \_arc
-
-```csharp
-private Arc2D? _arc
-```
-
-#### Field Value
-
- [Arc2D](DiceRoll.Helpers.Arc2D.md)?
-
-### <a id="DiceRoll_UI_ArcDrawer__isDrawing"></a> \_isDrawing
-
-```csharp
-private bool _isDrawing
-```
-
-#### Field Value
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_UI_ArcDrawer__selectedCharacter"></a> \_selectedCharacter
-
-```csharp
-private CharacterComponent? _selectedCharacter
-```
-
-#### Field Value
-
- [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)?
-
-### <a id="DiceRoll_UI_ArcDrawer__selectedEnemy"></a> \_selectedEnemy
-
-```csharp
-private CharacterComponent? _selectedEnemy
-```
-
-#### Field Value
-
- [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)?
-
 ## Methods
-
-### <a id="DiceRoll_UI_ArcDrawer_DrawArc_Godot_Vector2_Godot_Vector2_"></a> DrawArc\(Vector2, Vector2\)
-
-```csharp
-private void DrawArc(Vector2 start, Vector2 end)
-```
-
-#### Parameters
-
-`start` Vector2
-
-`end` Vector2
 
 ### <a id="DiceRoll_UI_ArcDrawer_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
@@ -604,36 +550,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_UI_ArcDrawer_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_UI_ArcDrawer_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
 
 ### <a id="DiceRoll_UI_ArcDrawer_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 

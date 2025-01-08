@@ -5,7 +5,7 @@ Assembly: dice\-roll.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://models/Action/EffectType/EffectType.cs")]
+[ScriptPath("res://models/Action/Effect/EffectType.cs")]
 public abstract class EffectType : Resource, IDisposable
 ```
 

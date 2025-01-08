@@ -3,10 +3,8 @@
 Namespace: [DiceRoll.Editor](DiceRoll.Editor.md)  
 Assembly: dice\-roll.dll  
 
-Custom inspector plugin for handling TargetConfiguration objects in the Godot Editor.
-
 ```csharp
-[ScriptPath("res://addons/TargetConfigurationEditorPlugin/TargetConfigurationInspectorPlugin.cs")]
+[ScriptPath("res://addons/@spacewiz/TargetConfigurationEditorPlugin/TargetConfigurationInspectorPlugin.cs")]
 public class TargetConfigurationInspectorPlugin : EditorInspectorPlugin, IDisposable
 ```
 
@@ -139,28 +137,6 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Fields
-
-### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_flipCheckBox"></a> flipCheckBox
-
-```csharp
-private CheckBox? flipCheckBox
-```
-
-#### Field Value
-
- CheckBox?
-
-### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_matrixControl"></a> matrixControl
-
-```csharp
-private MatrixControl? matrixControl
-```
-
-#### Field Value
-
- [MatrixControl](DiceRoll.Editor.MatrixControl.md)?
-
 ## Methods
 
 ### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
@@ -189,36 +165,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
 
 ### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
@@ -269,22 +215,6 @@ Value returned by the invoked method.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_OnConfigurationChanged"></a> OnConfigurationChanged\(\)
-
-```csharp
-private void OnConfigurationChanged()
-```
-
-### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_OnFlipCheckBoxToggled_System_Boolean_"></a> OnFlipCheckBoxToggled\(bool\)
-
-```csharp
-private void OnFlipCheckBoxToggled(bool buttonPressed)
-```
-
-#### Parameters
-
-`buttonPressed` [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 ### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
@@ -349,7 +279,7 @@ Value to set the property to if it was found.
 
 ### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin__CanHandle_Godot_GodotObject_"></a> \_CanHandle\(GodotObject\)
 
-Determines if the plugin can handle the given object.
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this object can be handled by this plugin.</p>
 
 ```csharp
 public override bool _CanHandle(GodotObject @object)
@@ -359,34 +289,16 @@ public override bool _CanHandle(GodotObject @object)
 
 `object` GodotObject
 
-The object to check.
-
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-True if the object is a TargetConfiguration, otherwise false.
-
 ### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin__ParseBegin_Godot_GodotObject_"></a> \_ParseBegin\(GodotObject\)
 
-Initializes custom controls for the TargetConfiguration object.
+<p>Called to allow adding controls at the beginning of the property list for <code class="paramref">object</code>.</p>
 
 ```csharp
 public override void _ParseBegin(GodotObject @object)
-```
-
-#### Parameters
-
-`object` GodotObject
-
-The TargetConfiguration object.
-
-### <a id="DiceRoll_Editor_TargetConfigurationInspectorPlugin__ParseEnd_Godot_GodotObject_"></a> \_ParseEnd\(GodotObject\)
-
-<p>Called to allow adding controls at the end of the property list for <code class="paramref">object</code>.</p>
-
-```csharp
-public override void _ParseEnd(GodotObject @object)
 ```
 
 #### Parameters

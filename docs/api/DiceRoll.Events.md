@@ -10,3 +10,5 @@
 
  [EventBus.CharacterSelectedEventHandler](DiceRoll.Events.EventBus.CharacterSelectedEventHandler.md)
 
+ [EventBus.CharacterUnselectedEventHandler](DiceRoll.Events.EventBus.CharacterUnselectedEventHandler.md)
+

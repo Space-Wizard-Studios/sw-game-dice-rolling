@@ -753,36 +753,6 @@ public int MaxSlots
 
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-### <a id="DiceRoll_Components_UI_InventoryComponent__inventoryGrid"></a> \_inventoryGrid
-
-```csharp
-private Control? _inventoryGrid
-```
-
-#### Field Value
-
- Control?
-
-### <a id="DiceRoll_Components_UI_InventoryComponent__itemComponent"></a> \_itemComponent
-
-```csharp
-private InventoryItemComponent? _itemComponent
-```
-
-#### Field Value
-
- [InventoryItemComponent](DiceRoll.Components.UI.InventoryItemComponent.md)?
-
-### <a id="DiceRoll_Components_UI_InventoryComponent__tabChangedConnected"></a> \_tabChangedConnected
-
-```csharp
-private bool _tabChangedConnected
-```
-
-#### Field Value
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
 ## Properties
 
 ### <a id="DiceRoll_Components_UI_InventoryComponent_InventoryGridPath"></a> InventoryGridPath
@@ -831,16 +801,6 @@ public int ItemSize { get; set; }
 
 ## Methods
 
-### <a id="DiceRoll_Components_UI_InventoryComponent_GetColumnCount"></a> GetColumnCount\(\)
-
-```csharp
-private int GetColumnCount()
-```
-
-#### Returns
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
 ### <a id="DiceRoll_Components_UI_InventoryComponent_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
 Get the value of a property contained in this class.
@@ -868,46 +828,6 @@ Value of the property if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Components_UI_InventoryComponent_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Components_UI_InventoryComponent_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
-
-### <a id="DiceRoll_Components_UI_InventoryComponent_GetRowCount"></a> GetRowCount\(\)
-
-```csharp
-private int GetRowCount()
-```
-
-#### Returns
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
 ### <a id="DiceRoll_Components_UI_InventoryComponent_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
 Check if the type contains a method with the given name.
@@ -928,20 +848,6 @@ Name of the method to check for.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_UI_InventoryComponent_IndexToPos_System_Int32_"></a> IndexToPos\(int\)
-
-```csharp
-private Vector2 IndexToPos(int index)
-```
-
-#### Parameters
-
-`index` [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-#### Returns
-
- Vector2
 
 ### <a id="DiceRoll_Components_UI_InventoryComponent_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
 
@@ -971,42 +877,6 @@ Value returned by the invoked method.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_UI_InventoryComponent_MakeInputLocal_Godot_InputEventMouseButton_"></a> MakeInputLocal\(InputEventMouseButton\)
-
-```csharp
-private Vector2 MakeInputLocal(InputEventMouseButton mouseEvent)
-```
-
-#### Parameters
-
-`mouseEvent` InputEventMouseButton
-
-#### Returns
-
- Vector2
-
-### <a id="DiceRoll_Components_UI_InventoryComponent_OnResized"></a> OnResized\(\)
-
-```csharp
-private void OnResized()
-```
-
-### <a id="DiceRoll_Components_UI_InventoryComponent_OnTabChanged_System_Int32_"></a> OnTabChanged\(int\)
-
-```csharp
-private void OnTabChanged(int tabIndex)
-```
-
-#### Parameters
-
-`tabIndex` [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Components_UI_InventoryComponent_ResizeGrid"></a> ResizeGrid\(\)
-
-```csharp
-private void ResizeGrid()
-```
 
 ### <a id="DiceRoll_Components_UI_InventoryComponent_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
@@ -1068,18 +938,6 @@ Value to set the property to if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Components_UI_InventoryComponent_UpdateGrid"></a> UpdateGrid\(\)
-
-```csharp
-private void UpdateGrid()
-```
-
-### <a id="DiceRoll_Components_UI_InventoryComponent_UpdateSlots"></a> UpdateSlots\(\)
-
-```csharp
-private void UpdateSlots()
-```
 
 ### <a id="DiceRoll_Components_UI_InventoryComponent__ExitTree"></a> \_ExitTree\(\)
 

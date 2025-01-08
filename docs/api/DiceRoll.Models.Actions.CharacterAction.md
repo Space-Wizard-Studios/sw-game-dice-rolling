@@ -5,6 +5,7 @@ Assembly: dice\-roll.dll
 
 ```csharp
 [Tool]
+[GlobalClass]
 [ScriptPath("res://models/Action/CharacterAction.cs")]
 public class CharacterAction : Resource, IDisposable
 ```
@@ -167,44 +168,17 @@ GodotObject.PropertyListChanged,
 public CharacterAction()
 ```
 
-### <a id="DiceRoll_Models_Actions_CharacterAction__ctor_DiceRoll_Models_Actions_ActionType_Godot_Collections_Array_DiceRoll_Models_DiceMana__Godot_Collections_Array_DiceRoll_Models_Actions_Effects_EffectType__"></a> CharacterAction\(ActionType, Array<DiceMana\>, Array<EffectType\>\)
+### <a id="DiceRoll_Models_Actions_CharacterAction__ctor_DiceRoll_Models_Actions_RoleAction_"></a> CharacterAction\(RoleAction\)
 
 ```csharp
-public CharacterAction(ActionType actionType, Array<DiceMana> requiredMana, Array<EffectType> effects)
+public CharacterAction(RoleAction roleAction)
 ```
 
 #### Parameters
 
-`actionType` [ActionType](DiceRoll.Models.Actions.ActionType.md)
-
-`requiredMana` Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
-
-`effects` Array<[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)\>
-
-## Fields
-
-### <a id="DiceRoll_Models_Actions_CharacterAction__icon"></a> \_icon
-
-```csharp
-private Texture2D? _icon
-```
-
-#### Field Value
-
- Texture2D?
+`roleAction` [RoleAction](DiceRoll.Models.Actions.RoleAction.md)
 
 ## Properties
-
-### <a id="DiceRoll_Models_Actions_CharacterAction_ActionType"></a> ActionType
-
-```csharp
-[Export(PropertyHint.None, "")]
-public ActionType? ActionType { get; set; }
-```
-
-#### Property Value
-
- [ActionType](DiceRoll.Models.Actions.ActionType.md)?
 
 ### <a id="DiceRoll_Models_Actions_CharacterAction_Description"></a> Description
 
@@ -228,27 +202,6 @@ public Array<EffectType> Effects { get; set; }
 
  Array<[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)\>
 
-### <a id="DiceRoll_Models_Actions_CharacterAction_Icon"></a> Icon
-
-```csharp
-[Export(PropertyHint.None, "")]
-public Texture2D? Icon { get; set; }
-```
-
-#### Property Value
-
- Texture2D?
-
-### <a id="DiceRoll_Models_Actions_CharacterAction_IconPath"></a> IconPath
-
-```csharp
-public string? IconPath { get; private set; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
 ### <a id="DiceRoll_Models_Actions_CharacterAction_Name"></a> Name
 
 ```csharp
@@ -270,6 +223,17 @@ public Array<DiceMana> RequiredMana { get; set; }
 #### Property Value
 
  Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
+
+### <a id="DiceRoll_Models_Actions_CharacterAction_Type"></a> Type
+
+```csharp
+[Export(PropertyHint.None, "")]
+public ActionType? Type { get; set; }
+```
+
+#### Property Value
+
+ [ActionType](DiceRoll.Models.Actions.ActionType.md)?
 
 ## Methods
 
@@ -299,21 +263,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Models_Actions_CharacterAction_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
 
 ### <a id="DiceRoll_Models_Actions_CharacterAction_Resolve_DiceRoll_Models_Actions_IActionContext_"></a> Resolve\(IActionContext\)
 

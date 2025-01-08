@@ -798,40 +798,6 @@ public Label? _timestampLabelTemplateNode
 
 ## Methods
 
-### <a id="DiceRoll_Components_UI_GameLogComponent_AddMessageToLog_DiceRoll_Stores_GameLogMessage_"></a> AddMessageToLog\(GameLogMessage\)
-
-```csharp
-private void AddMessageToLog(GameLogMessage message)
-```
-
-#### Parameters
-
-`message` [GameLogMessage](DiceRoll.Stores.GameLogMessage.md)
-
-### <a id="DiceRoll_Components_UI_GameLogComponent_ClearTemplateTexts_Godot_VBoxContainer_"></a> ClearTemplateTexts\(VBoxContainer\)
-
-```csharp
-private void ClearTemplateTexts(VBoxContainer messageTemplate)
-```
-
-#### Parameters
-
-`messageTemplate` VBoxContainer
-
-### <a id="DiceRoll_Components_UI_GameLogComponent_GetColorForLineType_DiceRoll_Stores_GameLogLineType_"></a> GetColorForLineType\(GameLogLineType\)
-
-```csharp
-private static string GetColorForLineType(GameLogLineType type)
-```
-
-#### Parameters
-
-`type` [GameLogLineType](DiceRoll.Stores.GameLogLineType.md)
-
-#### Returns
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
-
 ### <a id="DiceRoll_Components_UI_GameLogComponent_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
 Get the value of a property contained in this class.
@@ -858,36 +824,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Components_UI_GameLogComponent_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Components_UI_GameLogComponent_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
 
 ### <a id="DiceRoll_Components_UI_GameLogComponent_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
@@ -938,37 +874,6 @@ Value returned by the invoked method.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_UI_GameLogComponent_InvokeGodotClassStaticMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassStaticMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static bool InvokeGodotClassStaticMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)
-```
-
-#### Parameters
-
-`method` godot\_string\_name
-
-`args` NativeVariantPtrArgs
-
-`ret` godot\_variant
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_UI_GameLogComponent_OnGameLogLineAdded"></a> OnGameLogLineAdded\(\)
-
-```csharp
-private void OnGameLogLineAdded()
-```
-
-### <a id="DiceRoll_Components_UI_GameLogComponent_OnGameLogUpdated"></a> OnGameLogUpdated\(\)
-
-```csharp
-private void OnGameLogUpdated()
-```
 
 ### <a id="DiceRoll_Components_UI_GameLogComponent_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
@@ -1030,42 +935,6 @@ Value to set the property to if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Components_UI_GameLogComponent_UpdateGameLog"></a> UpdateGameLog\(\)
-
-```csharp
-private void UpdateGameLog()
-```
-
-### <a id="DiceRoll_Components_UI_GameLogComponent_UpdateHeaderAndTimestamp_Godot_VBoxContainer_DiceRoll_Stores_GameLogMessage_"></a> UpdateHeaderAndTimestamp\(VBoxContainer, GameLogMessage\)
-
-```csharp
-private void UpdateHeaderAndTimestamp(VBoxContainer messageTemplate, GameLogMessage message)
-```
-
-#### Parameters
-
-`messageTemplate` VBoxContainer
-
-`message` [GameLogMessage](DiceRoll.Stores.GameLogMessage.md)
-
-### <a id="DiceRoll_Components_UI_GameLogComponent_UpdateLastMessageLines"></a> UpdateLastMessageLines\(\)
-
-```csharp
-private void UpdateLastMessageLines()
-```
-
-### <a id="DiceRoll_Components_UI_GameLogComponent_UpdateLines_Godot_VBoxContainer_DiceRoll_Stores_GameLogMessage_"></a> UpdateLines\(VBoxContainer, GameLogMessage\)
-
-```csharp
-private void UpdateLines(VBoxContainer messageTemplate, GameLogMessage message)
-```
-
-#### Parameters
-
-`messageTemplate` VBoxContainer
-
-`message` [GameLogMessage](DiceRoll.Stores.GameLogMessage.md)
 
 ### <a id="DiceRoll_Components_UI_GameLogComponent__Ready"></a> \_Ready\(\)
 

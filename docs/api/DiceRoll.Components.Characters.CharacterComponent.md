@@ -3,8 +3,6 @@
 Namespace: [DiceRoll.Components.Characters](DiceRoll.Components.Characters.md)  
 Assembly: dice\-roll.dll  
 
-Represents a character in the game, managing character-specific properties and behaviors.
-
 ```csharp
 [Tool]
 [ScriptPath("res://components/CharacterComponent/CharacterComponent.cs")]
@@ -441,49 +439,6 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Fields
-
-### <a id="DiceRoll_Components_Characters_CharacterComponent__characterResource"></a> \_characterResource
-
-```csharp
-[ExportGroup("🪵 Resources", "")]
-private Character? _characterResource
-```
-
-#### Field Value
-
- [Character](DiceRoll.Models.Character.md)?
-
-### <a id="DiceRoll_Components_Characters_CharacterComponent__currentlySelectedCharacter"></a> \_currentlySelectedCharacter
-
-```csharp
-private static CharacterComponent? _currentlySelectedCharacter
-```
-
-#### Field Value
-
- [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)?
-
-### <a id="DiceRoll_Components_Characters_CharacterComponent__isHovered"></a> \_isHovered
-
-```csharp
-private bool _isHovered
-```
-
-#### Field Value
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_Characters_CharacterComponent__isSelected"></a> \_isSelected
-
-```csharp
-private bool _isSelected
-```
-
-#### Field Value
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
 ## Properties
 
 ### <a id="DiceRoll_Components_Characters_CharacterComponent_AnimatedSpriteNode"></a> AnimatedSpriteNode
@@ -507,7 +462,7 @@ public Character? Character { get; set; }
 
 #### Property Value
 
- [Character](DiceRoll.Models.Character.md)?
+ [Character](DiceRoll.Models.Characters.Character.md)?
 
 ### <a id="DiceRoll_Components_Characters_CharacterComponent_HoverSpriteNode"></a> HoverSpriteNode
 
@@ -578,12 +533,6 @@ public Sprite3D? SelectorSpriteNode { get; set; }
 
 ## Methods
 
-### <a id="DiceRoll_Components_Characters_CharacterComponent_ConnectSignals"></a> ConnectSignals\(\)
-
-```csharp
-private void ConnectSignals()
-```
-
 ### <a id="DiceRoll_Components_Characters_CharacterComponent_FlipSprite_System_Boolean_"></a> FlipSprite\(bool\)
 
 ```csharp
@@ -620,52 +569,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Components_Characters_CharacterComponent_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Components_Characters_CharacterComponent_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
-
-### <a id="DiceRoll_Components_Characters_CharacterComponent_HandleInspection_DiceRoll_Components_Characters_CharacterComponent__DiceRoll_Components_Characters_CharacterComponent_System_Action_DiceRoll_Components_Characters_CharacterComponent__"></a> HandleInspection\(ref CharacterComponent?, CharacterComponent, Action<CharacterComponent\>?\)
-
-Handles the inspection logic for the character.
-
-```csharp
-private static void HandleInspection(ref CharacterComponent? currentlySelected, CharacterComponent current, Action<CharacterComponent>? setSelectedAction)
-```
-
-#### Parameters
-
-`currentlySelected` [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)?
-
-`current` [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)
-
-`setSelectedAction` [Action](https://learn.microsoft.com/dotnet/api/system.action\-1)<[CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)\>?
 
 ### <a id="DiceRoll_Components_Characters_CharacterComponent_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
@@ -716,68 +619,6 @@ Value returned by the invoked method.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_Characters_CharacterComponent_OnCharacterResourceSet"></a> OnCharacterResourceSet\(\)
-
-Gets or sets the character resource.
-
-```csharp
-private void OnCharacterResourceSet()
-```
-
-### <a id="DiceRoll_Components_Characters_CharacterComponent_OnInputEvent_Godot_Node_Godot_InputEvent_Godot_Vector3_Godot_Vector3_System_Int32_"></a> OnInputEvent\(Node, InputEvent, Vector3, Vector3, int\)
-
-```csharp
-private void OnInputEvent(Node camera, InputEvent @event, Vector3 click_position, Vector3 normal, int shape_idx)
-```
-
-#### Parameters
-
-`camera` Node
-
-`event` InputEvent
-
-`click_position` Vector3
-
-`normal` Vector3
-
-`shape_idx` [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Components_Characters_CharacterComponent_OnIsHoveredSet_System_Boolean_"></a> OnIsHoveredSet\(bool\)
-
-Called when the <xref href="DiceRoll.Components.Characters.CharacterComponent.IsHovered" data-throw-if-not-resolved="false"></xref> property is set.
-
-```csharp
-private void OnIsHoveredSet(bool isHovered)
-```
-
-#### Parameters
-
-`isHovered` [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-The new value of the IsHovered property.
-
-### <a id="DiceRoll_Components_Characters_CharacterComponent_OnIsSelectedSet_System_Boolean_"></a> OnIsSelectedSet\(bool\)
-
-```csharp
-private void OnIsSelectedSet(bool isSelected)
-```
-
-#### Parameters
-
-`isSelected` [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_Characters_CharacterComponent_OnMouseEntered"></a> OnMouseEntered\(\)
-
-```csharp
-private void OnMouseEntered()
-```
-
-### <a id="DiceRoll_Components_Characters_CharacterComponent_OnMouseExited"></a> OnMouseExited\(\)
-
-```csharp
-private void OnMouseExited()
-```
 
 ### <a id="DiceRoll_Components_Characters_CharacterComponent_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 

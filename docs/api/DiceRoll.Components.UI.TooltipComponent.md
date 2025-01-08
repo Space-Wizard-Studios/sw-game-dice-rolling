@@ -687,98 +687,6 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Fields
-
-### <a id="DiceRoll_Components_UI_TooltipComponent__advancedDescription"></a> \_advancedDescription
-
-```csharp
-private RichTextLabel? _advancedDescription
-```
-
-#### Field Value
-
- RichTextLabel?
-
-### <a id="DiceRoll_Components_UI_TooltipComponent__description"></a> \_description
-
-```csharp
-private RichTextLabel? _description
-```
-
-#### Field Value
-
- RichTextLabel?
-
-### <a id="DiceRoll_Components_UI_TooltipComponent__isMouseHovering"></a> \_isMouseHovering
-
-```csharp
-private bool _isMouseHovering
-```
-
-#### Field Value
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_UI_TooltipComponent__lore"></a> \_lore
-
-```csharp
-private RichTextLabel? _lore
-```
-
-#### Field Value
-
- RichTextLabel?
-
-### <a id="DiceRoll_Components_UI_TooltipComponent__progressBar"></a> \_progressBar
-
-```csharp
-private ProgressBar? _progressBar
-```
-
-#### Field Value
-
- ProgressBar?
-
-### <a id="DiceRoll_Components_UI_TooltipComponent__tags"></a> \_tags
-
-```csharp
-private RichTextLabel? _tags
-```
-
-#### Field Value
-
- RichTextLabel?
-
-### <a id="DiceRoll_Components_UI_TooltipComponent__textureIcon"></a> \_textureIcon
-
-```csharp
-private TextureRect? _textureIcon
-```
-
-#### Field Value
-
- TextureRect?
-
-### <a id="DiceRoll_Components_UI_TooltipComponent__title"></a> \_title
-
-```csharp
-private Label? _title
-```
-
-#### Field Value
-
- Label?
-
-### <a id="DiceRoll_Components_UI_TooltipComponent__tooltipTimer"></a> \_tooltipTimer
-
-```csharp
-private Timer? _tooltipTimer
-```
-
-#### Field Value
-
- Timer?
-
 ## Properties
 
 ### <a id="DiceRoll_Components_UI_TooltipComponent_AdvancedDescriptionPath"></a> AdvancedDescriptionPath
@@ -898,36 +806,6 @@ Value of the property if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Components_UI_TooltipComponent_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Components_UI_TooltipComponent_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
-
 ### <a id="DiceRoll_Components_UI_TooltipComponent_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
 Check if the type contains a method with the given name.
@@ -989,22 +867,6 @@ Value returned by the invoked method.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_UI_TooltipComponent_OnTooltipTimerTimeout"></a> OnTooltipTimerTimeout\(\)
-
-```csharp
-private void OnTooltipTimerTimeout()
-```
-
-### <a id="DiceRoll_Components_UI_TooltipComponent_PositionTooltip_Godot_Vector2_"></a> PositionTooltip\(Vector2\)
-
-```csharp
-private void PositionTooltip(Vector2 mousePosition)
-```
-
-#### Parameters
-
-`mousePosition` Vector2
 
 ### <a id="DiceRoll_Components_UI_TooltipComponent_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 

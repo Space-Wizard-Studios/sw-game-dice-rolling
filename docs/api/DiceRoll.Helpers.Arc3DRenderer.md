@@ -1,11 +1,14 @@
-# <a id="DiceRoll_Managers_LobbyManager"></a> Class LobbyManager
+# <a id="DiceRoll_Helpers_Arc3DRenderer"></a> Class Arc3DRenderer
 
-Namespace: [DiceRoll.Managers](DiceRoll.Managers.md)  
+Namespace: [DiceRoll.Helpers](DiceRoll.Helpers.md)  
 Assembly: dice\-roll.dll  
 
+A class for generating a 3D path and placing cubes along it.
+
 ```csharp
-[ScriptPath("res://core/managers/gameplay/LobbyManager.cs")]
-public class LobbyManager : Node2D, IDisposable
+[Tool]
+[ScriptPath("res://helpers/Arc3DRenderer/Arc3DRenderer.cs")]
+public class Arc3DRenderer : Node3D, IDisposable
 ```
 
 #### Inheritance
@@ -13,9 +16,8 @@ public class LobbyManager : Node2D, IDisposable
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 GodotObject ← 
 Node ← 
-CanvasItem ← 
-Node2D ← 
-[LobbyManager](DiceRoll.Managers.LobbyManager.md)
+Node3D ← 
+[Arc3DRenderer](DiceRoll.Helpers.Arc3DRenderer.md)
 
 #### Implements
 
@@ -23,189 +25,106 @@ Node2D ←
 
 #### Inherited Members
 
-Node2D.SetPosition\(Vector2\), 
-Node2D.SetRotation\(float\), 
-Node2D.SetRotationDegrees\(float\), 
-Node2D.SetSkew\(float\), 
-Node2D.SetScale\(Vector2\), 
-Node2D.GetPosition\(\), 
-Node2D.GetRotation\(\), 
-Node2D.GetRotationDegrees\(\), 
-Node2D.GetSkew\(\), 
-Node2D.GetScale\(\), 
-Node2D.Rotate\(float\), 
-Node2D.MoveLocalX\(float, bool\), 
-Node2D.MoveLocalY\(float, bool\), 
-Node2D.Translate\(Vector2\), 
-Node2D.GlobalTranslate\(Vector2\), 
-Node2D.ApplyScale\(Vector2\), 
-Node2D.SetGlobalPosition\(Vector2\), 
-Node2D.GetGlobalPosition\(\), 
-Node2D.SetGlobalRotation\(float\), 
-Node2D.SetGlobalRotationDegrees\(float\), 
-Node2D.GetGlobalRotation\(\), 
-Node2D.GetGlobalRotationDegrees\(\), 
-Node2D.SetGlobalSkew\(float\), 
-Node2D.GetGlobalSkew\(\), 
-Node2D.SetGlobalScale\(Vector2\), 
-Node2D.GetGlobalScale\(\), 
-Node2D.SetTransform\(Transform2D\), 
-Node2D.SetGlobalTransform\(Transform2D\), 
-Node2D.LookAt\(Vector2\), 
-Node2D.GetAngleTo\(Vector2\), 
-Node2D.ToLocal\(Vector2\), 
-Node2D.ToGlobal\(Vector2\), 
-Node2D.GetRelativeTransformToParent\(Node\), 
-Node2D.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
-Node2D.HasGodotClassMethod\(in godot\_string\_name\), 
-Node2D.HasGodotClassSignal\(in godot\_string\_name\), 
-Node2D.Position, 
-Node2D.Rotation, 
-Node2D.RotationDegrees, 
-Node2D.Scale, 
-Node2D.Skew, 
-Node2D.Transform, 
-Node2D.GlobalPosition, 
-Node2D.GlobalRotation, 
-Node2D.GlobalRotationDegrees, 
-Node2D.GlobalScale, 
-Node2D.GlobalSkew, 
-Node2D.GlobalTransform, 
-CanvasItem.NotificationTransformChanged, 
-CanvasItem.NotificationLocalTransformChanged, 
-CanvasItem.NotificationDraw, 
-CanvasItem.NotificationVisibilityChanged, 
-CanvasItem.NotificationEnterCanvas, 
-CanvasItem.NotificationExitCanvas, 
-CanvasItem.NotificationWorld2DChanged, 
-CanvasItem.\_Draw\(\), 
-CanvasItem.GetCanvasItem\(\), 
-CanvasItem.SetVisible\(bool\), 
-CanvasItem.IsVisible\(\), 
-CanvasItem.IsVisibleInTree\(\), 
-CanvasItem.Show\(\), 
-CanvasItem.Hide\(\), 
-CanvasItem.QueueRedraw\(\), 
-CanvasItem.MoveToFront\(\), 
-CanvasItem.SetAsTopLevel\(bool\), 
-CanvasItem.IsSetAsTopLevel\(\), 
-CanvasItem.SetLightMask\(int\), 
-CanvasItem.GetLightMask\(\), 
-CanvasItem.SetModulate\(Color\), 
-CanvasItem.GetModulate\(\), 
-CanvasItem.SetSelfModulate\(Color\), 
-CanvasItem.GetSelfModulate\(\), 
-CanvasItem.SetZIndex\(int\), 
-CanvasItem.GetZIndex\(\), 
-CanvasItem.SetZAsRelative\(bool\), 
-CanvasItem.IsZRelative\(\), 
-CanvasItem.SetYSortEnabled\(bool\), 
-CanvasItem.IsYSortEnabled\(\), 
-CanvasItem.SetDrawBehindParent\(bool\), 
-CanvasItem.IsDrawBehindParentEnabled\(\), 
-CanvasItem.DrawLine\(Vector2, Vector2, Color, float, bool\), 
-CanvasItem.DrawDashedLine\(Vector2, Vector2, Color, float, float, bool, bool\), 
-CanvasItem.DrawPolyline\(Vector2\[\], Color, float, bool\), 
-CanvasItem.DrawPolyline\(ReadOnlySpan<Vector2\>, Color, float, bool\), 
-CanvasItem.DrawPolylineColors\(Vector2\[\], Color\[\], float, bool\), 
-CanvasItem.DrawPolylineColors\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, float, bool\), 
-CanvasItem.DrawArc\(Vector2, float, float, float, int, Color, float, bool\), 
-CanvasItem.DrawMultiline\(Vector2\[\], Color, float, bool\), 
-CanvasItem.DrawMultiline\(ReadOnlySpan<Vector2\>, Color, float, bool\), 
-CanvasItem.DrawMultilineColors\(Vector2\[\], Color\[\], float, bool\), 
-CanvasItem.DrawMultilineColors\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, float, bool\), 
-CanvasItem.DrawRect\(Rect2, Color, bool, float, bool\), 
-CanvasItem.DrawCircle\(Vector2, float, Color, bool, float, bool\), 
-CanvasItem.DrawTexture\(Texture2D, Vector2, Color?\), 
-CanvasItem.DrawTextureRect\(Texture2D, Rect2, bool, Color?, bool\), 
-CanvasItem.DrawTextureRectRegion\(Texture2D, Rect2, Rect2, Color?, bool, bool\), 
-CanvasItem.DrawMsdfTextureRectRegion\(Texture2D, Rect2, Rect2, Color?, double, double, double\), 
-CanvasItem.DrawLcdTextureRectRegion\(Texture2D, Rect2, Rect2, Color?\), 
-CanvasItem.DrawStyleBox\(StyleBox, Rect2\), 
-CanvasItem.DrawPrimitive\(Vector2\[\], Color\[\], Vector2\[\], Texture2D\), 
-CanvasItem.DrawPrimitive\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, ReadOnlySpan<Vector2\>, Texture2D\), 
-CanvasItem.DrawPolygon\(Vector2\[\], Color\[\], Vector2\[\], Texture2D\), 
-CanvasItem.DrawPolygon\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, ReadOnlySpan<Vector2\>, Texture2D\), 
-CanvasItem.DrawColoredPolygon\(Vector2\[\], Color, Vector2\[\], Texture2D\), 
-CanvasItem.DrawColoredPolygon\(ReadOnlySpan<Vector2\>, Color, ReadOnlySpan<Vector2\>, Texture2D\), 
-CanvasItem.DrawString\(Font, Vector2, string, HorizontalAlignment, float, int, Color?, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation\), 
-CanvasItem.DrawMultilineString\(Font, Vector2, string, HorizontalAlignment, float, int, int, Color?, TextServer.LineBreakFlag, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation\), 
-CanvasItem.DrawStringOutline\(Font, Vector2, string, HorizontalAlignment, float, int, int, Color?, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation\), 
-CanvasItem.DrawMultilineStringOutline\(Font, Vector2, string, HorizontalAlignment, float, int, int, int, Color?, TextServer.LineBreakFlag, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation\), 
-CanvasItem.DrawChar\(Font, Vector2, string, int, Color?\), 
-CanvasItem.DrawCharOutline\(Font, Vector2, string, int, int, Color?\), 
-CanvasItem.DrawMesh\(Mesh, Texture2D, Transform2D?, Color?\), 
-CanvasItem.DrawMultimesh\(MultiMesh, Texture2D\), 
-CanvasItem.DrawSetTransform\(Vector2, float, Vector2?\), 
-CanvasItem.DrawSetTransformMatrix\(Transform2D\), 
-CanvasItem.DrawAnimationSlice\(double, double, double, double\), 
-CanvasItem.DrawEndAnimation\(\), 
-CanvasItem.GetTransform\(\), 
-CanvasItem.GetGlobalTransform\(\), 
-CanvasItem.GetGlobalTransformWithCanvas\(\), 
-CanvasItem.GetViewportTransform\(\), 
-CanvasItem.GetViewportRect\(\), 
-CanvasItem.GetCanvasTransform\(\), 
-CanvasItem.GetScreenTransform\(\), 
-CanvasItem.GetLocalMousePosition\(\), 
-CanvasItem.GetGlobalMousePosition\(\), 
-CanvasItem.GetCanvas\(\), 
-CanvasItem.GetCanvasLayerNode\(\), 
-CanvasItem.GetWorld2D\(\), 
-CanvasItem.SetMaterial\(Material\), 
-CanvasItem.GetMaterial\(\), 
-CanvasItem.SetUseParentMaterial\(bool\), 
-CanvasItem.GetUseParentMaterial\(\), 
-CanvasItem.SetNotifyLocalTransform\(bool\), 
-CanvasItem.IsLocalTransformNotificationEnabled\(\), 
-CanvasItem.SetNotifyTransform\(bool\), 
-CanvasItem.IsTransformNotificationEnabled\(\), 
-CanvasItem.ForceUpdateTransform\(\), 
-CanvasItem.MakeCanvasPositionLocal\(Vector2\), 
-CanvasItem.MakeInputLocal\(InputEvent\), 
-CanvasItem.SetVisibilityLayer\(uint\), 
-CanvasItem.GetVisibilityLayer\(\), 
-CanvasItem.SetVisibilityLayerBit\(uint, bool\), 
-CanvasItem.GetVisibilityLayerBit\(uint\), 
-CanvasItem.SetTextureFilter\(CanvasItem.TextureFilterEnum\), 
-CanvasItem.GetTextureFilter\(\), 
-CanvasItem.SetTextureRepeat\(CanvasItem.TextureRepeatEnum\), 
-CanvasItem.GetTextureRepeat\(\), 
-CanvasItem.SetClipChildrenMode\(CanvasItem.ClipChildrenMode\), 
-CanvasItem.GetClipChildrenMode\(\), 
-CanvasItem.DrawMultilineColors\(Vector2\[\], Color\[\], float\), 
-CanvasItem.DrawMultilineColors\(ReadOnlySpan<Vector2\>, ReadOnlySpan<Color\>, float\), 
-CanvasItem.DrawMultiline\(Vector2\[\], Color, float\), 
-CanvasItem.DrawMultiline\(ReadOnlySpan<Vector2\>, Color, float\), 
-CanvasItem.DrawDashedLine\(Vector2, Vector2, Color, float, float, bool\), 
-CanvasItem.DrawRect\(Rect2, Color, bool, float\), 
-CanvasItem.DrawCircle\(Vector2, float, Color\), 
-CanvasItem.EmitSignalDraw\(\), 
-CanvasItem.EmitSignalVisibilityChanged\(\), 
-CanvasItem.EmitSignalHidden\(\), 
-CanvasItem.EmitSignalItemRectChanged\(\), 
-CanvasItem.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
-CanvasItem.HasGodotClassMethod\(in godot\_string\_name\), 
-CanvasItem.HasGodotClassSignal\(in godot\_string\_name\), 
-CanvasItem.Visible, 
-CanvasItem.Modulate, 
-CanvasItem.SelfModulate, 
-CanvasItem.ShowBehindParent, 
-CanvasItem.TopLevel, 
-CanvasItem.ClipChildren, 
-CanvasItem.LightMask, 
-CanvasItem.VisibilityLayer, 
-CanvasItem.ZIndex, 
-CanvasItem.ZAsRelative, 
-CanvasItem.YSortEnabled, 
-CanvasItem.TextureFilter, 
-CanvasItem.TextureRepeat, 
-CanvasItem.Material, 
-CanvasItem.UseParentMaterial, 
-CanvasItem.Draw, 
-CanvasItem.VisibilityChanged, 
-CanvasItem.Hidden, 
-CanvasItem.ItemRectChanged, 
+Node3D.NotificationTransformChanged, 
+Node3D.NotificationEnterWorld, 
+Node3D.NotificationExitWorld, 
+Node3D.NotificationVisibilityChanged, 
+Node3D.NotificationLocalTransformChanged, 
+Node3D.LookAt\(Vector3, Vector3?\), 
+Node3D.LookAtFromPosition\(Vector3, Vector3, Vector3?\), 
+Node3D.SetTransform\(Transform3D\), 
+Node3D.GetTransform\(\), 
+Node3D.SetPosition\(Vector3\), 
+Node3D.GetPosition\(\), 
+Node3D.SetRotation\(Vector3\), 
+Node3D.GetRotation\(\), 
+Node3D.SetRotationDegrees\(Vector3\), 
+Node3D.GetRotationDegrees\(\), 
+Node3D.SetRotationOrder\(EulerOrder\), 
+Node3D.GetRotationOrder\(\), 
+Node3D.SetRotationEditMode\(Node3D.RotationEditModeEnum\), 
+Node3D.GetRotationEditMode\(\), 
+Node3D.SetScale\(Vector3\), 
+Node3D.GetScale\(\), 
+Node3D.SetQuaternion\(Quaternion\), 
+Node3D.GetQuaternion\(\), 
+Node3D.SetBasis\(Basis\), 
+Node3D.GetBasis\(\), 
+Node3D.SetGlobalTransform\(Transform3D\), 
+Node3D.GetGlobalTransform\(\), 
+Node3D.GetGlobalTransformInterpolated\(\), 
+Node3D.SetGlobalPosition\(Vector3\), 
+Node3D.GetGlobalPosition\(\), 
+Node3D.SetGlobalBasis\(Basis\), 
+Node3D.GetGlobalBasis\(\), 
+Node3D.SetGlobalRotation\(Vector3\), 
+Node3D.GetGlobalRotation\(\), 
+Node3D.SetGlobalRotationDegrees\(Vector3\), 
+Node3D.GetGlobalRotationDegrees\(\), 
+Node3D.GetParentNode3D\(\), 
+Node3D.SetIgnoreTransformNotification\(bool\), 
+Node3D.SetAsTopLevel\(bool\), 
+Node3D.IsSetAsTopLevel\(\), 
+Node3D.SetDisableScale\(bool\), 
+Node3D.IsScaleDisabled\(\), 
+Node3D.GetWorld3D\(\), 
+Node3D.ForceUpdateTransform\(\), 
+Node3D.SetVisibilityParent\(NodePath\), 
+Node3D.GetVisibilityParent\(\), 
+Node3D.UpdateGizmos\(\), 
+Node3D.AddGizmo\(Node3DGizmo\), 
+Node3D.GetGizmos\(\), 
+Node3D.ClearGizmos\(\), 
+Node3D.SetSubgizmoSelection\(Node3DGizmo, int, Transform3D\), 
+Node3D.ClearSubgizmoSelection\(\), 
+Node3D.SetVisible\(bool\), 
+Node3D.IsVisible\(\), 
+Node3D.IsVisibleInTree\(\), 
+Node3D.Show\(\), 
+Node3D.Hide\(\), 
+Node3D.SetNotifyLocalTransform\(bool\), 
+Node3D.IsLocalTransformNotificationEnabled\(\), 
+Node3D.SetNotifyTransform\(bool\), 
+Node3D.IsTransformNotificationEnabled\(\), 
+Node3D.Rotate\(Vector3, float\), 
+Node3D.GlobalRotate\(Vector3, float\), 
+Node3D.GlobalScale\(Vector3\), 
+Node3D.GlobalTranslate\(Vector3\), 
+Node3D.RotateObjectLocal\(Vector3, float\), 
+Node3D.ScaleObjectLocal\(Vector3\), 
+Node3D.TranslateObjectLocal\(Vector3\), 
+Node3D.RotateX\(float\), 
+Node3D.RotateY\(float\), 
+Node3D.RotateZ\(float\), 
+Node3D.Translate\(Vector3\), 
+Node3D.Orthonormalize\(\), 
+Node3D.SetIdentity\(\), 
+Node3D.LookAt\(Vector3, Vector3?, bool\), 
+Node3D.LookAtFromPosition\(Vector3, Vector3, Vector3?, bool\), 
+Node3D.ToLocal\(Vector3\), 
+Node3D.ToGlobal\(Vector3\), 
+Node3D.EmitSignalVisibilityChanged\(\), 
+Node3D.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+Node3D.HasGodotClassMethod\(in godot\_string\_name\), 
+Node3D.HasGodotClassSignal\(in godot\_string\_name\), 
+Node3D.Transform, 
+Node3D.GlobalTransform, 
+Node3D.Position, 
+Node3D.Rotation, 
+Node3D.RotationDegrees, 
+Node3D.Quaternion, 
+Node3D.Basis, 
+Node3D.Scale, 
+Node3D.RotationEditMode, 
+Node3D.RotationOrder, 
+Node3D.TopLevel, 
+Node3D.GlobalPosition, 
+Node3D.GlobalBasis, 
+Node3D.GlobalRotation, 
+Node3D.GlobalRotationDegrees, 
+Node3D.Visible, 
+Node3D.VisibilityParent, 
+Node3D.VisibilityChanged, 
 Node.NotificationEnterTree, 
 Node.NotificationExitTree, 
 Node.NotificationMovedInParent, 
@@ -522,9 +441,111 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
+## Properties
+
+### <a id="DiceRoll_Helpers_Arc3DRenderer_CubeSize"></a> CubeSize
+
+Gets or sets the size of the cubes to be placed along the path.
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Vector3 CubeSize { get; set; }
+```
+
+#### Property Value
+
+ Vector3
+
+### <a id="DiceRoll_Helpers_Arc3DRenderer_PointA"></a> PointA
+
+Gets or sets the first point of the quadratic Bezier curve.
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Vector3 PointA { get; set; }
+```
+
+#### Property Value
+
+ Vector3
+
+### <a id="DiceRoll_Helpers_Arc3DRenderer_PointB"></a> PointB
+
+Gets or sets the second point (control point) of the quadratic Bezier curve.
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Vector3 PointB { get; set; }
+```
+
+#### Property Value
+
+ Vector3
+
+### <a id="DiceRoll_Helpers_Arc3DRenderer_PointC"></a> PointC
+
+Gets or sets the third point of the quadratic Bezier curve.
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Vector3 PointC { get; set; }
+```
+
+#### Property Value
+
+ Vector3
+
+### <a id="DiceRoll_Helpers_Arc3DRenderer_Spacing"></a> Spacing
+
+Gets or sets the spacing between the cubes along the path.
+
+```csharp
+[Export(PropertyHint.None, "")]
+public float Spacing { get; set; }
+```
+
+#### Property Value
+
+ [float](https://learn.microsoft.com/dotnet/api/system.single)
+
 ## Methods
 
-### <a id="DiceRoll_Managers_LobbyManager_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
+### <a id="DiceRoll_Helpers_Arc3DRenderer_GeneratePath"></a> GeneratePath\(\)
+
+Generates the path and places cubes along it.
+
+```csharp
+public void GeneratePath()
+```
+
+### <a id="DiceRoll_Helpers_Arc3DRenderer_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
+
+Get the value of a property contained in this class.
+This method is used by Godot to retrieve property values.
+Do not call or override this method.
+
+```csharp
+[EditorBrowsable(EditorBrowsableState.Never)]
+protected override bool GetGodotClassPropertyValue(in godot_string_name name, out godot_variant value)
+```
+
+#### Parameters
+
+`name` godot\_string\_name
+
+Name of the property to get.
+
+`value` godot\_variant
+
+Value of the property if it was found.
+
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
+
+### <a id="DiceRoll_Helpers_Arc3DRenderer_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
 Check if the type contains a method with the given name.
 This method is used by Godot to check if a method exists before invoking it.
@@ -545,7 +566,7 @@ Name of the method to check for.
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-### <a id="DiceRoll_Managers_LobbyManager_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
+### <a id="DiceRoll_Helpers_Arc3DRenderer_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
 
 Invokes the method with the given name, using the given arguments.
 This method is used by Godot to invoke methods from the engine side.
@@ -574,7 +595,7 @@ Value returned by the invoked method.
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-### <a id="DiceRoll_Managers_LobbyManager_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Helpers_Arc3DRenderer_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
 Restores this instance's state after reloading assemblies.
 Do not call or override this method.
@@ -591,7 +612,7 @@ protected override void RestoreGodotObjectData(GodotSerializationInfo info)
 
 Object that contains the previously saved data.
 
-### <a id="DiceRoll_Managers_LobbyManager_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Helpers_Arc3DRenderer_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
 
 Saves this instance's state to be restored when reloading assemblies.
 Do not call or override this method.
@@ -608,13 +629,38 @@ protected override void SaveGodotObjectData(GodotSerializationInfo info)
 
 Object used to save the data.
 
-### <a id="DiceRoll_Managers_LobbyManager__Ready"></a> \_Ready\(\)
+### <a id="DiceRoll_Helpers_Arc3DRenderer_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
 
-<p>Called when the node is "ready", i.e. when both the node and its children have entered the scene tree. If the node has children, their <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> callbacks get triggered first, and the parent node will receive the ready notification afterwards.</p>
-<p>Corresponds to the <xref href="Godot.Node.NotificationReady" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>. See also the <code>@onready</code> annotation for variables.</p>
-<p>Usually used for initialization. For even earlier initialization, <xref href="Godot.GodotObject.%23ctor" data-throw-if-not-resolved="false"></xref> may be used. See also <xref href="Godot.Node._EnterTree" data-throw-if-not-resolved="false"></xref>.</p>
-<p>
-  <b>Note:</b> This method may be called only once for each node. After removing a node from the scene tree and adding it again, <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> will <b>not</b> be called a second time. This can be bypassed by requesting another call with <xref href="Godot.Node.RequestReady" data-throw-if-not-resolved="false"></xref>, which may be called anywhere before adding the node again.</p>
+Set the value of a property contained in this class.
+This method is used by Godot to assign property values.
+Do not call or override this method.
+
+```csharp
+[EditorBrowsable(EditorBrowsableState.Never)]
+protected override bool SetGodotClassPropertyValue(in godot_string_name name, in godot_variant value)
+```
+
+#### Parameters
+
+`name` godot\_string\_name
+
+Name of the property to set.
+
+`value` godot\_variant
+
+Value to set the property to if it was found.
+
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
+
+### <a id="DiceRoll_Helpers_Arc3DRenderer__Ready"></a> \_Ready\(\)
+
+Called when the node is added to the scene.
+
+        <p>Called when the node is "ready", i.e. when both the node and its children have entered the scene tree. If the node has children, their <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> callbacks get triggered first, and the parent node will receive the ready notification afterwards.</p><p>Corresponds to the <xref href="Godot.Node.NotificationReady" data-throw-if-not-resolved="false"></xref> notification in <xref href="Godot.GodotObject._Notification(System.Int32)" data-throw-if-not-resolved="false"></xref>. See also the <code>@onready</code> annotation for variables.</p><p>Usually used for initialization. For even earlier initialization, <xref href="Godot.GodotObject.%23ctor" data-throw-if-not-resolved="false"></xref> may be used. See also <xref href="Godot.Node._EnterTree" data-throw-if-not-resolved="false"></xref>.</p><p><b>Note:</b> This method may be called only once for each node. After removing a node from the scene tree and adding it again, <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> will <b>not</b> be called a second time. This can be bypassed by requesting another call with <xref href="Godot.Node.RequestReady" data-throw-if-not-resolved="false"></xref>, which may be called anywhere before adding the node again.</p>
 
 ```csharp
 public override void _Ready()

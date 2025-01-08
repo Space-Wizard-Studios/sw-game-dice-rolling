@@ -47,6 +47,10 @@
     items:
     - name: Classes
       items:
+      - name: Arc3DEditorPlugin
+        href: DiceRoll.Editor.Arc3DEditorPlugin.md
+      - name: Arc3DGizmoPlugin
+        href: DiceRoll.Editor.Arc3DGizmoPlugin.md
       - name: MatrixControl
         href: DiceRoll.Editor.MatrixControl.md
       - name: TargetConfigurationEditorPlugin
@@ -66,6 +70,8 @@
         href: DiceRoll.Events.EventBus.AttributeChangedEventHandler.md
       - name: EventBus.CharacterSelectedEventHandler
         href: DiceRoll.Events.EventBus.CharacterSelectedEventHandler.md
+      - name: EventBus.CharacterUnselectedEventHandler
+        href: DiceRoll.Events.EventBus.CharacterUnselectedEventHandler.md
   - name: Helpers
     href: DiceRoll.Helpers.md
     items:
@@ -73,6 +79,8 @@
       items:
       - name: Arc2D
         href: DiceRoll.Helpers.Arc2D.md
+      - name: Arc3DRenderer
+        href: DiceRoll.Helpers.Arc3DRenderer.md
       - name: AttributesHelper
         href: DiceRoll.Helpers.AttributesHelper.md
   - name: Managers
@@ -110,6 +118,13 @@
     - name: Actions
       href: DiceRoll.Models.Actions.md
       items:
+      - name: Categories
+        href: DiceRoll.Models.Actions.Categories.md
+        items:
+        - name: Classes
+          items:
+          - name: ActionCategory
+            href: DiceRoll.Models.Actions.Categories.ActionCategory.md
       - name: Effects
         href: DiceRoll.Models.Actions.Effects.md
         items:
@@ -119,61 +134,88 @@
             href: DiceRoll.Models.Actions.Effects.DamageEffect.md
           - name: EffectType
             href: DiceRoll.Models.Actions.Effects.EffectType.md
-      - name: Target
-        href: DiceRoll.Models.Actions.Target.md
+      - name: Targets
+        href: DiceRoll.Models.Actions.Targets.md
         items:
         - name: Classes
           items:
+          - name: GridConfiguration
+            href: DiceRoll.Models.Actions.Targets.GridConfiguration.md
           - name: TargetConfiguration
-            href: DiceRoll.Models.Actions.Target.TargetConfiguration.md
+            href: DiceRoll.Models.Actions.Targets.TargetConfiguration.md
         - name: Delegates
           items:
+          - name: GridConfiguration.ConfigurationChangedEventHandler
+            href: DiceRoll.Models.Actions.Targets.GridConfiguration.ConfigurationChangedEventHandler.md
           - name: TargetConfiguration.ConfigurationChangedEventHandler
-            href: DiceRoll.Models.Actions.Target.TargetConfiguration.ConfigurationChangedEventHandler.md
+            href: DiceRoll.Models.Actions.Targets.TargetConfiguration.ConfigurationChangedEventHandler.md
       - name: Classes
         items:
-        - name: Action
-          href: DiceRoll.Models.Actions.Action.md
-        - name: ActionSource
-          href: DiceRoll.Models.Actions.ActionSource.md
         - name: ActionType
           href: DiceRoll.Models.Actions.ActionType.md
         - name: CharacterAction
           href: DiceRoll.Models.Actions.CharacterAction.md
+        - name: RoleAction
+          href: DiceRoll.Models.Actions.RoleAction.md
       - name: Interfaces
         items:
         - name: IAction<TContext, TResult>
           href: DiceRoll.Models.Actions.IAction-2.md
         - name: IActionContext
           href: DiceRoll.Models.Actions.IActionContext.md
-    - name: CharacterGrid
-      href: DiceRoll.Models.CharacterGrid.md
+    - name: Attributes
+      href: DiceRoll.Models.Attributes.md
       items:
       - name: Classes
         items:
-        - name: CharacterGridType
-          href: DiceRoll.Models.CharacterGrid.CharacterGridType.md
+        - name: AttributeType
+          href: DiceRoll.Models.Attributes.AttributeType.md
+        - name: AttributesConfig
+          href: DiceRoll.Models.Attributes.AttributesConfig.md
+        - name: CharacterAttribute
+          href: DiceRoll.Models.Attributes.CharacterAttribute.md
+        - name: RoleAttribute
+          href: DiceRoll.Models.Attributes.RoleAttribute.md
+    - name: Characters
+      href: DiceRoll.Models.Characters.md
+      items:
+      - name: Grid
+        href: DiceRoll.Models.Characters.Grid.md
+        items:
+        - name: Classes
+          items:
+          - name: CharacterGridType
+            href: DiceRoll.Models.Characters.Grid.CharacterGridType.md
+        - name: Delegates
+          items:
+          - name: CharacterGridType.ChangedEventHandler
+            href: DiceRoll.Models.Characters.Grid.CharacterGridType.ChangedEventHandler.md
+      - name: Locations
+        href: DiceRoll.Models.Characters.Locations.md
+        items:
+        - name: Classes
+          items:
+          - name: CharacterLocation
+            href: DiceRoll.Models.Characters.Locations.CharacterLocation.md
+      - name: Classes
+        items:
+        - name: Character
+          href: DiceRoll.Models.Characters.Character.md
       - name: Delegates
         items:
-        - name: CharacterGridType.ChangedEventHandler
-          href: DiceRoll.Models.CharacterGrid.CharacterGridType.ChangedEventHandler.md
-    - name: CharacterLocations
-      href: DiceRoll.Models.CharacterLocations.md
+        - name: Character.AttributeChangedEventHandler
+          href: DiceRoll.Models.Characters.Character.AttributeChangedEventHandler.md
+    - name: Roles
+      href: DiceRoll.Models.Roles.md
       items:
       - name: Classes
         items:
-        - name: CharacterLocation
-          href: DiceRoll.Models.CharacterLocations.CharacterLocation.md
+        - name: Role
+          href: DiceRoll.Models.Roles.Role.md
+        - name: RolesResources
+          href: DiceRoll.Models.Roles.RolesResources.md
     - name: Classes
       items:
-      - name: AttributeType
-        href: DiceRoll.Models.AttributeType.md
-      - name: AttributesConfig
-        href: DiceRoll.Models.AttributesConfig.md
-      - name: Character
-        href: DiceRoll.Models.Character.md
-      - name: CharacterAttribute
-        href: DiceRoll.Models.CharacterAttribute.md
       - name: Dice<T>
         href: DiceRoll.Models.Dice-1.md
       - name: DiceFactory
@@ -188,20 +230,10 @@
         href: DiceRoll.Models.DiceManaResources.md
       - name: DiceSide
         href: DiceRoll.Models.DiceSide.md
-      - name: Role
-        href: DiceRoll.Models.Role.md
-      - name: RoleAttribute
-        href: DiceRoll.Models.RoleAttribute.md
-      - name: RolesResources
-        href: DiceRoll.Models.RolesResources.md
     - name: Enums
       items:
       - name: DiceLocation
         href: DiceRoll.Models.DiceLocation.md
-    - name: Delegates
-      items:
-      - name: Character.AttributeChangedEventHandler
-        href: DiceRoll.Models.Character.AttributeChangedEventHandler.md
   - name: Stores
     href: DiceRoll.Stores.md
     items:
@@ -244,13 +276,3 @@
       items:
       - name: TransitionType
         href: DiceRoll.UI.TransitionType.md
-- name: GodotPlugins
-  href: GodotPlugins.md
-  items:
-  - name: Game
-    href: GodotPlugins.Game.md
-    items:
-    - name: Classes
-      items:
-      - name: Main
-        href: GodotPlugins.Game.Main.md

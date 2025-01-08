@@ -4,7 +4,7 @@ Namespace: [DiceRoll.Models.Actions.Effects](DiceRoll.Models.Actions.Effects.md)
 Assembly: dice\-roll.dll  
 
 ```csharp
-[ScriptPath("res://models/Action/EffectType/DamageEffect/DamageEffect.cs")]
+[ScriptPath("res://models/Action/Effect/Effects/DamageEffect.cs")]
 public class DamageEffect : EffectType, IDisposable
 ```
 
@@ -170,18 +170,6 @@ GodotObject.PropertyListChanged,
 public DamageEffect()
 ```
 
-## Fields
-
-### <a id="DiceRoll_Models_Actions_Effects_DamageEffect__damage"></a> \_damage
-
-```csharp
-private readonly int _damage
-```
-
-#### Field Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
 ## Methods
 
 ### <a id="DiceRoll_Models_Actions_Effects_DamageEffect_Apply_DiceRoll_Models_Actions_IActionContext_"></a> Apply\(IActionContext\)
@@ -220,21 +208,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Models_Actions_Effects_DamageEffect_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
 
 ### <a id="DiceRoll_Models_Actions_Effects_DamageEffect_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 

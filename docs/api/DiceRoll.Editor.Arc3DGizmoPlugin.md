@@ -1,13 +1,14 @@
-# <a id="DiceRoll_Models_CharacterAttribute"></a> Class CharacterAttribute
+# <a id="DiceRoll_Editor_Arc3DGizmoPlugin"></a> Class Arc3DGizmoPlugin
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Editor](DiceRoll.Editor.md)  
 Assembly: dice\-roll.dll  
+
+A plugin for rendering 3D gizmos in the editor for Arc3DRenderer nodes.
 
 ```csharp
 [Tool]
-[GlobalClass]
-[ScriptPath("res://models/Attributes/CharacterAttribute.cs")]
-public class CharacterAttribute : Resource, IDisposable
+[ScriptPath("res://addons/@spacewiz/Arc3DEditorPlugin/Arc3DGizmoPlugin.cs")]
+public class Arc3DGizmoPlugin : EditorNode3DGizmoPlugin, IDisposable
 ```
 
 #### Inheritance
@@ -16,7 +17,8 @@ public class CharacterAttribute : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[CharacterAttribute](DiceRoll.Models.CharacterAttribute.md)
+EditorNode3DGizmoPlugin ← 
+[Arc3DGizmoPlugin](DiceRoll.Editor.Arc3DGizmoPlugin.md)
 
 #### Implements
 
@@ -24,6 +26,32 @@ Resource ←
 
 #### Inherited Members
 
+EditorNode3DGizmoPlugin.\_BeginHandleAction\(EditorNode3DGizmo, int, bool\), 
+EditorNode3DGizmoPlugin.\_CanBeHidden\(\), 
+EditorNode3DGizmoPlugin.\_CommitHandle\(EditorNode3DGizmo, int, bool, Variant, bool\), 
+EditorNode3DGizmoPlugin.\_CommitSubgizmos\(EditorNode3DGizmo, int\[\], Array<Transform3D\>, bool\), 
+EditorNode3DGizmoPlugin.\_CreateGizmo\(Node3D\), 
+EditorNode3DGizmoPlugin.\_GetGizmoName\(\), 
+EditorNode3DGizmoPlugin.\_GetHandleName\(EditorNode3DGizmo, int, bool\), 
+EditorNode3DGizmoPlugin.\_GetHandleValue\(EditorNode3DGizmo, int, bool\), 
+EditorNode3DGizmoPlugin.\_GetPriority\(\), 
+EditorNode3DGizmoPlugin.\_GetSubgizmoTransform\(EditorNode3DGizmo, int\), 
+EditorNode3DGizmoPlugin.\_HasGizmo\(Node3D\), 
+EditorNode3DGizmoPlugin.\_IsHandleHighlighted\(EditorNode3DGizmo, int, bool\), 
+EditorNode3DGizmoPlugin.\_IsSelectableWhenHidden\(\), 
+EditorNode3DGizmoPlugin.\_Redraw\(EditorNode3DGizmo\), 
+EditorNode3DGizmoPlugin.\_SetHandle\(EditorNode3DGizmo, int, bool, Camera3D, Vector2\), 
+EditorNode3DGizmoPlugin.\_SetSubgizmoTransform\(EditorNode3DGizmo, int, Transform3D\), 
+EditorNode3DGizmoPlugin.\_SubgizmosIntersectFrustum\(EditorNode3DGizmo, Camera3D, Array<Plane\>\), 
+EditorNode3DGizmoPlugin.\_SubgizmosIntersectRay\(EditorNode3DGizmo, Camera3D, Vector2\), 
+EditorNode3DGizmoPlugin.CreateMaterial\(string, Color, bool, bool, bool\), 
+EditorNode3DGizmoPlugin.CreateIconMaterial\(string, Texture2D, bool, Color?\), 
+EditorNode3DGizmoPlugin.CreateHandleMaterial\(string, bool, Texture2D\), 
+EditorNode3DGizmoPlugin.AddMaterial\(string, StandardMaterial3D\), 
+EditorNode3DGizmoPlugin.GetMaterial\(string, EditorNode3DGizmo\), 
+EditorNode3DGizmoPlugin.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+EditorNode3DGizmoPlugin.HasGodotClassMethod\(in godot\_string\_name\), 
+EditorNode3DGizmoPlugin.HasGodotClassSignal\(in godot\_string\_name\), 
 Resource.\_GetRid\(\), 
 Resource.\_ResetState\(\), 
 Resource.\_SetPathCache\(string\), 
@@ -162,71 +190,17 @@ GodotObject.PropertyListChanged,
 
 ## Constructors
 
-### <a id="DiceRoll_Models_CharacterAttribute__ctor"></a> CharacterAttribute\(\)
+### <a id="DiceRoll_Editor_Arc3DGizmoPlugin__ctor"></a> Arc3DGizmoPlugin\(\)
+
+Initializes a new instance of the <xref href="DiceRoll.Editor.Arc3DGizmoPlugin" data-throw-if-not-resolved="false"></xref> class.
 
 ```csharp
-public CharacterAttribute()
+public Arc3DGizmoPlugin()
 ```
-
-### <a id="DiceRoll_Models_CharacterAttribute__ctor_DiceRoll_Models_RoleAttribute_"></a> CharacterAttribute\(RoleAttribute\)
-
-```csharp
-public CharacterAttribute(RoleAttribute roleAttribute)
-```
-
-#### Parameters
-
-`roleAttribute` [RoleAttribute](DiceRoll.Models.RoleAttribute.md)
-
-## Properties
-
-### <a id="DiceRoll_Models_CharacterAttribute_BaseValue"></a> BaseValue
-
-```csharp
-[Export(PropertyHint.None, "")]
-public int BaseValue { get; set; }
-```
-
-#### Property Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Models_CharacterAttribute_CurrentValue"></a> CurrentValue
-
-```csharp
-[Export(PropertyHint.None, "")]
-public int CurrentValue { get; set; }
-```
-
-#### Property Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Models_CharacterAttribute_MaxValue"></a> MaxValue
-
-```csharp
-[Export(PropertyHint.None, "")]
-public int MaxValue { get; set; }
-```
-
-#### Property Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRoll_Models_CharacterAttribute_Type"></a> Type
-
-```csharp
-[Export(PropertyHint.None, "")]
-public AttributeType? Type { get; set; }
-```
-
-#### Property Value
-
- [AttributeType](DiceRoll.Models.AttributeType.md)?
 
 ## Methods
 
-### <a id="DiceRoll_Models_CharacterAttribute_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
+### <a id="DiceRoll_Editor_Arc3DGizmoPlugin_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
 Get the value of a property contained in this class.
 This method is used by Godot to retrieve property values.
@@ -253,37 +227,7 @@ Value of the property if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Models_CharacterAttribute_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Models_CharacterAttribute_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
-
-### <a id="DiceRoll_Models_CharacterAttribute_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
+### <a id="DiceRoll_Editor_Arc3DGizmoPlugin_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
 Check if the type contains a method with the given name.
 This method is used by Godot to check if a method exists before invoking it.
@@ -304,7 +248,7 @@ Name of the method to check for.
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-### <a id="DiceRoll_Models_CharacterAttribute_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
+### <a id="DiceRoll_Editor_Arc3DGizmoPlugin_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
 
 Invokes the method with the given name, using the given arguments.
 This method is used by Godot to invoke methods from the engine side.
@@ -333,7 +277,7 @@ Value returned by the invoked method.
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-### <a id="DiceRoll_Models_CharacterAttribute_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Editor_Arc3DGizmoPlugin_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
 Restores this instance's state after reloading assemblies.
 Do not call or override this method.
@@ -350,7 +294,7 @@ protected override void RestoreGodotObjectData(GodotSerializationInfo info)
 
 Object that contains the previously saved data.
 
-### <a id="DiceRoll_Models_CharacterAttribute_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Editor_Arc3DGizmoPlugin_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
 
 Saves this instance's state to be restored when reloading assemblies.
 Do not call or override this method.
@@ -367,72 +311,57 @@ protected override void SaveGodotObjectData(GodotSerializationInfo info)
 
 Object used to save the data.
 
-### <a id="DiceRoll_Models_CharacterAttribute_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
+### <a id="DiceRoll_Editor_Arc3DGizmoPlugin__GetGizmoName"></a> \_GetGizmoName\(\)
 
-Set the value of a property contained in this class.
-This method is used by Godot to assign property values.
-Do not call or override this method.
+Gets the name of the gizmo.
+
+        <p>Override this method to provide the name that will appear in the gizmo visibility menu.</p>
 
 ```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-protected override bool SetGodotClassPropertyValue(in godot_string_name name, in godot_variant value)
+public override string _GetGizmoName()
+```
+
+#### Returns
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The name of the gizmo.
+
+### <a id="DiceRoll_Editor_Arc3DGizmoPlugin__HasGizmo_Godot_Node3D_"></a> \_HasGizmo\(Node3D\)
+
+Determines whether the specified node has a gizmo.
+
+        <p>Override this method to define which Node3D nodes have a gizmo from this plugin. Whenever a <xref href="Godot.Node3D" data-throw-if-not-resolved="false"></xref> node is added to a scene this method is called, if it returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> the node gets a generic <xref href="Godot.EditorNode3DGizmo" data-throw-if-not-resolved="false"></xref> assigned and is added to this plugin's list of active gizmos.</p>
+
+```csharp
+public override bool _HasGizmo(Node3D node)
 ```
 
 #### Parameters
 
-`name` godot\_string\_name
+`node` Node3D
 
-Name of the property to set.
-
-`value` godot\_variant
-
-Value to set the property to if it was found.
+The node to check.
 
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
+<code>true</code> if the node has a gizmo; otherwise, <code>false</code>.
 
-### <a id="DiceRoll_Models_CharacterAttribute__ValidateProperty_Godot_Collections_Dictionary_"></a> \_ValidateProperty\(Dictionary\)
+### <a id="DiceRoll_Editor_Arc3DGizmoPlugin__Redraw_Godot_EditorNode3DGizmo_"></a> \_Redraw\(EditorNode3DGizmo\)
 
-<p>Override this method to customize existing properties. Every property info goes through this method, except properties added with <xref href="Godot.GodotObject._GetPropertyList" data-throw-if-not-resolved="false"></xref>. The dictionary contents is the same as in <xref href="Godot.GodotObject._GetPropertyList" data-throw-if-not-resolved="false"></xref>.</p>
-<p>
-  <pre><code class="lang-csharp">[Tool]
-  public partial class MyNode : Node
-  {
-      private bool _isNumberEditable;
+Redraws the gizmo for the specified <xref href="Godot.EditorNode3DGizmo" data-throw-if-not-resolved="false"></xref>.
 
-      [Export]
-      public bool IsNumberEditable
-      {
-          get => _isNumberEditable;
-          set
-          {
-              _isNumberEditable = value;
-              NotifyPropertyListChanged();
-          }
-      }
-
-      [Export]
-      public int Number { get; set; }
-
-      public override void _ValidateProperty(Godot.Collections.Dictionary property)
-      {
-          if (property["name"].AsStringName() == PropertyName.Number && !IsNumberEditable)
-          {
-              var usage = property["usage"].As<PropertyUsageFlags>() | PropertyUsageFlags.ReadOnly;
-              property["usage"] = (int)usage;
-          }
-      }
-  }</code></pre>
-</p>
+        <p>Override this method to add all the gizmo elements whenever a gizmo update is requested. It's common to call <xref href="Godot.EditorNode3DGizmo.Clear" data-throw-if-not-resolved="false"></xref> at the beginning of this method and then add visual elements depending on the node's properties.</p>
 
 ```csharp
-public override void _ValidateProperty(Dictionary property)
+public override void _Redraw(EditorNode3DGizmo gizmo)
 ```
 
 #### Parameters
 
-`property` Dictionary
+`gizmo` EditorNode3DGizmo
+
+The gizmo to redraw.
 

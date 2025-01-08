@@ -1,13 +1,13 @@
-# <a id="DiceRoll_Models_CharacterLocations_CharacterLocation"></a> Class CharacterLocation
+# <a id="DiceRoll_Models_Actions_RoleAction"></a> Class RoleAction
 
-Namespace: [DiceRoll.Models.CharacterLocations](DiceRoll.Models.CharacterLocations.md)  
+Namespace: [DiceRoll.Models.Actions](DiceRoll.Models.Actions.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
 [Tool]
 [GlobalClass]
-[ScriptPath("res://models/CharacterLocation/CharacterLocation.cs")]
-public class CharacterLocation : Resource, IDisposable
+[ScriptPath("res://models/Action/RoleAction.cs")]
+public class RoleAction : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -16,7 +16,7 @@ public class CharacterLocation : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[CharacterLocation](DiceRoll.Models.CharacterLocations.CharacterLocation.md)
+[RoleAction](DiceRoll.Models.Actions.RoleAction.md)
 
 #### Implements
 
@@ -160,44 +160,40 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
+## Constructors
+
+### <a id="DiceRoll_Models_Actions_RoleAction__ctor"></a> RoleAction\(\)
+
+```csharp
+public RoleAction()
+```
+
+### <a id="DiceRoll_Models_Actions_RoleAction__ctor_DiceRoll_Models_Actions_ActionType_"></a> RoleAction\(ActionType\)
+
+```csharp
+public RoleAction(ActionType type)
+```
+
+#### Parameters
+
+`type` [ActionType](DiceRoll.Models.Actions.ActionType.md)
+
 ## Properties
 
-### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_Description"></a> Description
+### <a id="DiceRoll_Models_Actions_RoleAction_Type"></a> Type
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public string Description { get; set; }
+public ActionType? Type { get; set; }
 ```
 
 #### Property Value
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_Name"></a> Name
-
-```csharp
-[Export(PropertyHint.None, "")]
-public string Name { get; set; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_TotalSlots"></a> TotalSlots
-
-```csharp
-[Export(PropertyHint.None, "")]
-public int TotalSlots { get; set; }
-```
-
-#### Property Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
+ [ActionType](DiceRoll.Models.Actions.ActionType.md)?
 
 ## Methods
 
-### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
+### <a id="DiceRoll_Models_Actions_RoleAction_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
 Get the value of a property contained in this class.
 This method is used by Godot to retrieve property values.
@@ -224,22 +220,7 @@ Value of the property if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
-
-### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Actions_RoleAction_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
 Restores this instance's state after reloading assemblies.
 Do not call or override this method.
@@ -256,7 +237,7 @@ protected override void RestoreGodotObjectData(GodotSerializationInfo info)
 
 Object that contains the previously saved data.
 
-### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Actions_RoleAction_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
 
 Saves this instance's state to be restored when reloading assemblies.
 Do not call or override this method.
@@ -273,7 +254,7 @@ protected override void SaveGodotObjectData(GodotSerializationInfo info)
 
 Object used to save the data.
 
-### <a id="DiceRoll_Models_CharacterLocations_CharacterLocation_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
+### <a id="DiceRoll_Models_Actions_RoleAction_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
 
 Set the value of a property contained in this class.
 This method is used by Godot to assign property values.

@@ -690,28 +690,6 @@ GodotObject.PropertyListChanged,
 
 ## Fields
 
-### <a id="DiceRoll_Components_TurnOrderComponent_AttributeConfigResource"></a> AttributeConfigResource
-
-```csharp
-[ExportGroup("🪵 Resources", "")]
-[Export(PropertyHint.None, "")]
-private Resource? AttributeConfigResource
-```
-
-#### Field Value
-
- Resource?
-
-### <a id="DiceRoll_Components_TurnOrderComponent_HealthAttributeType"></a> HealthAttributeType
-
-```csharp
-private AttributeType? HealthAttributeType
-```
-
-#### Field Value
-
- [AttributeType](DiceRoll.Models.AttributeType.md)?
-
 ### <a id="DiceRoll_Components_TurnOrderComponent_PortraitDamageColorNode"></a> PortraitDamageColorNode
 
 ```csharp
@@ -745,46 +723,6 @@ public TextureRect? PortraitTextureNode
 
  TextureRect?
 
-### <a id="DiceRoll_Components_TurnOrderComponent_SpeedAttributeType"></a> SpeedAttributeType
-
-```csharp
-private AttributeType? SpeedAttributeType
-```
-
-#### Field Value
-
- [AttributeType](DiceRoll.Models.AttributeType.md)?
-
-### <a id="DiceRoll_Components_TurnOrderComponent__attributesConfig"></a> \_attributesConfig
-
-```csharp
-private AttributesConfig? _attributesConfig
-```
-
-#### Field Value
-
- [AttributesConfig](DiceRoll.Models.AttributesConfig.md)?
-
-### <a id="DiceRoll_Components_TurnOrderComponent__characters"></a> \_characters
-
-```csharp
-private Character[] _characters
-```
-
-#### Field Value
-
- [Character](DiceRoll.Models.Character.md)\[\]
-
-### <a id="DiceRoll_Components_TurnOrderComponent__portraitTemplate"></a> \_portraitTemplate
-
-```csharp
-private PanelContainer? _portraitTemplate
-```
-
-#### Field Value
-
- PanelContainer?
-
 ## Properties
 
 ### <a id="DiceRoll_Components_TurnOrderComponent_Characters"></a> Characters
@@ -796,7 +734,7 @@ public Character[] Characters { get; set; }
 
 #### Property Value
 
- [Character](DiceRoll.Models.Character.md)\[\]
+ [Character](DiceRoll.Models.Characters.Character.md)\[\]
 
 ### <a id="DiceRoll_Components_TurnOrderComponent_PortraitDamageColorName"></a> PortraitDamageColorName
 
@@ -817,18 +755,6 @@ public string PortraitPanelName { get; }
 #### Property Value
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-### <a id="DiceRoll_Components_TurnOrderComponent_PortraitTemplateNode"></a> PortraitTemplateNode
-
-```csharp
-[ExportSubgroup("🖼️ Portrait Template", "")]
-[Export(PropertyHint.None, "")]
-private PanelContainer? PortraitTemplateNode { get; set; }
-```
-
-#### Property Value
-
- PanelContainer?
 
 ### <a id="DiceRoll_Components_TurnOrderComponent_PortraitTextureName"></a> PortraitTextureName
 
@@ -881,36 +807,6 @@ Value of the property if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Components_TurnOrderComponent_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Components_TurnOrderComponent_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
-
 ### <a id="DiceRoll_Components_TurnOrderComponent_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
 Check if the type contains a method with the given name.
@@ -960,24 +856,6 @@ Value returned by the invoked method.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_TurnOrderComponent_OnCharacterAttributeChanged_DiceRoll_Models_Character_DiceRoll_Models_AttributeType_"></a> OnCharacterAttributeChanged\(Character, AttributeType\)
-
-```csharp
-private void OnCharacterAttributeChanged(Character character, AttributeType attributeType)
-```
-
-#### Parameters
-
-`character` [Character](DiceRoll.Models.Character.md)
-
-`attributeType` [AttributeType](DiceRoll.Models.AttributeType.md)
-
-### <a id="DiceRoll_Components_TurnOrderComponent_OnPortraitTemplateChanged"></a> OnPortraitTemplateChanged\(\)
-
-```csharp
-private void OnPortraitTemplateChanged()
-```
 
 ### <a id="DiceRoll_Components_TurnOrderComponent_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
@@ -1040,19 +918,7 @@ Value to set the property to if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Components_TurnOrderComponent_SetupPortraitInstance_DiceRoll_Models_Character_Godot_PanelContainer_"></a> SetupPortraitInstance\(Character, PanelContainer\)
-
-```csharp
-private void SetupPortraitInstance(Character character, PanelContainer portraitInstance)
-```
-
-#### Parameters
-
-`character` [Character](DiceRoll.Models.Character.md)
-
-`portraitInstance` PanelContainer
-
-### <a id="DiceRoll_Components_TurnOrderComponent_UpdateTurnOrder_System_Collections_Generic_List_DiceRoll_Models_Character__"></a> UpdateTurnOrder\(List<Character\>\)
+### <a id="DiceRoll_Components_TurnOrderComponent_UpdateTurnOrder_System_Collections_Generic_List_DiceRoll_Models_Characters_Character__"></a> UpdateTurnOrder\(List<Character\>\)
 
 ```csharp
 public void UpdateTurnOrder(List<Character> characters)
@@ -1060,7 +926,7 @@ public void UpdateTurnOrder(List<Character> characters)
 
 #### Parameters
 
-`characters` [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<[Character](DiceRoll.Models.Character.md)\>
+`characters` [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<[Character](DiceRoll.Models.Characters.Character.md)\>
 
 ### <a id="DiceRoll_Components_TurnOrderComponent__Ready"></a> \_Ready\(\)
 

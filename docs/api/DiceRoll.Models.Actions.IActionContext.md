@@ -17,7 +17,7 @@ Character Attacker { get; }
 
 #### Property Value
 
- [Character](DiceRoll.Models.Character.md)
+ [Character](DiceRoll.Models.Characters.Character.md)
 
 ### <a id="DiceRoll_Models_Actions_IActionContext_Target"></a> Target
 
@@ -27,5 +27,5 @@ Character Target { get; }
 
 #### Property Value
 
- [Character](DiceRoll.Models.Character.md)
+ [Character](DiceRoll.Models.Characters.Character.md)
 

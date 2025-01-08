@@ -439,38 +439,6 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Fields
-
-### <a id="DiceRoll_Components_Grids_Grid3D_debugMesh"></a> debugMesh
-
-```csharp
-private ArrayMesh? debugMesh
-```
-
-#### Field Value
-
- ArrayMesh?
-
-### <a id="DiceRoll_Components_Grids_Grid3D_debugMeshInstance"></a> debugMeshInstance
-
-```csharp
-private MeshInstance3D? debugMeshInstance
-```
-
-#### Field Value
-
- MeshInstance3D?
-
-### <a id="DiceRoll_Components_Grids_Grid3D_gridCells"></a> gridCells
-
-```csharp
-private readonly List<GridCell3D> gridCells
-```
-
-#### Field Value
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<[GridCell3D](DiceRoll.Components.Grids.GridCell3D.md)\>
-
 ## Properties
 
 ### <a id="DiceRoll_Components_Grids_Grid3D_CharacterComponentScene"></a> CharacterComponentScene
@@ -530,24 +498,6 @@ public int Rows { get; set; }
 
 ## Methods
 
-### <a id="DiceRoll_Components_Grids_Grid3D_ClearExistingCells"></a> ClearExistingCells\(\)
-
-```csharp
-private void ClearExistingCells()
-```
-
-### <a id="DiceRoll_Components_Grids_Grid3D_CreateDebugMesh"></a> CreateDebugMesh\(\)
-
-```csharp
-private void CreateDebugMesh()
-```
-
-### <a id="DiceRoll_Components_Grids_Grid3D_CreateNewCells"></a> CreateNewCells\(\)
-
-```csharp
-private void CreateNewCells()
-```
-
 ### <a id="DiceRoll_Components_Grids_Grid3D_GenerateGridCells"></a> GenerateGridCells\(\)
 
 ```csharp
@@ -580,36 +530,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Components_Grids_Grid3D_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Components_Grids_Grid3D_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
 
 ### <a id="DiceRoll_Components_Grids_Grid3D_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
@@ -660,12 +580,6 @@ Value returned by the invoked method.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_Grids_Grid3D_RenderBattleSquadCharacters"></a> RenderBattleSquadCharacters\(\)
-
-```csharp
-private void RenderBattleSquadCharacters()
-```
 
 ### <a id="DiceRoll_Components_Grids_Grid3D_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 

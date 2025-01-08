@@ -338,38 +338,6 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Fields
-
-### <a id="DiceRoll_Events_EventBus__instance"></a> \_instance
-
-```csharp
-private static EventBus? _instance
-```
-
-#### Field Value
-
- [EventBus](DiceRoll.Events.EventBus.md)?
-
-### <a id="DiceRoll_Events_EventBus_backing_AttributeChanged"></a> backing\_AttributeChanged
-
-```csharp
-private EventBus.AttributeChangedEventHandler backing_AttributeChanged
-```
-
-#### Field Value
-
- [EventBus](DiceRoll.Events.EventBus.md).[AttributeChangedEventHandler](DiceRoll.Events.EventBus.AttributeChangedEventHandler.md)
-
-### <a id="DiceRoll_Events_EventBus_backing_CharacterSelected"></a> backing\_CharacterSelected
-
-```csharp
-private EventBus.CharacterSelectedEventHandler backing_CharacterSelected
-```
-
-#### Field Value
-
- [EventBus](DiceRoll.Events.EventBus.md).[CharacterSelectedEventHandler](DiceRoll.Events.EventBus.CharacterSelectedEventHandler.md)
-
 ## Properties
 
 ### <a id="DiceRoll_Events_EventBus_Instance"></a> Instance
@@ -384,7 +352,7 @@ public static EventBus Instance { get; }
 
 ## Methods
 
-### <a id="DiceRoll_Events_EventBus_EmitAttributeChanged_DiceRoll_Models_Character_DiceRoll_Models_AttributeType_"></a> EmitAttributeChanged\(Character, AttributeType\)
+### <a id="DiceRoll_Events_EventBus_EmitAttributeChanged_DiceRoll_Models_Characters_Character_DiceRoll_Models_Attributes_AttributeType_"></a> EmitAttributeChanged\(Character, AttributeType\)
 
 ```csharp
 public void EmitAttributeChanged(Character character, AttributeType attributeType)
@@ -392,9 +360,9 @@ public void EmitAttributeChanged(Character character, AttributeType attributeTyp
 
 #### Parameters
 
-`character` [Character](DiceRoll.Models.Character.md)
+`character` [Character](DiceRoll.Models.Characters.Character.md)
 
-`attributeType` [AttributeType](DiceRoll.Models.AttributeType.md)
+`attributeType` [AttributeType](DiceRoll.Models.Attributes.AttributeType.md)
 
 ### <a id="DiceRoll_Events_EventBus_EmitSignalAttributeChanged"></a> EmitSignalAttributeChanged\(\)
 
@@ -412,45 +380,11 @@ protected void EmitSignalCharacterSelected(CharacterComponent character)
 
 `character` [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)
 
-### <a id="DiceRoll_Events_EventBus_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
+### <a id="DiceRoll_Events_EventBus_EmitSignalCharacterUnselected"></a> EmitSignalCharacterUnselected\(\)
 
 ```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
+protected void EmitSignalCharacterUnselected()
 ```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Events_EventBus_GetGodotSignalList"></a> GetGodotSignalList\(\)
-
-Get the signal information for all the signals declared in this class.
-This method is used by Godot to register the available signals in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotSignalList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Events_EventBus_GetInstance"></a> GetInstance\(\)
-
-```csharp
-private static EventBus GetInstance()
-```
-
-#### Returns
-
- [EventBus](DiceRoll.Events.EventBus.md)
 
 ### <a id="DiceRoll_Events_EventBus_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
@@ -523,34 +457,21 @@ Value returned by the invoked method.
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-### <a id="DiceRoll_Events_EventBus_InvokeGodotClassStaticMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassStaticMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
+### <a id="DiceRoll_Events_EventBus_OnCharacterSelected_DiceRoll_Components_Characters_CharacterComponent_"></a> OnCharacterSelected\(CharacterComponent\)
 
 ```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static bool InvokeGodotClassStaticMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)
+public void OnCharacterSelected(CharacterComponent character)
 ```
 
 #### Parameters
 
-`method` godot\_string\_name
+`character` [CharacterComponent](DiceRoll.Components.Characters.CharacterComponent.md)
 
-`args` NativeVariantPtrArgs
-
-`ret` godot\_variant
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Events_EventBus_OnCharacterInspected_DiceRoll_Models_Character_"></a> OnCharacterInspected\(Character\)
+### <a id="DiceRoll_Events_EventBus_OnCharacterUnselected"></a> OnCharacterUnselected\(\)
 
 ```csharp
-public void OnCharacterInspected(Character character)
+public void OnCharacterUnselected()
 ```
-
-#### Parameters
-
-`character` [Character](DiceRoll.Models.Character.md)
 
 ### <a id="DiceRoll_Events_EventBus_RaiseGodotClassSignalCallbacks_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_"></a> RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\)
 
@@ -607,6 +528,23 @@ protected override void SaveGodotObjectData(GodotSerializationInfo info)
 
 Object used to save the data.
 
+### <a id="DiceRoll_Events_EventBus__Input_Godot_InputEvent_"></a> \_Input\(InputEvent\)
+
+<p>Called when there is an input event. The input event propagates up through the node tree until a node consumes it.</p>
+<p>It is only called if input processing is enabled, which is done automatically if this method is overridden, and can be toggled with <xref href="Godot.Node.SetProcessInput(System.Boolean)" data-throw-if-not-resolved="false"></xref>.</p>
+<p>To consume the input event and stop it propagating further to other nodes, <xref href="Godot.Viewport.SetInputAsHandled" data-throw-if-not-resolved="false"></xref> can be called.</p>
+<p>For gameplay input, <xref href="Godot.Node._UnhandledInput(Godot.InputEvent)" data-throw-if-not-resolved="false"></xref> and <xref href="Godot.Node._UnhandledKeyInput(Godot.InputEvent)" data-throw-if-not-resolved="false"></xref> are usually a better fit as they allow the GUI to intercept the events first.</p>
+<p>
+  <b>Note:</b> This method is only called if the node is present in the scene tree (i.e. if it's not an orphan).</p>
+
+```csharp
+public override void _Input(InputEvent @event)
+```
+
+#### Parameters
+
+`event` InputEvent
+
 ### <a id="DiceRoll_Events_EventBus__Ready"></a> \_Ready\(\)
 
 <p>Called when the node is "ready", i.e. when both the node and its children have entered the scene tree. If the node has children, their <xref href="Godot.Node._Ready" data-throw-if-not-resolved="false"></xref> callbacks get triggered first, and the parent node will receive the ready notification afterwards.</p>
@@ -638,4 +576,14 @@ public event EventBus.CharacterSelectedEventHandler CharacterSelected
 #### Event Type
 
  [EventBus](DiceRoll.Events.EventBus.md).[CharacterSelectedEventHandler](DiceRoll.Events.EventBus.CharacterSelectedEventHandler.md)
+
+### <a id="DiceRoll_Events_EventBus_CharacterUnselected"></a> CharacterUnselected
+
+```csharp
+public event EventBus.CharacterUnselectedEventHandler CharacterUnselected
+```
+
+#### Event Type
+
+ [EventBus](DiceRoll.Events.EventBus.md).[CharacterUnselectedEventHandler](DiceRoll.Events.EventBus.CharacterUnselectedEventHandler.md)
 

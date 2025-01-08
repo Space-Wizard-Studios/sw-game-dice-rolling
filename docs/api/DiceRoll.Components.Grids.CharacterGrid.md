@@ -445,8 +445,6 @@ GodotObject.PropertyListChanged,
 
 ### <a id="DiceRoll_Components_Grids_CharacterGrid_GridConfigurations"></a> GridConfigurations
 
-The configurations for the character grids.
-
 ```csharp
 [Export(PropertyHint.None, "")]
 public CharacterGridType[] GridConfigurations
@@ -454,33 +452,11 @@ public CharacterGridType[] GridConfigurations
 
 #### Field Value
 
- [CharacterGridType](DiceRoll.Models.CharacterGrid.CharacterGridType.md)\[\]
-
-### <a id="DiceRoll_Components_Grids_CharacterGrid__connections"></a> \_connections
-
-```csharp
-private readonly Dictionary<CharacterGridType, Callable> _connections
-```
-
-#### Field Value
-
- Dictionary<[CharacterGridType](DiceRoll.Models.CharacterGrid.CharacterGridType.md), Callable\>
-
-### <a id="DiceRoll_Components_Grids_CharacterGrid__initialPositions"></a> \_initialPositions
-
-```csharp
-private readonly Dictionary<Grid3D, float> _initialPositions
-```
-
-#### Field Value
-
- Dictionary<[Grid3D](DiceRoll.Components.Grids.Grid3D.md), [float](https://learn.microsoft.com/dotnet/api/system.single)\>
+ [CharacterGridType](DiceRoll.Models.Characters.Grid.CharacterGridType.md)\[\]
 
 ## Properties
 
 ### <a id="DiceRoll_Components_Grids_CharacterGrid_CharacterComponentScene"></a> CharacterComponentScene
-
-The scene to be used for character components.
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -491,76 +467,7 @@ public PackedScene? CharacterComponentScene { get; set; }
 
  PackedScene?
 
-### <a id="DiceRoll_Components_Grids_CharacterGrid_GenerateGridButton"></a> GenerateGridButton
-
-Button to generate the grid in the editor.
-
-```csharp
-[ExportToolButton("Generate Grid")]
-private Callable GenerateGridButton { get; }
-```
-
-#### Property Value
-
- Callable
-
 ## Methods
-
-### <a id="DiceRoll_Components_Grids_CharacterGrid_ClearExistingGrids"></a> ClearExistingGrids\(\)
-
-Clears existing grids from the scene.
-
-```csharp
-private void ClearExistingGrids()
-```
-
-### <a id="DiceRoll_Components_Grids_CharacterGrid_CreateGrid_DiceRoll_Models_CharacterGrid_CharacterGridType_System_Single__"></a> CreateGrid\(CharacterGridType, ref float\)
-
-Creates a new grid based on the configuration.
-
-```csharp
-private Grid3D CreateGrid(CharacterGridType config, ref float currentXPosition)
-```
-
-#### Parameters
-
-`config` [CharacterGridType](DiceRoll.Models.CharacterGrid.CharacterGridType.md)
-
-The grid configuration.
-
-`currentXPosition` [float](https://learn.microsoft.com/dotnet/api/system.single)
-
-The current X position for the grid.
-
-#### Returns
-
- [Grid3D](DiceRoll.Components.Grids.Grid3D.md)
-
-The created grid.
-
-### <a id="DiceRoll_Components_Grids_CharacterGrid_CreateNewGrids"></a> CreateNewGrids\(\)
-
-Creates new grids based on the configurations.
-
-```csharp
-private void CreateNewGrids()
-```
-
-### <a id="DiceRoll_Components_Grids_CharacterGrid_DisconnectGridConfigurations"></a> DisconnectGridConfigurations\(\)
-
-Disconnects the grid configurations.
-
-```csharp
-private void DisconnectGridConfigurations()
-```
-
-### <a id="DiceRoll_Components_Grids_CharacterGrid_GenerateGrids"></a> GenerateGrids\(\)
-
-Generates the grids based on the configurations.
-
-```csharp
-private void GenerateGrids()
-```
 
 ### <a id="DiceRoll_Components_Grids_CharacterGrid_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
@@ -588,36 +495,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Components_Grids_CharacterGrid_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_Components_Grids_CharacterGrid_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
 
 ### <a id="DiceRoll_Components_Grids_CharacterGrid_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
@@ -668,45 +545,6 @@ Value returned by the invoked method.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_Grids_CharacterGrid_InvokeGodotClassStaticMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassStaticMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static bool InvokeGodotClassStaticMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)
-```
-
-#### Parameters
-
-`method` godot\_string\_name
-
-`args` NativeVariantPtrArgs
-
-`ret` godot\_variant
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Components_Grids_CharacterGrid_IsValidGridConfiguration_DiceRoll_Models_CharacterGrid_CharacterGridType_"></a> IsValidGridConfiguration\(CharacterGridType\)
-
-Validates the grid configuration.
-
-```csharp
-private static bool IsValidGridConfiguration(CharacterGridType config)
-```
-
-#### Parameters
-
-`config` [CharacterGridType](DiceRoll.Models.CharacterGrid.CharacterGridType.md)
-
-The grid configuration to validate.
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-True if the configuration is valid, otherwise false.
 
 ### <a id="DiceRoll_Components_Grids_CharacterGrid_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 

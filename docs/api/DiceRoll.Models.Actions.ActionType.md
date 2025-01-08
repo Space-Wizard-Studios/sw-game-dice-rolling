@@ -6,8 +6,8 @@ Assembly: dice\-roll.dll
 ```csharp
 [Tool]
 [GlobalClass]
-[ScriptPath("res://models/Action/ActionType/ActionType.cs")]
-public class ActionType : Resource, IDisposable
+[ScriptPath("res://models/Action/ActionType.cs")]
+public class ActionType : Resource, IDisposable, IAction<IActionContext, bool>
 ```
 
 #### Inheritance
@@ -20,7 +20,8 @@ Resource ←
 
 #### Implements
 
-[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
+[IAction<IActionContext, bool\>](DiceRoll.Models.Actions.IAction\-2.md)
 
 #### Inherited Members
 
@@ -168,55 +169,32 @@ GodotObject.PropertyListChanged,
 public ActionType()
 ```
 
-### <a id="DiceRoll_Models_Actions_ActionType__ctor_System_String_System_String_Godot_Texture2D_"></a> ActionType\(string, string, Texture2D\)
+### <a id="DiceRoll_Models_Actions_ActionType__ctor_DiceRoll_Models_Actions_Categories_ActionCategory_Godot_Collections_Array_DiceRoll_Models_DiceMana__Godot_Collections_Array_DiceRoll_Models_Actions_Effects_EffectType__"></a> ActionType\(ActionCategory, Array<DiceMana\>, Array<EffectType\>\)
 
 ```csharp
-public ActionType(string name, string description, Texture2D icon)
+public ActionType(ActionCategory category, Array<DiceMana> requiredMana, Array<EffectType> effects)
 ```
 
 #### Parameters
 
-`name` [string](https://learn.microsoft.com/dotnet/api/system.string)
+`category` [ActionCategory](DiceRoll.Models.Actions.Categories.ActionCategory.md)
 
-`description` [string](https://learn.microsoft.com/dotnet/api/system.string)
+`requiredMana` Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
 
-`icon` Texture2D
-
-## Fields
-
-### <a id="DiceRoll_Models_Actions_ActionType__icon"></a> \_icon
-
-```csharp
-private Texture2D? _icon
-```
-
-#### Field Value
-
- Texture2D?
+`effects` Array<[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)\>
 
 ## Properties
 
-### <a id="DiceRoll_Models_Actions_ActionType_DefaultEffects"></a> DefaultEffects
+### <a id="DiceRoll_Models_Actions_ActionType_Category"></a> Category
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Array<EffectType> DefaultEffects { get; set; }
+public ActionCategory? Category { get; set; }
 ```
 
 #### Property Value
 
- Array<[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)\>
-
-### <a id="DiceRoll_Models_Actions_ActionType_DefaultRequiredMana"></a> DefaultRequiredMana
-
-```csharp
-[Export(PropertyHint.None, "")]
-public Array<DiceMana> DefaultRequiredMana { get; set; }
-```
-
-#### Property Value
-
- Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
+ [ActionCategory](DiceRoll.Models.Actions.Categories.ActionCategory.md)?
 
 ### <a id="DiceRoll_Models_Actions_ActionType_Description"></a> Description
 
@@ -228,6 +206,17 @@ public string? Description { get; set; }
 #### Property Value
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
+### <a id="DiceRoll_Models_Actions_ActionType_Effects"></a> Effects
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Array<EffectType> Effects { get; set; }
+```
+
+#### Property Value
+
+ Array<[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)\>
 
 ### <a id="DiceRoll_Models_Actions_ActionType_Icon"></a> Icon
 
@@ -243,12 +232,23 @@ public Texture2D? Icon { get; set; }
 ### <a id="DiceRoll_Models_Actions_ActionType_IconPath"></a> IconPath
 
 ```csharp
-public string? IconPath { get; private set; }
+public string? IconPath { get; }
 ```
 
 #### Property Value
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
+### <a id="DiceRoll_Models_Actions_ActionType_Id"></a> Id
+
+```csharp
+[Export(PropertyHint.None, "")]
+public string Id { get; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
 
 ### <a id="DiceRoll_Models_Actions_ActionType_Name"></a> Name
 
@@ -261,7 +261,32 @@ public string? Name { get; set; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
+### <a id="DiceRoll_Models_Actions_ActionType_RequiredMana"></a> RequiredMana
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Array<DiceMana> RequiredMana { get; set; }
+```
+
+#### Property Value
+
+ Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
+
 ## Methods
+
+### <a id="DiceRoll_Models_Actions_ActionType_Do_DiceRoll_Models_Actions_IActionContext_"></a> Do\(IActionContext\)
+
+```csharp
+public bool Do(IActionContext context)
+```
+
+#### Parameters
+
+`context` [IActionContext](DiceRoll.Models.Actions.IActionContext.md)
+
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 ### <a id="DiceRoll_Models_Actions_ActionType_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
@@ -289,21 +314,6 @@ Value of the property if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
-
-### <a id="DiceRoll_Models_Actions_ActionType_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
 
 ### <a id="DiceRoll_Models_Actions_ActionType_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 

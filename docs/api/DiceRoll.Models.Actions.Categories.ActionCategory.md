@@ -1,12 +1,13 @@
-# <a id="DiceRoll_Models_DiceManaResources"></a> Class DiceManaResources
+# <a id="DiceRoll_Models_Actions_Categories_ActionCategory"></a> Class ActionCategory
 
-Namespace: [DiceRoll.Models](DiceRoll.Models.md)  
+Namespace: [DiceRoll.Models.Actions.Categories](DiceRoll.Models.Actions.Categories.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
 [Tool]
-[ScriptPath("res://models/Dice/DiceMana/DiceManaResources.cs")]
-public class DiceManaResources : Resource, IDisposable
+[GlobalClass]
+[ScriptPath("res://models/Action/Category/ActionCategory.cs")]
+public class ActionCategory : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -15,7 +16,7 @@ public class DiceManaResources : Resource, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[DiceManaResources](DiceRoll.Models.DiceManaResources.md)
+[ActionCategory](DiceRoll.Models.Actions.Categories.ActionCategory.md)
 
 #### Implements
 
@@ -161,28 +162,96 @@ GodotObject.PropertyListChanged,
 
 ## Constructors
 
-### <a id="DiceRoll_Models_DiceManaResources__ctor"></a> DiceManaResources\(\)
+### <a id="DiceRoll_Models_Actions_Categories_ActionCategory__ctor"></a> ActionCategory\(\)
 
 ```csharp
-public DiceManaResources()
+public ActionCategory()
 ```
+
+### <a id="DiceRoll_Models_Actions_Categories_ActionCategory__ctor_System_String_System_String_Godot_Texture2D_"></a> ActionCategory\(string, string, Texture2D\)
+
+```csharp
+public ActionCategory(string name, string description, Texture2D icon)
+```
+
+#### Parameters
+
+`name` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+`description` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+`icon` Texture2D
 
 ## Properties
 
-### <a id="DiceRoll_Models_DiceManaResources_DiceManas"></a> DiceManas
+### <a id="DiceRoll_Models_Actions_Categories_ActionCategory_DefaultEffects"></a> DefaultEffects
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Array<DiceMana> DiceManas { get; set; }
+public Array<EffectType> DefaultEffects { get; set; }
+```
+
+#### Property Value
+
+ Array<[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)\>
+
+### <a id="DiceRoll_Models_Actions_Categories_ActionCategory_DefaultRequiredMana"></a> DefaultRequiredMana
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Array<DiceMana> DefaultRequiredMana { get; set; }
 ```
 
 #### Property Value
 
  Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
 
+### <a id="DiceRoll_Models_Actions_Categories_ActionCategory_Description"></a> Description
+
+```csharp
+[Export(PropertyHint.MultilineText, "")]
+public string? Description { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
+### <a id="DiceRoll_Models_Actions_Categories_ActionCategory_Icon"></a> Icon
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Texture2D? Icon { get; set; }
+```
+
+#### Property Value
+
+ Texture2D?
+
+### <a id="DiceRoll_Models_Actions_Categories_ActionCategory_IconPath"></a> IconPath
+
+```csharp
+public string? IconPath { get; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
+### <a id="DiceRoll_Models_Actions_Categories_ActionCategory_Name"></a> Name
+
+```csharp
+[Export(PropertyHint.None, "")]
+public string? Name { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
 ## Methods
 
-### <a id="DiceRoll_Models_DiceManaResources_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
+### <a id="DiceRoll_Models_Actions_Categories_ActionCategory_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
 Get the value of a property contained in this class.
 This method is used by Godot to retrieve property values.
@@ -209,7 +278,7 @@ Value of the property if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Models_DiceManaResources_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Actions_Categories_ActionCategory_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
 Restores this instance's state after reloading assemblies.
 Do not call or override this method.
@@ -226,7 +295,7 @@ protected override void RestoreGodotObjectData(GodotSerializationInfo info)
 
 Object that contains the previously saved data.
 
-### <a id="DiceRoll_Models_DiceManaResources_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Actions_Categories_ActionCategory_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
 
 Saves this instance's state to be restored when reloading assemblies.
 Do not call or override this method.
@@ -243,7 +312,7 @@ protected override void SaveGodotObjectData(GodotSerializationInfo info)
 
 Object used to save the data.
 
-### <a id="DiceRoll_Models_DiceManaResources_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
+### <a id="DiceRoll_Models_Actions_Categories_ActionCategory_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
 
 Set the value of a property contained in this class.
 This method is used by Godot to assign property values.

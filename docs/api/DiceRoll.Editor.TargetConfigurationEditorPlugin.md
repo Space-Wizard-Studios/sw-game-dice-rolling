@@ -5,7 +5,7 @@ Assembly: dice\-roll.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://addons/TargetConfigurationEditorPlugin/TargetConfigurationEditorPlugin.cs")]
+[ScriptPath("res://addons/@spacewiz/TargetConfigurationEditorPlugin/TargetConfigurationEditorPlugin.cs")]
 public class TargetConfigurationEditorPlugin : EditorPlugin, IDisposable
 ```
 
@@ -430,21 +430,6 @@ GodotObject.PropertyListChanged,
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
 ## Methods
-
-### <a id="DiceRoll_Editor_TargetConfigurationEditorPlugin_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
 
 ### <a id="DiceRoll_Editor_TargetConfigurationEditorPlugin_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 

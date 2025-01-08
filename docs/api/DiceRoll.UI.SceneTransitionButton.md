@@ -775,38 +775,6 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Fields
-
-### <a id="DiceRoll_UI_SceneTransitionButton__gameplayTransitionManager"></a> \_gameplayTransitionManager
-
-```csharp
-private GameplayTransitionManager? _gameplayTransitionManager
-```
-
-#### Field Value
-
- [GameplayTransitionManager](DiceRoll.Managers.GameplayTransitionManager.md)?
-
-### <a id="DiceRoll_UI_SceneTransitionButton__menuTransitionManager"></a> \_menuTransitionManager
-
-```csharp
-private MenuTransitionManager? _menuTransitionManager
-```
-
-#### Field Value
-
- [MenuTransitionManager](DiceRoll.Managers.MenuTransitionManager.md)?
-
-### <a id="DiceRoll_UI_SceneTransitionButton__typeOfTransition"></a> \_typeOfTransition
-
-```csharp
-private TransitionType _typeOfTransition
-```
-
-#### Field Value
-
- [TransitionType](DiceRoll.UI.TransitionType.md)
-
 ## Properties
 
 ### <a id="DiceRoll_UI_SceneTransitionButton_GameplayScene"></a> GameplayScene
@@ -871,36 +839,6 @@ Value of the property if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_UI_SceneTransitionButton_GetGodotMethodList"></a> GetGodotMethodList\(\)
-
-Get the method information for all the methods declared in this class.
-This method is used by Godot to register the available methods in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<MethodInfo> GetGodotMethodList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<MethodInfo\>
-
-### <a id="DiceRoll_UI_SceneTransitionButton_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
-
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
-
-```csharp
-[EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
-```
-
-#### Returns
-
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
-
 ### <a id="DiceRoll_UI_SceneTransitionButton_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
 Check if the type contains a method with the given name.
@@ -950,12 +888,6 @@ Value returned by the invoked method.
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_UI_SceneTransitionButton_OnButtonPressed"></a> OnButtonPressed\(\)
-
-```csharp
-private void OnButtonPressed()
-```
 
 ### <a id="DiceRoll_UI_SceneTransitionButton_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 

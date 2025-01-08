@@ -1,13 +1,13 @@
-# <a id="DiceRoll_Models_Actions_Action"></a> Class Action
+# <a id="DiceRoll_Models_Actions_Targets_GridConfiguration"></a> Class GridConfiguration
 
-Namespace: [DiceRoll.Models.Actions](DiceRoll.Models.Actions.md)  
+Namespace: [DiceRoll.Models.Actions.Targets](DiceRoll.Models.Actions.Targets.md)  
 Assembly: dice\-roll.dll  
 
 ```csharp
 [Tool]
 [GlobalClass]
-[ScriptPath("res://models/Action/Action.cs")]
-public class Action : Resource, IDisposable, IAction<IActionContext, bool>
+[ScriptPath("res://models/Action/Target/GridConfiguration.cs")]
+public class GridConfiguration : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -16,12 +16,11 @@ public class Action : Resource, IDisposable, IAction<IActionContext, bool>
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[Action](DiceRoll.Models.Actions.Action.md)
+[GridConfiguration](DiceRoll.Models.Actions.Targets.GridConfiguration.md)
 
 #### Implements
 
-[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
-[IAction<IActionContext, bool\>](DiceRoll.Models.Actions.IAction\-2.md)
+[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
 
 #### Inherited Members
 
@@ -163,168 +162,79 @@ GodotObject.PropertyListChanged,
 
 ## Constructors
 
-### <a id="DiceRoll_Models_Actions_Action__ctor"></a> Action\(\)
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration__ctor"></a> GridConfiguration\(\)
 
 ```csharp
-public Action()
+public GridConfiguration()
 ```
 
-### <a id="DiceRoll_Models_Actions_Action__ctor_DiceRoll_Models_Actions_ActionType_DiceRoll_Models_Actions_ActionSource_Godot_Collections_Array_DiceRoll_Models_DiceMana__Godot_Collections_Array_DiceRoll_Models_Actions_Effects_EffectType__"></a> Action\(ActionType, ActionSource, Array<DiceMana\>, Array<EffectType\>\)
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration__ctor_System_Int32_System_Int32_"></a> GridConfiguration\(int, int\)
 
 ```csharp
-public Action(ActionType actionType, ActionSource source, Array<DiceMana> requiredMana, Array<EffectType> effects)
+public GridConfiguration(int rows, int columns)
 ```
 
 #### Parameters
 
-`actionType` [ActionType](DiceRoll.Models.Actions.ActionType.md)
+`rows` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-`source` [ActionSource](DiceRoll.Models.Actions.ActionSource.md)
-
-`requiredMana` Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
-
-`effects` Array<[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)\>
-
-## Fields
-
-### <a id="DiceRoll_Models_Actions_Action__icon"></a> \_icon
-
-```csharp
-private Texture2D? _icon
-```
-
-#### Field Value
-
- Texture2D?
+`columns` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
 ## Properties
 
-### <a id="DiceRoll_Models_Actions_Action_ActionType"></a> ActionType
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_Cells"></a> Cells
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public ActionType? ActionType { get; set; }
+public Array<int> Cells { get; set; }
 ```
 
 #### Property Value
 
- [ActionType](DiceRoll.Models.Actions.ActionType.md)?
+ Array<[int](https://learn.microsoft.com/dotnet/api/system.int32)\>
 
-### <a id="DiceRoll_Models_Actions_Action_Description"></a> Description
-
-```csharp
-[Export(PropertyHint.MultilineText, "")]
-public string? Description { get; set; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
-### <a id="DiceRoll_Models_Actions_Action_Effects"></a> Effects
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_Columns"></a> Columns
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Array<EffectType> Effects { get; set; }
+public int Columns { get; set; }
 ```
 
 #### Property Value
 
- Array<[EffectType](DiceRoll.Models.Actions.Effects.EffectType.md)\>
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-### <a id="DiceRoll_Models_Actions_Action_Icon"></a> Icon
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_Prefix"></a> Prefix
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Texture2D? Icon { get; set; }
-```
-
-#### Property Value
-
- Texture2D?
-
-### <a id="DiceRoll_Models_Actions_Action_IconPath"></a> IconPath
-
-```csharp
-public string? IconPath { get; private set; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
-### <a id="DiceRoll_Models_Actions_Action_Id"></a> Id
-
-```csharp
-[Export(PropertyHint.None, "")]
-public string Id { get; private set; }
+public string Prefix { get; set; }
 ```
 
 #### Property Value
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-### <a id="DiceRoll_Models_Actions_Action_Name"></a> Name
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_Rows"></a> Rows
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public string? Name { get; set; }
+public int Rows { get; set; }
 ```
 
 #### Property Value
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
-### <a id="DiceRoll_Models_Actions_Action_RequiredMana"></a> RequiredMana
-
-```csharp
-[Export(PropertyHint.None, "")]
-public Array<DiceMana> RequiredMana { get; set; }
-```
-
-#### Property Value
-
- Array<[DiceMana](DiceRoll.Models.DiceMana.md)\>
-
-### <a id="DiceRoll_Models_Actions_Action_Source"></a> Source
-
-```csharp
-[Export(PropertyHint.None, "")]
-public ActionSource? Source { get; set; }
-```
-
-#### Property Value
-
- [ActionSource](DiceRoll.Models.Actions.ActionSource.md)?
-
-### <a id="DiceRoll_Models_Actions_Action_TargetConfiguration"></a> TargetConfiguration
-
-```csharp
-[Export(PropertyHint.None, "")]
-private TargetConfiguration? TargetConfiguration { get; set; }
-```
-
-#### Property Value
-
- [TargetConfiguration](DiceRoll.Models.Actions.Target.TargetConfiguration.md)?
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
 ## Methods
 
-### <a id="DiceRoll_Models_Actions_Action_Do_DiceRoll_Models_Actions_IActionContext_"></a> Do\(IActionContext\)
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_EmitSignalConfigurationChanged"></a> EmitSignalConfigurationChanged\(\)
 
 ```csharp
-public bool Do(IActionContext context)
+protected void EmitSignalConfigurationChanged()
 ```
 
-#### Parameters
-
-`context` [IActionContext](DiceRoll.Models.Actions.IActionContext.md)
-
-#### Returns
-
- [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
-
-### <a id="DiceRoll_Models_Actions_Action_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_GetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> GetGodotClassPropertyValue\(in godot\_string\_name, out godot\_variant\)
 
 Get the value of a property contained in this class.
 This method is used by Godot to retrieve property values.
@@ -351,22 +261,99 @@ Value of the property if it was found.
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
 
-### <a id="DiceRoll_Models_Actions_Action_GetGodotPropertyList"></a> GetGodotPropertyList\(\)
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassMethod\(in godot\_string\_name\)
 
-Get the property information for all the properties declared in this class.
-This method is used by Godot to register the available properties in the editor.
-Do not call this method.
+Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.
 
 ```csharp
 [EditorBrowsable(EditorBrowsableState.Never)]
-internal static List<PropertyInfo> GetGodotPropertyList()
+protected override bool HasGodotClassMethod(in godot_string_name method)
 ```
+
+#### Parameters
+
+`method` godot\_string\_name
+
+Name of the method to check for.
 
 #### Returns
 
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<PropertyInfo\>
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
-### <a id="DiceRoll_Models_Actions_Action_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__"></a> HasGodotClassSignal\(in godot\_string\_name\)
+
+Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.
+
+```csharp
+[EditorBrowsable(EditorBrowsableState.Never)]
+protected override bool HasGodotClassSignal(in godot_string_name signal)
+```
+
+#### Parameters
+
+`signal` godot\_string\_name
+
+Name of the signal to check for.
+
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__"></a> InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\)
+
+Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.
+
+```csharp
+[EditorBrowsable(EditorBrowsableState.Never)]
+protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)
+```
+
+#### Parameters
+
+`method` godot\_string\_name
+
+Name of the method to invoke.
+
+`args` NativeVariantPtrArgs
+
+Arguments to use with the invoked method.
+
+`ret` godot\_variant
+
+Value returned by the invoked method.
+
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_RaiseGodotClassSignalCallbacks_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_"></a> RaiseGodotClassSignalCallbacks\(in godot\_string\_name, NativeVariantPtrArgs\)
+
+Raises the signal with the given name, using the given arguments.
+This method is used by Godot to raise signals from the engine side.\n"
+Do not call or override this method.
+
+```csharp
+[EditorBrowsable(EditorBrowsableState.Never)]
+protected override void RaiseGodotClassSignalCallbacks(in godot_string_name signal, NativeVariantPtrArgs args)
+```
+
+#### Parameters
+
+`signal` godot\_string\_name
+
+Name of the signal to raise.
+
+`args` NativeVariantPtrArgs
+
+Arguments to use with the raised signal.
+
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_RestoreGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> RestoreGodotObjectData\(GodotSerializationInfo\)
 
 Restores this instance's state after reloading assemblies.
 Do not call or override this method.
@@ -383,7 +370,7 @@ protected override void RestoreGodotObjectData(GodotSerializationInfo info)
 
 Object that contains the previously saved data.
 
-### <a id="DiceRoll_Models_Actions_Action_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_SaveGodotObjectData_Godot_Bridge_GodotSerializationInfo_"></a> SaveGodotObjectData\(GodotSerializationInfo\)
 
 Saves this instance's state to be restored when reloading assemblies.
 Do not call or override this method.
@@ -400,7 +387,7 @@ protected override void SaveGodotObjectData(GodotSerializationInfo info)
 
 Object used to save the data.
 
-### <a id="DiceRoll_Models_Actions_Action_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_SetGodotClassPropertyValue_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_godot_variant__"></a> SetGodotClassPropertyValue\(in godot\_string\_name, in godot\_variant\)
 
 Set the value of a property contained in this class.
 This method is used by Godot to assign property values.
@@ -426,4 +413,14 @@ Value to set the property to if it was found.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a property with the given name was found.
+
+### <a id="DiceRoll_Models_Actions_Targets_GridConfiguration_ConfigurationChanged"></a> ConfigurationChanged
+
+```csharp
+public event GridConfiguration.ConfigurationChangedEventHandler ConfigurationChanged
+```
+
+#### Event Type
+
+ [GridConfiguration](DiceRoll.Models.Actions.Targets.GridConfiguration.md).[ConfigurationChangedEventHandler](DiceRoll.Models.Actions.Targets.GridConfiguration.ConfigurationChangedEventHandler.md)
 

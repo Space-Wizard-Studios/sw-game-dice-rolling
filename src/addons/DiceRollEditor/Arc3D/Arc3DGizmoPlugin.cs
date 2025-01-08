@@ -41,7 +41,7 @@ public partial class Arc3DGizmoPlugin : EditorNode3DGizmoPlugin {
     /// </summary>
     /// <returns>The name of the gizmo.</returns>
     public override string _GetGizmoName() {
-        return "LineRenderer Gizmo";
+        return "@spacewiz Arc3D Gizmo";
     }
 
     /// <summary>

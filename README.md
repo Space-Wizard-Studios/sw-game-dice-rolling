@@ -31,7 +31,7 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
 
 ```powershell
 ./src/
-├── addons/                 # bibliotecas third party
+├── addons/                 # bibliotecas third party e editor plugins
 ├── assets/                 # assets como sprites, sons, texturas e respectivos arquivos de configuração
 ├── components/             # nodes a serem exibidos nas cenas e respectivos arquivos de
 ├── core/                   # core game logic and systems

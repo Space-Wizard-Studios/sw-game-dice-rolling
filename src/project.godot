@@ -22,6 +22,8 @@ MenuTransitionManager="*res://scenes/MenuTransitionManager.tscn"
 PlaygroundTransitionManager="*res://scenes/PlaygroundTransitionManager.tscn"
 DiceStore="*res://core/stores/DiceStore.cs"
 GameLogStore="*res://core/stores/GameLogStore.cs"
+Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
+Shaker="*res://addons/shaker/src/Shaker.gd"
 
 [collada]
 
@@ -49,7 +51,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/TargetConfigurationEditorPlugin/plugin.cfg", "res://addons/imrp/plugin.cfg")
+enabled=PackedStringArray("res://addons/DiceRollEditor/Arc3D/plugin.cfg", "res://addons/DiceRollEditor/TargetConfigurationEditorPlugin/plugin.cfg", "res://addons/DragNDropNodes/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/shaker/plugin.cfg")
 
 [file_customization]
 

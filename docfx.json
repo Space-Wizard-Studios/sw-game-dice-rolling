@@ -20,7 +20,7 @@
       "enumSortOrder": "declaringOrder",
       "globalNamespaceId": "DiceRoll",
       "includePrivateMembers": false,
-      "disableDefaultFilter": true,
+      "disableDefaultFilter": false,
       "filter": "filterConfig.yml"
     }
   ]

@@ -1,4 +1,4 @@
-# Resumo da Gameplay
+# Gameplay
 
 ## Loop Principal
 

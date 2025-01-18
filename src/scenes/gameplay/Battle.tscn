@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://8n50xik7xid3"]
+[gd_scene load_steps=16 format=3 uid="uid://8n50xik7xid3"]
 
 [ext_resource type="Script" uid="uid://jc3rfy1j13nu" path="res://core/managers/gameplay/BattleManager.cs" id="1_oeh3a"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="2_cgh0m"]
 [ext_resource type="PackedScene" uid="uid://c22tpnmaefgn4" path="res://components/HUDComponent/HUDComponent.tscn" id="2_k1t2d"]
+[ext_resource type="Resource" uid="uid://d22hmntd0rfq2" path="res://core/stores/CharacterStore/EnemyCharacterStore.tres" id="7_6v2rn"]
 [ext_resource type="Texture2D" uid="uid://byujdpnhcw2vd" path="res://assets/prototype/Dark/texture_01.png" id="8_vpfel"]
 [ext_resource type="Resource" uid="uid://snt34yslyn4f" path="res://core/stores/CharacterStore/PlayerCharacterStore.tres" id="9_eybki"]
 [ext_resource type="Script" uid="uid://bdnimh7atef30" path="res://models/Character/Grid/CharacterGridType.cs" id="10_c5xwm"]
@@ -35,6 +36,7 @@ metadata/_custom_type_script = ExtResource("10_c5xwm")
 
 [sub_resource type="Resource" id="Resource_eybki"]
 script = ExtResource("10_c5xwm")
+CharacterStore = ExtResource("7_6v2rn")
 Rows = 2
 Columns = 3
 Offset = 2

@@ -100,7 +100,7 @@ public partial class Grid3D : Node3D {
         }
 
         foreach (var character in CharacterStore.Characters) {
-            if (character.Location?.Name == "Battle Squad" && character.SlotIndex >= 0 && character.SlotIndex < gridCells.Count) {
+            if (character.Location?.Name == "Player Squad" || character.Location?.Name == "Enemy Squad" && character.SlotIndex >= 0 && character.SlotIndex < gridCells.Count) {
                 // Instantiate the CharacterComponent from the packed scene
                 var characterComponent = CharacterComponentScene.Instantiate<CharacterComponent>();
                 if (characterComponent is null) {

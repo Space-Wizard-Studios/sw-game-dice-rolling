@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="1_fnlle"]
 [ext_resource type="Theme" uid="uid://dxg2mh1ceh3pc" path="res://components/TurnOrderComponent/TurnOrderTheme.tres" id="1_o2pqp"]
 [ext_resource type="Script" uid="uid://016w4jxplp8d" path="res://components/TurnOrderComponent/TurnOrderComponent.cs" id="2_aj4ue"]
-[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Characters/Eleonore.tres" id="3_8cip4"]
+[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Characters/Playable/Eleonore.tres" id="3_8cip4"]
 [ext_resource type="Resource" uid="uid://b4niu7ewhuinj" path="res://models/Attribute/AttributesConfig.tres" id="3_vlbb0"]
-[ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://models/Character/Characters/Joanna.tres" id="5_ntmsh"]
+[ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://models/Character/Characters/Playable/Joanna.tres" id="5_ntmsh"]
 
 [node name="TurnOrder" type="Control" node_paths=PackedStringArray("PortraitsContainerNode", "PortraitTemplateNode", "PortraitPanelNode", "PortraitTextureNode", "PortraitDamageColorNode")]
 layout_mode = 3

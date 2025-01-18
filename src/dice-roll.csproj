@@ -1,5 +1,4 @@
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="dice-roll.xsd" Sdk="Godot.NET.Sdk/4.4.0-dev.7">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="dice-roll.xsd" Sdk="Godot.NET.Sdk/4.4.0-beta.1">
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
         <EnableDynamicLoading>true</EnableDynamicLoading>

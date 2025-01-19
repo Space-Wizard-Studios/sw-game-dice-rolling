@@ -1,6 +1,10 @@
 using Godot;
 using Godot.Collections;
 using DiceRoll.Models.Characters.Grid;
+using DiceRoll.Models.Actions.Targets;
+using DiceRoll.Events;
+using System;
+using System.Collections.Generic;
 
 namespace DiceRoll.Components.Grids;
 
@@ -11,8 +15,9 @@ namespace DiceRoll.Components.Grids;
 public partial class CharacterGrid : Node3D {
     [Export] public CharacterGridType[] GridConfigurations = [];
     [Export] public PackedScene? CharacterComponentScene { get; set; }
-    private readonly Dictionary<CharacterGridType, Callable> _connections = [];
-    private readonly Dictionary<Grid3D, float> _initialPositions = [];
+    private readonly System.Collections.Generic.Dictionary<CharacterGridType, Callable> _connections = [];
+    private readonly System.Collections.Generic.Dictionary<Grid3D, float> _initialPositions = [];
+    [Export] public float CellPadding { get; set; } = 0.1f;
 
     [ExportToolButton("Generate Grid")]
     private Callable GenerateGridButton => Callable.From(GenerateGrids);
@@ -20,6 +25,7 @@ public partial class CharacterGrid : Node3D {
     public override void _Ready() {
         base._Ready();
         GenerateGrids();
+        EventBus.Instance.Connect(nameof(EventBus.ActionSelected), new Callable(this, nameof(OnActionSelected)));
     }
 
     public override void _ExitTree() {
@@ -91,7 +97,8 @@ public partial class CharacterGrid : Node3D {
             Columns = config.Columns,
             Prefix = config.Prefix,
             CharacterStore = config.CharacterStore,
-            CharacterComponentScene = CharacterComponentScene
+            CharacterComponentScene = CharacterComponentScene,
+            CellPadding = CellPadding
         };
 
         currentXPosition += config.Offset;
@@ -113,5 +120,73 @@ public partial class CharacterGrid : Node3D {
             }
         }
         _connections.Clear();
+    }
+
+    private void OnActionSelected(TargetConfiguration targetConfiguration) {
+        UpdateCellColors(targetConfiguration);
+    }
+
+    private Color GetCellColor(int value) {
+        return value switch {
+            0 => new Color(1, 1, 1, 0.5f), // Ignored (white)
+            1 => new Color(1, 1, 0, 0.5f), // Placement (yellow)
+            2 => new Color(0, 1, 0, 0.5f), // Ally (green)
+            3 => new Color(1, 0, 0, 0.5f), // Enemy (red)
+            _ => new Color(0.5f, 0.5f, 0.5f, 0.5f) // Default (gray)
+        };
+    }
+
+    private void UpdateCellColors(TargetConfiguration targetConfiguration) {
+        GD.Print("Updating cell colors");
+
+        if (targetConfiguration.Grids.Count < 2) {
+            GD.PrintErr("Expected at least two grids in the target configuration.");
+            return;
+        }
+
+        var gridConfig1 = targetConfiguration.Grids[0];
+        var gridConfig2 = targetConfiguration.Grids[1];
+
+        var grid3DInstances = new List<Grid3D>();
+        foreach (Node child in GetChildren()) {
+            if (child is Grid3D grid3D) {
+                grid3DInstances.Add(grid3D);
+            }
+        }
+
+        if (grid3DInstances.Count < 2) {
+            GD.PrintErr("Expected at least two Grid3D instances.");
+            return;
+        }
+
+        var grid3D1 = grid3DInstances[0];
+        var grid3D2 = grid3DInstances[1];
+
+
+        GD.Print("Target Configuration for Grid 1:");
+        for (int i = 0; i < gridConfig1.Cells.Count; i++) {
+            GD.Print($"Cell {i}: Value = {gridConfig1.Cells[i]}");
+        }
+
+        GD.Print("Applying colors to Grid 1:");
+        for (int i = 0; i < gridConfig1.Cells.Count; i++) {
+            int value1 = gridConfig1.Cells[i];
+            Color cellColor1 = GetCellColor(value1);
+            GD.Print($"Grid 1 Cell {i}: Value = {value1}, Color = {cellColor1}");
+            grid3D1.UpdateCellColor(i, cellColor1);
+        }
+
+        GD.Print("Target Configuration for Grid 2:");
+        for (int i = 0; i < gridConfig2.Cells.Count; i++) {
+            GD.Print($"Cell {i}: Value = {gridConfig2.Cells[i]}");
+        }
+
+        GD.Print("Applying colors to Grid 2:");
+        for (int i = 0; i < gridConfig2.Cells.Count; i++) {
+            int value2 = gridConfig2.Cells[i];
+            Color cellColor2 = GetCellColor(value2);
+            GD.Print($"Grid 2 Cell {i}: Value = {value2}, Color = {cellColor2}");
+            grid3D2.UpdateCellColor(i, cellColor2);
+        }
     }
 }

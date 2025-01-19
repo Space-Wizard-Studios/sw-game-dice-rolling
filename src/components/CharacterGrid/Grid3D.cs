@@ -12,9 +12,9 @@ public partial class Grid3D : Node3D {
     [Export] public string Prefix { get; set; } = "G";
     [Export] public CharacterStore? CharacterStore { get; set; }
     [Export] public PackedScene? CharacterComponentScene { get; set; }
-    private readonly List<GridCell3D> gridCells = [];
-    private MeshInstance3D? debugMeshInstance;
-    private ArrayMesh? debugMesh;
+    [Export] public float CellPadding { get; set; }
+    private readonly List<GridCell3D> gridCells = new();
+    private readonly List<MeshInstance3D> cellMeshes = new();
 
     public override void _Ready() {
         base._Ready();
@@ -25,9 +25,7 @@ public partial class Grid3D : Node3D {
     public void GenerateGridCells() {
         ClearExistingCells();
         CreateNewCells();
-        if (Engine.IsEditorHint()) {
-            CreateDebugMesh();
-        }
+        CreateCellRenderMeshes();
     }
 
     private void ClearExistingCells() {
@@ -36,6 +34,12 @@ public partial class Grid3D : Node3D {
             cell.QueueFree();
         }
         gridCells.Clear();
+
+        foreach (var mesh in cellMeshes) {
+            RemoveChild(mesh);
+            mesh.QueueFree();
+        }
+        cellMeshes.Clear();
     }
 
     private void CreateNewCells() {
@@ -52,40 +56,53 @@ public partial class Grid3D : Node3D {
         }
     }
 
-    private void CreateDebugMesh() {
-        if (debugMeshInstance is not null) {
-            RemoveChild(debugMeshInstance);
-            debugMeshInstance.QueueFree();
+    private void CreateCellRenderMeshes() {
+        float halfPadding = CellPadding / 2.0f;
+
+        for (int x = 0; x < Columns; x++) {
+            for (int y = 0; y < Rows; y++) {
+                var topLeft = new Vector3(x + halfPadding, 0, y + halfPadding);
+                var topRight = new Vector3(x + 1 - halfPadding, 0, y + halfPadding);
+                var bottomLeft = new Vector3(x + halfPadding, 0, y + 1 - halfPadding);
+                var bottomRight = new Vector3(x + 1 - halfPadding, 0, y + 1 - halfPadding);
+
+                var surfaceTool = new SurfaceTool();
+                surfaceTool.Begin(Mesh.PrimitiveType.Triangles);
+
+                var cellColor = new Color(0.5f, 0.5f, 0.5f, 0.5f); // Semi-transparent gray
+
+                // First triangle
+                surfaceTool.SetColor(cellColor);
+                surfaceTool.AddVertex(topLeft);
+                surfaceTool.SetColor(cellColor);
+                surfaceTool.AddVertex(topRight);
+                surfaceTool.SetColor(cellColor);
+                surfaceTool.AddVertex(bottomLeft);
+
+                // Second triangle
+                surfaceTool.SetColor(cellColor);
+                surfaceTool.AddVertex(topRight);
+                surfaceTool.SetColor(cellColor);
+                surfaceTool.AddVertex(bottomRight);
+                surfaceTool.SetColor(cellColor);
+                surfaceTool.AddVertex(bottomLeft);
+
+                var mesh = new ArrayMesh();
+                surfaceTool.Commit(mesh);
+
+                var material = new StandardMaterial3D();
+                material.AlbedoColor = cellColor;
+
+                var meshInstance = new MeshInstance3D {
+                    Mesh = mesh,
+                    MaterialOverride = material,
+                    Transform = new Transform3D(Basis.Identity, new Vector3(0, 0, 0))
+                };
+
+                AddChild(meshInstance);
+                cellMeshes.Add(meshInstance);
+            }
         }
-
-        debugMesh = new ArrayMesh();
-        debugMeshInstance = new MeshInstance3D {
-            Mesh = debugMesh
-        };
-        AddChild(debugMeshInstance);
-        UpdateDebugMesh();
-    }
-
-    public void UpdateDebugMesh() {
-        if (debugMesh is null) {
-            return;
-        }
-
-        debugMesh.ClearSurfaces();
-        var surfaceTool = new SurfaceTool();
-        surfaceTool.Begin(Mesh.PrimitiveType.Lines);
-
-        for (int x = 0; x <= Columns; x++) {
-            surfaceTool.AddVertex(new Vector3(x, 0, 0));
-            surfaceTool.AddVertex(new Vector3(x, 0, Rows));
-        }
-
-        for (int y = 0; y <= Rows; y++) {
-            surfaceTool.AddVertex(new Vector3(0, 0, y));
-            surfaceTool.AddVertex(new Vector3(Columns, 0, y));
-        }
-
-        surfaceTool.Commit(debugMesh);
     }
 
     private void RenderBattleSquadCharacters() {
@@ -116,6 +133,19 @@ public partial class Grid3D : Node3D {
                 characterComponent.Transform = new Transform3D(Basis.Identity, new Vector3(cellPosition.X + 0.5f, 0, cellPosition.Z + 0.5f));
                 gridCell.SetCharacter(characterComponent);
             }
+        }
+    }
+
+    public void UpdateCellColor(int index, Color color) {
+        if (index < 0 || index >= cellMeshes.Count) {
+            GD.PrintErr($"Invalid cell index: {index}");
+            return;
+        }
+
+        var meshInstance = cellMeshes[index];
+        var material = meshInstance.MaterialOverride as StandardMaterial3D;
+        if (material != null) {
+            material.AlbedoColor = color;
         }
     }
 }

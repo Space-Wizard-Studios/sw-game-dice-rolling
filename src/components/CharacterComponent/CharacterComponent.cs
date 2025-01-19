@@ -7,6 +7,7 @@ namespace DiceRoll.Components.Characters;
 
 [Tool]
 public partial class CharacterComponent : Node3D {
+    private static CharacterComponent? _currentlySelectedCharacter;
 
     [ExportGroup("🪵 Resources")]
     private Character? _characterResource;
@@ -80,12 +81,17 @@ public partial class CharacterComponent : Node3D {
     }
 
     private static void HandleSelection(CharacterComponent current) {
-        if (current.IsSelected) {
+        if (_currentlySelectedCharacter == current) {
             current.IsSelected = false;
+            _currentlySelectedCharacter = null;
             EventBus.Instance.EmitSignal(nameof(EventBus.CharacterUnselected));
         }
         else {
+            if (_currentlySelectedCharacter is not null) {
+                _currentlySelectedCharacter.IsSelected = false;
+            }
             current.IsSelected = true;
+            _currentlySelectedCharacter = current;
             EventBus.Instance.EmitSignal(nameof(EventBus.CharacterSelected), current);
         }
     }

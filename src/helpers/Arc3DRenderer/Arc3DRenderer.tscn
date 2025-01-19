@@ -2,6 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bneeqn85v2ons" path="res://helpers/Arc3DRenderer/Arc3DRenderer.cs" id="1_umdm2"]
 
-[node name="LineRenderer" type="Node3D"]
+[node name="Arc3DRenderer" type="Node3D"]
 script = ExtResource("1_umdm2")
 CubeSize = Vector3(0.1, 0.1, 0.1)

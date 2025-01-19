@@ -27,7 +27,7 @@ public partial class ActionType : Resource, IAction<IActionContext, bool> {
     public string? IconPath { get; private set; }
     [Export] public Godot.Collections.Array<DiceMana> RequiredMana { get; set; } = [];
     [Export] public Godot.Collections.Array<EffectType> Effects { get; set; } = [];
-    [Export] TargetConfiguration? TargetConfiguration { get; set; }
+    [Export] public TargetConfiguration? TargetConfiguration { get; set; }
 
     public ActionType() { }
 

@@ -33,7 +33,7 @@ public partial class GridConfiguration : Resource {
     }
 
     [Export]
-    public Godot.Collections.Array<int> Cells { get; set; } = new Godot.Collections.Array<int>();
+    public Godot.Collections.Array<int> Cells { get; set; } = [];
 
     public GridConfiguration() {
         ResizeCells();

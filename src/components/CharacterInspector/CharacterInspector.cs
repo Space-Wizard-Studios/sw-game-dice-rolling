@@ -1,6 +1,8 @@
 using Godot;
 using DiceRoll.Events;
 using DiceRoll.Models.Characters;
+using DiceRoll.Models.Actions;
+using System.Collections.Generic;
 
 namespace DiceRoll.Components.Characters;
 
@@ -40,6 +42,7 @@ public partial class CharacterInspector : HBoxContainer {
     [Export] private GridContainer? ActionGridNode;
     [Export] private Button? ActionButtonTemplate;
     private string ButtonTemplateNodeName => ActionButtonTemplate?.Name ?? "ActionButtonTemplate";
+    private Dictionary<Button, CharacterAction> _actionButtons = new();
 
     public override void _Ready() {
         Visible = false;
@@ -104,6 +107,7 @@ public partial class CharacterInspector : HBoxContainer {
                 return;
             }
 
+            // Clear existing action buttons
             foreach (Node child in AttributesListNode.GetChildren()) {
                 if (child != AttributeTemplateNode) {
                     child.QueueFree();
@@ -155,7 +159,22 @@ public partial class CharacterInspector : HBoxContainer {
                 var actionButton = (Button)ActionButtonTemplate.Duplicate();
                 actionButton.Visible = true;
                 actionButton.Text = action.Name ?? "Unknown Action";
-                ActionGridNode.AddChild(actionButton);
+                _actionButtons[actionButton] = action;
+
+                actionButton.Pressed += () => OnActionButtonPressed(actionButton);
+
+                ActionGridNode.CallDeferred("add_child", actionButton);
+            }
+
+        }
+    }
+
+    private void OnActionButtonPressed(Button button) {
+        GD.Print("Action button pressed: ", button.Text);
+        if (_actionButtons.TryGetValue(button, out var action)) {
+            if (action.Type?.TargetConfiguration is not null) {
+                GD.Print("Emitting ActionSelected signal with target configuration: ", action.Type.TargetConfiguration);
+                EventBus.Instance.EmitSignal(nameof(EventBus.ActionSelected), action.Type.TargetConfiguration);
             }
         }
     }

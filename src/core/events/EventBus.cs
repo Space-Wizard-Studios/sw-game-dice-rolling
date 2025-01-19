@@ -2,6 +2,7 @@ using Godot;
 using DiceRoll.Models.Characters;
 using DiceRoll.Models.Attributes;
 using DiceRoll.Components.Characters;
+using DiceRoll.Models.Actions.Targets;
 
 namespace DiceRoll.Events;
 
@@ -10,6 +11,7 @@ public partial class EventBus : Node {
     [Signal] public delegate void AttributeChangedEventHandler();
     [Signal] public delegate void CharacterSelectedEventHandler(CharacterComponent character);
     [Signal] public delegate void CharacterUnselectedEventHandler();
+    [Signal] public delegate void ActionSelectedEventHandler(TargetConfiguration targetConfiguration);
 
     private static EventBus? _instance;
 
@@ -38,7 +40,7 @@ public partial class EventBus : Node {
         var eventBus = root.GetNodeOrNull<EventBus>("/root/EventBus");
         if (eventBus is null) {
             eventBus = new EventBus();
-            root.AddChild(eventBus);
+            root.CallDeferred("add_child", eventBus);
         }
         return eventBus;
     }

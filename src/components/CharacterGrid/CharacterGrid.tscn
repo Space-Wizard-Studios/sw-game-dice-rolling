@@ -8,16 +8,16 @@
 [sub_resource type="Resource" id="Resource_jan7r"]
 script = ExtResource("2_ml3sj")
 CharacterStore = ExtResource("2_3uydg")
-Columns = 3
 Rows = 2
+Columns = 3
 Offset = 0
 Prefix = "P"
 metadata/_custom_type_script = ExtResource("2_ml3sj")
 
 [sub_resource type="Resource" id="Resource_3uydg"]
 script = ExtResource("2_ml3sj")
-Columns = 3
 Rows = 2
+Columns = 3
 Offset = 2
 Prefix = "E"
 metadata/_custom_type_script = ExtResource("2_ml3sj")

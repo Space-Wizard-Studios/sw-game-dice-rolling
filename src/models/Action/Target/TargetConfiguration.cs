@@ -1,4 +1,5 @@
 using Godot;
+using DiceRoll.Models.Grids;
 
 namespace DiceRoll.Models.Actions.Targets;
 
@@ -10,12 +11,12 @@ public partial class TargetConfiguration : Resource {
 
     [Export] public bool IsSingleTarget { get; set; } = false;
 
-    [Export] public Godot.Collections.Array<GridConfiguration> Grids { get; set; } = [];
+    [Export] public Godot.Collections.Array<GridType> Grids { get; set; } = [];
 
     public TargetConfiguration() { }
 
     public void AddGrid(int rows, int columns) {
-        Grids.Add(new GridConfiguration(rows, columns));
+        Grids.Add(new GridType(rows, columns, 0, "G"));
         EmitSignal(nameof(ConfigurationChanged));
     }
 

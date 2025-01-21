@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://jc3rfy1j13nu" path="res://core/managers/gameplay/BattleManager.cs" id="1_oeh3a"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="2_cgh0m"]
 [ext_resource type="PackedScene" uid="uid://c22tpnmaefgn4" path="res://components/HUDComponent/HUDComponent.tscn" id="2_k1t2d"]
+[ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/Grid/GridType.cs" id="6_6v2rn"]
 [ext_resource type="Resource" uid="uid://d22hmntd0rfq2" path="res://core/stores/CharacterStore/EnemyCharacterStore.tres" id="7_6v2rn"]
 [ext_resource type="Texture2D" uid="uid://byujdpnhcw2vd" path="res://assets/prototype/Dark/texture_01.png" id="8_vpfel"]
 [ext_resource type="Resource" uid="uid://snt34yslyn4f" path="res://core/stores/CharacterStore/PlayerCharacterStore.tres" id="9_eybki"]
-[ext_resource type="Script" uid="uid://bdnimh7atef30" path="res://models/Character/Grid/CharacterGridType.cs" id="10_c5xwm"]
 [ext_resource type="PackedScene" uid="uid://dmw0cm136sn4p" path="res://components/CharacterGrid/CharacterGrid.tscn" id="10_hsrxk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vpfel"]
@@ -25,23 +25,27 @@ ssao_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
 
-[sub_resource type="Resource" id="Resource_7xgoa"]
-script = ExtResource("10_c5xwm")
-CharacterStore = ExtResource("9_eybki")
-Rows = 2
-Columns = 3
-Offset = 0
+[sub_resource type="Resource" id="Resource_vpfel"]
+script = ExtResource("6_6v2rn")
 Prefix = "P"
-metadata/_custom_type_script = ExtResource("10_c5xwm")
-
-[sub_resource type="Resource" id="Resource_eybki"]
-script = ExtResource("10_c5xwm")
-CharacterStore = ExtResource("7_6v2rn")
+Offset = 0
+CharacterStore = ExtResource("9_eybki")
+Direction = 0
 Rows = 2
 Columns = 3
-Offset = 2
+Cells = Array[int]([0, 0, 0, 0, 0, 0])
+metadata/_custom_type_script = ExtResource("6_6v2rn")
+
+[sub_resource type="Resource" id="Resource_hsrxk"]
+script = ExtResource("6_6v2rn")
 Prefix = "E"
-metadata/_custom_type_script = ExtResource("10_c5xwm")
+Offset = 2
+CharacterStore = ExtResource("7_6v2rn")
+Direction = 1
+Rows = 2
+Columns = 3
+Cells = Array[int]([0, 0, 0, 0, 0, 0])
+metadata/_custom_type_script = ExtResource("6_6v2rn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsrxk"]
 albedo_texture = ExtResource("8_vpfel")
@@ -2722,7 +2726,7 @@ transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 
 
 [node name="CharacterGrid3D" parent="." instance=ExtResource("10_hsrxk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-GridConfigurations = [SubResource("Resource_7xgoa"), SubResource("Resource_eybki")]
+GridConfigurations = [SubResource("Resource_vpfel"), SubResource("Resource_hsrxk")]
 CellPadding = 0.25
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]

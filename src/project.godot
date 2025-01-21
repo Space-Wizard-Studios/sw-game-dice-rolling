@@ -13,7 +13,7 @@ config_version=5
 config/name="dice-roll"
 run/main_scene="res://scenes/menus/MainMenu.tscn"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
-config/icon="res://addons/LineRenderer/icon.svg"
+config/icon="uid://cd5lv3o67yo78"
 
 [autoload]
 

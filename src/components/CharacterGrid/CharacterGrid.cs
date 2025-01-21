@@ -1,9 +1,7 @@
 using Godot;
-using Godot.Collections;
-using DiceRoll.Models.Characters.Grid;
 using DiceRoll.Models.Actions.Targets;
 using DiceRoll.Events;
-using System;
+using DiceRoll.Models.Grids;
 using System.Collections.Generic;
 
 namespace DiceRoll.Components.Grids;
@@ -13,10 +11,12 @@ namespace DiceRoll.Components.Grids;
 /// </summary>
 [Tool]
 public partial class CharacterGrid : Node3D {
-    [Export] public CharacterGridType[] GridConfigurations = [];
+    [Export] public GridType[] GridConfigurations = [];
     [Export] public PackedScene? CharacterComponentScene { get; set; }
-    private readonly System.Collections.Generic.Dictionary<CharacterGridType, Callable> _connections = [];
-    private readonly System.Collections.Generic.Dictionary<Grid3D, float> _initialPositions = [];
+    [Export] public PackedScene? ArrowMesh { get; set; }
+
+    private readonly Dictionary<GridType, Callable> _connections = [];
+    private readonly Dictionary<Grid3D, float> _initialPositions = [];
     [Export] public float CellPadding { get; set; } = 0.1f;
 
     [ExportToolButton("Generate Grid")]
@@ -81,7 +81,7 @@ public partial class CharacterGrid : Node3D {
     /// </summary>
     /// <param name="config">The grid configuration to validate.</param>
     /// <returns>True if the configuration is valid, otherwise false.</returns>
-    private static bool IsValidGridConfiguration(CharacterGridType config) {
+    private static bool IsValidGridConfiguration(GridType config) {
         return config is not null && config.Rows > 0 && config.Columns > 0;
     }
 
@@ -91,7 +91,7 @@ public partial class CharacterGrid : Node3D {
     /// <param name="config">The grid configuration.</param>
     /// <param name="currentXPosition">The current X position for the grid.</param>
     /// <returns>The created grid.</returns>
-    private Grid3D CreateGrid(CharacterGridType config, ref float currentXPosition) {
+    private Grid3D CreateGrid(GridType config, ref float currentXPosition) {
         var grid = new Grid3D {
             Rows = config.Rows,
             Columns = config.Columns,
@@ -101,12 +101,26 @@ public partial class CharacterGrid : Node3D {
             CellPadding = CellPadding
         };
 
-        currentXPosition += config.Offset;
+
         float centerZPosition = -config.Rows / 2.0f;
+
+        // Add arrow to indicate direction
+        if (ArrowMesh != null) {
+            var arrowMeshInstance = ArrowMesh.Instantiate<Node3D>();
+            arrowMeshInstance.Transform = new Transform3D(Basis.Identity, new Vector3(currentXPosition, 2, centerZPosition));
+
+            // Rotate arrow based on direction
+            if (config.Direction == GridDirection.RightToLeft) {
+                arrowMeshInstance.RotateY(Mathf.Pi);
+            }
+
+            grid.AddChild(arrowMeshInstance);
+        }
+
+        currentXPosition += config.Offset;
         grid.Transform = new Transform3D(Basis.Identity, new Vector3(currentXPosition, 0, centerZPosition));
         grid.GenerateGridCells();
         currentXPosition += config.Columns;
-
         return grid;
     }
 
@@ -126,15 +140,17 @@ public partial class CharacterGrid : Node3D {
         UpdateCellColors(targetConfiguration);
     }
 
-    private Color GetCellColor(int value) {
+    private static Color GetCellColor(int value) {
         return value switch {
-            0 => new Color(1, 1, 1, 0.5f), // Ignored (white)
-            1 => new Color(1, 1, 0, 0.5f), // Placement (yellow)
-            2 => new Color(0, 1, 0, 0.5f), // Ally (green)
-            3 => new Color(1, 0, 0, 0.5f), // Enemy (red)
-            _ => new Color(0.5f, 0.5f, 0.5f, 0.5f) // Default (gray)
+            0 => new Color(Colors.White), // Ignored (white)
+            1 => new Color(Colors.Yellow), // Placement (yellow)
+            2 => new Color(Colors.Green), // Ally (green)
+            3 => new Color(Colors.Red), // Enemy (red)
+            _ => new Color(Colors.DimGray) // Default (gray)
         };
     }
+
+    // ...existing code...
 
     private void UpdateCellColors(TargetConfiguration targetConfiguration) {
         GD.Print("Updating cell colors");
@@ -155,13 +171,12 @@ public partial class CharacterGrid : Node3D {
         }
 
         if (grid3DInstances.Count < 2) {
-            GD.PrintErr("Expected at least two Grid3D instances.");
+            GD.PrintErr("Expected at least two Grid3D instances in the scene.");
             return;
         }
 
         var grid3D1 = grid3DInstances[0];
         var grid3D2 = grid3DInstances[1];
-
 
         GD.Print("Target Configuration for Grid 1:");
         for (int i = 0; i < gridConfig1.Cells.Count; i++) {
@@ -177,16 +192,16 @@ public partial class CharacterGrid : Node3D {
         }
 
         GD.Print("Target Configuration for Grid 2:");
-        for (int i = 0; i < gridConfig2.Cells.Count; i++) {
-            GD.Print($"Cell {i}: Value = {gridConfig2.Cells[i]}");
+        for (int j = 0; j < gridConfig2.Cells.Count; j++) {
+            GD.Print($"Cell {j}: Value = {gridConfig2.Cells[j]}");
         }
 
         GD.Print("Applying colors to Grid 2:");
-        for (int i = 0; i < gridConfig2.Cells.Count; i++) {
-            int value2 = gridConfig2.Cells[i];
+        for (int j = 0; j < gridConfig2.Cells.Count; j++) {
+            int value2 = gridConfig2.Cells[j];
             Color cellColor2 = GetCellColor(value2);
-            GD.Print($"Grid 2 Cell {i}: Value = {value2}, Color = {cellColor2}");
-            grid3D2.UpdateCellColor(i, cellColor2);
+            GD.Print($"Grid 2 Cell {j}: Value = {value2}, Color = {cellColor2}");
+            grid3D2.UpdateCellColor(j, cellColor2);
         }
     }
 }

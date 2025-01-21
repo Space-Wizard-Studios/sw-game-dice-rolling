@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://models/Action/Effect/Effects/DamageEffect.tres" id="3_vbjrv"]
 [ext_resource type="Texture2D" uid="uid://fmaq315605ce" path="res://assets/icons/actions/wide_cleave.png" id="4_s1o36"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="5_yp8id"]
-[ext_resource type="Script" uid="uid://cevisa23ybann" path="res://models/Action/Target/GridConfiguration.cs" id="6_hc3lu"]
+[ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/Grid/GridType.cs" id="6_hc3lu"]
 [ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://models/Dice/DiceMana/Resources/ManaRed.tres" id="6_vbjrv"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/Action/Target/TargetConfiguration.cs" id="7_33bh0"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/Action/ActionType.cs" id="8_0ol17"]
@@ -13,6 +13,7 @@
 [sub_resource type="Resource" id="Resource_qbuh3"]
 script = ExtResource("6_hc3lu")
 Prefix = "P"
+Offset = 0
 Rows = 2
 Columns = 3
 Cells = Array[int]([0, 0, 1, 0, 0, 1])
@@ -21,6 +22,7 @@ metadata/_custom_type_script = ExtResource("6_hc3lu")
 [sub_resource type="Resource" id="Resource_le3ww"]
 script = ExtResource("6_hc3lu")
 Prefix = "E"
+Offset = 0
 Rows = 2
 Columns = 3
 Cells = Array[int]([3, 0, 0, 3, 0, 0])

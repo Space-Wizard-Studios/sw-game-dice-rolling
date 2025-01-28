@@ -24,6 +24,12 @@
     "eslint.options": {
         "ignorePattern": "node_modules/**"
     },
+    "cmake.configureArgs": [
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        "-DCMAKE_SUPPRESS_REGENERATION=ON"
+    ],
+    "cmake.configureOnOpen": false,
+    "cmake.ignoreCMakeListsMissing": true,
     "[csharp]": {
         "editor.defaultFormatter": "ms-dotnettools.csharp",
         "editor.formatOnSave": true,

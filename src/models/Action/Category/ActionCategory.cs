@@ -1,20 +1,24 @@
 using Godot;
-using DiceRoll.Models.Actions.Effects;
+using DiceRolling.Models.Actions.Effects;
 
-namespace DiceRoll.Models.Actions.Categories;
+namespace DiceRolling.Models.Actions.Categories;
 
 [Tool]
 [GlobalClass]
-public partial class ActionCategory : Resource {
+public partial class ActionCategory : Resource
+{
     [Export] public string? Name { get; set; }
     [Export(PropertyHint.MultilineText)] public string? Description { get; set; }
     private Texture2D? _icon;
     [Export]
-    public Texture2D? Icon {
+    public Texture2D? Icon
+    {
         get => _icon;
-        set {
+        set
+        {
             _icon = value;
-            if (_icon is not null) {
+            if (_icon is not null)
+            {
                 IconPath = _icon.ResourcePath;
             }
         }
@@ -25,7 +29,8 @@ public partial class ActionCategory : Resource {
 
     public ActionCategory() { }
 
-    public ActionCategory(string name, string description, Texture2D icon) {
+    public ActionCategory(string name, string description, Texture2D icon)
+    {
         Name = name;
         Description = description;
         Icon = icon;

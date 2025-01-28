@@ -1,15 +1,16 @@
 using Godot;
 using System.Linq;
 using System.Collections.Generic;
-using DiceRoll.Helpers;
-using DiceRoll.Events;
-using DiceRoll.Models.Characters;
-using DiceRoll.Models.Attributes;
+using DiceRolling.Helpers;
+using DiceRolling.Events;
+using DiceRolling.Models.Characters;
+using DiceRolling.Models.Attributes;
 
-namespace DiceRoll.Components;
+namespace DiceRolling.Components;
 
 [Tool]
-public partial class TurnOrderComponent : Control {
+public partial class TurnOrderComponent : Control
+{
     private AttributeType? SpeedAttributeType;
     private AttributeType? HealthAttributeType;
 
@@ -19,25 +20,32 @@ public partial class TurnOrderComponent : Control {
 
     private Character[] _characters = [];
     [Export]
-    public Character[] Characters {
+    public Character[] Characters
+    {
         get => _characters;
-        set {
+        set
+        {
             _characters = value;
-            if (SpeedAttributeType is null || HealthAttributeType is null) {
+            if (SpeedAttributeType is null || HealthAttributeType is null)
+            {
                 GD.PrintErr("AttributeType resources not loaded.");
                 return;
             }
-            if (_characters.Length > 0) {
+            if (_characters.Length > 0)
+            {
                 // Filter out null or uninitialized characters
                 var validCharacters = _characters.Where(c => c is not null).ToList();
-                if (validCharacters.Count > 0) {
+                if (validCharacters.Count > 0)
+                {
                     UpdateTurnOrder(validCharacters);
                 }
-                else {
+                else
+                {
                     GD.PrintErr("No valid characters found.");
                 }
             }
-            else {
+            else
+            {
                 GD.PrintErr("Characters array is empty.");
             }
         }
@@ -50,10 +58,13 @@ public partial class TurnOrderComponent : Control {
 
     [ExportSubgroup("🖼️ Portrait Template")]
     [Export]
-    PanelContainer? PortraitTemplateNode {
+    PanelContainer? PortraitTemplateNode
+    {
         get => _portraitTemplate;
-        set {
-            if (value is not null) {
+        set
+        {
+            if (value is not null)
+            {
                 _portraitTemplate = value;
             }
         }
@@ -68,16 +79,20 @@ public partial class TurnOrderComponent : Control {
     [Export] public ColorRect? PortraitDamageColorNode;
     public string PortraitDamageColorName => PortraitDamageColorNode?.Name ?? "PortraitDamageColor";
 
-    public override void _Ready() {
-        if (AttributeConfigResource is AttributesConfig attributeConfig) {
+    public override void _Ready()
+    {
+        if (AttributeConfigResource is AttributesConfig attributeConfig)
+        {
             _attributesConfig = attributeConfig;
             SpeedAttributeType = AttributesHelper.GetAttributeType(_attributesConfig, "Speed");
             HealthAttributeType = AttributesHelper.GetAttributeType(_attributesConfig, "Health");
 
             // Update turn order if characters are already set
-            if (_characters.Length > 0) {
+            if (_characters.Length > 0)
+            {
                 var validCharacters = _characters.Where(c => c is not null).ToList();
-                if (validCharacters.Count > 0) {
+                if (validCharacters.Count > 0)
+                {
                     UpdateTurnOrder(validCharacters);
                 }
             }
@@ -88,26 +103,32 @@ public partial class TurnOrderComponent : Control {
 
     }
 
-    private void OnCharacterAttributeChanged(AttributeType attributeType) {
-        if (attributeType == HealthAttributeType) {
+    private void OnCharacterAttributeChanged(AttributeType attributeType)
+    {
+        if (attributeType == HealthAttributeType)
+        {
             UpdateTurnOrder([.. Characters]);
         }
     }
 
-    private void SetupPortraitInstance(Character character, PanelContainer portraitInstance) {
-        if (PortraitPanelNode is null || PortraitTextureNode is null || PortraitDamageColorNode is null) {
+    private void SetupPortraitInstance(Character character, PanelContainer portraitInstance)
+    {
+        if (PortraitPanelNode is null || PortraitTextureNode is null || PortraitDamageColorNode is null)
+        {
             GD.PrintErr("One or more portrait nodes are not set.");
             return;
         }
 
-        if (PortraitPanelNode is null || PortraitTextureNode is null || PortraitDamageColorNode is null) {
+        if (PortraitPanelNode is null || PortraitTextureNode is null || PortraitDamageColorNode is null)
+        {
             GD.PrintErr("One or more portrait nodes are not set.");
             return;
         }
 
         // Get the Panel node from the portrait instance
         var panel = portraitInstance.GetNodeOrNull<Panel>(PortraitPanelName);
-        if (panel is null) {
+        if (panel is null)
+        {
             GD.PrintErr("Panel node not found in portrait instance.");
             return;
         }
@@ -118,31 +139,39 @@ public partial class TurnOrderComponent : Control {
 
         portraitInstance.Visible = true;
 
-        if (textureRect is not null && character.Portrait is not null) {
+        if (textureRect is not null && character.Portrait is not null)
+        {
             textureRect.Texture = character.Portrait;
         }
-        else {
+        else
+        {
             GD.PrintErr("TextureRect or character portrait is null for character: ", character.Name);
         }
 
         int currentHealth = HealthAttributeType is not null ? character.GetAttributeCurrentValue(HealthAttributeType) : 0;
         int maxHealth = HealthAttributeType is not null ? character.GetAttributeMaxValue(HealthAttributeType) : 0;
 
-        if (damageColor is not null && maxHealth > 0) {
+        if (damageColor is not null && maxHealth > 0)
+        {
             float damageRatio = (float)(maxHealth - currentHealth) / maxHealth;
             damageColor.Scale = new Vector2(1, damageRatio);
         }
     }
-    public void UpdateTurnOrder(List<Character> characters) {
-        if (PortraitsContainerNode is null || PortraitTemplateNode is null) {
+    public void UpdateTurnOrder(List<Character> characters)
+    {
+        if (PortraitsContainerNode is null || PortraitTemplateNode is null)
+        {
             return;
         }
-        if (SpeedAttributeType is null || HealthAttributeType is null) {
+        if (SpeedAttributeType is null || HealthAttributeType is null)
+        {
             return;
         }
 
-        foreach (Node child in PortraitsContainerNode.GetChildren()) {
-            if (child != PortraitTemplateNode) {
+        foreach (Node child in PortraitsContainerNode.GetChildren())
+        {
+            if (child != PortraitTemplateNode)
+            {
                 PortraitsContainerNode.RemoveChild(child);
                 child.QueueFree();
             }
@@ -154,13 +183,16 @@ public partial class TurnOrderComponent : Control {
         //     .ToList();
 
 
-        foreach (var character in sortedCharacters) {
-            if (character is null) {
+        foreach (var character in sortedCharacters)
+        {
+            if (character is null)
+            {
                 GD.PrintErr("Character is null, skipping...");
                 continue;
             }
 
-            if (PortraitTemplateNode.Duplicate() is not PanelContainer portraitInstance) {
+            if (PortraitTemplateNode.Duplicate() is not PanelContainer portraitInstance)
+            {
                 GD.PrintErr("Failed to duplicate PortraitTemplateNode for character: ", character.Name);
                 continue;
             }

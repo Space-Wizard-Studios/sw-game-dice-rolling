@@ -1,25 +1,30 @@
 using System;
 using Godot;
-using DiceRoll.Managers;
+using DiceRolling.Managers;
 
-namespace DiceRoll.UI;
+namespace DiceRolling.UI;
 
 [Tool]
-public partial class PlaygroundTransitionMenu : MenuButton {
+public partial class PlaygroundTransitionMenu : MenuButton
+{
     private PlaygroundTransitionManager? _playgroundTransitionManager;
 
-    public override void _Ready() {
-        if (!Engine.IsEditorHint()) {
+    public override void _Ready()
+    {
+        if (!Engine.IsEditorHint())
+        {
             _playgroundTransitionManager = (PlaygroundTransitionManager)GetNode("/root/PlaygroundTransitionManager");
 
-            if (_playgroundTransitionManager is null) {
+            if (_playgroundTransitionManager is null)
+            {
                 GD.PrintErr("PlaygroundTransitionManager not found!");
                 return;
             }
 
             // Add items to the MenuButton's popup for each PlaygroundScene
             var popup = GetPopup();
-            foreach (PlaygroundScenes scene in Enum.GetValues(typeof(PlaygroundScenes))) {
+            foreach (PlaygroundScenes scene in Enum.GetValues(typeof(PlaygroundScenes)))
+            {
                 popup.AddItem(scene.ToString(), (int)scene);
             }
 
@@ -28,7 +33,8 @@ public partial class PlaygroundTransitionMenu : MenuButton {
         }
     }
 
-    private void OnItemPressed(int id) {
+    private void OnItemPressed(int id)
+    {
         var scene = (PlaygroundScenes)id;
         _playgroundTransitionManager?.TransitionTo(scene);
     }

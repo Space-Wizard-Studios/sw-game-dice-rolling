@@ -1,8 +1,9 @@
-using DiceRoll.Models.Characters;
+using DiceRolling.Models.Characters;
 
-namespace DiceRoll.Models.Actions;
+namespace DiceRolling.Models.Actions;
 
-public interface IActionContext {
+public interface IActionContext
+{
     Character Target { get; }
     Character Attacker { get; }
 }

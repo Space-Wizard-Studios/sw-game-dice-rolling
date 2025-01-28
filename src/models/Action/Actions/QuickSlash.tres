@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="ActionType" load_steps=9 format=3 uid="uid://cs65w4r75ugap"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=8 format=3 uid="uid://cs65w4r75ugap"]
 
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/Effect/EffectType.cs" id="1_n2tcx"]
-[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="2_j1tex"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/Action/ActionType.cs" id="3_3lnv4"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/Grid/GridType.cs" id="3_sirla"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/Action/Target/TargetConfiguration.cs" id="4_u5eem"]
@@ -10,6 +9,7 @@
 script = ExtResource("3_sirla")
 Prefix = "P"
 Offset = 0
+Direction = 0
 Rows = 2
 Columns = 3
 Cells = Array[int]([0, 0, 1, 0, 0, 1])
@@ -19,6 +19,7 @@ metadata/_custom_type_script = ExtResource("3_sirla")
 script = ExtResource("3_sirla")
 Prefix = "E"
 Offset = 0
+Direction = 0
 Rows = 2
 Columns = 3
 Cells = Array[int]([3, 0, 0, 3, 0, 0])
@@ -27,7 +28,7 @@ metadata/_custom_type_script = ExtResource("3_sirla")
 [sub_resource type="Resource" id="Resource_0oh7q"]
 script = ExtResource("4_u5eem")
 IsSingleTarget = true
-Grids = Array[ExtResource("3_sirla")]([SubResource("Resource_5ohu7"), SubResource("Resource_ntci2")])
+Grids = [SubResource("Resource_5ohu7"), SubResource("Resource_ntci2")]
 metadata/_custom_type_script = ExtResource("4_u5eem")
 
 [resource]
@@ -35,7 +36,7 @@ script = ExtResource("3_3lnv4")
 Id = "1575f70b-f7b7-44e6-959c-3e0d347517a2"
 Name = "Quick Slash"
 Description = "Quick slash description"
-RequiredMana = Array[ExtResource("2_j1tex")]([])
+RequiredMana = []
 Effects = Array[ExtResource("1_n2tcx")]([])
 TargetConfiguration = SubResource("Resource_0oh7q")
 metadata/_custom_type_script = ExtResource("3_3lnv4")

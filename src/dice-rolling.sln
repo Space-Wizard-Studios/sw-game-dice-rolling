@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dice-roll", "dice-roll.csproj", "{34D10CFA-BDB6-4C71-80B5-EC0B192978F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dice-rolling", "dice-rolling.csproj", "{34D10CFA-BDB6-4C71-80B5-EC0B192978F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

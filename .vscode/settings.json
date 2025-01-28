@@ -15,14 +15,27 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
     },
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8"
+    "eslint.workingDirectories": [
+        {
+            "directory": "./",
+            "changeProcessCWD": true
+        }
+    ],
+    "eslint.options": {
+        "ignorePattern": "node_modules/**"
     },
     "[csharp]": {
         "editor.defaultFormatter": "ms-dotnettools.csharp",
         "editor.formatOnSave": true,
         "editor.tabSize": 4,
         "editor.detectIndentation": true,
+    },
+    "[markdown]": {
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": false
+        }
     },
     "editor.tabSize": 4,
     "editor.insertSpaces": true,

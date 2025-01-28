@@ -1,16 +1,18 @@
 using Godot;
-using DiceRoll.Stores;
+using DiceRolling.Stores;
 
-namespace DiceRoll.Components.UI;
+namespace DiceRolling.Components.UI;
 
-public partial class GameLogComponent : ScrollContainer {
+public partial class GameLogComponent : ScrollContainer
+{
     [Export] public BoxContainer? _messageContainerNode;
     [Export] public VBoxContainer? _messageTemplateNode;
     [Export] public Label? _headingLabelTemplateNode;
     [Export] public Label? _timestampLabelTemplateNode;
     [Export] public RichTextLabel? _lineTemplateNode;
 
-    public override void _Ready() {
+    public override void _Ready()
+    {
         // Connect to the GameLogStore signals
         GameLogStore.Instance.Connect("GameLogUpdatedEventHandler", Callable.From(OnGameLogUpdated));
         GameLogStore.Instance.Connect("GameLogLineAddedEventHandler", Callable.From(OnGameLogLineAdded));
@@ -18,29 +20,36 @@ public partial class GameLogComponent : ScrollContainer {
         UpdateGameLog();
     }
 
-    private void OnGameLogUpdated() {
+    private void OnGameLogUpdated()
+    {
         AddMessageToLog(GameLogStore.Instance.Messages[^1]);
     }
 
-    private void OnGameLogLineAdded() {
+    private void OnGameLogLineAdded()
+    {
         UpdateLastMessageLines();
     }
 
-    private void UpdateGameLog() {
-        if (_messageTemplateNode is null) {
+    private void UpdateGameLog()
+    {
+        if (_messageTemplateNode is null)
+        {
             GD.PrintErr("MessageTemplate node is not assigned.");
             return;
         }
 
         _messageTemplateNode.Visible = false;
 
-        foreach (var message in GameLogStore.Instance.Messages) {
+        foreach (var message in GameLogStore.Instance.Messages)
+        {
             AddMessageToLog(message);
         }
     }
 
-    private void AddMessageToLog(GameLogMessage message) {
-        if (_messageTemplateNode is null || _messageContainerNode is null) {
+    private void AddMessageToLog(GameLogMessage message)
+    {
+        if (_messageTemplateNode is null || _messageContainerNode is null)
+        {
             GD.PrintErr("MessageTemplate or MessageContainer node is not assigned.");
             return;
         }
@@ -62,8 +71,10 @@ public partial class GameLogComponent : ScrollContainer {
         _messageContainerNode.AddChild(messageTemplate);
     }
 
-    private void UpdateLastMessageLines() {
-        if (_messageContainerNode is null) {
+    private void UpdateLastMessageLines()
+    {
+        if (_messageContainerNode is null)
+        {
             GD.PrintErr("MessageContainer node is not assigned.");
             return;
         }
@@ -75,7 +86,8 @@ public partial class GameLogComponent : ScrollContainer {
         UpdateLines(lastMessageTemplate, lastMessage);
     }
 
-    private static void UpdateHeaderAndTimestamp(VBoxContainer messageTemplate, GameLogMessage message) {
+    private static void UpdateHeaderAndTimestamp(VBoxContainer messageTemplate, GameLogMessage message)
+    {
         var headerTemplate = messageTemplate.GetNode<HBoxContainer>("HeaderTemplate");
         var headingLabel = headerTemplate.GetNode<Label>("Heading");
         var timestampLabel = headerTemplate.GetNode<Label>("Timestamp");
@@ -84,8 +96,10 @@ public partial class GameLogComponent : ScrollContainer {
         timestampLabel.Text = message.Timestamp;
     }
 
-    private void UpdateLines(VBoxContainer messageTemplate, GameLogMessage message) {
-        if (_lineTemplateNode is null) {
+    private void UpdateLines(VBoxContainer messageTemplate, GameLogMessage message)
+    {
+        if (_lineTemplateNode is null)
+        {
             GD.PrintErr("LineTemplate node is not assigned.");
             return;
         }
@@ -93,13 +107,16 @@ public partial class GameLogComponent : ScrollContainer {
         var linesContainer = messageTemplate.GetNode<VBoxContainer>("LinesContainer");
 
         // Clear existing lines
-        foreach (Node child in linesContainer.GetChildren()) {
-            if (child != _lineTemplateNode) {
+        foreach (Node child in linesContainer.GetChildren())
+        {
+            if (child != _lineTemplateNode)
+            {
                 child.QueueFree();
             }
         }
 
-        foreach (var line in message.Lines) {
+        foreach (var line in message.Lines)
+        {
             var lineLabel = (RichTextLabel)_lineTemplateNode.Duplicate();
             lineLabel.Visible = true;
             lineLabel.BbcodeEnabled = true;
@@ -109,7 +126,8 @@ public partial class GameLogComponent : ScrollContainer {
         }
     }
 
-    private void ClearTemplateTexts(VBoxContainer messageTemplate) {
+    private void ClearTemplateTexts(VBoxContainer messageTemplate)
+    {
         var headerTemplate = messageTemplate.GetNode<HBoxContainer>("HeaderTemplate");
         var headingLabel = headerTemplate.GetNode<Label>("Heading");
         var timestampLabel = headerTemplate.GetNode<Label>("Timestamp");
@@ -121,8 +139,10 @@ public partial class GameLogComponent : ScrollContainer {
         lineLabel.Text = "";
     }
 
-    private static string GetColorForLineType(GameLogLineType type) {
-        return type switch {
+    private static string GetColorForLineType(GameLogLineType type)
+    {
+        return type switch
+        {
             GameLogLineType.Default => "white",
             GameLogLineType.Error => "red",
             GameLogLineType.Info => "blue",

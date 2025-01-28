@@ -1,12 +1,13 @@
 using Godot;
 
-namespace DiceRoll.Helpers;
+namespace DiceRolling.Helpers;
 
 /// <summary>
 /// A class for generating a 3D path and placing cubes along it.
 /// </summary>
 [Tool]
-public partial class Arc3DRenderer : Node3D {
+public partial class Arc3DRenderer : Node3D
+{
     /// <summary>
     /// Gets or sets the first point of the quadratic Bezier curve.
     /// </summary>
@@ -45,8 +46,10 @@ public partial class Arc3DRenderer : Node3D {
     /// Called when the node is added to the scene.
     /// <inheritdoc cref="Godot.Node._Ready"/>
     /// </summary>
-    public override void _Ready() {
-        if (Engine.IsEditorHint()) {
+    public override void _Ready()
+    {
+        if (Engine.IsEditorHint())
+        {
             SetupPath();
         }
     }
@@ -54,7 +57,8 @@ public partial class Arc3DRenderer : Node3D {
     /// <summary>
     /// Generates the path and places cubes along it.
     /// </summary>
-    public void GeneratePath() {
+    public void GeneratePath()
+    {
         ClearPath();
         SetupPath();
     }
@@ -62,19 +66,22 @@ public partial class Arc3DRenderer : Node3D {
     /// <summary>
     /// Clears the existing path.
     /// </summary>
-    private void ClearPath() {
+    private void ClearPath()
+    {
         _path?.QueueFree();
     }
 
     /// <summary>
     /// Sets up the path and places cubes along it.
     /// </summary>
-    private void SetupPath() {
+    private void SetupPath()
+    {
         _path = new Path3D();
         _curve = new Curve3D();
 
         int segments = 20;
-        for (int i = 0; i <= segments; i++) {
+        for (int i = 0; i <= segments; i++)
+        {
             float t = (float)i / segments;
             Vector3 point = CalculateQuadraticBezierPoint(t, PointA, PointB, PointC);
             _curve.AddPoint(point);
@@ -86,15 +93,18 @@ public partial class Arc3DRenderer : Node3D {
         float pathLength = _curve.GetBakedLength();
         int cubeCount = Mathf.FloorToInt(pathLength / Spacing);
 
-        for (int i = 0; i < cubeCount; i++) {
-            var pathFollow = new PathFollow3D {
+        for (int i = 0; i < cubeCount; i++)
+        {
+            var pathFollow = new PathFollow3D
+            {
                 CubicInterp = true,
                 RotationMode = PathFollow3D.RotationModeEnum.Xyz,
                 Loop = true
             };
             _path.AddChild(pathFollow);
 
-            var meshInstance = new MeshInstance3D {
+            var meshInstance = new MeshInstance3D
+            {
                 Mesh = new BoxMesh { Size = CubeSize }
             };
             pathFollow.AddChild(meshInstance);
@@ -111,7 +121,8 @@ public partial class Arc3DRenderer : Node3D {
     /// <param name="b">The second point of the curve.</param>
     /// <param name="c">The third point of the curve.</param>
     /// <returns>The calculated point on the curve.</returns>
-    private static Vector3 CalculateQuadraticBezierPoint(float t, Vector3 a, Vector3 b, Vector3 c) {
+    private static Vector3 CalculateQuadraticBezierPoint(float t, Vector3 a, Vector3 b, Vector3 c)
+    {
         return (1 - t) * (1 - t) * a + 2 * (1 - t) * t * b + t * t * c;
     }
 }

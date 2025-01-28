@@ -1,21 +1,25 @@
 using Godot;
-using DiceRoll.Events;
-using DiceRoll.Models.Characters;
-using DiceRoll.Models.Actions;
+using DiceRolling.Events;
+using DiceRolling.Models.Characters;
+using DiceRolling.Models.Actions;
 using System.Collections.Generic;
 
-namespace DiceRoll.Components.Characters;
+namespace DiceRolling.Components.Characters;
 
 [Tool]
-public partial class CharacterInspector : HBoxContainer {
+public partial class CharacterInspector : HBoxContainer
+{
     private Character? _character;
     [ExportGroup("🪵 Resources")]
     [Export]
-    public Character? Character {
+    public Character? Character
+    {
         get => _character;
-        set {
+        set
+        {
             _character = value;
-            if (_character is not null) {
+            if (_character is not null)
+            {
                 UpdateCharacterDetails();
             }
         }
@@ -44,51 +48,61 @@ public partial class CharacterInspector : HBoxContainer {
     private string ButtonTemplateNodeName => ActionButtonTemplate?.Name ?? "ActionButtonTemplate";
     private Dictionary<Button, CharacterAction> _actionButtons = new();
 
-    public override void _Ready() {
+    public override void _Ready()
+    {
         Visible = false;
         EventBus.Instance.Connect(nameof(EventBus.CharacterSelected), new Callable(this, nameof(OnCharacterSelected)));
         EventBus.Instance.Connect(nameof(EventBus.CharacterUnselected), new Callable(this, nameof(OnCharacterUnselected)));
     }
 
-    private void OnCharacterSelected(CharacterComponent characterComponent) {
+    private void OnCharacterSelected(CharacterComponent characterComponent)
+    {
         _character = characterComponent.Character;
         Visible = true;
         UpdateCharacterDetails();
     }
 
-    private void OnCharacterUnselected() {
+    private void OnCharacterUnselected()
+    {
         _character = null;
         Visible = false;
     }
 
-    private void UpdateCharacterDetails() {
+    private void UpdateCharacterDetails()
+    {
 
-        if (_character is null) {
+        if (_character is null)
+        {
             GD.PrintErr("Character is null");
             return;
         }
 
-        if (PortraitNode is null) {
+        if (PortraitNode is null)
+        {
             GD.PrintErr("Portrait node is null.");
             return;
         }
 
-        if (CharacterNameNode is null) {
+        if (CharacterNameNode is null)
+        {
             GD.PrintErr("Character name node is null");
             return;
         }
 
-        if (CharacterRoleNode is null) {
+        if (CharacterRoleNode is null)
+        {
             GD.PrintErr("Character role node is null");
             return;
         }
 
-        if (AttributeCurrentValueNode is null) {
+        if (AttributeCurrentValueNode is null)
+        {
             GD.PrintErr("AttributeCurrentValueNode is null");
             return;
         }
 
-        if (AttributeMaxValueNode is null) {
+        if (AttributeMaxValueNode is null)
+        {
             GD.PrintErr("AttributeMaxValueNode is null");
             return;
         }
@@ -97,24 +111,29 @@ public partial class CharacterInspector : HBoxContainer {
         CharacterNameNode.Text = _character?.Name ?? "Unknown";
         CharacterRoleNode.Text = _character?.Role?.Name ?? "Unknown Role";
 
-        if (AttributesListNode is not null && AttributeTemplateNode is not null) {
+        if (AttributesListNode is not null && AttributeTemplateNode is not null)
+        {
             AttributeTemplateNode.Visible = false;
 
             if (_character is null) return;
 
-            if (_character.Attributes.Count == 0) {
+            if (_character.Attributes.Count == 0)
+            {
                 GD.PrintErr("Character has no attributes:", _character.Name);
                 return;
             }
 
             // Clear existing action buttons
-            foreach (Node child in AttributesListNode.GetChildren()) {
-                if (child != AttributeTemplateNode) {
+            foreach (Node child in AttributesListNode.GetChildren())
+            {
+                if (child != AttributeTemplateNode)
+                {
                     child.QueueFree();
                 }
             }
 
-            foreach (var attribute in _character.Attributes) {
+            foreach (var attribute in _character.Attributes)
+            {
                 var attributeInstance = (VBoxContainer)AttributeTemplateNode.Duplicate();
                 attributeInstance.Visible = true;
 
@@ -123,15 +142,18 @@ public partial class CharacterInspector : HBoxContainer {
                 var currentValueNode = valueContainer.GetNodeOrNull<Label>(AttributeCurrentValueNodeName);
                 var maxValueNode = valueContainer.GetNodeOrNull<Label>(AttributeMaxValueNodeName);
 
-                if (titleNode is not null) {
+                if (titleNode is not null)
+                {
                     titleNode.Text = attribute.Type?.Name ?? "Unknown attribute";
                 }
 
-                if (currentValueNode is not null) {
+                if (currentValueNode is not null)
+                {
                     currentValueNode.Text = attribute.CurrentValue.ToString();
                 }
 
-                if (maxValueNode is not null) {
+                if (maxValueNode is not null)
+                {
                     maxValueNode.Text = attribute.MaxValue.ToString();
                 }
 
@@ -139,23 +161,28 @@ public partial class CharacterInspector : HBoxContainer {
             }
         }
 
-        if (ActionGridNode is not null && ActionButtonTemplate is not null) {
+        if (ActionGridNode is not null && ActionButtonTemplate is not null)
+        {
             ActionButtonTemplate.Visible = false;
 
             if (_character is null) return;
 
-            if (_character.Actions.Count == 0) {
+            if (_character.Actions.Count == 0)
+            {
                 GD.PrintErr("Character has no actions:", _character.Name);
                 return;
             }
 
-            foreach (Node child in ActionGridNode.GetChildren()) {
-                if (child != ActionButtonTemplate) {
+            foreach (Node child in ActionGridNode.GetChildren())
+            {
+                if (child != ActionButtonTemplate)
+                {
                     child.QueueFree();
                 }
             }
 
-            foreach (var action in _character.Actions) {
+            foreach (var action in _character.Actions)
+            {
                 var actionButton = (Button)ActionButtonTemplate.Duplicate();
                 actionButton.Visible = true;
                 actionButton.Text = action.Name ?? "Unknown Action";
@@ -169,10 +196,13 @@ public partial class CharacterInspector : HBoxContainer {
         }
     }
 
-    private void OnActionButtonPressed(Button button) {
+    private void OnActionButtonPressed(Button button)
+    {
         GD.Print("Action button pressed: ", button.Text);
-        if (_actionButtons.TryGetValue(button, out var action)) {
-            if (action.Type?.TargetConfiguration is not null) {
+        if (_actionButtons.TryGetValue(button, out var action))
+        {
+            if (action.Type?.TargetConfiguration is not null)
+            {
                 GD.Print("Emitting ActionSelected signal with target configuration: ", action.Type.TargetConfiguration);
                 EventBus.Instance.EmitSignal(nameof(EventBus.ActionSelected), action.Type.TargetConfiguration);
             }

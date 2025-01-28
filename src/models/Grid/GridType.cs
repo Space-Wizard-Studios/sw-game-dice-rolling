@@ -1,17 +1,19 @@
 using Godot;
 using System;
-using DiceRoll.Stores;
+using DiceRolling.Stores;
 
-namespace DiceRoll.Models.Grids;
+namespace DiceRolling.Models.Grids;
 
-public enum GridDirection {
+public enum GridDirection
+{
     LeftToRight,
     RightToLeft
 }
 
 [Tool]
 [GlobalClass]
-public partial class GridType : Resource {
+public partial class GridType : Resource
+{
     [Signal] public delegate void GridChangedEventHandler();
     private int _rows = 1;
     private int _columns = 1;
@@ -22,9 +24,11 @@ public partial class GridType : Resource {
     [Export(PropertyHint.Enum, "GridDirection")] public GridDirection Direction { get; set; } = GridDirection.LeftToRight;
 
     [Export]
-    public int Rows {
+    public int Rows
+    {
         get => _rows;
-        set {
+        set
+        {
             _rows = value;
             ResizeCells();
             EmitSignal(nameof(GridChanged));
@@ -32,9 +36,11 @@ public partial class GridType : Resource {
     }
 
     [Export]
-    public int Columns {
+    public int Columns
+    {
         get => _columns;
-        set {
+        set
+        {
             _columns = value;
             ResizeCells();
             EmitSignal(nameof(GridChanged));
@@ -44,11 +50,13 @@ public partial class GridType : Resource {
     [Export]
     public Godot.Collections.Array<int> Cells { get; set; } = new();
 
-    public GridType() {
+    public GridType()
+    {
         ResizeCells();
     }
 
-    public GridType(int rows, int columns, int offset, string prefix) {
+    public GridType(int rows, int columns, int offset, string prefix)
+    {
         _rows = rows;
         _columns = columns;
         Offset = offset;
@@ -56,24 +64,29 @@ public partial class GridType : Resource {
         ResizeCells();
     }
 
-    private void ResizeCells() {
+    private void ResizeCells()
+    {
         Cells.Resize(_rows * _columns);
         EmitSignal(nameof(GridChanged));
     }
 
-    public int GetCellIndex(int row, int column) {
+    public int GetCellIndex(int row, int column)
+    {
         return row * _columns + column;
     }
 
-    public static Vector3 GetCellPosition(int row, int column, float cellPadding) {
+    public static Vector3 GetCellPosition(int row, int column, float cellPadding)
+    {
         return new Vector3(column + cellPadding / 2.0f, 0, row + cellPadding / 2.0f);
     }
 
-    public int GetCell(int row, int column) {
+    public int GetCell(int row, int column)
+    {
         return Cells[GetCellIndex(row, column)];
     }
 
-    public void SetCell(int row, int column, int value) {
+    public void SetCell(int row, int column, int value)
+    {
         Cells[GetCellIndex(row, column)] = value;
         EmitSignal(nameof(GridChanged));
     }

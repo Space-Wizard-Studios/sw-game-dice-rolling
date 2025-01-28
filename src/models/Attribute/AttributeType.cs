@@ -1,10 +1,11 @@
 using Godot;
 
-namespace DiceRoll.Models.Attributes;
+namespace DiceRolling.Models.Attributes;
 
 [Tool]
 [GlobalClass]
-public partial class AttributeType : Resource {
+public partial class AttributeType : Resource
+{
 
     [Export]
     public string? Name { get; set; }
@@ -17,11 +18,14 @@ public partial class AttributeType : Resource {
 
     private Texture2D? _icon;
     [Export]
-    public Texture2D? Icon {
+    public Texture2D? Icon
+    {
         get => _icon;
-        set {
+        set
+        {
             _icon = value;
-            if (_icon is not null) {
+            if (_icon is not null)
+            {
                 IconPath = _icon.ResourcePath;
             }
         }
@@ -37,7 +41,8 @@ public partial class AttributeType : Resource {
 
     public AttributeType() { }
 
-    public AttributeType(string name, string description, Color color, Texture2D icon) {
+    public AttributeType(string name, string description, Color color, Texture2D icon)
+    {
         Name = name;
         Description = description;
         Color = color;

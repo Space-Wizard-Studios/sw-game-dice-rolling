@@ -1,16 +1,20 @@
 using System.Linq;
-using DiceRoll.Models.Characters;
+using DiceRolling.Models.Characters;
 
-namespace DiceRoll.Models.Actions.Effects;
+namespace DiceRolling.Models.Actions.Effects;
 
-public partial class DamageEffect : EffectType {
+public partial class DamageEffect : EffectType
+{
     private readonly int _damage;
 
-    public DamageEffect() {
+    public DamageEffect()
+    {
     }
-    public override void Apply(IActionContext context) {
+    public override void Apply(IActionContext context)
+    {
         var healthAttribute = context.Target.Attributes.FirstOrDefault(attr => attr.Type?.Name == "Health");
-        if (healthAttribute is not null) {
+        if (healthAttribute is not null)
+        {
             healthAttribute.CurrentValue -= _damage;
             // TODO: can i do this?
             context.Target.EmitSignal(nameof(Character.AttributeChanged), context.Target, healthAttribute.Type!);

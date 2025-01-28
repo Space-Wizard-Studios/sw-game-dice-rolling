@@ -1,20 +1,22 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using DiceRoll.Stores;
-using DiceRoll.Models.Roles;
-using DiceRoll.Models.Characters;
+using DiceRolling.Stores;
+using DiceRolling.Models.Roles;
+using DiceRolling.Models.Characters;
 
-namespace DiceRoll.Managers;
+namespace DiceRolling.Managers;
 
-public partial class BattleManager : Node3D {
+public partial class BattleManager : Node3D
+{
     // [Export]
     // public PackedScene? GameLogScene { get; set; }
 
     // [Export]
     // public DiceManaResources? DiceManaResources { get; set; }
 
-    public override void _Ready() {
+    public override void _Ready()
+    {
         // Run character tests
         RunCharacterTests();
 
@@ -25,8 +27,10 @@ public partial class BattleManager : Node3D {
         // RunDiceTests();
     }
 
-    private static void RunCharacterTests() {
-        var newCharacter = new Character {
+    private static void RunCharacterTests()
+    {
+        var newCharacter = new Character
+        {
             Id = Guid.NewGuid().ToString(),
             Name = "Hero",
             Role = new Role { Name = "Warrior" },
@@ -40,17 +44,20 @@ public partial class BattleManager : Node3D {
         GD.Print("Character IDs: ", string.Join(", ", characterIds));
         GD.Print("Character name: ", CharacterStore.Instance.GetCharacterById(characterIds[0]).Name);
         var character = CharacterStore.Instance.GetCharacterById(characterIds[0]);
-        if (character?.Role is not null) {
+        if (character?.Role is not null)
+        {
             GD.Print("Character role: ", character.Role.Name);
         }
-        else {
+        else
+        {
             GD.Print("Character role: null");
         }
         GD.Print("Character dice capacity: ", CharacterStore.Instance.GetCharacterById(characterIds[0]).DiceCapacity);
     }
 
     // TODO - MOVER A LÓGICA DE LOG MESSAGES PARA O EVENT BUS
-    private static void RunGameLogTests() {
+    private static void RunGameLogTests()
+    {
         GD.Print("RunGameLogTests called");
 
         var timestamp = DateTime.Now.ToString("HH:mm");

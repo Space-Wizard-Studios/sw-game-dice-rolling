@@ -1,6 +1,7 @@
-namespace DiceRoll.Models.Actions;
+namespace DiceRolling.Models.Actions;
 
 public interface IAction<TContext, TResult>
-    where TContext : IActionContext {
+    where TContext : IActionContext
+{
     TResult Do(TContext context);
 }

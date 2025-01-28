@@ -1,19 +1,23 @@
 using Godot;
-using DiceRoll.Models.Actions.Targets;
+using DiceRolling.Models.Actions.Targets;
 
-namespace DiceRoll.Editor;
+namespace DiceRolling.Editor;
 
-public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin {
+public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin
+{
     private MatrixControl? matrixControl;
     private CheckBox? flipCheckBox;
     private Button? clearGridButton;
 
-    public override bool _CanHandle(GodotObject @object) {
+    public override bool _CanHandle(GodotObject @object)
+    {
         return @object is TargetConfiguration;
     }
 
-    public override void _ParseBegin(GodotObject @object) {
-        if (@object is TargetConfiguration targetConfiguration) {
+    public override void _ParseBegin(GodotObject @object)
+    {
+        if (@object is TargetConfiguration targetConfiguration)
+        {
             var container = new VBoxContainer();
             AddCustomControl(container);
 
@@ -22,7 +26,8 @@ public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin 
             container.AddChild(matrixControl);
 
             // Add grids to MatrixControl
-            foreach (var grid in targetConfiguration.Grids) {
+            foreach (var grid in targetConfiguration.Grids)
+            {
                 matrixControl.AddGrid(grid);
             }
 
@@ -37,7 +42,8 @@ public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin 
             container.AddChild(clearGridButton);
 
             // Add description RichTextLabel
-            var descriptionRichTextLabel = new RichTextLabel {
+            var descriptionRichTextLabel = new RichTextLabel
+            {
                 BbcodeEnabled = true,
                 Text = "[b]Possible values on the matrix:[/b]\n" +
                        "[color=white]0 - Ignored[/color]\n" +
@@ -51,7 +57,8 @@ public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin 
             container.AddChild(descriptionRichTextLabel);
 
             // Connect ConfigurationChanged signal
-            if (!targetConfiguration.IsConnected(nameof(TargetConfiguration.ConfigurationChanged), new Callable(this, nameof(OnConfigurationChanged)))) {
+            if (!targetConfiguration.IsConnected(nameof(TargetConfiguration.ConfigurationChanged), new Callable(this, nameof(OnConfigurationChanged))))
+            {
                 targetConfiguration.Connect(nameof(TargetConfiguration.ConfigurationChanged), new Callable(this, nameof(OnConfigurationChanged)));
             }
         }
@@ -61,7 +68,8 @@ public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin 
     /// Called when the target configuration changes.
     /// Updates the MatrixControl with the new configuration.
     /// </summary>
-    private static void OnConfigurationChanged() {
+    private static void OnConfigurationChanged()
+    {
         // Implementation here
     }
 
@@ -70,7 +78,8 @@ public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin 
     /// Flips the MatrixControl horizontally based on the checkbox state.
     /// </summary>
     /// <param name="toggled">If set to <c>true</c>, the grid will be flipped horizontally.</param>
-    private void OnFlipCheckBoxToggled(bool toggled) {
+    private void OnFlipCheckBoxToggled(bool toggled)
+    {
         matrixControl?.FlipHorizontally(toggled);
     }
 
@@ -78,7 +87,8 @@ public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin 
     /// Called when the clear grid button is pressed.
     /// Clears all grid inputs in the MatrixControl.
     /// </summary>
-    private void OnClearGridButtonPressed() {
+    private void OnClearGridButtonPressed()
+    {
         matrixControl?.ClearGridInputs();
     }
 }

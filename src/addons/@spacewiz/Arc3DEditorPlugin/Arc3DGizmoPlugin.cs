@@ -1,13 +1,14 @@
 using Godot;
-using DiceRoll.Helpers;
+using DiceRolling.Helpers;
 
-namespace DiceRoll.Editor;
+namespace DiceRolling.Editor;
 
 /// <summary>
 /// A plugin for rendering 3D gizmos in the editor for Arc3DRenderer nodes.
 /// </summary>
 [Tool]
-public partial class Arc3DGizmoPlugin : EditorNode3DGizmoPlugin {
+public partial class Arc3DGizmoPlugin : EditorNode3DGizmoPlugin
+{
     private readonly StandardMaterial3D _redMaterial;
     private readonly StandardMaterial3D _greenMaterial;
     private readonly StandardMaterial3D _blueMaterial;
@@ -18,7 +19,8 @@ public partial class Arc3DGizmoPlugin : EditorNode3DGizmoPlugin {
     /// <summary>
     /// Initializes a new instance of the <see cref="Arc3DGizmoPlugin"/> class.
     /// </summary>
-    public Arc3DGizmoPlugin() {
+    public Arc3DGizmoPlugin()
+    {
         _redMaterial = CreateMaterial(Colors.Red);
         _greenMaterial = CreateMaterial(Colors.Green);
         _blueMaterial = CreateMaterial(Colors.Blue);
@@ -29,8 +31,10 @@ public partial class Arc3DGizmoPlugin : EditorNode3DGizmoPlugin {
     /// </summary>
     /// <param name="color">The color of the material.</param>
     /// <returns>A new <see cref="StandardMaterial3D"/> with the specified color.</returns>
-    private StandardMaterial3D CreateMaterial(Color color) {
-        return new StandardMaterial3D {
+    private StandardMaterial3D CreateMaterial(Color color)
+    {
+        return new StandardMaterial3D
+        {
             AlbedoColor = color
         };
     }
@@ -40,7 +44,8 @@ public partial class Arc3DGizmoPlugin : EditorNode3DGizmoPlugin {
     /// <inheritdoc cref="Godot.EditorNode3DGizmoPlugin._GetGizmoName"/>
     /// </summary>
     /// <returns>The name of the gizmo.</returns>
-    public override string _GetGizmoName() {
+    public override string _GetGizmoName()
+    {
         return "@spacewiz Arc3D Gizmo";
     }
 
@@ -49,7 +54,8 @@ public partial class Arc3DGizmoPlugin : EditorNode3DGizmoPlugin {
     /// <inheritdoc cref="Godot.EditorNode3DGizmoPlugin._Redraw"/>
     /// </summary>
     /// <param name="gizmo">The gizmo to redraw.</param>
-    public override void _Redraw(EditorNode3DGizmo gizmo) {
+    public override void _Redraw(EditorNode3DGizmo gizmo)
+    {
         if (gizmo.GetNode3D() is not Arc3DRenderer arcRenderer)
             return;
 
@@ -73,7 +79,8 @@ public partial class Arc3DGizmoPlugin : EditorNode3DGizmoPlugin {
     /// <param name="sphereMesh">The mesh of the sphere.</param>
     /// <param name="position">The position of the sphere.</param>
     /// <param name="material">The material of the sphere.</param>
-    private static void AddSphere(EditorNode3DGizmo gizmo, SphereMesh sphereMesh, Vector3 position, StandardMaterial3D material) {
+    private static void AddSphere(EditorNode3DGizmo gizmo, SphereMesh sphereMesh, Vector3 position, StandardMaterial3D material)
+    {
         var transform = new Transform3D(Basis.Identity, position);
         gizmo.AddMesh(sphereMesh, material, transform);
     }
@@ -84,7 +91,8 @@ public partial class Arc3DGizmoPlugin : EditorNode3DGizmoPlugin {
     /// </summary>
     /// <param name="node">The node to check.</param>
     /// <returns><c>true</c> if the node has a gizmo; otherwise, <c>false</c>.</returns>
-    public override bool _HasGizmo(Node3D node) {
+    public override bool _HasGizmo(Node3D node)
+    {
         return node is Arc3DRenderer;
     }
 }

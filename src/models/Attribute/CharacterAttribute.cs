@@ -1,10 +1,11 @@
 using Godot;
 
-namespace DiceRoll.Models.Attributes;
+namespace DiceRolling.Models.Attributes;
 
 [Tool]
 [GlobalClass]
-public partial class CharacterAttribute : Resource {
+public partial class CharacterAttribute : Resource
+{
     [Export] public AttributeType? Type { get; set; }
 
     [Export] public int MaxValue { get; set; }
@@ -15,7 +16,8 @@ public partial class CharacterAttribute : Resource {
 
     public CharacterAttribute() { }
 
-    public CharacterAttribute(RoleAttribute roleAttribute) {
+    public CharacterAttribute(RoleAttribute roleAttribute)
+    {
         Type = roleAttribute.Type;
         BaseValue = roleAttribute.BaseValue;
 
@@ -23,8 +25,10 @@ public partial class CharacterAttribute : Resource {
         CurrentValue = BaseValue;
     }
 
-    public override void _ValidateProperty(Godot.Collections.Dictionary property) {
-        if (property["name"].AsStringName() == "BaseValue") {
+    public override void _ValidateProperty(Godot.Collections.Dictionary property)
+    {
+        if (property["name"].AsStringName() == "BaseValue")
+        {
             property["usage"] = (int)(PropertyUsageFlags.Default | PropertyUsageFlags.ReadOnly);
         }
         base._ValidateProperty(property);

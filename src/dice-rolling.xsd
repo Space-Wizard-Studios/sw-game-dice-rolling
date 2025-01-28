@@ -12,15 +12,23 @@
                             <xs:element name="Nullable" type="xs:string" />
                             <xs:element name="GenerateDocumentationFile" type="xs:string" />
                             <xs:element name="PublishAot" type="xs:string" />
+                            <xs:element name="CopyLocalLockFileAssemblies" type="xs:string" />
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="ItemGroup" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="TrimmerRootAssembly" minOccurs="0" maxOccurs="unbounded">
+                            <xs:element name="TrimmerRootAssembly" minOccurs="0"
+                                maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:attribute name="Include" type="xs:string" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="PackageReference" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:attribute name="Include" type="xs:string" use="required" />
+                                    <xs:attribute name="Version" type="xs:string" use="required" />
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>

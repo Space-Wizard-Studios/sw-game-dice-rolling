@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="Character" load_steps=19 format=3 uid="uid://bkolttux1bvi1"]
+[gd_resource type="Resource" script_class="Character" load_steps=18 format=3 uid="uid://bkolttux1bvi1"]
 
 [ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Action/CharacterAction.cs" id="1_54hr6"]
 [ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attribute/CharacterAttribute.cs" id="2_wf1x4"]
-[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/Effect/EffectType.cs" id="2_xumvl"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attribute/Attributes/Health.tres" id="3_8rhoj"]
 [ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://models/Action/Effect/Effects/DamageEffect.tres" id="3_keqlw"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="4_87gay"]
@@ -21,7 +20,7 @@ Type = ExtResource("5_focbd")
 Name = "Quick Slash"
 Description = "Quick Slash description."
 RequiredMana = Array[ExtResource("4_87gay")]([])
-Effects = Array[ExtResource("2_xumvl")]([ExtResource("3_keqlw")])
+Effects = [ExtResource("3_keqlw")]
 
 [sub_resource type="Resource" id="Resource_4p1nt"]
 script = ExtResource("2_wf1x4")
@@ -50,8 +49,8 @@ Id = "d98ec50f-3df3-47e6-b266-cbc7b8fbb745"
 Name = "Joanna"
 IsEnemy = false
 Role = ExtResource("9_co8f0")
-Attributes = Array[ExtResource("2_wf1x4")]([SubResource("Resource_4p1nt"), SubResource("Resource_ebahj"), SubResource("Resource_b3bio")])
-Actions = Array[ExtResource("1_54hr6")]([SubResource("Resource_xumvl")])
+Attributes = [SubResource("Resource_4p1nt"), SubResource("Resource_ebahj"), SubResource("Resource_b3bio")]
+Actions = [SubResource("Resource_xumvl")]
 DiceCapacity = 0
 Location = ExtResource("7_87gay")
 SlotIndex = 2

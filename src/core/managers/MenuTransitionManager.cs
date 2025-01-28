@@ -1,15 +1,17 @@
 using Godot;
 
-namespace DiceRoll.Managers;
+namespace DiceRolling.Managers;
 
-public enum MenuScenes {
+public enum MenuScenes
+{
     MainMenu,
     GameplayLobby,
     GameOverMenu
 }
 
 [GlobalClass]
-public partial class MenuTransitionManager : Node {
+public partial class MenuTransitionManager : Node
+{
     [Export]
     public PackedScene? MainMenuScene { get; set; }
 
@@ -19,8 +21,10 @@ public partial class MenuTransitionManager : Node {
     [Export]
     public PackedScene? GameOverMenuScene { get; set; }
 
-    public void TransitionTo(MenuScenes scene) {
-        switch (scene) {
+    public void TransitionTo(MenuScenes scene)
+    {
+        switch (scene)
+        {
             case MenuScenes.MainMenu:
                 GetTree().ChangeSceneToPacked(MainMenuScene);
                 break;

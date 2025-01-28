@@ -1,7 +1,8 @@
 using Godot;
-namespace DiceRoll.Models.Actions.Effects;
+namespace DiceRolling.Models.Actions.Effects;
 
 [Tool]
-public abstract partial class EffectType : Resource {
+public abstract partial class EffectType : Resource
+{
     public abstract void Apply(IActionContext context);
 }

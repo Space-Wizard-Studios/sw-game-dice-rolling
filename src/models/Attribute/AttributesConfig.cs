@@ -1,8 +1,9 @@
 using Godot;
 
-namespace DiceRoll.Models.Attributes;
+namespace DiceRolling.Models.Attributes;
 
 [Tool]
-public partial class AttributesConfig : Resource {
+public partial class AttributesConfig : Resource
+{
     [Export] public Godot.Collections.Dictionary<string, AttributeType> Attributes { get; set; } = [];
 }

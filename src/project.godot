@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="dice-roll"
+config/name="dice-rolling"
 run/main_scene="res://scenes/menus/MainMenu.tscn"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="uid://cd5lv3o67yo78"
@@ -43,7 +43,7 @@ window/stretch/aspect="ignore"
 
 [dotnet]
 
-project/assembly_name="dice-roll"
+project/assembly_name="dice-rolling"
 
 [editor]
 
@@ -51,7 +51,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/@spacewiz/Arc3DEditorPlugin/plugin.cfg", "res://addons/@spacewiz/TargetConfigurationEditorPlugin/plugin.cfg", "res://addons/DragNDropNodes/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/gdUnit4/plugin.cfg")
+enabled=PackedStringArray("res://addons/DragNDropNodes/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/gdUnit4/plugin.cfg")
 
 [file_customization]
 

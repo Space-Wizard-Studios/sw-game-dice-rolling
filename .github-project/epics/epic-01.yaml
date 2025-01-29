@@ -1,24 +1,15 @@
 ---
 epic: "Epic 1: Configuração Inicial do Projeto"
-description: ""
 stories:
   - story: "Story 1.1: Configuração do jogo"
     tasks:
       - task: "Task 1.1.a: Configuração inicial"
-        description: "Configurar Godot, C#, GdUnit4"
       - task: "Task 1.1.b: Organização inicial"
-        description: "Organizar estrutura de pastas"
       - task: "Task 1.1.c: Aparência inicial"
-        description: "Configurar tema global"
   - story: "Story 1.2: Configuração do Projeto de Documentação"
     tasks:
       - task: "Task 1.2.a: Configuração da documentação"
-        description: "Configurar o Docusaurus para gerar a documentação"
       - task: "Task 1.2.b: Configurar o TypeScript para o projeto de documentação"
-        description: "Configurar o ambiente de desenvolvimento com TypeScript no diretório docs"
       - task: "Task 1.2.c: Configurar o DocFX para gerar a documentação da API"
-        description: "Configurar o DocFX no diretório docs para gerar a documentação da API em Markdown"
       - task: "Task 1.2.d: Configurar o processamento da API com processApiFiles.js"
-        description: "Implementar o script processApiFiles.js para processar os arquivos da API"
       - task: "Task 1.2.e: Configurar a publicação da documentação no Firebase"
-        description: "Configurar o Firebase para servir a documentação gerada no endereço https://sw-game-dice-roll-docs.web.app"

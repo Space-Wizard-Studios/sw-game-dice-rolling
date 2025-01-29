@@ -1,37 +1,15 @@
 ---
 epic: "Epic 2: Prototipagem inicial do jogo"
-description: "Este épico tem como objetivo criar uma prototipagem inicial do jogo, com a modelagem da High Level Architecture, cenas para transição via menus / botões e um mockup inicial da cena de batalha."
-assignee: "@danko-nobre"
-status: "Em andamento"
-size: "x-large"
 stories:
   - story: "Story 2.1: Modelagem da High Level Architecture"
-    tasks:
-      - task: "Task A: Definir a arquitetura de alto nível do jogo"
-        description: "Definir a arquitetura de alto nível do jogo"
-        subtasks:
-          - subtask: "Subtask A.1: Criar diagramas de componentes principais"
-            description: "Criar diagramas de componentes principais"
   - story: "Story 2.2: Criação de cenas para transição via menus / botões"
     tasks:
-      - task: "Task A: Implementar a cena de menu principal"
-        description: "Implementar a cena de menu principal"
-        subtasks:
-          - subtask: "Subtask A.1: Adicionar botões para iniciar jogo, opções e sair"
-            description: "Adicionar botões para iniciar jogo, opções e sair"
-          - subtask: "Subtask A.2: Configurar transições entre cenas"
-            description: "Configurar transições entre cenas"
-      - task: "Task B: Implementar a cena de opções"
-        description: "Implementar a cena de opções"
-        subtasks:
-          - subtask: "Subtask B.1: Configurar retorno ao menu principal"
-            description: "Configurar retorno ao menu principal"
+      - task: "Task 2.2.a: Implementar as cenas de menus"
+      - task: "Task 2.2.b: Implementar as cenas de gameplay"
+      - task: "Task 2.2.c: Implementar transições entre cenas"
   - story: "Story 2.3: Mockup inicial da cena de batalha"
     tasks:
-      - task: "Task A: Criar a cena de batalha"
-        description: "Criar a cena de batalha"
+      - task: "Task 2.3.a: Criar a cena de batalha"
         subtasks:
-          - subtask: "Subtask A.1: Adicionar placeholders para personagens e inimigos"
-            description: "Adicionar placeholders para personagens e inimigos"
-          - subtask: "Subtask A.2: Implementar layout básico da interface de usuário"
-            description: "Implementar layout básico da interface de usuário"
+          - subtask: "Subtask 2.3.a.1: Adicionar placeholders para personagens e inimigos"
+          - subtask: "Subtask 2.3.b.2: Implementar layout básico da interface de usuário"

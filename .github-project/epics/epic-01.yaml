@@ -1,15 +1,26 @@
 ---
-epic: "Epic 1: Configuração Inicial do Projeto"
-stories:
-  - story: "Story 1.1: Configuração do jogo"
-    tasks:
-      - task: "Task 1.1.a: Configuração inicial"
-      - task: "Task 1.1.b: Organização inicial"
-      - task: "Task 1.1.c: Aparência inicial"
-  - story: "Story 1.2: Configuração do Projeto de Documentação"
-    tasks:
-      - task: "Task 1.2.a: Configuração da documentação"
-      - task: "Task 1.2.b: Configurar o TypeScript para o projeto de documentação"
-      - task: "Task 1.2.c: Configurar o DocFX para gerar a documentação da API"
-      - task: "Task 1.2.d: Configurar o processamento da API com processApiFiles.js"
-      - task: "Task 1.2.e: Configurar a publicação da documentação no Firebase"
+title: "Epic 1: Configuração Inicial do repositório"
+type: "epic"
+sub-issues:
+  - title: "Story 1.1: Configuração do jogo"
+    type: "story"
+    sub-issues:
+      - title: "Task 1.1.a: Inicialização do Godot 4+ com C#"
+        type: "task"
+      - title: "Task 1.1.b: Criar a estrutura de pastas e namespaces"
+        type: "task"
+      - title: "Task 1.1.c: Criar theme global (placeholder)"
+        type: "task"
+  - title: "Story 1.2: Configuração do Projeto de Documentação"
+    type: "story"
+    sub-issues:
+      - title: "Task 1.2.a: Configuração da documentação com Docusaurus, DocFX e deploy no Firebase"
+        type: "task"
+      - title: "Task 1.2.b: Inicializar o Docusaurus para o projeto de documentação"
+        type: "task"
+      - title: "Task 1.2.c: Inicializar o DocFX para gerar a documentação da API"
+        type: "task"
+      - title: "Task 1.2.d: Configurar o processamento da API com processApiFiles.js"
+        type: "task"
+      - title: "Task 1.2.e: Configurar a publicação da documentação no Firebase"
+        type: "task"

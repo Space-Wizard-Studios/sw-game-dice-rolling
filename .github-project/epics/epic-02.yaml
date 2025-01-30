@@ -1,15 +1,43 @@
 ---
-epic: "Epic 2: Prototipagem inicial do jogo"
-stories:
-  - story: "Story 2.1: Modelagem da High Level Architecture"
-  - story: "Story 2.2: Criação de cenas para transição via menus / botões"
-    tasks:
-      - task: "Task 2.2.a: Implementar as cenas de menus"
-      - task: "Task 2.2.b: Implementar as cenas de gameplay"
-      - task: "Task 2.2.c: Implementar transições entre cenas"
-  - story: "Story 2.3: Mockup inicial da cena de batalha"
-    tasks:
-      - task: "Task 2.3.a: Criar a cena de batalha"
-        subtasks:
-          - subtask: "Subtask 2.3.a.1: Adicionar placeholders para personagens e inimigos"
-          - subtask: "Subtask 2.3.b.2: Implementar layout básico da interface de usuário"
+title: "Epic 2: Prototipagem inicial do jogo"
+type: "epic"
+sub-issues:
+  - title: "Story 2.1: Modelagem da High Level Architecture"
+    type: "story"
+  - title: "Story 2.2: Criação de cenas para transição via menus / botões"
+    type: "story"
+    sub-issues:
+      - title: "Task 2.2.a: Implementar as cenas de menus"
+        type: "task"
+        sub-issues:
+          - title: "Subtask 2.2.a.1: Implementar cena de Main Menu"
+            type: "subtask"
+          - title: "Subtask 2.2.a.2: Implementar cena de Game Over"
+            type: "subtask"
+      - title: "Task 2.2.b: Implementar as cenas de gameplay"
+        type: "task"
+        sub-issues:
+          - title: "Subtask 2.2.b.1: Implementar cena de Battle"
+            type: "subtask"
+          - title: "Subtask 2.2.b.2: Implementar cena de Dungeon"
+            type: "subtask"
+          - title: "Subtask 2.2.b.3: Implementar cena de Lobby"
+            type: "subtask"
+      - title: "Task 2.2.c: Implementar transições entre cenas de gameplay e menus"
+        type: "task"
+  - title: "Story 2.3: Implementação do Event Bus"
+    type: "story"
+    sub-issues:
+      - title: "Task 2.3.a: Criar Event Bus singleton"
+        type: "task"
+  - title: "Story 2.4: Implementação das Stores"
+    type: "story"
+    sub-issues:
+      - title: "Task 2.4.a: Criar Character Store"
+        type: "task"
+      - title: "Task 2.4.b: Criar Dice Store"
+        type: "task"
+      - title: "Task 2.4.c: Criar Game Log Store"
+        type: "task"
+  - title: "Story 2.5: Implementação do Game Log Component"
+    type: "story"

@@ -1,16 +1,15 @@
 ---
-epic: ""
-is: ""
+title: ""
 description: ""
 assignee: ""
+type: "epic | story | task | subtask"
 status: ""
+priority: ""
 size: ""
+reviewers:
+  - reviewer: ""
 start-date:
 end-date:
 linked-pull-requests:
 iteration:
-stories:
-  - story: ""
-    tasks:
-      - task: ""
-        description: ""
+sub-issues:

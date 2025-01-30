@@ -1,0 +1,20 @@
+---
+title: "Epic 4: Prototipagem dos Dices"
+type: "epic"
+sub-issues:
+  - title: "Story 4.1: Modelagem de Dices"
+    type: "story"
+  - title: "Story 4.2: Modelagem de Dice Icons"
+    type: "story"
+    sub-issues:
+      - title: "Task 4.2.a: Criar modelo de Dice Icons"
+        type: "task"
+      - title: "Task 4.2.b: Configurar mockups com assets de placeholder"
+        type: "task"
+  - title: "Story 4.3: Modelagem de DiceMana"
+    type: "story"
+    sub-issues:
+      - title: "Task 4.3.a: Criar modelo de Dice Mana"
+        type: "task"
+      - title: "Task 4.3.b: Configurar mockups com assets de placeholder"
+        type: "task"

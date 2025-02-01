@@ -14,7 +14,7 @@ sub-issues:
   - title: "Story 1.2: Configuração do Projeto de Documentação"
     type: "story"
     sub-issues:
-      - title: "Task 1.2.a: Configuração da documentação com Docusaurus, DocFX e deploy no Firebase"
+      - title: "Task 1.2.a: Configuração do ambiente em typescript"
         type: "task"
       - title: "Task 1.2.b: Inicializar o Docusaurus para o projeto de documentação"
         type: "task"

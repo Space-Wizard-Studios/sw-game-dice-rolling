@@ -2,7 +2,7 @@
 title: "Epic 2: Prototipagem inicial do jogo"
 type: "epic"
 sub-issues:
-  - title: "Story 2.1: Modelagem da High Level Architecture"
+  - title: "Story 2.1: Modelagem da arquitetura High Level"
     type: "story"
   - title: "Story 2.2: Criação de cenas para transição via menus / botões"
     type: "story"
@@ -27,9 +27,6 @@ sub-issues:
         type: "task"
   - title: "Story 2.3: Implementação do Event Bus"
     type: "story"
-    sub-issues:
-      - title: "Task 2.3.a: Criar Event Bus singleton"
-        type: "task"
   - title: "Story 2.4: Implementação das Stores"
     type: "story"
     sub-issues:

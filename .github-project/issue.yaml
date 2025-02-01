@@ -3,7 +3,7 @@ title: ""
 description: ""
 assignee: ""
 type: "epic | story | task | subtask"
-status: ""
+status: "Backlog | Ready | In progress | In review | Done"
 priority: ""
 size: ""
 reviewers:

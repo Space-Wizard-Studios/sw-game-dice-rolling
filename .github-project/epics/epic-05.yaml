@@ -2,17 +2,17 @@
 title: "Epic 5: Prototipagem da cena da batalha 3D"
 type: "epic"
 sub-issues:
-  - title: "Story 5.1: Modelagem da Grid"
+  - title: "Story 5.1: Modelagem de dados da Grid"
     type: "story"
     sub-issues:
-      - title: "Task 5.1.a: Criar modelo da Grid"
+      - title: "Task 5.1.a: Criar modelo de dados da Grid"
         type: "task"
       - title: "Task 5.1.b: Configurar mockups com assets de placeholder"
         type: "task"
-  - title: "Story 5.2: Modelagem de GridCell"
+  - title: "Story 5.2: Modelagem de dados de GridCell"
     type: "story"
     sub-issues:
-      - title: "Task 5.2.a: Criar modelo de Grid Cell"
+      - title: "Task 5.2.a: Criar modelo de dados de Grid Cell"
         type: "task"
       - title: "Task 5.2.b: Configurar mockups com assets de placeholder"
         type: "task"
@@ -39,7 +39,7 @@ sub-issues:
   - title: "Story 5.5: Implementação do Target Configuration"
     type: "story"
     sub-issues:
-      - title: "Task 5.5.a: Criar modelo de Target Configuration"
+      - title: "Task 5.5.a: Criar modelo de dados de Target Configuration"
         type: "task"
       - title: "Task 5.5.b: Implementar o plugin de Target Configuration no Editor"
         type: "task"

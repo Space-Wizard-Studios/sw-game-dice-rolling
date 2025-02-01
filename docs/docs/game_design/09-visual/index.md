@@ -6,6 +6,7 @@
 
 Os personagens terão anatomia e proporções estilizadas, refletindo simbolicamente os arquétipos de cada classe. Guerreiros e Tanks serão de estatura mais baixa, porém com corpos robustos e musculosos, destacando sua resistência e capacidade de proteger aliados. Rogues terão silhuetas mais esguias e ágeis, com traços que enfatizam sua natureza furtiva e destreza em combate. Magos e Curandeiros, por sua vez, possuirão uma aparência mais delicada e magra, com detalhes que reforçam sua sabedoria e conexão espiritual, como gestos refinados e uma postura contemplativa.
 Essa abordagem visual serve para reforçar a narrativa e a identidade de cada classe dentro do universo do jogo.
+
 ![Referência Anatomia e Estilização](/img/gdd-imgs/anatomy_reference.png)
 
 ### Paleta de cores

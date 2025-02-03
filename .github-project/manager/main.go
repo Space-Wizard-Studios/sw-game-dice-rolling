@@ -59,7 +59,7 @@ func main() {
 	case "compare":
 		compareIssues(ctx, client, config)
 	default:
-		fmt.Println("Usage: go run main.go [list-remote|list-local|compare|close-all-local] --state [state] --perPage [perPage] --save")
+		fmt.Println("Usage: go run main.go [list-remote|list-local|compare|close-all-local] --state [open | closed | all] --perPage [perPage] --save")
 	}
 }
 
@@ -114,7 +114,7 @@ func listRemoteIssues(ctx context.Context, client *github.Client, config Config)
 		opt.Page = resp.NextPage
 	}
 
-	logIssues("Issues in the repository:", allIssues)
+	logIssues("Issues in the repository:", config.State, allIssues)
 
 	if config.Save {
 		saveIssuesToFile("remote_issues.json", allIssues)
@@ -142,10 +142,15 @@ func listLocalIssues(config Config) []Issue {
 			log.Fatal(err)
 		}
 
-		localIssues = append(localIssues, flattenIssues(issue)...)
+		flattenedIssues := flattenIssues(issue)
+		for _, flatIssue := range flattenedIssues {
+			if config.State == "all" || flatIssue.State == config.State {
+				localIssues = append(localIssues, flatIssue)
+			}
+		}
 	}
 
-	logIssues("Local issues:", localIssues)
+	logIssues("Local issues:", config.State, localIssues)
 
 	if config.Save {
 		saveIssuesToFile("local_issues.json", localIssues)
@@ -175,7 +180,7 @@ func compareIssues(ctx context.Context, client *github.Client, config Config) {
 	}
 
 	if len(notFoundIssues) > 0 {
-		logIssues("Issues not found:", notFoundIssues)
+		logIssues("Issues not found:", config.State, notFoundIssues)
 	} else {
 		fmt.Println("All issues found.")
 	}
@@ -213,8 +218,8 @@ func saveIssuesToFile(filename string, issues interface{}) {
 	fmt.Printf("Issues saved to %s\n", filename)
 }
 
-func logIssues(message string, issues interface{}) {
-	fmt.Println(message)
+func logIssues(message string, state string, issues interface{}) {
+	fmt.Printf("%s (State: %s)\n", message, state)
 	switch v := issues.(type) {
 	case []*github.Issue:
 		for _, issue := range v {

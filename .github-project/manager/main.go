@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/google/go-github/github"
 	"github.com/joho/godotenv"
@@ -142,11 +143,8 @@ func listLocalIssues(config Config) []Issue {
 			log.Fatal(err)
 		}
 
-		flattenedIssues := flattenIssues(issue)
-		for _, flatIssue := range flattenedIssues {
-			if config.State == "all" || flatIssue.State == config.State {
-				localIssues = append(localIssues, flatIssue)
-			}
+		if config.State == "all" || issue.State == config.State {
+			localIssues = append(localIssues, issue)
 		}
 	}
 
@@ -227,11 +225,19 @@ func logIssues(message string, state string, issues interface{}) {
 		}
 	case []Issue:
 		for _, issue := range v {
-			fmt.Printf("- %s\n", issue.Title)
+			printIssue(issue, 0)
 		}
 	case []string:
 		for _, issue := range v {
 			fmt.Println(issue)
 		}
+	}
+}
+
+func printIssue(issue Issue, level int) {
+	indent := strings.Repeat("    ", level)
+	fmt.Printf("%s- %s\n", indent, issue.Title)
+	for _, subIssue := range issue.SubIssues {
+		printIssue(subIssue, level+1)
 	}
 }

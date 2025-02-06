@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Character" load_steps=31 format=3 uid="uid://clrt1eby68x42"]
+[gd_resource type="Resource" script_class="Character" load_steps=33 format=3 uid="uid://clrt1eby68x42"]
 
 [ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Action/CharacterAction.cs" id="1_a8f08"]
 [ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attribute/CharacterAttribute.cs" id="2_a8f08"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/Effect/EffectType.cs" id="2_krjcd"]
 [ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://models/Action/Effect/Effects/DamageEffect.tres" id="3_22cqr"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attribute/Attributes/Health.tres" id="3_hmkjg"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attribute/Attributes/Armor.tres" id="4_4pt02"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="4_wlk4d"]
 [ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://models/Dice/DiceMana/Resources/ManaRed.tres" id="5_lgixm"]
 [ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://models/Attribute/Attributes/Speed.tres" id="5_y2une"]
 [ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="6_ae1so"]
@@ -20,16 +22,16 @@ script = ExtResource("1_a8f08")
 Type = ExtResource("6_p2s1v")
 Name = "Magic Missiles"
 Description = "Magic Missiles description."
-RequiredMana = [ExtResource("5_lgixm")]
-Effects = [ExtResource("3_22cqr")]
+RequiredMana = Array[ExtResource("4_wlk4d")]([ExtResource("5_lgixm")])
+Effects = Array[ExtResource("2_krjcd")]([ExtResource("3_22cqr")])
 
 [sub_resource type="Resource" id="Resource_o4pav"]
 script = ExtResource("1_a8f08")
 Type = ExtResource("7_22cqr")
 Name = "Arcane Strike"
 Description = "Arcane Strike description."
-RequiredMana = [ExtResource("5_lgixm")]
-Effects = [ExtResource("3_22cqr")]
+RequiredMana = Array[ExtResource("4_wlk4d")]([ExtResource("5_lgixm")])
+Effects = Array[ExtResource("2_krjcd")]([ExtResource("3_22cqr")])
 
 [sub_resource type="Resource" id="Resource_ikwiv"]
 script = ExtResource("2_a8f08")
@@ -131,8 +133,8 @@ Id = "4ea655f0-4c3e-4fba-bafe-fe361e68db9e"
 Name = "Eleonore"
 IsEnemy = false
 Role = ExtResource("9_ae1so")
-Attributes = [SubResource("Resource_ikwiv"), SubResource("Resource_o11qe"), SubResource("Resource_n00fg")]
-Actions = [SubResource("Resource_22cqr"), SubResource("Resource_o4pav")]
+Attributes = Array[ExtResource("2_a8f08")]([SubResource("Resource_ikwiv"), SubResource("Resource_o11qe"), SubResource("Resource_n00fg")])
+Actions = Array[ExtResource("1_a8f08")]([SubResource("Resource_22cqr"), SubResource("Resource_o4pav")])
 DiceCapacity = 0
 Location = ExtResource("7_u1jip")
 SlotIndex = 1

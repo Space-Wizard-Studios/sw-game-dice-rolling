@@ -32,5 +32,5 @@ BaseValue = 50
 script = ExtResource("5_02olr")
 Name = "Fighter"
 Description = "Fighter Description"
-RoleAttributes = [SubResource("Resource_g0hcp"), SubResource("Resource_8w8fm"), SubResource("Resource_xurgi")]
-RoleActions = [SubResource("Resource_rp15h")]
+RoleAttributes = Array[ExtResource("1_vbyc7")]([SubResource("Resource_g0hcp"), SubResource("Resource_8w8fm"), SubResource("Resource_xurgi")])
+RoleActions = Array[ExtResource("1_gkx62")]([SubResource("Resource_rp15h")])

@@ -13,7 +13,7 @@ config_version=5
 config/name="dice-rolling"
 run/main_scene="res://scenes/menus/MainMenu.tscn"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
-config/icon="uid://cd5lv3o67yo78"
+config/icon="uid://bmcfxb2srpt1o"
 
 [autoload]
 

@@ -14,6 +14,7 @@
 script = ExtResource("6_hc3lu")
 Prefix = "P"
 Offset = 0
+Direction = 0
 Rows = 2
 Columns = 3
 Cells = Array[int]([0, 0, 1, 0, 0, 1])
@@ -23,6 +24,7 @@ metadata/_custom_type_script = ExtResource("6_hc3lu")
 script = ExtResource("6_hc3lu")
 Prefix = "E"
 Offset = 0
+Direction = 0
 Rows = 2
 Columns = 3
 Cells = Array[int]([3, 0, 0, 3, 0, 0])

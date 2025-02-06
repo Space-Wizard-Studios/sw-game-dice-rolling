@@ -34,5 +34,5 @@ metadata/_custom_type_script = ExtResource("1_qfr2w")
 script = ExtResource("2_pniuw")
 Name = "Mage"
 Description = "MageDescription"
-RoleAttributes = [SubResource("Resource_rs8gs"), SubResource("Resource_6dxu0")]
-RoleActions = [SubResource("Resource_fqxkr"), SubResource("Resource_7cbi0")]
+RoleAttributes = Array[ExtResource("1_qfr2w")]([SubResource("Resource_rs8gs"), SubResource("Resource_6dxu0")])
+RoleActions = Array[ExtResource("1_lgakh")]([SubResource("Resource_fqxkr"), SubResource("Resource_7cbi0")])

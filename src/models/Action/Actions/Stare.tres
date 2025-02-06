@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="ActionType" load_steps=10 format=3 uid="uid://cgac6lxa06rf8"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=11 format=3 uid="uid://cgac6lxa06rf8"]
 
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/Effect/EffectType.cs" id="1_del08"]
 [ext_resource type="Resource" uid="uid://dw1d38425v5rd" path="res://models/Action/Category/Categories/Defensive.tres" id="1_fe87o"]
 [ext_resource type="Texture2D" uid="uid://b5tap0qunatiw" path="res://assets/icons/actions/stare.png" id="3_806j1"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/Action/ActionType.cs" id="3_fe87o"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="4_187ad"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/Grid/GridType.cs" id="5_187ad"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/Action/Target/TargetConfiguration.cs" id="6_w14sl"]
 
@@ -30,7 +31,7 @@ metadata/_custom_type_script = ExtResource("5_187ad")
 [sub_resource type="Resource" id="Resource_shlmr"]
 script = ExtResource("6_w14sl")
 IsSingleTarget = false
-Grids = [SubResource("Resource_8bxoq"), SubResource("Resource_woyg6")]
+Grids = Array[ExtResource("5_187ad")]([SubResource("Resource_8bxoq"), SubResource("Resource_woyg6")])
 metadata/_custom_type_script = ExtResource("6_w14sl")
 
 [resource]
@@ -40,7 +41,7 @@ Category = ExtResource("1_fe87o")
 Name = "Stare"
 Description = "Stare at the nothingess of life."
 Icon = ExtResource("3_806j1")
-RequiredMana = []
+RequiredMana = Array[ExtResource("4_187ad")]([])
 Effects = Array[ExtResource("1_del08")]([])
 TargetConfiguration = SubResource("Resource_shlmr")
 metadata/_custom_type_script = ExtResource("3_fe87o")

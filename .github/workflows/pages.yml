@@ -1,11 +1,13 @@
-name: Build Docs and Deploy to Firebase
+name: Build Docs and Deploy to Github Pages
 
 on:
-  #   push:
-  #     branches: ["main"]
   pull_request:
     branches: ["*"]
   workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   build:
@@ -15,30 +17,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      #     with:
-      #         fetch-depth: 0 # Fetch all history so we can set up sparse-checkout
-
-      #   - name: Set up sparse-checkout
-      #     run: |
-      #       git sparse-checkout init --cone
-      #       git sparse-checkout set docs
-
-      #   - name: Checkout 'docs' Folder
-      #     run: git checkout
-
-      #   - name: Build API Documentation
-      #     uses: nunit/docfx-action@v2.4.0
-      #     with:
-      #         args: docfx.json
 
       - name: List Directories
         run: ls -l
 
       - name: List Directories on docs/ Folder
         run: ls -l docs
-
-      #   - name: List Directories on src/ Folder
-      #     run: ls -l src
 
       - name: Install Packages in docs Folder
         run: npm install
@@ -74,17 +58,3 @@ jobs:
         uses: actions/deploy-pages@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-
-    #   - name: Deploy to Firebase
-    #     id: deploy
-    #     uses: FirebaseExtended/action-hosting-deploy@v0
-    #     with:
-    #       repoToken: ${{ secrets.GITHUB_TOKEN }}
-    #       firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-    #       projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
-    #       channelId: ${{ github.ref_name == 'main' && 'live' || github.ref_name }}
-    #       expires: ${{ github.ref_name == 'dev' && '30d' || '7d' }}
-    #       entryPoint: docs
-
-    # outputs:
-    #     url: ${{ steps.deploy.outputs.details_url }}

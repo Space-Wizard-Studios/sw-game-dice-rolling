@@ -14,6 +14,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Set Environment Variable
+        run: echo "GITHUB_ACTIONS=true" >> $GITHUB_ENV
+
       - name: List Directories
         run: ls -l
 

@@ -2,13 +2,16 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
+const baseUrl = isGitHubPages ? '/sw-game-dice-rolling/' : '/';
+
 const config: Config = {
     title: 'Space Wizard - Dice Roll Docs',
     tagline: 'Dinosaurs are cool',
     favicon: 'img/favicon.ico',
     url: 'https://sw-game-dice-roll-docs.web.app/',
-    baseUrl: '/', // For GitHub pages deployment, it is often '/<projectName>/'
-
+    baseUrl: baseUrl,
+    
     // GitHub pages deployment config.
     // organizationName: 'Space-Wizard-Studios',
     // projectName: 'sw-game-dice-roll',

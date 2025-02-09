@@ -9,11 +9,11 @@ const config: Config = {
     title: 'Dice Rolling Game',
     tagline: 'Documentation',
     favicon: 'img/favicon.ico',
-    url: 'https://sw-game-dice-roll-docs.web.app/',
+    url: 'https://space-wizard-studios.github.io/sw-game-dice-rolling/',
     baseUrl: baseUrl,
 
     organizationName: 'Space-Wizard-Studios',
-    projectName: 'sw-game-dice-roll',
+    projectName: 'sw-game-dice-rolling',
 
     onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
@@ -58,12 +58,12 @@ const config: Config = {
                     label: 'Game Design',
                 },
                 {
-                    href: 'https://github.com/Space-Wizard-Studios/sw-game-dice-roll',
+                    href: 'https://github.com/Space-Wizard-Studios/sw-game-dice-rolling',
                     label: 'GitHub',
                     position: 'right',
                 },
                 // {
-                //     href: 'https://console.firebase.google.com/project/sw-game-dice-roll-docs/overview',
+                //     href: 'https://console.firebase.google.com/project/sw-game-dice-rolling-docs/overview',
                 //     label: 'FireBase',
                 //     position: 'right',
                 // },

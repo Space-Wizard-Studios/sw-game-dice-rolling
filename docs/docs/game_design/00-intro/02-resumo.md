@@ -2,15 +2,15 @@
 
 ## Loop Principal
 
-O jogo segue um loop principal típico de roguelikes, projetado para oferecer desafios incrementais e recompensas que incentivam a repetição. Uma sessão de jogo pode ser descrita pelos seguintes passos:
+O jogo segue um loop principal típico de roguelikes, com desafios incrementais e recompensas que incentivam a repetição. Uma sessão de jogo pode ser descrita pelos seguintes passos:
 
 1. **Preparação no Lobby**
 
-   - O jogador organiza sua equipe, equipamentos e recursos iniciais.
+   - Os jogadores organiza sua equipe, equipamentos e recursos iniciais.
 
 2. **Exploração da Dungeon**
 
-   - O jogador escolhe caminhos através de uma série de salas ou eventos.
+   - Os jogadores escolhe caminhos através de uma série de salas ou eventos.
 
 3. **Encontros de Combate**
 
@@ -26,10 +26,8 @@ O jogo segue um loop principal típico de roguelikes, projetado para oferecer de
 ## Pontos Relevantes para Expansão
 
 :::note
-
-- **Elementos Procedurais**: Como os níveis e desafios são gerados para garantir variedade.
-- **Progresso Entre Sessões**: Que aspectos o jogador mantém após uma sessão? (ex.: personagens, equipamentos ou habilidades desbloqueadas).
-- **Dificuldade e Escalabilidade**: Como o jogo equilibra a dificuldade para manter o jogador engajado.
-- **Recompensas e Progressão**: Detalhar como as recompensas motivam o jogador a continuar jogando.
-
+**Elementos Procedurais**: Como os níveis e desafios são gerados para garantir variedade.
+**Progresso Entre Sessões**: Que aspectos o jogador mantém após uma sessão? (ex.: personagens, equipamentos ou habilidades desbloqueadas).
+**Dificuldade e Escalabilidade**: Como o jogo equilibra a dificuldade para manter o jogador engajado.
+**Recompensas e Progressão**: Detalhar como as recompensas motivam o jogador a continuar jogando.
 :::

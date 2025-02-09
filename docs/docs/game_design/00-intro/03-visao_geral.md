@@ -2,20 +2,6 @@
 
 ## Tema e Ambientação
 
-:::note
-Descrever onde o jogo se passa.
-:::
-
-, onde os jogadores assumem o papel de aventureiros explorando dungeons perigosas e enfrentando desafios em busca de
-
-:::note
-Descrever objetivo
-:::
-
-:::note
-Descrever a estética @gugut2
-:::
-
 ## Gênero
 
 - **Roguelike**: O jogo apresenta progressão baseada em sessões, morte permanente e elementos gerados proceduralmente.
@@ -38,7 +24,9 @@ O objetivo é completar as dungeons, enfrentando chefes e obtendo recompensas qu
 
 ## Visão de Longo Prazo
 
-O jogo foi desenvolvido como uma framework altamente modular, permitindo que a comunidade crie e integre seus próprios conteúdos de maneira fácil e intuitiva. Isso inclui:
+O jogo foi desenvolvido como uma framework modular, permitindo que a comunidade crie e integre seus próprios conteúdos de maneira fácil e intuitiva.
+
+Isso inclui:
 
 - **Suporte a Mods**: Ferramentas nativas para modificar mapas, personagens, habilidades e eventos.
 - **Documentação para Criadores**: Um guia abrangente que ensina como criar e compartilhar conteúdos personalizados.

@@ -5,39 +5,29 @@ O público-alvo do jogo define para quem ele é feito, considerando interesses, 
 ## Faixa Etária
 
 :::note
-
-- Qual é o público etário esperado? (ex.: adolescentes, adultos, etc.)
-
+Qual é o público etário esperado?
 :::
 
 ## Interesse de Jogo
 
 :::note
-
-- Que tipo de experiência o jogador busca? (ex.: estratégia, exploração, combate tático)
-
+Que tipo de experiência o jogador busca? (estratégia, exploração, combate tático...)
 :::
 
 ## Nível de Complexidade
 
 :::note
-
-- O jogo é voltado para jogadores casuais ou hardcore?
-
+O jogo é voltado para jogadores casuais ou hardcore?
 :::
 
 ## Temática e Estilo
 
 :::note
-
-- Que tipo de estética e narrativa atraem o público pretendido?
-
+Que tipo de estética e narrativa atraem o público pretendido?
 :::
 
 ## Plataformas
 
 :::note
-
-- Em quais dispositivos o público-alvo provavelmente jogará? (ex.: PC, consoles, mobile)
-
+Em quais dispositivos o público-alvo provavelmente jogará? (ex.: PC, consoles, mobile)
 :::

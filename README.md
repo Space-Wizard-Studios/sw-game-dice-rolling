@@ -1,10 +1,10 @@
-# DICE ROLL GAME
+# DICE ROLLING GAME
 
 Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O jogo envolve evoluir personagens, gerenciar recursos, explorar masmorras, engajar-se em batalhas e progredir.
 
 ## Sumário
 
-- [DICE ROLL GAME](#dice-roll-game)
+- [DICE ROLLING GAME](#dice-rolling-game)
   - [Sumário](#sumário)
   - [Estrutura de arquivos](#estrutura-de-arquivos)
     - [Arquivos do Projeto](#arquivos-do-projeto)

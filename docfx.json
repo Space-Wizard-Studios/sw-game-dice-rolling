@@ -18,7 +18,7 @@
       "categoryLayout": "nested",
       "memberLayout": "samePage",
       "enumSortOrder": "declaringOrder",
-      "globalNamespaceId": "DiceRoll",
+      "globalNamespaceId": "DiceRolling",
       "includePrivateMembers": false,
       "disableDefaultFilter": false,
       "filter": "filterConfig.yml"

@@ -64,6 +64,7 @@
         "danko",
         "deadzone",
         "diceroll",
+        "dicerolling",
         "docfx",
         "docusaurus",
         "dotnet",
@@ -103,5 +104,4 @@
         "unicode",
         "vram"
     ],
-    "cmake.sourceDirectory": "F:/projects/spacewizard/games/sw-game-dice-roll-workspace/sw-game-dice-roll/docs/node_modules/re2/vendor/abseil-cpp/absl/memory"
 }

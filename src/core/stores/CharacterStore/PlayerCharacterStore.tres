@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="CharacterStore" load_steps=5 format=3 uid="uid://snt34yslyn4f"]
+[gd_resource type="Resource" script_class="CharacterStore" load_steps=9 format=3 uid="uid://snt34yslyn4f"]
 
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/Character.cs" id="1_mscso"]
 [ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://models/Character/Characters/Playable/Eleonore.tres" id="2_mscso"]
 [ext_resource type="Script" uid="uid://c0ludr6rojb3c" path="res://core/stores/CharacterStore/CharacterStore.cs" id="3_0pcwr"]
 [ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://models/Character/Characters/Playable/Joanna.tres" id="3_eyj5b"]
+[ext_resource type="Resource" uid="uid://ds7smwp2rwi6y" path="res://models/Character/Characters/Playable/DummyPlayer0.tres" id="4_xb6yt"]
+[ext_resource type="Resource" uid="uid://ddrmoyt4ytw4e" path="res://models/Character/Characters/Playable/DummyPlayer1.tres" id="5_te10c"]
+[ext_resource type="Resource" uid="uid://djo1unldtihdb" path="res://models/Character/Characters/Playable/DummyPlayer2.tres" id="6_p5lat"]
+[ext_resource type="Resource" uid="uid://cdlmify0lc0a2" path="res://models/Character/Characters/Playable/DummyPlayer3.tres" id="7_3t2kq"]
 
 [resource]
 script = ExtResource("3_0pcwr")
-Characters = Array[ExtResource("1_mscso")]([ExtResource("2_mscso"), ExtResource("3_eyj5b")])
+Characters = Array[ExtResource("1_mscso")]([ExtResource("2_mscso"), ExtResource("3_eyj5b"), ExtResource("4_xb6yt"), ExtResource("5_te10c"), ExtResource("6_p5lat"), ExtResource("7_3t2kq")])

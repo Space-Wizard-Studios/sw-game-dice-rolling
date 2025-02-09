@@ -6,7 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="4_svr47"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tiklp"]
-size = Vector3(0.498047, 1, 0.5)
+size = Vector3(0.5, 1, 0.5)
 
 [node name="CharacterComponent" type="Node3D" node_paths=PackedStringArray("AnimatedSpriteNode", "HoverSpriteNode", "SelectorSpriteNode", "InputAreaNode")]
 script = ExtResource("1_t0krx")

@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="Character" load_steps=15 format=3 uid="uid://ds7smwp2rwi6y"]
+
+[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Action/CharacterAction.cs" id="1_cp7r6"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/Effect/EffectType.cs" id="2_fjksy"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="3_qthhk"]
+[ext_resource type="Resource" uid="uid://cgac6lxa06rf8" path="res://models/Action/Actions/Stare.tres" id="4_e7xwo"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attribute/CharacterAttribute.cs" id="5_gtd4e"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://models/Attribute/Attributes/Health.tres" id="6_vrukj"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://models/Attribute/Attributes/Armor.tres" id="7_115ab"]
+[ext_resource type="SpriteFrames" uid="uid://bkvhu7v1tmcfy" path="res://assets/characters/dummyOtsoga/DummyOtsogaSprites.tres" id="8_0bs62"]
+[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://models/Character/Location/Locations/PlayerSquad.tres" id="9_o5a3g"]
+[ext_resource type="Resource" uid="uid://bviiaflcxorr0" path="res://models/Role/Roles/Enemy/DummyRole.tres" id="10_flk58"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/Character.cs" id="11_8k3oe"]
+
+[sub_resource type="Resource" id="Resource_o20ld"]
+script = ExtResource("1_cp7r6")
+Type = ExtResource("4_e7xwo")
+Name = "Stare"
+Description = "Stare at the nothingess of life."
+RequiredMana = Array[ExtResource("3_qthhk")]([])
+Effects = Array[ExtResource("2_fjksy")]([])
+
+[sub_resource type="Resource" id="Resource_1x1o8"]
+script = ExtResource("5_gtd4e")
+Type = ExtResource("6_vrukj")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[sub_resource type="Resource" id="Resource_8x7bf"]
+script = ExtResource("5_gtd4e")
+Type = ExtResource("7_115ab")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[resource]
+script = ExtResource("11_8k3oe")
+Id = "a98288c9-8795-4e16-801f-5fed51abd905"
+Name = "Dummy"
+IsEnemy = true
+Role = ExtResource("10_flk58")
+Attributes = Array[ExtResource("5_gtd4e")]([SubResource("Resource_1x1o8"), SubResource("Resource_8x7bf")])
+Actions = Array[ExtResource("1_cp7r6")]([SubResource("Resource_o20ld")])
+DiceCapacity = 0
+Location = ExtResource("9_o5a3g")
+SlotIndex = 0
+CharacterSprite = ExtResource("8_0bs62")
+ShowShadow = false
+SpritePositionX = 0.0
+SpritePositionY = 0.0
+metadata/_custom_type_script = ExtResource("11_8k3oe")

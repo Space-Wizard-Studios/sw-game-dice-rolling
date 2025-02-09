@@ -3,8 +3,7 @@ using System;
 using System.Linq;
 using DiceRolling.Models;
 
-public partial class DiceGenerator : Node
-{
+public partial class DiceGenerator : Node {
 	[Export]
 	public DiceManaResources DiceManaResources { get; set; }
 
@@ -17,82 +16,68 @@ public partial class DiceGenerator : Node
 
 	private static readonly int[] ValidSides = { 4, 6, 8, 10, 20, 100 };
 
-	public override void _Ready()
-	{
+	public override void _Ready() {
 		if (!ValidateResources()) return;
 
-		if (DiceDisplay is null)
-		{
+		if (DiceDisplay is null) {
 			GD.PrintErr("DiceDisplay node not found");
 			return;
 		}
 
 		_dice = CreateRandomDice();
-		GD.Print($"Generated Dice: {_dice.Name}");
-		GD.Print($"Number of Sides: {_dice.Sides}");
+		// GD.Print($"Generated Dice: {_dice.Name}");
+		// GD.Print($"Number of Sides: {_dice.Sides}");
 
 		UpdateDiceDisplay();
 		HideRollResult();
 
 		var updateButton = GetNode<Button>("CanvasLayer/UpdateButton");
-		if (updateButton is not null)
-		{
+		if (updateButton is not null) {
 			updateButton.Connect("pressed", Callable.From(OnUpdateButtonPressed));
 		}
-		else
-		{
+		else {
 			GD.PrintErr("UpdateButton node not found");
 		}
 
 		var rollButton = GetNode<Button>("CanvasLayer/RollButton");
-		if (rollButton is not null)
-		{
+		if (rollButton is not null) {
 			rollButton.Connect("pressed", Callable.From(OnRollButtonPressed));
 		}
-		else
-		{
+		else {
 			GD.PrintErr("RollButton node not found");
 		}
 	}
 
-	private void UpdateDiceDisplay()
-	{
+	private void UpdateDiceDisplay() {
 		DiceDisplay.DiceNameLabel.Text = _dice.Name;
 		DiceDisplay.DiceIcon.Texture = DiceIconResource.GetIconForSides(_dice.Sides).Icon;
 
 		var actionsListContainer = DiceDisplay.ActionsListContainer;
 		var actionItemTemplate = DiceDisplay.ActionItemTemplate;
-		if (actionItemTemplate is not null)
-		{
+		if (actionItemTemplate is not null) {
 			actionItemTemplate.Visible = false;
 		}
 
-		foreach (Node child in actionsListContainer.GetChildren())
-		{
-			if (child != actionItemTemplate)
-			{
+		foreach (Node child in actionsListContainer.GetChildren()) {
+			if (child != actionItemTemplate) {
 				child.QueueFree();
 			}
 		}
 
-		foreach (var action in _dice.Manas.Select((value, index) => new { value, index }))
-		{
+		foreach (var action in _dice.Manas.Select((value, index) => new { value, index })) {
 			var actionItem = CreateActionItem(action.value, action.index + 1, actionItemTemplate);
 			actionsListContainer.AddChild(actionItem);
 		}
 	}
 
-	private Control CreateActionItem(DiceSide action, int sideNumber, Control actionItemTemplate)
-	{
-		if (actionItemTemplate is null)
-		{
+	private Control CreateActionItem(DiceSide action, int sideNumber, Control actionItemTemplate) {
+		if (actionItemTemplate is null) {
 			GD.PrintErr("ActionItemTemplate node not found");
 			return null;
 		}
 
 		var actionItem = actionItemTemplate.Duplicate() as DisplayActionItem;
-		if (actionItem is null)
-		{
+		if (actionItem is null) {
 			GD.PrintErr("Failed to duplicate ActionItemTemplate");
 			return null;
 		}
@@ -100,16 +85,14 @@ public partial class DiceGenerator : Node
 		actionItem.Visible = true;
 
 		var actionItemBackground = actionItem.ActionItemBackground;
-		if (actionItemBackground is null)
-		{
+		if (actionItemBackground is null) {
 			GD.PrintErr("ActionItemBackground node not found in ActionItemTemplate");
 			return null;
 		}
 		actionItemBackground.Color = action.BackgroundColor;
 
 		var actionLabel = actionItem.ActionItemLabel;
-		if (actionLabel is null)
-		{
+		if (actionLabel is null) {
 			GD.PrintErr("ActionItemLabel node not found in ActionItemTemplate");
 			return null;
 		}
@@ -119,16 +102,13 @@ public partial class DiceGenerator : Node
 		return actionItem;
 	}
 
-	private bool ValidateResources()
-	{
-		if (DiceManaResources is null)
-		{
+	private bool ValidateResources() {
+		if (DiceManaResources is null) {
 			GD.PrintErr("DiceManaResources is not assigned");
 			return false;
 		}
 
-		if (DiceIconResource is null)
-		{
+		if (DiceIconResource is null) {
 			GD.PrintErr("DiceIconResource is not assigned");
 			return false;
 		}
@@ -136,23 +116,20 @@ public partial class DiceGenerator : Node
 		return true;
 	}
 
-	private Dice<DiceSide> CreateRandomDice()
-	{
+	private Dice<DiceSide> CreateRandomDice() {
 		var random = new Random();
 		int sides = ValidSides[random.Next(ValidSides.Length)];
 
-		if (DiceManaResources.DiceManas.Count == 0)
-		{
+		if (DiceManaResources.DiceManas.Count == 0) {
 			GD.PrintErr("DiceManaResources.DiceManas is empty");
 			return null;
 		}
 
 		var actions = new Godot.Collections.Array<DiceSide>(
-			Enumerable.Range(0, sides).Select(_ =>
-			{
+			Enumerable.Range(0, sides).Select(_ => {
 				int randomIndex = random.Next(DiceManaResources.DiceManas.Count);
 				var action = DiceManaResources.DiceManas[randomIndex];
-				GD.Print($"Selected Action: {action.Name} - {action.Description}");
+				// GD.Print($"Selected Action: {action.Name} - {action.Description}");
 				return new DiceSide(action.Name, action.Description, action.BackgroundColor, action.MainColor);
 			}).ToArray()
 		);
@@ -160,49 +137,40 @@ public partial class DiceGenerator : Node
 		return new Dice<DiceSide>(Guid.NewGuid().ToString(), $"Dado D{sides}", actions, DiceLocation.None);
 	}
 
-	private void OnUpdateButtonPressed()
-	{
+	private void OnUpdateButtonPressed() {
 		_dice = CreateRandomDice();
 		UpdateDiceDisplay();
 		HideRollResult();
 	}
 
-	private void OnRollButtonPressed()
-	{
+	private void OnRollButtonPressed() {
 		var random = new Random();
 		int rolledSide = random.Next(1, _dice.Sides + 1);
 		var action = _dice.Manas[rolledSide - 1];
 
 		var rollResultLabel = GetNode<RichTextLabel>("CanvasLayer/RollResult");
-		if (rollResultLabel is not null)
-		{
+		if (rollResultLabel is not null) {
 			rollResultLabel.BbcodeEnabled = true;
 			var diceIcon = DiceIconResource.GetIconForSides(_dice.Sides);
-			if (diceIcon is not null)
-			{
+			if (diceIcon is not null) {
 				rollResultLabel.Text = $"Rolled {rolledSide} on {_dice.Name} ([img=24x24]{diceIcon.Path}[/img]).\nAction: {action.Name} - {action.Description}";
 			}
-			else
-			{
+			else {
 				rollResultLabel.Text = $"Rolled {rolledSide} on {_dice.Name}.\nAction: {action.Name} - {action.Description}";
 			}
 			rollResultLabel.Visible = true;
 		}
-		else
-		{
+		else {
 			GD.PrintErr("RollResult label not found");
 		}
 	}
 
-	private void HideRollResult()
-	{
+	private void HideRollResult() {
 		var rollResultLabel = GetNode<RichTextLabel>("CanvasLayer/RollResult");
-		if (rollResultLabel is not null)
-		{
+		if (rollResultLabel is not null) {
 			rollResultLabel.Visible = false;
 		}
-		else
-		{
+		else {
 			GD.PrintErr("RollResult label not found");
 		}
 	}

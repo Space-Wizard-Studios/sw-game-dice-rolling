@@ -7,8 +7,7 @@ namespace DiceRolling.Models.Actions;
 
 [Tool]
 [GlobalClass]
-public partial class CharacterAction : Resource
-{
+public partial class CharacterAction : Resource {
     [Export] public ActionType? Type { get; set; }
     [Export] public string? Name { get; set; }
     [Export(PropertyHint.MultilineText)] public string? Description { get; set; }
@@ -17,23 +16,19 @@ public partial class CharacterAction : Resource
 
     public CharacterAction() { }
 
-    public CharacterAction(RoleAction roleAction)
-    {
+    public CharacterAction(RoleAction roleAction) {
         Type = roleAction.Type;
-        if (Type is not null)
-        {
+        if (Type is not null) {
             Name = Type.Name;
-            GD.Print("Initializing CharacterAction with Name: ", Name);
+            // GD.Print("Initializing CharacterAction with Name: ", Name);
             Description = Type.Description;
             RequiredMana = Type.RequiredMana;
             Effects = Type.Effects;
         }
     }
 
-    public void Resolve(IActionContext context)
-    {
-        foreach (var effect in Effects)
-        {
+    public void Resolve(IActionContext context) {
+        foreach (var effect in Effects) {
             effect.Apply(context);
         }
     }

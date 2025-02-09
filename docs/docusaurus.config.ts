@@ -9,7 +9,7 @@ const config: Config = {
     title: 'Dice Rolling Game',
     tagline: 'Documentation',
     favicon: 'img/favicon.ico',
-    url: 'https://space-wizard-studios.github.io/sw-game-dice-rolling/',
+    url: 'https://space-wizard-studios.github.io/',
     baseUrl: baseUrl,
 
     organizationName: 'Space-Wizard-Studios',

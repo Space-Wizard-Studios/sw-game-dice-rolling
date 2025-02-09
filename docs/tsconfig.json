@@ -5,6 +5,7 @@
     "baseUrl": ".",
     "paths": {
         "@img/*": ["static/img/*"],
+        "@site/*": ["./*"],
     }
   },
   "exclude": [".docusaurus", "build"]

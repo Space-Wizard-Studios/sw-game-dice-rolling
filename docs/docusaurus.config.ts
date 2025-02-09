@@ -6,15 +6,14 @@ const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
 const baseUrl = isGitHubPages ? '/sw-game-dice-rolling/' : '/';
 
 const config: Config = {
-    title: 'Space Wizard - Dice Roll Docs',
-    tagline: 'Dinosaurs are cool',
+    title: 'Dice Rolling Game',
+    tagline: 'Documentation',
     favicon: 'img/favicon.ico',
     url: 'https://sw-game-dice-roll-docs.web.app/',
     baseUrl: baseUrl,
-    
-    // GitHub pages deployment config.
-    // organizationName: 'Space-Wizard-Studios',
-    // projectName: 'sw-game-dice-roll',
+
+    organizationName: 'Space-Wizard-Studios',
+    projectName: 'sw-game-dice-roll',
 
     onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
@@ -63,11 +62,11 @@ const config: Config = {
                     label: 'GitHub',
                     position: 'right',
                 },
-                {
-                    href: 'https://console.firebase.google.com/project/sw-game-dice-roll-docs/overview',
-                    label: 'FireBase',
-                    position: 'right',
-                },
+                // {
+                //     href: 'https://console.firebase.google.com/project/sw-game-dice-roll-docs/overview',
+                //     label: 'FireBase',
+                //     position: 'right',
+                // },
             ],
         },
         footer: {

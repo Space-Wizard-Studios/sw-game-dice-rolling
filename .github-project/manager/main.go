@@ -19,7 +19,7 @@ import (
 
 const (
 	owner = "Space-Wizard-Studios"
-	repo  = "sw-game-dice-roll"
+	repo  = "sw-game-dice-rolling"
 )
 
 type Issue struct {

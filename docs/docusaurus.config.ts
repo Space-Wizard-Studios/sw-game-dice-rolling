@@ -39,9 +39,9 @@ const config: Config = {
     themeConfig: {
         image: 'img/docusaurus-social-card.jpg',
         navbar: {
-            title: 'My Site',
+            title: 'Dice Rolling Game',
             logo: {
-                alt: 'My Site Logo',
+                alt: 'Dice Rolling Game Logo',
                 src: 'img/logo.svg',
             },
             items: [

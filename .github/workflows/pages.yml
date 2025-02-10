@@ -1,8 +1,10 @@
 name: Build Docs and Deploy to Github Pages
 
 on:
+  push: 
+    branches: ["documentation"]
   pull_request:
-    branches: ["*"]
+    branches: ["documentation"]
   workflow_dispatch:
 
 jobs:
@@ -34,15 +36,6 @@ jobs:
       - name: Build Documentation
         run: npm run build
         working-directory: docs
-
-      - name: Encrypt Built Docs
-        run: npx staticrypt build -r
-        env:
-          STATICRYPT_PASSWORD: ${{ secrets.STATICRYPT_PASSWORD }}
-        working-directory: docs
-
-      - name: List Directories on docs Folder
-        run: ls -l docs
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3

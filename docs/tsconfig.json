@@ -4,7 +4,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-        "@img/*": ["static/img/*"],
+        "@img/*": ["public/img/*"],
         "@site/*": ["./*"],
     }
   },

@@ -8,6 +8,7 @@ const baseUrl = isGitHubPages ? '/sw-game-dice-rolling/' : '/';
 const config: Config = {
     title: 'Dice Rolling Game',
     tagline: 'Documentation',
+    staticDirectories: ['public'],
     favicon: 'img/favicon.ico',
     url: 'https://space-wizard-studios.github.io/',
     baseUrl: baseUrl,
@@ -19,14 +20,16 @@ const config: Config = {
     onBrokenMarkdownLinks: 'warn',
 
     i18n: {
-        defaultLocale: 'en',
-        locales: ['en'],
+        defaultLocale: 'pt',
+        locales: ['pt'],
     },
+
     presets: [
         [
             'classic',
             {
                 docs: {
+                    path: './content',
                     sidebarPath: './sidebars.ts',
                 },
                 theme: {
@@ -53,8 +56,20 @@ const config: Config = {
                 },
                 {
                     type: 'docSidebar',
-                    sidebarId: 'gameDesignSidebar',
+                    sidebarId: 'architectureSidebar',
                     position: 'left',
+                    label: 'Architecture Overview',
+                },
+                {
+                    type: 'docSidebar',
+                    sidebarId: 'tutorialsSidebar',
+                    position: 'left',
+                    label: 'Tutorials',
+                },
+                {
+                    type: 'docSidebar',
+                    sidebarId: 'gameDesignSidebar',
+                    position: 'right',
                     label: 'Game Design',
                 },
                 {
@@ -62,56 +77,10 @@ const config: Config = {
                     label: 'GitHub',
                     position: 'right',
                 },
-                // {
-                //     href: 'https://console.firebase.google.com/project/sw-game-dice-rolling-docs/overview',
-                //     label: 'FireBase',
-                //     position: 'right',
-                // },
             ],
         },
         footer: {
             style: 'dark',
-            // links: [
-            //     {
-            //         title: 'Docs',
-            //         items: [
-            //             {
-            //                 label: 'Tutorial',
-            //                 to: '/docs/intro',
-            //             },
-            //         ],
-            //     },
-            //     {
-            //         title: 'Community',
-            //         items: [
-            //             {
-            //                 label: 'Stack Overflow',
-            //                 href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            //             },
-            //             {
-            //                 label: 'Discord',
-            //                 href: 'https://discordapp.com/invite/docusaurus',
-            //             },
-            //             {
-            //                 label: 'X',
-            //                 href: 'https://x.com/docusaurus',
-            //             },
-            //         ],
-            //     },
-            //     {
-            //         title: 'More',
-            //         items: [
-            //             {
-            //                 label: 'Blog',
-            //                 to: '/blog',
-            //             },
-            //             {
-            //                 label: 'GitHub',
-            //                 href: 'https://github.com/facebook/docusaurus',
-            //             },
-            //         ],
-            //     },
-            // ],
             copyright: `Copyright © ${new Date().getFullYear()} Space Wizard Studios - All Rights Reserved.`,
         },
         prism: {

@@ -1,8 +1,6 @@
 name: Build Docs and Deploy to Firebase
 
 on:
-  pull_request:
-    branches: ["*"]
   workflow_dispatch:
 
 jobs:

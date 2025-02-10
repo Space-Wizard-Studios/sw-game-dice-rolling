@@ -14,28 +14,28 @@ sub-issues:
     sub-issues:
       - title: "Task 6.2.a: Definir Interface de Character"
         description: |
-          - Definir atributos necessários para o personagem
-          - Definir ações que o personagem pode realizar
+          - [ ] Definir atributos necessários para o personagem
+          - [ ] Definir ações que o personagem pode realizar
 
       - title: "Task 6.2.b: Definir Interface de Role"
         description: |
-          - Definir atributos necessários para os papéis
-          - Definir ações associadas aos papéis
+          - [ ] Definir atributos necessários para os papéis
+          - [ ] Definir ações associadas aos papéis
 
       - title: "Task 6.2.c: Definir Interface de Actions"
         description: |
-          - Definir efeitos das ações
-          - Definir alvos das ações
+          - [ ] Definir efeitos das ações
+          - [ ] Definir alvos das ações
 
       - title: "Task 6.2.d: Definir Interface de Effects"
         description: |
-          - Definir tipos de efeitos
-          - Definir valores dos efeitos
+          - [ ] Definir tipos de efeitos
+          - [ ] Definir valores dos efeitos
 
       - title: "Task 6.2.e: Definir Interface de Targets"
         description: |
-          - Definir tipos de alvos (Inimigo, Aliado, Usuário)
-          - Definir restrições baseadas na matriz da grid
+          - [ ] Definir tipos de alvos (Inimigo, Aliado, Usuário)
+          - [ ] Definir restrições baseadas na matriz da grid
 
   - title: "Story 6.3: Refatorar Models"
     type: "📖 Feature / Story"
@@ -43,27 +43,27 @@ sub-issues:
     sub-issues:
       - title: "Task 6.3.a: Refatorar Characters"
         description: |
-          - Refatorar atributos dos personagens
-          - Refatorar ações dos personagens
-          - Aplicar injeção de dependência para gerenciar dependências
+          - [ ] Refatorar atributos dos personagens
+          - [ ] Refatorar ações dos personagens
+          - [ ] Aplicar injeção de dependência para gerenciar dependências
 
       - title: "Task 6.3.b: Refatorar Roles"
         description: |
-          - Refatorar atributos dos papéis
-          - Refatorar ações dos papéis
-          - Aplicar injeção de dependência para gerenciar dependências
+          - [ ] Refatorar atributos dos papéis
+          - [ ] Refatorar ações dos papéis
+          - [ ] Aplicar injeção de dependência para gerenciar dependências
 
       - title: "Task 6.3.c: Refatorar Actions"
         description: |
-          - Refatorar efeitos das ações
-          - Refatorar alvos das ações
-          - Utilizar o padrão Command para encapsular ações
+          - [ ] Refatorar efeitos das ações
+          - [ ] Refatorar alvos das ações
+          - [ ] Utilizar o padrão Command para encapsular ações
 
       - title: "Task 6.3.d: Refatorar Effects"
         description: |
-          - Refatorar tipos de efeitos
-          - Refatorar valores dos efeitos
-          - Utilizar o padrão Command para encapsular efeitos
+          - [ ] Refatorar tipos de efeitos
+          - [ ] Refatorar valores dos efeitos
+          - [ ] Utilizar o padrão Command para encapsular efeitos
 
       - title: "Task 6.3.e: Refatorar Targets"
         description: |
@@ -76,68 +76,68 @@ sub-issues:
     sub-issues:
       - title: "Task 6.4.a: BattleGrid (CharacterGrid)"
         description: |
-          - Criação e manipulação de grids
-          - Posicionamento e movimentação de personagens
+          - [ ] Criação e manipulação de grids
+          - [ ] Posicionamento e movimentação de personagens
         sub-issues:
           - title: "Sub-task 6.4.a.1: Criar Grid"
             description: |
-              - Implementar a criação da grid de batalha
+              - [ ] Implementar a criação da grid de batalha
           - title: "Sub-task 6.4.a.2: Manipular Grid"
             description: |
-              - Implementar a manipulação da grid de batalha
+              - [ ] Implementar a manipulação da grid de batalha
           - title: "Sub-task 6.4.a.3: Posicionar Personagens"
             description: |
-              - Implementar o posicionamento de personagens na grid
+              - [ ] Implementar o posicionamento de personagens na grid
           - title: "Sub-task 6.4.a.4: Movimentar Personagens"
             description: |
-              - Implementar a movimentação de personagens na grid
+              - [ ] Implementar a movimentação de personagens na grid
 
       - title: "Task 6.4.b: Grid e GridCell3D"
         description: |
-          - Criação e manipulação de células da grid
-          - Renderização
+          - [ ] Criação e manipulação de células da grid
+          - [ ] Renderização
         sub-issues:
           - title: "Sub-task 6.4.b.1: Criar Células da Grid"
             description: |
-              - Implementar a criação das células da grid
+              - [ ] Implementar a criação das células da grid
           - title: "Sub-task 6.4.b.2: Manipular Células da Grid"
             description: |
-              - Implementar a manipulação das células da grid
+              - [ ] Implementar a manipulação das células da grid
           - title: "Sub-task 6.4.b.3: Renderizar Grid"
             description: |
-              - Implementar a renderização da grid e das células
+              - [ ] Implementar a renderização da grid e das células
 
       - title: "Task 6.4.c: CharacterComponent"
         description: |
-          - Seleção e interação
-          - Gerenciamento de estado
-          - Utilizar o padrão State para gerenciar estados dos personagens
+          - [ ] Seleção e interação
+          - [ ] Gerenciamento de estado
+          - [ ] Utilizar o padrão State para gerenciar estados dos personagens
         sub-issues:
           - title: "Sub-task 6.4.c.1: Implementar Seleção de Personagens"
             description: |
-              - Implementar a seleção de personagens na grid
+              - [ ] Implementar a seleção de personagens na grid
           - title: "Sub-task 6.4.c.2: Implementar Interação com Personagens"
             description: |
-              - Implementar a interação com personagens na grid
+              - [ ] Implementar a interação com personagens na grid
           - title: "Sub-task 6.4.c.3: Gerenciar Estado dos Personagens"
             description: |
-              - Implementar o gerenciamento de estado dos personagens
+              - [ ] Implementar o gerenciamento de estado dos personagens
 
       - title: "Task 6.4.d: BattleHUD (HUDComponent)"
         description: |
-          - Criação e manipulação da interface de usuário da batalha
+          - [ ] Criação e manipulação da interface de usuário da batalha
 
       - title: "Task 6.4.e: BattleLog"
         description: |
-          - Implementação do log de batalha para registrar ações e eventos
+          - [ ] Implementação do log de batalha para registrar ações e eventos
 
       - title: "Task 6.4.f: BattleMenu"
         description: |
-          - Criação do menu de batalha para opções e configurações
+          - [ ] Criação do menu de batalha para opções e configurações
 
       - title: "Task 6.4.g: BattleScene"
         description: |
-          - Implementação da cena de batalha principal
+          - [ ] Implementação da cena de batalha principal
 
   - title: "Story 6.5: Implementar Sistema de Batalha"
     type: "📖 Feature / Story"
@@ -145,24 +145,24 @@ sub-issues:
     sub-issues:
       - title: "Task 6.5.a: Game State Management"
         description: |
-          - Gerenciar o estado do jogo
-          - Estado da batalha
-          - Turnos
-          - Ações
-          - Utilizar o padrão State para gerenciar estados do jogo
-          - Preparar o sistema para sincronização de estado em um ambiente multiplayer
+          - [ ] Gerenciar o estado do jogo
+          - [ ] Estado da batalha
+          - [ ] Turnos
+          - [ ] Ações
+          - [ ] Utilizar o padrão State para gerenciar estados do jogo
+          - [ ] Preparar o sistema para sincronização de estado em um ambiente multiplayer
 
       - title: "Task 6.5.b: Turn-Based System"
         description: |
-          - Iniciar turnos
-          - Processar ações
-          - Finalizar turnos
-          - Utilizar eventos para comunicar mudanças de estado e ações
-          - Preparar o sistema para comunicação de turnos em um ambiente multiplayer
+          - [ ] Iniciar turnos
+          - [ ] Processar ações
+          - [ ] Finalizar turnos
+          - [ ] Utilizar eventos para comunicar mudanças de estado e ações
+          - [ ] Preparar o sistema para comunicação de turnos em um ambiente multiplayer
 
       - title: "Task 6.5.c: Action Resolution"
         description: |
-          - Resolver ações
-          - Aplicar efeitos
-          - Utilizar eventos para comunicar mudanças de estado e ações
-          - Utilizar o padrão Command para encapsular ações e facilitar a comunicação em um ambiente multiplayer
+          - [ ] Resolver ações
+          - [ ] Aplicar efeitos
+          - [ ] Utilizar eventos para comunicar mudanças de estado e ações
+          - [ ] Utilizar o padrão Command para encapsular ações e facilitar a comunicação em um ambiente multiplayer

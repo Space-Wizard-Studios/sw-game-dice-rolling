@@ -1,18 +1,29 @@
 # DICE ROLLING GAME
 
-Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O jogo envolve evoluir personagens, gerenciar recursos, explorar masmorras, engajar-se em batalhas e progredir.
+👋 Olá!
+
+Nós somos a [**Space Wizard Studios**](https://spacewiz.dev/) e este é o repositório do nosso projeto chamado **Dice Rolling Game** (nome temporário).
+
+## Sobre
+
+Este é um projeto de código aberto para o desenvolvimento de um [Roguelike](https://en.wikipedia.org/wiki/Roguelike) de turnos feito em C# na [Godot Engine](https://godotengine.org/).
+
+O objetivo é criar uma **Framework** modular e aberta que permita a qualquer desenvolvedor, estudante ou curioso a clonar, modificar ou fazer uma bifurcação (fork) do código base.
+
+A premissa é que tanto o design da **Framework** quanto do jogo serão guiados pela comunidade, porém, a produção dos _assets_ será realizada de forma independente e o jogo final será publicado em plataformas de distribuição.
 
 ## Sumário
 
 - [DICE ROLLING GAME](#dice-rolling-game)
+  - [Sobre](#sobre)
   - [Sumário](#sumário)
   - [Estrutura de arquivos](#estrutura-de-arquivos)
-    - [Arquivos do Projeto](#arquivos-do-projeto)
-    - [Arquivos da Documentação](#arquivos-da-documentação)
+    - [Estrutura do jogo](#estrutura-do-jogo)
+    - [Estrutura da documentação](#estrutura-da-documentação)
   - [Tecnologias e Frameworks](#tecnologias-e-frameworks)
     - [Tecnologias do Jogo](#tecnologias-do-jogo)
     - [Tecnologias da Documentação](#tecnologias-da-documentação)
-  - [Desenvolvimento do jogo](#desenvolvimento-do-jogo)
+  - [Ambiente de Desenvolvimento](#ambiente-de-desenvolvimento)
     - [Pré-requisitos](#pré-requisitos)
     - [Instalação do projeto](#instalação-do-projeto)
   - [Documentação](#documentação)
@@ -27,10 +38,10 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
 └── src                     # Projeto
 ```
 
-### Arquivos do Projeto
+### Estrutura do jogo
 
 ```powershell
-./src/
+src/
 ├── addons/                 # bibliotecas third party e editor plugins
 ├── assets/                 # assets como sprites, sons, texturas e respectivos arquivos de configuração
 ├── components/             # nodes a serem exibidos nas cenas e respectivos arquivos de
@@ -44,15 +55,23 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
 └── scenes/                 # cenas do jogo
 ```
 
-### Arquivos da Documentação
+### Estrutura da documentação
 
 ```powershell
-./docs/
-├── api/                    #
-└── src/                    #
- ├── components/            #
- ├── css/                   #
- └── pages/                 #
+docs/
+├── api/                    # Arquivos gerados pelo DocFX a partir do projeto C#
+├── content/                # Conteúdo da documentação em Markdown
+│ ├── api/                  # Arquivos do DocFX processados para funcionar no DocFX
+│ ├── architecture/         # Arquivos relacionados à arquitetura do projeto
+│ ├── game_design/          # Arquivos relacionados ao design do jogo
+│ ├── tutorials/            # Tutoriais e guias da Framework
+├── public/                 # Assets estáticos (imagens, vídeos, etc.)
+│ ├── img/                  # Imagens
+│ └── game_design/          # Arquivos relacionados ao design do jogo
+└── src/                    # Projeto do Docusaurus
+  ├── components/            # Componentes React
+  ├── css/                   # Estilos CSS
+  └── pages/                 # Páginas do site
 
 ```
 
@@ -67,14 +86,12 @@ Este é o projeto para um jogo de turnos feito em C# na game engine Godot 4+. O 
 
 - **DocFX**: Utilizado para gerar as referências de API do projeto .NET em Markdown (md).
 - **Docusaurus**: Utilizado para construir o site estático a partir de arquivos Markdown, incluindo a API.
-- **StatiCrypt**: Utilizado para encriptar os arquivos construídos, protegendo-os com uma senha.
-- **Firebase**: Utilizado para servir a documentação no endereço [https://sw-game-dice-roll-docs.web.app](https://sw-game-dice-roll-docs.web.app).
 
 ---
 
-## Desenvolvimento do jogo
+## Ambiente de Desenvolvimento
 
-Para configurar o projeto localmente, siga os passos abaixo:
+Para começar a desenvolver o jogo, siga as instruções abaixo:
 
 ### Pré-requisitos
 
@@ -155,11 +172,11 @@ Para executar os scripts definidos no arquivo `package.json` dentro do diretóri
      npm run start
      ```
 
-    ou
+   ou
 
-     ```sh
-     npm run build
-     ```
+   ```sh
+   npm run build
+   ```
 
    - Para servir o site estático localmente (preview):
 

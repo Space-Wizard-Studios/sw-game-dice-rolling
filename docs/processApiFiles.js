@@ -3,7 +3,7 @@ const path = require('path');
 const yaml = require('js-yaml');
 
 const apiDir = path.join(__dirname, 'api');
-const docsApiDir = path.join(__dirname, 'docs', 'api');
+const docsApiDir = path.join(__dirname, 'content', 'api');
 const tocFilePath = path.join(__dirname, 'api', 'toc.yml');
 const processedTocFilePath = path.join(__dirname, 'docs', 'api', 'toc_processed.json');
 

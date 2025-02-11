@@ -12,6 +12,10 @@ O objetivo é criar uma **Framework** modular e aberta que permita a qualquer de
 
 A premissa é que tanto o design da **Framework** quanto do jogo serão guiados pela comunidade, porém, a produção dos _assets_ será realizada de forma independente e o jogo final será publicado em plataformas de distribuição.
 
+> [!WARNING]  
+> **Aviso:** Este projeto está em desenvolvimento (e em uma fase bem inicial!) e, por isso, não recomendamos para uso em produção.
+> Por isso, use esse projeto apenas como um estudo de caso ou um lugar para discutirmos suas próprias ideias ou dar suas sugestões.
+
 ## Sumário
 
 - [DICE ROLLING GAME](#dice-rolling-game)

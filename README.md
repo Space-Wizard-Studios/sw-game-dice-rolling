@@ -14,9 +14,9 @@ Nós somos a [**Space Wizard Studios**](https://spacewiz.dev/) e este é o repos
 
 Este é um projeto de código aberto para o desenvolvimento de um [Roguelike](https://en.wikipedia.org/wiki/Roguelike), multiplayer e com batalha por turnos feito em C# na [Godot Engine](https://godotengine.org/).
 
-O objetivo é criar uma **Framework** modular e aberta que permita a qualquer desenvolvedor, artista, estudante ou curiosos a [clonar, modificar ou fazer um fork do código base](CONTRIBUTING.md).
+O objetivo é criar uma **Framework** modular e aberta que permita a quaisquer desenvolvedores, artistas, estudantes ou curiosos a [clonar, modificar ou fazer um fork do código base](CONTRIBUTING.md).
 
-A premissa deste projeto é que tanto o design da **Framework** quanto do **Jogo** serão guiados pela comunidade, porém, a produção dos assets (áudios, imagens e outros recursos) será realizada de forma independente e o jogo final será publicado em plataformas de distribuição como Steam, itch.io, etc. (ainda a ser definido).
+A premissa deste projeto é que tanto o design da **Framework** quanto do **Jogo** serão guiados pela comunidade, porém, a produção dos assets (áudios, imagens etc.) será realizada de forma independente e o jogo final será publicado em plataformas de distribuição como Steam, itch.io, etc. (ainda a ser definido).
 
 ```mermaid
 flowchart LR

@@ -6,7 +6,7 @@ Nós somos a [**Space Wizard Studios**](https://spacewiz.dev/) e este é o repos
 
 > [!WARNING]  
 > **Aviso:** Este projeto está em desenvolvimento (e em uma fase bem inicial!) e, por isso, não recomendamos para uso em produção.
-> Por isso, use esse projeto apenas como um estudo de caso ou um lugar para discutirmos suas próprias ideias ou dar suas sugestões.
+> Por isso, use esse projeto apenas como um estudo de caso ou um lugar para discutirmos suas ideias ou dar suas sugestões.
 
 ---
 

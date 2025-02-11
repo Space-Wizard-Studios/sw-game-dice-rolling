@@ -4,22 +4,56 @@
 
 Nós somos a [**Space Wizard Studios**](https://spacewiz.dev/) e este é o repositório do nosso projeto chamado **Dice Rolling Game** (nome temporário).
 
-## Sobre
-
-Este é um projeto de código aberto para o desenvolvimento de um [Roguelike](https://en.wikipedia.org/wiki/Roguelike) de turnos feito em C# na [Godot Engine](https://godotengine.org/).
-
-O objetivo é criar uma **Framework** modular e aberta que permita a qualquer desenvolvedor, estudante ou curioso a clonar, modificar ou fazer uma bifurcação (fork) do código base.
-
-A premissa é que tanto o design da **Framework** quanto do jogo serão guiados pela comunidade, porém, a produção dos _assets_ será realizada de forma independente e o jogo final será publicado em plataformas de distribuição.
-
 > [!WARNING]  
 > **Aviso:** Este projeto está em desenvolvimento (e em uma fase bem inicial!) e, por isso, não recomendamos para uso em produção.
 > Por isso, use esse projeto apenas como um estudo de caso ou um lugar para discutirmos suas próprias ideias ou dar suas sugestões.
+
+---
+
+## Sobre
+
+Este é um projeto de código aberto para o desenvolvimento de um [Roguelike](https://en.wikipedia.org/wiki/Roguelike), multiplayer e com batalha por turnos feito em C# na [Godot Engine](https://godotengine.org/).
+
+O objetivo é criar uma **Framework** modular e aberta que permita a qualquer desenvolvedor, artista, estudante ou curiosos a clonar, modificar ou fazer um fork do código base.
+
+A premissa deste projeto é que tanto o design da **Framework** quanto do **Jogo** serão guiados pela comunidade, porém, a produção dos assets (áudios, imagens e outros recursos) será realizada de forma independente e o jogo final será publicado em plataformas de distribuição como Steam, itch.io, etc. (ainda a ser definido).
+
+```mermaid
+flowchart LR
+    A(🤝<br>**Comunidade**) --> B@{ shape: diamond, label: "📦<br>**Framework**" } --> C(👨‍🚀<br>**SpaceWiz**) --> D(🎨<br>Assets)
+
+    B -->E(🎮<br>Jogo de Protótipo )
+    D -->F(👨‍🚀🎮<br>Jogo da SpaceWiz )
+
+    style A fill:#8a1fd1,stroke:#8a1fd1,stroke-width:2px;
+    style B fill:#d74242,stroke:#8a0d26,stroke-width:2px;
+    style C fill:#8a1fd1,stroke:#8a1fd1,stroke-width:2px;
+```
+
+<details>
+
+<summary>Nossa política de código aberto</summary>
+
+### Por que código aberto?
+
+Acreditamos que a colaboração e a transparência são essenciais para o desenvolvimento de softwares de qualidade. Esses sempre foram nossos valores em projetos desenvolvidos para clientes e queremos manter isso em nosso próprio projeto.
+
+Por isso, decidimos desde o começo em manter o código do nosso projeto aberto para que qualquer pessoa possa contribuir, aprender, ensinar e se divertir com a gente.
+
+### E por que os assets não são abertos?
+
+Queremos manter a qualidade, coerência dos assets do jogo e também, desenvolver a nossa própria visão do jogo. Por isso a produção dos assets será feita de forma independente. Isso significa que os áudios, imagens e outros recursos que não sejam parte do protótipo **não** estarão disponíveis neste repositório.
+
+</details>
+
+---
 
 ## Sumário
 
 - [DICE ROLLING GAME](#dice-rolling-game)
   - [Sobre](#sobre)
+    - [Por que código aberto?](#por-que-código-aberto)
+    - [E por que os assets não são abertos?](#e-por-que-os-assets-não-são-abertos)
   - [Sumário](#sumário)
   - [Estrutura de arquivos](#estrutura-de-arquivos)
     - [Estrutura do jogo](#estrutura-do-jogo)
@@ -33,6 +67,8 @@ A premissa é que tanto o design da **Framework** quanto do jogo serão guiados 
   - [Documentação](#documentação)
     - [Gerar a Documentação da API](#gerar-a-documentação-da-api)
     - [Executar Scripts do /docs](#executar-scripts-do-docs)
+
+---
 
 ## Estrutura de arquivos
 
@@ -78,6 +114,8 @@ docs/
   └── pages/                 # Páginas do site
 
 ```
+
+---
 
 ## Tecnologias e Frameworks
 

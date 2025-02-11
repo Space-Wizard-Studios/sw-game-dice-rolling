@@ -6,7 +6,7 @@ Nós somos a [**Space Wizard Studios**](https://spacewiz.dev/) e este é o repos
 
 > [!WARNING]  
 > **Aviso:** Este projeto está em desenvolvimento (e em uma fase bem inicial!) e, por isso, não recomendamos para uso em produção.
-> Por isso, use esse projeto apenas como um estudo de caso ou um lugar para discutirmos suas ideias ou dar suas sugestões.
+> Por isso, use esse projeto apenas como um estudo de caso, dar suas sugestões ou simplesmente um lugar para discutirmos suas ideias.
 
 ---
 
@@ -14,7 +14,7 @@ Nós somos a [**Space Wizard Studios**](https://spacewiz.dev/) e este é o repos
 
 Este é um projeto de código aberto para o desenvolvimento de um [Roguelike](https://en.wikipedia.org/wiki/Roguelike), multiplayer e com batalha por turnos feito em C# na [Godot Engine](https://godotengine.org/).
 
-O objetivo é criar uma **Framework** modular e aberta que permita a qualquer desenvolvedor, artista, estudante ou curiosos a clonar, modificar ou fazer um fork do código base.
+O objetivo é criar uma **Framework** modular e aberta que permita a qualquer desenvolvedor, artista, estudante ou curiosos a [clonar, modificar ou fazer um fork do código base](CONTRIBUTING.md).
 
 A premissa deste projeto é que tanto o design da **Framework** quanto do **Jogo** serão guiados pela comunidade, porém, a produção dos assets (áudios, imagens e outros recursos) será realizada de forma independente e o jogo final será publicado em plataformas de distribuição como Steam, itch.io, etc. (ainda a ser definido).
 
@@ -42,7 +42,9 @@ Por isso, decidimos desde o começo em manter o código do nosso projeto aberto 
 
 ### E por que os assets não são abertos?
 
-Queremos manter a qualidade, coerência dos assets do jogo e também, desenvolver a nossa própria visão do jogo. Por isso a produção dos assets será feita de forma independente. Isso significa que os áudios, imagens e outros recursos que não sejam parte do protótipo **não** estarão disponíveis neste repositório.
+Queremos manter a qualidade, coerência artística e, também, desenvolver a nossa própria visão do jogo. Por isso a produção dos assets será feita de forma independente (mas sempre recebendo feedbacks!).
+
+Isso significa que os áudios, imagens e outros recursos que não sejam parte do protótipo **não estarão disponíveis neste repositório**.
 
 </details>
 

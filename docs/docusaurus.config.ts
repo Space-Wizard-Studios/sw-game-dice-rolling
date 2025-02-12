@@ -69,7 +69,7 @@ const config: Config = {
                 {
                     type: 'docSidebar',
                     sidebarId: 'gameDesignSidebar',
-                    position: 'right',
+                    position: 'left',
                     label: 'Game Design',
                 },
                 {

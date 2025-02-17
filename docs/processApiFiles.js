@@ -44,7 +44,7 @@ const processFiles = (dir, destDir) => {
             let content = fs.readFileSync(filePath, 'utf8');
 
             // Add frontmatter with title based on file name
-            const fileName = path.basename(file, path.extname(file)).replace('DiceRoll.', '');
+            const fileName = path.basename(file, path.extname(file)).replace('DiceRolling.', '');
             const frontmatter = `---\ntitle: ${fileName}\n---\n\n`;
             content = frontmatter + content;
 

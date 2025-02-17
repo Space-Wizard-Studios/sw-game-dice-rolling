@@ -2,6 +2,7 @@ using Godot;
 using System;
 using DiceRolling.Models.Actions.Categories;
 using DiceRolling.Models.Actions.Effects;
+using DiceRolling.Interfaces.Action;
 
 namespace DiceRolling.Models.Actions;
 
@@ -20,7 +21,6 @@ public partial class CharacterAction : Resource {
         Type = roleAction.Type;
         if (Type is not null) {
             Name = Type.Name;
-            // GD.Print("Initializing CharacterAction with Name: ", Name);
             Description = Type.Description;
             RequiredMana = Type.RequiredMana;
             Effects = Type.Effects;

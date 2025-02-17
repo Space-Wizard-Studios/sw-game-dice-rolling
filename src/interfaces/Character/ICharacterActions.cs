@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using Godot;
 using DiceRolling.Models.Actions;
 
 namespace DiceRolling.Interfaces.Character;
@@ -7,23 +7,23 @@ namespace DiceRolling.Interfaces.Character;
 /// </summary>
 public interface ICharacterActions {
     /// <summary>
-    /// Lista de ações do personagem.
+    /// Lista de ações da personagem.
     /// </summary>
-    List<CharacterAction> Actions { get; }
+    Godot.Collections.Array<CharacterAction> Actions { get; }
 
     /// <summary>
-    /// Inicializa as ações do personagem.
+    /// Inicializa as ações da personagem.
     /// </summary>
     void InitializeActions();
 
     /// <summary>
-    /// Adiciona uma nova ação ao personagem.
+    /// Adiciona uma nova ação à personagem.
     /// </summary>
     /// <param name="action">Ação a ser adicionada.</param>
     void AddAction(CharacterAction action);
 
     /// <summary>
-    /// Remove uma ação do personagem.
+    /// Remove uma ação da personagem.
     /// </summary>
     /// <param name="action">Ação a ser removida.</param>
     void RemoveAction(CharacterAction action);

@@ -1,6 +1,6 @@
 using DiceRolling.Models.Characters;
 
-namespace DiceRolling.Interfaces.Actions;
+namespace DiceRolling.Interfaces.Action;
 
 public interface IActionContext {
     CharacterType Target { get; }

@@ -1,28 +1,25 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using DiceRolling.Models.Roles;
 using DiceRolling.Models.Actions;
 using DiceRolling.Models.Attributes;
 using DiceRolling.Models.Locations;
+using DiceRolling.Interfaces.Character;
 
 namespace DiceRolling.Models.Characters;
 
 [Tool]
 [GlobalClass]
-public partial class CharacterType : Resource {
+public partial class CharacterType : Resource, ICharacter {
     [Signal] public delegate void AttributeChangedEventHandler(CharacterType character, AttributeType attributeType);
 
     [ExportGroup("🦸 Character")]
     [Export] public string Id { get; set; } = Guid.NewGuid().ToString();
-
     [Export] public string? Name { get; set; }
-
-    [Export] public bool IsEnemy { get; set; } = false;
-
-    [ExportSubgroup("📊 Stats and Attributes")]
+    [Export] public CharacterCategory? Category { get; set; }
     private RoleType? _role;
-
     [Export]
     public RoleType? Role {
         get => _role;
@@ -33,9 +30,7 @@ public partial class CharacterType : Resource {
             InitializeActions();
         }
     }
-
     [Export] public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = [];
-
     [Export] public Godot.Collections.Array<CharacterAction> Actions { get; private set; } = [];
 
     [Export] public int DiceCapacity { get; set; } = 0;
@@ -46,15 +41,10 @@ public partial class CharacterType : Resource {
 
     [ExportGroup("🪵 Resources")]
     [Export] public Texture2D? Portrait { get; set; }
-
     [Export] public SpriteFrames? CharacterSprite { get; set; }
-
     [Export] public SpriteFrames? ShadowSprite { get; set; }
-
     [Export] public bool ShowShadow { get; set; }
-
     private float _spritePositionX;
-
     [Export]
     public float SpritePositionX {
         get => _spritePositionX;
@@ -63,9 +53,7 @@ public partial class CharacterType : Resource {
             EmitChanged();
         }
     }
-
     private float _spritePositionY;
-
     [Export]
     public float SpritePositionY {
         get => _spritePositionY;
@@ -74,8 +62,6 @@ public partial class CharacterType : Resource {
             EmitChanged();
         }
     }
-
-    public CharacterType() { }
 
     public void InitializeAttributes() {
         if (Role is null) {
@@ -139,5 +125,13 @@ public partial class CharacterType : Resource {
             attribute.CurrentValue = newValue;
             // EmitSignal(nameof(AttributeChanged), this, type);
         }
+    }
+
+    public void AddAction(CharacterAction action) {
+        // Implementação para adicionar uma ação
+    }
+
+    public void RemoveAction(CharacterAction action) {
+        // Implementação para remover uma ação
     }
 }

@@ -1,4 +1,4 @@
-namespace DiceRolling.Interfaces.Actions;
+namespace DiceRolling.Interfaces.Action;
 /// <summary>
 /// Interface que define uma ação no jogo.
 /// </summary>
@@ -12,10 +12,4 @@ public interface IAction<TContext, TResult>
     /// <param name="context">O contexto da ação.</param>
     /// <returns>O resultado da ação.</returns>
     TResult Do(TContext context);
-
-    /// <summary>
-    /// Desfaz a ação com o contexto fornecido.
-    /// </summary>
-    /// <param name="context">O contexto da ação.</param>
-    void Undo(TContext context);
 }

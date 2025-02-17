@@ -1,4 +1,5 @@
 using System.Linq;
+using DiceRolling.Interfaces.Action;
 using DiceRolling.Models.Characters;
 
 namespace DiceRolling.Models.Actions.Effects;

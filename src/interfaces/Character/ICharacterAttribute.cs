@@ -1,5 +1,5 @@
+using Godot;
 using System;
-using System.Collections.Generic;
 using DiceRolling.Models.Attributes;
 
 namespace DiceRolling.Interfaces.Character;
@@ -8,12 +8,12 @@ namespace DiceRolling.Interfaces.Character;
 /// </summary>
 public interface ICharacterAttributes {
     /// <summary>
-    /// Lista de atributos do personagem.
+    /// Lista de atributos da personagem.
     /// </summary>
-    List<CharacterAttribute> Attributes { get; }
+    Godot.Collections.Array<CharacterAttribute> Attributes { get; }
 
     /// <summary>
-    /// Inicializa os atributos do personagem.
+    /// Inicializa os atributos da personagem.
     /// </summary>
     void InitializeAttributes();
 
@@ -45,21 +45,23 @@ public interface ICharacterAttributes {
     /// <param name="newValue">Novo valor do atributo.</param>
     void UpdateAttributeCurrentValue(AttributeType type, int newValue);
 
-    /// <summary>
-    /// Evento disparado quando um atributo é atualizado.
-    /// </summary>
-    event EventHandler<AttributeChangedEventArgs> AttributeChanged;
+    // TODO: Implementar eventos para notificar a mudança de atributos.
+
+    // /// <summary>
+    // /// Evento disparado quando um atributo é atualizado.
+    // /// </summary>
+    // event EventHandler<AttributeChangedEventArgs> AttributeChanged;
 }
 
-/// <summary>
-/// Argumentos do evento disparado quando um atributo é atualizado.
-/// </summary>
-public class AttributeChangedEventArgs : EventArgs {
-    public AttributeType AttributeType { get; }
-    public int NewValue { get; }
+// /// <summary>
+// /// Argumentos do evento disparado quando um atributo é atualizado.
+// /// </summary>
+// public class AttributeChangedEventArgs : EventArgs {
+//     public AttributeType AttributeType { get; }
+//     public int NewValue { get; }
 
-    public AttributeChangedEventArgs(AttributeType attributeType, int newValue) {
-        AttributeType = attributeType;
-        NewValue = newValue;
-    }
-}
+//     public AttributeChangedEventArgs(AttributeType attributeType, int newValue) {
+//         AttributeType = attributeType;
+//         NewValue = newValue;
+//     }
+// }

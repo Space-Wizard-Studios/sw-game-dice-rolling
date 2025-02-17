@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=6 format=3 uid="uid://b4niu7ewhuinj"]
 
-[ext_resource type="Script" path="res://models/Attribute/AttributeType.cs" id="1_42jcx"]
+[ext_resource type="Script" uid="uid://dv3nebxjhpuk0" path="res://models/Attribute/AttributeType.cs" id="1_42jcx"]
 [ext_resource type="Script" uid="uid://bated1t84ka4j" path="res://models/Attribute/AttributesConfig.cs" id="1_prhg5"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="2_bqg3v"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="3_v4ucr"]

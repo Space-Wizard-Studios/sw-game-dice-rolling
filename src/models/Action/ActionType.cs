@@ -3,6 +3,7 @@ using System;
 using DiceRolling.Models.Actions.Categories;
 using DiceRolling.Models.Actions.Effects;
 using DiceRolling.Models.Actions.Targets;
+using DiceRolling.Interfaces.Action;
 
 namespace DiceRolling.Models.Actions;
 

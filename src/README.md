@@ -17,19 +17,24 @@
 
 ### Estrutura da framework
 
-```powershell
-src/
-├── addons/                 # bibliotecas third party e editor plugins
-├── assets/                 # assets como sprites, sons, texturas e respectivos arquivos de configuração
-├── components/             # nodes a serem exibidos nas cenas e respectivos arquivos de
-├── core/                   # core game logic and systems
-│ ├── managers/             # game managers
-│ ├── stores/               # singletons
-│ └── ui/                   # UI-related scripts
-├── models/                 # modelos de objetos
-│ └── [DOMAIN]              #
-│   └── [RESOURCES]         #
-└── scenes/                 # cenas do jogo
+```pwsh
+.
+└── src
+    ├── addons                  # bibliotecas third party e plugins do editor
+    ├── assets                  # assets como sprites, sons, texturas e respectivos arquivos de configuração
+    ├── components              # nodes a serem exibidos nas cenas e respectivos arquivos de configuração
+    ├── core                    # classes principais do jogo
+    │   ├── events              # game events
+    │   ├── managers            # game managers
+    │   ├── stores              # singletons
+    │   └── ui                  # UI-related scripts
+    ├── helpers                 # classes utilitárias
+    ├── interfaces              # interfaces da framework
+    ├── models                  # modelos de objetos
+    │   └── [DOMAIN]            #
+    ├── resources               # resources do Godot
+    │   └── [DOMAIN]            # 
+    └── scenes                  # cenas da framework
 ```
 
 ## Ambiente de Desenvolvimento

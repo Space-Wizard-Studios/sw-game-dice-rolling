@@ -4,7 +4,7 @@
 
 ## Interfaces
 
-A interface `ICharacter` agrega várias interfaces menores para definir um personagem completo no jogo.
+A interface `ICharacter` agrega várias interfaces menores para definir um _Character_ completo no jogo.
 
 ```csharp
 public interface ICharacter :

@@ -1,4 +1,4 @@
-This is a project for development of a game on C# using Godot 4 as game engine at `/src` folder.
+This is a project for development of a framework on C# using Godot 4 as game engine at `/src` folder.
 
 The documentation is at `/docs` folder but don't suggest changes in the documentation.
 

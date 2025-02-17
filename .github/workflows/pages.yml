@@ -1,6 +1,12 @@
 name: Build Docs and Deploy to Github Pages
 
 on:
+  push:
+    branches:
+      - documentation
+  pull_request:
+    branches:
+      - documentation
   workflow_dispatch:
 
 jobs:
@@ -14,12 +20,6 @@ jobs:
 
       - name: Set Environment Variable
         run: echo "GITHUB_ACTIONS=true" >> $GITHUB_ENV
-
-      - name: List Directories
-        run: ls -l
-
-      - name: List Directories on docs/ Folder
-        run: ls -l docs
 
       - name: Install Packages in docs Folder
         run: npm install

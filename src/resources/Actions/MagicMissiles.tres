@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="ActionType" load_steps=13 format=3 uid="uid://cvojckruuqrn6"]
+
+[ext_resource type="Resource" uid="uid://dwtue01tv131s" path="res://resources/ActionCategories/Offensive.tres" id="1_bbx2m"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/EffectType.cs" id="2_kaqn3"]
+[ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://resources/Actions/Effects/DamageEffect.tres" id="3_gvq84"]
+[ext_resource type="Texture2D" uid="uid://bemp486qms5lb" path="res://assets/icons/actions/magic_missiles.png" id="4_wo1pe"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="5_3y3bx"]
+[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://models/Dice/DiceMana/Resources/ManaRed.tres" id="6_ulsfc"]
+[ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/Grid/GridType.cs" id="7_1o5xt"]
+[ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/Target/TargetConfiguration.cs" id="8_xc6t4"]
+[ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/Action/ActionType.cs" id="9_lf25c"]
+
+[sub_resource type="Resource" id="Resource_pvdgm"]
+script = ExtResource("7_1o5xt")
+Prefix = "P"
+Offset = 0
+Direction = 0
+Rows = 2
+Columns = 3
+Cells = Array[int]([1, 0, 0, 1, 0, 0])
+metadata/_custom_type_script = ExtResource("7_1o5xt")
+
+[sub_resource type="Resource" id="Resource_hb7fk"]
+script = ExtResource("7_1o5xt")
+Prefix = "E"
+Offset = 0
+Direction = 0
+Rows = 2
+Columns = 3
+Cells = Array[int]([0, 3, 3, 0, 3, 3])
+metadata/_custom_type_script = ExtResource("7_1o5xt")
+
+[sub_resource type="Resource" id="Resource_5j66x"]
+script = ExtResource("8_xc6t4")
+IsSingleTarget = false
+Grids = Array[ExtResource("7_1o5xt")]([SubResource("Resource_pvdgm"), SubResource("Resource_hb7fk")])
+metadata/_custom_type_script = ExtResource("8_xc6t4")
+
+[resource]
+script = ExtResource("9_lf25c")
+Id = "1c94c7cf-b863-43f1-bb4b-ed141e35638b"
+Category = ExtResource("1_bbx2m")
+Name = "Magic Missiles"
+Description = "Magic Missiles description."
+Icon = ExtResource("4_wo1pe")
+RequiredMana = Array[ExtResource("5_3y3bx")]([ExtResource("6_ulsfc")])
+Effects = Array[ExtResource("2_kaqn3")]([ExtResource("3_gvq84")])
+TargetConfiguration = SubResource("Resource_5j66x")

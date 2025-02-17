@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="RoleType" load_steps=12 format=3 uid="uid://bad7cxgeb8mqp"]
+
+[ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://models/Role/RoleAction.cs" id="1_sp5ua"]
+[ext_resource type="Resource" uid="uid://cs65w4r75ugap" path="res://resources/Actions/QuickSlash.tres" id="2_jvjr4"]
+[ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/Attribute/RoleAttribute.cs" id="3_obvtk"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="4_ytwvq"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="5_1kxng"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="6_p46ct"]
+[ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/Role/RoleType.cs" id="7_mcims"]
+
+[sub_resource type="Resource" id="Resource_rp15h"]
+script = ExtResource("1_sp5ua")
+Type = ExtResource("2_jvjr4")
+metadata/_custom_type_script = ExtResource("1_sp5ua")
+
+[sub_resource type="Resource" id="Resource_g0hcp"]
+script = ExtResource("3_obvtk")
+Type = ExtResource("4_ytwvq")
+BaseValue = 100
+
+[sub_resource type="Resource" id="Resource_8w8fm"]
+script = ExtResource("3_obvtk")
+Type = ExtResource("5_1kxng")
+BaseValue = 50
+
+[sub_resource type="Resource" id="Resource_xurgi"]
+script = ExtResource("3_obvtk")
+Type = ExtResource("6_p46ct")
+BaseValue = 50
+
+[resource]
+script = ExtResource("7_mcims")
+Name = "Fighter"
+Description = "Fighter Description"
+RoleAttributes = Array[ExtResource("3_obvtk")]([SubResource("Resource_g0hcp"), SubResource("Resource_8w8fm"), SubResource("Resource_xurgi")])
+RoleActions = Array[ExtResource("1_sp5ua")]([SubResource("Resource_rp15h")])

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LocationType.cs" load_steps=2 format=3 uid="uid://d1dsndqu7on50"]
+
+[ext_resource type="Script" uid="uid://cros738yxei40" path="res://models/Location/LocationType.cs.cs" id="1_cb8ns"]
+
+[resource]
+script = ExtResource("1_cb8ns")
+Name = "Player Squad"
+Description = "player squad description"
+TotalSlots = 6
+metadata/_custom_type_script = ExtResource("1_cb8ns")

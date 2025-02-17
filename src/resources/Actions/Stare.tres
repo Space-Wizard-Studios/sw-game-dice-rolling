@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="ActionType" load_steps=11 format=3 uid="uid://cgac6lxa06rf8"]
+
+[ext_resource type="Resource" uid="uid://dw1d38425v5rd" path="res://resources/ActionCategories/Defensive.tres" id="1_f256u"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/EffectType.cs" id="2_2x0xn"]
+[ext_resource type="Texture2D" uid="uid://b5tap0qunatiw" path="res://assets/icons/actions/stare.png" id="3_i6kiq"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="4_0i1gb"]
+[ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/Grid/GridType.cs" id="5_iqdem"]
+[ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/Target/TargetConfiguration.cs" id="6_yq7l0"]
+[ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/Action/ActionType.cs" id="7_c4421"]
+
+[sub_resource type="Resource" id="Resource_8bxoq"]
+script = ExtResource("5_iqdem")
+Prefix = "P"
+Offset = 0
+Direction = 0
+Rows = 2
+Columns = 3
+Cells = Array[int]([1, 1, 1, 1, 1, 1])
+metadata/_custom_type_script = ExtResource("5_iqdem")
+
+[sub_resource type="Resource" id="Resource_woyg6"]
+script = ExtResource("5_iqdem")
+Prefix = "E"
+Offset = 0
+Direction = 0
+Rows = 2
+Columns = 3
+Cells = Array[int]([3, 3, 3, 3, 3, 3])
+metadata/_custom_type_script = ExtResource("5_iqdem")
+
+[sub_resource type="Resource" id="Resource_shlmr"]
+script = ExtResource("6_yq7l0")
+IsSingleTarget = false
+Grids = Array[ExtResource("5_iqdem")]([SubResource("Resource_8bxoq"), SubResource("Resource_woyg6")])
+metadata/_custom_type_script = ExtResource("6_yq7l0")
+
+[resource]
+script = ExtResource("7_c4421")
+Id = "b2da61e6-c5c6-44e5-974d-3a41d1185f41"
+Category = ExtResource("1_f256u")
+Name = "Stare"
+Description = "Stare at the nothingess of life."
+Icon = ExtResource("3_i6kiq")
+RequiredMana = Array[ExtResource("4_0i1gb")]([])
+Effects = Array[ExtResource("2_2x0xn")]([])
+TargetConfiguration = SubResource("Resource_shlmr")
+metadata/_custom_type_script = ExtResource("7_c4421")

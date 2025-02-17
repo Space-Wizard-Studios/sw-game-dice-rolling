@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="CharacterType" load_steps=14 format=3 uid="uid://ctp5er4mb8u3k"]
+
+[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Character/CharacterAction.cs" id="1_qu27i"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/EffectType.cs" id="2_wf0n1"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="3_7f4aj"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attribute/CharacterAttribute.cs" id="5_a0ba6"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="6_51345"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="7_k882b"]
+[ext_resource type="SpriteFrames" uid="uid://bkvhu7v1tmcfy" path="res://assets/characters/dummyOtsoga/DummyOtsogaSprites.tres" id="8_hri2t"]
+[ext_resource type="Resource" uid="uid://bjc78p06uwuy3" path="res://resources/Locations/EnemySquad.tres" id="9_prwnd"]
+[ext_resource type="Resource" uid="uid://bviiaflcxorr0" path="res://resources/Roles/Unplayable/DummyRole.tres" id="10_qjudm"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/CharacterType.cs" id="11_g7q70"]
+
+[sub_resource type="Resource" id="Resource_o20ld"]
+script = ExtResource("1_qu27i")
+Name = "Stare"
+Description = "Stare at the nothingess of life."
+RequiredMana = Array[ExtResource("3_7f4aj")]([])
+Effects = Array[ExtResource("2_wf0n1")]([])
+
+[sub_resource type="Resource" id="Resource_1x1o8"]
+script = ExtResource("5_a0ba6")
+Type = ExtResource("6_51345")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[sub_resource type="Resource" id="Resource_8x7bf"]
+script = ExtResource("5_a0ba6")
+Type = ExtResource("7_k882b")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[resource]
+script = ExtResource("11_g7q70")
+Id = "a98288c9-8795-4e16-801f-5fed51abd905"
+Name = "Dummy"
+IsEnemy = true
+Role = ExtResource("10_qjudm")
+Attributes = Array[ExtResource("5_a0ba6")]([SubResource("Resource_1x1o8"), SubResource("Resource_8x7bf")])
+Actions = Array[ExtResource("1_qu27i")]([SubResource("Resource_o20ld")])
+DiceCapacity = 0
+Location = ExtResource("9_prwnd")
+SlotIndex = 0
+CharacterSprite = ExtResource("8_hri2t")
+ShowShadow = false
+SpritePositionX = 0.0
+SpritePositionY = 0.0
+metadata/_custom_type_script = ExtResource("11_g7q70")

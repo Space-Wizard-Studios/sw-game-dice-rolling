@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="RoleType" load_steps=12 format=3 uid="uid://bgx5eoqdsu100"]
+
+[ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://models/Role/RoleAction.cs" id="1_dxym2"]
+[ext_resource type="Resource" uid="uid://cvojckruuqrn6" path="res://resources/Actions/MagicMissiles.tres" id="2_6jo5k"]
+[ext_resource type="Resource" uid="uid://c8xr12tkory0k" path="res://resources/Actions/ArcaneStrike.tres" id="3_7dyxt"]
+[ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/Attribute/RoleAttribute.cs" id="4_4d7o7"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="5_3q0ws"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="6_s2fk3"]
+[ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/Role/RoleType.cs" id="7_d8v21"]
+
+[sub_resource type="Resource" id="Resource_fqxkr"]
+script = ExtResource("1_dxym2")
+Type = ExtResource("2_6jo5k")
+metadata/_custom_type_script = ExtResource("1_dxym2")
+
+[sub_resource type="Resource" id="Resource_7cbi0"]
+script = ExtResource("1_dxym2")
+Type = ExtResource("3_7dyxt")
+metadata/_custom_type_script = ExtResource("1_dxym2")
+
+[sub_resource type="Resource" id="Resource_rs8gs"]
+script = ExtResource("4_4d7o7")
+Type = ExtResource("5_3q0ws")
+BaseValue = 80
+metadata/_custom_type_script = ExtResource("4_4d7o7")
+
+[sub_resource type="Resource" id="Resource_6dxu0"]
+script = ExtResource("4_4d7o7")
+Type = ExtResource("6_s2fk3")
+BaseValue = 100
+metadata/_custom_type_script = ExtResource("4_4d7o7")
+
+[resource]
+script = ExtResource("7_d8v21")
+Name = "Mage"
+Description = "MageDescription"
+RoleAttributes = Array[ExtResource("4_4d7o7")]([SubResource("Resource_rs8gs"), SubResource("Resource_6dxu0")])
+RoleActions = Array[ExtResource("1_dxym2")]([SubResource("Resource_fqxkr"), SubResource("Resource_7cbi0")])

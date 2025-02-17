@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="CharacterType" load_steps=18 format=3 uid="uid://bkolttux1bvi1"]
+
+[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Character/CharacterAction.cs" id="1_54hr6"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/EffectType.cs" id="2_20j4g"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attribute/CharacterAttribute.cs" id="2_wf1x4"]
+[ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://resources/Actions/Effects/DamageEffect.tres" id="3_keqlw"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="4_87gay"]
+[ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="6_keqlw"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="7_x4r4p"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="8_10osq"]
+[ext_resource type="Texture2D" uid="uid://8e45l4n0kh6" path="res://assets/characters/joannaOtsoga/JoannaOtsogaPortrait.png" id="8_focbd"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="9_bqmit"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/CharacterType.cs" id="10_1h6mb"]
+[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://resources/Locations/PlayerSquad.tres" id="11_vsqsd"]
+[ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://resources/Roles/Playable/Fighter.tres" id="13_7jom8"]
+
+[sub_resource type="Resource" id="Resource_xumvl"]
+script = ExtResource("1_54hr6")
+Name = "Quick Slash"
+Description = "Quick Slash description."
+RequiredMana = Array[ExtResource("4_87gay")]([])
+Effects = Array[ExtResource("2_20j4g")]([ExtResource("3_keqlw")])
+
+[sub_resource type="Resource" id="Resource_4p1nt"]
+script = ExtResource("2_wf1x4")
+Type = ExtResource("7_x4r4p")
+MaxValue = 80
+CurrentValue = 80
+BaseValue = 80
+
+[sub_resource type="Resource" id="Resource_ebahj"]
+script = ExtResource("2_wf1x4")
+Type = ExtResource("8_10osq")
+MaxValue = 50
+CurrentValue = 50
+BaseValue = 50
+
+[sub_resource type="Resource" id="Resource_b3bio"]
+script = ExtResource("2_wf1x4")
+Type = ExtResource("9_bqmit")
+MaxValue = 20
+CurrentValue = 20
+BaseValue = 20
+
+[resource]
+script = ExtResource("10_1h6mb")
+Id = "d98ec50f-3df3-47e6-b266-cbc7b8fbb745"
+Name = "Joanna"
+IsEnemy = false
+Role = ExtResource("13_7jom8")
+Attributes = Array[ExtResource("2_wf1x4")]([SubResource("Resource_4p1nt"), SubResource("Resource_ebahj"), SubResource("Resource_b3bio")])
+Actions = Array[ExtResource("1_54hr6")]([SubResource("Resource_xumvl")])
+DiceCapacity = 0
+Location = ExtResource("11_vsqsd")
+SlotIndex = 5
+Portrait = ExtResource("8_focbd")
+CharacterSprite = ExtResource("6_keqlw")
+ShowShadow = false
+SpritePositionX = 0.0
+SpritePositionY = -0.167

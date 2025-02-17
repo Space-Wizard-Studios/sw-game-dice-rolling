@@ -1,12 +1,6 @@
 name: Build Docs and Deploy to Github Pages
 
 on:
-  push:
-    branches:
-      - documentation
-  pull_request:
-    branches:
-      - documentation
   workflow_dispatch:
 
 jobs:

@@ -1,6 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b43duhk6atdos"]
-
-[ext_resource type="Script" uid="uid://dg2lc30fx0iba" path="res://models/Action/Effect/Effects/DamageEffect.cs" id="3_m732g"]
-
-[resource]
-script = ExtResource("3_m732g")

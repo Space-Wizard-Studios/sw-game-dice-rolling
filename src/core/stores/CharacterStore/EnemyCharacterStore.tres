@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterStore" load_steps=4 format=3 uid="uid://d22hmntd0rfq2"]
 
-[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/Character.cs" id="1_nkrwx"]
-[ext_resource type="Resource" uid="uid://ctp5er4mb8u3k" path="res://models/Character/Characters/Enemy/Dummy.tres" id="2_cue7d"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/CharacterType.cs" id="1_nkrwx"]
+[ext_resource type="Resource" uid="uid://ctp5er4mb8u3k" path="res://resources/Characters/Unplayable/Dummy.tres" id="2_cue7d"]
 [ext_resource type="Script" uid="uid://c0ludr6rojb3c" path="res://core/stores/CharacterStore/CharacterStore.cs" id="2_nkrwx"]
 
 [resource]

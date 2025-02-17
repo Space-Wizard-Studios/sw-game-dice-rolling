@@ -26,10 +26,10 @@ public partial class BattleManager : Node3D {
     }
 
     private static void RunCharacterTests() {
-        var newCharacter = new Character {
+        var newCharacter = new CharacterType {
             Id = Guid.NewGuid().ToString(),
             Name = "Hero",
-            Role = new Role { Name = "Warrior" },
+            Role = new RoleType { Name = "Warrior" },
             DiceCapacity = 3
         };
 

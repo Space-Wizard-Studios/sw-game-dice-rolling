@@ -6,19 +6,16 @@ using DiceRolling.Models.Characters;
 namespace DiceRolling.Components.Characters;
 
 [Tool]
-public partial class CharacterComponent : Node3D
-{
+public partial class CharacterComponent : Node3D {
     private static CharacterComponent? _currentlySelectedCharacter;
 
     [ExportGroup("🪵 Resources")]
-    private Character? _characterResource;
+    private CharacterType? _characterResource;
 
     [Export]
-    public Character? Character
-    {
+    public CharacterType? Character {
         get => _characterResource;
-        set
-        {
+        set {
             _characterResource = value;
             OnCharacterResourceSet();
         }
@@ -30,11 +27,9 @@ public partial class CharacterComponent : Node3D
 
     private bool _isHovered = false;
     [Export]
-    public bool IsHovered
-    {
+    public bool IsHovered {
         get => _isHovered;
-        set
-        {
+        set {
             _isHovered = value;
             OnIsHoveredSet(value);
         }
@@ -42,13 +37,10 @@ public partial class CharacterComponent : Node3D
 
     private bool _isSelected = false;
     [Export]
-    public bool IsSelected
-    {
+    public bool IsSelected {
         get => _isSelected;
-        set
-        {
-            if (_isSelected != value)
-            {
+        set {
+            if (_isSelected != value) {
                 _isSelected = value;
                 OnIsSelectedSet(value);
             }
@@ -61,15 +53,12 @@ public partial class CharacterComponent : Node3D
     [Export] public Sprite3D? SelectorSpriteNode { get; set; }
     [Export] public Area3D? InputAreaNode { get; set; }
 
-    public override void _Ready()
-    {
+    public override void _Ready() {
         ConnectSignals();
-        if (HoverSpriteNode is not null)
-        {
+        if (HoverSpriteNode is not null) {
             HoverSpriteNode.Visible = false;
         }
-        if (SelectorSpriteNode is not null)
-        {
+        if (SelectorSpriteNode is not null) {
             SelectorSpriteNode.Visible = false;
         }
 
@@ -77,36 +66,28 @@ public partial class CharacterComponent : Node3D
         EventBus.Instance.Connect(nameof(EventBus.CharacterUnselected), new Callable(this, nameof(OnCharacterUnselected)));
     }
 
-    private void ConnectSignals()
-    {
+    private void ConnectSignals() {
         InputAreaNode?.Connect("input_event", new Callable(this, nameof(OnInputEvent)));
         InputAreaNode?.Connect("mouse_entered", Callable.From(OnMouseEntered));
         InputAreaNode?.Connect("mouse_exited", Callable.From(OnMouseExited));
     }
 
-    private void OnInputEvent(Node camera, InputEvent @event, Vector3 click_position, Vector3 normal, int shape_idx)
-    {
-        if (@event is InputEventMouseButton { Pressed: true })
-        {
-            if (!IsEnemy)
-            {
+    private void OnInputEvent(Node camera, InputEvent @event, Vector3 click_position, Vector3 normal, int shape_idx) {
+        if (@event is InputEventMouseButton { Pressed: true }) {
+            if (!IsEnemy) {
                 HandleSelection(this);
             }
         }
     }
 
-    private static void HandleSelection(CharacterComponent current)
-    {
-        if (_currentlySelectedCharacter == current)
-        {
+    private static void HandleSelection(CharacterComponent current) {
+        if (_currentlySelectedCharacter == current) {
             current.IsSelected = false;
             _currentlySelectedCharacter = null;
             EventBus.Instance.EmitSignal(nameof(EventBus.CharacterUnselected));
         }
-        else
-        {
-            if (_currentlySelectedCharacter is not null)
-            {
+        else {
+            if (_currentlySelectedCharacter is not null) {
                 _currentlySelectedCharacter.IsSelected = false;
             }
             current.IsSelected = true;
@@ -115,59 +96,46 @@ public partial class CharacterComponent : Node3D
         }
     }
 
-    private void OnCharacterUnselected()
-    {
+    private void OnCharacterUnselected() {
         IsSelected = false;
     }
 
-    private void OnMouseEntered()
-    {
+    private void OnMouseEntered() {
         IsHovered = true;
     }
 
-    private void OnMouseExited()
-    {
+    private void OnMouseExited() {
         IsHovered = false;
     }
 
-    private void OnIsHoveredSet(bool isHovered)
-    {
-        if (HoverSpriteNode is not null)
-        {
+    private void OnIsHoveredSet(bool isHovered) {
+        if (HoverSpriteNode is not null) {
             HoverSpriteNode.Visible = isHovered;
         }
     }
 
-    private void OnIsSelectedSet(bool isSelected)
-    {
-        if (SelectorSpriteNode is not null)
-        {
+    private void OnIsSelectedSet(bool isSelected) {
+        if (SelectorSpriteNode is not null) {
             SelectorSpriteNode.Visible = isSelected;
         }
     }
 
-    public void FlipSprite(bool flip)
-    {
-        if (AnimatedSpriteNode is not null)
-        {
+    public void FlipSprite(bool flip) {
+        if (AnimatedSpriteNode is not null) {
             AnimatedSpriteNode.FlipH = flip;
         }
     }
 
-    private void OnCharacterResourceSet()
-    {
-        if (Character is null)
-        {
+    private void OnCharacterResourceSet() {
+        if (Character is null) {
             return;
         }
 
-        if (AnimatedSpriteNode is null)
-        {
+        if (AnimatedSpriteNode is null) {
             return;
         }
 
-        if (Character.CharacterSprite is not null)
-        {
+        if (Character.CharacterSprite is not null) {
             AnimatedSpriteNode.SpriteFrames = Character.CharacterSprite;
             AnimatedSpriteNode.Transform = new Transform3D(Basis.Identity, new Vector3(Character.SpritePositionX, 0.5f + Character.SpritePositionY, 0));
             AnimatedSpriteNode.Play("idle");

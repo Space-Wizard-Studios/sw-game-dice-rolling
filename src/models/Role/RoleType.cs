@@ -6,8 +6,7 @@ namespace DiceRolling.Models.Roles;
 
 [Tool]
 [GlobalClass]
-public partial class Role : Resource
-{
+public partial class RoleType : Resource {
     [Export] public string? Name { get; set; }
     [Export(PropertyHint.MultilineText)] public string? Description { get; set; }
     [Export] public Godot.Collections.Array<RoleAttribute> RoleAttributes { get; set; } = new();

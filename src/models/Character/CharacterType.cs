@@ -10,9 +10,8 @@ namespace DiceRolling.Models.Characters;
 
 [Tool]
 [GlobalClass]
-public partial class Character : Resource
-{
-    [Signal] public delegate void AttributeChangedEventHandler(Character character, AttributeType attributeType);
+public partial class CharacterType : Resource {
+    [Signal] public delegate void AttributeChangedEventHandler(CharacterType character, AttributeType attributeType);
 
     [ExportGroup("🦸 Character")]
     [Export] public string Id { get; set; } = Guid.NewGuid().ToString();
@@ -22,14 +21,12 @@ public partial class Character : Resource
     [Export] public bool IsEnemy { get; set; } = false;
 
     [ExportSubgroup("📊 Stats and Attributes")]
-    private Role? _role;
+    private RoleType? _role;
 
     [Export]
-    public Role? Role
-    {
+    public RoleType? Role {
         get => _role;
-        set
-        {
+        set {
             _role = value;
             EmitChanged();
             InitializeAttributes();
@@ -44,7 +41,7 @@ public partial class Character : Resource
     [Export] public int DiceCapacity { get; set; } = 0;
 
     [ExportGroup("📍 Character Location")]
-    [Export] public CharacterLocation? Location { get; set; }
+    [Export] public LocationType? Location { get; set; }
     [Export] public int SlotIndex { get; set; } = -1;
 
     [ExportGroup("🪵 Resources")]
@@ -59,11 +56,9 @@ public partial class Character : Resource
     private float _spritePositionX;
 
     [Export]
-    public float SpritePositionX
-    {
+    public float SpritePositionX {
         get => _spritePositionX;
-        set
-        {
+        set {
             _spritePositionX = value;
             EmitChanged();
         }
@@ -72,38 +67,30 @@ public partial class Character : Resource
     private float _spritePositionY;
 
     [Export]
-    public float SpritePositionY
-    {
+    public float SpritePositionY {
         get => _spritePositionY;
-        set
-        {
+        set {
             _spritePositionY = value;
             EmitChanged();
         }
     }
 
-    public Character() { }
+    public CharacterType() { }
 
-    public void InitializeAttributes()
-    {
-        if (Role is null)
-        {
-            GD.PrintErr("Role is null");
+    public void InitializeAttributes() {
+        if (Role is null) {
+            // GD.PrintErr("Role is null");
             return;
         }
 
-        if (Role.RoleAttributes.Count == 0)
-        {
-            GD.PrintErr("RoleAttributes is empty");
+        if (Role.RoleAttributes.Count == 0) {
+            // GD.PrintErr("RoleAttributes is empty");
             return;
         }
 
-        if (Attributes.Count == 0)
-        {
-            foreach (var roleAttribute in Role.RoleAttributes)
-            {
-                var characterAttribute = new CharacterAttribute(roleAttribute)
-                {
+        if (Attributes.Count == 0) {
+            foreach (var roleAttribute in Role.RoleAttributes) {
+                var characterAttribute = new CharacterAttribute(roleAttribute) {
                     MaxValue = roleAttribute.BaseValue,
                     CurrentValue = roleAttribute.BaseValue
                 };
@@ -112,55 +99,45 @@ public partial class Character : Resource
         }
     }
 
-    public void InitializeActions()
-    {
-        if (Role is null)
-        {
-            GD.PrintErr("Role is null");
+    public void InitializeActions() {
+        if (Role is null) {
+            // GD.PrintErr("Role is null");
             return;
         }
 
-        if (Role.RoleActions.Count == 0)
-        {
-            GD.PrintErr("RoleActions is empty");
+        if (Role.RoleActions.Count == 0) {
+            // GD.PrintErr("RoleActions is empty");
             return;
         }
 
-        if (Actions.Count == 0)
-        {
-            foreach (var roleAction in Role.RoleActions)
-            {
+        if (Actions.Count == 0) {
+            foreach (var roleAction in Role.RoleActions) {
                 var characterAction = new CharacterAction(roleAction);
                 Actions.Add(characterAction);
             }
         }
     }
 
-    public int GetAttributeCurrentValue(AttributeType type)
-    {
+    public int GetAttributeCurrentValue(AttributeType type) {
         var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
         return attribute is not null ? attribute.CurrentValue : 0;
     }
 
-    public int GetAttributeMaxValue(AttributeType type)
-    {
+    public int GetAttributeMaxValue(AttributeType type) {
         var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
         return attribute is not null ? attribute.MaxValue : 0;
     }
 
-    public int GetAttributeBaseValue(AttributeType type)
-    {
+    public int GetAttributeBaseValue(AttributeType type) {
         var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
         return attribute is not null ? attribute.BaseValue : 0;
     }
 
-    public void UpdateAttributeCurrentValue(AttributeType type, int newValue)
-    {
+    public void UpdateAttributeCurrentValue(AttributeType type, int newValue) {
         var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
-        if (attribute is not null)
-        {
+        if (attribute is not null) {
             attribute.CurrentValue = newValue;
-            EmitSignal(nameof(AttributeChanged), this, type);
+            // EmitSignal(nameof(AttributeChanged), this, type);
         }
     }
 }

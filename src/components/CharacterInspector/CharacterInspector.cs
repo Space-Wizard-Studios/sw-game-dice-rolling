@@ -8,10 +8,10 @@ namespace DiceRolling.Components.Characters;
 
 [Tool]
 public partial class CharacterInspector : HBoxContainer {
-    private Character? _character;
+    private CharacterType? _character;
     [ExportGroup("🪵 Resources")]
     [Export]
-    public Character? Character {
+    public CharacterType? Character {
         get => _character;
         set {
             _character = value;

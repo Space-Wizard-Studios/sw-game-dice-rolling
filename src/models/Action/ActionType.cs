@@ -8,22 +8,18 @@ namespace DiceRolling.Models.Actions;
 
 [Tool]
 [GlobalClass]
-public partial class ActionType : Resource, IAction<IActionContext, bool>
-{
+public partial class ActionType : Resource, IAction<IActionContext, bool> {
     [Export] public string Id { get; private set; } = Guid.NewGuid().ToString();
     [Export] public ActionCategory? Category { get; set; }
     [Export] public string? Name { get; set; }
     [Export(PropertyHint.MultilineText)] public string? Description { get; set; }
     private Texture2D? _icon;
     [Export]
-    public Texture2D? Icon
-    {
+    public Texture2D? Icon {
         get => _icon;
-        set
-        {
+        set {
             _icon = value;
-            if (_icon is not null)
-            {
+            if (_icon is not null) {
                 IconPath = _icon.ResourcePath;
             }
         }
@@ -39,17 +35,14 @@ public partial class ActionType : Resource, IAction<IActionContext, bool>
         ActionCategory category,
         Godot.Collections.Array<DiceMana> requiredMana,
         Godot.Collections.Array<EffectType> effects
-    )
-    {
+    ) {
         Category = category;
         RequiredMana = requiredMana;
         Effects = effects;
     }
 
-    public bool Do(IActionContext context)
-    {
-        foreach (var effect in Effects)
-        {
+    public bool Do(IActionContext context) {
+        foreach (var effect in Effects) {
             effect.Apply(context);
         }
         return true;

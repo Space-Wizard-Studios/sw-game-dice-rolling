@@ -7,7 +7,8 @@ public interface IRoleInformation {
     /// <summary>
     /// Identificador único do arquétipo de personagem.
     /// </summary>
-    string Id { get; set; }
+    string Id { get; }
+
     /// <summary>
     /// Nome do arquétipo de personagem.
     /// </summary>

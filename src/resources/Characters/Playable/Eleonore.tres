@@ -127,7 +127,6 @@ animations = [{
 script = ExtResource("10_p2s1v")
 Id = "4ea655f0-4c3e-4fba-bafe-fe361e68db9e"
 Name = "Eleonore"
-IsEnemy = false
 Role = ExtResource("15_lr1s2")
 Attributes = Array[ExtResource("2_a8f08")]([SubResource("Resource_ikwiv"), SubResource("Resource_o11qe"), SubResource("Resource_n00fg")])
 Actions = Array[ExtResource("1_a8f08")]([SubResource("Resource_22cqr"), SubResource("Resource_o4pav")])

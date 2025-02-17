@@ -36,7 +36,6 @@ BaseValue = 999
 script = ExtResource("11_g7q70")
 Id = "a98288c9-8795-4e16-801f-5fed51abd905"
 Name = "Dummy"
-IsEnemy = true
 Role = ExtResource("10_qjudm")
 Attributes = Array[ExtResource("5_a0ba6")]([SubResource("Resource_1x1o8"), SubResource("Resource_8x7bf")])
 Actions = Array[ExtResource("1_qu27i")]([SubResource("Resource_o20ld")])

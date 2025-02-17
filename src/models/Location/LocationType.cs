@@ -1,6 +1,6 @@
 using Godot;
 
-namespace DiceRolling.Models.Characters.Locations;
+namespace DiceRolling.Models.Locations;
 
 [Tool]
 [GlobalClass]

@@ -4,7 +4,7 @@ using System.Linq;
 using DiceRolling.Models.Roles;
 using DiceRolling.Models.Actions;
 using DiceRolling.Models.Attributes;
-using DiceRolling.Models.Characters.Locations;
+using DiceRolling.Models.Locations;
 
 namespace DiceRolling.Models.Characters;
 

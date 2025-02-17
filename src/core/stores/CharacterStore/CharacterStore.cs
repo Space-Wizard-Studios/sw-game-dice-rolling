@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 using DiceRolling.Models.Characters;
-using DiceRolling.Models.Characters.Locations;
+using DiceRolling.Models.Locations;
 
 namespace DiceRolling.Stores;
 

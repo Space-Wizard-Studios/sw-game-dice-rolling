@@ -13,10 +13,6 @@ sub-issues:
     state: "open"
     sub-issues:
       - title: "Task 6.2.a: Definir Interface de Character"
-        description: |
-          - [ ] Definir atributos necessários para o personagem
-          - [ ] Definir ações que o personagem pode realizar
-
       - title: "Task 6.2.b: Definir Interface de Role"
         description: |
           - [ ] Definir atributos necessários para os papéis

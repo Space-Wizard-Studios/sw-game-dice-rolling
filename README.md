@@ -1,5 +1,7 @@
 # DICE ROLLING FRAMEWORK
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9b87b0cac23442df9fa1d3b07c36e8f4)](https://app.codacy.com/gh/Space-Wizard-Studios/sw-game-dice-rolling/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
 👋 Olá!
 
 Nós somos a [**Space Wizard Studios**](https://spacewiz.dev/) e este é o repositório do nosso projeto chamado **Dice Rolling Framework** (nome temporário).

@@ -5,9 +5,9 @@
 [ext_resource type="Script" uid="uid://c0ludr6rojb3c" path="res://core/stores/CharacterStore/CharacterStore.cs" id="3_0pcwr"]
 [ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://resources/Characters/Playable/Joanna.tres" id="3_eyj5b"]
 [ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Character/CharacterAction.cs" id="4_3t2kq"]
-[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/EffectType.cs" id="5_7djp7"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Effects/EffectType.cs" id="5_3t2kq"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="6_vqkry"]
-[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attribute/CharacterAttribute.cs" id="7_g64rw"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Character/CharacterAttribute.cs" id="7_g64rw"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="8_weu0m"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="9_rclmx"]
 [ext_resource type="SpriteFrames" uid="uid://bkvhu7v1tmcfy" path="res://assets/characters/dummyOtsoga/DummyOtsogaSprites.tres" id="10_knbv7"]
@@ -17,7 +17,7 @@ script = ExtResource("4_3t2kq")
 Name = "Stare"
 Description = "Stare at the nothingess of life."
 RequiredMana = Array[ExtResource("6_vqkry")]([])
-Effects = Array[ExtResource("5_7djp7")]([])
+Effects = Array[ExtResource("5_3t2kq")]([])
 
 [sub_resource type="Resource" id="Resource_1x1o8"]
 script = ExtResource("7_g64rw")
@@ -52,7 +52,7 @@ script = ExtResource("4_3t2kq")
 Name = "Stare"
 Description = "Stare at the nothingess of life."
 RequiredMana = Array[ExtResource("6_vqkry")]([])
-Effects = Array[ExtResource("5_7djp7")]([])
+Effects = Array[ExtResource("5_3t2kq")]([])
 
 [sub_resource type="Resource" id="Resource_b4itv"]
 script = ExtResource("7_g64rw")
@@ -87,7 +87,7 @@ script = ExtResource("4_3t2kq")
 Name = "Stare"
 Description = "Stare at the nothingess of life."
 RequiredMana = Array[ExtResource("6_vqkry")]([])
-Effects = Array[ExtResource("5_7djp7")]([])
+Effects = Array[ExtResource("5_3t2kq")]([])
 
 [sub_resource type="Resource" id="Resource_u3uru"]
 script = ExtResource("7_g64rw")
@@ -122,7 +122,7 @@ script = ExtResource("4_3t2kq")
 Name = "Stare"
 Description = "Stare at the nothingess of life."
 RequiredMana = Array[ExtResource("6_vqkry")]([])
-Effects = Array[ExtResource("5_7djp7")]([])
+Effects = Array[ExtResource("5_3t2kq")]([])
 
 [sub_resource type="Resource" id="Resource_hqqre"]
 script = ExtResource("7_g64rw")

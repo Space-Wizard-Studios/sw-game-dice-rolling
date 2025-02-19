@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://models/Role/RoleAction.cs" id="1_orei6"]
 [ext_resource type="Resource" uid="uid://cgac6lxa06rf8" path="res://resources/Actions/Stare.tres" id="2_3rgbr"]
-[ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/Attribute/RoleAttribute.cs" id="3_o0xko"]
+[ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/Role/RoleAttribute.cs" id="3_o0xko"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="4_hdasj"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="5_xkma8"]
 [ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/Role/RoleType.cs" id="6_wqpgm"]
@@ -26,6 +26,7 @@ metadata/_custom_type_script = ExtResource("3_o0xko")
 
 [resource]
 script = ExtResource("6_wqpgm")
+Id = "fd711259-10a4-42df-87f6-ed817e718b81"
 Name = "Dummy"
 Description = "It's just a training dummy"
 RoleAttributes = Array[ExtResource("3_o0xko")]([SubResource("Resource_bmv4o"), SubResource("Resource_jxq6j")])

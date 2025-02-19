@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ActionType" load_steps=9 format=3 uid="uid://cs65w4r75ugap"]
 
-[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/EffectType.cs" id="1_i76yk"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Effects/EffectType.cs" id="1_i76yk"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="2_qhrue"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/Grid/GridType.cs" id="3_8ielr"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/Target/TargetConfiguration.cs" id="4_rvih8"]

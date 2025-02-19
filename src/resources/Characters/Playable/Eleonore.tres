@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CharacterType" load_steps=31 format=3 uid="uid://clrt1eby68x42"]
 
 [ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Character/CharacterAction.cs" id="1_a8f08"]
-[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Attribute/CharacterAttribute.cs" id="2_a8f08"]
-[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Action/EffectType.cs" id="2_krjcd"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Effects/EffectType.cs" id="2_12jxm"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Character/CharacterAttribute.cs" id="2_a8f08"]
 [ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://resources/Actions/Effects/DamageEffect.tres" id="3_22cqr"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="4_wlk4d"]
 [ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://models/Dice/DiceMana/Resources/ManaRed.tres" id="5_lgixm"]
@@ -20,14 +20,14 @@ script = ExtResource("1_a8f08")
 Name = "Magic Missiles"
 Description = "Magic Missiles description."
 RequiredMana = Array[ExtResource("4_wlk4d")]([ExtResource("5_lgixm")])
-Effects = Array[ExtResource("2_krjcd")]([ExtResource("3_22cqr")])
+Effects = Array[ExtResource("2_12jxm")]([ExtResource("3_22cqr")])
 
 [sub_resource type="Resource" id="Resource_o4pav"]
 script = ExtResource("1_a8f08")
 Name = "Arcane Strike"
 Description = "Arcane Strike description."
 RequiredMana = Array[ExtResource("4_wlk4d")]([ExtResource("5_lgixm")])
-Effects = Array[ExtResource("2_krjcd")]([ExtResource("3_22cqr")])
+Effects = Array[ExtResource("2_12jxm")]([ExtResource("3_22cqr")])
 
 [sub_resource type="Resource" id="Resource_ikwiv"]
 script = ExtResource("2_a8f08")

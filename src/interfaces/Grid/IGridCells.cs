@@ -11,7 +11,7 @@ public interface IGridCells {
     /// <summary>
     /// Células da grid.
     /// </summary>
-    Array<int> Cells { get; set; }
+    Array<int> Cells { get; }
 
     /// <summary>
     /// Obtém o índice de uma célula.

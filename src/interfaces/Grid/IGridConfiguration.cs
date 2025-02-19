@@ -7,25 +7,25 @@ public interface IGridConfiguration {
     /// <summary>
     /// Número de linhas da grid.
     /// </summary>
-    int Rows { get; set; }
+    int Rows { get; }
 
     /// <summary>
     /// Número de colunas da grid.
     /// </summary>
-    int Columns { get; set; }
+    int Columns { get; }
 
     /// <summary>
     /// Prefixo da grid.
     /// </summary>
-    string Prefix { get; set; }
+    string Prefix { get; }
 
     /// <summary>
     /// Offset da grid.
     /// </summary>
-    int Offset { get; set; }
+    int Offset { get; }
 
     /// <summary>
     /// Direção da grid.
     /// </summary>
-    GridDirection Direction { get; set; }
+    GridDirection Direction { get; }
 }

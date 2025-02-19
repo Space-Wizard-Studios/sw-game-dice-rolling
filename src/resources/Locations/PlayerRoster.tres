@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LocationType" load_steps=2 format=3 uid="uid://d33paxl6cc38l"]
+
+[ext_resource type="Script" uid="uid://cros738yxei40" path="res://models/Location/LocationType.cs" id="1_xwydy"]
+
+[resource]
+script = ExtResource("1_xwydy")
+Name = "Roster"
+Description = "roster description"
+TotalSlots = 6
+metadata/_custom_type_script = ExtResource("1_xwydy")

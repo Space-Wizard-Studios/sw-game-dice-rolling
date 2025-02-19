@@ -3,6 +3,7 @@ using DiceRolling.Models.Actions.Targets;
 using DiceRolling.Events;
 using DiceRolling.Models.Grids;
 using System.Collections.Generic;
+using DiceRolling.Interfaces.Grid;
 
 namespace DiceRolling.Components.Grids;
 

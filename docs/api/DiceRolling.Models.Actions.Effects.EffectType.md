@@ -5,8 +5,8 @@ Assembly: dice\-rolling.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://models/Action/Effect/EffectType.cs")]
-public abstract class EffectType : Resource, IDisposable
+[ScriptPath("res://models/Effects/EffectType.cs")]
+public abstract class EffectType : Resource, IDisposable, IEffect
 ```
 
 #### Inheritance
@@ -23,7 +23,8 @@ Resource ←
 
 #### Implements
 
-[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
+[IEffect](DiceRolling.Interfaces.Effects.IEffect.md)
 
 #### Inherited Members
 
@@ -152,7 +153,9 @@ GodotObject.PropertyListChanged,
 
 ## Methods
 
-### <a id="DiceRolling_Models_Actions_Effects_EffectType_Apply_DiceRolling_Models_Actions_IActionContext_"></a> Apply\(IActionContext\)
+### <a id="DiceRolling_Models_Actions_Effects_EffectType_Apply_DiceRolling_Interfaces_Action_IActionContext_"></a> Apply\(IActionContext\)
+
+Aplica o efeito no contexto da ação.
 
 ```csharp
 public abstract void Apply(IActionContext context)
@@ -160,5 +163,7 @@ public abstract void Apply(IActionContext context)
 
 #### Parameters
 
-`context` [IActionContext](DiceRolling.Models.Actions.IActionContext.md)
+`context` [IActionContext](DiceRolling.Interfaces.Action.IActionContext.md)
+
+O contexto da ação.
 

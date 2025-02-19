@@ -1,0 +1,28 @@
+using DiceRolling.Models.Actions.Categories;
+
+namespace DiceRolling.Interfaces.Action;
+
+/// <summary>
+/// Interface que define as informações básicas de uma ação no jogo.
+/// </summary>
+public interface IActionInformation {
+    /// <summary>
+    /// Identificador único da ação.
+    /// </summary>
+    string Id { get; }
+
+    /// <summary>
+    /// Nome da ação.
+    /// </summary>
+    string? Name { get; set; }
+
+    /// <summary>
+    /// Categoria da ação.
+    /// </summary>
+    ActionCategory? Category { get; set; }
+
+    /// <summary>
+    /// Descrição da ação.
+    /// </summary>
+    string? Description { get; set; }
+}

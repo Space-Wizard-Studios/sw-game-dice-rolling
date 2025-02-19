@@ -4,8 +4,8 @@ Namespace: [DiceRolling.Models.Actions.Effects](DiceRolling.Models.Actions.Effec
 Assembly: dice\-rolling.dll  
 
 ```csharp
-[ScriptPath("res://models/Action/Effect/Effects/DamageEffect.cs")]
-public class DamageEffect : EffectType, IDisposable
+[ScriptPath("res://models/Effects/DamageEffect.cs")]
+public class DamageEffect : EffectType, IDisposable, IEffect
 ```
 
 #### Inheritance
@@ -19,11 +19,12 @@ Resource ←
 
 #### Implements
 
-[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
+[IEffect](DiceRolling.Interfaces.Effects.IEffect.md)
 
 #### Inherited Members
 
-[EffectType.Apply\(IActionContext\)](DiceRolling.Models.Actions.Effects.EffectType.md\#DiceRolling\_Models\_Actions\_Effects\_EffectType\_Apply\_DiceRolling\_Models\_Actions\_IActionContext\_), 
+[EffectType.Apply\(IActionContext\)](DiceRolling.Models.Actions.Effects.EffectType.md\#DiceRolling\_Models\_Actions\_Effects\_EffectType\_Apply\_DiceRolling\_Interfaces\_Action\_IActionContext\_), 
 Resource.\_GetRid\(\), 
 Resource.\_ResetState\(\), 
 Resource.\_SetPathCache\(string\), 
@@ -157,7 +158,9 @@ public DamageEffect()
 
 ## Methods
 
-### <a id="DiceRolling_Models_Actions_Effects_DamageEffect_Apply_DiceRolling_Models_Actions_IActionContext_"></a> Apply\(IActionContext\)
+### <a id="DiceRolling_Models_Actions_Effects_DamageEffect_Apply_DiceRolling_Interfaces_Action_IActionContext_"></a> Apply\(IActionContext\)
+
+Aplica o efeito no contexto da ação.
 
 ```csharp
 public override void Apply(IActionContext context)
@@ -165,5 +168,7 @@ public override void Apply(IActionContext context)
 
 #### Parameters
 
-`context` [IActionContext](DiceRolling.Models.Actions.IActionContext.md)
+`context` [IActionContext](DiceRolling.Interfaces.Action.IActionContext.md)
+
+O contexto da ação.
 

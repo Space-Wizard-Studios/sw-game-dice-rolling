@@ -17,9 +17,9 @@ public partial class TurnOrderComponent : Control {
     [ExportGroup("🪵 Resources")]
     [Export] private Resource? AttributeConfigResource;
 
-    private Character[] _characters = [];
+    private CharacterType[] _characters = [];
     [Export]
-    public Character[] Characters {
+    public CharacterType[] Characters {
         get => _characters;
         set {
             _characters = value;
@@ -93,7 +93,7 @@ public partial class TurnOrderComponent : Control {
         }
     }
 
-    private void SetupPortraitInstance(Character character, PanelContainer portraitInstance) {
+    private void SetupPortraitInstance(CharacterType character, PanelContainer portraitInstance) {
         if (PortraitPanelNode is null || PortraitTextureNode is null || PortraitDamageColorNode is null) {
             GD.PrintErr("One or more portrait nodes are not set.");
             return;
@@ -132,7 +132,7 @@ public partial class TurnOrderComponent : Control {
             damageColor.Scale = new Vector2(1, damageRatio);
         }
     }
-    public void UpdateTurnOrder(List<Character> characters) {
+    public void UpdateTurnOrder(List<CharacterType> characters) {
         if (PortraitsContainerNode is null || PortraitTemplateNode is null) {
             return;
         }

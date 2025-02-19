@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterCategory" load_steps=3 format=3 uid="uid://d0mpi6sabk5li"]
+
+[ext_resource type="Script" path="res://models/Character/CharacterType.cs" id="1_aiurc"]
+[ext_resource type="Script" path="res://models/Character/CharacterCategory.cs" id="2_pdbs6"]
+
+[resource]
+script = ExtResource("2_pdbs6")
+Name = "Neutral"
+Description = "Neutral category description."
+metadata/_custom_type_script = ExtResource("1_aiurc")

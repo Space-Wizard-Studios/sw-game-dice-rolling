@@ -58,7 +58,7 @@ const config: Config = {
                     type: 'docSidebar',
                     sidebarId: 'architectureSidebar',
                     position: 'left',
-                    label: 'Architecture Overview',
+                    label: 'Architecture',
                 },
                 {
                     type: 'docSidebar',

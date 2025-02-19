@@ -45,7 +45,7 @@ public partial class EventBus : Node {
         return eventBus;
     }
 
-    public void EmitAttributeChanged(Character character, AttributeType attributeType) {
+    public void EmitAttributeChanged(CharacterType character, AttributeType attributeType) {
         EmitSignal(nameof(AttributeChanged), character, attributeType);
     }
 

@@ -16,9 +16,3 @@
 
  [RoleAction](DiceRolling.Models.Actions.RoleAction.md)
 
-### Interfaces
-
- [IAction<TContext, TResult\>](DiceRolling.Models.Actions.IAction\-2.md)
-
- [IActionContext](DiceRolling.Models.Actions.IActionContext.md)
-

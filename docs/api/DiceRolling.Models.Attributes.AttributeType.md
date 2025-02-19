@@ -7,7 +7,7 @@ Assembly: dice\-rolling.dll
 [Tool]
 [GlobalClass]
 [ScriptPath("res://models/Attribute/AttributeType.cs")]
-public class AttributeType : Resource, IDisposable
+public class AttributeType : Resource, IDisposable, IAttribute, IAttributeInformation, IAttributeAssets, IAttributeValues
 ```
 
 #### Inheritance
@@ -20,7 +20,11 @@ Resource ←
 
 #### Implements
 
-[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
+[IAttribute](DiceRolling.Interfaces.Attribute.IAttribute.md), 
+[IAttributeInformation](DiceRolling.Interfaces.Attribute.IAttributeInformation.md), 
+[IAttributeAssets](DiceRolling.Interfaces.Attribute.IAttributeAssets.md), 
+[IAttributeValues](DiceRolling.Interfaces.Attribute.IAttributeValues.md)
 
 #### Inherited Members
 
@@ -175,6 +179,8 @@ public AttributeType(string name, string description, Color color, Texture2D ico
 
 ### <a id="DiceRolling_Models_Attributes_AttributeType_Color"></a> Color
 
+Cor do atributo.
+
 ```csharp
 [Export(PropertyHint.None, "")]
 public Color Color { get; set; }
@@ -185,6 +191,8 @@ public Color Color { get; set; }
  Color
 
 ### <a id="DiceRolling_Models_Attributes_AttributeType_Description"></a> Description
+
+Descrição do atributo.
 
 ```csharp
 [Export(PropertyHint.MultilineText, "")]
@@ -197,6 +205,8 @@ public string? Description { get; set; }
 
 ### <a id="DiceRolling_Models_Attributes_AttributeType_Icon"></a> Icon
 
+Ícone do atributo.
+
 ```csharp
 [Export(PropertyHint.None, "")]
 public Texture2D? Icon { get; set; }
@@ -208,6 +218,8 @@ public Texture2D? Icon { get; set; }
 
 ### <a id="DiceRolling_Models_Attributes_AttributeType_IconPath"></a> IconPath
 
+Caminho do ícone do atributo.
+
 ```csharp
 public string? IconPath { get; }
 ```
@@ -216,7 +228,22 @@ public string? IconPath { get; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
+### <a id="DiceRolling_Models_Attributes_AttributeType_Id"></a> Id
+
+Identificador único do atributo.
+
+```csharp
+[Export(PropertyHint.None, "")]
+public string Id { get; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
 ### <a id="DiceRolling_Models_Attributes_AttributeType_MaxValue"></a> MaxValue
+
+Valor máximo do atributo.
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -229,6 +256,8 @@ public int MaxValue { get; set; }
 
 ### <a id="DiceRolling_Models_Attributes_AttributeType_MinValue"></a> MinValue
 
+Valor mínimo do atributo.
+
 ```csharp
 [Export(PropertyHint.None, "")]
 public int MinValue { get; set; }
@@ -239,6 +268,8 @@ public int MinValue { get; set; }
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
 ### <a id="DiceRolling_Models_Attributes_AttributeType_Name"></a> Name
+
+Nome do atributo.
 
 ```csharp
 [Export(PropertyHint.None, "")]

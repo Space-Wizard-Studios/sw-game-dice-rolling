@@ -592,12 +592,12 @@ GodotObject.PropertyListChanged,
 ```csharp
 [ExportGroup("🪵 Resources", "")]
 [Export(PropertyHint.None, "")]
-public Character? Character { get; set; }
+public CharacterType? Character { get; set; }
 ```
 
 #### Property Value
 
- [Character](DiceRolling.Models.Characters.Character.md)?
+ [CharacterType](DiceRolling.Models.Characters.CharacterType.md)?
 
 ## Methods
 

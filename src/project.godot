@@ -62,8 +62,10 @@ folder_colors={
 "res://components/": "orange",
 "res://core/": "green",
 "res://helpers/": "gray",
+"res://interfaces/": "teal",
 "res://models/": "blue",
-"res://scenes/": "pink"
+"res://resources/": "pink",
+"res://scenes/": "orange"
 }
 
 [gui]

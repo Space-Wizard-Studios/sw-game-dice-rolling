@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AttributeType" load_steps=2 format=3 uid="uid://d37vh6vtgnxkp"]
+
+[ext_resource type="Script" uid="uid://dv3nebxjhpuk0" path="res://models/Attribute/AttributeType.cs" id="1_73wod"]
+
+[resource]
+script = ExtResource("1_73wod")
+Name = "Armor"
+Description = "Armor description"
+Color = Color(0.2436, 0.69252, 0.87, 1)
+MinValue = 0
+MaxValue = 9999

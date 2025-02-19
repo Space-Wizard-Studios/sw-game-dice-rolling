@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AttributeType" load_steps=2 format=3 uid="uid://blv7vekuqpawn"]
+
+[ext_resource type="Script" uid="uid://dv3nebxjhpuk0" path="res://models/Attribute/AttributeType.cs" id="1_8nsa1"]
+
+[resource]
+script = ExtResource("1_8nsa1")
+Name = "Speed"
+Description = "Speed description"
+Color = Color(1, 0.85, 0, 1)
+MinValue = 0
+MaxValue = 9999

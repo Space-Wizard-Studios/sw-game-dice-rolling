@@ -8,7 +8,11 @@
 
  [DiceRolling.Models.Characters](DiceRolling.Models.Characters.md)
 
+ [DiceRolling.Models.Dice](DiceRolling.Models.Dice.md)
+
  [DiceRolling.Models.Grids](DiceRolling.Models.Grids.md)
+
+ [DiceRolling.Models.Locations](DiceRolling.Models.Locations.md)
 
  [DiceRolling.Models.Roles](DiceRolling.Models.Roles.md)
 

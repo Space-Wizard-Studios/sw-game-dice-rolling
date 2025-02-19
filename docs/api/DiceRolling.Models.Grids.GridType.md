@@ -7,7 +7,7 @@ Assembly: dice\-rolling.dll
 [Tool]
 [GlobalClass]
 [ScriptPath("res://models/Grid/GridType.cs")]
-public class GridType : Resource, IDisposable
+public class GridType : Resource, IDisposable, IGrid, IGridConfiguration, IGridCells
 ```
 
 #### Inheritance
@@ -20,7 +20,10 @@ Resource ←
 
 #### Implements
 
-[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
+[IGrid](DiceRolling.Interfaces.Grid.IGrid.md), 
+[IGridConfiguration](DiceRolling.Interfaces.Grid.IGridConfiguration.md), 
+[IGridCells](DiceRolling.Interfaces.Grid.IGridCells.md)
 
 #### Inherited Members
 
@@ -175,6 +178,8 @@ public GridType(int rows, int columns, int offset, string prefix)
 
 ### <a id="DiceRolling_Models_Grids_GridType_Cells"></a> Cells
 
+Células da grid.
+
 ```csharp
 [Export(PropertyHint.None, "")]
 public Array<int> Cells { get; set; }
@@ -197,6 +202,8 @@ public CharacterStore? CharacterStore { get; set; }
 
 ### <a id="DiceRolling_Models_Grids_GridType_Columns"></a> Columns
 
+Número de colunas da grid.
+
 ```csharp
 [Export(PropertyHint.None, "")]
 public int Columns { get; set; }
@@ -208,16 +215,20 @@ public int Columns { get; set; }
 
 ### <a id="DiceRolling_Models_Grids_GridType_Direction"></a> Direction
 
+Direção da grid.
+
 ```csharp
-[Export(PropertyHint.Enum, "GridDirection")]
+[Export(PropertyHint.Enum, "LeftToRight,RightToLeft")]
 public GridDirection Direction { get; set; }
 ```
 
 #### Property Value
 
- [GridDirection](DiceRolling.Models.Grids.GridDirection.md)
+ [GridDirection](DiceRolling.Interfaces.Grid.GridDirection.md)
 
 ### <a id="DiceRolling_Models_Grids_GridType_Offset"></a> Offset
+
+Offset da grid.
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -230,6 +241,8 @@ public int Offset { get; set; }
 
 ### <a id="DiceRolling_Models_Grids_GridType_Prefix"></a> Prefix
 
+Prefixo da grid.
+
 ```csharp
 [Export(PropertyHint.None, "")]
 public string Prefix { get; set; }
@@ -240,6 +253,8 @@ public string Prefix { get; set; }
  [string](https://learn.microsoft.com/dotnet/api/system.string)
 
 ### <a id="DiceRolling_Models_Grids_GridType_Rows"></a> Rows
+
+Número de linhas da grid.
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -260,6 +275,8 @@ protected void EmitSignalGridChanged()
 
 ### <a id="DiceRolling_Models_Grids_GridType_GetCell_System_Int32_System_Int32_"></a> GetCell\(int, int\)
 
+Obtém o valor de uma célula.
+
 ```csharp
 public int GetCell(int row, int column)
 ```
@@ -268,13 +285,21 @@ public int GetCell(int row, int column)
 
 `row` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
+Linha da célula.
+
 `column` [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+Coluna da célula.
 
 #### Returns
 
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
+Valor da célula.
+
 ### <a id="DiceRolling_Models_Grids_GridType_GetCellIndex_System_Int32_System_Int32_"></a> GetCellIndex\(int, int\)
+
+Obtém o índice de uma célula.
 
 ```csharp
 public int GetCellIndex(int row, int column)
@@ -284,31 +309,49 @@ public int GetCellIndex(int row, int column)
 
 `row` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
+Linha da célula.
+
 `column` [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+Coluna da célula.
 
 #### Returns
 
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
+Índice da célula.
+
 ### <a id="DiceRolling_Models_Grids_GridType_GetCellPosition_System_Int32_System_Int32_System_Single_"></a> GetCellPosition\(int, int, float\)
 
+Obtém a posição de uma célula.
+
 ```csharp
-public static Vector3 GetCellPosition(int row, int column, float cellPadding)
+public Vector3 GetCellPosition(int row, int column, float cellPadding)
 ```
 
 #### Parameters
 
 `row` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
+Linha da célula.
+
 `column` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
+Coluna da célula.
+
 `cellPadding` [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+Espaçamento da célula.
 
 #### Returns
 
  Vector3
 
+Posição da célula.
+
 ### <a id="DiceRolling_Models_Grids_GridType_SetCell_System_Int32_System_Int32_System_Int32_"></a> SetCell\(int, int, int\)
+
+Define o valor de uma célula.
 
 ```csharp
 public void SetCell(int row, int column, int value)
@@ -318,9 +361,15 @@ public void SetCell(int row, int column, int value)
 
 `row` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
+Linha da célula.
+
 `column` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
+Coluna da célula.
+
 `value` [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+Valor da célula.
 
 ### <a id="DiceRolling_Models_Grids_GridType_GridChanged"></a> GridChanged
 

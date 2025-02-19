@@ -319,15 +319,15 @@ public static EventBus Instance { get; }
 
 ## Methods
 
-### <a id="DiceRolling_Events_EventBus_EmitAttributeChanged_DiceRolling_Models_Characters_Character_DiceRolling_Models_Attributes_AttributeType_"></a> EmitAttributeChanged\(Character, AttributeType\)
+### <a id="DiceRolling_Events_EventBus_EmitAttributeChanged_DiceRolling_Models_Characters_CharacterType_DiceRolling_Models_Attributes_AttributeType_"></a> EmitAttributeChanged\(CharacterType, AttributeType\)
 
 ```csharp
-public void EmitAttributeChanged(Character character, AttributeType attributeType)
+public void EmitAttributeChanged(CharacterType character, AttributeType attributeType)
 ```
 
 #### Parameters
 
-`character` [Character](DiceRolling.Models.Characters.Character.md)
+`character` [CharacterType](DiceRolling.Models.Characters.CharacterType.md)
 
 `attributeType` [AttributeType](DiceRolling.Models.Attributes.AttributeType.md)
 

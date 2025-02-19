@@ -10,6 +10,8 @@
 
  [DiceRolling.Helpers](DiceRolling.Helpers.md)
 
+ [DiceRolling.Interfaces](DiceRolling.Interfaces.md)
+
  [DiceRolling.Managers](DiceRolling.Managers.md)
 
  [DiceRolling.Models](DiceRolling.Models.md)

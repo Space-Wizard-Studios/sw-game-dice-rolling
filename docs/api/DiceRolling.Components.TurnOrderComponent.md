@@ -601,12 +601,12 @@ public TextureRect? PortraitTextureNode
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Character[] Characters { get; set; }
+public CharacterType[] Characters { get; set; }
 ```
 
 #### Property Value
 
- [Character](DiceRolling.Models.Characters.Character.md)\[\]
+ [CharacterType](DiceRolling.Models.Characters.CharacterType.md)\[\]
 
 ### <a id="DiceRolling_Components_TurnOrderComponent_PortraitDamageColorName"></a> PortraitDamageColorName
 
@@ -652,15 +652,15 @@ public HBoxContainer? PortraitsContainerNode { get; set; }
 
 ## Methods
 
-### <a id="DiceRolling_Components_TurnOrderComponent_UpdateTurnOrder_System_Collections_Generic_List_DiceRolling_Models_Characters_Character__"></a> UpdateTurnOrder\(List<Character\>\)
+### <a id="DiceRolling_Components_TurnOrderComponent_UpdateTurnOrder_System_Collections_Generic_List_DiceRolling_Models_Characters_CharacterType__"></a> UpdateTurnOrder\(List<CharacterType\>\)
 
 ```csharp
-public void UpdateTurnOrder(List<Character> characters)
+public void UpdateTurnOrder(List<CharacterType> characters)
 ```
 
 #### Parameters
 
-`characters` [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<[Character](DiceRolling.Models.Characters.Character.md)\>
+`characters` [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<[CharacterType](DiceRolling.Models.Characters.CharacterType.md)\>
 
 ### <a id="DiceRolling_Components_TurnOrderComponent__Ready"></a> \_Ready\(\)
 

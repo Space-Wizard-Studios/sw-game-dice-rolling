@@ -6,7 +6,7 @@ Assembly: dice\-rolling.dll
 ```csharp
 [Tool]
 [GlobalClass]
-[ScriptPath("res://models/Action/CharacterAction.cs")]
+[ScriptPath("res://models/Character/CharacterAction.cs")]
 public class CharacterAction : Resource, IDisposable
 ```
 
@@ -224,7 +224,7 @@ public ActionType? Type { get; set; }
 
 ## Methods
 
-### <a id="DiceRolling_Models_Actions_CharacterAction_Resolve_DiceRolling_Models_Actions_IActionContext_"></a> Resolve\(IActionContext\)
+### <a id="DiceRolling_Models_Actions_CharacterAction_Resolve_DiceRolling_Interfaces_Action_IActionContext_"></a> Resolve\(IActionContext\)
 
 ```csharp
 public void Resolve(IActionContext context)
@@ -232,5 +232,5 @@ public void Resolve(IActionContext context)
 
 #### Parameters
 
-`context` [IActionContext](DiceRolling.Models.Actions.IActionContext.md)
+`context` [IActionContext](DiceRolling.Interfaces.Action.IActionContext.md)
 

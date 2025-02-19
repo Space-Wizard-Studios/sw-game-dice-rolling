@@ -6,8 +6,8 @@ Assembly: dice\-rolling.dll
 ```csharp
 [Tool]
 [GlobalClass]
-[ScriptPath("res://models/Action/Target/TargetConfiguration.cs")]
-public class TargetConfiguration : Resource, IDisposable
+[ScriptPath("res://models/Target/TargetConfiguration.cs")]
+public class TargetConfiguration : Resource, IDisposable, ITarget
 ```
 
 #### Inheritance
@@ -20,7 +20,8 @@ Resource ←
 
 #### Implements
 
-[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
+[ITarget](DiceRolling.Interfaces.Target.ITarget.md)
 
 #### Inherited Members
 
@@ -159,6 +160,8 @@ public TargetConfiguration()
 
 ### <a id="DiceRolling_Models_Actions_Targets_TargetConfiguration_Grids"></a> Grids
 
+Coleção de grids associadas ao alvo.
+
 ```csharp
 [Export(PropertyHint.None, "")]
 public Array<GridType> Grids { get; set; }
@@ -169,6 +172,8 @@ public Array<GridType> Grids { get; set; }
  Array<[GridType](DiceRolling.Models.Grids.GridType.md)\>
 
 ### <a id="DiceRolling_Models_Actions_Targets_TargetConfiguration_IsSingleTarget"></a> IsSingleTarget
+
+Indica se é um alvo único.
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -183,6 +188,8 @@ public bool IsSingleTarget { get; set; }
 
 ### <a id="DiceRolling_Models_Actions_Targets_TargetConfiguration_AddGrid_System_Int32_System_Int32_"></a> AddGrid\(int, int\)
 
+Adiciona uma nova grid.
+
 ```csharp
 public void AddGrid(int rows, int columns)
 ```
@@ -191,7 +198,11 @@ public void AddGrid(int rows, int columns)
 
 `rows` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
+Número de linhas da grid.
+
 `columns` [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+Número de colunas da grid.
 
 ### <a id="DiceRolling_Models_Actions_Targets_TargetConfiguration_EmitSignalConfigurationChanged"></a> EmitSignalConfigurationChanged\(\)
 
@@ -201,6 +212,8 @@ protected void EmitSignalConfigurationChanged()
 
 ### <a id="DiceRolling_Models_Actions_Targets_TargetConfiguration_UpdateGrid_System_Int32_"></a> UpdateGrid\(int\)
 
+Atualiza uma grid existente.
+
 ```csharp
 public void UpdateGrid(int index)
 ```
@@ -208,6 +221,8 @@ public void UpdateGrid(int index)
 #### Parameters
 
 `index` [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+Índice da grid a ser atualizada.
 
 ### <a id="DiceRolling_Models_Actions_Targets_TargetConfiguration_ConfigurationChanged"></a> ConfigurationChanged
 

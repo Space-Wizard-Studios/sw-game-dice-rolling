@@ -161,12 +161,12 @@ public CharacterStore()
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Array<Character> Characters { get; }
+public Array<CharacterType> Characters { get; }
 ```
 
 #### Property Value
 
- Array<[Character](DiceRolling.Models.Characters.Character.md)\>
+ Array<[CharacterType](DiceRolling.Models.Characters.CharacterType.md)\>
 
 ### <a id="DiceRolling_Stores_CharacterStore_Instance"></a> Instance
 
@@ -180,15 +180,15 @@ public static CharacterStore Instance { get; }
 
 ## Methods
 
-### <a id="DiceRolling_Stores_CharacterStore_AddCharacter_DiceRolling_Models_Characters_Character_"></a> AddCharacter\(Character\)
+### <a id="DiceRolling_Stores_CharacterStore_AddCharacter_DiceRolling_Models_Characters_CharacterType_"></a> AddCharacter\(CharacterType\)
 
 ```csharp
-public void AddCharacter(Character character)
+public void AddCharacter(CharacterType character)
 ```
 
 #### Parameters
 
-`character` [Character](DiceRolling.Models.Characters.Character.md)
+`character` [CharacterType](DiceRolling.Models.Characters.CharacterType.md)
 
 ### <a id="DiceRolling_Stores_CharacterStore_GetAllCharacterIds"></a> GetAllCharacterIds\(\)
 
@@ -203,7 +203,7 @@ public Array<string> GetAllCharacterIds()
 ### <a id="DiceRolling_Stores_CharacterStore_GetCharacterById_System_String_"></a> GetCharacterById\(string\)
 
 ```csharp
-public Character GetCharacterById(string characterID)
+public CharacterType GetCharacterById(string characterID)
 ```
 
 #### Parameters
@@ -212,12 +212,12 @@ public Character GetCharacterById(string characterID)
 
 #### Returns
 
- [Character](DiceRolling.Models.Characters.Character.md)
+ [CharacterType](DiceRolling.Models.Characters.CharacterType.md)
 
-### <a id="DiceRolling_Stores_CharacterStore_GetCharacterLocation_System_String_"></a> GetCharacterLocation\(string\)
+### <a id="DiceRolling_Stores_CharacterStore_GetLocationType_System_String_"></a> GetLocationType\(string\)
 
 ```csharp
-public (CharacterLocation? location, int slotIndex) GetCharacterLocation(string characterID)
+public (LocationType? location, int slotIndex) GetLocationType(string characterID)
 ```
 
 #### Parameters
@@ -226,7 +226,7 @@ public (CharacterLocation? location, int slotIndex) GetCharacterLocation(string 
 
 #### Returns
 
- \([CharacterLocation](DiceRolling.Models.Characters.Locations.CharacterLocation.md)? [location](https://learn.microsoft.com/dotnet/api/system.valuetuple\-dicerolling.models.characters.locations.characterlocation,system.int32\-.location), [int](https://learn.microsoft.com/dotnet/api/system.int32) [slotIndex](https://learn.microsoft.com/dotnet/api/system.valuetuple\-dicerolling.models.characters.locations.characterlocation,system.int32\-.slotindex)\)
+ \([LocationType](DiceRolling.Models.Locations.LocationType.md)? [location](https://learn.microsoft.com/dotnet/api/system.valuetuple\-dicerolling.models.locations.locationtype,system.int32\-.location), [int](https://learn.microsoft.com/dotnet/api/system.int32) [slotIndex](https://learn.microsoft.com/dotnet/api/system.valuetuple\-dicerolling.models.locations.locationtype,system.int32\-.slotindex)\)
 
 ### <a id="DiceRolling_Stores_CharacterStore_RemoveCharacter_System_String_"></a> RemoveCharacter\(string\)
 
@@ -238,17 +238,17 @@ public void RemoveCharacter(string characterID)
 
 `characterID` [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-### <a id="DiceRolling_Stores_CharacterStore_SetCharacterLocation_System_String_DiceRolling_Models_Characters_Locations_CharacterLocation_System_Int32_"></a> SetCharacterLocation\(string, CharacterLocation, int\)
+### <a id="DiceRolling_Stores_CharacterStore_SetLocationType_System_String_DiceRolling_Models_Locations_LocationType_System_Int32_"></a> SetLocationType\(string, LocationType, int\)
 
 ```csharp
-public void SetCharacterLocation(string characterID, CharacterLocation location, int slotIndex)
+public void SetLocationType(string characterID, LocationType location, int slotIndex)
 ```
 
 #### Parameters
 
 `characterID` [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-`location` [CharacterLocation](DiceRolling.Models.Characters.Locations.CharacterLocation.md)
+`location` [LocationType](DiceRolling.Models.Locations.LocationType.md)
 
 `slotIndex` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 

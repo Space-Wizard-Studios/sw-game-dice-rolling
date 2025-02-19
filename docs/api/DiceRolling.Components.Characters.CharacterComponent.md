@@ -388,12 +388,12 @@ public AnimatedSprite3D? AnimatedSpriteNode { get; set; }
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Character? Character { get; set; }
+public CharacterType? Character { get; set; }
 ```
 
 #### Property Value
 
- [Character](DiceRolling.Models.Characters.Character.md)?
+ [CharacterType](DiceRolling.Models.Characters.CharacterType.md)?
 
 ### <a id="DiceRolling_Components_Characters_CharacterComponent_HoverSpriteNode"></a> HoverSpriteNode
 

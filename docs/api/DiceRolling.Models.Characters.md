@@ -1,14 +1,12 @@
 # <a id="DiceRolling_Models_Characters"></a> Namespace DiceRolling.Models.Characters
 
-### Namespaces
-
- [DiceRolling.Models.Characters.Locations](DiceRolling.Models.Characters.Locations.md)
-
 ### Classes
 
- [Character](DiceRolling.Models.Characters.Character.md)
+ [CharacterCategory](DiceRolling.Models.Characters.CharacterCategory.md)
+
+ [CharacterType](DiceRolling.Models.Characters.CharacterType.md)
 
 ### Delegates
 
- [Character.AttributeChangedEventHandler](DiceRolling.Models.Characters.Character.AttributeChangedEventHandler.md)
+ [CharacterType.AttributeChangedEventHandler](DiceRolling.Models.Characters.CharacterType.AttributeChangedEventHandler.md)
 

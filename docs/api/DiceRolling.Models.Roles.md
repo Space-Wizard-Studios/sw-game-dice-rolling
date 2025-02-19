@@ -2,9 +2,5 @@
 
 ### Classes
 
- [Role](DiceRolling.Models.Roles.Role.md)
-
- [RolesResources](DiceRolling.Models.Roles.RolesResources.md)
-
-Represents a resource containing roles for the dice roll game.
+ [RoleType](DiceRolling.Models.Roles.RoleType.md)
 

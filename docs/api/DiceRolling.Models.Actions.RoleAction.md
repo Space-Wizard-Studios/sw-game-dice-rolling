@@ -6,7 +6,7 @@ Assembly: dice\-rolling.dll
 ```csharp
 [Tool]
 [GlobalClass]
-[ScriptPath("res://models/Action/RoleAction.cs")]
+[ScriptPath("res://models/Role/RoleAction.cs")]
 public class RoleAction : Resource, IDisposable
 ```
 

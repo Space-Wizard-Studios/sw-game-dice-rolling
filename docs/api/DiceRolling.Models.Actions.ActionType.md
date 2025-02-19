@@ -7,7 +7,7 @@ Assembly: dice\-rolling.dll
 [Tool]
 [GlobalClass]
 [ScriptPath("res://models/Action/ActionType.cs")]
-public class ActionType : Resource, IDisposable, IAction<IActionContext, bool>
+public class ActionType : Resource, IDisposable, IAction<IActionContext, bool>, IActionInformation, IActionAssets, IActionBehavior<IActionContext, bool>
 ```
 
 #### Inheritance
@@ -21,7 +21,10 @@ Resource ←
 #### Implements
 
 [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
-[IAction<IActionContext, bool\>](DiceRolling.Models.Actions.IAction\-2.md)
+[IAction<IActionContext, bool\>](DiceRolling.Interfaces.Action.IAction\-2.md), 
+[IActionInformation](DiceRolling.Interfaces.Action.IActionInformation.md), 
+[IActionAssets](DiceRolling.Interfaces.Action.IActionAssets.md), 
+[IActionBehavior<IActionContext, bool\>](DiceRolling.Interfaces.Action.IActionBehavior\-2.md)
 
 #### Inherited Members
 
@@ -174,6 +177,8 @@ public ActionType(ActionCategory category, Array<DiceMana> requiredMana, Array<E
 
 ### <a id="DiceRolling_Models_Actions_ActionType_Category"></a> Category
 
+Categoria da ação.
+
 ```csharp
 [Export(PropertyHint.None, "")]
 public ActionCategory? Category { get; set; }
@@ -184,6 +189,8 @@ public ActionCategory? Category { get; set; }
  [ActionCategory](DiceRolling.Models.Actions.Categories.ActionCategory.md)?
 
 ### <a id="DiceRolling_Models_Actions_ActionType_Description"></a> Description
+
+Descrição da ação.
 
 ```csharp
 [Export(PropertyHint.MultilineText, "")]
@@ -196,6 +203,8 @@ public string? Description { get; set; }
 
 ### <a id="DiceRolling_Models_Actions_ActionType_Effects"></a> Effects
 
+Efeitos da ação.
+
 ```csharp
 [Export(PropertyHint.None, "")]
 public Array<EffectType> Effects { get; set; }
@@ -206,6 +215,8 @@ public Array<EffectType> Effects { get; set; }
  Array<[EffectType](DiceRolling.Models.Actions.Effects.EffectType.md)\>
 
 ### <a id="DiceRolling_Models_Actions_ActionType_Icon"></a> Icon
+
+Ícone da ação.
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -218,6 +229,8 @@ public Texture2D? Icon { get; set; }
 
 ### <a id="DiceRolling_Models_Actions_ActionType_IconPath"></a> IconPath
 
+Caminho do ícone da ação.
+
 ```csharp
 public string? IconPath { get; }
 ```
@@ -227,6 +240,8 @@ public string? IconPath { get; }
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
 ### <a id="DiceRolling_Models_Actions_ActionType_Id"></a> Id
+
+Identificador único da ação.
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -239,6 +254,8 @@ public string Id { get; }
 
 ### <a id="DiceRolling_Models_Actions_ActionType_Name"></a> Name
 
+Nome da ação.
+
 ```csharp
 [Export(PropertyHint.None, "")]
 public string? Name { get; set; }
@@ -249,6 +266,8 @@ public string? Name { get; set; }
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
 ### <a id="DiceRolling_Models_Actions_ActionType_RequiredMana"></a> RequiredMana
+
+Mana necessária para executar a ação.
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -261,6 +280,8 @@ public Array<DiceMana> RequiredMana { get; set; }
 
 ### <a id="DiceRolling_Models_Actions_ActionType_TargetConfiguration"></a> TargetConfiguration
 
+Configuração de alvo da ação.
+
 ```csharp
 [Export(PropertyHint.None, "")]
 public TargetConfiguration? TargetConfiguration { get; set; }
@@ -272,7 +293,9 @@ public TargetConfiguration? TargetConfiguration { get; set; }
 
 ## Methods
 
-### <a id="DiceRolling_Models_Actions_ActionType_Do_DiceRolling_Models_Actions_IActionContext_"></a> Do\(IActionContext\)
+### <a id="DiceRolling_Models_Actions_ActionType_Do_DiceRolling_Interfaces_Action_IActionContext_"></a> Do\(IActionContext\)
+
+Executa a ação com o contexto fornecido.
 
 ```csharp
 public bool Do(IActionContext context)
@@ -280,9 +303,13 @@ public bool Do(IActionContext context)
 
 #### Parameters
 
-`context` [IActionContext](DiceRolling.Models.Actions.IActionContext.md)
+`context` [IActionContext](DiceRolling.Interfaces.Action.IActionContext.md)
+
+O contexto da ação.
 
 #### Returns
 
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+O resultado da ação.
 

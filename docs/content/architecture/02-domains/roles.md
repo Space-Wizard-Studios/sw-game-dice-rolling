@@ -13,7 +13,7 @@ public interface IRole :
     IRoleActions { }
 ```
 
-Para mais detalhes, veja a [Referência da API](../../api/DiceRolling.Interfaces.Role.IRole.md).
+Para mais detalhes, veja a [Referência da API](../../api/DiceRolling.Interfaces.Role.md).
 
 ### Informações
 

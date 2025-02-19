@@ -13,7 +13,7 @@ public interface IAction<TContext, TResult> :
     IActionBehavior<TContext, TResult> { }
 ```
 
-Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Interfaces.Action.IAction-2.md).
+Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Interfaces.Action.md).
 
 ### Informações
 

@@ -13,7 +13,7 @@ public interface IAttribute :
     IAttributeValues { }
 ```
 
-Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Interfaces.Attribute.IAttribute.md).
+Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Interfaces.Attribute.md).
 
 ### Informações
 

@@ -12,7 +12,7 @@ public interface IGrid :
     IGridCells { }
 ```
 
-Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Interfaces.Grids.IGrid.md).
+Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Interfaces.Grids.md).
 
 ### Configuração
 

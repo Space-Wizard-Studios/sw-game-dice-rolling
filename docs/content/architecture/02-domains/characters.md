@@ -15,7 +15,7 @@ public interface ICharacter :
     ICharacterActions { }
 ```
 
-Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Interfaces.Character.ICharacter.md).
+Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Interfaces.Character.md).
 
 ### Informações
 

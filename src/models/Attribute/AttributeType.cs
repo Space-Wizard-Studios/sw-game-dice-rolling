@@ -1,20 +1,16 @@
 using Godot;
+using System;
+using DiceRolling.Interfaces.Attribute;
 
 namespace DiceRolling.Models.Attributes;
 
 [Tool]
 [GlobalClass]
-public partial class AttributeType : Resource {
-
-    [Export]
-    public string? Name { get; set; }
-
-    [Export(PropertyHint.MultilineText)]
-    public string? Description { get; set; }
-
-    [Export]
-    public Color Color { get; set; }
-
+public partial class AttributeType : Resource, IAttribute {
+    [Export] public string Id { get; private set; } = Guid.NewGuid().ToString();
+    [Export] public string? Name { get; set; }
+    [Export(PropertyHint.MultilineText)] public string? Description { get; set; }
+    [Export] public Color Color { get; set; }
     private Texture2D? _icon;
     [Export]
     public Texture2D? Icon {
@@ -26,14 +22,9 @@ public partial class AttributeType : Resource {
             }
         }
     }
-
     public string? IconPath { get; private set; }
-
-    [Export]
-    public int MinValue { get; set; }
-
-    [Export]
-    public int MaxValue { get; set; }
+    [Export] public int MinValue { get; set; }
+    [Export] public int MaxValue { get; set; }
 
     public AttributeType() { }
 

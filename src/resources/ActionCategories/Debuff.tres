@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="ActionCategory" load_steps=5 format=3 uid="uid://dr76sufgv7u7n"]
 
-[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Effects/EffectType.cs" id="1_see6q"]
-[ext_resource type="Script" uid="uid://c2h1r5hcgno4f" path="res://models/Action/ActionCategory.cs" id="2_2apeu"]
-[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="2_q4se0"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="1_see6q"]
+[ext_resource type="Script" uid="uid://c2h1r5hcgno4f" path="res://features/Action/ActionCategory.cs" id="2_2apeu"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="2_q4se0"]
 [ext_resource type="Texture2D" uid="uid://b1fr2n747j0en" path="res://assets/icons/actionCategories/debuff.png" id="3_birs5"]
 
 [resource]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbiewt2yq1klj"]
 
-[ext_resource type="Script" uid="uid://245qm3j5dd5t" path="res://core/managers/gameplay/DungeonManager.cs" id="1_5cacr"]
-[ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://core/ui/SceneTransitionButton.cs" id="2_p0c6y"]
+[ext_resource type="Script" uid="uid://245qm3j5dd5t" path="res://features/Dungeon/DungeonManager.cs" id="1_5cacr"]
+[ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://features/UI/SceneTransitionButton.cs" id="2_p0c6y"]
 
 [node name="Dungeon" type="Node2D"]
 script = ExtResource("1_5cacr")

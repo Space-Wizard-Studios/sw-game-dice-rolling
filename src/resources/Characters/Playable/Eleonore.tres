@@ -1,50 +1,50 @@
-[gd_resource type="Resource" script_class="CharacterType" load_steps=31 format=3 uid="uid://clrt1eby68x42"]
+[gd_resource type="Resource" script_class="CharacterType" load_steps=30 format=3 uid="uid://clrt1eby68x42"]
 
-[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://models/Character/CharacterAction.cs" id="1_a8f08"]
-[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Effects/EffectType.cs" id="2_12jxm"]
-[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/Character/CharacterAttribute.cs" id="2_a8f08"]
-[ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://resources/Actions/Effects/DamageEffect.tres" id="3_22cqr"]
-[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="4_wlk4d"]
-[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://models/Dice/DiceMana/Resources/ManaRed.tres" id="5_lgixm"]
+[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://features/Character/CharacterAction.cs" id="1_tc7ll"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="2_41ap2"]
+[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://features/Dice/DiceMana/Resources/ManaRed.tres" id="3_12jxm"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://features/Character/CharacterAttribute.cs" id="4_64jpy"]
 [ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="6_ae1so"]
 [ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="8_o4pav"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="9_3r4ke"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="10_d2h1c"]
-[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/Character/CharacterType.cs" id="10_p2s1v"]
 [ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="11_0cajk"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://features/Character/CharacterType.cs" id="12_3r4ke"]
 [ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://resources/Locations/PlayerSquad.tres" id="13_oe1pm"]
 [ext_resource type="Resource" uid="uid://bgx5eoqdsu100" path="res://resources/Roles/Playable/Mage.tres" id="15_lr1s2"]
 
+[sub_resource type="CSharpScript" id="CSharpScript_wo1pe"]
+
 [sub_resource type="Resource" id="Resource_22cqr"]
-script = ExtResource("1_a8f08")
+script = ExtResource("1_tc7ll")
 Name = "Magic Missiles"
 Description = "Magic Missiles description."
-RequiredMana = Array[ExtResource("4_wlk4d")]([ExtResource("5_lgixm")])
-Effects = Array[ExtResource("2_12jxm")]([ExtResource("3_22cqr")])
+RequiredMana = Array[ExtResource("2_41ap2")]([ExtResource("3_12jxm")])
+Effects = Array[SubResource("CSharpScript_wo1pe")]([])
 
 [sub_resource type="Resource" id="Resource_o4pav"]
-script = ExtResource("1_a8f08")
+script = ExtResource("1_tc7ll")
 Name = "Arcane Strike"
 Description = "Arcane Strike description."
-RequiredMana = Array[ExtResource("4_wlk4d")]([ExtResource("5_lgixm")])
-Effects = Array[ExtResource("2_12jxm")]([ExtResource("3_22cqr")])
+RequiredMana = Array[ExtResource("2_41ap2")]([ExtResource("3_12jxm")])
+Effects = Array[SubResource("CSharpScript_wo1pe")]([])
 
 [sub_resource type="Resource" id="Resource_ikwiv"]
-script = ExtResource("2_a8f08")
+script = ExtResource("4_64jpy")
 Type = ExtResource("9_3r4ke")
 MaxValue = 50
 CurrentValue = 50
 BaseValue = 50
 
 [sub_resource type="Resource" id="Resource_o11qe"]
-script = ExtResource("2_a8f08")
+script = ExtResource("4_64jpy")
 Type = ExtResource("10_d2h1c")
 MaxValue = 0
 CurrentValue = 0
 BaseValue = 0
 
 [sub_resource type="Resource" id="Resource_n00fg"]
-script = ExtResource("2_a8f08")
+script = ExtResource("4_64jpy")
 Type = ExtResource("11_0cajk")
 MaxValue = 40
 CurrentValue = 40
@@ -124,12 +124,12 @@ animations = [{
 }]
 
 [resource]
-script = ExtResource("10_p2s1v")
+script = ExtResource("12_3r4ke")
 Id = "4ea655f0-4c3e-4fba-bafe-fe361e68db9e"
 Name = "Eleonore"
 Role = ExtResource("15_lr1s2")
-Attributes = Array[ExtResource("2_a8f08")]([SubResource("Resource_ikwiv"), SubResource("Resource_o11qe"), SubResource("Resource_n00fg")])
-Actions = Array[ExtResource("1_a8f08")]([SubResource("Resource_22cqr"), SubResource("Resource_o4pav")])
+Attributes = Array[ExtResource("4_64jpy")]([SubResource("Resource_ikwiv"), SubResource("Resource_o11qe"), SubResource("Resource_n00fg")])
+Actions = Array[ExtResource("1_tc7ll")]([SubResource("Resource_22cqr"), SubResource("Resource_o4pav")])
 DiceCapacity = 0
 Location = ExtResource("13_oe1pm")
 SlotIndex = 2

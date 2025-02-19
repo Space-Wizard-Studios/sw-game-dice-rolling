@@ -23,15 +23,27 @@ public partial class AttributeType : Resource, IAttribute {
         }
     }
     public string? IconPath { get; private set; }
-    [Export] public int MinValue { get; set; }
-    [Export] public int MaxValue { get; set; }
+    [Export] public int MinValue { get; private set; }
+    [Export] public int MaxValue { get; private set; }
 
     public AttributeType() { }
 
-    public AttributeType(string name, string description, Color color, Texture2D icon) {
+    public AttributeType(string name, string description, Color color, Texture2D icon, int minValue, int maxValue) {
+        if (minValue >= maxValue) {
+            throw new ArgumentException("MinValue must be less than MaxValue");
+        }
+
         Name = name;
         Description = description;
         Color = color;
         Icon = icon;
+        MinValue = minValue;
+        MaxValue = maxValue;
+    }
+
+    public void ValidateValues() {
+        if (MinValue >= MaxValue) {
+            throw new ArgumentException("MinValue must be less than MaxValue");
+        }
     }
 }

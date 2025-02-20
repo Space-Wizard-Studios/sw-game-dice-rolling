@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://fmaq315605ce" path="res://assets/icons/actions/wide_cleave.png" id="4_s1o36"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="5_yp8id"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://features/Grid/GridType.cs" id="6_hc3lu"]
-[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://features/Dice/DiceMana/Resources/ManaRed.tres" id="6_vbjrv"]
+[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Dice/Mana/ManaRed.tres" id="6_vbjrv"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://features/Target/TargetConfiguration.cs" id="7_33bh0"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://features/Action/ActionType.cs" id="8_0ol17"]
 

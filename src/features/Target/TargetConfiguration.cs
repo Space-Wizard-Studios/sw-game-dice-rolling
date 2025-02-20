@@ -1,8 +1,7 @@
 using Godot;
-using DiceRolling.Models.Grids;
-using DiceRolling.Interfaces.Target;
+using DiceRolling.Grids;
 
-namespace DiceRolling.Models.Actions.Targets;
+namespace DiceRolling.Targets;
 
 [Tool]
 [GlobalClass]

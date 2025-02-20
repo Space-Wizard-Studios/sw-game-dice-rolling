@@ -1,4 +1,4 @@
-namespace DiceRolling.Interfaces.Attribute;
+namespace DiceRolling.Attributes;
 
 /// <summary>
 /// Interface que define as informações básicas de um atributo.

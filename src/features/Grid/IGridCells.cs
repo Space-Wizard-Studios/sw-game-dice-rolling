@@ -2,7 +2,7 @@ using Godot;
 
 using Godot.Collections;
 
-namespace DiceRolling.Interfaces.Grid;
+namespace DiceRolling.Grids;
 
 /// <summary>
 /// Interface que define as células de uma grid.

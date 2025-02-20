@@ -1,16 +1,14 @@
 using Godot;
 
-namespace DiceRolling.Managers;
+namespace DiceRolling.UI;
 
-public enum GameplayScenes
-{
+public enum GameplayScenes {
     GameplayLobby,
     GameplayDungeon,
     GameplayBattle
 }
 
-public partial class GameplayTransitionManager : Node
-{
+public partial class GameplayTransitionManager : Node {
     [Export]
     public PackedScene? GameplayLobbyScene { get; set; }
 
@@ -20,10 +18,8 @@ public partial class GameplayTransitionManager : Node
     [Export]
     public PackedScene? GameplayBattleScene { get; set; }
 
-    public void TransitionTo(GameplayScenes scene)
-    {
-        switch (scene)
-        {
+    public void TransitionTo(GameplayScenes scene) {
+        switch (scene) {
             case GameplayScenes.GameplayLobby:
                 GetTree().ChangeSceneToPacked(GameplayLobbyScene);
                 break;

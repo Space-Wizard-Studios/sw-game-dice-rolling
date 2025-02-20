@@ -1,6 +1,6 @@
 using Godot;
 
-namespace DiceRolling.Interfaces.Attribute;
+namespace DiceRolling.Attributes;
 
 /// <summary>
 /// Interface que define os recursos visuais de um atributo.

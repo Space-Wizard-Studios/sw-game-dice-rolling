@@ -1,6 +1,6 @@
 using System;
 
-namespace DiceRolling.Interfaces.Attribute;
+namespace DiceRolling.Attributes;
 
 /// <summary>
 /// Interface que define os valores de um atributo.

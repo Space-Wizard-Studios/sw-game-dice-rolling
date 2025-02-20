@@ -1,7 +1,7 @@
 using Godot;
-using DiceRolling.Models.Actions;
+using DiceRolling.Actions;
 
-namespace DiceRolling.Interfaces.Character;
+namespace DiceRolling.Characters;
 /// <summary>
 /// Interface que define as ações de um personagem no jogo.
 /// </summary>

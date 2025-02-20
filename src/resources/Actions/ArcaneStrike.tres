@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://dwtue01tv131s" path="res://resources/ActionCategories/Offensive.tres" id="1_xi31x"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="3_8r31q"]
 [ext_resource type="Texture2D" uid="uid://q64eatkgts6s" path="res://assets/icons/actions/magic_strike.png" id="4_icgfc"]
-[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://features/Dice/DiceMana/Resources/ManaRed.tres" id="4_n366w"]
+[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Dice/Mana/ManaRed.tres" id="4_n366w"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://features/Grid/GridType.cs" id="5_xi31x"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://features/Target/TargetConfiguration.cs" id="6_mxrco"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://features/Action/ActionType.cs" id="7_wv8if"]

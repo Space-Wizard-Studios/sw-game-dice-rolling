@@ -1,10 +1,10 @@
+using DiceRolling.Actions;
+using DiceRolling.Dice;
+using DiceRolling.Effects;
+using DiceRolling.Roles;
 using Godot;
-using System;
-using DiceRolling.Models.Actions.Categories;
-using DiceRolling.Models.Actions.Effects;
-using DiceRolling.Interfaces.Action;
 
-namespace DiceRolling.Models.Actions;
+namespace DiceRolling.Characters;
 
 [Tool]
 [GlobalClass]

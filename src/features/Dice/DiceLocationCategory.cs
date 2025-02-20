@@ -1,4 +1,4 @@
-namespace DiceRolling.Interfaces.Dice;
+namespace DiceRolling.Dice;
 
 /// <summary>
 /// Enum que define as categorias de localização de um dado.

@@ -1,7 +1,6 @@
 using Godot;
-using DiceRolling.Interfaces.Dice;
 
-namespace DiceRolling.Models.Dice;
+namespace DiceRolling.Dice;
 
 public partial class DiceLocation : Resource, IDiceLocation {
     [Export] public DiceLocationCategory LocationCategory { get; set; }

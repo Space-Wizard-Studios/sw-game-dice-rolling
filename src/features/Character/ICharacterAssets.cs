@@ -1,6 +1,6 @@
 using Godot;
 
-namespace DiceRolling.Interfaces.Character;
+namespace DiceRolling.Characters;
 
 /// <summary>
 /// Interface que define os recursos visuais de um personagem no jogo.

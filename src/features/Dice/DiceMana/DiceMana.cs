@@ -1,10 +1,9 @@
 using Godot;
-namespace DiceRolling.Models;
+namespace DiceRolling.Dice;
 
 [Tool]
 [GlobalClass]
-public partial class DiceMana : Resource
-{
+public partial class DiceMana : Resource {
     [Export]
     public string? Name { get; set; }
 
@@ -18,14 +17,11 @@ public partial class DiceMana : Resource
     private Texture2D? _icon;
 
     [Export]
-    public Texture2D? Icon
-    {
+    public Texture2D? Icon {
         get => _icon;
-        set
-        {
+        set {
             _icon = value;
-            if (_icon is not null)
-            {
+            if (_icon is not null) {
                 IconPath = _icon.ResourcePath;
             }
         }
@@ -35,8 +31,7 @@ public partial class DiceMana : Resource
 
     public DiceMana() { }
 
-    public DiceMana(string name, string description, Color backgroundColor, Color mainColor)
-    {
+    public DiceMana(string name, string description, Color backgroundColor, Color mainColor) {
         Name = name;
         Description = description;
         BackgroundColor = backgroundColor;

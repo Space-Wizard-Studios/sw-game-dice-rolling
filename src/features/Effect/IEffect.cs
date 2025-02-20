@@ -1,6 +1,6 @@
-using DiceRolling.Interfaces.Action;
+using DiceRolling.Actions;
 
-namespace DiceRolling.Interfaces.Effects;
+namespace DiceRolling.Effects;
 
 /// <summary>
 /// Interface que define um efeito no jogo.

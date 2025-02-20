@@ -1,6 +1,6 @@
 using Godot;
 
-namespace DiceRolling.Interfaces.Action;
+namespace DiceRolling.Actions;
 
 /// <summary>
 /// Interface que define os recursos visuais de uma ação no jogo.

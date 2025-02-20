@@ -1,26 +1,20 @@
 using Godot;
 
-namespace DiceRolling.Models;
+namespace DiceRolling.Dice;
 
 [Tool]
-public partial class DiceIconsResources : Resource
-{
+public partial class DiceIconsResources : Resource {
     [Export]
     public Godot.Collections.Array<DiceIcon> DiceIcons { get; set; } = [];
 
-    public DiceIcon? GetIconForSides(int sides)
-    {
-        foreach (var entry in DiceIcons)
-        {
-            if (entry is DiceIcon diceIcon)
-            {
-                if (diceIcon.Sides == sides)
-                {
+    public DiceIcon? GetIconForSides(int sides) {
+        foreach (var entry in DiceIcons) {
+            if (entry is DiceIcon diceIcon) {
+                if (diceIcon.Sides == sides) {
                     return diceIcon;
                 }
             }
-            else
-            {
+            else {
                 GD.PrintErr($"Invalid entry in DiceIcons array: {entry.GetType().Name}");
             }
         }

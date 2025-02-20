@@ -1,6 +1,6 @@
-using DiceRolling.Models.Locations;
+using DiceRolling.Locations;
 
-namespace DiceRolling.Interfaces.Character;
+namespace DiceRolling.Characters;
 
 /// <summary>
 /// Interface que define a localização de um personagem no jogo.

@@ -1,10 +1,7 @@
 using Godot;
 using System;
-using DiceRolling.Models.Attributes;
-using DiceRolling.Models.Actions;
-using DiceRolling.Interfaces.Role;
 
-namespace DiceRolling.Models.Roles;
+namespace DiceRolling.Roles;
 
 [Tool]
 [GlobalClass]

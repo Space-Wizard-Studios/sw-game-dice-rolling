@@ -1,6 +1,7 @@
 using Godot;
+using DiceRolling.Actions;
 
-namespace DiceRolling.Models.Actions;
+namespace DiceRolling.Roles;
 
 [Tool]
 [GlobalClass]

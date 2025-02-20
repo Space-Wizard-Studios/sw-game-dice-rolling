@@ -1,4 +1,4 @@
-namespace DiceRolling.Interfaces.Grid;
+namespace DiceRolling.Grids;
 
 /// <summary>
 /// Interface que define uma grid completa no jogo.

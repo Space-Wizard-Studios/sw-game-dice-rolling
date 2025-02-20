@@ -1,7 +1,6 @@
 using Godot;
-using DiceRolling.Interfaces.Location;
 
-namespace DiceRolling.Models.Locations;
+namespace DiceRolling.Locations;
 
 [Tool]
 [GlobalClass]

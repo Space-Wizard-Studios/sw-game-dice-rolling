@@ -2,10 +2,11 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using DiceRolling.Stores;
-using DiceRolling.Models.Roles;
-using DiceRolling.Models.Characters;
+using DiceRolling.Roles;
+using DiceRolling.Characters;
+using DiceRolling.Logs;
 
-namespace DiceRolling.Managers;
+namespace DiceRolling.Battle;
 
 public partial class BattleManager : Node3D {
     // [Export]

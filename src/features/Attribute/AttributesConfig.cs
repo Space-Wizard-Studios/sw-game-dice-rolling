@@ -1,6 +1,6 @@
 using Godot;
 
-namespace DiceRolling.Models.Attributes;
+namespace DiceRolling.Attributes;
 
 [Tool]
 public partial class AttributesConfig : Resource {

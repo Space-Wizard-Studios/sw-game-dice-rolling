@@ -1,6 +1,7 @@
 using Godot;
 using System.Collections.Generic;
-namespace DiceRolling.Stores;
+
+namespace DiceRolling.Logs;
 
 public partial class GameLogStore : Node {
     private static GameLogStore? _instance;

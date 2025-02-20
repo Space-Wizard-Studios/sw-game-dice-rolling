@@ -1,4 +1,4 @@
-namespace DiceRolling.Interfaces.Location;
+namespace DiceRolling.Locations;
 
 /// <summary>
 /// Interface que define uma localização no jogo.

@@ -1,7 +1,7 @@
 using Godot;
-using DiceRolling.Models.Grids;
+using DiceRolling.Grids;
 
-namespace DiceRolling.Interfaces.Target;
+namespace DiceRolling.Targets;
 
 /// <summary>
 /// Interface que define a configuração de alvo no jogo.

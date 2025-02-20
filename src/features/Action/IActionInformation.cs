@@ -1,6 +1,4 @@
-using DiceRolling.Models.Actions.Categories;
-
-namespace DiceRolling.Interfaces.Action;
+namespace DiceRolling.Actions;
 
 /// <summary>
 /// Interface que define as informações básicas de uma ação no jogo.

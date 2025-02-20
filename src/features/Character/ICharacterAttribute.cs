@@ -1,8 +1,6 @@
-using Godot;
-using System;
-using DiceRolling.Models.Attributes;
+using DiceRolling.Attributes;
 
-namespace DiceRolling.Interfaces.Character;
+namespace DiceRolling.Characters;
 /// <summary>
 /// Interface que define os atributos de um personagem no jogo.
 /// </summary>

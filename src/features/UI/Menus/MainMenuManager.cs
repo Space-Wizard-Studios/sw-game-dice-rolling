@@ -1,10 +1,8 @@
 using Godot;
 
-namespace DiceRolling.Managers;
+namespace DiceRolling.Menus;
 
-public partial class MainMenuManager : Node2D
-{
-    public override void _Ready()
-    {
+public partial class MainMenuManager : Node2D {
+    public override void _Ready() {
     }
 }

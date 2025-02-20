@@ -1,9 +1,8 @@
 using Godot;
-namespace DiceRolling.Models;
+namespace DiceRolling.Dice;
 
 [Tool]
-public partial class DiceManaResources : Resource
-{
+public partial class DiceManaResources : Resource {
     [Export]
     public Godot.Collections.Array<DiceMana> DiceManas { get; set; } = [];
 

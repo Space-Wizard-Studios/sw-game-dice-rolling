@@ -1,9 +1,7 @@
 using Godot;
-using System;
-using DiceRolling.Stores;
-using DiceRolling.Interfaces.Grid;
+using DiceRolling.Characters;
 
-namespace DiceRolling.Models.Grids;
+namespace DiceRolling.Grids;
 
 [Tool]
 [GlobalClass]

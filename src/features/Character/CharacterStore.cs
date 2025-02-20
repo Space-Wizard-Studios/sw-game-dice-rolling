@@ -1,10 +1,9 @@
 using Godot;
 using System;
 using System.Linq;
-using DiceRolling.Models.Characters;
-using DiceRolling.Models.Locations;
+using DiceRolling.Locations;
 
-namespace DiceRolling.Stores;
+namespace DiceRolling.Characters;
 
 [Tool]
 [GlobalClass]

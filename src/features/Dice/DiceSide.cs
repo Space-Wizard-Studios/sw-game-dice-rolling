@@ -1,5 +1,5 @@
 using Godot;
-namespace DiceRolling.Models;
+namespace DiceRolling.Dice;
 
 /// <summary>
 /// Represents a side of a dice with specific attributes.
@@ -12,6 +12,5 @@ public partial class DiceSide(
     string name,
     string description,
     Color backgroundColor,
-    Color MainColor) : DiceMana(name, description, backgroundColor, MainColor)
-{
+    Color MainColor) : DiceMana(name, description, backgroundColor, MainColor) {
 }

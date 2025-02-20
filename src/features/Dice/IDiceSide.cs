@@ -1,4 +1,4 @@
-namespace DiceRolling.Interfaces.Dice;
+namespace DiceRolling.Dice;
 
 /// <summary>
 /// Interface que define as propriedades de um lado do dado.

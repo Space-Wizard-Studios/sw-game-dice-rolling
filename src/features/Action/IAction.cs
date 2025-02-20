@@ -1,4 +1,4 @@
-namespace DiceRolling.Interfaces.Action;
+namespace DiceRolling.Actions;
 
 /// <summary>
 /// Interface que define uma ação completa no jogo.

@@ -1,9 +1,9 @@
 using Godot.Collections;
-using DiceRolling.Models.Actions.Effects;
-using DiceRolling.Models.Actions.Targets;
-using DiceRolling.Models;
+using DiceRolling.Dice;
+using DiceRolling.Targets;
+using DiceRolling.Effects;
 
-namespace DiceRolling.Interfaces.Action;
+namespace DiceRolling.Actions;
 
 /// <summary>
 /// Interface que define o comportamento de uma ação no jogo.

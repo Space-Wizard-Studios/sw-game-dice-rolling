@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://dwtue01tv131s" path="res://resources/ActionCategories/Offensive.tres" id="1_bbx2m"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="3_7glge"]
-[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://features/Dice/DiceMana/Resources/ManaRed.tres" id="4_s3uan"]
+[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Dice/Mana/ManaRed.tres" id="4_s3uan"]
 [ext_resource type="Texture2D" uid="uid://bemp486qms5lb" path="res://assets/icons/actions/magic_missiles.png" id="4_wo1pe"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://features/Grid/GridType.cs" id="5_bbx2m"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://features/Target/TargetConfiguration.cs" id="6_kaqn3"]

@@ -1,4 +1,4 @@
-namespace DiceRolling.Interfaces.Grid;
+namespace DiceRolling.Grids;
 
 /// <summary>
 /// Enum que define a direção da grid.

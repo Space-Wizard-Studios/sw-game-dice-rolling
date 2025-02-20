@@ -3,8 +3,8 @@ using System.Linq;
 using System.Collections.Generic;
 using DiceRolling.Helpers;
 using DiceRolling.Events;
-using DiceRolling.Models.Characters;
-using DiceRolling.Models.Attributes;
+using DiceRolling.Characters;
+using DiceRolling.Attributes;
 
 namespace DiceRolling.Components;
 

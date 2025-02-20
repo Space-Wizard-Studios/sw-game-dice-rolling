@@ -1,8 +1,9 @@
 using Godot;
-using DiceRolling.Models.Characters;
-using DiceRolling.Models.Attributes;
+using DiceRolling.Characters;
+using DiceRolling.Attributes;
+using DiceRolling.Targets;
+
 using DiceRolling.Components.Characters;
-using DiceRolling.Models.Actions.Targets;
 
 namespace DiceRolling.Events;
 

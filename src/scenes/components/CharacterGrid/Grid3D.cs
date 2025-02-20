@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using DiceRolling.Components.Characters;
-using DiceRolling.Models.Grids;
+using DiceRolling.Grids;
 using DiceRolling.Stores;
 
 namespace DiceRolling.Components.Grids;

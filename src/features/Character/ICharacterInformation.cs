@@ -1,8 +1,6 @@
-using Godot;
-using DiceRolling.Models.Characters;
-using DiceRolling.Models.Roles;
+using DiceRolling.Roles;
 
-namespace DiceRolling.Interfaces.Character;
+namespace DiceRolling.Characters;
 
 /// <summary>
 /// Interface que define as informações básicas de um personagem no jogo.

@@ -1,14 +1,11 @@
 using Godot;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using DiceRolling.Models.Roles;
-using DiceRolling.Models.Actions;
-using DiceRolling.Models.Attributes;
-using DiceRolling.Models.Locations;
-using DiceRolling.Interfaces.Character;
+using DiceRolling.Roles;
+using DiceRolling.Attributes;
+using DiceRolling.Locations;
 
-namespace DiceRolling.Models.Characters;
+namespace DiceRolling.Characters;
 
 [Tool]
 [GlobalClass]

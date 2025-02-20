@@ -1,4 +1,4 @@
-namespace DiceRolling.Interfaces.Dice;
+namespace DiceRolling.Dice;
 
 /// <summary>
 /// Interface que define a localização de um dado.

@@ -1,8 +1,7 @@
 using System.Linq;
-using DiceRolling.Interfaces.Action;
-using DiceRolling.Models.Characters;
+using DiceRolling.Actions;
 
-namespace DiceRolling.Models.Actions.Effects;
+namespace DiceRolling.Effects;
 
 public partial class DamageEffect : EffectType {
     private readonly int _damage;

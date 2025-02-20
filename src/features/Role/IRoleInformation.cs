@@ -1,4 +1,4 @@
-namespace DiceRolling.Interfaces.Role;
+namespace DiceRolling.Roles;
 
 /// <summary>
 /// Interface que define as informações básicas de um arquétipo de personagem no jogo.

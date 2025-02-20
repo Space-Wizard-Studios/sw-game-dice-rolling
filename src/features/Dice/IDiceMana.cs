@@ -1,6 +1,6 @@
 using Godot;
 
-namespace DiceRolling.Interfaces.Dice;
+namespace DiceRolling.Dice;
 
 /// <summary>
 /// Interface que define as propriedades de uma mana.

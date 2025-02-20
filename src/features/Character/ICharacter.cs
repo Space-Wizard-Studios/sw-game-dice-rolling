@@ -1,4 +1,4 @@
-namespace DiceRolling.Interfaces.Character;
+namespace DiceRolling.Characters;
 
 /// <summary>
 /// Interface que define um personagem completo no jogo.

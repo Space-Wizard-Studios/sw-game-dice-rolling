@@ -1,7 +1,4 @@
-using Godot.Collections;
-using DiceRolling.Models.Actions;
-
-namespace DiceRolling.Interfaces.Role;
+namespace DiceRolling.Roles;
 
 /// <summary>
 /// Interface que define as ações de um arquétipo de personagem no jogo.

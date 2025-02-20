@@ -1,10 +1,8 @@
 using Godot;
 
-namespace DiceRolling.Managers;
+namespace DiceRolling.Dungeon;
 
-public partial class DungeonManager : Node2D
-{
-    public override void _Ready()
-    {
+public partial class DungeonManager : Node2D {
+    public override void _Ready() {
     }
 }

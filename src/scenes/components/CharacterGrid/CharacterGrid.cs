@@ -1,9 +1,9 @@
 using Godot;
-using DiceRolling.Models.Actions.Targets;
+using DiceRolling.Actions;
 using DiceRolling.Events;
-using DiceRolling.Models.Grids;
+using DiceRolling.Grids;
 using System.Collections.Generic;
-using DiceRolling.Interfaces.Grid;
+using DiceRolling.Grids;
 
 namespace DiceRolling.Components.Grids;
 

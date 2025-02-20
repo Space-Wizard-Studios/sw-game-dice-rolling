@@ -1,8 +1,8 @@
 using Godot;
+using System.Collections.Generic;
+
 using DiceRolling.Events;
 using DiceRolling.Characters;
-using DiceRolling.Actions;
-using System.Collections.Generic;
 
 namespace DiceRolling.Components.Characters;
 

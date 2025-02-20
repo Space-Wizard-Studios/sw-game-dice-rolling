@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_rmadn")
+Id = "179e807e-78fb-4349-b99f-77706557640a"
 Name = "Health"
 Description = "Health description."
 Color = Color(1, 0, 0.0166664, 1)

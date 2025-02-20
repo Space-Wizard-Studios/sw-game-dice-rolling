@@ -1,9 +1,11 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using DiceRolling.Components.Characters;
+
 using DiceRolling.Grids;
-using DiceRolling.Stores;
+using DiceRolling.Characters;
+
+using DiceRolling.Components.Characters;
 
 namespace DiceRolling.Components.Grids;
 

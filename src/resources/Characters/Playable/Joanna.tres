@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://features/Character/CharacterAction.cs" id="1_3db36"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="2_1cidu"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="2_dd155"]
 [ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://features/Character/CharacterAttribute.cs" id="3_dd155"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="6_keqlw"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="7_x4r4p"]
@@ -12,14 +13,12 @@
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://features/Character/CharacterType.cs" id="11_x4r4p"]
 [ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://resources/Roles/Playable/Fighter.tres" id="13_7jom8"]
 
-[sub_resource type="CSharpScript" id="CSharpScript_wo1pe"]
-
 [sub_resource type="Resource" id="Resource_xumvl"]
 script = ExtResource("1_3db36")
 Name = "Quick Slash"
 Description = "Quick Slash description."
 RequiredMana = Array[ExtResource("2_1cidu")]([])
-Effects = Array[SubResource("CSharpScript_wo1pe")]([])
+Effects = Array[ExtResource("2_dd155")]([])
 
 [sub_resource type="Resource" id="Resource_4p1nt"]
 script = ExtResource("3_dd155")

@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_73wod")
+Id = "8e7c4a63-ede5-410a-87ad-8d62f7d3e7be"
 Name = "Armor"
 Description = "Armor description"
 Color = Color(0.2436, 0.69252, 0.87, 1)

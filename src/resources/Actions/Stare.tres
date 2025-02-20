@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="ActionType" load_steps=11 format=3 uid="uid://cgac6lxa06rf8"]
 
 [ext_resource type="Resource" uid="uid://dw1d38425v5rd" path="res://resources/ActionCategories/Defensive.tres" id="1_f256u"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="2_f256u"]
 [ext_resource type="Texture2D" uid="uid://b5tap0qunatiw" path="res://assets/icons/actions/stare.png" id="3_i6kiq"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="3_uj4vt"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://features/Grid/GridType.cs" id="4_f256u"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://features/Target/TargetConfiguration.cs" id="5_2x0xn"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://features/Action/ActionType.cs" id="6_i6kiq"]
-
-[sub_resource type="CSharpScript" id="CSharpScript_wo1pe"]
 
 [sub_resource type="Resource" id="Resource_8bxoq"]
 script = ExtResource("4_f256u")
@@ -43,6 +42,6 @@ Name = "Stare"
 Description = "Stare at the nothingess of life."
 Icon = ExtResource("3_i6kiq")
 RequiredMana = Array[ExtResource("3_uj4vt")]([])
-Effects = Array[SubResource("CSharpScript_wo1pe")]([])
+Effects = Array[ExtResource("2_f256u")]([])
 TargetConfiguration = SubResource("Resource_shlmr")
 metadata/_custom_type_script = ExtResource("6_i6kiq")

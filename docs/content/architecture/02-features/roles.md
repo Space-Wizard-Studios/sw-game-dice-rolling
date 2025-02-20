@@ -2,6 +2,8 @@
 
 **Roles** são os arquétipos que os personagens podem assumir no jogo. Cada papel define um conjunto de habilidades e características específicas que os personagens podem ter.
 
+Para mais detalhes, veja a [Referência da API](../../api/DiceRolling.Roles.md).
+
 ## Interfaces
 
 A interface `IRole` agrega várias interfaces menores para definir uma _Role_ completa no jogo.
@@ -12,8 +14,6 @@ public interface IRole :
     IRoleAttributes,
     IRoleActions { }
 ```
-
-Para mais detalhes, veja a [Referência da API](../../api/DiceRolling.Interfaces.Role.md).
 
 ### Informações
 

@@ -2,6 +2,8 @@
 
 **Attributes** são as características que definem os atributos dos personagens no jogo.
 
+Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Attributes.md).
+
 ## Interfaces
 
 A interface `IAttribute` agrega várias interfaces menores para definir um _Attribute_ completo no jogo.
@@ -12,8 +14,6 @@ public interface IAttribute :
     IAttributeAssets,
     IAttributeValues { }
 ```
-
-Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Interfaces.Attribute.md).
 
 ### Informações
 

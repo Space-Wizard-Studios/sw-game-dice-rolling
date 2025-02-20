@@ -2,6 +2,8 @@
 
 **Target** representa a configuração de alvos no jogo.
 
+Para mais detalhes, veja a [Referência da API](../../api/DiceRolling.Targets.md).
+
 ## Interfaces
 
 A interface `ITarget` define as propriedades básicas de uma configuração de alvo no jogo.
@@ -15,8 +17,6 @@ public interface ITarget {
     void UpdateGrid(int index);
 }
 ```
-
-Para mais detalhes, veja a [Referência da API](../../api/DiceRolling.Interfaces.Target.md).
 
 ### Propriedades
 

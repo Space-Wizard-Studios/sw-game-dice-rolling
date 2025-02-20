@@ -2,6 +2,8 @@
 
 **Grids** são as estruturas que definem a disposição das células no jogo.
 
+Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Grids.md).
+
 ## Interfaces
 
 A interface `IGrid` agrega várias interfaces menores para definir uma _Grid_ completa no jogo.
@@ -11,8 +13,6 @@ public interface IGrid :
     IGridConfiguration,
     IGridCells { }
 ```
-
-Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Interfaces.Grids.md).
 
 ### Configuração
 

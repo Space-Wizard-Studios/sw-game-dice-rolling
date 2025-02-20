@@ -2,6 +2,8 @@
 
 **Actions** são as ações que os personagens podem executar no jogo.
 
+Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Actions.md).
+
 ## Interfaces
 
 A interface `IAction` agrega várias interfaces menores para definir uma _Action_ completa no jogo.
@@ -12,8 +14,6 @@ public interface IAction<TContext, TResult> :
     IActionAssets,
     IActionBehavior<TContext, TResult> { }
 ```
-
-Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Interfaces.Action.md).
 
 ### Informações
 

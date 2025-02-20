@@ -2,6 +2,8 @@
 
 **Dice** representam os dados utilizados no jogo, cada um com seus lados e manas associadas.
 
+Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Dice.md).
+
 ## Interfaces
 
 A interface `IDice` agrega várias interfaces menores para definir um dado completo no jogo.
@@ -15,8 +17,6 @@ public interface IDice<[MustBeVariant] T> where T : IDiceSide {
     IDiceLocation Location { get; }
 }
 ```
-
-Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Interfaces.Dice.md).
 
 ### Manas
 

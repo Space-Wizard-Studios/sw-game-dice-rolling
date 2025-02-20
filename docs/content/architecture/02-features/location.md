@@ -2,6 +2,8 @@
 
 **Location** representa as diferentes localizações no jogo, cada uma com suas próprias características e slots.
 
+Para mais detalhes, veja a [Referência da API](../../api/DiceRolling.Locations.md).
+
 ## Interfaces
 
 A interface `ILocation` define as propriedades básicas de uma localização no jogo.
@@ -13,8 +15,6 @@ public interface ILocation {
     int TotalSlots { get; }
 }
 ```
-
-Para mais detalhes, veja a [Referência da API](../../api/DiceRolling.Interfaces.Location.md).
 
 ### Propriedades
 

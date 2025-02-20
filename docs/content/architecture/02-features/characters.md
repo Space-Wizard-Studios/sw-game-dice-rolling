@@ -2,6 +2,8 @@
 
 **Characters** são entidades que representam os personagens do jogo.
 
+Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Characters.md).
+
 ## Interfaces
 
 A interface `ICharacter` agrega várias interfaces menores para definir um _Character_ completo no jogo.
@@ -14,8 +16,6 @@ public interface ICharacter :
     ICharacterAttributes,
     ICharacterActions { }
 ```
-
-Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Interfaces.Character.md).
 
 ### Informações
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqbiqwyfv8mfg"]
 
-[ext_resource type="Script" uid="uid://dtwnb70hiivar" path="res://core/managers/gameplay/LobbyManager.cs" id="1_rkuy2"]
-[ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://core/ui/SceneTransitionButton.cs" id="2_34wiv"]
+[ext_resource type="Script" uid="uid://dtwnb70hiivar" path="res://features/Lobby/LobbyManager.cs" id="1_rkuy2"]
+[ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://features/UI/SceneTransitionButton.cs" id="2_34wiv"]
 
 [node name="Lobby" type="Node2D"]
 script = ExtResource("1_rkuy2")

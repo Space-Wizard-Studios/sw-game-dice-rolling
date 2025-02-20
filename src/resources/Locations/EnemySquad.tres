@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LocationType" load_steps=2 format=3 uid="uid://bjc78p06uwuy3"]
 
-[ext_resource type="Script" uid="uid://cros738yxei40" path="res://models/Location/LocationType.cs" id="1_ynjms"]
+[ext_resource type="Script" uid="uid://cros738yxei40" path="res://features/Location/LocationType.cs" id="1_ynjms"]
 
 [resource]
 script = ExtResource("1_ynjms")

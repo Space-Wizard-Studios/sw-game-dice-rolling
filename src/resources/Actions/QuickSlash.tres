@@ -1,43 +1,44 @@
 [gd_resource type="Resource" script_class="ActionType" load_steps=9 format=3 uid="uid://cs65w4r75ugap"]
 
-[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/Effects/EffectType.cs" id="1_i76yk"]
-[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://models/Dice/DiceMana/DiceMana.cs" id="2_qhrue"]
-[ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/Grid/GridType.cs" id="3_8ielr"]
-[ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/Target/TargetConfiguration.cs" id="4_rvih8"]
-[ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/Action/ActionType.cs" id="5_70lu1"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="1_6yh3t"]
+[ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://features/Grid/GridType.cs" id="2_i76yk"]
+[ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://features/Target/TargetConfiguration.cs" id="3_qhrue"]
+[ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://features/Action/ActionType.cs" id="4_8ielr"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_wo1pe"]
 
 [sub_resource type="Resource" id="Resource_5ohu7"]
-script = ExtResource("3_8ielr")
+script = ExtResource("2_i76yk")
 Prefix = "P"
 Offset = 0
 Direction = 0
 Rows = 2
 Columns = 3
 Cells = Array[int]([0, 0, 1, 0, 0, 1])
-metadata/_custom_type_script = ExtResource("3_8ielr")
+metadata/_custom_type_script = ExtResource("2_i76yk")
 
 [sub_resource type="Resource" id="Resource_ntci2"]
-script = ExtResource("3_8ielr")
+script = ExtResource("2_i76yk")
 Prefix = "E"
 Offset = 0
 Direction = 0
 Rows = 2
 Columns = 3
 Cells = Array[int]([3, 0, 0, 3, 0, 0])
-metadata/_custom_type_script = ExtResource("3_8ielr")
+metadata/_custom_type_script = ExtResource("2_i76yk")
 
 [sub_resource type="Resource" id="Resource_0oh7q"]
-script = ExtResource("4_rvih8")
+script = ExtResource("3_qhrue")
 IsSingleTarget = true
-Grids = Array[ExtResource("3_8ielr")]([SubResource("Resource_5ohu7"), SubResource("Resource_ntci2")])
-metadata/_custom_type_script = ExtResource("4_rvih8")
+Grids = Array[ExtResource("2_i76yk")]([SubResource("Resource_5ohu7"), SubResource("Resource_ntci2")])
+metadata/_custom_type_script = ExtResource("3_qhrue")
 
 [resource]
-script = ExtResource("5_70lu1")
+script = ExtResource("4_8ielr")
 Id = "1575f70b-f7b7-44e6-959c-3e0d347517a2"
 Name = "Quick Slash"
 Description = "Quick slash description"
-RequiredMana = Array[ExtResource("2_qhrue")]([])
-Effects = Array[ExtResource("1_i76yk")]([])
+RequiredMana = Array[ExtResource("1_6yh3t")]([])
+Effects = Array[SubResource("CSharpScript_wo1pe")]([])
 TargetConfiguration = SubResource("Resource_0oh7q")
-metadata/_custom_type_script = ExtResource("5_70lu1")
+metadata/_custom_type_script = ExtResource("4_8ielr")

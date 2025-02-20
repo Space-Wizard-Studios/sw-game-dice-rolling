@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://2miun4ox1np8"]
+
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="1_2dewc"]
+[ext_resource type="Script" uid="uid://buhyteqd4veys" path="res://features/Dice/DiceMana/DiceManaResources.cs" id="1_46bd6"]
+
+[resource]
+script = ExtResource("1_46bd6")
+DiceManas = Array[ExtResource("1_2dewc")]([])

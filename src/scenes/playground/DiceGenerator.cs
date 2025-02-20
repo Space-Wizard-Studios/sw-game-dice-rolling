@@ -1,7 +1,7 @@
 using Godot;
 using System;
 using System.Linq;
-using DiceRolling.Models;
+using DiceRolling.Dice;
 
 public partial class DiceGenerator : Node {
 	[Export]

@@ -1,0 +1,158 @@
+[gd_resource type="Resource" script_class="CharacterStore" load_steps=28 format=3 uid="uid://snt34yslyn4f"]
+
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://features/Character/CharacterType.cs" id="1_i0bvh"]
+[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://resources/Characters/Playable/Eleonore.tres" id="2_cyrjo"]
+[ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://resources/Characters/Playable/Joanna.tres" id="3_tiw3t"]
+[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://features/Character/CharacterAction.cs" id="4_ekngi"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="5_qgwm3"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://features/Character/CharacterAttribute.cs" id="6_0ntu4"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="7_ohu58"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="8_5b035"]
+[ext_resource type="SpriteFrames" uid="uid://bkvhu7v1tmcfy" path="res://assets/characters/dummyOtsoga/DummyOtsogaSprites.tres" id="9_cq71o"]
+[ext_resource type="Script" uid="uid://c0ludr6rojb3c" path="res://features/Character/CharacterStore.cs" id="10_xofbh"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_wo1pe"]
+
+[sub_resource type="Resource" id="Resource_o20ld"]
+script = ExtResource("4_ekngi")
+Name = "Stare"
+Description = "Stare at the nothingess of life."
+RequiredMana = Array[ExtResource("5_qgwm3")]([])
+Effects = Array[SubResource("CSharpScript_wo1pe")]([])
+
+[sub_resource type="Resource" id="Resource_1x1o8"]
+script = ExtResource("6_0ntu4")
+Type = ExtResource("7_ohu58")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[sub_resource type="Resource" id="Resource_8x7bf"]
+script = ExtResource("6_0ntu4")
+Type = ExtResource("8_5b035")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[sub_resource type="Resource" id="Resource_p4fqk"]
+script = ExtResource("1_i0bvh")
+Id = "a98288c9-8795-4e16-801f-5fed51abd905"
+Name = "Dummy"
+Attributes = Array[ExtResource("6_0ntu4")]([SubResource("Resource_1x1o8"), SubResource("Resource_8x7bf")])
+Actions = Array[ExtResource("4_ekngi")]([SubResource("Resource_o20ld")])
+DiceCapacity = 0
+SlotIndex = 0
+CharacterSprite = ExtResource("9_cq71o")
+ShowShadow = false
+SpritePositionX = 0.0
+SpritePositionY = 0.0
+metadata/_custom_type_script = ExtResource("1_i0bvh")
+
+[sub_resource type="Resource" id="Resource_vf0jd"]
+script = ExtResource("4_ekngi")
+Name = "Stare"
+Description = "Stare at the nothingess of life."
+RequiredMana = Array[ExtResource("5_qgwm3")]([])
+Effects = Array[SubResource("CSharpScript_wo1pe")]([])
+
+[sub_resource type="Resource" id="Resource_b4itv"]
+script = ExtResource("6_0ntu4")
+Type = ExtResource("7_ohu58")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[sub_resource type="Resource" id="Resource_f3vkb"]
+script = ExtResource("6_0ntu4")
+Type = ExtResource("8_5b035")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[sub_resource type="Resource" id="Resource_hewmp"]
+script = ExtResource("1_i0bvh")
+Id = "a98288c9-8795-4e16-801f-5fed51abd905"
+Name = "Dummy"
+Attributes = Array[ExtResource("6_0ntu4")]([SubResource("Resource_b4itv"), SubResource("Resource_f3vkb")])
+Actions = Array[ExtResource("4_ekngi")]([SubResource("Resource_vf0jd")])
+DiceCapacity = 0
+SlotIndex = 1
+CharacterSprite = ExtResource("9_cq71o")
+ShowShadow = false
+SpritePositionX = 0.0
+SpritePositionY = 0.0
+metadata/_custom_type_script = ExtResource("1_i0bvh")
+
+[sub_resource type="Resource" id="Resource_83gy3"]
+script = ExtResource("4_ekngi")
+Name = "Stare"
+Description = "Stare at the nothingess of life."
+RequiredMana = Array[ExtResource("5_qgwm3")]([])
+Effects = Array[SubResource("CSharpScript_wo1pe")]([])
+
+[sub_resource type="Resource" id="Resource_u3uru"]
+script = ExtResource("6_0ntu4")
+Type = ExtResource("7_ohu58")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[sub_resource type="Resource" id="Resource_cc5lu"]
+script = ExtResource("6_0ntu4")
+Type = ExtResource("8_5b035")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[sub_resource type="Resource" id="Resource_5prpf"]
+script = ExtResource("1_i0bvh")
+Id = "a98288c9-8795-4e16-801f-5fed51abd905"
+Name = "Dummy"
+Attributes = Array[ExtResource("6_0ntu4")]([SubResource("Resource_u3uru"), SubResource("Resource_cc5lu")])
+Actions = Array[ExtResource("4_ekngi")]([SubResource("Resource_83gy3")])
+DiceCapacity = 0
+SlotIndex = 3
+CharacterSprite = ExtResource("9_cq71o")
+ShowShadow = false
+SpritePositionX = 0.0
+SpritePositionY = 0.0
+metadata/_custom_type_script = ExtResource("1_i0bvh")
+
+[sub_resource type="Resource" id="Resource_xm7xd"]
+script = ExtResource("4_ekngi")
+Name = "Stare"
+Description = "Stare at the nothingess of life."
+RequiredMana = Array[ExtResource("5_qgwm3")]([])
+Effects = Array[SubResource("CSharpScript_wo1pe")]([])
+
+[sub_resource type="Resource" id="Resource_hqqre"]
+script = ExtResource("6_0ntu4")
+Type = ExtResource("7_ohu58")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[sub_resource type="Resource" id="Resource_scsl0"]
+script = ExtResource("6_0ntu4")
+Type = ExtResource("8_5b035")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[sub_resource type="Resource" id="Resource_scble"]
+script = ExtResource("1_i0bvh")
+Id = "a98288c9-8795-4e16-801f-5fed51abd905"
+Name = "Dummy"
+Attributes = Array[ExtResource("6_0ntu4")]([SubResource("Resource_hqqre"), SubResource("Resource_scsl0")])
+Actions = Array[ExtResource("4_ekngi")]([SubResource("Resource_xm7xd")])
+DiceCapacity = 0
+SlotIndex = 4
+CharacterSprite = ExtResource("9_cq71o")
+ShowShadow = false
+SpritePositionX = 0.0
+SpritePositionY = 0.0
+metadata/_custom_type_script = ExtResource("1_i0bvh")
+
+[resource]
+script = ExtResource("10_xofbh")
+Characters = Array[ExtResource("1_i0bvh")]([ExtResource("2_cyrjo"), ExtResource("3_tiw3t"), SubResource("Resource_p4fqk"), SubResource("Resource_hewmp"), SubResource("Resource_5prpf"), SubResource("Resource_scble")])

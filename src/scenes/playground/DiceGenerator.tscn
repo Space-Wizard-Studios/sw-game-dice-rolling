@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dnd41lodc2wam"]
 
-[ext_resource type="Script" path="res://scenes/playground/DiceGenerator.cs" id="1_l20n4"]
-[ext_resource type="Resource" uid="uid://2miun4ox1np8" path="res://models/Dice/DiceMana/DiceManaResources.tres" id="2_vnwt1"]
-[ext_resource type="Resource" uid="uid://brnsqgtvg2ttv" path="res://models/Dice/DiceIcons/DiceIconsResources.tres" id="3_6630a"]
+[ext_resource type="Script" uid="uid://572ostc3jcgs" path="res://scenes/playground/DiceGenerator.cs" id="1_l20n4"]
+[ext_resource type="Resource" uid="uid://2miun4ox1np8" path="res://features/Dice/DiceMana/DiceManaResources.tres" id="2_vnwt1"]
+[ext_resource type="Resource" uid="uid://brnsqgtvg2ttv" path="res://features/Dice/DiceIcons/DiceIconsResources.tres" id="3_6630a"]
 [ext_resource type="PackedScene" uid="uid://7hqw3ff8sxc6" path="res://scenes/playground/DiceDisplay/DiceDisplay.tscn" id="4_d4w0t"]
 
 [node name="Generator" type="Node2D" node_paths=PackedStringArray("DiceDisplay")]

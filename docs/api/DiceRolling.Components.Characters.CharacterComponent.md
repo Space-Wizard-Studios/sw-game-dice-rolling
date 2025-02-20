@@ -5,7 +5,7 @@ Assembly: dice\-rolling.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://components/CharacterComponent/CharacterComponent.cs")]
+[ScriptPath("res://scenes/components/CharacterComponent/CharacterComponent.cs")]
 public class CharacterComponent : Node3D, IDisposable
 ```
 
@@ -393,7 +393,7 @@ public CharacterType? Character { get; set; }
 
 #### Property Value
 
- [CharacterType](DiceRolling.Models.Characters.CharacterType.md)?
+ [CharacterType](DiceRolling.Characters.CharacterType.md)?
 
 ### <a id="DiceRolling_Components_Characters_CharacterComponent_HoverSpriteNode"></a> HoverSpriteNode
 

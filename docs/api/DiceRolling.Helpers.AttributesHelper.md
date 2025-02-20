@@ -24,7 +24,7 @@ public static class AttributesHelper
 
 ## Methods
 
-### <a id="DiceRolling_Helpers_AttributesHelper_GetAttributeType_DiceRolling_Models_Attributes_AttributesConfig_System_String_"></a> GetAttributeType\(AttributesConfig, string\)
+### <a id="DiceRolling_Helpers_AttributesHelper_GetAttributeType_DiceRolling_Attributes_AttributesConfig_System_String_"></a> GetAttributeType\(AttributesConfig, string\)
 
 ```csharp
 public static AttributeType? GetAttributeType(AttributesConfig config, string attributeName)
@@ -32,11 +32,11 @@ public static AttributeType? GetAttributeType(AttributesConfig config, string at
 
 #### Parameters
 
-`config` [AttributesConfig](DiceRolling.Models.Attributes.AttributesConfig.md)
+`config` [AttributesConfig](DiceRolling.Attributes.AttributesConfig.md)
 
 `attributeName` [string](https://learn.microsoft.com/dotnet/api/system.string)
 
 #### Returns
 
- [AttributeType](DiceRolling.Models.Attributes.AttributeType.md)?
+ [AttributeType](DiceRolling.Attributes.AttributeType.md)?
 

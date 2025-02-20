@@ -10,5 +10,5 @@ public delegate void EventBus.ActionSelectedEventHandler(TargetConfiguration tar
 
 #### Parameters
 
-`targetConfiguration` [TargetConfiguration](DiceRolling.Models.Actions.Targets.TargetConfiguration.md)
+`targetConfiguration` [TargetConfiguration](DiceRolling.Targets.TargetConfiguration.md)
 

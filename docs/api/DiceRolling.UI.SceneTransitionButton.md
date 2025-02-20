@@ -5,7 +5,7 @@ Assembly: dice\-rolling.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://core/ui/SceneTransitionButton.cs")]
+[ScriptPath("res://features/UI/SceneTransitionButton.cs")]
 public class SceneTransitionButton : Button, IDisposable
 ```
 
@@ -614,7 +614,7 @@ public GameplayScenes GameplayScene { get; set; }
 
 #### Property Value
 
- [GameplayScenes](DiceRolling.Managers.GameplayScenes.md)
+ [GameplayScenes](DiceRolling.UI.GameplayScenes.md)
 
 ### <a id="DiceRolling_UI_SceneTransitionButton_MenuScene"></a> MenuScene
 
@@ -625,7 +625,7 @@ public MenuScenes MenuScene { get; set; }
 
 #### Property Value
 
- [MenuScenes](DiceRolling.Managers.MenuScenes.md)
+ [MenuScenes](DiceRolling.UI.MenuScenes.md)
 
 ### <a id="DiceRolling_UI_SceneTransitionButton_TypeOfTransition"></a> TypeOfTransition
 

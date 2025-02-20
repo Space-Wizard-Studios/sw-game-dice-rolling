@@ -568,7 +568,7 @@ GodotObject.PropertyListChanged,
 public MatrixControl()
 ```
 
-### <a id="DiceRolling_Editor_MatrixControl__ctor_DiceRolling_Models_Actions_Targets_TargetConfiguration_"></a> MatrixControl\(TargetConfiguration\)
+### <a id="DiceRolling_Editor_MatrixControl__ctor_DiceRolling_Targets_TargetConfiguration_"></a> MatrixControl\(TargetConfiguration\)
 
 ```csharp
 public MatrixControl(TargetConfiguration targetConfiguration)
@@ -576,7 +576,7 @@ public MatrixControl(TargetConfiguration targetConfiguration)
 
 #### Parameters
 
-`targetConfiguration` [TargetConfiguration](DiceRolling.Models.Actions.Targets.TargetConfiguration.md)
+`targetConfiguration` [TargetConfiguration](DiceRolling.Targets.TargetConfiguration.md)
 
 ## Properties
 
@@ -588,11 +588,11 @@ public TargetConfiguration? TargetConfiguration { get; }
 
 #### Property Value
 
- [TargetConfiguration](DiceRolling.Models.Actions.Targets.TargetConfiguration.md)?
+ [TargetConfiguration](DiceRolling.Targets.TargetConfiguration.md)?
 
 ## Methods
 
-### <a id="DiceRolling_Editor_MatrixControl_AddGrid_DiceRolling_Models_Grids_GridType_"></a> AddGrid\(GridType\)
+### <a id="DiceRolling_Editor_MatrixControl_AddGrid_DiceRolling_Grids_GridType_"></a> AddGrid\(GridType\)
 
 ```csharp
 public void AddGrid(GridType grid)
@@ -600,7 +600,7 @@ public void AddGrid(GridType grid)
 
 #### Parameters
 
-`grid` [GridType](DiceRolling.Models.Grids.GridType.md)
+`grid` [GridType](DiceRolling.Grids.GridType.md)
 
 ### <a id="DiceRolling_Editor_MatrixControl_ClearGridInputs"></a> ClearGridInputs\(\)
 

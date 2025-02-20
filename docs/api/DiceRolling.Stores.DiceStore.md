@@ -4,7 +4,7 @@ Namespace: [DiceRolling.Stores](DiceRolling.Stores.md)
 Assembly: dice\-rolling.dll  
 
 ```csharp
-[ScriptPath("res://core/stores/DiceStore.cs")]
+[ScriptPath("res://features/Dice/DiceStore.cs")]
 public class DiceStore : Node, IDisposable
 ```
 
@@ -314,7 +314,7 @@ public List<Dice<DiceSide>> DiceSet { get; }
 
 #### Property Value
 
- [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<[Dice](DiceRolling.Models.Dice\-1.md)<[DiceSide](DiceRolling.Models.DiceSide.md)\>\>
+ [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<[Dice](DiceRolling.Dice.Dice\-1.md)<[DiceSide](DiceRolling.Dice.DiceSide.md)\>\>
 
 ### <a id="DiceRolling_Stores_DiceStore_Instance"></a> Instance
 
@@ -328,7 +328,7 @@ public static DiceStore Instance { get; }
 
 ## Methods
 
-### <a id="DiceRolling_Stores_DiceStore_AddDice_DiceRolling_Models_Dice_DiceRolling_Models_DiceSide__"></a> AddDice\(Dice<DiceSide\>\)
+### <a id="DiceRolling_Stores_DiceStore_AddDice_DiceRolling_Dice_Dice_DiceRolling_Dice_DiceSide__"></a> AddDice\(Dice<DiceSide\>\)
 
 ```csharp
 public void AddDice(Dice<DiceSide> dice)
@@ -336,7 +336,7 @@ public void AddDice(Dice<DiceSide> dice)
 
 #### Parameters
 
-`dice` [Dice](DiceRolling.Models.Dice\-1.md)<[DiceSide](DiceRolling.Models.DiceSide.md)\>
+`dice` [Dice](DiceRolling.Dice.Dice\-1.md)<[DiceSide](DiceRolling.Dice.DiceSide.md)\>
 
 ### <a id="DiceRolling_Stores_DiceStore_GetDiceByID_System_String_"></a> GetDiceByID\(string\)
 
@@ -350,7 +350,7 @@ public Dice<DiceSide> GetDiceByID(string diceId)
 
 #### Returns
 
- [Dice](DiceRolling.Models.Dice\-1.md)<[DiceSide](DiceRolling.Models.DiceSide.md)\>
+ [Dice](DiceRolling.Dice.Dice\-1.md)<[DiceSide](DiceRolling.Dice.DiceSide.md)\>
 
 ### <a id="DiceRolling_Stores_DiceStore_RemoveDice_System_String_"></a> RemoveDice\(string\)
 
@@ -362,7 +362,7 @@ public void RemoveDice(string diceId)
 
 `diceId` [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-### <a id="DiceRolling_Stores_DiceStore_UpdateDiceByID_System_String_System_Action_DiceRolling_Models_Dice_DiceRolling_Models_DiceSide___"></a> UpdateDiceByID\(string, Action<Dice<DiceSide\>\>\)
+### <a id="DiceRolling_Stores_DiceStore_UpdateDiceByID_System_String_System_Action_DiceRolling_Dice_Dice_DiceRolling_Dice_DiceSide___"></a> UpdateDiceByID\(string, Action<Dice<DiceSide\>\>\)
 
 ```csharp
 public void UpdateDiceByID(string diceId, Action<Dice<DiceSide>> updateFn)
@@ -372,9 +372,9 @@ public void UpdateDiceByID(string diceId, Action<Dice<DiceSide>> updateFn)
 
 `diceId` [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-`updateFn` [Action](https://learn.microsoft.com/dotnet/api/system.action\-1)<[Dice](DiceRolling.Models.Dice\-1.md)<[DiceSide](DiceRolling.Models.DiceSide.md)\>\>
+`updateFn` [Action](https://learn.microsoft.com/dotnet/api/system.action\-1)<[Dice](DiceRolling.Dice.Dice\-1.md)<[DiceSide](DiceRolling.Dice.DiceSide.md)\>\>
 
-### <a id="DiceRolling_Stores_DiceStore_UpdateDiceLocation_System_String_DiceRolling_Models_DiceLocation_"></a> UpdateDiceLocation\(string, DiceLocation\)
+### <a id="DiceRolling_Stores_DiceStore_UpdateDiceLocation_System_String_DiceRolling_Dice_DiceLocation_"></a> UpdateDiceLocation\(string, DiceLocation\)
 
 ```csharp
 public void UpdateDiceLocation(string diceId, DiceLocation newLocation)
@@ -384,7 +384,7 @@ public void UpdateDiceLocation(string diceId, DiceLocation newLocation)
 
 `diceId` [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-`newLocation` [DiceLocation](DiceRolling.Models.DiceLocation.md)
+`newLocation` [DiceLocation](DiceRolling.Dice.DiceLocation.md)
 
 ### <a id="DiceRolling_Stores_DiceStore_UpdateDiceName_System_String_System_String_"></a> UpdateDiceName\(string, string\)
 

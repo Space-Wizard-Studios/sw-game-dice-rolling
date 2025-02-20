@@ -5,7 +5,7 @@ Assembly: dice\-rolling.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://components/InventoryComponent/InventoryComponent.cs")]
+[ScriptPath("res://scenes/components/InventoryComponent/InventoryComponent.cs")]
 public class InventoryComponent : ScrollContainer, IDisposable
 ```
 

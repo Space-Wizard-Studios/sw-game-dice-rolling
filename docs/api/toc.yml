@@ -2,6 +2,86 @@
 - name: DiceRolling
   href: DiceRolling.md
   items:
+  - name: Actions
+    href: DiceRolling.Actions.md
+    items:
+    - name: Classes
+      items:
+      - name: ActionCategory
+        href: DiceRolling.Actions.ActionCategory.md
+      - name: ActionType
+        href: DiceRolling.Actions.ActionType.md
+    - name: Interfaces
+      items:
+      - name: IAction<TContext, TResult>
+        href: DiceRolling.Actions.IAction-2.md
+      - name: IActionAssets
+        href: DiceRolling.Actions.IActionAssets.md
+      - name: IActionBehavior<TContext, TResult>
+        href: DiceRolling.Actions.IActionBehavior-2.md
+      - name: IActionContext
+        href: DiceRolling.Actions.IActionContext.md
+      - name: IActionInformation
+        href: DiceRolling.Actions.IActionInformation.md
+  - name: Attributes
+    href: DiceRolling.Attributes.md
+    items:
+    - name: Classes
+      items:
+      - name: AttributeType
+        href: DiceRolling.Attributes.AttributeType.md
+      - name: AttributesConfig
+        href: DiceRolling.Attributes.AttributesConfig.md
+    - name: Interfaces
+      items:
+      - name: IAttribute
+        href: DiceRolling.Attributes.IAttribute.md
+      - name: IAttributeAssets
+        href: DiceRolling.Attributes.IAttributeAssets.md
+      - name: IAttributeInformation
+        href: DiceRolling.Attributes.IAttributeInformation.md
+      - name: IAttributeValues
+        href: DiceRolling.Attributes.IAttributeValues.md
+  - name: Battle
+    href: DiceRolling.Battle.md
+    items:
+    - name: Classes
+      items:
+      - name: BattleManager
+        href: DiceRolling.Battle.BattleManager.md
+  - name: Characters
+    href: DiceRolling.Characters.md
+    items:
+    - name: Classes
+      items:
+      - name: CharacterAction
+        href: DiceRolling.Characters.CharacterAction.md
+      - name: CharacterAttribute
+        href: DiceRolling.Characters.CharacterAttribute.md
+      - name: CharacterCategory
+        href: DiceRolling.Characters.CharacterCategory.md
+      - name: CharacterStore
+        href: DiceRolling.Characters.CharacterStore.md
+      - name: CharacterType
+        href: DiceRolling.Characters.CharacterType.md
+    - name: Interfaces
+      items:
+      - name: ICharacter
+        href: DiceRolling.Characters.ICharacter.md
+      - name: ICharacterActions
+        href: DiceRolling.Characters.ICharacterActions.md
+      - name: ICharacterAssets
+        href: DiceRolling.Characters.ICharacterAssets.md
+      - name: ICharacterAttributes
+        href: DiceRolling.Characters.ICharacterAttributes.md
+      - name: ICharacterInformation
+        href: DiceRolling.Characters.ICharacterInformation.md
+      - name: ICharacterPlacement
+        href: DiceRolling.Characters.ICharacterPlacement.md
+    - name: Delegates
+      items:
+      - name: CharacterType.AttributeChangedEventHandler
+        href: DiceRolling.Characters.CharacterType.AttributeChangedEventHandler.md
   - name: Components
     href: DiceRolling.Components.md
     items:
@@ -42,6 +122,48 @@
       items:
       - name: TurnOrderComponent
         href: DiceRolling.Components.TurnOrderComponent.md
+  - name: Dice
+    href: DiceRolling.Dice.md
+    items:
+    - name: Classes
+      items:
+      - name: Dice<T>
+        href: DiceRolling.Dice.Dice-1.md
+      - name: DiceFactory
+        href: DiceRolling.Dice.DiceFactory.md
+      - name: DiceIcon
+        href: DiceRolling.Dice.DiceIcon.md
+      - name: DiceIconsResources
+        href: DiceRolling.Dice.DiceIconsResources.md
+      - name: DiceLocation
+        href: DiceRolling.Dice.DiceLocation.md
+      - name: DiceMana
+        href: DiceRolling.Dice.DiceMana.md
+      - name: DiceManaResources
+        href: DiceRolling.Dice.DiceManaResources.md
+      - name: DiceSide
+        href: DiceRolling.Dice.DiceSide.md
+    - name: Interfaces
+      items:
+      - name: IDice<T>
+        href: DiceRolling.Dice.IDice-1.md
+      - name: IDiceLocation
+        href: DiceRolling.Dice.IDiceLocation.md
+      - name: IDiceMana
+        href: DiceRolling.Dice.IDiceMana.md
+      - name: IDiceSide
+        href: DiceRolling.Dice.IDiceSide.md
+    - name: Enums
+      items:
+      - name: DiceLocationCategory
+        href: DiceRolling.Dice.DiceLocationCategory.md
+  - name: Dungeon
+    href: DiceRolling.Dungeon.md
+    items:
+    - name: Classes
+      items:
+      - name: DungeonManager
+        href: DiceRolling.Dungeon.DungeonManager.md
   - name: Editor
     href: DiceRolling.Editor.md
     items:
@@ -57,6 +179,19 @@
         href: DiceRolling.Editor.TargetConfigurationEditorPlugin.md
       - name: TargetConfigurationInspectorPlugin
         href: DiceRolling.Editor.TargetConfigurationInspectorPlugin.md
+  - name: Effects
+    href: DiceRolling.Effects.md
+    items:
+    - name: Classes
+      items:
+      - name: DamageEffect
+        href: DiceRolling.Effects.DamageEffect.md
+      - name: EffectType
+        href: DiceRolling.Effects.EffectType.md
+    - name: Interfaces
+      items:
+      - name: IEffect
+        href: DiceRolling.Effects.IEffect.md
   - name: Events
     href: DiceRolling.Events.md
     items:
@@ -74,6 +209,29 @@
         href: DiceRolling.Events.EventBus.CharacterSelectedEventHandler.md
       - name: EventBus.CharacterUnselectedEventHandler
         href: DiceRolling.Events.EventBus.CharacterUnselectedEventHandler.md
+  - name: Grids
+    href: DiceRolling.Grids.md
+    items:
+    - name: Classes
+      items:
+      - name: GridType
+        href: DiceRolling.Grids.GridType.md
+    - name: Interfaces
+      items:
+      - name: IGrid
+        href: DiceRolling.Grids.IGrid.md
+      - name: IGridCells
+        href: DiceRolling.Grids.IGridCells.md
+      - name: IGridConfiguration
+        href: DiceRolling.Grids.IGridConfiguration.md
+    - name: Enums
+      items:
+      - name: GridDirection
+        href: DiceRolling.Grids.GridDirection.md
+    - name: Delegates
+      items:
+      - name: GridType.GridChangedEventHandler
+        href: DiceRolling.Grids.GridType.GridChangedEventHandler.md
   - name: Helpers
     href: DiceRolling.Helpers.md
     items:
@@ -85,297 +243,99 @@
         href: DiceRolling.Helpers.Arc3DRenderer.md
       - name: AttributesHelper
         href: DiceRolling.Helpers.AttributesHelper.md
-  - name: Interfaces
-    href: DiceRolling.Interfaces.md
-    items:
-    - name: Action
-      href: DiceRolling.Interfaces.Action.md
-      items:
-      - name: Interfaces
-        items:
-        - name: IAction<TContext, TResult>
-          href: DiceRolling.Interfaces.Action.IAction-2.md
-        - name: IActionAssets
-          href: DiceRolling.Interfaces.Action.IActionAssets.md
-        - name: IActionBehavior<TContext, TResult>
-          href: DiceRolling.Interfaces.Action.IActionBehavior-2.md
-        - name: IActionContext
-          href: DiceRolling.Interfaces.Action.IActionContext.md
-        - name: IActionInformation
-          href: DiceRolling.Interfaces.Action.IActionInformation.md
-    - name: Attribute
-      href: DiceRolling.Interfaces.Attribute.md
-      items:
-      - name: Interfaces
-        items:
-        - name: IAttribute
-          href: DiceRolling.Interfaces.Attribute.IAttribute.md
-        - name: IAttributeAssets
-          href: DiceRolling.Interfaces.Attribute.IAttributeAssets.md
-        - name: IAttributeInformation
-          href: DiceRolling.Interfaces.Attribute.IAttributeInformation.md
-        - name: IAttributeValues
-          href: DiceRolling.Interfaces.Attribute.IAttributeValues.md
-    - name: Character
-      href: DiceRolling.Interfaces.Character.md
-      items:
-      - name: Interfaces
-        items:
-        - name: ICharacter
-          href: DiceRolling.Interfaces.Character.ICharacter.md
-        - name: ICharacterActions
-          href: DiceRolling.Interfaces.Character.ICharacterActions.md
-        - name: ICharacterAssets
-          href: DiceRolling.Interfaces.Character.ICharacterAssets.md
-        - name: ICharacterAttributes
-          href: DiceRolling.Interfaces.Character.ICharacterAttributes.md
-        - name: ICharacterInformation
-          href: DiceRolling.Interfaces.Character.ICharacterInformation.md
-        - name: ICharacterPlacement
-          href: DiceRolling.Interfaces.Character.ICharacterPlacement.md
-    - name: Dice
-      href: DiceRolling.Interfaces.Dice.md
-      items:
-      - name: Interfaces
-        items:
-        - name: IDice<T>
-          href: DiceRolling.Interfaces.Dice.IDice-1.md
-        - name: IDiceLocation
-          href: DiceRolling.Interfaces.Dice.IDiceLocation.md
-        - name: IDiceMana
-          href: DiceRolling.Interfaces.Dice.IDiceMana.md
-        - name: IDiceSide
-          href: DiceRolling.Interfaces.Dice.IDiceSide.md
-      - name: Enums
-        items:
-        - name: DiceLocationCategory
-          href: DiceRolling.Interfaces.Dice.DiceLocationCategory.md
-    - name: Effects
-      href: DiceRolling.Interfaces.Effects.md
-      items:
-      - name: Interfaces
-        items:
-        - name: IEffect
-          href: DiceRolling.Interfaces.Effects.IEffect.md
-    - name: Grid
-      href: DiceRolling.Interfaces.Grid.md
-      items:
-      - name: Interfaces
-        items:
-        - name: IGrid
-          href: DiceRolling.Interfaces.Grid.IGrid.md
-        - name: IGridCells
-          href: DiceRolling.Interfaces.Grid.IGridCells.md
-        - name: IGridConfiguration
-          href: DiceRolling.Interfaces.Grid.IGridConfiguration.md
-      - name: Enums
-        items:
-        - name: GridDirection
-          href: DiceRolling.Interfaces.Grid.GridDirection.md
-    - name: Location
-      href: DiceRolling.Interfaces.Location.md
-      items:
-      - name: Interfaces
-        items:
-        - name: ILocation
-          href: DiceRolling.Interfaces.Location.ILocation.md
-    - name: Role
-      href: DiceRolling.Interfaces.Role.md
-      items:
-      - name: Interfaces
-        items:
-        - name: IRole
-          href: DiceRolling.Interfaces.Role.IRole.md
-        - name: IRoleActions
-          href: DiceRolling.Interfaces.Role.IRoleActions.md
-        - name: IRoleAttributes
-          href: DiceRolling.Interfaces.Role.IRoleAttributes.md
-        - name: IRoleInformation
-          href: DiceRolling.Interfaces.Role.IRoleInformation.md
-    - name: Target
-      href: DiceRolling.Interfaces.Target.md
-      items:
-      - name: Interfaces
-        items:
-        - name: ITarget
-          href: DiceRolling.Interfaces.Target.ITarget.md
-      - name: Delegates
-        items:
-        - name: ITarget.ConfigurationChangedEventHandler
-          href: DiceRolling.Interfaces.Target.ITarget.ConfigurationChangedEventHandler.md
-  - name: Managers
-    href: DiceRolling.Managers.md
+  - name: Lobby
+    href: DiceRolling.Lobby.md
     items:
     - name: Classes
       items:
-      - name: BattleManager
-        href: DiceRolling.Managers.BattleManager.md
-      - name: DungeonManager
-        href: DiceRolling.Managers.DungeonManager.md
-      - name: GameOverManager
-        href: DiceRolling.Managers.GameOverManager.md
-      - name: GameplayTransitionManager
-        href: DiceRolling.Managers.GameplayTransitionManager.md
       - name: LobbyManager
-        href: DiceRolling.Managers.LobbyManager.md
-      - name: MainMenuManager
-        href: DiceRolling.Managers.MainMenuManager.md
-      - name: MenuTransitionManager
-        href: DiceRolling.Managers.MenuTransitionManager.md
-      - name: PlaygroundTransitionManager
-        href: DiceRolling.Managers.PlaygroundTransitionManager.md
-    - name: Enums
-      items:
-      - name: GameplayScenes
-        href: DiceRolling.Managers.GameplayScenes.md
-      - name: MenuScenes
-        href: DiceRolling.Managers.MenuScenes.md
-      - name: PlaygroundScenes
-        href: DiceRolling.Managers.PlaygroundScenes.md
-  - name: Models
-    href: DiceRolling.Models.md
+        href: DiceRolling.Lobby.LobbyManager.md
+  - name: Locations
+    href: DiceRolling.Locations.md
     items:
-    - name: Actions
-      href: DiceRolling.Models.Actions.md
-      items:
-      - name: Categories
-        href: DiceRolling.Models.Actions.Categories.md
-        items:
-        - name: Classes
-          items:
-          - name: ActionCategory
-            href: DiceRolling.Models.Actions.Categories.ActionCategory.md
-      - name: Effects
-        href: DiceRolling.Models.Actions.Effects.md
-        items:
-        - name: Classes
-          items:
-          - name: DamageEffect
-            href: DiceRolling.Models.Actions.Effects.DamageEffect.md
-          - name: EffectType
-            href: DiceRolling.Models.Actions.Effects.EffectType.md
-      - name: Targets
-        href: DiceRolling.Models.Actions.Targets.md
-        items:
-        - name: Classes
-          items:
-          - name: TargetConfiguration
-            href: DiceRolling.Models.Actions.Targets.TargetConfiguration.md
-        - name: Delegates
-          items:
-          - name: TargetConfiguration.ConfigurationChangedEventHandler
-            href: DiceRolling.Models.Actions.Targets.TargetConfiguration.ConfigurationChangedEventHandler.md
-      - name: Classes
-        items:
-        - name: ActionType
-          href: DiceRolling.Models.Actions.ActionType.md
-        - name: CharacterAction
-          href: DiceRolling.Models.Actions.CharacterAction.md
-        - name: RoleAction
-          href: DiceRolling.Models.Actions.RoleAction.md
-    - name: Attributes
-      href: DiceRolling.Models.Attributes.md
-      items:
-      - name: Classes
-        items:
-        - name: AttributeType
-          href: DiceRolling.Models.Attributes.AttributeType.md
-        - name: AttributesConfig
-          href: DiceRolling.Models.Attributes.AttributesConfig.md
-        - name: CharacterAttribute
-          href: DiceRolling.Models.Attributes.CharacterAttribute.md
-        - name: RoleAttribute
-          href: DiceRolling.Models.Attributes.RoleAttribute.md
-    - name: Characters
-      href: DiceRolling.Models.Characters.md
-      items:
-      - name: Classes
-        items:
-        - name: CharacterCategory
-          href: DiceRolling.Models.Characters.CharacterCategory.md
-        - name: CharacterType
-          href: DiceRolling.Models.Characters.CharacterType.md
-      - name: Delegates
-        items:
-        - name: CharacterType.AttributeChangedEventHandler
-          href: DiceRolling.Models.Characters.CharacterType.AttributeChangedEventHandler.md
-    - name: Dice
-      href: DiceRolling.Models.Dice.md
-      items:
-      - name: Classes
-        items:
-        - name: DiceLocation
-          href: DiceRolling.Models.Dice.DiceLocation.md
-    - name: Grids
-      href: DiceRolling.Models.Grids.md
-      items:
-      - name: Classes
-        items:
-        - name: GridType
-          href: DiceRolling.Models.Grids.GridType.md
-      - name: Delegates
-        items:
-        - name: GridType.GridChangedEventHandler
-          href: DiceRolling.Models.Grids.GridType.GridChangedEventHandler.md
-    - name: Locations
-      href: DiceRolling.Models.Locations.md
-      items:
-      - name: Classes
-        items:
-        - name: LocationType
-          href: DiceRolling.Models.Locations.LocationType.md
-    - name: Roles
-      href: DiceRolling.Models.Roles.md
-      items:
-      - name: Classes
-        items:
-        - name: RoleType
-          href: DiceRolling.Models.Roles.RoleType.md
     - name: Classes
       items:
-      - name: Dice<T>
-        href: DiceRolling.Models.Dice-1.md
-      - name: DiceFactory
-        href: DiceRolling.Models.DiceFactory.md
-      - name: DiceIcon
-        href: DiceRolling.Models.DiceIcon.md
-      - name: DiceIconsResources
-        href: DiceRolling.Models.DiceIconsResources.md
-      - name: DiceMana
-        href: DiceRolling.Models.DiceMana.md
-      - name: DiceManaResources
-        href: DiceRolling.Models.DiceManaResources.md
-      - name: DiceSide
-        href: DiceRolling.Models.DiceSide.md
+      - name: LocationType
+        href: DiceRolling.Locations.LocationType.md
+    - name: Interfaces
+      items:
+      - name: ILocation
+        href: DiceRolling.Locations.ILocation.md
+  - name: Logs
+    href: DiceRolling.Logs.md
+    items:
+    - name: Classes
+      items:
+      - name: GameLogLine
+        href: DiceRolling.Logs.GameLogLine.md
+      - name: GameLogMessage
+        href: DiceRolling.Logs.GameLogMessage.md
+      - name: GameLogStore
+        href: DiceRolling.Logs.GameLogStore.md
     - name: Enums
       items:
-      - name: DiceLocation
-        href: DiceRolling.Models.DiceLocation.md
+      - name: GameLogLineType
+        href: DiceRolling.Logs.GameLogLineType.md
+    - name: Delegates
+      items:
+      - name: GameLogStore.GameLogLineAddedEventHandler
+        href: DiceRolling.Logs.GameLogStore.GameLogLineAddedEventHandler.md
+      - name: GameLogStore.GameLogUpdatedEventHandler
+        href: DiceRolling.Logs.GameLogStore.GameLogUpdatedEventHandler.md
+  - name: Menus
+    href: DiceRolling.Menus.md
+    items:
+    - name: Classes
+      items:
+      - name: GameOverManager
+        href: DiceRolling.Menus.GameOverManager.md
+      - name: MainMenuManager
+        href: DiceRolling.Menus.MainMenuManager.md
+  - name: Roles
+    href: DiceRolling.Roles.md
+    items:
+    - name: Classes
+      items:
+      - name: RoleAction
+        href: DiceRolling.Roles.RoleAction.md
+      - name: RoleAttribute
+        href: DiceRolling.Roles.RoleAttribute.md
+      - name: RoleType
+        href: DiceRolling.Roles.RoleType.md
+    - name: Interfaces
+      items:
+      - name: IRole
+        href: DiceRolling.Roles.IRole.md
+      - name: IRoleActions
+        href: DiceRolling.Roles.IRoleActions.md
+      - name: IRoleAttributes
+        href: DiceRolling.Roles.IRoleAttributes.md
+      - name: IRoleInformation
+        href: DiceRolling.Roles.IRoleInformation.md
   - name: Stores
     href: DiceRolling.Stores.md
     items:
     - name: Classes
       items:
-      - name: CharacterStore
-        href: DiceRolling.Stores.CharacterStore.md
       - name: DiceStore
         href: DiceRolling.Stores.DiceStore.md
-      - name: GameLogLine
-        href: DiceRolling.Stores.GameLogLine.md
-      - name: GameLogMessage
-        href: DiceRolling.Stores.GameLogMessage.md
-      - name: GameLogStore
-        href: DiceRolling.Stores.GameLogStore.md
-    - name: Enums
+  - name: Targets
+    href: DiceRolling.Targets.md
+    items:
+    - name: Classes
       items:
-      - name: GameLogLineType
-        href: DiceRolling.Stores.GameLogLineType.md
+      - name: TargetConfiguration
+        href: DiceRolling.Targets.TargetConfiguration.md
+    - name: Interfaces
+      items:
+      - name: ITarget
+        href: DiceRolling.Targets.ITarget.md
     - name: Delegates
       items:
-      - name: GameLogStore.GameLogLineAddedEventHandler
-        href: DiceRolling.Stores.GameLogStore.GameLogLineAddedEventHandler.md
-      - name: GameLogStore.GameLogUpdatedEventHandler
-        href: DiceRolling.Stores.GameLogStore.GameLogUpdatedEventHandler.md
+      - name: ITarget.ConfigurationChangedEventHandler
+        href: DiceRolling.Targets.ITarget.ConfigurationChangedEventHandler.md
+      - name: TargetConfiguration.ConfigurationChangedEventHandler
+        href: DiceRolling.Targets.TargetConfiguration.ConfigurationChangedEventHandler.md
   - name: UI
     href: DiceRolling.UI.md
     items:
@@ -385,11 +345,17 @@
         href: DiceRolling.UI.ArcDrawer.md
       - name: CloseGameButton
         href: DiceRolling.UI.CloseGameButton.md
-      - name: PlaygroundTransitionMenu
-        href: DiceRolling.UI.PlaygroundTransitionMenu.md
+      - name: GameplayTransitionManager
+        href: DiceRolling.UI.GameplayTransitionManager.md
+      - name: MenuTransitionManager
+        href: DiceRolling.UI.MenuTransitionManager.md
       - name: SceneTransitionButton
         href: DiceRolling.UI.SceneTransitionButton.md
     - name: Enums
       items:
+      - name: GameplayScenes
+        href: DiceRolling.UI.GameplayScenes.md
+      - name: MenuScenes
+        href: DiceRolling.UI.MenuScenes.md
       - name: TransitionType
         href: DiceRolling.UI.TransitionType.md

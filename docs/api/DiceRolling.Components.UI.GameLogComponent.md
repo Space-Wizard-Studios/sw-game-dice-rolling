@@ -4,7 +4,7 @@ Namespace: [DiceRolling.Components.UI](DiceRolling.Components.UI.md)
 Assembly: dice\-rolling.dll  
 
 ```csharp
-[ScriptPath("res://components/GameLog/GameLogComponent.cs")]
+[ScriptPath("res://scenes/components/GameLog/GameLogComponent.cs")]
 public class GameLogComponent : ScrollContainer, IDisposable
 ```
 

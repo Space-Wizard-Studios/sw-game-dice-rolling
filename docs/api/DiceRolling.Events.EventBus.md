@@ -5,7 +5,7 @@ Assembly: dice\-rolling.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://core/events/EventBus.cs")]
+[ScriptPath("res://features/_common/Events/EventBus.cs")]
 public class EventBus : Node, IDisposable
 ```
 
@@ -319,7 +319,7 @@ public static EventBus Instance { get; }
 
 ## Methods
 
-### <a id="DiceRolling_Events_EventBus_EmitAttributeChanged_DiceRolling_Models_Characters_CharacterType_DiceRolling_Models_Attributes_AttributeType_"></a> EmitAttributeChanged\(CharacterType, AttributeType\)
+### <a id="DiceRolling_Events_EventBus_EmitAttributeChanged_DiceRolling_Characters_CharacterType_DiceRolling_Attributes_AttributeType_"></a> EmitAttributeChanged\(CharacterType, AttributeType\)
 
 ```csharp
 public void EmitAttributeChanged(CharacterType character, AttributeType attributeType)
@@ -327,11 +327,11 @@ public void EmitAttributeChanged(CharacterType character, AttributeType attribut
 
 #### Parameters
 
-`character` [CharacterType](DiceRolling.Models.Characters.CharacterType.md)
+`character` [CharacterType](DiceRolling.Characters.CharacterType.md)
 
-`attributeType` [AttributeType](DiceRolling.Models.Attributes.AttributeType.md)
+`attributeType` [AttributeType](DiceRolling.Attributes.AttributeType.md)
 
-### <a id="DiceRolling_Events_EventBus_EmitSignalActionSelected_DiceRolling_Models_Actions_Targets_TargetConfiguration_"></a> EmitSignalActionSelected\(TargetConfiguration\)
+### <a id="DiceRolling_Events_EventBus_EmitSignalActionSelected_DiceRolling_Targets_TargetConfiguration_"></a> EmitSignalActionSelected\(TargetConfiguration\)
 
 ```csharp
 protected void EmitSignalActionSelected(TargetConfiguration targetConfiguration)
@@ -339,7 +339,7 @@ protected void EmitSignalActionSelected(TargetConfiguration targetConfiguration)
 
 #### Parameters
 
-`targetConfiguration` [TargetConfiguration](DiceRolling.Models.Actions.Targets.TargetConfiguration.md)
+`targetConfiguration` [TargetConfiguration](DiceRolling.Targets.TargetConfiguration.md)
 
 ### <a id="DiceRolling_Events_EventBus_EmitSignalAttributeChanged"></a> EmitSignalAttributeChanged\(\)
 

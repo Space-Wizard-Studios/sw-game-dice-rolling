@@ -7,7 +7,7 @@ Represents a 3D grid of characters in the game.
 
 ```csharp
 [Tool]
-[ScriptPath("res://components/CharacterGrid/CharacterGrid.cs")]
+[ScriptPath("res://scenes/components/CharacterGrid/CharacterGrid.cs")]
 public class CharacterGrid : Node3D, IDisposable
 ```
 
@@ -383,7 +383,7 @@ public GridType[] GridConfigurations
 
 #### Field Value
 
- [GridType](DiceRolling.Models.Grids.GridType.md)\[\]
+ [GridType](DiceRolling.Grids.GridType.md)\[\]
 
 ## Properties
 

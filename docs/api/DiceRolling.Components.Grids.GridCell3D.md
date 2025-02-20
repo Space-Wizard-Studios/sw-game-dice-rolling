@@ -4,7 +4,7 @@ Namespace: [DiceRolling.Components.Grids](DiceRolling.Components.Grids.md)
 Assembly: dice\-rolling.dll  
 
 ```csharp
-[ScriptPath("res://components/CharacterGrid/GridCell3D.cs")]
+[ScriptPath("res://scenes/components/CharacterGrid/GridCell3D.cs")]
 public class GridCell3D : Node3D, IDisposable
 ```
 

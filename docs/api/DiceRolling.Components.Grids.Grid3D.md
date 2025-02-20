@@ -5,7 +5,7 @@ Assembly: dice\-rolling.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://components/CharacterGrid/Grid3D.cs")]
+[ScriptPath("res://scenes/components/CharacterGrid/Grid3D.cs")]
 public class Grid3D : Node3D, IDisposable
 ```
 
@@ -403,7 +403,7 @@ public CharacterStore? CharacterStore { get; set; }
 
 #### Property Value
 
- [CharacterStore](DiceRolling.Stores.CharacterStore.md)?
+ [CharacterStore](DiceRolling.Characters.CharacterStore.md)?
 
 ### <a id="DiceRolling_Components_Grids_Grid3D_Columns"></a> Columns
 
@@ -425,7 +425,7 @@ public GridType? GridInstance { get; set; }
 
 #### Property Value
 
- [GridType](DiceRolling.Models.Grids.GridType.md)?
+ [GridType](DiceRolling.Grids.GridType.md)?
 
 ### <a id="DiceRolling_Components_Grids_Grid3D_Prefix"></a> Prefix
 

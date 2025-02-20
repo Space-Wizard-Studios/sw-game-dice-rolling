@@ -4,7 +4,7 @@ Namespace: [DiceRolling.Components.UI](DiceRolling.Components.UI.md)
 Assembly: dice\-rolling.dll  
 
 ```csharp
-[ScriptPath("res://components/InventoryItemComponent/InventoryItemComponent.cs")]
+[ScriptPath("res://scenes/components/InventoryItemComponent/InventoryItemComponent.cs")]
 public class InventoryItemComponent : Control, IDisposable
 ```
 

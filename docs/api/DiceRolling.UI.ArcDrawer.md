@@ -4,7 +4,7 @@ Namespace: [DiceRolling.UI](DiceRolling.UI.md)
 Assembly: dice\-rolling.dll  
 
 ```csharp
-[ScriptPath("res://core/ui/ArcDrawer.cs")]
+[ScriptPath("res://features/UI/ArcDrawer.cs")]
 public class ArcDrawer : Node2D, IDisposable
 ```
 

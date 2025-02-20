@@ -5,7 +5,7 @@ Assembly: dice\-rolling.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://components/TurnOrderComponent/TurnOrderComponent.cs")]
+[ScriptPath("res://scenes/components/TurnOrderComponent/TurnOrderComponent.cs")]
 public class TurnOrderComponent : Control, IDisposable
 ```
 
@@ -606,7 +606,7 @@ public CharacterType[] Characters { get; set; }
 
 #### Property Value
 
- [CharacterType](DiceRolling.Models.Characters.CharacterType.md)\[\]
+ [CharacterType](DiceRolling.Characters.CharacterType.md)\[\]
 
 ### <a id="DiceRolling_Components_TurnOrderComponent_PortraitDamageColorName"></a> PortraitDamageColorName
 
@@ -652,7 +652,7 @@ public HBoxContainer? PortraitsContainerNode { get; set; }
 
 ## Methods
 
-### <a id="DiceRolling_Components_TurnOrderComponent_UpdateTurnOrder_System_Collections_Generic_List_DiceRolling_Models_Characters_CharacterType__"></a> UpdateTurnOrder\(List<CharacterType\>\)
+### <a id="DiceRolling_Components_TurnOrderComponent_UpdateTurnOrder_System_Collections_Generic_List_DiceRolling_Characters_CharacterType__"></a> UpdateTurnOrder\(List<CharacterType\>\)
 
 ```csharp
 public void UpdateTurnOrder(List<CharacterType> characters)
@@ -660,7 +660,7 @@ public void UpdateTurnOrder(List<CharacterType> characters)
 
 #### Parameters
 
-`characters` [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<[CharacterType](DiceRolling.Models.Characters.CharacterType.md)\>
+`characters` [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<[CharacterType](DiceRolling.Characters.CharacterType.md)\>
 
 ### <a id="DiceRolling_Components_TurnOrderComponent__Ready"></a> \_Ready\(\)
 

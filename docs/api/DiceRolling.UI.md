@@ -6,11 +6,17 @@
 
  [CloseGameButton](DiceRolling.UI.CloseGameButton.md)
 
- [PlaygroundTransitionMenu](DiceRolling.UI.PlaygroundTransitionMenu.md)
+ [GameplayTransitionManager](DiceRolling.UI.GameplayTransitionManager.md)
+
+ [MenuTransitionManager](DiceRolling.UI.MenuTransitionManager.md)
 
  [SceneTransitionButton](DiceRolling.UI.SceneTransitionButton.md)
 
 ### Enums
+
+ [GameplayScenes](DiceRolling.UI.GameplayScenes.md)
+
+ [MenuScenes](DiceRolling.UI.MenuScenes.md)
 
  [TransitionType](DiceRolling.UI.TransitionType.md)
 

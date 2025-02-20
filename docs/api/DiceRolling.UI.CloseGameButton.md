@@ -5,7 +5,7 @@ Assembly: dice\-rolling.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://core/ui/CloseGameButton.cs")]
+[ScriptPath("res://features/UI/CloseGameButton.cs")]
 public class CloseGameButton : Button, IDisposable
 ```
 

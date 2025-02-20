@@ -4,7 +4,7 @@ Namespace: [DiceRolling.Components.UI](DiceRolling.Components.UI.md)
 Assembly: dice\-rolling.dll  
 
 ```csharp
-[ScriptPath("res://components/TooltipComponent/TooltipComponent.cs")]
+[ScriptPath("res://scenes/components/TooltipComponent/TooltipComponent.cs")]
 public class TooltipComponent : Control, IDisposable
 ```
 

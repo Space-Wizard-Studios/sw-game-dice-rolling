@@ -5,7 +5,7 @@ Assembly: dice\-rolling.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://components/CharacterInspector/CharacterInspector.cs")]
+[ScriptPath("res://scenes/components/CharacterInspector/CharacterInspector.cs")]
 public class CharacterInspector : HBoxContainer, IDisposable
 ```
 
@@ -597,7 +597,7 @@ public CharacterType? Character { get; set; }
 
 #### Property Value
 
- [CharacterType](DiceRolling.Models.Characters.CharacterType.md)?
+ [CharacterType](DiceRolling.Characters.CharacterType.md)?
 
 ## Methods
 

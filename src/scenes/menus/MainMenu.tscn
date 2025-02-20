@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://myouhbwr3b27"]
+[gd_scene load_steps=4 format=3 uid="uid://myouhbwr3b27"]
 
 [ext_resource type="Script" uid="uid://p2tg6o2lnf5" path="res://features/UI/Menus/MainMenuManager.cs" id="1_hfxp8"]
 [ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://features/UI/SceneTransitionButton.cs" id="2_u85me"]
-[ext_resource type="Script" uid="uid://r0elhsj8rclk" path="res://features/UI/PlaygroundTransitionMenu.cs" id="3_g6swa"]
 [ext_resource type="Script" uid="uid://bk4vy3txoi8tv" path="res://features/UI/CloseGameButton.cs" id="3_rlojh"]
 
 [node name="MainMenu" type="Node2D"]
@@ -73,12 +72,6 @@ layout_mode = 2
 text = "Start Game"
 script = ExtResource("2_u85me")
 TypeOfTransition = 2
-
-[node name="PlaygroundMenu" type="MenuButton" parent="CanvasLayer/BottomContainer/ButtonsContainer"]
-layout_mode = 2
-text = "Playground"
-flat = false
-script = ExtResource("3_g6swa")
 
 [node name="ExitGameButton" type="Button" parent="CanvasLayer/BottomContainer/ButtonsContainer"]
 layout_mode = 2

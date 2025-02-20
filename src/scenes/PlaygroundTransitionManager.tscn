@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmi7r1fkkulun"]
-
-[ext_resource type="Script" uid="uid://buwk48b4nt8d2" path="res://features/UI/PlaygroundTransitionManager.cs" id="1_togdl"]
-[ext_resource type="PackedScene" uid="uid://dnd41lodc2wam" path="res://scenes/playground/DiceGenerator.tscn" id="2_ru3q4"]
-
-[node name="PlaygroundTransitionManager" type="Node"]
-script = ExtResource("1_togdl")
-DiceGenerator = ExtResource("2_ru3q4")

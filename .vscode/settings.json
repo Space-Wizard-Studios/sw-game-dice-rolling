@@ -8,11 +8,14 @@
         "**/tmp": true
     },
     "files.exclude": {
+        "**/.git": false,
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
+        "**/.ssh": true,
+        "**/*.uid": true
     },
     "eslint.workingDirectories": [
         {
@@ -108,4 +111,5 @@
         "unicode",
         "vram"
     ],
+    "explorerExclude.backup": {},
 }

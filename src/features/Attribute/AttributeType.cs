@@ -13,21 +13,25 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
     private int _minValue = int.MinValue;
     private int _maxValue = int.MaxValue;
 
+    [ExportGroup("📝 Information")]
+
     [Export]
     public string? Name {
         get => _name;
         set {
-            if (string.IsNullOrWhiteSpace(value)) {
-                throw new ArgumentException("Name cannot be null or empty");
+            if (ValidationService.ValidateName(value)) {
+                _name = value;
             }
-            _name = value;
         }
     }
 
     [Export(PropertyHint.MultilineText)]
     public string? Description { get; set; }
 
-    [Export] public Color Color { get; set; }
+    [ExportGroup("🪵 Assets")]
+
+    [Export]
+    public Color Color { get; set; }
 
     [Export]
     public Texture2D? Icon {
@@ -63,15 +67,10 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
     }
 
     public AttributeType() {
-        EnsureValidId();
     }
 
     public AttributeType(string name, string description, Color color, Texture2D icon, int minValue, int maxValue) {
-        if (!ValidationService.ValidateMinMaxValues(minValue, maxValue)) {
-            throw new ArgumentException("MinValue must be less than or equal to MaxValue");
-        }
-
-        EnsureValidId();
+        ValidateConstructor();
 
         Name = name;
         Description = description;
@@ -81,7 +80,13 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
         MaxValue = maxValue;
     }
 
-    public void ValidateValues() {
-        ValidationService.ValidateMinMaxValues(MinValue, MaxValue);
+    public void ValidateConstructor() {
+        // if (!ValidationService.ValidateName(Name)) {
+        //     throw new ArgumentException("Name cannot be null or whitespace");
+        // }
+
+        if (!ValidationService.ValidateMinMaxValues(MinValue, MaxValue)) {
+            throw new ArgumentException("MinValue must be less than or equal to MaxValue");
+        }
     }
 }

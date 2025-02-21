@@ -13,9 +13,4 @@ public interface IAttributeValues {
     /// Valor máximo do atributo.
     /// </summary>
     int MaxValue { get; }
-
-    /// <summary>
-    /// Valida os valores do atributo.
-    /// </summary>
-    void ValidateValues();
 }

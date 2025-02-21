@@ -11,7 +11,19 @@ public static class ValidationService {
         return isValid;
     }
 
-    public static bool IsNullOrEmpty(string? value) {
-        return string.IsNullOrEmpty(value);
+    public static bool ValidateName(string? value, string? propertyName = "") {
+        var isValid = !string.IsNullOrWhiteSpace(value);
+        if (!isValid) {
+            GD.PrintErr("Value cannot be null or whitespace", propertyName);
+        }
+        return isValid;
+    }
+
+    public static bool ValidateId(string? value, string? propertyName = "") {
+        var isValid = !string.IsNullOrEmpty(value);
+        if (!isValid) {
+            GD.PrintErr("Value cannot be null or empty", propertyName);
+        }
+        return isValid;
     }
 }

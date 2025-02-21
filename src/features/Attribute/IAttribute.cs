@@ -9,4 +9,10 @@ public interface IAttribute :
     IIdentifiable,
     IAttributeInformation,
     IAttributeAssets,
-    IAttributeValues { }
+    IAttributeValues {
+
+    /// <summary>
+    /// Valida os campos do resource.
+    /// </summary>
+    void ValidateConstructor();
+}

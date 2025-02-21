@@ -9,14 +9,15 @@ public abstract partial class IdentifiableResource : Resource, IIdentifiable {
     [Export] public string Id { get; private set; } = IdService.GenerateNewId();
     [ExportToolButton("Generate Id")] public Callable GenerateNewIdButton => Callable.From(GenerateNewId);
 
-    public void GenerateNewId() {
-        Id = IdService.GenerateNewId();
+    public IdentifiableResource() {
+        if (ValidationService.ValidateId(Id)) {
+            GD.PrintErr("Id is not valid. Generating new Id.");
+            Id = IdService.GenerateNewId();
+        }
     }
 
-    protected void EnsureValidId() {
-        if (string.IsNullOrEmpty(Id)) {
-            GenerateNewId();
-        }
+    public void GenerateNewId() {
+        Id = IdService.GenerateNewId();
     }
 
     public override void _ValidateProperty(Godot.Collections.Dictionary property) {

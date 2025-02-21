@@ -15,4 +15,5 @@ public interface IAction<TContext, TResult> :
     bool IsValid();
     void AddEffect(EffectType effect);
     void RemoveEffect(EffectType effect);
+    void ValidateConstructor();
 }

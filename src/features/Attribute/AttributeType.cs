@@ -8,7 +8,7 @@ namespace DiceRolling.Attributes;
 [Tool]
 [GlobalClass]
 public partial class AttributeType : IdentifiableResource, IAttribute {
-    private string? _name = "Attribute";
+    private string _name = "Attribute" + Guid.NewGuid().ToString("N");
     private Texture2D? _icon;
     private int _minValue = 0;
     private int _maxValue = 1;
@@ -16,7 +16,7 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
     [ExportGroup("📝 Information")]
 
     [Export]
-    public string? Name {
+    public string Name {
         get => _name;
         set {
             if (ValidationService.ValidateName(value)) {

@@ -12,7 +12,7 @@ namespace DiceRolling.Actions;
 [Tool]
 [GlobalClass]
 public partial class ActionType : IdentifiableResource, IAction<IActionContext, bool> {
-    private string? _name = "Action";
+    private string _name = "Action_" + Guid.NewGuid().ToString("N");
     private Texture2D? _icon;
 
     [ExportGroup("📝 Information")]
@@ -21,7 +21,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
     public ActionCategory? Category { get; set; }
 
     [Export]
-    public string? Name {
+    public string Name {
         get => _name;
         set {
             if (ValidationService.ValidateName(value)) {
@@ -65,13 +65,12 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
         ActionCategory category,
         Godot.Collections.Array<DiceMana> requiredMana,
         Godot.Collections.Array<EffectType> effects,
-        string? name = null,
-        string? description = null,
-        Texture2D? icon = null,
-        TargetConfiguration? targetConfiguration = null
+        string name,
+        string? description,
+        Texture2D? icon,
+        TargetConfiguration? targetConfiguration
     ) {
         ValidateConstructor();
-
         Category = category;
         RequiredMana = requiredMana;
         Effects = effects;

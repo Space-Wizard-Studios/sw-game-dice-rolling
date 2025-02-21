@@ -7,7 +7,7 @@ public interface IAttributeInformation {
     /// <summary>
     /// Nome do atributo.
     /// </summary>
-    string? Name { get; set; }
+    string Name { get; set; }
 
     /// <summary>
     /// Descrição do atributo.

@@ -10,13 +10,13 @@ namespace DiceRolling.Actions;
 [Tool]
 [GlobalClass]
 public partial class ActionCategory : IdentifiableResource, IActionCategory {
-    private string? _name = "Action Category";
+    private string _name = "ActionCategory_" + Guid.NewGuid().ToString("N");
     private Texture2D? _icon;
 
     [ExportGroup("📝 Information")]
 
     [Export]
-    public string? Name {
+    public string Name {
         get => _name;
         set {
             if (ValidationService.ValidateName(value)) {
@@ -55,7 +55,6 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
 
     public ActionCategory(string name, string description, Texture2D icon) {
         ValidateConstructor();
-
         Name = name;
         Description = description;
         Icon = icon;

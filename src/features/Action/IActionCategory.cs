@@ -6,7 +6,7 @@ using DiceRolling.Common;
 namespace DiceRolling.Actions;
 
 public interface IActionCategory : IIdentifiable {
-    string? Name { get; set; }
+    string Name { get; set; }
     string? Description { get; set; }
     Texture2D? Icon { get; set; }
     string? IconPath { get; }

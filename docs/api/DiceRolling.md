@@ -10,6 +10,8 @@
 
  [DiceRolling.Characters](DiceRolling.Characters.md)
 
+ [DiceRolling.Common](DiceRolling.Common.md)
+
  [DiceRolling.Components](DiceRolling.Components.md)
 
  [DiceRolling.Dice](DiceRolling.Dice.md)
@@ -35,6 +37,8 @@
  [DiceRolling.Menus](DiceRolling.Menus.md)
 
  [DiceRolling.Roles](DiceRolling.Roles.md)
+
+ [DiceRolling.Services](DiceRolling.Services.md)
 
  [DiceRolling.Stores](DiceRolling.Stores.md)
 

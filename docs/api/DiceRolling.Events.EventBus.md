@@ -5,7 +5,7 @@ Assembly: dice\-rolling.dll
 
 ```csharp
 [Tool]
-[ScriptPath("res://features/_common/Events/EventBus.cs")]
+[ScriptPath("res://features/Common/Events/EventBus.cs")]
 public class EventBus : Node, IDisposable
 ```
 

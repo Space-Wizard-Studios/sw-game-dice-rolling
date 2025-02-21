@@ -4,7 +4,7 @@ Namespace: [DiceRolling.Logs](DiceRolling.Logs.md)
 Assembly: dice\-rolling.dll  
 
 ```csharp
-[ScriptPath("res://features/_common/Logs/GameLogStore.cs")]
+[ScriptPath("res://features/Common/Logs/GameLogStore.cs")]
 public class GameLogStore : Node, IDisposable
 ```
 

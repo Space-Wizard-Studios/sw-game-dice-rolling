@@ -7,7 +7,7 @@ Assembly: dice\-rolling.dll
 [Tool]
 [GlobalClass]
 [ScriptPath("res://features/Action/ActionType.cs")]
-public class ActionType : Resource, IDisposable, IAction<IActionContext, bool>, IActionInformation, IActionAssets, IActionBehavior<IActionContext, bool>
+public class ActionType : IdentifiableResource, IDisposable, IAction<IActionContext, bool>, IIdentifiable, IActionInformation, IActionAssets, IActionBehavior<IActionContext, bool>
 ```
 
 #### Inheritance
@@ -16,18 +16,25 @@ public class ActionType : Resource, IDisposable, IAction<IActionContext, bool>, 
 GodotObject ← 
 RefCounted ← 
 Resource ← 
+[IdentifiableResource](DiceRolling.Common.IdentifiableResource.md) ← 
 [ActionType](DiceRolling.Actions.ActionType.md)
 
 #### Implements
 
 [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
 [IAction<IActionContext, bool\>](DiceRolling.Actions.IAction\-2.md), 
+[IIdentifiable](DiceRolling.Common.IIdentifiable.md), 
 [IActionInformation](DiceRolling.Actions.IActionInformation.md), 
 [IActionAssets](DiceRolling.Actions.IActionAssets.md), 
 [IActionBehavior<IActionContext, bool\>](DiceRolling.Actions.IActionBehavior\-2.md)
 
 #### Inherited Members
 
+[IdentifiableResource.Id](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_Id), 
+[IdentifiableResource.GenerateNewIdButton](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewIdButton), 
+[IdentifiableResource.GenerateNewId\(\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewId), 
+[IdentifiableResource.EnsureValidId\(\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_EnsureValidId), 
+[IdentifiableResource.\_ValidateProperty\(Dictionary\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_\_ValidateProperty\_Godot\_Collections\_Dictionary\_), 
 Resource.\_GetRid\(\), 
 Resource.\_ResetState\(\), 
 Resource.\_SetPathCache\(string\), 
@@ -159,10 +166,10 @@ GodotObject.PropertyListChanged,
 public ActionType()
 ```
 
-### <a id="DiceRolling_Actions_ActionType__ctor_DiceRolling_Actions_ActionCategory_Godot_Collections_Array_DiceRolling_Dice_DiceMana__Godot_Collections_Array_DiceRolling_Effects_EffectType__"></a> ActionType\(ActionCategory, Array<DiceMana\>, Array<EffectType\>\)
+### <a id="DiceRolling_Actions_ActionType__ctor_DiceRolling_Actions_ActionCategory_Godot_Collections_Array_DiceRolling_Dice_DiceMana__Godot_Collections_Array_DiceRolling_Effects_EffectType__System_String_System_String_Godot_Texture2D_DiceRolling_Targets_TargetConfiguration_"></a> ActionType\(ActionCategory, Array<DiceMana\>, Array<EffectType\>, string?, string?, Texture2D?, TargetConfiguration?\)
 
 ```csharp
-public ActionType(ActionCategory category, Array<DiceMana> requiredMana, Array<EffectType> effects)
+public ActionType(ActionCategory category, Array<DiceMana> requiredMana, Array<EffectType> effects, string? name = null, string? description = null, Texture2D? icon = null, TargetConfiguration? targetConfiguration = null)
 ```
 
 #### Parameters
@@ -173,6 +180,14 @@ public ActionType(ActionCategory category, Array<DiceMana> requiredMana, Array<E
 
 `effects` Array<[EffectType](DiceRolling.Effects.EffectType.md)\>
 
+`name` [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
+`description` [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
+`icon` Texture2D?
+
+`targetConfiguration` [TargetConfiguration](DiceRolling.Targets.TargetConfiguration.md)?
+
 ## Properties
 
 ### <a id="DiceRolling_Actions_ActionType_Category"></a> Category
@@ -180,6 +195,7 @@ public ActionType(ActionCategory category, Array<DiceMana> requiredMana, Array<E
 Categoria da ação.
 
 ```csharp
+[ExportGroup("📝 Information", "")]
 [Export(PropertyHint.None, "")]
 public ActionCategory? Category { get; set; }
 ```
@@ -239,19 +255,6 @@ public string? IconPath { get; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
-### <a id="DiceRolling_Actions_ActionType_Id"></a> Id
-
-Identificador único da ação.
-
-```csharp
-[Export(PropertyHint.None, "")]
-public string Id { get; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
-
 ### <a id="DiceRolling_Actions_ActionType_Name"></a> Name
 
 Nome da ação.
@@ -270,6 +273,7 @@ public string? Name { get; set; }
 Mana necessária para executar a ação.
 
 ```csharp
+[ExportGroup("🎭 Behavior", "")]
 [Export(PropertyHint.None, "")]
 public Array<DiceMana> RequiredMana { get; set; }
 ```
@@ -293,6 +297,16 @@ public TargetConfiguration? TargetConfiguration { get; set; }
 
 ## Methods
 
+### <a id="DiceRolling_Actions_ActionType_AddEffect_DiceRolling_Effects_EffectType_"></a> AddEffect\(EffectType\)
+
+```csharp
+public void AddEffect(EffectType effect)
+```
+
+#### Parameters
+
+`effect` [EffectType](DiceRolling.Effects.EffectType.md)
+
 ### <a id="DiceRolling_Actions_ActionType_Do_DiceRolling_Actions_IActionContext_"></a> Do\(IActionContext\)
 
 Executa a ação com o contexto fornecido.
@@ -312,4 +326,24 @@ O contexto da ação.
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 O resultado da ação.
+
+### <a id="DiceRolling_Actions_ActionType_IsValid"></a> IsValid\(\)
+
+```csharp
+public bool IsValid()
+```
+
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="DiceRolling_Actions_ActionType_RemoveEffect_DiceRolling_Effects_EffectType_"></a> RemoveEffect\(EffectType\)
+
+```csharp
+public void RemoveEffect(EffectType effect)
+```
+
+#### Parameters
+
+`effect` [EffectType](DiceRolling.Effects.EffectType.md)
 

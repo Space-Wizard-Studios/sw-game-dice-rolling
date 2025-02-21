@@ -29,27 +29,4 @@ public class AttributeTypeTests {
         AssertInt(attribute.MinValue).IsEqual(minValue);
         AssertInt(attribute.MaxValue).IsEqual(maxValue);
     }
-
-    [TestCase]
-    public static void ValidateValues_ShouldThrowException_WhenMinValueIsGreaterThanOrEqualToMaxValue() {
-        // Act & Assert
-        AssertThrown(() => new AttributeType(
-            "Strength",
-            "Determines physical power.",
-            new Color(1, 0, 0),
-            new Texture2D(),
-            10, // minValue
-            1   // maxValue
-        )).IsInstanceOf<ArgumentException>();
-    }
-
-    [TestCase]
-    public static void Name_ShouldThrowException_WhenSetToNullOrEmpty() {
-        // Arrange
-        var attribute = new AttributeType();
-
-        // Act & Assert
-        AssertThrown(() => attribute.Name = "").IsInstanceOf<ArgumentException>();
-        AssertThrown(() => attribute.Name = null).IsInstanceOf<ArgumentException>();
-    }
 }

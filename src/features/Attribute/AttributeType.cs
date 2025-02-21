@@ -70,14 +70,13 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
     }
 
     public AttributeType(string name, string description, Color color, Texture2D icon, int minValue, int maxValue) {
-        ValidateConstructor();
-
         Name = name;
         Description = description;
         Color = color;
         Icon = icon;
         MinValue = minValue;
         MaxValue = maxValue;
+        ValidateConstructor();
     }
 
     public void ValidateConstructor() {

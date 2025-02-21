@@ -35,18 +35,6 @@ string? Description { get; set; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
-### <a id="DiceRolling_Actions_IActionInformation_Id"></a> Id
-
-Identificador único da ação.
-
-```csharp
-string Id { get; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
-
 ### <a id="DiceRolling_Actions_IActionInformation_Name"></a> Name
 
 Nome da ação.

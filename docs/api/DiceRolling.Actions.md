@@ -20,6 +20,8 @@ Interface que define os recursos visuais de uma ação no jogo.
 
 Interface que define o comportamento de uma ação no jogo.
 
+ [IActionCategory](DiceRolling.Actions.IActionCategory.md)
+
  [IActionContext](DiceRolling.Actions.IActionContext.md)
 
  [IActionInformation](DiceRolling.Actions.IActionInformation.md)

@@ -19,6 +19,8 @@
         href: DiceRolling.Actions.IActionAssets.md
       - name: IActionBehavior<TContext, TResult>
         href: DiceRolling.Actions.IActionBehavior-2.md
+      - name: IActionCategory
+        href: DiceRolling.Actions.IActionCategory.md
       - name: IActionContext
         href: DiceRolling.Actions.IActionContext.md
       - name: IActionInformation
@@ -82,6 +84,17 @@
       items:
       - name: CharacterType.AttributeChangedEventHandler
         href: DiceRolling.Characters.CharacterType.AttributeChangedEventHandler.md
+  - name: Common
+    href: DiceRolling.Common.md
+    items:
+    - name: Classes
+      items:
+      - name: IdentifiableResource
+        href: DiceRolling.Common.IdentifiableResource.md
+    - name: Interfaces
+      items:
+      - name: IIdentifiable
+        href: DiceRolling.Common.IIdentifiable.md
   - name: Components
     href: DiceRolling.Components.md
     items:
@@ -312,6 +325,15 @@
         href: DiceRolling.Roles.IRoleAttributes.md
       - name: IRoleInformation
         href: DiceRolling.Roles.IRoleInformation.md
+  - name: Services
+    href: DiceRolling.Services.md
+    items:
+    - name: Classes
+      items:
+      - name: EffectService
+        href: DiceRolling.Services.EffectService.md
+      - name: IdService
+        href: DiceRolling.Services.IdService.md
   - name: Stores
     href: DiceRolling.Stores.md
     items:

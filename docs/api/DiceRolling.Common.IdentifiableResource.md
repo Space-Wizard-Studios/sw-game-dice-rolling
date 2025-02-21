@@ -1,13 +1,12 @@
-# <a id="DiceRolling_Actions_ActionCategory"></a> Class ActionCategory
+# <a id="DiceRolling_Common_IdentifiableResource"></a> Class IdentifiableResource
 
-Namespace: [DiceRolling.Actions](DiceRolling.Actions.md)  
+Namespace: [DiceRolling.Common](DiceRolling.Common.md)  
 Assembly: dice\-rolling.dll  
 
 ```csharp
 [Tool]
-[GlobalClass]
-[ScriptPath("res://features/Action/ActionCategory.cs")]
-public class ActionCategory : IdentifiableResource, IDisposable, IIdentifiable, IActionCategory
+[ScriptPath("res://features/Common/IdentifiableResource.cs")]
+public abstract class IdentifiableResource : Resource, IDisposable, IIdentifiable
 ```
 
 #### Inheritance
@@ -16,22 +15,20 @@ public class ActionCategory : IdentifiableResource, IDisposable, IIdentifiable, 
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[IdentifiableResource](DiceRolling.Common.IdentifiableResource.md) ← 
-[ActionCategory](DiceRolling.Actions.ActionCategory.md)
+[IdentifiableResource](DiceRolling.Common.IdentifiableResource.md)
+
+#### Derived
+
+[ActionCategory](DiceRolling.Actions.ActionCategory.md), 
+[ActionType](DiceRolling.Actions.ActionType.md)
 
 #### Implements
 
 [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
-[IIdentifiable](DiceRolling.Common.IIdentifiable.md), 
-[IActionCategory](DiceRolling.Actions.IActionCategory.md)
+[IIdentifiable](DiceRolling.Common.IIdentifiable.md)
 
 #### Inherited Members
 
-[IdentifiableResource.Id](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_Id), 
-[IdentifiableResource.GenerateNewIdButton](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewIdButton), 
-[IdentifiableResource.GenerateNewId\(\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewId), 
-[IdentifiableResource.EnsureValidId\(\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_EnsureValidId), 
-[IdentifiableResource.\_ValidateProperty\(Dictionary\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_\_ValidateProperty\_Godot\_Collections\_Dictionary\_), 
 Resource.\_GetRid\(\), 
 Resource.\_ResetState\(\), 
 Resource.\_SetPathCache\(string\), 
@@ -155,94 +152,84 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
-## Constructors
+## Properties
 
-### <a id="DiceRolling_Actions_ActionCategory__ctor"></a> ActionCategory\(\)
+### <a id="DiceRolling_Common_IdentifiableResource_GenerateNewIdButton"></a> GenerateNewIdButton
 
 ```csharp
-public ActionCategory()
+[ExportToolButton("Generate Id")]
+public Callable GenerateNewIdButton { get; }
 ```
 
-### <a id="DiceRolling_Actions_ActionCategory__ctor_System_String_System_String_Godot_Texture2D_"></a> ActionCategory\(string, string, Texture2D\)
+#### Property Value
+
+ Callable
+
+### <a id="DiceRolling_Common_IdentifiableResource_Id"></a> Id
 
 ```csharp
-public ActionCategory(string name, string description, Texture2D icon)
+[ExportGroup("🆔 Identification", "")]
+[Export(PropertyHint.None, "")]
+public string Id { get; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+## Methods
+
+### <a id="DiceRolling_Common_IdentifiableResource_EnsureValidId"></a> EnsureValidId\(\)
+
+```csharp
+protected void EnsureValidId()
+```
+
+### <a id="DiceRolling_Common_IdentifiableResource_GenerateNewId"></a> GenerateNewId\(\)
+
+```csharp
+public void GenerateNewId()
+```
+
+### <a id="DiceRolling_Common_IdentifiableResource__ValidateProperty_Godot_Collections_Dictionary_"></a> \_ValidateProperty\(Dictionary\)
+
+<p>Override this method to customize existing properties. Every property info goes through this method, except properties added with <xref href="Godot.GodotObject._GetPropertyList" data-throw-if-not-resolved="false"></xref>. The dictionary contents is the same as in <xref href="Godot.GodotObject._GetPropertyList" data-throw-if-not-resolved="false"></xref>.</p>
+<p>
+  <pre><code class="lang-csharp">[Tool]
+  public partial class MyNode : Node
+  {
+      private bool _isNumberEditable;
+
+      [Export]
+      public bool IsNumberEditable
+      {
+          get => _isNumberEditable;
+          set
+          {
+              _isNumberEditable = value;
+              NotifyPropertyListChanged();
+          }
+      }
+
+      [Export]
+      public int Number { get; set; }
+
+      public override void _ValidateProperty(Godot.Collections.Dictionary property)
+      {
+          if (property["name"].AsStringName() == PropertyName.Number && !IsNumberEditable)
+          {
+              var usage = property["usage"].As<PropertyUsageFlags>() | PropertyUsageFlags.ReadOnly;
+              property["usage"] = (int)usage;
+          }
+      }
+  }</code></pre>
+</p>
+
+```csharp
+public override void _ValidateProperty(Dictionary property)
 ```
 
 #### Parameters
 
-`name` [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-`description` [string](https://learn.microsoft.com/dotnet/api/system.string)
-
-`icon` Texture2D
-
-## Properties
-
-### <a id="DiceRolling_Actions_ActionCategory_DefaultEffects"></a> DefaultEffects
-
-```csharp
-[Export(PropertyHint.None, "")]
-public Array<EffectType> DefaultEffects { get; set; }
-```
-
-#### Property Value
-
- Array<[EffectType](DiceRolling.Effects.EffectType.md)\>
-
-### <a id="DiceRolling_Actions_ActionCategory_DefaultRequiredMana"></a> DefaultRequiredMana
-
-```csharp
-[ExportGroup("🎭 Behavior", "")]
-[Export(PropertyHint.None, "")]
-public Array<DiceMana> DefaultRequiredMana { get; set; }
-```
-
-#### Property Value
-
- Array<[DiceMana](DiceRolling.Dice.DiceMana.md)\>
-
-### <a id="DiceRolling_Actions_ActionCategory_Description"></a> Description
-
-```csharp
-[Export(PropertyHint.MultilineText, "")]
-public string? Description { get; set; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
-### <a id="DiceRolling_Actions_ActionCategory_Icon"></a> Icon
-
-```csharp
-[Export(PropertyHint.None, "")]
-public Texture2D? Icon { get; set; }
-```
-
-#### Property Value
-
- Texture2D?
-
-### <a id="DiceRolling_Actions_ActionCategory_IconPath"></a> IconPath
-
-```csharp
-public string? IconPath { get; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
-
-### <a id="DiceRolling_Actions_ActionCategory_Name"></a> Name
-
-```csharp
-[ExportGroup("📝 Information", "")]
-[Export(PropertyHint.None, "")]
-public string? Name { get; set; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
+`property` Dictionary
 

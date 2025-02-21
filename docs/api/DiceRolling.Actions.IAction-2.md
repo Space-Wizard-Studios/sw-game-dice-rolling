@@ -6,7 +6,7 @@ Assembly: dice\-rolling.dll
 Interface que define uma ação completa no jogo.
 
 ```csharp
-public interface IAction<TContext, TResult> : IActionInformation, IActionAssets, IActionBehavior<TContext, TResult>
+public interface IAction<TContext, TResult> : IIdentifiable, IActionInformation, IActionAssets, IActionBehavior<TContext, TResult>
 ```
 
 #### Type Parameters
@@ -17,7 +17,40 @@ public interface IAction<TContext, TResult> : IActionInformation, IActionAssets,
 
 #### Implements
 
+[IIdentifiable](DiceRolling.Common.IIdentifiable.md), 
 [IActionInformation](DiceRolling.Actions.IActionInformation.md), 
 [IActionAssets](DiceRolling.Actions.IActionAssets.md), 
 [IActionBehavior<TContext, TResult\>](DiceRolling.Actions.IActionBehavior\-2.md)
+
+## Methods
+
+### <a id="DiceRolling_Actions_IAction_2_AddEffect_DiceRolling_Effects_EffectType_"></a> AddEffect\(EffectType\)
+
+```csharp
+void AddEffect(EffectType effect)
+```
+
+#### Parameters
+
+`effect` [EffectType](DiceRolling.Effects.EffectType.md)
+
+### <a id="DiceRolling_Actions_IAction_2_IsValid"></a> IsValid\(\)
+
+```csharp
+bool IsValid()
+```
+
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="DiceRolling_Actions_IAction_2_RemoveEffect_DiceRolling_Effects_EffectType_"></a> RemoveEffect\(EffectType\)
+
+```csharp
+void RemoveEffect(EffectType effect)
+```
+
+#### Parameters
+
+`effect` [EffectType](DiceRolling.Effects.EffectType.md)
 

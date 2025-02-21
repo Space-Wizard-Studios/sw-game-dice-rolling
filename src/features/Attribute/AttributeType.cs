@@ -81,9 +81,9 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
     }
 
     public void ValidateConstructor() {
-        // if (!ValidationService.ValidateName(Name)) {
-        //     throw new ArgumentException("Name cannot be null or whitespace");
-        // }
+        if (!ValidationService.ValidateName(Name)) {
+            throw new ArgumentException("Name cannot be null or whitespace");
+        }
 
         if (!ValidationService.ValidateMinMaxValues(MinValue, MaxValue)) {
             throw new ArgumentException("MinValue must be less than or equal to MaxValue");

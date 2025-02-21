@@ -1,12 +1,14 @@
 using Godot;
 using DiceRolling.Dice;
 using DiceRolling.Effects;
+using System;
 
 namespace DiceRolling.Actions;
 
 [Tool]
 [GlobalClass]
-public partial class ActionCategory : Resource {
+public partial class ActionCategory : Resource, IActionCategory {
+    [Export] public string Id { get; private set; } = Guid.NewGuid().ToString();
     [Export] public string? Name { get; set; }
     [Export(PropertyHint.MultilineText)] public string? Description { get; set; }
     private Texture2D? _icon;

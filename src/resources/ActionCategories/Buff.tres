@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ActionCategory" load_steps=5 format=3 uid="uid://c82rwp1352mje"]
+[gd_resource type="Resource" script_class="ActionCategory" load_steps=5 format=3 uid="uid://ct48lgxn53fl"]
 
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="1_n7rvy"]
 [ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="2_d4585"]
@@ -12,4 +12,5 @@ Description = "Debuff type description."
 Icon = ExtResource("3_15bin")
 DefaultRequiredMana = Array[ExtResource("2_d4585")]([])
 DefaultEffects = Array[ExtResource("1_n7rvy")]([])
+Id = "a69e85c7-6674-491e-981e-38a5cf596712"
 metadata/_custom_type_script = ExtResource("2_vy8np")

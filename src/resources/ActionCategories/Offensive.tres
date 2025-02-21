@@ -12,4 +12,5 @@ Description = "Offensive category description."
 Icon = ExtResource("3_hke1u")
 DefaultRequiredMana = Array[ExtResource("2_ymiqh")]([])
 DefaultEffects = Array[ExtResource("1_pe5ot")]([])
+Id = "150c7969-ce0b-4ddb-a048-5f15939f225a"
 metadata/_custom_type_script = ExtResource("4_ipviw")

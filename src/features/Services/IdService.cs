@@ -1,4 +1,5 @@
 using System;
+using Godot;
 
 namespace DiceRolling.Services;
 
@@ -8,7 +9,8 @@ public static class IdService {
     }
 
     public static void EnsureValidId(ref string id) {
-        if (string.IsNullOrEmpty(id)) {
+        if (ValidationService.ValidateId(id)) {
+            GD.PrintErr("Id is null, generating new Id");
             id = GenerateNewId();
         }
     }

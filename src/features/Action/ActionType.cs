@@ -12,7 +12,7 @@ namespace DiceRolling.Actions;
 [Tool]
 [GlobalClass]
 public partial class ActionType : IdentifiableResource, IAction<IActionContext, bool> {
-    private string? _name;
+    private string? _name = "Action";
     private Texture2D? _icon;
 
     [ExportGroup("📝 Information")]
@@ -70,6 +70,8 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
         Texture2D? icon = null,
         TargetConfiguration? targetConfiguration = null
     ) {
+        ValidateConstructor();
+
         Category = category;
         RequiredMana = requiredMana;
         Effects = effects;
@@ -77,7 +79,6 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
         Description = description;
         Icon = icon;
         TargetConfiguration = targetConfiguration;
-        ValidateConstructor();
     }
 
     public bool Do(IActionContext context) {

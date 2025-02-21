@@ -8,10 +8,10 @@ namespace DiceRolling.Attributes;
 [Tool]
 [GlobalClass]
 public partial class AttributeType : IdentifiableResource, IAttribute {
-    private string? _name;
+    private string? _name = "Attribute";
     private Texture2D? _icon;
-    private int _minValue = int.MinValue;
-    private int _maxValue = int.MaxValue;
+    private int _minValue = 0;
+    private int _maxValue = 1;
 
     [ExportGroup("📝 Information")]
 
@@ -70,13 +70,14 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
     }
 
     public AttributeType(string name, string description, Color color, Texture2D icon, int minValue, int maxValue) {
+        ValidateConstructor();
+
         Name = name;
         Description = description;
         Color = color;
         Icon = icon;
         MinValue = minValue;
         MaxValue = maxValue;
-        ValidateConstructor();
     }
 
     public void ValidateConstructor() {

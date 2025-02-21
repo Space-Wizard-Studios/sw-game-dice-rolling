@@ -10,7 +10,7 @@ namespace DiceRolling.Actions;
 [Tool]
 [GlobalClass]
 public partial class ActionCategory : IdentifiableResource, IActionCategory {
-    private string? _name;
+    private string? _name = "Action Category";
     private Texture2D? _icon;
 
     [ExportGroup("📝 Information")]

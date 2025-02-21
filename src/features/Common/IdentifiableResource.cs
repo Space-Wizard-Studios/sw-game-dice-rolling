@@ -10,8 +10,8 @@ public abstract partial class IdentifiableResource : Resource, IIdentifiable {
     [ExportToolButton("Generate Id")] public Callable GenerateNewIdButton => Callable.From(GenerateNewId);
 
     public IdentifiableResource() {
-        if (ValidationService.ValidateId(Id)) {
-            GD.PrintErr("Id is not valid. Generating new Id.");
+        if (!ValidationService.ValidateId(Id)) {
+            GD.PrintErr("Id inválido. Gerando novo Id.");
             Id = IdService.GenerateNewId();
         }
     }

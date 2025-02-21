@@ -5,11 +5,6 @@ namespace DiceRolling.Actions;
 /// </summary>
 public interface IActionInformation {
     /// <summary>
-    /// Identificador único da ação.
-    /// </summary>
-    string Id { get; }
-
-    /// <summary>
     /// Nome da ação.
     /// </summary>
     string? Name { get; set; }

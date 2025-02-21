@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ActionCategory" load_steps=5 format=3 uid="uid://dr76sufgv7u7n"]
+[gd_resource type="Resource" script_class="ActionCategory" load_steps=5 format=3 uid="uid://bt78ea1fdbgvx"]
 
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="1_see6q"]
 [ext_resource type="Script" uid="uid://c2h1r5hcgno4f" path="res://features/Action/ActionCategory.cs" id="2_2apeu"]
@@ -12,4 +12,5 @@ Description = "Buff type description."
 Icon = ExtResource("3_birs5")
 DefaultRequiredMana = Array[ExtResource("2_q4se0")]([])
 DefaultEffects = Array[ExtResource("1_see6q")]([])
+Id = "7a79664d-5d55-4a82-af70-19ba79f14406"
 metadata/_custom_type_script = ExtResource("2_2apeu")

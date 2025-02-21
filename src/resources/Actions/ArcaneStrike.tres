@@ -37,7 +37,6 @@ metadata/_custom_type_script = ExtResource("6_mxrco")
 
 [resource]
 script = ExtResource("7_wv8if")
-Id = "75ab151b-3832-4391-ab5b-77341639ec0e"
 Category = ExtResource("1_xi31x")
 Name = "Arcane Strike"
 Description = "Arcane Strike description."
@@ -45,4 +44,5 @@ Icon = ExtResource("4_icgfc")
 RequiredMana = Array[ExtResource("3_8r31q")]([ExtResource("4_n366w")])
 Effects = Array[ExtResource("2_n366w")]([])
 TargetConfiguration = SubResource("Resource_ioctg")
+Id = "75ab151b-3832-4391-ab5b-77341639ec0e"
 metadata/_custom_type_script = ExtResource("7_wv8if")

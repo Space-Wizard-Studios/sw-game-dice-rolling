@@ -38,7 +38,6 @@ metadata/_custom_type_script = ExtResource("7_33bh0")
 
 [resource]
 script = ExtResource("8_0ol17")
-Id = "1575f70b-f7b7-44e6-959c-3e0d347517a2"
 Category = ExtResource("1_s1o36")
 Name = "Cleave Attack"
 Description = "Cleave Attack description."
@@ -46,4 +45,5 @@ Icon = ExtResource("4_s1o36")
 RequiredMana = Array[ExtResource("5_yp8id")]([ExtResource("6_vbjrv")])
 Effects = Array[ExtResource("2_s1o36")]([ExtResource("3_vbjrv")])
 TargetConfiguration = SubResource("Resource_0t1nd")
+Id = "1575f70b-f7b7-44e6-959c-3e0d347517a2"
 metadata/_custom_type_script = ExtResource("8_0ol17")

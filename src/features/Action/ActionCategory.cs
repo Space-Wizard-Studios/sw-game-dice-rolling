@@ -9,8 +9,11 @@ namespace DiceRolling.Actions;
 [Tool]
 [GlobalClass]
 public partial class ActionCategory : IdentifiableResource, IActionCategory {
+    [ExportGroup("📝 Information")]
     [Export] public string? Name { get; set; }
     [Export(PropertyHint.MultilineText)] public string? Description { get; set; }
+
+    [ExportGroup("🪵 Assets")]
     private Texture2D? _icon;
     [Export]
     public Texture2D? Icon {
@@ -23,8 +26,10 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
         }
     }
     public string? IconPath { get; private set; }
-    [Export] public Godot.Collections.Array<DiceMana> DefaultRequiredMana { get; set; } = new Godot.Collections.Array<DiceMana>();
-    [Export] public Godot.Collections.Array<EffectType> DefaultEffects { get; set; } = new Godot.Collections.Array<EffectType>();
+
+    [ExportGroup("🎭 Behavior")]
+    [Export] public Godot.Collections.Array<DiceMana> DefaultRequiredMana { get; set; } = [];
+    [Export] public Godot.Collections.Array<EffectType> DefaultEffects { get; set; } = [];
 
     public ActionCategory() {
         EnsureValidId();

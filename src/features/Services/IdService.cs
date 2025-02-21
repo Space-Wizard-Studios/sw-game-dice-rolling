@@ -8,7 +8,7 @@ public static class IdService {
     }
 
     public static void EnsureValidId(ref string id) {
-        if (string.IsNullOrEmpty(id)) {
+        if (ValidationService.IsNullOrEmpty(id)) {
             id = GenerateNewId();
         }
     }

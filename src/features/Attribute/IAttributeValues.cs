@@ -1,5 +1,3 @@
-using System;
-
 namespace DiceRolling.Attributes;
 
 /// <summary>
@@ -17,12 +15,7 @@ public interface IAttributeValues {
     int MaxValue { get; }
 
     /// <summary>
-    /// Valida se os valores mínimo e máximo são consistentes.
+    /// Valida os valores do atributo.
     /// </summary>
-    /// <returns>true se MinValue é menor que MaxValue</returns>
-    void ValidateValues() {
-        if (MinValue >= MaxValue) {
-            throw new ArgumentException("MinValue must be less than MaxValue");
-        }
-    }
+    void ValidateValues();
 }

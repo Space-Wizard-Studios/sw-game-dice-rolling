@@ -15,5 +15,9 @@ public interface IAction<TContext, TResult> :
     bool IsValid();
     void AddEffect(EffectType effect);
     void RemoveEffect(EffectType effect);
+
+    /// <summary>
+    /// Valida os campos do resource.
+    /// </summary>
     void ValidateConstructor();
 }

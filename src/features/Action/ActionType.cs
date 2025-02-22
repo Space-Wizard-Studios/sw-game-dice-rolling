@@ -18,17 +18,18 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
     [ExportGroup("📝 Information")]
 
     [Export]
-    public ActionCategory? Category { get; set; }
-
-    [Export]
     public string Name {
         get => _name;
         set {
             if (ValidationService.ValidateName(value)) {
                 _name = value;
+                EmitChanged();
             }
         }
     }
+
+    [Export]
+    public ActionCategory? Category { get; set; }
 
     [Export(PropertyHint.MultilineText)]
     public string? Description { get; set; }
@@ -42,6 +43,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
             _icon = value;
             if (_icon is not null) {
                 IconPath = _icon.ResourcePath;
+                EmitChanged();
             }
         }
     }
@@ -71,12 +73,12 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
         TargetConfiguration? targetConfiguration
     ) {
         ValidateConstructor();
-        Category = category;
-        RequiredMana = requiredMana;
-        Effects = effects;
         Name = name;
+        Category = category;
         Description = description;
         Icon = icon;
+        RequiredMana = requiredMana;
+        Effects = effects;
         TargetConfiguration = targetConfiguration;
     }
 
@@ -106,7 +108,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
 
     public void ValidateConstructor() {
         if (!ValidationService.ValidateName(Name)) {
-            throw new ArgumentException("Name cannot be null or whitespace");
+            throw new ArgumentException("Invalid name", nameof(Name));
         }
     }
 }

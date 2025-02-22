@@ -14,6 +14,7 @@ public partial class DiceIcon : Resource {
             _icon = value;
             if (_icon is not null) {
                 Path = _icon.ResourcePath;
+                EmitChanged();
             }
         }
     }

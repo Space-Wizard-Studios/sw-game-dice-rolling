@@ -2,9 +2,8 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DiceRolling.Dice;
 
-namespace DiceRolling.Stores;
+namespace DiceRolling.Dice;
 
 public partial class DiceStore : Node {
     private static DiceStore? _instance;
@@ -15,20 +14,20 @@ public partial class DiceStore : Node {
         }
     }
 
-    public List<Dice<DiceSide>> DiceSet { get; private set; } = new List<Dice<DiceSide>>();
+    public List<DiceType> DiceSet { get; private set; } = [];
 
     private DiceStore() { }
 
-    public void AddDice(Dice<DiceSide> dice) {
+    public void AddDice(DiceType dice) {
         DiceSet.Add(dice);
     }
 
-    public Dice<DiceSide> GetDiceByID(string diceId) {
+    public DiceType GetDiceByID(string diceId) {
         var dice = DiceSet.FirstOrDefault(d => d.Id == diceId) ?? throw new Exception($"Dice with ID {diceId} not found");
         return dice;
     }
 
-    public void UpdateDiceByID(string diceId, Action<Dice<DiceSide>> updateFn) {
+    public void UpdateDiceByID(string diceId, Action<DiceType> updateFn) {
         var dice = GetDiceByID(diceId);
         updateFn(dice);
     }

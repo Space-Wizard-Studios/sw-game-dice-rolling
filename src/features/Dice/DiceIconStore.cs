@@ -3,7 +3,7 @@ using Godot;
 namespace DiceRolling.Dice;
 
 [Tool]
-public partial class DiceIconsResources : Resource {
+public partial class DiceIconStore : Resource {
     [Export]
     public Godot.Collections.Array<DiceIcon> DiceIcons { get; set; } = [];
 

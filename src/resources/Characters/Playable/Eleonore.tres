@@ -124,17 +124,16 @@ animations = [{
 
 [resource]
 script = ExtResource("12_3r4ke")
-Id = "4ea655f0-4c3e-4fba-bafe-fe361e68db9e"
 Name = "Eleonore"
-Role = ExtResource("15_lr1s2")
-Attributes = Array[ExtResource("4_64jpy")]([SubResource("Resource_ikwiv"), SubResource("Resource_o11qe"), SubResource("Resource_n00fg")])
-Actions = Array[ExtResource("1_tc7ll")]([SubResource("Resource_22cqr"), SubResource("Resource_o4pav")])
-DiceCapacity = 0
-Location = ExtResource("13_oe1pm")
-SlotIndex = 2
 Portrait = ExtResource("8_o4pav")
 CharacterSprite = ExtResource("6_ae1so")
 ShadowSprite = SubResource("SpriteFrames_o11qe")
 ShowShadow = false
 SpritePositionX = 0.0
 SpritePositionY = 0.0
+Role = ExtResource("15_lr1s2")
+Attributes = Array[ExtResource("4_64jpy")]([SubResource("Resource_ikwiv"), SubResource("Resource_o11qe"), SubResource("Resource_n00fg")])
+Actions = Array[ExtResource("1_tc7ll")]([SubResource("Resource_22cqr"), SubResource("Resource_o4pav")])
+Location = ExtResource("13_oe1pm")
+SlotIndex = 2
+Id = "4ea655f0-4c3e-4fba-bafe-fe361e68db9e"

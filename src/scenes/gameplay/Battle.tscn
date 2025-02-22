@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://jc3rfy1j13nu" path="res://features/Battle/BattleManager.cs" id="1_oeh3a"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="2_cgh0m"]
 [ext_resource type="PackedScene" uid="uid://c22tpnmaefgn4" path="res://scenes/components/HUDComponent/HUDComponent.tscn" id="2_k1t2d"]
+[ext_resource type="Resource" uid="uid://c2kwm5yc5tren" path="res://resources/Characters/PrototypeCharacterStore.tres" id="5_6v2rn"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://features/Grid/GridType.cs" id="6_6v2rn"]
 [ext_resource type="Resource" uid="uid://d22hmntd0rfq2" path="res://resources/Characters/EnemyCharacterStore.tres" id="7_6v2rn"]
 [ext_resource type="Texture2D" uid="uid://byujdpnhcw2vd" path="res://assets/prototype/Dark/texture_01.png" id="8_vpfel"]
-[ext_resource type="Resource" uid="uid://snt34yslyn4f" path="res://resources/Characters/PlayerCharacterStore.tres" id="9_eybki"]
 [ext_resource type="PackedScene" uid="uid://dmw0cm136sn4p" path="res://scenes/components/CharacterGrid/CharacterGrid.tscn" id="10_hsrxk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vpfel"]
@@ -29,7 +29,7 @@ glow_enabled = true
 script = ExtResource("6_6v2rn")
 Prefix = "P"
 Offset = 0
-CharacterStore = ExtResource("9_eybki")
+CharacterStore = ExtResource("5_6v2rn")
 Direction = 0
 Rows = 2
 Columns = 3
@@ -2722,7 +2722,8 @@ shadow_opacity = 0.6
 shadow_blur = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.766045, 0.642787, 0, -0.642787, 0.766045, 0, 3, 2.5)
+transform = Transform3D(1, 0, 0, 0, 0.766045, 0.642787, 0, -0.642787, 0.766045, 0, 4, 4)
+fov = 60.0
 
 [node name="CharacterGrid3D" parent="." instance=ExtResource("10_hsrxk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
@@ -2731,6 +2732,5 @@ CellPadding = 0.25
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, -0.05, 0)
-visible = false
 material_override = SubResource("StandardMaterial3D_hsrxk")
 mesh = SubResource("BoxMesh_eybki")

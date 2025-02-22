@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterStore" load_steps=9 format=3 uid="uid://c2kwm5yc5tren"]
+
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://features/Character/CharacterType.cs" id="1_v0fyq"]
+[ext_resource type="Resource" uid="uid://l20ha7x48irc" path="res://resources/@spacewiz/characters/prototype/PrototypeCharacter.tres" id="2_xw31c"]
+[ext_resource type="Resource" uid="uid://ce3d2vbkba3h1" path="res://resources/@spacewiz/characters/prototype/PrototypeCharacter1.tres" id="3_8olun"]
+[ext_resource type="Resource" uid="uid://cj7ry30kkf0sv" path="res://resources/@spacewiz/characters/prototype/PrototypeCharacter2.tres" id="4_u2ke0"]
+[ext_resource type="Resource" uid="uid://cxsguj20uebjc" path="res://resources/@spacewiz/characters/prototype/PrototypeCharacter3.tres" id="5_qjqs3"]
+[ext_resource type="Resource" uid="uid://kpig8v4nsm5u" path="res://resources/@spacewiz/characters/prototype/PrototypeCharacter4.tres" id="6_f8a0p"]
+[ext_resource type="Resource" uid="uid://dl46dfixsatm4" path="res://resources/@spacewiz/characters/prototype/PrototypeCharacter5.tres" id="7_4wfr8"]
+[ext_resource type="Script" uid="uid://c0ludr6rojb3c" path="res://features/Character/CharacterStore.cs" id="8_imv3m"]
+
+[resource]
+script = ExtResource("8_imv3m")
+Characters = Array[ExtResource("1_v0fyq")]([ExtResource("2_xw31c"), ExtResource("3_8olun"), ExtResource("4_u2ke0"), ExtResource("5_qjqs3"), ExtResource("6_f8a0p"), ExtResource("7_4wfr8")])

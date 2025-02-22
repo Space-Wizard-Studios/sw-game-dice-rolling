@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="CharacterStore" load_steps=3 format=3 uid="uid://snt34yslyn4f"]
+[gd_resource type="Resource" script_class="CharacterStore" load_steps=5 format=3 uid="uid://snt34yslyn4f"]
 
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://features/Character/CharacterType.cs" id="1_i0bvh"]
+[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://resources/Characters/Playable/Eleonore.tres" id="2_oxbo1"]
+[ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://resources/Characters/Playable/Joanna.tres" id="3_2yhi7"]
 [ext_resource type="Script" uid="uid://c0ludr6rojb3c" path="res://features/Character/CharacterStore.cs" id="10_xofbh"]
 
 [resource]
 script = ExtResource("10_xofbh")
-Characters = Array[ExtResource("1_i0bvh")]([])
+Characters = Array[ExtResource("1_i0bvh")]([ExtResource("2_oxbo1"), ExtResource("3_2yhi7")])

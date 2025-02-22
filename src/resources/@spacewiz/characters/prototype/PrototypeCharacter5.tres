@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="CharacterType" load_steps=16 format=3 uid="uid://dl46dfixsatm4"]
+
+[ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://features/Character/CharacterAction.cs" id="1_30g42"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="2_geoee"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="3_pqmx4"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://features/Character/CharacterAttribute.cs" id="4_tgqk0"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="5_wbhr0"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="6_y1l8w"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="7_reofa"]
+[ext_resource type="SpriteFrames" uid="uid://csay5l070pshe" path="res://assets/@spacewiz/characters/prototype/prototypeCharacterSprites.tres" id="8_3a1oy"]
+[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://resources/Locations/PlayerSquad.tres" id="9_mo5ss"]
+[ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://resources/Roles/Playable/Fighter.tres" id="10_quc6r"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://features/Character/CharacterType.cs" id="11_1i7ty"]
+
+[sub_resource type="Resource" id="Resource_xumvl"]
+script = ExtResource("1_30g42")
+Name = "Quick Slash"
+Description = "Quick Slash description."
+RequiredMana = Array[ExtResource("3_pqmx4")]([])
+Effects = Array[ExtResource("2_geoee")]([])
+
+[sub_resource type="Resource" id="Resource_4p1nt"]
+script = ExtResource("4_tgqk0")
+Type = ExtResource("5_wbhr0")
+MaxValue = 80
+CurrentValue = 80
+BaseValue = 80
+
+[sub_resource type="Resource" id="Resource_ebahj"]
+script = ExtResource("4_tgqk0")
+Type = ExtResource("6_y1l8w")
+MaxValue = 50
+CurrentValue = 50
+BaseValue = 50
+
+[sub_resource type="Resource" id="Resource_b3bio"]
+script = ExtResource("4_tgqk0")
+Type = ExtResource("7_reofa")
+MaxValue = 20
+CurrentValue = 20
+BaseValue = 20
+
+[resource]
+script = ExtResource("11_1i7ty")
+Name = "Prototype"
+CharacterSprite = ExtResource("8_3a1oy")
+ShowShadow = false
+SpritePositionX = 0.0
+SpritePositionY = -0.038
+Role = ExtResource("10_quc6r")
+Attributes = Array[ExtResource("4_tgqk0")]([SubResource("Resource_4p1nt"), SubResource("Resource_ebahj"), SubResource("Resource_b3bio")])
+Actions = Array[ExtResource("1_30g42")]([SubResource("Resource_xumvl")])
+Location = ExtResource("9_mo5ss")
+SlotIndex = 5
+Id = "d98ec50f-3df3-47e6-b266-cbc7b8fbb745"

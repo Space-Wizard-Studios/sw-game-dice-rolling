@@ -52,10 +52,10 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
     [ExportGroup("🎭 Behavior")]
 
     [Export]
-    public Godot.Collections.Array<DiceMana> RequiredMana { get; set; } = new Godot.Collections.Array<DiceMana>();
+    public Godot.Collections.Array<DiceEnergy> RequiredEnergy { get; set; } = [];
 
     [Export]
-    public Godot.Collections.Array<EffectType> Effects { get; set; } = new Godot.Collections.Array<EffectType>();
+    public Godot.Collections.Array<EffectType> Effects { get; set; } = [];
 
     [Export]
     public TargetConfiguration? TargetConfiguration { get; set; }
@@ -65,7 +65,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
 
     public ActionType(
         ActionCategory category,
-        Godot.Collections.Array<DiceMana> requiredMana,
+        Godot.Collections.Array<DiceEnergy> requiredEnergy,
         Godot.Collections.Array<EffectType> effects,
         string name,
         string? description,
@@ -77,7 +77,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
         Category = category;
         Description = description;
         Icon = icon;
-        RequiredMana = requiredMana;
+        RequiredEnergy = requiredEnergy;
         Effects = effects;
         TargetConfiguration = targetConfiguration;
     }
@@ -91,7 +91,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
     public bool IsValid() {
         return !string.IsNullOrEmpty(Id) &&
                Category != null &&
-               RequiredMana.Count > 0 &&
+               RequiredEnergy.Count > 0 &&
                Effects.Count > 0 &&
                TargetConfiguration != null;
     }

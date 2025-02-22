@@ -47,7 +47,7 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
     [ExportGroup("🎭 Behavior")]
 
     [Export]
-    public Godot.Collections.Array<DiceMana> DefaultRequiredMana { get; set; } = [];
+    public Godot.Collections.Array<DiceEnergy> DefaultRequiredEnergy { get; set; } = [];
 
     [Export]
     public Godot.Collections.Array<EffectType> DefaultEffects { get; set; } = [];

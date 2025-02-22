@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="CharacterType" load_steps=30 format=3 uid="uid://clrt1eby68x42"]
+[gd_resource type="Resource" script_class="CharacterType" load_steps=29 format=3 uid="uid://clrt1eby68x42"]
 
 [ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://features/Character/CharacterAction.cs" id="1_tc7ll"]
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="2_12jxm"]
-[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="2_41ap2"]
-[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Dice/Mana/ManaRed.tres" id="3_12jxm"]
+[ext_resource type="Script" path="res://features/Dice/DiceEnergy.cs" id="3_tc7ll"]
 [ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://features/Character/CharacterAttribute.cs" id="4_64jpy"]
 [ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="6_ae1so"]
 [ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="8_o4pav"]
@@ -18,14 +17,14 @@
 script = ExtResource("1_tc7ll")
 Name = "Magic Missiles"
 Description = "Magic Missiles description."
-RequiredMana = Array[ExtResource("2_41ap2")]([ExtResource("3_12jxm")])
+RequiredEnergy = Array[ExtResource("3_tc7ll")]([])
 Effects = Array[ExtResource("2_12jxm")]([])
 
 [sub_resource type="Resource" id="Resource_o4pav"]
 script = ExtResource("1_tc7ll")
 Name = "Arcane Strike"
 Description = "Arcane Strike description."
-RequiredMana = Array[ExtResource("2_41ap2")]([ExtResource("3_12jxm")])
+RequiredEnergy = Array[ExtResource("3_tc7ll")]([])
 Effects = Array[ExtResource("2_12jxm")]([])
 
 [sub_resource type="Resource" id="Resource_ikwiv"]

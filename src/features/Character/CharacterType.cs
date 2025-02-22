@@ -33,6 +33,7 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
         set {
             if (ValidationService.ValidateName(value)) {
                 _name = value;
+                EmitChanged();
             }
         }
     }

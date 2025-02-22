@@ -1,53 +1,14 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using DiceRolling.Stores;
-using DiceRolling.Roles;
-using DiceRolling.Characters;
+
 using DiceRolling.Logs;
 
 namespace DiceRolling.Battle;
 
 public partial class BattleManager : Node3D {
-    // [Export]
-    // public PackedScene? GameLogScene { get; set; }
-
-    // [Export]
-    // public DiceManaResources? DiceManaResources { get; set; }
-
     public override void _Ready() {
-        // Run character tests
-        RunCharacterTests();
-
-        // Run game log tests
         RunGameLogTests();
-
-        // Run dice tests
-        // RunDiceTests();
-    }
-
-    private static void RunCharacterTests() {
-        var newCharacter = new CharacterType {
-            Id = Guid.NewGuid().ToString(),
-            Name = "Hero",
-            Role = new RoleType { Name = "Warrior" },
-            DiceCapacity = 3
-        };
-
-        CharacterStore.Instance.AddCharacter(newCharacter);
-
-        var characterIds = CharacterStore.Instance.GetAllCharacterIds();
-        // GD.Print("Character count: ", CharacterStore.Instance.Characters.Count);
-        // GD.Print("Character IDs: ", string.Join(", ", characterIds));
-        // GD.Print("Character name: ", CharacterStore.Instance.GetCharacterById(characterIds[0]).Name);
-        var character = CharacterStore.Instance.GetCharacterById(characterIds[0]);
-        if (character?.Role is not null) {
-            // GD.Print("Character role: ", character.Role.Name);
-        }
-        else {
-            // GD.Print("Character role: null");
-        }
-        // GD.Print("Character dice capacity: ", CharacterStore.Instance.GetCharacterById(characterIds[0]).DiceCapacity);
     }
 
     // TODO - MOVER A LÓGICA DE LOG MESSAGES PARA O EVENT BUS

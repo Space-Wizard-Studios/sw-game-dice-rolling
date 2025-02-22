@@ -10,7 +10,7 @@ public interface IActionCategory : IIdentifiable {
     string? Description { get; set; }
     Texture2D? Icon { get; set; }
     string? IconPath { get; }
-    Godot.Collections.Array<DiceMana> DefaultRequiredMana { get; set; }
+    Godot.Collections.Array<DiceEnergy> DefaultRequiredEnergy { get; set; }
     Godot.Collections.Array<EffectType> DefaultEffects { get; set; }
     void ValidateConstructor();
 }

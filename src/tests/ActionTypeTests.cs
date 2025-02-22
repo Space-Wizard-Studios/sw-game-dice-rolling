@@ -15,7 +15,7 @@ public class ActionTypeTests {
     public static void Constructor_ShouldInitializeProperties() {
         // Arrange
         var category = new ActionCategory();
-        var requiredMana = new Godot.Collections.Array<DiceMana> { new() };
+        var RequiredEnergy = new Godot.Collections.Array<DiceEnergy> { new DiceEnergy("EnergyName", "EnergyDescription", new Color(1, 1, 1), new Color(0, 0, 0), new Texture2D()) };
         var effects = new Godot.Collections.Array<EffectType> { new DamageEffect() };
         var name = "Fireball";
         var description = "A powerful fire attack.";
@@ -23,11 +23,11 @@ public class ActionTypeTests {
         var targetConfiguration = new TargetConfiguration();
 
         // Act
-        var action = new ActionType(category, requiredMana, effects, name, description, icon, targetConfiguration);
+        var action = new ActionType(category, RequiredEnergy, effects, name, description, icon, targetConfiguration);
 
         // Assert
         AssertObject(action.Category).IsEqual(category);
-        AssertObject(action.RequiredMana).IsEqual(requiredMana);
+        AssertObject(action.RequiredEnergy).IsEqual(RequiredEnergy);
         AssertObject(action.Effects).IsEqual(effects);
         AssertString(action.Name).IsEqual(name);
         AssertString(action.Description).IsEqual(description);
@@ -39,10 +39,10 @@ public class ActionTypeTests {
     public static void IsValid_ShouldReturnTrue_WhenAllPropertiesAreValid() {
         // Arrange
         var category = new ActionCategory();
-        var requiredMana = new Godot.Collections.Array<DiceMana> { new DiceMana() };
+        var RequiredEnergy = new Godot.Collections.Array<DiceEnergy> { new DiceEnergy("EnergyName", "EnergyDescription", new Color(1, 1, 1), new Color(0, 0, 0), new Texture2D()) };
         var effects = new Godot.Collections.Array<EffectType> { new DamageEffect() };
         var targetConfiguration = new TargetConfiguration();
-        var action = new ActionType(category, requiredMana, effects, "Fireball", "A powerful fire attack.", new Texture2D(), targetConfiguration);
+        var action = new ActionType(category, RequiredEnergy, effects, "Fireball", "A powerful fire attack.", new Texture2D(), targetConfiguration);
 
         // Act
         var isValid = action.IsValid();
@@ -55,12 +55,12 @@ public class ActionTypeTests {
     public static void Constructor_ShouldThrowException_WhenNameIsInvalid() {
         // Arrange
         var category = new ActionCategory();
-        var requiredMana = new Godot.Collections.Array<DiceMana> { new() };
+        var RequiredEnergy = new Godot.Collections.Array<DiceEnergy> { new DiceEnergy("EnergyName", "EnergyDescription", new Color(1, 1, 1), new Color(0, 0, 0), new Texture2D()) };
         var effects = new Godot.Collections.Array<EffectType> { new DamageEffect() };
         var targetConfiguration = new TargetConfiguration();
 
         // Act & Assert
-        AssertThrown(() => new ActionType(category, requiredMana, effects, "", "A powerful fire attack.", new Texture2D(), targetConfiguration))
+        AssertThrown(() => new ActionType(category, RequiredEnergy, effects, "", "A powerful fire attack.", new Texture2D(), targetConfiguration))
             .IsInstanceOf<ArgumentException>();
     }
 }

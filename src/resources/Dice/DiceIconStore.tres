@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=9 format=3 uid="uid://brnsqgtvg2ttv"]
+
+[ext_resource type="Script" uid="uid://sahbsessjuyw" path="res://features/Dice/DiceIcons/DiceIcon.cs" id="1_us74m"]
+[ext_resource type="Resource" uid="uid://s8serfaeaqbw" path="res://resources/Dice/Icons/DiceIconD4.tres" id="1_v5rg5"]
+[ext_resource type="Resource" uid="uid://c4no8xkxk78sb" path="res://resources/Dice/Icons/DiceIconD6.tres" id="2_arn78"]
+[ext_resource type="Resource" uid="uid://c5klaa3cprv8n" path="res://resources/Dice/Icons/DiceIconD8.tres" id="3_q7fig"]
+[ext_resource type="Resource" uid="uid://d3yefsxux40r" path="res://resources/Dice/Icons/DiceIconD10.tres" id="4_ldo3q"]
+[ext_resource type="Resource" uid="uid://cve8x85oec2k" path="res://resources/Dice/Icons/DiceIconD20.tres" id="5_5xy1a"]
+[ext_resource type="Resource" uid="uid://b74vrqn7d8gvt" path="res://resources/Dice/Icons/DiceIconD100.tres" id="6_8rc3v"]
+[ext_resource type="Script" uid="uid://b1g6kvl4q2hrn" path="res://features/Dice/DiceIcons/DiceIconStore.cs" id="7_r1ldi"]
+
+[resource]
+script = ExtResource("7_r1ldi")
+DiceIcons = Array[ExtResource("1_us74m")]([ExtResource("1_v5rg5"), ExtResource("2_arn78"), ExtResource("3_q7fig"), ExtResource("4_ldo3q"), ExtResource("5_5xy1a"), ExtResource("6_8rc3v")])

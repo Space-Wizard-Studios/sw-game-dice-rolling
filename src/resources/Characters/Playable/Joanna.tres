@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CharacterType" load_steps=17 format=3 uid="uid://bkolttux1bvi1"]
 
 [ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://features/Character/CharacterAction.cs" id="1_3db36"]
-[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="2_1cidu"]
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="2_dd155"]
+[ext_resource type="Script" path="res://features/Dice/DiceEnergy.cs" id="3_1cidu"]
 [ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://features/Character/CharacterAttribute.cs" id="3_dd155"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="6_keqlw"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="7_x4r4p"]
@@ -17,7 +17,7 @@
 script = ExtResource("1_3db36")
 Name = "Quick Slash"
 Description = "Quick Slash description."
-RequiredMana = Array[ExtResource("2_1cidu")]([])
+RequiredEnergy = Array[ExtResource("3_1cidu")]([])
 Effects = Array[ExtResource("2_dd155")]([])
 
 [sub_resource type="Resource" id="Resource_4p1nt"]

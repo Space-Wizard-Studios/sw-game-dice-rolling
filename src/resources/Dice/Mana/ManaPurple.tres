@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="DiceMana" load_steps=3 format=3 uid="uid://durkekx3qanwb"]
+[gd_resource type="Resource" script_class="DiceEnergy" load_steps=3 format=3 uid="uid://durkekx3qanwb"]
 
 [ext_resource type="Texture2D" uid="uid://7edt57k6ta68" path="res://assets/icons/diceMana/drop.png" id="1_7goys"]
-[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="2_ixep7"]
+[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://features/Dice/DiceEnergy.cs" id="2_ixep7"]
 
 [resource]
 script = ExtResource("2_ixep7")

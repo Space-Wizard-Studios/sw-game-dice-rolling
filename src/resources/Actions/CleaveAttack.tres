@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="2_s1o36"]
 [ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://resources/Actions/Effects/DamageEffect.tres" id="3_vbjrv"]
 [ext_resource type="Texture2D" uid="uid://fmaq315605ce" path="res://assets/icons/actions/wide_cleave.png" id="4_s1o36"]
-[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="5_yp8id"]
+[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceEnergy/DiceEnergy.cs" id="5_yp8id"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://features/Grid/GridType.cs" id="6_hc3lu"]
 [ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Dice/Mana/ManaRed.tres" id="6_vbjrv"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://features/Target/TargetConfiguration.cs" id="7_33bh0"]
@@ -42,7 +42,7 @@ Category = ExtResource("1_s1o36")
 Name = "Cleave Attack"
 Description = "Cleave Attack description."
 Icon = ExtResource("4_s1o36")
-RequiredMana = Array[ExtResource("5_yp8id")]([ExtResource("6_vbjrv")])
+RequiredEnergy = Array[ExtResource("5_yp8id")]([ExtResource("6_vbjrv")])
 Effects = Array[ExtResource("2_s1o36")]([ExtResource("3_vbjrv")])
 TargetConfiguration = SubResource("Resource_0t1nd")
 Id = "1575f70b-f7b7-44e6-959c-3e0d347517a2"

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cdxlq2asqls6i" path="res://features/Character/CharacterAction.cs" id="1_a5321"]
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="2_jitv3"]
-[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="2_q3voi"]
 [ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://features/Character/CharacterAttribute.cs" id="3_jitv3"]
+[ext_resource type="Script" path="res://features/Dice/DiceEnergy.cs" id="3_q3voi"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="6_51345"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="7_k882b"]
 [ext_resource type="SpriteFrames" uid="uid://bkvhu7v1tmcfy" path="res://assets/characters/dummyOtsoga/DummyOtsogaSprites.tres" id="8_hri2t"]
@@ -15,7 +15,7 @@
 script = ExtResource("1_a5321")
 Name = "Stare"
 Description = "Stare at the nothingess of life."
-RequiredMana = Array[ExtResource("2_q3voi")]([])
+RequiredEnergy = Array[ExtResource("3_q3voi")]([])
 Effects = Array[ExtResource("2_jitv3")]([])
 
 [sub_resource type="Resource" id="Resource_1x1o8"]
@@ -34,16 +34,15 @@ BaseValue = 999
 
 [resource]
 script = ExtResource("9_h44vk")
-Id = "a98288c9-8795-4e16-801f-5fed51abd905"
 Name = "Dummy"
-Role = ExtResource("10_qjudm")
-Attributes = Array[ExtResource("3_jitv3")]([SubResource("Resource_1x1o8"), SubResource("Resource_8x7bf")])
-Actions = Array[ExtResource("1_a5321")]([SubResource("Resource_o20ld")])
-DiceCapacity = 0
-Location = ExtResource("9_prwnd")
-SlotIndex = 0
 CharacterSprite = ExtResource("8_hri2t")
 ShowShadow = false
 SpritePositionX = 0.0
 SpritePositionY = 0.0
+Role = ExtResource("10_qjudm")
+Attributes = Array[ExtResource("3_jitv3")]([SubResource("Resource_1x1o8"), SubResource("Resource_8x7bf")])
+Actions = Array[ExtResource("1_a5321")]([SubResource("Resource_o20ld")])
+Location = ExtResource("9_prwnd")
+SlotIndex = 0
+Id = "a98288c9-8795-4e16-801f-5fed51abd905"
 metadata/_custom_type_script = ExtResource("9_h44vk")

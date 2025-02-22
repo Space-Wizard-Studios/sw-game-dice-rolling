@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_vy8np")
-Name = "Debuff"
+Name = "Buff"
 Description = "Debuff type description."
 Icon = ExtResource("3_15bin")
 DefaultRequiredEnergy = Array[ExtResource("2_d4585")]([])

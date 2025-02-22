@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("2_2apeu")
 Name = "Debuff"
-Description = "Buff type description."
+Description = "Debuff type description."
 Icon = ExtResource("3_birs5")
 DefaultRequiredEnergy = Array[ExtResource("2_q4se0")]([])
 DefaultEffects = Array[ExtResource("1_see6q")]([])

@@ -10,7 +10,7 @@ namespace DiceRolling.Actions;
 /// </summary>
 public interface IActionBehavior<TContext, TResult> {
     /// <summary>
-    /// Mana necessária para executar a ação.
+    /// Energia necessária para executar a ação.
     /// </summary>
     Array<DiceEnergy> RequiredEnergy { get; set; }
 

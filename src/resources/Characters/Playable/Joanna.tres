@@ -43,16 +43,15 @@ BaseValue = 20
 
 [resource]
 script = ExtResource("11_x4r4p")
-Id = "d98ec50f-3df3-47e6-b266-cbc7b8fbb745"
 Name = "Joanna"
-Role = ExtResource("13_7jom8")
-Attributes = Array[ExtResource("3_dd155")]([SubResource("Resource_4p1nt"), SubResource("Resource_ebahj"), SubResource("Resource_b3bio")])
-Actions = Array[ExtResource("1_3db36")]([SubResource("Resource_xumvl")])
-DiceCapacity = 0
-Location = ExtResource("11_vsqsd")
-SlotIndex = 5
 Portrait = ExtResource("8_focbd")
 CharacterSprite = ExtResource("6_keqlw")
 ShowShadow = false
 SpritePositionX = 0.0
 SpritePositionY = -0.167
+Role = ExtResource("13_7jom8")
+Attributes = Array[ExtResource("3_dd155")]([SubResource("Resource_4p1nt"), SubResource("Resource_ebahj"), SubResource("Resource_b3bio")])
+Actions = Array[ExtResource("1_3db36")]([SubResource("Resource_xumvl")])
+Location = ExtResource("11_vsqsd")
+SlotIndex = 5
+Id = "d98ec50f-3df3-47e6-b266-cbc7b8fbb745"

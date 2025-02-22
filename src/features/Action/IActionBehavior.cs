@@ -10,14 +10,14 @@ namespace DiceRolling.Actions;
 /// </summary>
 public interface IActionBehavior<TContext, TResult> {
     /// <summary>
-    /// Efeitos da ação.
-    /// </summary>
-    Array<EffectType> Effects { get; set; }
-
-    /// <summary>
     /// Mana necessária para executar a ação.
     /// </summary>
     Array<DiceMana> RequiredMana { get; set; }
+
+    /// <summary>
+    /// Efeitos da ação.
+    /// </summary>
+    Array<EffectType> Effects { get; set; }
 
     /// <summary>
     /// Configuração de alvo da ação.

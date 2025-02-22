@@ -21,6 +21,7 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
         set {
             if (ValidationService.ValidateName(value)) {
                 _name = value;
+                EmitChanged();
             }
         }
     }
@@ -37,6 +38,7 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
             _icon = value;
             if (_icon is not null) {
                 IconPath = _icon.ResourcePath;
+                EmitChanged();
             }
         }
     }

@@ -36,8 +36,8 @@ metadata/_custom_type_script = ExtResource("5_2x0xn")
 
 [resource]
 script = ExtResource("6_i6kiq")
-Category = ExtResource("1_f256u")
 Name = "Stare"
+Category = ExtResource("1_f256u")
 Description = "Stare at the nothingess of life."
 Icon = ExtResource("3_i6kiq")
 RequiredMana = Array[ExtResource("3_uj4vt")]([])

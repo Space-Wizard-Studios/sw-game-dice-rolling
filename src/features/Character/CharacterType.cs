@@ -1,47 +1,59 @@
 using Godot;
 using System;
 using System.Linq;
+using System.Collections.Generic;
+
 using DiceRolling.Roles;
 using DiceRolling.Attributes;
 using DiceRolling.Locations;
+using DiceRolling.Common;
+using DiceRolling.Services;
 
 namespace DiceRolling.Characters;
 
 [Tool]
 [GlobalClass]
-public partial class CharacterType : Resource, ICharacter {
+public partial class CharacterType : IdentifiableResource, ICharacter {
+    private string _name = "Character_" + Guid.NewGuid().ToString("N");
+    private float _spritePositionX;
+    private float _spritePositionY;
+    private readonly CharacterService _characterService;
+    private RoleType? _role;
+    private readonly Dictionary<AttributeType, int> _attributeCurrentValueCache = new Dictionary<AttributeType, int>();
+    private readonly Dictionary<AttributeType, int> _attributeMaxValueCache = new Dictionary<AttributeType, int>();
+    private readonly Dictionary<AttributeType, int> _attributeBaseValueCache = new Dictionary<AttributeType, int>();
+
     [Signal] public delegate void AttributeChangedEventHandler(CharacterType character, AttributeType attributeType);
 
-    [ExportGroup("🦸 Character")]
-    [Export] public string Id { get; set; } = Guid.NewGuid().ToString();
-    [Export] public string? Name { get; set; }
-    [Export] public CharacterCategory? Category { get; set; }
-    private RoleType? _role;
+    [ExportGroup("📝 Information")]
+
     [Export]
-    public RoleType? Role {
-        get => _role;
+    public string Name {
+        get => _name;
         set {
-            _role = value;
-            EmitChanged();
-            InitializeAttributes();
-            InitializeActions();
+            if (ValidationService.ValidateName(value)) {
+                _name = value;
+            }
         }
     }
-    [Export] public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = [];
-    [Export] public Godot.Collections.Array<CharacterAction> Actions { get; private set; } = [];
 
-    [Export] public int DiceCapacity { get; set; } = 0;
+    [Export]
+    public CharacterCategory? Category { get; set; }
 
-    [ExportGroup("📍 Character Location")]
-    [Export] public LocationType? Location { get; set; }
-    [Export] public int SlotIndex { get; set; } = -1;
+    [ExportGroup("🪵 Assets")]
 
-    [ExportGroup("🪵 Resources")]
-    [Export] public Texture2D? Portrait { get; set; }
-    [Export] public SpriteFrames? CharacterSprite { get; set; }
-    [Export] public SpriteFrames? ShadowSprite { get; set; }
-    [Export] public bool ShowShadow { get; set; }
-    private float _spritePositionX;
+    [Export]
+    public Texture2D? Portrait { get; set; }
+
+    [Export]
+    public SpriteFrames? CharacterSprite { get; set; }
+
+    [Export]
+    public SpriteFrames? ShadowSprite { get; set; }
+
+    [Export]
+    public bool ShowShadow { get; set; }
+
     [Export]
     public float SpritePositionX {
         get => _spritePositionX;
@@ -50,7 +62,7 @@ public partial class CharacterType : Resource, ICharacter {
             EmitChanged();
         }
     }
-    private float _spritePositionY;
+
     [Export]
     public float SpritePositionY {
         get => _spritePositionY;
@@ -60,75 +72,105 @@ public partial class CharacterType : Resource, ICharacter {
         }
     }
 
+    [ExportGroup("🦸‍♂ Role")]
+
+    [Export]
+    public RoleType? Role {
+        get => _role;
+        set {
+            _role = value;
+            InitializeAttributes();
+            InitializeActions();
+            EmitChanged();
+        }
+    }
+
+    [ExportGroup("📊 Attributes")]
+
+    [Export]
+    public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = new();
+
+    [ExportGroup("🔥 Actions")]
+
+    [Export]
+    public Godot.Collections.Array<CharacterAction> Actions { get; private set; } = new();
+
+    [ExportGroup("📍 Placement")]
+
+    [Export]
+    public LocationType? Location { get; set; }
+
+    [Export]
+    public int SlotIndex { get; set; } = -1;
+
+    public CharacterType() : this(new CharacterService()) {
+    }
+
+    public CharacterType(CharacterService characterService) {
+        _characterService = characterService ?? throw new ArgumentNullException(nameof(characterService));
+    }
+
+    public CharacterType(string name, RoleType role, CharacterService characterService) : this(characterService) {
+        if (!ValidationService.ValidateName(name)) {
+            throw new ArgumentException("Invalid name", nameof(name));
+        }
+
+        Name = name;
+        Role = role;
+
+        _role = role ?? throw new ArgumentNullException(nameof(role));
+        InitializeAttributes();
+        InitializeActions();
+    }
+
     public void InitializeAttributes() {
-        if (Role is null) {
-            // GD.PrintErr("Role is null");
-            return;
-        }
-
-        if (Role.RoleAttributes.Count == 0) {
-            // GD.PrintErr("RoleAttributes is empty");
-            return;
-        }
-
-        if (Attributes.Count == 0) {
-            foreach (var roleAttribute in Role.RoleAttributes) {
-                var characterAttribute = new CharacterAttribute(roleAttribute) {
-                    MaxValue = roleAttribute.BaseValue,
-                    CurrentValue = roleAttribute.BaseValue
-                };
-                Attributes.Add(characterAttribute);
-            }
-        }
+        _characterService.InitializeAttributes(this);
     }
 
     public void InitializeActions() {
-        if (Role is null) {
-            // GD.PrintErr("Role is null");
-            return;
-        }
-
-        if (Role.RoleActions.Count == 0) {
-            // GD.PrintErr("RoleActions is empty");
-            return;
-        }
-
-        if (Actions.Count == 0) {
-            foreach (var roleAction in Role.RoleActions) {
-                var characterAction = new CharacterAction(roleAction);
-                Actions.Add(characterAction);
-            }
-        }
+        _characterService.InitializeActions(this);
     }
 
     public int GetAttributeCurrentValue(AttributeType type) {
-        var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
-        return attribute is not null ? attribute.CurrentValue : 0;
+        if (!_attributeCurrentValueCache.TryGetValue(type, out var value)) {
+            value = _characterService.GetAttributeCurrentValue(this, type);
+            _attributeCurrentValueCache[type] = value;
+        }
+        return value;
     }
 
     public int GetAttributeMaxValue(AttributeType type) {
-        var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
-        return attribute is not null ? attribute.MaxValue : 0;
+        if (!_attributeMaxValueCache.TryGetValue(type, out var value)) {
+            value = _characterService.GetAttributeMaxValue(this, type);
+            _attributeMaxValueCache[type] = value;
+        }
+        return value;
     }
 
     public int GetAttributeBaseValue(AttributeType type) {
-        var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
-        return attribute is not null ? attribute.BaseValue : 0;
+        if (!_attributeBaseValueCache.TryGetValue(type, out var value)) {
+            value = _characterService.GetAttributeBaseValue(this, type);
+            _attributeBaseValueCache[type] = value;
+        }
+        return value;
     }
 
     public void UpdateAttributeCurrentValue(AttributeType type, int newValue) {
-        var attribute = Attributes.FirstOrDefault(attr => attr.Type == type);
-        if (attribute is not null) {
-            attribute.CurrentValue = newValue;
-            // EmitSignal(nameof(AttributeChanged), this, type);
-        }
+        _characterService.UpdateAttributeCurrentValue(this, type, newValue);
+        _attributeCurrentValueCache[type] = newValue;
     }
 
     public void AddAction(CharacterAction action) {
-        // Implementação para adicionar uma ação
+        _characterService.AddAction(this, action);
     }
 
     public void RemoveAction(CharacterAction action) {
-        // Implementação para remover uma ação
+        _characterService.RemoveAction(this, action);
+    }
+
+    public void ValidateConstructor() {
+        if (!ValidationService.ValidateName(Name)) {
+            throw new ArgumentException("Invalid name", nameof(Name));
+        }
     }
 }

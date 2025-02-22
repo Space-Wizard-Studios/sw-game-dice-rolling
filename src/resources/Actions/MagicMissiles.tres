@@ -37,8 +37,8 @@ metadata/_custom_type_script = ExtResource("6_kaqn3")
 
 [resource]
 script = ExtResource("7_gvq84")
-Category = ExtResource("1_bbx2m")
 Name = "Magic Missiles"
+Category = ExtResource("1_bbx2m")
 Description = "Magic Missiles description."
 Icon = ExtResource("4_wo1pe")
 RequiredMana = Array[ExtResource("3_7glge")]([ExtResource("4_s3uan")])

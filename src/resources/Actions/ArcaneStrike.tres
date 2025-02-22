@@ -37,8 +37,8 @@ metadata/_custom_type_script = ExtResource("6_mxrco")
 
 [resource]
 script = ExtResource("7_wv8if")
-Category = ExtResource("1_xi31x")
 Name = "Arcane Strike"
+Category = ExtResource("1_xi31x")
 Description = "Arcane Strike description."
 Icon = ExtResource("4_icgfc")
 RequiredMana = Array[ExtResource("3_8r31q")]([ExtResource("4_n366w")])

@@ -21,6 +21,7 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
         set {
             if (ValidationService.ValidateName(value)) {
                 _name = value;
+                EmitChanged();
             }
         }
     }
@@ -40,11 +41,14 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
             _icon = value;
             if (_icon is not null) {
                 IconPath = _icon.ResourcePath;
+                EmitChanged();
             }
         }
     }
 
     public string? IconPath { get; private set; }
+
+    [ExportGroup("🔢 Values")]
 
     [Export]
     public int MinValue {
@@ -52,6 +56,7 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
         private set {
             if (ValidationService.ValidateMinMaxValues(value, MaxValue)) {
                 _minValue = value;
+                EmitChanged();
             }
         }
     }
@@ -62,6 +67,7 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
         private set {
             if (ValidationService.ValidateMinMaxValues(MinValue, value)) {
                 _maxValue = value;
+                EmitChanged();
             }
         }
     }
@@ -71,7 +77,6 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
 
     public AttributeType(string name, string description, Color color, Texture2D icon, int minValue, int maxValue) {
         ValidateConstructor();
-
         Name = name;
         Description = description;
         Color = color;
@@ -82,7 +87,7 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
 
     public void ValidateConstructor() {
         if (!ValidationService.ValidateName(Name)) {
-            throw new ArgumentException("Name cannot be null or whitespace");
+            throw new ArgumentException("Invalid name", nameof(Name));
         }
 
         if (!ValidationService.ValidateMinMaxValues(MinValue, MaxValue)) {

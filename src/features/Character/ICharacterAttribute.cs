@@ -45,21 +45,5 @@ public interface ICharacterAttributes {
 
     // TODO: Implementar eventos para notificar a mudança de atributos.
 
-    // /// <summary>
-    // /// Evento disparado quando um atributo é atualizado.
-    // /// </summary>
-    // event EventHandler<AttributeChangedEventArgs> AttributeChanged;
 }
 
-// /// <summary>
-// /// Argumentos do evento disparado quando um atributo é atualizado.
-// /// </summary>
-// public class AttributeChangedEventArgs : EventArgs {
-//     public AttributeType AttributeType { get; }
-//     public int NewValue { get; }
-
-//     public AttributeChangedEventArgs(AttributeType attributeType, int newValue) {
-//         AttributeType = attributeType;
-//         NewValue = newValue;
-//     }
-// }

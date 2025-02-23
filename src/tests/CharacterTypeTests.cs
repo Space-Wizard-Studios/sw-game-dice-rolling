@@ -11,19 +11,19 @@ namespace DiceRolling.Tests.Characters;
 
 [TestSuite]
 public class CharacterTypeTests {
-    private AttributesConfig? _attributesConfig;
+    private AttributesStore? _AttributesStore;
 
     [Before]
     public void SetUp() {
-        _attributesConfig = GD.Load<AttributesConfig>("res://features/Attribute/AttributesConfig.tres");
+        _AttributesStore = GD.Load<AttributesStore>("res://features/Attribute/AttributesStore.tres");
     }
 
     [TestCase]
     public void Constructor_ShouldInitializeAttributesAndActions() {
         // Arrange
-        if (_attributesConfig == null) {
+        if (_AttributesStore == null) {
             AssertThat(false).IsTrue();
-            GD.PrintErr("AttributesConfig is null");
+            GD.PrintErr("AttributesStore is null");
             return;
         }
 
@@ -38,7 +38,7 @@ public class CharacterTypeTests {
             Name = "Fighter", // Add name for the role
             RoleAttributes = [
                 new() {
-                    Type = AttributesHelper.GetAttributeType(_attributesConfig, "Health")!,
+                    Type = AttributesHelper.GetAttributeType(_AttributesStore, "Health")!,
                     BaseValue = 10
                 }
             ],

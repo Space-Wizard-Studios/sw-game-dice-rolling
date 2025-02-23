@@ -4,7 +4,7 @@ using DiceRolling.Effects;
 namespace DiceRolling.Actions;
 
 /// <summary>
-/// Interface que define uma ação completa no jogo.
+/// Interface que define uma ação que é realizada por personagens do jogo.
 /// </summary>
 public interface IAction<TContext, TResult> :
     IIdentifiable,
@@ -15,9 +15,5 @@ public interface IAction<TContext, TResult> :
     bool IsValid();
     void AddEffect(EffectType effect);
     void RemoveEffect(EffectType effect);
-
-    /// <summary>
-    /// Valida os campos do resource.
-    /// </summary>
     void ValidateConstructor();
 }

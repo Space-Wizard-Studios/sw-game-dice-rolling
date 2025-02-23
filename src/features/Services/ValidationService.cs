@@ -2,8 +2,13 @@ using Godot;
 
 namespace DiceRolling.Services;
 
-public static class ValidationService {
-    public static bool ValidateMinMaxValues(int minValue, int maxValue) {
+public class ValidationService {
+    private static ValidationService? _instance;
+    public static ValidationService Instance => _instance ??= new ValidationService();
+
+    private ValidationService() { }
+
+    public bool ValidateMinMaxValues(int minValue, int maxValue) {
         var isValid = minValue <= maxValue;
         if (!isValid) {
             GD.PrintErr("MinValue must be less than or equal to MaxValue");
@@ -11,7 +16,7 @@ public static class ValidationService {
         return isValid;
     }
 
-    public static bool ValidateName(string? value) {
+    public bool ValidateName(string? value) {
         var isValid = !string.IsNullOrWhiteSpace(value);
         if (!isValid) {
             GD.PrintErr("Value cannot be null or whitespace");
@@ -19,7 +24,7 @@ public static class ValidationService {
         return isValid;
     }
 
-    public static bool ValidateId(string? value) {
+    public bool ValidateId(string? value) {
         var isValid = !string.IsNullOrEmpty(value);
         if (!isValid) {
             GD.PrintErr("Value cannot be null or empty");

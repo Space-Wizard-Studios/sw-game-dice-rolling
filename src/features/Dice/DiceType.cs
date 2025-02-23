@@ -17,7 +17,7 @@ public partial class DiceType : IdentifiableResource, IDice<DiceSide> {
     public string Name {
         get => _name;
         set {
-            if (ValidationService.ValidateName(value)) {
+            if (ValidationService.Instance.ValidateName(value)) {
                 _name = value;
                 EmitChanged();
             }

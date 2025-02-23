@@ -15,7 +15,7 @@ public class CharacterTypeTests {
 
     [Before]
     public void SetUp() {
-        _AttributesStore = GD.Load<AttributesStore>("res://features/Attribute/AttributesStore.tres");
+        _AttributesStore = GD.Load<AttributesStore>("res://resources/Attributes/AttributesStore.tres");
     }
 
     [TestCase]
@@ -47,18 +47,15 @@ public class CharacterTypeTests {
             ]
         };
 
-        // Initialize character service
-        var characterService = new CharacterService();
-
         // Ensure all objects are not null
-        if (role == null || characterService == null) {
+        if (role == null) {
             AssertThat(false).IsTrue();
-            GD.PrintErr("Role or CharacterService is null");
+            GD.PrintErr("Role is null");
             return;
         }
 
         // Act
-        var character = new CharacterType("Hero", role, characterService);
+        var character = new CharacterType("Hero", role);
 
         // Assert
         AssertThat(character.Name).IsEqual("Hero");

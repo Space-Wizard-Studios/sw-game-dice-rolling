@@ -16,7 +16,7 @@ public partial class DiceEnergy : IdentifiableResource, IDiceEnergy {
     public string Name {
         get => _name;
         set {
-            if (ValidationService.ValidateName(value)) {
+            if (ValidationService.Instance.ValidateName(value)) {
                 _name = value;
                 EmitChanged();
             }

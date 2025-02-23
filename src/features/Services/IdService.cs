@@ -3,14 +3,19 @@ using Godot;
 
 namespace DiceRolling.Services;
 
-public static class IdService {
-    public static string GenerateNewId() {
+public class IdService {
+    private static IdService? _instance;
+    public static IdService Instance => _instance ??= new IdService();
+
+    private IdService() { }
+
+    public string GenerateNewId() {
         return Guid.NewGuid().ToString();
     }
 
-    public static void EnsureValidId(ref string id) {
-        if (ValidationService.ValidateId(id)) {
-            GD.PrintErr("Id is null, generating new Id");
+    public void EnsureValidId(ref string id) {
+        if (!ValidationService.Instance.ValidateId(id)) {
+            GD.PrintErr("Id is null or empty, generating new Id");
             id = GenerateNewId();
         }
     }

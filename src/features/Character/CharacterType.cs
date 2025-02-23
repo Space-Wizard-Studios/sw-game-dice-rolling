@@ -13,10 +13,9 @@ namespace DiceRolling.Characters;
 [Tool]
 [GlobalClass]
 public partial class CharacterType : IdentifiableResource, ICharacter {
-    private string _name = "Character_" + Guid.NewGuid().ToString("N");
+    private string _name = "Character_" + IdService.Instance.GenerateNewId();
     private float _spritePositionX;
     private float _spritePositionY;
-    private readonly CharacterService _characterService;
     private RoleType? _role;
     private readonly Dictionary<AttributeType, int> _attributeCurrentValueCache = new Dictionary<AttributeType, int>();
     private readonly Dictionary<AttributeType, int> _attributeMaxValueCache = new Dictionary<AttributeType, int>();
@@ -30,7 +29,7 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
     public string Name {
         get => _name;
         set {
-            if (ValidationService.ValidateName(value)) {
+            if (ValidationService.Instance.ValidateName(value)) {
                 _name = value;
                 EmitChanged();
             }
@@ -103,15 +102,13 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
     [Export]
     public int SlotIndex { get; set; } = -1;
 
-    public CharacterType() : this(new CharacterService()) {
+    public CharacterType() {
+        InitializeAttributes();
+        InitializeActions();
     }
 
-    public CharacterType(CharacterService characterService) {
-        _characterService = characterService ?? throw new ArgumentNullException(nameof(characterService));
-    }
-
-    public CharacterType(string name, RoleType role, CharacterService characterService) : this(characterService) {
-        if (!ValidationService.ValidateName(name)) {
+    public CharacterType(string name, RoleType role) {
+        if (!ValidationService.Instance.ValidateName(name)) {
             throw new ArgumentException("Invalid name", nameof(name));
         }
 
@@ -124,16 +121,16 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
     }
 
     public void InitializeAttributes() {
-        _characterService.InitializeAttributes(this);
+        CharacterService.Instance.InitializeAttributes(this);
     }
 
     public void InitializeActions() {
-        _characterService.InitializeActions(this);
+        CharacterService.Instance.InitializeActions(this);
     }
 
     public int GetAttributeCurrentValue(AttributeType type) {
         if (!_attributeCurrentValueCache.TryGetValue(type, out var value)) {
-            value = _characterService.GetAttributeCurrentValue(this, type);
+            value = CharacterService.Instance.GetAttributeCurrentValue(this, type);
             _attributeCurrentValueCache[type] = value;
         }
         return value;
@@ -141,7 +138,7 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
 
     public int GetAttributeMaxValue(AttributeType type) {
         if (!_attributeMaxValueCache.TryGetValue(type, out var value)) {
-            value = _characterService.GetAttributeMaxValue(this, type);
+            value = CharacterService.Instance.GetAttributeMaxValue(this, type);
             _attributeMaxValueCache[type] = value;
         }
         return value;
@@ -149,27 +146,27 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
 
     public int GetAttributeBaseValue(AttributeType type) {
         if (!_attributeBaseValueCache.TryGetValue(type, out var value)) {
-            value = _characterService.GetAttributeBaseValue(this, type);
+            value = CharacterService.Instance.GetAttributeBaseValue(this, type);
             _attributeBaseValueCache[type] = value;
         }
         return value;
     }
 
     public void UpdateAttributeCurrentValue(AttributeType type, int newValue) {
-        _characterService.UpdateAttributeCurrentValue(this, type, newValue);
+        CharacterService.Instance.UpdateAttributeCurrentValue(this, type, newValue);
         _attributeCurrentValueCache[type] = newValue;
     }
 
     public void AddAction(CharacterAction action) {
-        _characterService.AddAction(this, action);
+        CharacterService.Instance.AddAction(this, action);
     }
 
     public void RemoveAction(CharacterAction action) {
-        _characterService.RemoveAction(this, action);
+        CharacterService.Instance.RemoveAction(this, action);
     }
 
     public void ValidateConstructor() {
-        if (!ValidationService.ValidateName(Name)) {
+        if (!ValidationService.Instance.ValidateName(Name)) {
             throw new ArgumentException("Invalid name", nameof(Name));
         }
     }

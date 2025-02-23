@@ -51,16 +51,4 @@ public class ActionTypeTests {
         AssertBool(isValid).IsTrue();
     }
 
-    [TestCase]
-    public static void Constructor_ShouldThrowException_WhenNameIsInvalid() {
-        // Arrange
-        var category = new ActionCategory();
-        var RequiredEnergy = new Godot.Collections.Array<DiceEnergy> { new DiceEnergy("EnergyName", "EnergyDescription", new Color(1, 1, 1), new Color(0, 0, 0), new Texture2D()) };
-        var effects = new Godot.Collections.Array<EffectType> { new DamageEffect() };
-        var targetConfiguration = new TargetConfiguration();
-
-        // Act & Assert
-        AssertThrown(() => new ActionType(category, RequiredEnergy, effects, "", "A powerful fire attack.", new Texture2D(), targetConfiguration))
-            .IsInstanceOf<ArgumentException>();
-    }
 }

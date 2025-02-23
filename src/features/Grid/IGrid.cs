@@ -5,4 +5,6 @@ namespace DiceRolling.Grids;
 /// </summary>
 public interface IGrid :
     IGridConfiguration,
-    IGridCells { }
+    IGridCells {
+    void ValidateConstructor();
+}

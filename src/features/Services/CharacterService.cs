@@ -7,6 +7,9 @@ using DiceRolling.Attributes;
 namespace DiceRolling.Characters;
 
 public class CharacterService {
+    private static CharacterService? _instance;
+    public static CharacterService Instance => _instance ??= new CharacterService();
+
     public virtual void InitializeAttributes(CharacterType character) {
         if (character.Role is null) {
             GD.PrintErr("Role is null");

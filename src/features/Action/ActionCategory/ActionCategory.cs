@@ -19,7 +19,7 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
     public string Name {
         get => _name;
         set {
-            if (ValidationService.ValidateName(value)) {
+            if (ValidationService.Instance.ValidateName(value)) {
                 _name = value;
                 EmitChanged();
             }
@@ -56,14 +56,17 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
     }
 
     public ActionCategory(string name, string description, Texture2D icon) {
-        ValidateConstructor();
+        if (!ValidationService.Instance.ValidateName(name)) {
+            throw new ArgumentException("Invalid name", nameof(name));
+        }
+
         Name = name;
         Description = description;
         Icon = icon;
     }
 
     public void ValidateConstructor() {
-        if (!ValidationService.ValidateName(Name)) {
+        if (!ValidationService.Instance.ValidateName(Name)) {
             throw new ArgumentException("Name cannot be null or whitespace");
         }
     }

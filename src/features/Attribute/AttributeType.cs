@@ -19,7 +19,7 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
     public string Name {
         get => _name;
         set {
-            if (ValidationService.ValidateName(value)) {
+            if (ValidationService.Instance.ValidateName(value)) {
                 _name = value;
                 EmitChanged();
             }
@@ -54,7 +54,7 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
     public int MinValue {
         get => _minValue;
         private set {
-            if (ValidationService.ValidateMinMaxValues(value, MaxValue)) {
+            if (ValidationService.Instance.ValidateMinMaxValues(value, MaxValue)) {
                 _minValue = value;
                 EmitChanged();
             }
@@ -65,7 +65,7 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
     public int MaxValue {
         get => _maxValue;
         private set {
-            if (ValidationService.ValidateMinMaxValues(MinValue, value)) {
+            if (ValidationService.Instance.ValidateMinMaxValues(MinValue, value)) {
                 _maxValue = value;
                 EmitChanged();
             }
@@ -86,11 +86,11 @@ public partial class AttributeType : IdentifiableResource, IAttribute {
     }
 
     public void ValidateConstructor() {
-        if (!ValidationService.ValidateName(Name)) {
+        if (!ValidationService.Instance.ValidateName(Name)) {
             throw new ArgumentException("Invalid name", nameof(Name));
         }
 
-        if (!ValidationService.ValidateMinMaxValues(MinValue, MaxValue)) {
+        if (!ValidationService.Instance.ValidateMinMaxValues(MinValue, MaxValue)) {
             throw new ArgumentException("MinValue must be less than or equal to MaxValue");
         }
     }

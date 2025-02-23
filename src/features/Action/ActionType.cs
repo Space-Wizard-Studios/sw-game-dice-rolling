@@ -21,7 +21,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
     public string Name {
         get => _name;
         set {
-            if (ValidationService.ValidateName(value)) {
+            if (ValidationService.Instance.ValidateName(value)) {
                 _name = value;
                 EmitChanged();
             }
@@ -107,7 +107,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
     }
 
     public void ValidateConstructor() {
-        if (!ValidationService.ValidateName(Name)) {
+        if (!ValidationService.Instance.ValidateName(Name)) {
             throw new ArgumentException("Invalid name", nameof(Name));
         }
     }

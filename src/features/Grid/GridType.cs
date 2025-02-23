@@ -79,20 +79,17 @@ public partial class GridType : Resource, IGrid {
     }
 
     public void ValidateConstructor() {
-        if (_rows <= 0) {
-            throw new ArgumentException("Rows must be greater than 0", nameof(_rows));
+        if (Rows < 0) {
+            throw new ArgumentException("O número de Rows não pode ser negativo.", nameof(_rows));
         }
-        if (_columns <= 0) {
-            throw new ArgumentException("Columns must be greater than 0", nameof(_columns));
-        }
-        if (string.IsNullOrWhiteSpace(Prefix)) {
-            throw new ArgumentException("Prefix cannot be null or whitespace", nameof(Prefix));
+        if (Columns < 0) {
+            throw new ArgumentException("O número de Columns não pode ser negativo.", nameof(_columns));
         }
         if (Offset < 0) {
-            throw new ArgumentException("Offset cannot be negative", nameof(Offset));
+            throw new ArgumentException("Offset não pode ser negativo.", nameof(Offset));
         }
-        if (!Enum.IsDefined(typeof(GridDirection), Direction)) {
-            throw new ArgumentException("Invalid grid direction", nameof(Direction));
+        if (!Enum.IsDefined(Direction)) {
+            throw new ArgumentException("Grid Direction inválida.", nameof(Direction));
         }
     }
 }

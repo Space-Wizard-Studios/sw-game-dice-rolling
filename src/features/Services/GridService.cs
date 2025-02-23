@@ -11,18 +11,18 @@ public class GridService {
     public void ResizeCells(Godot.Collections.Array<int> cells, int rows, int columns) {
         if (cells == null)
             throw new ArgumentNullException(nameof(cells));
-        if (rows < 0)
-            throw new ArgumentException("O número de Rows não pode ser negativo.", nameof(rows));
-        if (columns < 0)
-            throw new ArgumentException("O número de Columns não pode ser negativo.", nameof(columns));
+        if (rows <= 0)
+            throw new ArgumentException("O número de Rows não pode ser 0 ou menor.", nameof(rows));
+        if (columns <= 0)
+            throw new ArgumentException("O número de Columns não pode ser 0 ou menor.", nameof(columns));
         cells.Resize(rows * columns);
     }
 
     public int GetCellIndex(int row, int column, int columns) {
-        if (row < 0)
-            throw new ArgumentException("O número de Rows não pode ser negativo.", nameof(row));
-        if (column < 0)
-            throw new ArgumentException("O número de Columns não pode ser negativo.", nameof(column));
+        if (row <= 0)
+            throw new ArgumentException("O número de Rows não pode ser 0 ou menor.", nameof(row));
+        if (column <= 0)
+            throw new ArgumentException("O número de Columns não pode ser 0 ou menor.", nameof(column));
         return row * columns + column;
     }
 

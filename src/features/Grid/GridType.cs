@@ -79,11 +79,11 @@ public partial class GridType : Resource, IGrid {
     }
 
     public void ValidateConstructor() {
-        if (Rows < 0) {
-            throw new ArgumentException("O número de Rows não pode ser negativo.", nameof(_rows));
+        if (Rows <= 0) {
+            throw new ArgumentException("O número de Rows não pode ser 0 ou menor.", nameof(_rows));
         }
-        if (Columns < 0) {
-            throw new ArgumentException("O número de Columns não pode ser negativo.", nameof(_columns));
+        if (Columns <= 0) {
+            throw new ArgumentException("O número de Columns não pode ser 0 ou menor.", nameof(_columns));
         }
         if (Offset < 0) {
             throw new ArgumentException("Offset não pode ser negativo.", nameof(Offset));

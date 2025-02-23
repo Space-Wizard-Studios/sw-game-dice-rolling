@@ -13,7 +13,7 @@ public partial class TurnOrderComponent : Control {
     private AttributeType? SpeedAttributeType;
     private AttributeType? HealthAttributeType;
 
-    private AttributesConfig? _attributesConfig;
+    private AttributesStore? _attributesConfig;
     [ExportGroup("🪵 Resources")]
     [Export] private Resource? AttributeConfigResource;
 
@@ -68,7 +68,7 @@ public partial class TurnOrderComponent : Control {
     public string PortraitDamageColorName => PortraitDamageColorNode?.Name ?? "PortraitDamageColor";
 
     public override void _Ready() {
-        if (AttributeConfigResource is AttributesConfig attributeConfig) {
+        if (AttributeConfigResource is AttributesStore attributeConfig) {
             _attributesConfig = attributeConfig;
             SpeedAttributeType = AttributesHelper.GetAttributeType(_attributesConfig, "Speed");
             HealthAttributeType = AttributesHelper.GetAttributeType(_attributesConfig, "Health");

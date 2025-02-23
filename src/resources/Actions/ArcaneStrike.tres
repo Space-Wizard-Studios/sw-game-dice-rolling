@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ActionType" load_steps=11 format=3 uid="uid://c8xr12tkory0k"]
 
-[ext_resource type="Resource" uid="uid://dwtue01tv131s" path="res://resources/ActionCategories/Offensive.tres" id="1_xi31x"]
+[ext_resource type="Resource" uid="uid://dwtue01tv131s" path="res://resources/Actions/Categories/Offensive.tres" id="1_8r31q"]
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="2_n366w"]
-[ext_resource type="Script" path="res://features/Dice/DiceEnergy.cs" id="4_8r31q"]
 [ext_resource type="Texture2D" uid="uid://q64eatkgts6s" path="res://assets/icons/actions/magic_strike.png" id="4_icgfc"]
+[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://features/Dice/DiceEnergy.cs" id="4_n366w"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://features/Grid/GridType.cs" id="5_xi31x"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://features/Target/TargetConfiguration.cs" id="6_mxrco"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://features/Action/ActionType.cs" id="7_wv8if"]
@@ -37,10 +37,10 @@ metadata/_custom_type_script = ExtResource("6_mxrco")
 [resource]
 script = ExtResource("7_wv8if")
 Name = "Arcane Strike"
-Category = ExtResource("1_xi31x")
+Category = ExtResource("1_8r31q")
 Description = "Arcane Strike description."
 Icon = ExtResource("4_icgfc")
-RequiredEnergy = Array[ExtResource("4_8r31q")]([])
+RequiredEnergy = Array[ExtResource("4_n366w")]([])
 Effects = Array[ExtResource("2_n366w")]([])
 TargetConfiguration = SubResource("Resource_ioctg")
 Id = "75ab151b-3832-4391-ab5b-77341639ec0e"

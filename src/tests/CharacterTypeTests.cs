@@ -11,11 +11,11 @@ namespace DiceRolling.Tests.Characters;
 
 [TestSuite]
 public class CharacterTypeTests {
-    private AttributesConfig? _attributesConfig;
+    private AttributesStore? _attributesConfig;
 
     [Before]
     public void SetUp() {
-        _attributesConfig = GD.Load<AttributesConfig>("res://features/Attribute/AttributesConfig.tres");
+        _attributesConfig = GD.Load<AttributesStore>("res://features/Attribute/AttributesConfig.tres");
     }
 
     [TestCase]

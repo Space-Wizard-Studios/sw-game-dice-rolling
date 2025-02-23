@@ -44,10 +44,7 @@ public partial class DiceType : IdentifiableResource, IDice<DiceSide> {
     }
 
     [Export]
-    public Resource Location { get; set; }
-
-    IDiceLocation IDice<DiceSide>.Location => (IDiceLocation)Location;
-
+    public DiceLocation Location { get; set; }
 
     public DiceType() {
         Location = new DiceLocation(DiceLocationCategory.None);

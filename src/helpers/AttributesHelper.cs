@@ -4,7 +4,7 @@ using DiceRolling.Attributes;
 namespace DiceRolling.Helpers;
 
 public static class AttributesHelper {
-    public static AttributeType? GetAttributeType(AttributesConfig config, string attributeName) {
+    public static AttributeType? GetAttributeType(AttributesStore config, string attributeName) {
         if (config.Attributes.TryGetValue(attributeName, out AttributeType? value)) {
             return value;
         }

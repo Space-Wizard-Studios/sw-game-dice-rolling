@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="1_i76yk"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://features/Grid/GridType.cs" id="2_i76yk"]
-[ext_resource type="Script" path="res://features/Dice/DiceEnergy.cs" id="2_qhrue"]
+[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://features/Dice/DiceEnergy.cs" id="2_qhrue"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://features/Target/TargetConfiguration.cs" id="3_qhrue"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://features/Action/ActionType.cs" id="4_8ielr"]
 

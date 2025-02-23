@@ -7,8 +7,11 @@ namespace DiceRolling.Dice;
 /// </summary>
 [Tool]
 [GlobalClass]
-public partial class DiceSide : Resource, IDiceSide {
-    [Export] public DiceEnergy? Energy { get; set; }
+public partial class DiceSide : Resource {
+
+    [Export]
+    public DiceEnergy? Energy { get; set; }
+
 
     public DiceSide() {
     }

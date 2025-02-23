@@ -8,7 +8,7 @@ public static class AttributesHelper {
         if (config.Attributes.TryGetValue(attributeName, out AttributeType? value)) {
             return value;
         }
-        GD.PrintErr($"Attribute '{attributeName}' not found in AttributesConfig.");
+        GD.PrintErr($"Attribute '{attributeName}' not found in AttributesStore.");
         return null;
     }
 }

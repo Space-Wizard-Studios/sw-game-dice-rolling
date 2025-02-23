@@ -22,15 +22,6 @@ public interface IGridCells {
     int GetCellIndex(int row, int column);
 
     /// <summary>
-    /// Obtém a posição de uma célula.
-    /// </summary>
-    /// <param name="row">Linha da célula.</param>
-    /// <param name="column">Coluna da célula.</param>
-    /// <param name="cellPadding">Espaçamento da célula.</param>
-    /// <returns>Posição da célula.</returns>
-    Vector3 GetCellPosition(int row, int column, float cellPadding);
-
-    /// <summary>
     /// Obtém o valor de uma célula.
     /// </summary>
     /// <param name="row">Linha da célula.</param>

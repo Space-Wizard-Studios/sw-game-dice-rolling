@@ -6,4 +6,6 @@ namespace DiceRolling.Roles;
 public interface IRole :
     IRoleInformation,
     IRoleAttributes,
-    IRoleActions { }
+    IRoleActions {
+    void ValidateConstructor();
+}

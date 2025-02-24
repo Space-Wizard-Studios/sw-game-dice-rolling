@@ -64,15 +64,14 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
     }
 
     public ActionType(
-        ActionCategory category,
-        Godot.Collections.Array<DiceEnergy> requiredEnergy,
-        Godot.Collections.Array<EffectType> effects,
         string name,
+        ActionCategory category,
         string? description,
         Texture2D? icon,
+        Godot.Collections.Array<DiceEnergy> requiredEnergy,
+        Godot.Collections.Array<EffectType> effects,
         TargetConfiguration? targetConfiguration
     ) {
-        ValidateConstructor();
         Name = name;
         Category = category;
         Description = description;
@@ -80,6 +79,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
         RequiredEnergy = requiredEnergy;
         Effects = effects;
         TargetConfiguration = targetConfiguration;
+        ValidateConstructor();
     }
 
     public bool Do(IActionContext context) {

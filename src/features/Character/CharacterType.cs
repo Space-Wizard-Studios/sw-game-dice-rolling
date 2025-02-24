@@ -108,14 +108,9 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
     }
 
     public CharacterType(string name, RoleType role) {
-        if (!ValidationService.Instance.ValidateName(name)) {
-            throw new ArgumentException("Invalid name", nameof(name));
-        }
-
         Name = name;
         Role = role;
-
-        _role = role ?? throw new ArgumentNullException(nameof(role));
+        ValidateConstructor();
         InitializeAttributes();
         InitializeActions();
     }

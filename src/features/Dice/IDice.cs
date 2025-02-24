@@ -12,4 +12,5 @@ public interface IDice<[MustBeVariant] T> : IIdentifiable where T : DiceSide {
     int SideCount { get; }
     Godot.Collections.Array<T> Sides { get; }
     DiceLocation Location { get; }
+    void ValidateConstructor();
 }

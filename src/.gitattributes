@@ -1,2 +1,45 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+
+# Ignore all content in src/addons except for content in src/addons/@spacewiz for linguistic stats
+src/addons/** linguist-vendored
+!src/addons/@spacewiz/** linguist-vendored=false
+
+# Mark binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.tar binary
+*.7z binary
+
+# Handling large files
+*.psd binary
+*.mp4 binary
+*.mov binary
+*.avi binary
+*.mkv binary
+
+# Define custom merge strategies
+*.lock merge=union
+*.json merge=union
+
+# Linguist overrides
+*.md linguist-documentation
+*.yml linguist-documentation
+*.yaml linguist-documentation
+*.json linguist-documentation
+
+# Language-specific overrides
+*.cs linguist-language=C#
+*.gd linguist-language=GDScript
+
+# Handling specific file types
+*.shader linguist-language=GLSL
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
+*.scss linguist-language=SCSS

@@ -48,13 +48,15 @@ public partial class DiceType : IdentifiableResource, IDice<DiceSide> {
 
     public DiceType() {
         Location = new DiceLocation(DiceLocationCategory.None);
+        ValidateConstructor();
         UpdateSideCount();
     }
 
-    public DiceType(string id, string name, Godot.Collections.Array<DiceSide> sides, DiceLocation location) : base(id) {
+    public DiceType(string name, Godot.Collections.Array<DiceSide> sides, DiceLocation location) {
         Name = name;
         Sides = sides;
         Location = location;
+        ValidateConstructor();
         UpdateSideCount();
     }
 
@@ -68,5 +70,11 @@ public partial class DiceType : IdentifiableResource, IDice<DiceSide> {
             property["usage"] = (int)usage;
         }
         base._ValidateProperty(property);
+    }
+
+    public void ValidateConstructor() {
+        if (!ValidationService.Instance.ValidateName(Name)) {
+            throw new ArgumentException("Invalid name.");
+        }
     }
 }

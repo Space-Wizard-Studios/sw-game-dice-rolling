@@ -56,13 +56,10 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
     }
 
     public ActionCategory(string name, string description, Texture2D icon) {
-        if (!ValidationService.Instance.ValidateName(name)) {
-            throw new ArgumentException("Invalid name", nameof(name));
-        }
-
         Name = name;
         Description = description;
         Icon = icon;
+        ValidateConstructor();
     }
 
     public void ValidateConstructor() {

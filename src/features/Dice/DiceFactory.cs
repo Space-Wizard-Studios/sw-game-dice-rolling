@@ -18,6 +18,6 @@ public static class DiceFactory {
             energies.Add(new DiceSide(energy));
         }
         var location = new DiceLocation(locationCategory, characterId);
-        return new DiceType(Guid.NewGuid().ToString(), $"D{sides}", energies, location);
+        return new DiceType($"D{sides}", energies, location);
     }
 }

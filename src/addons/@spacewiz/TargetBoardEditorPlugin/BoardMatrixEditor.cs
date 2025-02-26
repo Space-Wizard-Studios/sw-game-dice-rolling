@@ -6,38 +6,29 @@ using DiceRolling.Targets;
 
 namespace DiceRolling.Editor;
 
-[Tool]
-public partial class TargetConfigurationEditorPlugin : EditorPlugin {
-    public override void _EnterTree() {
-        AddInspectorPlugin(new TargetConfigurationInspectorPlugin());
-    }
-
-    public override void _ExitTree() {
-        RemoveInspectorPlugin(new TargetConfigurationInspectorPlugin());
-    }
-}
-
 /// <summary>
 /// Manages a grid configuration for a target.
 /// </summary>
-public partial class MatrixControl : Control {
+[Tool]
+public partial class BoardMatrixEditor : Control {
     private bool isFlippedHorizontally = false;
     private const int CellSize = 40;
     private const int Padding = 10;
-    private static readonly Color[] ColorsArray = [Colors.White, Colors.Yellow, Colors.Green, Colors.Red];
-    private readonly List<GridType> _grids = [];
-    public TargetConfiguration? TargetConfiguration { get; }
+    private static readonly Color[] ColorsArray = { Colors.White, Colors.Yellow, Colors.Green, Colors.Red };
+    private readonly List<GridType> _grids = new();
+    public TargetBoardType? TargetBoard { get; }
 
-    public MatrixControl() {
+    public BoardMatrixEditor() {
         SizeFlagsHorizontal = SizeFlags.ExpandFill;
         SizeFlagsVertical = SizeFlags.ExpandFill;
         CustomMinimumSize = new Vector2(0, 0);
         UpdateMinimumSize();
     }
 
-    public MatrixControl(TargetConfiguration targetConfiguration) : this() {
-        TargetConfiguration = targetConfiguration;
-        foreach (var grid in targetConfiguration.Grids) {
+    public BoardMatrixEditor(TargetBoardType targetBoard) : this() {
+        TargetBoard = targetBoard;
+        ClearGrids();
+        foreach (var grid in targetBoard.Grids) {
             AddGrid(grid);
         }
         UpdateMinimumSize();
@@ -94,6 +85,12 @@ public partial class MatrixControl : Control {
     }
 
     private void DrawGrid(GridType grid, float offsetX) {
+        GD.Print($"Drawing grid with Rows: {grid.Rows}, Columns: {grid.Columns}");
+        if (grid.Rows <= 0 || grid.Columns <= 0) {
+            GD.PrintErr($"Invalid grid configuration: Rows = {grid.Rows}, Columns = {grid.Columns}");
+            return;
+        }
+
         var offsetY = Padding;
 
         for (int y = 0; y < grid.Rows; y++) {

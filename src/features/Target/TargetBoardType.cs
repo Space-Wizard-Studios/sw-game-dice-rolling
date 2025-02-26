@@ -1,0 +1,34 @@
+using Godot;
+using System;
+
+using DiceRolling.Grids;
+
+namespace DiceRolling.Targets;
+
+[Tool]
+public partial class TargetBoardType : Resource, ITargetBoard {
+    [Signal] public delegate void SetupChangedEventHandler();
+
+    [Export]
+    public bool IsSingleTarget { get; set; } = false;
+
+    [Export]
+    public Godot.Collections.Array<GridType> Grids { get; set; } = [];
+
+    public TargetBoardType() { }
+
+    public void AddGrid(int rows, int columns) {
+        if (rows <= 0 || columns <= 0) {
+            throw new ArgumentException("Rows and Columns must be greater than 0.");
+        }
+        Grids.Add(new GridType(rows, columns, 0, "G"));
+        EmitSignal(nameof(SetupChanged));
+    }
+
+    public void UpdateGrid(int index) {
+        if (index >= 0 && index < Grids.Count) {
+            Grids[index].Cells.Resize(Grids[index].Rows * Grids[index].Columns);
+            EmitSignal(nameof(SetupChanged));
+        }
+    }
+}

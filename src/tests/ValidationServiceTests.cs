@@ -13,7 +13,7 @@ public class ValidationServiceTests {
         var maxValue = 1;
 
         // Act
-        var isValid = ValidationService.Instance.ValidateMinMaxValues(minValue, maxValue);
+        var isValid = ValidationService.ValidateMinMaxValues(minValue, maxValue);
 
         // Assert
         AssertBool(isValid).IsFalse();
@@ -22,7 +22,7 @@ public class ValidationServiceTests {
     [TestCase]
     public static void ValidateName_ShouldReturnFalse_WhenSetToNullOrEmpty() {
         // Act & Assert
-        AssertBool(ValidationService.Instance.ValidateName("")).IsFalse();
-        AssertBool(ValidationService.Instance.ValidateName(null)).IsFalse();
+        AssertBool(ValidationService.ValidateName("")).IsFalse();
+        AssertBool(ValidationService.ValidateName(null)).IsFalse();
     }
 }

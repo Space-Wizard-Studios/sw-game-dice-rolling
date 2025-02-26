@@ -20,10 +20,10 @@ public class ActionTypeTests {
         var name = "Fireball";
         var description = "A powerful fire attack.";
         var icon = new Texture2D();
-        var targetConfiguration = new TargetConfiguration();
+        var TargetBoard = new TargetBoardType();
 
         // Act
-        var action = new ActionType(name, category, description, icon, RequiredEnergy, effects, targetConfiguration);
+        var action = new ActionType(name, category, description, icon, RequiredEnergy, effects, TargetBoard);
 
         // Assert
         AssertObject(action.Category).IsEqual(category);
@@ -32,7 +32,7 @@ public class ActionTypeTests {
         AssertString(action.Name).IsEqual(name);
         AssertString(action.Description).IsEqual(description);
         AssertObject(action.Icon).IsEqual(icon);
-        AssertObject(action.TargetConfiguration).IsEqual(targetConfiguration);
+        AssertObject(action.TargetBoard).IsEqual(TargetBoard);
     }
 
     [TestCase]
@@ -41,8 +41,8 @@ public class ActionTypeTests {
         var category = new ActionCategory();
         var RequiredEnergy = new Godot.Collections.Array<DiceEnergy> { new("EnergyName", "EnergyDescription", new Color(1, 1, 1), new Color(0, 0, 0), new Texture2D()) };
         var effects = new Godot.Collections.Array<EffectType> { new DamageEffect() };
-        var targetConfiguration = new TargetConfiguration();
-        var action = new ActionType("Fireball", category, "A powerful fire attack.", new Texture2D(), RequiredEnergy, effects, targetConfiguration);
+        var TargetBoard = new TargetBoardType();
+        var action = new ActionType("Fireball", category, "A powerful fire attack.", new Texture2D(), RequiredEnergy, effects, TargetBoard);
 
         // Act
         var isValid = action.IsValid();

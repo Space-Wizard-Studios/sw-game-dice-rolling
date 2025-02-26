@@ -21,7 +21,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
     public string Name {
         get => _name;
         set {
-            if (ValidationService.Instance.ValidateName(value)) {
+            if (ValidationService.ValidateName(value)) {
                 _name = value;
                 EmitChanged();
             }
@@ -58,7 +58,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
     public Godot.Collections.Array<EffectType> Effects { get; set; } = [];
 
     [Export]
-    public TargetConfiguration? TargetConfiguration { get; set; }
+    public TargetBoardType? TargetBoard { get; set; }
 
     public ActionType() {
     }
@@ -70,7 +70,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
         Texture2D? icon,
         Godot.Collections.Array<DiceEnergy> requiredEnergy,
         Godot.Collections.Array<EffectType> effects,
-        TargetConfiguration? targetConfiguration
+        TargetBoardType? targetBoard
     ) {
         Name = name;
         Category = category;
@@ -78,7 +78,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
         Icon = icon;
         RequiredEnergy = requiredEnergy;
         Effects = effects;
-        TargetConfiguration = targetConfiguration;
+        TargetBoard = targetBoard;
         ValidateConstructor();
     }
 
@@ -93,7 +93,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
                Category != null &&
                RequiredEnergy.Count > 0 &&
                Effects.Count > 0 &&
-               TargetConfiguration != null;
+               TargetBoard != null;
     }
 
     public void AddEffect(EffectType effect) {
@@ -107,7 +107,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
     }
 
     public void ValidateConstructor() {
-        if (!ValidationService.Instance.ValidateName(Name)) {
+        if (!ValidationService.ValidateName(Name)) {
             throw new ArgumentException("Invalid name", nameof(Name));
         }
     }

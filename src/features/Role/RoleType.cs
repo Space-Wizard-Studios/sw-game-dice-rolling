@@ -14,7 +14,7 @@ public partial class RoleType : IdentifiableResource, IRole {
     public string Name {
         get => _name;
         set {
-            if (ValidationService.Instance.ValidateName(value)) {
+            if (ValidationService.ValidateName(value)) {
                 _name = value;
                 EmitChanged();
             }
@@ -35,7 +35,7 @@ public partial class RoleType : IdentifiableResource, IRole {
     }
 
     public void ValidateConstructor() {
-        if (!ValidationService.Instance.ValidateName(Name)) {
+        if (!ValidationService.ValidateName(Name)) {
             throw new ArgumentException("Invalid name", nameof(Name));
         }
     }

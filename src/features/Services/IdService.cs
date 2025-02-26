@@ -14,7 +14,7 @@ public class IdService {
     }
 
     public void EnsureValidId(ref string id) {
-        if (!ValidationService.Instance.ValidateId(id)) {
+        if (!ValidationService.ValidateId(id)) {
             GD.PrintErr("Id is null or empty, generating new Id");
             id = GenerateNewId();
         }

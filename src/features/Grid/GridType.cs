@@ -61,20 +61,28 @@ public partial class GridType : Resource, IGrid {
     }
 
     private void ResizeCells() {
-        GridService.Instance.ResizeCells(Cells, _rows, _columns);
+        if (_rows <= 0 || _columns <= 0) {
+            GD.PrintErr("Invalid grid size: Rows and Columns must be greater than 0.");
+            return;
+        }
+        GridService.ResizeCells(Cells, _rows, _columns);
         EmitSignal(nameof(GridChanged));
     }
 
     public int GetCellIndex(int row, int column) {
-        return GridService.Instance.GetCellIndex(row, column, _columns);
+        return GridService.GetCellIndex(row, column, _columns);
     }
 
     public int GetCell(int row, int column) {
-        return GridService.Instance.GetCell(Cells, row, column, _columns);
+        return GridService.GetCell(Cells, row, column, _columns);
     }
 
     public void SetCell(int row, int column, int value) {
-        GridService.Instance.SetCell(Cells, row, column, value, _columns);
+        if (row < 0 || row >= _rows || column < 0 || column >= _columns) {
+            GD.PrintErr("Invalid cell position.");
+            return;
+        }
+        GridService.SetCell(Cells, row, column, value, _columns);
         EmitSignal(nameof(GridChanged));
     }
 

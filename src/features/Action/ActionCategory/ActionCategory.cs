@@ -19,7 +19,7 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
     public string Name {
         get => _name;
         set {
-            if (ValidationService.Instance.ValidateName(value)) {
+            if (ValidationService.ValidateName(value)) {
                 _name = value;
                 EmitChanged();
             }
@@ -63,7 +63,7 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
     }
 
     public void ValidateConstructor() {
-        if (!ValidationService.Instance.ValidateName(Name)) {
+        if (!ValidationService.ValidateName(Name)) {
             throw new ArgumentException("Name cannot be null or whitespace");
         }
     }

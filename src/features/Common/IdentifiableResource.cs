@@ -11,7 +11,7 @@ public abstract partial class IdentifiableResource : Resource, IIdentifiable {
 
     public IdentifiableResource(string? id = null) {
         Id = id ?? IdService.Instance.GenerateNewId();
-        if (!ValidationService.Instance.ValidateId(Id)) {
+        if (!ValidationService.ValidateId(Id)) {
             GD.PrintErr("Id inválido. Gerando novo Id.");
             Id = IdService.Instance.GenerateNewId();
         }

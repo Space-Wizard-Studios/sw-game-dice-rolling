@@ -22,7 +22,7 @@ public interface IActionBehavior<TContext, TResult> {
     /// <summary>
     /// Configuração de alvo da ação.
     /// </summary>
-    TargetConfiguration? TargetConfiguration { get; set; }
+    TargetBoardType? TargetBoard { get; set; }
 
     /// <summary>
     /// Executa a ação com o contexto fornecido.

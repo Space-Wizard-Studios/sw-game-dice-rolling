@@ -1,4 +1,5 @@
 using System;
+using Godot;
 
 namespace DiceRolling.Services;
 
@@ -8,9 +9,8 @@ public class GridService {
 
     private GridService() { }
 
-    public void ResizeCells(Godot.Collections.Array<int> cells, int rows, int columns) {
-        if (cells == null)
-            throw new ArgumentNullException(nameof(cells));
+    public static void ResizeCells(Godot.Collections.Array<int> cells, int rows, int columns) {
+        ArgumentNullException.ThrowIfNull(cells);
         if (rows <= 0)
             throw new ArgumentException("O número de Rows não pode ser 0 ou menor.", nameof(rows));
         if (columns <= 0)
@@ -18,23 +18,24 @@ public class GridService {
         cells.Resize(rows * columns);
     }
 
-    public int GetCellIndex(int row, int column, int columns) {
-        if (row <= 0)
+    public static int GetCellIndex(int row, int column, int columns) {
+        if (row < 0) {
             throw new ArgumentException("O número de Rows não pode ser 0 ou menor.", nameof(row));
-        if (column <= 0)
+        }
+        if (column < 0) {
             throw new ArgumentException("O número de Columns não pode ser 0 ou menor.", nameof(column));
+        }
         return row * columns + column;
     }
 
-    public int GetCell(Godot.Collections.Array<int> cells, int row, int column, int columns) {
-        if (cells == null)
-            throw new ArgumentNullException(nameof(cells));
+    public static int GetCell(Godot.Collections.Array<int> cells, int row, int column, int columns) {
+        GD.Print($"Getting cell at Row: {row}, Column: {column}");
+        ArgumentNullException.ThrowIfNull(cells);
         return cells[GetCellIndex(row, column, columns)];
     }
 
-    public void SetCell(Godot.Collections.Array<int> cells, int row, int column, int value, int columns) {
-        if (cells == null)
-            throw new ArgumentNullException(nameof(cells));
+    public static void SetCell(Godot.Collections.Array<int> cells, int row, int column, int value, int columns) {
+        ArgumentNullException.ThrowIfNull(cells);
         cells[GetCellIndex(row, column, columns)] = value;
     }
 }

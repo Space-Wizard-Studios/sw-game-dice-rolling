@@ -1,3 +1,6 @@
 # VsCode Stuff
 .VSCodeCounter
 build/
+
+# API generated files
+api/

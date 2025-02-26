@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterCategory" load_steps=3 format=3 uid="uid://d0mpi6sabk5li"]
 
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://features/Character/CharacterType.cs" id="1_aiurc"]
-[ext_resource type="Script" uid="uid://bykcf8sd8a8hu" path="res://features/Character/Category/CharacterCategory.cs" id="2_pdbs6"]
+[ext_resource type="Script" uid="uid://bykcf8sd8a8hu" path="res://features/Character/CharacterCategory.cs" id="2_pdbs6"]
 
 [resource]
 script = ExtResource("2_pdbs6")

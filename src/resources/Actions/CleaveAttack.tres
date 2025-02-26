@@ -1,40 +1,12 @@
-[gd_resource type="Resource" script_class="ActionType" load_steps=13 format=3 uid="uid://cly4t230cu6ii"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=8 format=3 uid="uid://cly4t230cu6ii"]
 
 [ext_resource type="Resource" uid="uid://dwtue01tv131s" path="res://resources/Actions/Categories/Offensive.tres" id="1_8m2td"]
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="2_s1o36"]
 [ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://resources/Effects/DamageEffect.tres" id="3_wmqqs"]
 [ext_resource type="Texture2D" uid="uid://fmaq315605ce" path="res://assets/icons/actions/wide_cleave.png" id="4_s1o36"]
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://features/Dice/DiceEnergy.cs" id="5_yp8id"]
-[ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://features/Grid/GridType.cs" id="6_hc3lu"]
 [ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Dice/Mana/ManaRed.tres" id="6_vbjrv"]
-[ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://features/Target/TargetBoardType.cs" id="7_33bh0"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://features/Action/ActionType.cs" id="8_0ol17"]
-
-[sub_resource type="Resource" id="Resource_qbuh3"]
-script = ExtResource("6_hc3lu")
-Prefix = "P"
-Offset = 0
-Direction = 0
-Rows = 2
-Columns = 3
-Cells = Array[int]([0, 0, 1, 0, 0, 1])
-metadata/_custom_type_script = ExtResource("6_hc3lu")
-
-[sub_resource type="Resource" id="Resource_le3ww"]
-script = ExtResource("6_hc3lu")
-Prefix = "E"
-Offset = 0
-Direction = 0
-Rows = 2
-Columns = 3
-Cells = Array[int]([3, 0, 0, 3, 0, 0])
-metadata/_custom_type_script = ExtResource("6_hc3lu")
-
-[sub_resource type="Resource" id="Resource_0t1nd"]
-script = ExtResource("7_33bh0")
-IsSingleTarget = false
-Grids = Array[ExtResource("6_hc3lu")]([SubResource("Resource_qbuh3"), SubResource("Resource_le3ww")])
-metadata/_custom_type_script = ExtResource("7_33bh0")
 
 [resource]
 script = ExtResource("8_0ol17")
@@ -44,6 +16,5 @@ Description = "Cleave Attack description."
 Icon = ExtResource("4_s1o36")
 RequiredEnergy = Array[ExtResource("5_yp8id")]([ExtResource("6_vbjrv")])
 Effects = Array[ExtResource("2_s1o36")]([ExtResource("3_wmqqs")])
-TargetBoard = SubResource("Resource_0t1nd")
 Id = "1575f70b-f7b7-44e6-959c-3e0d347517a2"
 metadata/_custom_type_script = ExtResource("8_0ol17")

@@ -26,9 +26,9 @@ metadata/_custom_type_script = ExtResource("3_2fus8")
 
 [resource]
 script = ExtResource("6_ebtsc")
-Id = "fd711259-10a4-42df-87f6-ed817e718b81"
 Name = "Dummy"
 Description = "It's just a training dummy"
 RoleAttributes = Array[ExtResource("3_2fus8")]([SubResource("Resource_bmv4o"), SubResource("Resource_jxq6j")])
 RoleActions = Array[ExtResource("1_d8cls")]([SubResource("Resource_3ckpd")])
+Id = "fd711259-10a4-42df-87f6-ed817e718b81"
 metadata/_custom_type_script = ExtResource("6_ebtsc")

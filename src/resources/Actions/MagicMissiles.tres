@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://features/Dice/DiceEnergy.cs" id="4_s3uan"]
 [ext_resource type="Texture2D" uid="uid://bemp486qms5lb" path="res://assets/icons/actions/magic_missiles.png" id="4_wo1pe"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://features/Grid/GridType.cs" id="5_bbx2m"]
-[ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://features/Target/TargetConfiguration.cs" id="6_kaqn3"]
+[ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://features/Target/TargetBoardType.cs" id="6_kaqn3"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://features/Action/ActionType.cs" id="7_gvq84"]
 
 [sub_resource type="Resource" id="Resource_pvdgm"]
@@ -42,5 +42,5 @@ Description = "Magic Missiles description."
 Icon = ExtResource("4_wo1pe")
 RequiredEnergy = Array[ExtResource("4_s3uan")]([])
 Effects = Array[ExtResource("2_s3uan")]([])
-TargetConfiguration = SubResource("Resource_5j66x")
+TargetBoard = SubResource("Resource_5j66x")
 Id = "1c94c7cf-b863-43f1-bb4b-ed141e35638b"

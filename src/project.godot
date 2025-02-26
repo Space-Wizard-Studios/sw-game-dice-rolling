@@ -50,7 +50,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/@spacewiz/Arc3DEditorPlugin/plugin.cfg", "res://addons/@spacewiz/TargetConfigurationEditorPlugin/plugin.cfg", "res://addons/DragNDropNodes/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/shaker/plugin.cfg")
+enabled=PackedStringArray("res://addons/@spacewiz/Arc3DEditorPlugin/plugin.cfg", "res://addons/@spacewiz/TargetBoardEditorPlugin/plugin.cfg", "res://addons/DragNDropNodes/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/shaker/plugin.cfg")
 
 [file_customization]
 

@@ -7,16 +7,7 @@ public class ValidationService {
     public static ValidationService Instance => _instance ??= new ValidationService();
 
     private ValidationService() { }
-
-    public bool ValidateMinMaxValues(int minValue, int maxValue) {
-        var isValid = minValue <= maxValue;
-        if (!isValid) {
-            GD.PrintErr("MinValue must be less than or equal to MaxValue");
-        }
-        return isValid;
-    }
-
-    public bool ValidateName(string? value) {
+    public static bool ValidateName(string? value) {
         var isValid = !string.IsNullOrWhiteSpace(value);
         if (!isValid) {
             GD.PrintErr("Value cannot be null or whitespace");
@@ -24,10 +15,26 @@ public class ValidationService {
         return isValid;
     }
 
-    public bool ValidateId(string? value) {
+    public static bool ValidateId(string? value) {
         var isValid = !string.IsNullOrEmpty(value);
         if (!isValid) {
             GD.PrintErr("Value cannot be null or empty");
+        }
+        return isValid;
+    }
+
+    public static bool ValidateMinMaxValues(int minValue, int maxValue) {
+        var isValid = minValue <= maxValue;
+        if (!isValid) {
+            GD.PrintErr("MinValue must be less than or equal to MaxValue");
+        }
+        return isValid;
+    }
+
+    public static bool ValidateGridDimensions(int rows, int columns) {
+        var isValid = rows > 0 && columns > 0;
+        if (!isValid) {
+            GD.PrintErr("Rows and Columns must be greater than 0.");
         }
         return isValid;
     }

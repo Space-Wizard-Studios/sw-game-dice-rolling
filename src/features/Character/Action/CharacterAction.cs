@@ -7,7 +7,6 @@ using Godot;
 namespace DiceRolling.Characters;
 
 [Tool]
-[GlobalClass]
 public partial class CharacterAction : Resource {
     [Export] public ActionType? Type { get; set; }
     [Export] public string? Name { get; set; }

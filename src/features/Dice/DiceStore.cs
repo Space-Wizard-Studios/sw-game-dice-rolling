@@ -5,6 +5,8 @@ using System.Linq;
 
 namespace DiceRolling.Dice;
 
+[Tool]
+[GlobalClass]
 public partial class DiceStore : Node {
     private static DiceStore? _instance;
     public static DiceStore Instance {

@@ -1,29 +1,39 @@
 using Godot;
 using DiceRolling.Targets;
+using DiceRolling.Grids;
 
 namespace DiceRolling.Editor;
 
-public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin {
-    private MatrixControl? matrixControl;
+[Tool]
+public partial class TargetBoardInspectorPlugin : EditorInspectorPlugin {
+    private BoardMatrixEditor? boardMatrixEditor;
     private CheckBox? flipCheckBox;
     private Button? clearGridButton;
 
     public override bool _CanHandle(GodotObject @object) {
-        return @object is TargetConfiguration;
+        return @object is TargetBoardType;
     }
 
     public override void _ParseBegin(GodotObject @object) {
-        if (@object is TargetConfiguration targetConfiguration) {
+        if (@object is TargetBoardType targetBoard) {
             var container = new VBoxContainer();
             AddCustomControl(container);
 
-            // Initialize and add MatrixControl
-            matrixControl = new MatrixControl();
-            container.AddChild(matrixControl);
+            // Initialize and add BoardMatrixEditor
+            boardMatrixEditor = new BoardMatrixEditor(targetBoard);
+            container.AddChild(boardMatrixEditor);
 
-            // Add grids to MatrixControl
-            foreach (var grid in targetConfiguration.Grids) {
-                matrixControl.AddGrid(grid);
+            // Clear existing grids before adding new ones
+            boardMatrixEditor.ClearGrids();
+
+            // Add grids to BoardMatrixEditor
+            foreach (var grid in targetBoard.Grids) {
+                if (IsValidGridConfiguration(grid)) {
+                    boardMatrixEditor.AddGrid(grid);
+                }
+                else {
+                    GD.PrintErr($"Invalid grid configuration: Rows = {grid.Rows}, Columns = {grid.Columns}");
+                }
             }
 
             // Add Flip CheckBox
@@ -50,35 +60,26 @@ public partial class TargetConfigurationInspectorPlugin : EditorInspectorPlugin 
             };
             container.AddChild(descriptionRichTextLabel);
 
-            // Connect ConfigurationChanged signal
-            if (!targetConfiguration.IsConnected(nameof(TargetConfiguration.ConfigurationChanged), new Callable(this, nameof(OnConfigurationChanged)))) {
-                targetConfiguration.Connect(nameof(TargetConfiguration.ConfigurationChanged), new Callable(this, nameof(OnConfigurationChanged)));
+            // Connect SetupChanged signal
+            if (!targetBoard.IsConnected(nameof(TargetBoardType.SetupChanged), new Callable(this, nameof(OnSetupChanged)))) {
+                targetBoard.Connect(nameof(TargetBoardType.SetupChanged), new Callable(this, nameof(OnSetupChanged)));
             }
         }
     }
 
-    /// <summary>
-    /// Called when the target configuration changes.
-    /// Updates the MatrixControl with the new configuration.
-    /// </summary>
-    private static void OnConfigurationChanged() {
-        // Implementation here
+    private static bool IsValidGridConfiguration(GridType grid) {
+        return grid.Rows > 0 && grid.Columns > 0;
     }
 
-    /// <summary>
-    /// Called when the flip checkbox is toggled.
-    /// Flips the MatrixControl horizontally based on the checkbox state.
-    /// </summary>
-    /// <param name="toggled">If set to <c>true</c>, the grid will be flipped horizontally.</param>
+    private static void OnSetupChanged() {
+        GD.Print("Setup changed.");
+    }
+
     private void OnFlipCheckBoxToggled(bool toggled) {
-        matrixControl?.FlipHorizontally(toggled);
+        boardMatrixEditor?.FlipHorizontally(toggled);
     }
 
-    /// <summary>
-    /// Called when the clear grid button is pressed.
-    /// Clears all grid inputs in the MatrixControl.
-    /// </summary>
     private void OnClearGridButtonPressed() {
-        matrixControl?.ClearGridInputs();
+        boardMatrixEditor?.ClearGridInputs();
     }
 }

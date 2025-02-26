@@ -4,7 +4,6 @@ using DiceRolling.Attributes;
 namespace DiceRolling.Roles;
 
 [Tool]
-[GlobalClass]
 public partial class RoleAttribute : Resource {
     [Export] public AttributeType? Type { get; set; }
     [Export] public int BaseValue { get; set; }

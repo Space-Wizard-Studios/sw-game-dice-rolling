@@ -12,7 +12,7 @@ public partial class EventBus : Node {
     [Signal] public delegate void AttributeChangedEventHandler();
     [Signal] public delegate void CharacterSelectedEventHandler(CharacterComponent character);
     [Signal] public delegate void CharacterUnselectedEventHandler();
-    [Signal] public delegate void ActionSelectedEventHandler(TargetConfiguration targetConfiguration);
+    [Signal] public delegate void ActionSelectedEventHandler(TargetBoardType targetBoard);
 
     private static EventBus? _instance;
 

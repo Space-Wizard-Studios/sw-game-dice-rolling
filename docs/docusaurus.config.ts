@@ -24,6 +24,10 @@ const config: Config = {
         locales: ['en'],
     },
 
+    markdown: {
+        mermaid: true,
+    },
+    themes: ['@docusaurus/theme-mermaid'],
     presets: [
         [
             'classic',
@@ -89,7 +93,7 @@ const config: Config = {
             additionalLanguages: ['powershell', 'csharp'],
         },
     } satisfies Preset.ThemeConfig,
-    
+
     plugins: [require.resolve('docusaurus-lunr-search')],
 };
 

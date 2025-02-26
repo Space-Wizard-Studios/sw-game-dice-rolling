@@ -3,17 +3,17 @@ using DiceRolling.Common;
 namespace DiceRolling.Characters;
 
 /// <summary>
-/// Interface que define um personagem completo no jogo.
+/// Interface que define as entidades de personagens no jogo.
 /// </summary>
 
 public interface ICharacter :
     IIdentifiable,
-    ICharacterInformation,
-    ICharacterPlacement,
-    ICharacterAssets,
-    ICharacterRole,
-    ICharacterAttributes,
-    ICharacterActions {
+    ICharacterInformationSheet,
+    ICharacterPlacementSheet,
+    ICharacterAssetSheet,
+    ICharacterRoleSheet,
+    ICharacterAttributeSheet,
+    ICharacterActionSheet {
 
     /// <summary>
     /// Valida os campos do resource.

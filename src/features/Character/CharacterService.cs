@@ -6,6 +6,9 @@ using DiceRolling.Attributes;
 
 namespace DiceRolling.Characters;
 
+/// <summary>
+/// Fornece métodos para manipulação dos dados de personagens.
+/// </summary>
 public class CharacterService {
     private static CharacterService? _instance;
     public static CharacterService Instance => _instance ??= new CharacterService();

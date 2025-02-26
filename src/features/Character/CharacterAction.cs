@@ -6,7 +6,11 @@ using Godot;
 
 namespace DiceRolling.Characters;
 
+/// <summary>
+/// Representa uma ação de um personagem.
+/// </summary>
 [Tool]
+[GlobalClass]
 public partial class CharacterAction : Resource {
     [Export] public ActionType? Type { get; set; }
     [Export] public string? Name { get; set; }

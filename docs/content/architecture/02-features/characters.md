@@ -1,68 +1,77 @@
 # Characters
 
-**Characters** são entidades que representam os personagens do jogo.
+**Characters** são entidades que representam os personagens **jogáveis e não-jogáveis** no jogo.
 
 Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Characters.md).
 
-## Interfaces
+## Arquitetura
 
-A interface `ICharacter` agrega várias interfaces menores para definir um _Character_ completo no jogo.
+```mermaid
+flowchart LR
+    subgraph Interfaces
+        ICharacter
+    end
 
-```csharp
-public interface ICharacter :
-    ICharacterInformation,
-    ICharacterPlacement,
-    ICharacterAssets,
-    ICharacterAttributes,
-    ICharacterActions { }
+    subgraph Models
+    direction TB
+        CharacterType
+        subgraph SubModels
+            CharacterActions
+            CharacterAttributes
+            CharacterCategories
+        end
+    end
+
+    subgraph Services
+        CharacterService
+    end
+
+    subgraph Stores
+        CharacterStore
+    end
+
+    Interfaces --> Models
+    SubModels --> CharacterType
+    Models --> Stores
+    Models <--> Services
+    Services <--> Stores
+
 ```
 
-### Informações
+---
 
-`ICharacterInformation` define as informações básicas de um personagem.
+## Interfaces
 
-- **Id**: Identificador único do personagem.
-- **Name**: Nome do personagem.
-- **Category**: Categoria do personagem.
-- **Role**: Papel do personagem no jogo.
-- **DiceCapacity**: Capacidade de dados do personagem.
+- **ICharacter**: define um personagem no jogo e agrega as interfaces:
+  - **ICharacterActionSheet**: ações de um personagem.
+  - **ICharacterAssetSheet**: recursos visuais de um personagem.
+  - **ICharacterAttributeSheet**: atributos de um personagem.
+  - **ICharacterInformationSheet**: informações gerais de um personagem e categoria.
+  - **ICharacterPlacementSheet**: localização de um personagem.
+  - **ICharacterRoleSheet**: role de um personagem.
 
-### Posicionamento
+---
 
-`ICharacterPlacement` define o posicionamento (local) de um personagem no jogo.
+## Models
 
-- **Location**: Localização do personagem no jogo.
-- **SlotIndex**: Índice do slot onde o personagem está localizado.
+- **CharacterType**: Representa um tipo de personagem no jogo e inclui suas informações, atributos, ações, recursos visuais, localização e papel. Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
 
-### Recursos Visuais
+  ![CharacterType model](../../../public/architecture/02-features/characters/CharacterType.png)
 
-`ICharacterAssets` define os recursos visuais de um personagem.
+### Sub Models
 
-- **Portrait**: Retrato do personagem.
-- **CharacterSprite**: Sprite do personagem.
-- **ShadowSprite**: Sprite da sombra do personagem.
-- **ShowShadow**: Indica se a sombra do personagem deve ser exibida.
-- **SpritePositionX**: Posição X do sprite do personagem.
-- **SpritePositionY**: Posição Y do sprite do personagem.
+- **CharacterAction**: Ação de um personagem.
+- **CharacterAttribute**: Atributo de um personagem.
+- **CharacterCategory**: Categoria de um personagem.
 
-### Atributos
+---
 
-`ICharacterAttributes` define os atributos de um personagem.
+## Services
 
-- **Attributes**: Coleção de `CharacterAttribute`.
-- Métodos para inicializar e gerenciar atributos:
-  - `InitializeAttributes`
-  - `GetAttributeCurrentValue`
-  - `GetAttributeMaxValue`
-  - `GetAttributeBaseValue`
-  - `UpdateAttributeCurrentValue`
+- **CharacterService**: Fornece métodos para manipulação dos dados de personagens.
 
-### Ações
+---
 
-`ICharacterActions` define as ações de um personagem.
+## Stores
 
-- **Actions**: Coleção de `CharacterAction`.
-- Métodos para inicializar e gerenciar ações:
-  - `InitializeActions`
-  - `AddAction`
-  - `RemoveAction`
+- **CharacterStore**: Armazena dados dos personagens em coleções e facilita a manipulação desses personagens.

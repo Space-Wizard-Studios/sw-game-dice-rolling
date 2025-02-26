@@ -5,6 +5,9 @@ using DiceRolling.Locations;
 
 namespace DiceRolling.Characters;
 
+/// <summary>
+/// Armazena dados dos personagens em coleções e facilita a manipulação desses personagens.
+/// </summary>
 [Tool]
 [GlobalClass]
 public partial class CharacterStore : Resource {

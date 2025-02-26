@@ -10,21 +10,21 @@ public class GridService {
     private GridService() { }
 
     public static void ResizeCells(Godot.Collections.Array<int> cells, int rows, int columns) {
-        ArgumentNullException.ThrowIfNull(cells);
-        if (rows <= 0)
-            throw new ArgumentException("O número de Rows não pode ser 0 ou menor.", nameof(rows));
-        if (columns <= 0)
-            throw new ArgumentException("O número de Columns não pode ser 0 ou menor.", nameof(columns));
+        // ArgumentNullException.ThrowIfNull(cells);
+        // if (rows <= 0)
+        //     throw new ArgumentException("O número de Rows não pode ser 0 ou menor.", nameof(rows));
+        // if (columns <= 0)
+        //     throw new ArgumentException("O número de Columns não pode ser 0 ou menor.", nameof(columns));
         cells.Resize(rows * columns);
     }
 
     public static int GetCellIndex(int row, int column, int columns) {
-        if (row <= 0) {
-            throw new ArgumentException("O número de Rows não pode ser 0 ou menor.", nameof(row));
-        }
-        if (column <= 0) {
-            throw new ArgumentException("O número de Columns não pode ser 0 ou menor.", nameof(column));
-        }
+        // if (row <= 0) {
+        //     throw new ArgumentException("O número de Rows não pode ser 0 ou menor.", nameof(row));
+        // }
+        // if (column <= 0) {
+        //     throw new ArgumentException("O número de Columns não pode ser 0 ou menor.", nameof(column));
+        // }
         return row * columns + column;
     }
 

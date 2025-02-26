@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterType" load_steps=11 format=3 uid="uid://ctp5er4mb8u3k"]
 
-[ext_resource type="Script" uid="uid://cxt7qolwarsf1" path="res://features/Character/Action/CharacterAction.cs" id="1_ray4s"]
-[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://features/Character/Attribute/CharacterAttribute.cs" id="2_miksr"]
+[ext_resource type="Script" uid="uid://cxt7qolwarsf1" path="res://features/Character/CharacterAction.cs" id="1_ray4s"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://features/Character/CharacterAttribute.cs" id="2_miksr"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="3_fnxuv"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="4_6285t"]
 [ext_resource type="SpriteFrames" uid="uid://bkvhu7v1tmcfy" path="res://assets/characters/dummyOtsoga/DummyOtsogaSprites.tres" id="5_giux7"]

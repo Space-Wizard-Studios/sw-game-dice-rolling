@@ -15,7 +15,7 @@ public partial class BoardMatrixEditor : Control {
     private const int CellSize = 40;
     private const int Padding = 10;
     private static readonly Color[] ColorsArray = { Colors.White, Colors.Yellow, Colors.Green, Colors.Red };
-    private readonly List<GridType> _grids = new();
+    private readonly List<GridType> _grids = [];
     public TargetBoardType? TargetBoard { get; }
 
     public BoardMatrixEditor() {

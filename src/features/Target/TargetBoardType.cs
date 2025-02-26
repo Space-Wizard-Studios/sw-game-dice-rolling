@@ -19,7 +19,7 @@ public partial class TargetBoardType : Resource, ITargetBoard {
 
     public void AddGrid(int rows, int columns) {
         if (rows <= 0 || columns <= 0) {
-            throw new ArgumentException("Rows and Columns must be greater than 0.");
+            throw new ArgumentException("Rows e Columns devem ser maiores que 0.");
         }
         Grids.Add(new GridType(rows, columns, 0, "G"));
         EmitSignal(nameof(SetupChanged));

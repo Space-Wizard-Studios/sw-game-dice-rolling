@@ -19,10 +19,10 @@ public class GridService {
     }
 
     public static int GetCellIndex(int row, int column, int columns) {
-        if (row < 0) {
+        if (row <= 0) {
             throw new ArgumentException("O número de Rows não pode ser 0 ou menor.", nameof(row));
         }
-        if (column < 0) {
+        if (column <= 0) {
             throw new ArgumentException("O número de Columns não pode ser 0 ou menor.", nameof(column));
         }
         return row * columns + column;

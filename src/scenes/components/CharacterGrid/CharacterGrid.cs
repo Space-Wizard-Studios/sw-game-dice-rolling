@@ -137,8 +137,8 @@ public partial class CharacterGrid : Node3D {
         _connections.Clear();
     }
 
-    private void OnActionSelected(TargetBoardType TargetBoard) {
-        UpdateCellColors(TargetBoard);
+    private void OnActionSelected(TargetBoardType targetBoard) {
+        UpdateCellColors(targetBoard);
     }
 
     private static Color GetCellColor(int value) {
@@ -151,16 +151,14 @@ public partial class CharacterGrid : Node3D {
         };
     }
 
-    // ...existing code...
-
-    private void UpdateCellColors(TargetBoardType TargetBoard) {
-        if (TargetBoard.Grids.Count < 2) {
+    private void UpdateCellColors(TargetBoardType targetBoard) {
+        if (targetBoard == null || targetBoard.Grids.Count < 2) {
             GD.PrintErr("Expected at least two grids in the target configuration.");
             return;
         }
 
-        var gridConfig1 = TargetBoard.Grids[0];
-        var gridConfig2 = TargetBoard.Grids[1];
+        var gridConfig1 = targetBoard.Grids[0];
+        var gridConfig2 = targetBoard.Grids[1];
 
         var grid3DInstances = new List<Grid3D>();
         foreach (Node child in GetChildren()) {

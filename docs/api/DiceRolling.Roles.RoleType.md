@@ -7,7 +7,7 @@ Assembly: dice\-rolling.dll
 [Tool]
 [GlobalClass]
 [ScriptPath("res://features/Role/RoleType.cs")]
-public class RoleType : Resource, IDisposable, IRole, IRoleInformation, IRoleAttributes, IRoleActions
+public class RoleType : IdentifiableResource, IDisposable, IIdentifiable, IRole, IRoleInformation, IRoleAttributes, IRoleActions
 ```
 
 #### Inheritance
@@ -16,11 +16,13 @@ public class RoleType : Resource, IDisposable, IRole, IRoleInformation, IRoleAtt
 GodotObject ← 
 RefCounted ← 
 Resource ← 
+[IdentifiableResource](DiceRolling.Common.IdentifiableResource.md) ← 
 [RoleType](DiceRolling.Roles.RoleType.md)
 
 #### Implements
 
 [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
+[IIdentifiable](DiceRolling.Common.IIdentifiable.md), 
 [IRole](DiceRolling.Roles.IRole.md), 
 [IRoleInformation](DiceRolling.Roles.IRoleInformation.md), 
 [IRoleAttributes](DiceRolling.Roles.IRoleAttributes.md), 
@@ -28,6 +30,10 @@ Resource ←
 
 #### Inherited Members
 
+[IdentifiableResource.Id](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_Id), 
+[IdentifiableResource.GenerateNewIdButton](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewIdButton), 
+[IdentifiableResource.GenerateNewId\(\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewId), 
+[IdentifiableResource.\_ValidateProperty\(Dictionary\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_\_ValidateProperty\_Godot\_Collections\_Dictionary\_), 
 Resource.\_GetRid\(\), 
 Resource.\_ResetState\(\), 
 Resource.\_SetPathCache\(string\), 
@@ -151,6 +157,14 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
+## Constructors
+
+### <a id="DiceRolling_Roles_RoleType__ctor"></a> RoleType\(\)
+
+```csharp
+public RoleType()
+```
+
 ## Properties
 
 ### <a id="DiceRolling_Roles_RoleType_Description"></a> Description
@@ -166,31 +180,18 @@ public string? Description { get; set; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
-### <a id="DiceRolling_Roles_RoleType_Id"></a> Id
-
-Identificador único do arquétipo de personagem.
-
-```csharp
-[Export(PropertyHint.None, "")]
-public string Id { get; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
-
 ### <a id="DiceRolling_Roles_RoleType_Name"></a> Name
 
 Nome do arquétipo de personagem.
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public string? Name { get; set; }
+public string Name { get; set; }
 ```
 
 #### Property Value
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
 
 ### <a id="DiceRolling_Roles_RoleType_RoleActions"></a> RoleActions
 
@@ -217,4 +218,12 @@ public Array<RoleAttribute> RoleAttributes { get; set; }
 #### Property Value
 
  Array<[RoleAttribute](DiceRolling.Roles.RoleAttribute.md)\>
+
+## Methods
+
+### <a id="DiceRolling_Roles_RoleType_ValidateConstructor"></a> ValidateConstructor\(\)
+
+```csharp
+public void ValidateConstructor()
+```
 

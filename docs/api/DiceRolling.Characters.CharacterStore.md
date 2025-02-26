@@ -3,6 +3,8 @@
 Namespace: [DiceRolling.Characters](DiceRolling.Characters.md)  
 Assembly: dice\-rolling.dll  
 
+Armazena dados dos personagens em coleções e facilita a manipulação desses personagens.
+
 ```csharp
 [Tool]
 [GlobalClass]

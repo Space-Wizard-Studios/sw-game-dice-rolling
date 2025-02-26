@@ -4,7 +4,7 @@ Namespace: [DiceRolling.Dice](DiceRolling.Dice.md)
 Assembly: dice\-rolling.dll  
 
 ```csharp
-[ScriptPath("res://features/Dice/DiceIcons/DiceIcon.cs")]
+[ScriptPath("res://features/Dice/DiceIcon.cs")]
 public class DiceIcon : Resource, IDisposable
 ```
 

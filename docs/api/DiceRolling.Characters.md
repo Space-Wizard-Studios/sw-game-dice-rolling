@@ -4,39 +4,58 @@
 
  [CharacterAction](DiceRolling.Characters.CharacterAction.md)
 
+Representa uma ação de um personagem.
+
  [CharacterAttribute](DiceRolling.Characters.CharacterAttribute.md)
+
+Representa um atributo de um personagem.
 
  [CharacterCategory](DiceRolling.Characters.CharacterCategory.md)
 
+Representa a categoria de um personagem.
+
+ [CharacterService](DiceRolling.Characters.CharacterService.md)
+
+Fornece métodos para manipulação dos dados de personagens.
+
  [CharacterStore](DiceRolling.Characters.CharacterStore.md)
 
+Armazena dados dos personagens em coleções e facilita a manipulação desses personagens.
+
  [CharacterType](DiceRolling.Characters.CharacterType.md)
+
+Representa um tipo de personagem no jogo e inclui suas informações, atributos, ações, recursos visuais, localização e papel.
+Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
 
 ### Interfaces
 
  [ICharacter](DiceRolling.Characters.ICharacter.md)
 
-Interface que define um personagem completo no jogo.
+Representa as entidades de personagens no jogo.
 
- [ICharacterActions](DiceRolling.Characters.ICharacterActions.md)
+ [ICharacterActionSheet](DiceRolling.Characters.ICharacterActionSheet.md)
 
-Interface que define as ações de um personagem no jogo.
+Interface que define as ações que um personagem pode realizar.
 
- [ICharacterAssets](DiceRolling.Characters.ICharacterAssets.md)
+ [ICharacterAssetSheet](DiceRolling.Characters.ICharacterAssetSheet.md)
 
-Interface que define os recursos visuais de um personagem no jogo.
+Interface que define os recursos visuais de um personagem.
 
- [ICharacterAttributes](DiceRolling.Characters.ICharacterAttributes.md)
+ [ICharacterAttributeSheet](DiceRolling.Characters.ICharacterAttributeSheet.md)
 
-Interface que define os atributos de um personagem no jogo.
+Interface que define os atributos de um personagem.
 
- [ICharacterInformation](DiceRolling.Characters.ICharacterInformation.md)
+ [ICharacterInformationSheet](DiceRolling.Characters.ICharacterInformationSheet.md)
 
-Interface que define as informações básicas de um personagem no jogo.
+Interface que define informações gerais de um personagem.
 
- [ICharacterPlacement](DiceRolling.Characters.ICharacterPlacement.md)
+ [ICharacterPlacementSheet](DiceRolling.Characters.ICharacterPlacementSheet.md)
 
 Interface que define a localização de um personagem no jogo.
+
+ [ICharacterRoleSheet](DiceRolling.Characters.ICharacterRoleSheet.md)
+
+Interface que define a role de um personagem no jogo.
 
 ### Delegates
 

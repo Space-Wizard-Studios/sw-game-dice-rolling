@@ -10,7 +10,7 @@
 
  [IAction<TContext, TResult\>](DiceRolling.Actions.IAction\-2.md)
 
-Interface que define uma ação completa no jogo.
+Interface que define uma ação que é realizada por personagens do jogo.
 
  [IActionAssets](DiceRolling.Actions.IActionAssets.md)
 

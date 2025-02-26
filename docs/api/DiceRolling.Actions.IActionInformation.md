@@ -40,10 +40,10 @@ string? Description { get; set; }
 Nome da ação.
 
 ```csharp
-string? Name { get; set; }
+string Name { get; set; }
 ```
 
 #### Property Value
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
 

@@ -73,34 +73,6 @@ Coluna da célula.
 
 Índice da célula.
 
-### <a id="DiceRolling_Grids_IGridCells_GetCellPosition_System_Int32_System_Int32_System_Single_"></a> GetCellPosition\(int, int, float\)
-
-Obtém a posição de uma célula.
-
-```csharp
-Vector3 GetCellPosition(int row, int column, float cellPadding)
-```
-
-#### Parameters
-
-`row` [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-Linha da célula.
-
-`column` [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-Coluna da célula.
-
-`cellPadding` [float](https://learn.microsoft.com/dotnet/api/system.single)
-
-Espaçamento da célula.
-
-#### Returns
-
- Vector3
-
-Posição da célula.
-
 ### <a id="DiceRolling_Grids_IGridCells_SetCell_System_Int32_System_Int32_System_Int32_"></a> SetCell\(int, int, int\)
 
 Define o valor de uma célula.

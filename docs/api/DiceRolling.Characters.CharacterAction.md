@@ -3,6 +3,8 @@
 Namespace: [DiceRolling.Characters](DiceRolling.Characters.md)  
 Assembly: dice\-rolling.dll  
 
+Representa uma ação de um personagem.
+
 ```csharp
 [Tool]
 [GlobalClass]
@@ -200,16 +202,16 @@ public string? Name { get; set; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
-### <a id="DiceRolling_Characters_CharacterAction_RequiredMana"></a> RequiredMana
+### <a id="DiceRolling_Characters_CharacterAction_RequiredEnergy"></a> RequiredEnergy
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public Array<DiceMana> RequiredMana { get; set; }
+public Array<DiceEnergy> RequiredEnergy { get; set; }
 ```
 
 #### Property Value
 
- Array<[DiceMana](DiceRolling.Dice.DiceMana.md)\>
+ Array<[DiceEnergy](DiceRolling.Dice.DiceEnergy.md)\>
 
 ### <a id="DiceRolling_Characters_CharacterAction_Type"></a> Type
 

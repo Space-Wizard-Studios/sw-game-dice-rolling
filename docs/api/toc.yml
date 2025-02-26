@@ -32,8 +32,8 @@
       items:
       - name: AttributeType
         href: DiceRolling.Attributes.AttributeType.md
-      - name: AttributesConfig
-        href: DiceRolling.Attributes.AttributesConfig.md
+      - name: AttributesStore
+        href: DiceRolling.Attributes.AttributesStore.md
     - name: Interfaces
       items:
       - name: IAttribute
@@ -62,6 +62,8 @@
         href: DiceRolling.Characters.CharacterAttribute.md
       - name: CharacterCategory
         href: DiceRolling.Characters.CharacterCategory.md
+      - name: CharacterService
+        href: DiceRolling.Characters.CharacterService.md
       - name: CharacterStore
         href: DiceRolling.Characters.CharacterStore.md
       - name: CharacterType
@@ -70,16 +72,18 @@
       items:
       - name: ICharacter
         href: DiceRolling.Characters.ICharacter.md
-      - name: ICharacterActions
-        href: DiceRolling.Characters.ICharacterActions.md
-      - name: ICharacterAssets
-        href: DiceRolling.Characters.ICharacterAssets.md
-      - name: ICharacterAttributes
-        href: DiceRolling.Characters.ICharacterAttributes.md
-      - name: ICharacterInformation
-        href: DiceRolling.Characters.ICharacterInformation.md
-      - name: ICharacterPlacement
-        href: DiceRolling.Characters.ICharacterPlacement.md
+      - name: ICharacterActionSheet
+        href: DiceRolling.Characters.ICharacterActionSheet.md
+      - name: ICharacterAssetSheet
+        href: DiceRolling.Characters.ICharacterAssetSheet.md
+      - name: ICharacterAttributeSheet
+        href: DiceRolling.Characters.ICharacterAttributeSheet.md
+      - name: ICharacterInformationSheet
+        href: DiceRolling.Characters.ICharacterInformationSheet.md
+      - name: ICharacterPlacementSheet
+        href: DiceRolling.Characters.ICharacterPlacementSheet.md
+      - name: ICharacterRoleSheet
+        href: DiceRolling.Characters.ICharacterRoleSheet.md
     - name: Delegates
       items:
       - name: CharacterType.AttributeChangedEventHandler
@@ -140,32 +144,32 @@
     items:
     - name: Classes
       items:
-      - name: Dice<T>
-        href: DiceRolling.Dice.Dice-1.md
+      - name: DiceEnergy
+        href: DiceRolling.Dice.DiceEnergy.md
+      - name: DiceEnergyStore
+        href: DiceRolling.Dice.DiceEnergyStore.md
       - name: DiceFactory
         href: DiceRolling.Dice.DiceFactory.md
       - name: DiceIcon
         href: DiceRolling.Dice.DiceIcon.md
-      - name: DiceIconsResources
-        href: DiceRolling.Dice.DiceIconsResources.md
+      - name: DiceIconStore
+        href: DiceRolling.Dice.DiceIconStore.md
       - name: DiceLocation
         href: DiceRolling.Dice.DiceLocation.md
-      - name: DiceMana
-        href: DiceRolling.Dice.DiceMana.md
-      - name: DiceManaResources
-        href: DiceRolling.Dice.DiceManaResources.md
       - name: DiceSide
         href: DiceRolling.Dice.DiceSide.md
+      - name: DiceStore
+        href: DiceRolling.Dice.DiceStore.md
+      - name: DiceType
+        href: DiceRolling.Dice.DiceType.md
     - name: Interfaces
       items:
       - name: IDice<T>
         href: DiceRolling.Dice.IDice-1.md
+      - name: IDiceEnergy
+        href: DiceRolling.Dice.IDiceEnergy.md
       - name: IDiceLocation
         href: DiceRolling.Dice.IDiceLocation.md
-      - name: IDiceMana
-        href: DiceRolling.Dice.IDiceMana.md
-      - name: IDiceSide
-        href: DiceRolling.Dice.IDiceSide.md
     - name: Enums
       items:
       - name: DiceLocationCategory
@@ -186,12 +190,12 @@
         href: DiceRolling.Editor.Arc3DEditorPlugin.md
       - name: Arc3DGizmoPlugin
         href: DiceRolling.Editor.Arc3DGizmoPlugin.md
-      - name: MatrixControl
-        href: DiceRolling.Editor.MatrixControl.md
-      - name: TargetConfigurationEditorPlugin
-        href: DiceRolling.Editor.TargetConfigurationEditorPlugin.md
-      - name: TargetConfigurationInspectorPlugin
-        href: DiceRolling.Editor.TargetConfigurationInspectorPlugin.md
+      - name: BoardMatrixEditor
+        href: DiceRolling.Editor.BoardMatrixEditor.md
+      - name: TargetBoardEditorPlugin
+        href: DiceRolling.Editor.TargetBoardEditorPlugin.md
+      - name: TargetBoardInspectorPlugin
+        href: DiceRolling.Editor.TargetBoardInspectorPlugin.md
   - name: Effects
     href: DiceRolling.Effects.md
     items:
@@ -332,32 +336,62 @@
       items:
       - name: EffectService
         href: DiceRolling.Services.EffectService.md
+      - name: GridService
+        href: DiceRolling.Services.GridService.md
       - name: IdService
         href: DiceRolling.Services.IdService.md
-  - name: Stores
-    href: DiceRolling.Stores.md
-    items:
-    - name: Classes
-      items:
-      - name: DiceStore
-        href: DiceRolling.Stores.DiceStore.md
+      - name: TargetBoardService
+        href: DiceRolling.Services.TargetBoardService.md
+      - name: ValidationService
+        href: DiceRolling.Services.ValidationService.md
   - name: Targets
     href: DiceRolling.Targets.md
     items:
     - name: Classes
       items:
-      - name: TargetConfiguration
-        href: DiceRolling.Targets.TargetConfiguration.md
+      - name: TargetBoardType
+        href: DiceRolling.Targets.TargetBoardType.md
     - name: Interfaces
       items:
-      - name: ITarget
-        href: DiceRolling.Targets.ITarget.md
+      - name: ITargetBoard
+        href: DiceRolling.Targets.ITargetBoard.md
     - name: Delegates
       items:
-      - name: ITarget.ConfigurationChangedEventHandler
-        href: DiceRolling.Targets.ITarget.ConfigurationChangedEventHandler.md
-      - name: TargetConfiguration.ConfigurationChangedEventHandler
-        href: DiceRolling.Targets.TargetConfiguration.ConfigurationChangedEventHandler.md
+      - name: ITargetBoard.ConfigurationChangedEventHandler
+        href: DiceRolling.Targets.ITargetBoard.ConfigurationChangedEventHandler.md
+      - name: TargetBoardType.SetupChangedEventHandler
+        href: DiceRolling.Targets.TargetBoardType.SetupChangedEventHandler.md
+  - name: Tests
+    href: DiceRolling.Tests.md
+    items:
+    - name: Actions
+      href: DiceRolling.Tests.Actions.md
+      items:
+      - name: Classes
+        items:
+        - name: ActionTypeTests
+          href: DiceRolling.Tests.Actions.ActionTypeTests.md
+    - name: Attributes
+      href: DiceRolling.Tests.Attributes.md
+      items:
+      - name: Classes
+        items:
+        - name: AttributeTypeTests
+          href: DiceRolling.Tests.Attributes.AttributeTypeTests.md
+    - name: Characters
+      href: DiceRolling.Tests.Characters.md
+      items:
+      - name: Classes
+        items:
+        - name: CharacterTypeTests
+          href: DiceRolling.Tests.Characters.CharacterTypeTests.md
+    - name: Services
+      href: DiceRolling.Tests.Services.md
+      items:
+      - name: Classes
+        items:
+        - name: ValidationServiceTests
+          href: DiceRolling.Tests.Services.ValidationServiceTests.md
   - name: UI
     href: DiceRolling.UI.md
     items:

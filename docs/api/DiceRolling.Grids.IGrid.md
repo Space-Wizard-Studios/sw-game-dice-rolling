@@ -14,3 +14,11 @@ public interface IGrid : IGridConfiguration, IGridCells
 [IGridConfiguration](DiceRolling.Grids.IGridConfiguration.md), 
 [IGridCells](DiceRolling.Grids.IGridCells.md)
 
+## Methods
+
+### <a id="DiceRolling_Grids_IGrid_ValidateConstructor"></a> ValidateConstructor\(\)
+
+```csharp
+void ValidateConstructor()
+```
+

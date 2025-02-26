@@ -1,0 +1,274 @@
+# <a id="DiceRolling_Dice_DiceType"></a> Class DiceType
+
+Namespace: [DiceRolling.Dice](DiceRolling.Dice.md)  
+Assembly: dice\-rolling.dll  
+
+```csharp
+[Tool]
+[GlobalClass]
+[ScriptPath("res://features/Dice/DiceType.cs")]
+public class DiceType : IdentifiableResource, IDisposable, IDice<DiceSide>, IIdentifiable
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+GodotObject ← 
+RefCounted ← 
+Resource ← 
+[IdentifiableResource](DiceRolling.Common.IdentifiableResource.md) ← 
+[DiceType](DiceRolling.Dice.DiceType.md)
+
+#### Implements
+
+[IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
+[IDice<DiceSide\>](DiceRolling.Dice.IDice\-1.md), 
+[IIdentifiable](DiceRolling.Common.IIdentifiable.md)
+
+#### Inherited Members
+
+[IdentifiableResource.Id](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_Id), 
+[IdentifiableResource.GenerateNewIdButton](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewIdButton), 
+[IdentifiableResource.GenerateNewId\(\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewId), 
+[IdentifiableResource.\_ValidateProperty\(Dictionary\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_\_ValidateProperty\_Godot\_Collections\_Dictionary\_), 
+Resource.\_GetRid\(\), 
+Resource.\_ResetState\(\), 
+Resource.\_SetPathCache\(string\), 
+Resource.\_SetupLocalToScene\(\), 
+Resource.TakeOverPath\(string\), 
+Resource.SetPathCache\(string\), 
+Resource.GetRid\(\), 
+Resource.GetLocalScene\(\), 
+Resource.SetupLocalToScene\(\), 
+Resource.ResetState\(\), 
+Resource.SetIdForPath\(string, string\), 
+Resource.GetIdForPath\(string\), 
+Resource.IsBuiltIn\(\), 
+Resource.GenerateSceneUniqueId\(\), 
+Resource.EmitChanged\(\), 
+Resource.Duplicate\(bool\), 
+Resource.EmitSignalChanged\(\), 
+Resource.EmitSignalSetupLocalToSceneRequested\(\), 
+Resource.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+Resource.HasGodotClassMethod\(in godot\_string\_name\), 
+Resource.HasGodotClassSignal\(in godot\_string\_name\), 
+Resource.ResourceLocalToScene, 
+Resource.ResourcePath, 
+Resource.ResourceName, 
+Resource.ResourceSceneUniqueId, 
+Resource.Changed, 
+Resource.SetupLocalToSceneRequested, 
+RefCounted.InitRef\(\), 
+RefCounted.Reference\(\), 
+RefCounted.Unreference\(\), 
+RefCounted.GetReferenceCount\(\), 
+RefCounted.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+RefCounted.HasGodotClassMethod\(in godot\_string\_name\), 
+RefCounted.HasGodotClassSignal\(in godot\_string\_name\), 
+GodotObject.NotificationPostinitialize, 
+GodotObject.NotificationPredelete, 
+GodotObject.NotificationExtensionReloaded, 
+GodotObject.InstanceFromId\(ulong\), 
+GodotObject.IsInstanceIdValid\(ulong\), 
+GodotObject.IsInstanceValid\(GodotObject?\), 
+GodotObject.WeakRef\(GodotObject?\), 
+GodotObject.Dispose\(\), 
+GodotObject.Dispose\(bool\), 
+GodotObject.ToString\(\), 
+GodotObject.ToSignal\(GodotObject, StringName\), 
+GodotObject.\_Get\(StringName\), 
+GodotObject.\_GetPropertyList\(\), 
+GodotObject.\_IterGet\(Variant\), 
+GodotObject.\_IterInit\(Array\), 
+GodotObject.\_IterNext\(Array\), 
+GodotObject.\_Notification\(int\), 
+GodotObject.\_PropertyCanRevert\(StringName\), 
+GodotObject.\_PropertyGetRevert\(StringName\), 
+GodotObject.\_Set\(StringName, Variant\), 
+GodotObject.\_ValidateProperty\(Dictionary\), 
+GodotObject.Free\(\), 
+GodotObject.GetClass\(\), 
+GodotObject.IsClass\(string\), 
+GodotObject.Set\(StringName, Variant\), 
+GodotObject.Get\(StringName\), 
+GodotObject.SetIndexed\(NodePath, Variant\), 
+GodotObject.GetIndexed\(NodePath\), 
+GodotObject.GetPropertyList\(\), 
+GodotObject.GetMethodList\(\), 
+GodotObject.PropertyCanRevert\(StringName\), 
+GodotObject.PropertyGetRevert\(StringName\), 
+GodotObject.Notification\(int, bool\), 
+GodotObject.GetInstanceId\(\), 
+GodotObject.SetScript\(Variant\), 
+GodotObject.GetScript\(\), 
+GodotObject.SetMeta\(StringName, Variant\), 
+GodotObject.RemoveMeta\(StringName\), 
+GodotObject.GetMeta\(StringName, Variant\), 
+GodotObject.HasMeta\(StringName\), 
+GodotObject.GetMetaList\(\), 
+GodotObject.AddUserSignal\(string, Array\), 
+GodotObject.HasUserSignal\(StringName\), 
+GodotObject.RemoveUserSignal\(StringName\), 
+GodotObject.EmitSignal\(StringName, params Variant\[\]\), 
+GodotObject.EmitSignal\(StringName, ReadOnlySpan<Variant\>\), 
+GodotObject.Call\(StringName, params Variant\[\]\), 
+GodotObject.Call\(StringName, ReadOnlySpan<Variant\>\), 
+GodotObject.CallDeferred\(StringName, params Variant\[\]\), 
+GodotObject.CallDeferred\(StringName, ReadOnlySpan<Variant\>\), 
+GodotObject.SetDeferred\(StringName, Variant\), 
+GodotObject.Callv\(StringName, Array\), 
+GodotObject.HasMethod\(StringName\), 
+GodotObject.GetMethodArgumentCount\(StringName\), 
+GodotObject.HasSignal\(StringName\), 
+GodotObject.GetSignalList\(\), 
+GodotObject.GetSignalConnectionList\(StringName\), 
+GodotObject.GetIncomingConnections\(\), 
+GodotObject.Connect\(StringName, Callable, uint\), 
+GodotObject.Disconnect\(StringName, Callable\), 
+GodotObject.IsConnected\(StringName, Callable\), 
+GodotObject.HasConnections\(StringName\), 
+GodotObject.SetBlockSignals\(bool\), 
+GodotObject.IsBlockingSignals\(\), 
+GodotObject.NotifyPropertyListChanged\(\), 
+GodotObject.SetMessageTranslation\(bool\), 
+GodotObject.CanTranslateMessages\(\), 
+GodotObject.Tr\(StringName, StringName\), 
+GodotObject.TrN\(StringName, StringName, int, StringName\), 
+GodotObject.GetTranslationDomain\(\), 
+GodotObject.SetTranslationDomain\(StringName\), 
+GodotObject.IsQueuedForDeletion\(\), 
+GodotObject.CancelFree\(\), 
+GodotObject.EmitSignalScriptChanged\(\), 
+GodotObject.EmitSignalPropertyListChanged\(\), 
+GodotObject.InvokeGodotClassMethod\(in godot\_string\_name, NativeVariantPtrArgs, out godot\_variant\), 
+GodotObject.HasGodotClassMethod\(in godot\_string\_name\), 
+GodotObject.HasGodotClassSignal\(in godot\_string\_name\), 
+GodotObject.NativeInstance, 
+GodotObject.ScriptChanged, 
+GodotObject.PropertyListChanged, 
+[object.Equals\(object?\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone), 
+[object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
+
+## Constructors
+
+### <a id="DiceRolling_Dice_DiceType__ctor"></a> DiceType\(\)
+
+```csharp
+public DiceType()
+```
+
+### <a id="DiceRolling_Dice_DiceType__ctor_System_String_Godot_Collections_Array_DiceRolling_Dice_DiceSide__DiceRolling_Dice_DiceLocation_"></a> DiceType\(string, Array<DiceSide\>, DiceLocation\)
+
+```csharp
+public DiceType(string name, Array<DiceSide> sides, DiceLocation location)
+```
+
+#### Parameters
+
+`name` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+`sides` Array<[DiceSide](DiceRolling.Dice.DiceSide.md)\>
+
+`location` [DiceLocation](DiceRolling.Dice.DiceLocation.md)
+
+## Properties
+
+### <a id="DiceRolling_Dice_DiceType_Location"></a> Location
+
+```csharp
+[Export(PropertyHint.None, "")]
+public DiceLocation Location { get; set; }
+```
+
+#### Property Value
+
+ [DiceLocation](DiceRolling.Dice.DiceLocation.md)
+
+### <a id="DiceRolling_Dice_DiceType_Name"></a> Name
+
+```csharp
+[Export(PropertyHint.None, "")]
+public string Name { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### <a id="DiceRolling_Dice_DiceType_SideCount"></a> SideCount
+
+```csharp
+[Export(PropertyHint.None, "")]
+public int SideCount { get; }
+```
+
+#### Property Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="DiceRolling_Dice_DiceType_Sides"></a> Sides
+
+```csharp
+[Export(PropertyHint.None, "")]
+public Array<DiceSide> Sides { get; set; }
+```
+
+#### Property Value
+
+ Array<[DiceSide](DiceRolling.Dice.DiceSide.md)\>
+
+## Methods
+
+### <a id="DiceRolling_Dice_DiceType_ValidateConstructor"></a> ValidateConstructor\(\)
+
+```csharp
+public void ValidateConstructor()
+```
+
+### <a id="DiceRolling_Dice_DiceType__ValidateProperty_Godot_Collections_Dictionary_"></a> \_ValidateProperty\(Dictionary\)
+
+<p>Override this method to customize existing properties. Every property info goes through this method, except properties added with <xref href="Godot.GodotObject._GetPropertyList" data-throw-if-not-resolved="false"></xref>. The dictionary contents is the same as in <xref href="Godot.GodotObject._GetPropertyList" data-throw-if-not-resolved="false"></xref>.</p>
+<p>
+  <pre><code class="lang-csharp">[Tool]
+  public partial class MyNode : Node
+  {
+      private bool _isNumberEditable;
+
+      [Export]
+      public bool IsNumberEditable
+      {
+          get => _isNumberEditable;
+          set
+          {
+              _isNumberEditable = value;
+              NotifyPropertyListChanged();
+          }
+      }
+
+      [Export]
+      public int Number { get; set; }
+
+      public override void _ValidateProperty(Godot.Collections.Dictionary property)
+      {
+          if (property["name"].AsStringName() == PropertyName.Number && !IsNumberEditable)
+          {
+              var usage = property["usage"].As<PropertyUsageFlags>() | PropertyUsageFlags.ReadOnly;
+              property["usage"] = (int)usage;
+          }
+      }
+  }</code></pre>
+</p>
+
+```csharp
+public override void _ValidateProperty(Dictionary property)
+```
+
+#### Parameters
+
+`property` Dictionary
+

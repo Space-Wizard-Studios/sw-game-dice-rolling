@@ -4,7 +4,7 @@
 
  [AttributeType](DiceRolling.Attributes.AttributeType.md)
 
- [AttributesConfig](DiceRolling.Attributes.AttributesConfig.md)
+ [AttributesStore](DiceRolling.Attributes.AttributesStore.md)
 
 ### Interfaces
 

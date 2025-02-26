@@ -3,6 +3,8 @@
 Namespace: [DiceRolling.Characters](DiceRolling.Characters.md)  
 Assembly: dice\-rolling.dll  
 
+Representa um atributo de um personagem.
+
 ```csharp
 [Tool]
 [GlobalClass]

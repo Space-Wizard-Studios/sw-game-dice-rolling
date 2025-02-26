@@ -23,27 +23,15 @@ string? Description { get; set; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
-### <a id="DiceRolling_Roles_IRoleInformation_Id"></a> Id
-
-Identificador único do arquétipo de personagem.
-
-```csharp
-string Id { get; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
-
 ### <a id="DiceRolling_Roles_IRoleInformation_Name"></a> Name
 
 Nome do arquétipo de personagem.
 
 ```csharp
-string? Name { get; set; }
+string Name { get; set; }
 ```
 
 #### Property Value
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
 

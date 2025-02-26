@@ -29,29 +29,29 @@ Array<EffectType> Effects { get; set; }
 
  Array<[EffectType](DiceRolling.Effects.EffectType.md)\>
 
-### <a id="DiceRolling_Actions_IActionBehavior_2_RequiredMana"></a> RequiredMana
+### <a id="DiceRolling_Actions_IActionBehavior_2_RequiredEnergy"></a> RequiredEnergy
 
-Mana necessária para executar a ação.
+Energia necessária para executar a ação.
 
 ```csharp
-Array<DiceMana> RequiredMana { get; set; }
+Array<DiceEnergy> RequiredEnergy { get; set; }
 ```
 
 #### Property Value
 
- Array<[DiceMana](DiceRolling.Dice.DiceMana.md)\>
+ Array<[DiceEnergy](DiceRolling.Dice.DiceEnergy.md)\>
 
-### <a id="DiceRolling_Actions_IActionBehavior_2_TargetConfiguration"></a> TargetConfiguration
+### <a id="DiceRolling_Actions_IActionBehavior_2_TargetBoard"></a> TargetBoard
 
 Configuração de alvo da ação.
 
 ```csharp
-TargetConfiguration? TargetConfiguration { get; set; }
+TargetBoardType? TargetBoard { get; set; }
 ```
 
 #### Property Value
 
- [TargetConfiguration](DiceRolling.Targets.TargetConfiguration.md)?
+ [TargetBoardType](DiceRolling.Targets.TargetBoardType.md)?
 
 ## Methods
 

@@ -20,7 +20,12 @@ Resource ←
 #### Derived
 
 [ActionCategory](DiceRolling.Actions.ActionCategory.md), 
-[ActionType](DiceRolling.Actions.ActionType.md)
+[ActionType](DiceRolling.Actions.ActionType.md), 
+[AttributeType](DiceRolling.Attributes.AttributeType.md), 
+[CharacterType](DiceRolling.Characters.CharacterType.md), 
+[DiceEnergy](DiceRolling.Dice.DiceEnergy.md), 
+[DiceType](DiceRolling.Dice.DiceType.md), 
+[RoleType](DiceRolling.Roles.RoleType.md)
 
 #### Implements
 
@@ -152,6 +157,18 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
+## Constructors
+
+### <a id="DiceRolling_Common_IdentifiableResource__ctor_System_String_"></a> IdentifiableResource\(string?\)
+
+```csharp
+public IdentifiableResource(string? id = null)
+```
+
+#### Parameters
+
+`id` [string](https://learn.microsoft.com/dotnet/api/system.string)?
+
 ## Properties
 
 ### <a id="DiceRolling_Common_IdentifiableResource_GenerateNewIdButton"></a> GenerateNewIdButton
@@ -178,12 +195,6 @@ public string Id { get; }
  [string](https://learn.microsoft.com/dotnet/api/system.string)
 
 ## Methods
-
-### <a id="DiceRolling_Common_IdentifiableResource_EnsureValidId"></a> EnsureValidId\(\)
-
-```csharp
-protected void EnsureValidId()
-```
 
 ### <a id="DiceRolling_Common_IdentifiableResource_GenerateNewId"></a> GenerateNewId\(\)
 

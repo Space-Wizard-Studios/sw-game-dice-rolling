@@ -4,7 +4,7 @@ Namespace: [DiceRolling.Services](DiceRolling.Services.md)
 Assembly: dice\-rolling.dll  
 
 ```csharp
-public static class IdService
+public class IdService
 ```
 
 #### Inheritance
@@ -22,12 +22,24 @@ public static class IdService
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
+## Properties
+
+### <a id="DiceRolling_Services_IdService_Instance"></a> Instance
+
+```csharp
+public static IdService Instance { get; }
+```
+
+#### Property Value
+
+ [IdService](DiceRolling.Services.IdService.md)
+
 ## Methods
 
 ### <a id="DiceRolling_Services_IdService_EnsureValidId_System_String__"></a> EnsureValidId\(ref string\)
 
 ```csharp
-public static void EnsureValidId(ref string id)
+public void EnsureValidId(ref string id)
 ```
 
 #### Parameters
@@ -37,7 +49,7 @@ public static void EnsureValidId(ref string id)
 ### <a id="DiceRolling_Services_IdService_GenerateNewId"></a> GenerateNewId\(\)
 
 ```csharp
-public static string GenerateNewId()
+public string GenerateNewId()
 ```
 
 #### Returns

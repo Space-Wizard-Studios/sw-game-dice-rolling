@@ -40,9 +40,9 @@
 
  [DiceRolling.Services](DiceRolling.Services.md)
 
- [DiceRolling.Stores](DiceRolling.Stores.md)
-
  [DiceRolling.Targets](DiceRolling.Targets.md)
+
+ [DiceRolling.Tests](DiceRolling.Tests.md)
 
  [DiceRolling.UI](DiceRolling.UI.md)
 

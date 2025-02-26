@@ -10,11 +10,11 @@ A plugin for managing the Arc3D gizmo in the editor.
 
 A plugin for rendering 3D gizmos in the editor for Arc3DRenderer nodes.
 
- [MatrixControl](DiceRolling.Editor.MatrixControl.md)
+ [BoardMatrixEditor](DiceRolling.Editor.BoardMatrixEditor.md)
 
 Manages a grid configuration for a target.
 
- [TargetConfigurationEditorPlugin](DiceRolling.Editor.TargetConfigurationEditorPlugin.md)
+ [TargetBoardEditorPlugin](DiceRolling.Editor.TargetBoardEditorPlugin.md)
 
- [TargetConfigurationInspectorPlugin](DiceRolling.Editor.TargetConfigurationInspectorPlugin.md)
+ [TargetBoardInspectorPlugin](DiceRolling.Editor.TargetBoardInspectorPlugin.md)
 

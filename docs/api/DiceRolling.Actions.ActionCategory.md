@@ -6,8 +6,8 @@ Assembly: dice\-rolling.dll
 ```csharp
 [Tool]
 [GlobalClass]
-[ScriptPath("res://features/Action/ActionCategory.cs")]
-public class ActionCategory : IdentifiableResource, IDisposable, IIdentifiable, IActionCategory
+[ScriptPath("res://features/Action/ActionCategory/ActionCategory.cs")]
+public class ActionCategory : IdentifiableResource, IDisposable, IActionCategory, IIdentifiable
 ```
 
 #### Inheritance
@@ -22,15 +22,14 @@ Resource ←
 #### Implements
 
 [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
-[IIdentifiable](DiceRolling.Common.IIdentifiable.md), 
-[IActionCategory](DiceRolling.Actions.IActionCategory.md)
+[IActionCategory](DiceRolling.Actions.IActionCategory.md), 
+[IIdentifiable](DiceRolling.Common.IIdentifiable.md)
 
 #### Inherited Members
 
 [IdentifiableResource.Id](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_Id), 
 [IdentifiableResource.GenerateNewIdButton](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewIdButton), 
 [IdentifiableResource.GenerateNewId\(\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewId), 
-[IdentifiableResource.EnsureValidId\(\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_EnsureValidId), 
 [IdentifiableResource.\_ValidateProperty\(Dictionary\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_\_ValidateProperty\_Godot\_Collections\_Dictionary\_), 
 Resource.\_GetRid\(\), 
 Resource.\_ResetState\(\), 
@@ -190,17 +189,17 @@ public Array<EffectType> DefaultEffects { get; set; }
 
  Array<[EffectType](DiceRolling.Effects.EffectType.md)\>
 
-### <a id="DiceRolling_Actions_ActionCategory_DefaultRequiredMana"></a> DefaultRequiredMana
+### <a id="DiceRolling_Actions_ActionCategory_DefaultRequiredEnergy"></a> DefaultRequiredEnergy
 
 ```csharp
 [ExportGroup("🎭 Behavior", "")]
 [Export(PropertyHint.None, "")]
-public Array<DiceMana> DefaultRequiredMana { get; set; }
+public Array<DiceEnergy> DefaultRequiredEnergy { get; set; }
 ```
 
 #### Property Value
 
- Array<[DiceMana](DiceRolling.Dice.DiceMana.md)\>
+ Array<[DiceEnergy](DiceRolling.Dice.DiceEnergy.md)\>
 
 ### <a id="DiceRolling_Actions_ActionCategory_Description"></a> Description
 
@@ -216,6 +215,7 @@ public string? Description { get; set; }
 ### <a id="DiceRolling_Actions_ActionCategory_Icon"></a> Icon
 
 ```csharp
+[ExportGroup("🪵 Assets", "")]
 [Export(PropertyHint.None, "")]
 public Texture2D? Icon { get; set; }
 ```
@@ -239,10 +239,18 @@ public string? IconPath { get; }
 ```csharp
 [ExportGroup("📝 Information", "")]
 [Export(PropertyHint.None, "")]
-public string? Name { get; set; }
+public string Name { get; set; }
 ```
 
 #### Property Value
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+## Methods
+
+### <a id="DiceRolling_Actions_ActionCategory_ValidateConstructor"></a> ValidateConstructor\(\)
+
+```csharp
+public void ValidateConstructor()
+```
 

@@ -3,11 +3,13 @@
 Namespace: [DiceRolling.Dice](DiceRolling.Dice.md)  
 Assembly: dice\-rolling.dll  
 
-Represents a side of a dice with specific attributes.
+Represents a side of a dice with a specific type of energy.
 
 ```csharp
+[Tool]
+[GlobalClass]
 [ScriptPath("res://features/Dice/DiceSide.cs")]
-public class DiceSide : DiceMana, IDisposable
+public class DiceSide : Resource, IDisposable
 ```
 
 #### Inheritance
@@ -16,7 +18,6 @@ public class DiceSide : DiceMana, IDisposable
 GodotObject ← 
 RefCounted ← 
 Resource ← 
-[DiceMana](DiceRolling.Dice.DiceMana.md) ← 
 [DiceSide](DiceRolling.Dice.DiceSide.md)
 
 #### Implements
@@ -25,12 +26,6 @@ Resource ←
 
 #### Inherited Members
 
-[DiceMana.Name](DiceRolling.Dice.DiceMana.md\#DiceRolling\_Dice\_DiceMana\_Name), 
-[DiceMana.Description](DiceRolling.Dice.DiceMana.md\#DiceRolling\_Dice\_DiceMana\_Description), 
-[DiceMana.BackgroundColor](DiceRolling.Dice.DiceMana.md\#DiceRolling\_Dice\_DiceMana\_BackgroundColor), 
-[DiceMana.MainColor](DiceRolling.Dice.DiceMana.md\#DiceRolling\_Dice\_DiceMana\_MainColor), 
-[DiceMana.Icon](DiceRolling.Dice.DiceMana.md\#DiceRolling\_Dice\_DiceMana\_Icon), 
-[DiceMana.IconPath](DiceRolling.Dice.DiceMana.md\#DiceRolling\_Dice\_DiceMana\_IconPath), 
 Resource.\_GetRid\(\), 
 Resource.\_ResetState\(\), 
 Resource.\_SetPathCache\(string\), 
@@ -156,29 +151,32 @@ GodotObject.PropertyListChanged,
 
 ## Constructors
 
-### <a id="DiceRolling_Dice_DiceSide__ctor_System_String_System_String_Godot_Color_Godot_Color_"></a> DiceSide\(string, string, Color, Color\)
-
-Represents a side of a dice with specific attributes.
+### <a id="DiceRolling_Dice_DiceSide__ctor"></a> DiceSide\(\)
 
 ```csharp
-public DiceSide(string name, string description, Color backgroundColor, Color MainColor)
+public DiceSide()
+```
+
+### <a id="DiceRolling_Dice_DiceSide__ctor_DiceRolling_Dice_DiceEnergy_"></a> DiceSide\(DiceEnergy\)
+
+```csharp
+public DiceSide(DiceEnergy energy)
 ```
 
 #### Parameters
 
-`name` [string](https://learn.microsoft.com/dotnet/api/system.string)
+`energy` [DiceEnergy](DiceRolling.Dice.DiceEnergy.md)
 
-The name of the dice side.
+## Properties
 
-`description` [string](https://learn.microsoft.com/dotnet/api/system.string)
+### <a id="DiceRolling_Dice_DiceSide_Energy"></a> Energy
 
-The description of the dice side.
+```csharp
+[Export(PropertyHint.None, "")]
+public DiceEnergy? Energy { get; set; }
+```
 
-`backgroundColor` Color
+#### Property Value
 
-The background color of the dice side.
-
-`MainColor` Color
-
-The main color of the dice side.
+ [DiceEnergy](DiceRolling.Dice.DiceEnergy.md)?
 

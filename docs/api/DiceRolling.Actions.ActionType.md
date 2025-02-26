@@ -33,7 +33,6 @@ Resource ←
 [IdentifiableResource.Id](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_Id), 
 [IdentifiableResource.GenerateNewIdButton](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewIdButton), 
 [IdentifiableResource.GenerateNewId\(\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewId), 
-[IdentifiableResource.EnsureValidId\(\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_EnsureValidId), 
 [IdentifiableResource.\_ValidateProperty\(Dictionary\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_\_ValidateProperty\_Godot\_Collections\_Dictionary\_), 
 Resource.\_GetRid\(\), 
 Resource.\_ResetState\(\), 
@@ -166,27 +165,27 @@ GodotObject.PropertyListChanged,
 public ActionType()
 ```
 
-### <a id="DiceRolling_Actions_ActionType__ctor_DiceRolling_Actions_ActionCategory_Godot_Collections_Array_DiceRolling_Dice_DiceMana__Godot_Collections_Array_DiceRolling_Effects_EffectType__System_String_System_String_Godot_Texture2D_DiceRolling_Targets_TargetConfiguration_"></a> ActionType\(ActionCategory, Array<DiceMana\>, Array<EffectType\>, string?, string?, Texture2D?, TargetConfiguration?\)
+### <a id="DiceRolling_Actions_ActionType__ctor_System_String_DiceRolling_Actions_ActionCategory_System_String_Godot_Texture2D_Godot_Collections_Array_DiceRolling_Dice_DiceEnergy__Godot_Collections_Array_DiceRolling_Effects_EffectType__DiceRolling_Targets_TargetBoardType_"></a> ActionType\(string, ActionCategory, string?, Texture2D?, Array<DiceEnergy\>, Array<EffectType\>, TargetBoardType?\)
 
 ```csharp
-public ActionType(ActionCategory category, Array<DiceMana> requiredMana, Array<EffectType> effects, string? name = null, string? description = null, Texture2D? icon = null, TargetConfiguration? targetConfiguration = null)
+public ActionType(string name, ActionCategory category, string? description, Texture2D? icon, Array<DiceEnergy> requiredEnergy, Array<EffectType> effects, TargetBoardType? targetBoard)
 ```
 
 #### Parameters
 
+`name` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
 `category` [ActionCategory](DiceRolling.Actions.ActionCategory.md)
-
-`requiredMana` Array<[DiceMana](DiceRolling.Dice.DiceMana.md)\>
-
-`effects` Array<[EffectType](DiceRolling.Effects.EffectType.md)\>
-
-`name` [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
 `description` [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
 `icon` Texture2D?
 
-`targetConfiguration` [TargetConfiguration](DiceRolling.Targets.TargetConfiguration.md)?
+`requiredEnergy` Array<[DiceEnergy](DiceRolling.Dice.DiceEnergy.md)\>
+
+`effects` Array<[EffectType](DiceRolling.Effects.EffectType.md)\>
+
+`targetBoard` [TargetBoardType](DiceRolling.Targets.TargetBoardType.md)?
 
 ## Properties
 
@@ -195,7 +194,6 @@ public ActionType(ActionCategory category, Array<DiceMana> requiredMana, Array<E
 Categoria da ação.
 
 ```csharp
-[ExportGroup("📝 Information", "")]
 [Export(PropertyHint.None, "")]
 public ActionCategory? Category { get; set; }
 ```
@@ -235,6 +233,7 @@ public Array<EffectType> Effects { get; set; }
 Ícone da ação.
 
 ```csharp
+[ExportGroup("🪵 Assets", "")]
 [Export(PropertyHint.None, "")]
 public Texture2D? Icon { get; set; }
 ```
@@ -260,40 +259,41 @@ public string? IconPath { get; }
 Nome da ação.
 
 ```csharp
+[ExportGroup("📝 Information", "")]
 [Export(PropertyHint.None, "")]
-public string? Name { get; set; }
+public string Name { get; set; }
 ```
 
 #### Property Value
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-### <a id="DiceRolling_Actions_ActionType_RequiredMana"></a> RequiredMana
+### <a id="DiceRolling_Actions_ActionType_RequiredEnergy"></a> RequiredEnergy
 
-Mana necessária para executar a ação.
+Energia necessária para executar a ação.
 
 ```csharp
 [ExportGroup("🎭 Behavior", "")]
 [Export(PropertyHint.None, "")]
-public Array<DiceMana> RequiredMana { get; set; }
+public Array<DiceEnergy> RequiredEnergy { get; set; }
 ```
 
 #### Property Value
 
- Array<[DiceMana](DiceRolling.Dice.DiceMana.md)\>
+ Array<[DiceEnergy](DiceRolling.Dice.DiceEnergy.md)\>
 
-### <a id="DiceRolling_Actions_ActionType_TargetConfiguration"></a> TargetConfiguration
+### <a id="DiceRolling_Actions_ActionType_TargetBoard"></a> TargetBoard
 
 Configuração de alvo da ação.
 
 ```csharp
 [Export(PropertyHint.None, "")]
-public TargetConfiguration? TargetConfiguration { get; set; }
+public TargetBoardType? TargetBoard { get; set; }
 ```
 
 #### Property Value
 
- [TargetConfiguration](DiceRolling.Targets.TargetConfiguration.md)?
+ [TargetBoardType](DiceRolling.Targets.TargetBoardType.md)?
 
 ## Methods
 
@@ -346,4 +346,10 @@ public void RemoveEffect(EffectType effect)
 #### Parameters
 
 `effect` [EffectType](DiceRolling.Effects.EffectType.md)
+
+### <a id="DiceRolling_Actions_ActionType_ValidateConstructor"></a> ValidateConstructor\(\)
+
+```csharp
+public void ValidateConstructor()
+```
 

@@ -4,8 +4,12 @@ Namespace: [DiceRolling.Actions](DiceRolling.Actions.md)
 Assembly: dice\-rolling.dll  
 
 ```csharp
-public interface IActionCategory
+public interface IActionCategory : IIdentifiable
 ```
+
+#### Implements
+
+[IIdentifiable](DiceRolling.Common.IIdentifiable.md)
 
 ## Properties
 
@@ -19,15 +23,15 @@ Array<EffectType> DefaultEffects { get; set; }
 
  Array<[EffectType](DiceRolling.Effects.EffectType.md)\>
 
-### <a id="DiceRolling_Actions_IActionCategory_DefaultRequiredMana"></a> DefaultRequiredMana
+### <a id="DiceRolling_Actions_IActionCategory_DefaultRequiredEnergy"></a> DefaultRequiredEnergy
 
 ```csharp
-Array<DiceMana> DefaultRequiredMana { get; set; }
+Array<DiceEnergy> DefaultRequiredEnergy { get; set; }
 ```
 
 #### Property Value
 
- Array<[DiceMana](DiceRolling.Dice.DiceMana.md)\>
+ Array<[DiceEnergy](DiceRolling.Dice.DiceEnergy.md)\>
 
 ### <a id="DiceRolling_Actions_IActionCategory_Description"></a> Description
 
@@ -59,23 +63,21 @@ string? IconPath { get; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
-### <a id="DiceRolling_Actions_IActionCategory_Id"></a> Id
+### <a id="DiceRolling_Actions_IActionCategory_Name"></a> Name
 
 ```csharp
-string Id { get; }
+string Name { get; set; }
 ```
 
 #### Property Value
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-### <a id="DiceRolling_Actions_IActionCategory_Name"></a> Name
+## Methods
+
+### <a id="DiceRolling_Actions_IActionCategory_ValidateConstructor"></a> ValidateConstructor\(\)
 
 ```csharp
-string? Name { get; set; }
+void ValidateConstructor()
 ```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
 

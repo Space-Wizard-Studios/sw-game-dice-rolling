@@ -331,15 +331,15 @@ public void EmitAttributeChanged(CharacterType character, AttributeType attribut
 
 `attributeType` [AttributeType](DiceRolling.Attributes.AttributeType.md)
 
-### <a id="DiceRolling_Events_EventBus_EmitSignalActionSelected_DiceRolling_Targets_TargetConfiguration_"></a> EmitSignalActionSelected\(TargetConfiguration\)
+### <a id="DiceRolling_Events_EventBus_EmitSignalActionSelected_DiceRolling_Targets_TargetBoardType_"></a> EmitSignalActionSelected\(TargetBoardType\)
 
 ```csharp
-protected void EmitSignalActionSelected(TargetConfiguration targetConfiguration)
+protected void EmitSignalActionSelected(TargetBoardType targetBoard)
 ```
 
 #### Parameters
 
-`targetConfiguration` [TargetConfiguration](DiceRolling.Targets.TargetConfiguration.md)
+`targetBoard` [TargetBoardType](DiceRolling.Targets.TargetBoardType.md)
 
 ### <a id="DiceRolling_Events_EventBus_EmitSignalAttributeChanged"></a> EmitSignalAttributeChanged\(\)
 

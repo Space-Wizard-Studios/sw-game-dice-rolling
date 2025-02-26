@@ -7,7 +7,7 @@ Assembly: dice\-rolling.dll
 [Tool]
 [GlobalClass]
 [ScriptPath("res://features/Attribute/AttributeType.cs")]
-public class AttributeType : Resource, IDisposable, IAttribute, IAttributeInformation, IAttributeAssets, IAttributeValues
+public class AttributeType : IdentifiableResource, IDisposable, IAttribute, IIdentifiable, IAttributeInformation, IAttributeAssets, IAttributeValues
 ```
 
 #### Inheritance
@@ -16,18 +16,24 @@ public class AttributeType : Resource, IDisposable, IAttribute, IAttributeInform
 GodotObject ← 
 RefCounted ← 
 Resource ← 
+[IdentifiableResource](DiceRolling.Common.IdentifiableResource.md) ← 
 [AttributeType](DiceRolling.Attributes.AttributeType.md)
 
 #### Implements
 
 [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
 [IAttribute](DiceRolling.Attributes.IAttribute.md), 
+[IIdentifiable](DiceRolling.Common.IIdentifiable.md), 
 [IAttributeInformation](DiceRolling.Attributes.IAttributeInformation.md), 
 [IAttributeAssets](DiceRolling.Attributes.IAttributeAssets.md), 
 [IAttributeValues](DiceRolling.Attributes.IAttributeValues.md)
 
 #### Inherited Members
 
+[IdentifiableResource.Id](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_Id), 
+[IdentifiableResource.GenerateNewIdButton](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewIdButton), 
+[IdentifiableResource.GenerateNewId\(\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewId), 
+[IdentifiableResource.\_ValidateProperty\(Dictionary\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_\_ValidateProperty\_Godot\_Collections\_Dictionary\_), 
 Resource.\_GetRid\(\), 
 Resource.\_ResetState\(\), 
 Resource.\_SetPathCache\(string\), 
@@ -186,6 +192,7 @@ public AttributeType(string name, string description, Color color, Texture2D ico
 Cor do atributo.
 
 ```csharp
+[ExportGroup("🪵 Assets", "")]
 [Export(PropertyHint.None, "")]
 public Color Color { get; set; }
 ```
@@ -232,19 +239,6 @@ public string? IconPath { get; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)?
 
-### <a id="DiceRolling_Attributes_AttributeType_Id"></a> Id
-
-Identificador único do atributo.
-
-```csharp
-[Export(PropertyHint.None, "")]
-public string Id { get; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
-
 ### <a id="DiceRolling_Attributes_AttributeType_MaxValue"></a> MaxValue
 
 Valor máximo do atributo.
@@ -263,6 +257,7 @@ public int MaxValue { get; }
 Valor mínimo do atributo.
 
 ```csharp
+[ExportGroup("🔢 Values", "")]
 [Export(PropertyHint.None, "")]
 public int MinValue { get; }
 ```
@@ -276,21 +271,22 @@ public int MinValue { get; }
 Nome do atributo.
 
 ```csharp
+[ExportGroup("📝 Information", "")]
 [Export(PropertyHint.None, "")]
-public string? Name { get; set; }
+public string Name { get; set; }
 ```
 
 #### Property Value
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
 
 ## Methods
 
-### <a id="DiceRolling_Attributes_AttributeType_ValidateValues"></a> ValidateValues\(\)
+### <a id="DiceRolling_Attributes_AttributeType_ValidateConstructor"></a> ValidateConstructor\(\)
 
-Valida se os valores mínimo e máximo são consistentes.
+Valida os campos do resource.
 
 ```csharp
-public void ValidateValues()
+public void ValidateConstructor()
 ```
 

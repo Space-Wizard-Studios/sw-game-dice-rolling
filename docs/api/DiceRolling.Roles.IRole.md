@@ -15,3 +15,11 @@ public interface IRole : IRoleInformation, IRoleAttributes, IRoleActions
 [IRoleAttributes](DiceRolling.Roles.IRoleAttributes.md), 
 [IRoleActions](DiceRolling.Roles.IRoleActions.md)
 
+## Methods
+
+### <a id="DiceRolling_Roles_IRole_ValidateConstructor"></a> ValidateConstructor\(\)
+
+```csharp
+void ValidateConstructor()
+```
+

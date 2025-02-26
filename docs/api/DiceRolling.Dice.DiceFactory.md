@@ -24,15 +24,15 @@ public static class DiceFactory
 
 ## Methods
 
-### <a id="DiceRolling_Dice_DiceFactory_CreateD10_DiceRolling_Dice_DiceManaResources_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD10\(DiceManaResources, DiceLocationCategory, string?\)
+### <a id="DiceRolling_Dice_DiceFactory_CreateD10_DiceRolling_Dice_DiceEnergyStore_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD10\(DiceEnergyStore, DiceLocationCategory, string?\)
 
 ```csharp
-public static Dice<DiceSide> CreateD10(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null)
+public static DiceType CreateD10(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null)
 ```
 
 #### Parameters
 
-`diceManaResources` [DiceManaResources](DiceRolling.Dice.DiceManaResources.md)
+`DiceEnergyConfig` [DiceEnergyStore](DiceRolling.Dice.DiceEnergyStore.md)
 
 `locationCategory` [DiceLocationCategory](DiceRolling.Dice.DiceLocationCategory.md)
 
@@ -40,17 +40,17 @@ public static Dice<DiceSide> CreateD10(DiceManaResources diceManaResources, Dice
 
 #### Returns
 
- [Dice](DiceRolling.Dice.Dice\-1.md)<[DiceSide](DiceRolling.Dice.DiceSide.md)\>
+ [DiceType](DiceRolling.Dice.DiceType.md)
 
-### <a id="DiceRolling_Dice_DiceFactory_CreateD100_DiceRolling_Dice_DiceManaResources_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD100\(DiceManaResources, DiceLocationCategory, string?\)
+### <a id="DiceRolling_Dice_DiceFactory_CreateD100_DiceRolling_Dice_DiceEnergyStore_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD100\(DiceEnergyStore, DiceLocationCategory, string?\)
 
 ```csharp
-public static Dice<DiceSide> CreateD100(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null)
+public static DiceType CreateD100(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null)
 ```
 
 #### Parameters
 
-`diceManaResources` [DiceManaResources](DiceRolling.Dice.DiceManaResources.md)
+`DiceEnergyConfig` [DiceEnergyStore](DiceRolling.Dice.DiceEnergyStore.md)
 
 `locationCategory` [DiceLocationCategory](DiceRolling.Dice.DiceLocationCategory.md)
 
@@ -58,17 +58,17 @@ public static Dice<DiceSide> CreateD100(DiceManaResources diceManaResources, Dic
 
 #### Returns
 
- [Dice](DiceRolling.Dice.Dice\-1.md)<[DiceSide](DiceRolling.Dice.DiceSide.md)\>
+ [DiceType](DiceRolling.Dice.DiceType.md)
 
-### <a id="DiceRolling_Dice_DiceFactory_CreateD12_DiceRolling_Dice_DiceManaResources_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD12\(DiceManaResources, DiceLocationCategory, string?\)
+### <a id="DiceRolling_Dice_DiceFactory_CreateD12_DiceRolling_Dice_DiceEnergyStore_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD12\(DiceEnergyStore, DiceLocationCategory, string?\)
 
 ```csharp
-public static Dice<DiceSide> CreateD12(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null)
+public static DiceType CreateD12(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null)
 ```
 
 #### Parameters
 
-`diceManaResources` [DiceManaResources](DiceRolling.Dice.DiceManaResources.md)
+`DiceEnergyConfig` [DiceEnergyStore](DiceRolling.Dice.DiceEnergyStore.md)
 
 `locationCategory` [DiceLocationCategory](DiceRolling.Dice.DiceLocationCategory.md)
 
@@ -76,17 +76,17 @@ public static Dice<DiceSide> CreateD12(DiceManaResources diceManaResources, Dice
 
 #### Returns
 
- [Dice](DiceRolling.Dice.Dice\-1.md)<[DiceSide](DiceRolling.Dice.DiceSide.md)\>
+ [DiceType](DiceRolling.Dice.DiceType.md)
 
-### <a id="DiceRolling_Dice_DiceFactory_CreateD20_DiceRolling_Dice_DiceManaResources_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD20\(DiceManaResources, DiceLocationCategory, string?\)
+### <a id="DiceRolling_Dice_DiceFactory_CreateD20_DiceRolling_Dice_DiceEnergyStore_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD20\(DiceEnergyStore, DiceLocationCategory, string?\)
 
 ```csharp
-public static Dice<DiceSide> CreateD20(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null)
+public static DiceType CreateD20(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null)
 ```
 
 #### Parameters
 
-`diceManaResources` [DiceManaResources](DiceRolling.Dice.DiceManaResources.md)
+`DiceEnergyConfig` [DiceEnergyStore](DiceRolling.Dice.DiceEnergyStore.md)
 
 `locationCategory` [DiceLocationCategory](DiceRolling.Dice.DiceLocationCategory.md)
 
@@ -94,17 +94,17 @@ public static Dice<DiceSide> CreateD20(DiceManaResources diceManaResources, Dice
 
 #### Returns
 
- [Dice](DiceRolling.Dice.Dice\-1.md)<[DiceSide](DiceRolling.Dice.DiceSide.md)\>
+ [DiceType](DiceRolling.Dice.DiceType.md)
 
-### <a id="DiceRolling_Dice_DiceFactory_CreateD4_DiceRolling_Dice_DiceManaResources_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD4\(DiceManaResources, DiceLocationCategory, string?\)
+### <a id="DiceRolling_Dice_DiceFactory_CreateD4_DiceRolling_Dice_DiceEnergyStore_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD4\(DiceEnergyStore, DiceLocationCategory, string?\)
 
 ```csharp
-public static Dice<DiceSide> CreateD4(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null)
+public static DiceType CreateD4(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null)
 ```
 
 #### Parameters
 
-`diceManaResources` [DiceManaResources](DiceRolling.Dice.DiceManaResources.md)
+`DiceEnergyConfig` [DiceEnergyStore](DiceRolling.Dice.DiceEnergyStore.md)
 
 `locationCategory` [DiceLocationCategory](DiceRolling.Dice.DiceLocationCategory.md)
 
@@ -112,17 +112,17 @@ public static Dice<DiceSide> CreateD4(DiceManaResources diceManaResources, DiceL
 
 #### Returns
 
- [Dice](DiceRolling.Dice.Dice\-1.md)<[DiceSide](DiceRolling.Dice.DiceSide.md)\>
+ [DiceType](DiceRolling.Dice.DiceType.md)
 
-### <a id="DiceRolling_Dice_DiceFactory_CreateD6_DiceRolling_Dice_DiceManaResources_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD6\(DiceManaResources, DiceLocationCategory, string?\)
+### <a id="DiceRolling_Dice_DiceFactory_CreateD6_DiceRolling_Dice_DiceEnergyStore_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD6\(DiceEnergyStore, DiceLocationCategory, string?\)
 
 ```csharp
-public static Dice<DiceSide> CreateD6(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null)
+public static DiceType CreateD6(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null)
 ```
 
 #### Parameters
 
-`diceManaResources` [DiceManaResources](DiceRolling.Dice.DiceManaResources.md)
+`DiceEnergyConfig` [DiceEnergyStore](DiceRolling.Dice.DiceEnergyStore.md)
 
 `locationCategory` [DiceLocationCategory](DiceRolling.Dice.DiceLocationCategory.md)
 
@@ -130,17 +130,17 @@ public static Dice<DiceSide> CreateD6(DiceManaResources diceManaResources, DiceL
 
 #### Returns
 
- [Dice](DiceRolling.Dice.Dice\-1.md)<[DiceSide](DiceRolling.Dice.DiceSide.md)\>
+ [DiceType](DiceRolling.Dice.DiceType.md)
 
-### <a id="DiceRolling_Dice_DiceFactory_CreateD8_DiceRolling_Dice_DiceManaResources_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD8\(DiceManaResources, DiceLocationCategory, string?\)
+### <a id="DiceRolling_Dice_DiceFactory_CreateD8_DiceRolling_Dice_DiceEnergyStore_DiceRolling_Dice_DiceLocationCategory_System_String_"></a> CreateD8\(DiceEnergyStore, DiceLocationCategory, string?\)
 
 ```csharp
-public static Dice<DiceSide> CreateD8(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null)
+public static DiceType CreateD8(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null)
 ```
 
 #### Parameters
 
-`diceManaResources` [DiceManaResources](DiceRolling.Dice.DiceManaResources.md)
+`DiceEnergyConfig` [DiceEnergyStore](DiceRolling.Dice.DiceEnergyStore.md)
 
 `locationCategory` [DiceLocationCategory](DiceRolling.Dice.DiceLocationCategory.md)
 
@@ -148,5 +148,5 @@ public static Dice<DiceSide> CreateD8(DiceManaResources diceManaResources, DiceL
 
 #### Returns
 
- [Dice](DiceRolling.Dice.Dice\-1.md)<[DiceSide](DiceRolling.Dice.DiceSide.md)\>
+ [DiceType](DiceRolling.Dice.DiceType.md)
 

@@ -3,11 +3,14 @@
 Namespace: [DiceRolling.Characters](DiceRolling.Characters.md)  
 Assembly: dice\-rolling.dll  
 
+Representa um tipo de personagem no jogo e inclui suas informações, atributos, ações, recursos visuais, localização e papel.
+Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
+
 ```csharp
 [Tool]
 [GlobalClass]
 [ScriptPath("res://features/Character/CharacterType.cs")]
-public class CharacterType : Resource, IDisposable, ICharacter, ICharacterInformation, ICharacterPlacement, ICharacterAssets, ICharacterAttributes, ICharacterActions
+public class CharacterType : IdentifiableResource, IDisposable, ICharacter, IIdentifiable, ICharacterInformationSheet, ICharacterPlacementSheet, ICharacterAssetSheet, ICharacterRoleSheet, ICharacterAttributeSheet, ICharacterActionSheet
 ```
 
 #### Inheritance
@@ -16,20 +19,27 @@ public class CharacterType : Resource, IDisposable, ICharacter, ICharacterInform
 GodotObject ← 
 RefCounted ← 
 Resource ← 
+[IdentifiableResource](DiceRolling.Common.IdentifiableResource.md) ← 
 [CharacterType](DiceRolling.Characters.CharacterType.md)
 
 #### Implements
 
 [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
 [ICharacter](DiceRolling.Characters.ICharacter.md), 
-[ICharacterInformation](DiceRolling.Characters.ICharacterInformation.md), 
-[ICharacterPlacement](DiceRolling.Characters.ICharacterPlacement.md), 
-[ICharacterAssets](DiceRolling.Characters.ICharacterAssets.md), 
-[ICharacterAttributes](DiceRolling.Characters.ICharacterAttributes.md), 
-[ICharacterActions](DiceRolling.Characters.ICharacterActions.md)
+[IIdentifiable](DiceRolling.Common.IIdentifiable.md), 
+[ICharacterInformationSheet](DiceRolling.Characters.ICharacterInformationSheet.md), 
+[ICharacterPlacementSheet](DiceRolling.Characters.ICharacterPlacementSheet.md), 
+[ICharacterAssetSheet](DiceRolling.Characters.ICharacterAssetSheet.md), 
+[ICharacterRoleSheet](DiceRolling.Characters.ICharacterRoleSheet.md), 
+[ICharacterAttributeSheet](DiceRolling.Characters.ICharacterAttributeSheet.md), 
+[ICharacterActionSheet](DiceRolling.Characters.ICharacterActionSheet.md)
 
 #### Inherited Members
 
+[IdentifiableResource.Id](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_Id), 
+[IdentifiableResource.GenerateNewIdButton](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewIdButton), 
+[IdentifiableResource.GenerateNewId\(\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_GenerateNewId), 
+[IdentifiableResource.\_ValidateProperty\(Dictionary\)](DiceRolling.Common.IdentifiableResource.md\#DiceRolling\_Common\_IdentifiableResource\_\_ValidateProperty\_Godot\_Collections\_Dictionary\_), 
 Resource.\_GetRid\(\), 
 Resource.\_ResetState\(\), 
 Resource.\_SetPathCache\(string\), 
@@ -153,13 +163,32 @@ GodotObject.PropertyListChanged,
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
+## Constructors
+
+### <a id="DiceRolling_Characters_CharacterType__ctor"></a> CharacterType\(\)
+
+```csharp
+public CharacterType()
+```
+
+### <a id="DiceRolling_Characters_CharacterType__ctor_System_String_DiceRolling_Roles_RoleType_"></a> CharacterType\(string, RoleType\)
+
+```csharp
+public CharacterType(string name, RoleType role)
+```
+
+#### Parameters
+
+`name` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+`role` [RoleType](DiceRolling.Roles.RoleType.md)
+
 ## Properties
 
 ### <a id="DiceRolling_Characters_CharacterType_Actions"></a> Actions
 
-Lista de ações da personagem.
-
 ```csharp
+[ExportGroup("🔥 Actions", "")]
 [Export(PropertyHint.None, "")]
 public Array<CharacterAction> Actions { get; }
 ```
@@ -170,9 +199,8 @@ public Array<CharacterAction> Actions { get; }
 
 ### <a id="DiceRolling_Characters_CharacterType_Attributes"></a> Attributes
 
-Lista de atributos da personagem.
-
 ```csharp
+[ExportGroup("📊 Attributes", "")]
 [Export(PropertyHint.None, "")]
 public Array<CharacterAttribute> Attributes { get; }
 ```
@@ -182,8 +210,6 @@ public Array<CharacterAttribute> Attributes { get; }
  Array<[CharacterAttribute](DiceRolling.Characters.CharacterAttribute.md)\>
 
 ### <a id="DiceRolling_Characters_CharacterType_Category"></a> Category
-
-Categoria do personagem.
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -196,8 +222,6 @@ public CharacterCategory? Category { get; set; }
 
 ### <a id="DiceRolling_Characters_CharacterType_CharacterSprite"></a> CharacterSprite
 
-Sprite do personagem.
-
 ```csharp
 [Export(PropertyHint.None, "")]
 public SpriteFrames? CharacterSprite { get; set; }
@@ -207,39 +231,10 @@ public SpriteFrames? CharacterSprite { get; set; }
 
  SpriteFrames?
 
-### <a id="DiceRolling_Characters_CharacterType_DiceCapacity"></a> DiceCapacity
-
-Capacidade de dados do personagem.
-
-```csharp
-[Export(PropertyHint.None, "")]
-public int DiceCapacity { get; set; }
-```
-
-#### Property Value
-
- [int](https://learn.microsoft.com/dotnet/api/system.int32)
-
-### <a id="DiceRolling_Characters_CharacterType_Id"></a> Id
-
-Identificador único do personagem.
-
-```csharp
-[ExportGroup("🦸 Character", "")]
-[Export(PropertyHint.None, "")]
-public string Id { get; set; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
-
 ### <a id="DiceRolling_Characters_CharacterType_Location"></a> Location
 
-Localização do personagem no jogo.
-
 ```csharp
-[ExportGroup("📍 Character Location", "")]
+[ExportGroup("📍 Placement", "")]
 [Export(PropertyHint.None, "")]
 public LocationType? Location { get; set; }
 ```
@@ -250,23 +245,20 @@ public LocationType? Location { get; set; }
 
 ### <a id="DiceRolling_Characters_CharacterType_Name"></a> Name
 
-Nome do personagem.
-
 ```csharp
+[ExportGroup("📝 Information", "")]
 [Export(PropertyHint.None, "")]
-public string? Name { get; set; }
+public string Name { get; set; }
 ```
 
 #### Property Value
 
- [string](https://learn.microsoft.com/dotnet/api/system.string)?
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
 
 ### <a id="DiceRolling_Characters_CharacterType_Portrait"></a> Portrait
 
-Retrato do personagem.
-
 ```csharp
-[ExportGroup("🪵 Resources", "")]
+[ExportGroup("🪵 Assets", "")]
 [Export(PropertyHint.None, "")]
 public Texture2D? Portrait { get; set; }
 ```
@@ -277,9 +269,8 @@ public Texture2D? Portrait { get; set; }
 
 ### <a id="DiceRolling_Characters_CharacterType_Role"></a> Role
 
-Papel do personagem no jogo.
-
 ```csharp
+[ExportGroup("🦸‍♂ Role", "")]
 [Export(PropertyHint.None, "")]
 public RoleType? Role { get; set; }
 ```
@@ -289,8 +280,6 @@ public RoleType? Role { get; set; }
  [RoleType](DiceRolling.Roles.RoleType.md)?
 
 ### <a id="DiceRolling_Characters_CharacterType_ShadowSprite"></a> ShadowSprite
-
-Sprite da sombra do personagem.
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -303,8 +292,6 @@ public SpriteFrames? ShadowSprite { get; set; }
 
 ### <a id="DiceRolling_Characters_CharacterType_ShowShadow"></a> ShowShadow
 
-Indica se a sombra do personagem deve ser exibida.
-
 ```csharp
 [Export(PropertyHint.None, "")]
 public bool ShowShadow { get; set; }
@@ -315,8 +302,6 @@ public bool ShowShadow { get; set; }
  [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
 
 ### <a id="DiceRolling_Characters_CharacterType_SlotIndex"></a> SlotIndex
-
-Índice do slot onde o personagem está localizado.
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -329,8 +314,6 @@ public int SlotIndex { get; set; }
 
 ### <a id="DiceRolling_Characters_CharacterType_SpritePositionX"></a> SpritePositionX
 
-Posição X do sprite do personagem.
-
 ```csharp
 [Export(PropertyHint.None, "")]
 public float SpritePositionX { get; set; }
@@ -341,8 +324,6 @@ public float SpritePositionX { get; set; }
  [float](https://learn.microsoft.com/dotnet/api/system.single)
 
 ### <a id="DiceRolling_Characters_CharacterType_SpritePositionY"></a> SpritePositionY
-
-Posição Y do sprite do personagem.
 
 ```csharp
 [Export(PropertyHint.None, "")]
@@ -357,8 +338,6 @@ public float SpritePositionY { get; set; }
 
 ### <a id="DiceRolling_Characters_CharacterType_AddAction_DiceRolling_Characters_CharacterAction_"></a> AddAction\(CharacterAction\)
 
-Adiciona uma nova ação à personagem.
-
 ```csharp
 public void AddAction(CharacterAction action)
 ```
@@ -366,8 +345,6 @@ public void AddAction(CharacterAction action)
 #### Parameters
 
 `action` [CharacterAction](DiceRolling.Characters.CharacterAction.md)
-
-Ação a ser adicionada.
 
 ### <a id="DiceRolling_Characters_CharacterType_EmitSignalAttributeChanged_DiceRolling_Characters_CharacterType_DiceRolling_Attributes_AttributeType_"></a> EmitSignalAttributeChanged\(CharacterType, AttributeType\)
 
@@ -383,8 +360,6 @@ protected void EmitSignalAttributeChanged(CharacterType character, AttributeType
 
 ### <a id="DiceRolling_Characters_CharacterType_GetAttributeBaseValue_DiceRolling_Attributes_AttributeType_"></a> GetAttributeBaseValue\(AttributeType\)
 
-Obtém o valor base de um atributo.
-
 ```csharp
 public int GetAttributeBaseValue(AttributeType type)
 ```
@@ -393,17 +368,11 @@ public int GetAttributeBaseValue(AttributeType type)
 
 `type` [AttributeType](DiceRolling.Attributes.AttributeType.md)
 
-Tipo do atributo.
-
 #### Returns
 
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-Valor base do atributo.
-
 ### <a id="DiceRolling_Characters_CharacterType_GetAttributeCurrentValue_DiceRolling_Attributes_AttributeType_"></a> GetAttributeCurrentValue\(AttributeType\)
-
-Obtém o valor atual de um atributo.
 
 ```csharp
 public int GetAttributeCurrentValue(AttributeType type)
@@ -413,17 +382,11 @@ public int GetAttributeCurrentValue(AttributeType type)
 
 `type` [AttributeType](DiceRolling.Attributes.AttributeType.md)
 
-Tipo do atributo.
-
 #### Returns
 
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-Valor atual do atributo.
-
 ### <a id="DiceRolling_Characters_CharacterType_GetAttributeMaxValue_DiceRolling_Attributes_AttributeType_"></a> GetAttributeMaxValue\(AttributeType\)
-
-Obtém o valor máximo de um atributo.
 
 ```csharp
 public int GetAttributeMaxValue(AttributeType type)
@@ -433,17 +396,11 @@ public int GetAttributeMaxValue(AttributeType type)
 
 `type` [AttributeType](DiceRolling.Attributes.AttributeType.md)
 
-Tipo do atributo.
-
 #### Returns
 
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-Valor máximo do atributo.
-
 ### <a id="DiceRolling_Characters_CharacterType_InitializeActions"></a> InitializeActions\(\)
-
-Inicializa as ações da personagem.
 
 ```csharp
 public void InitializeActions()
@@ -451,15 +408,11 @@ public void InitializeActions()
 
 ### <a id="DiceRolling_Characters_CharacterType_InitializeAttributes"></a> InitializeAttributes\(\)
 
-Inicializa os atributos da personagem.
-
 ```csharp
 public void InitializeAttributes()
 ```
 
 ### <a id="DiceRolling_Characters_CharacterType_RemoveAction_DiceRolling_Characters_CharacterAction_"></a> RemoveAction\(CharacterAction\)
-
-Remove uma ação da personagem.
 
 ```csharp
 public void RemoveAction(CharacterAction action)
@@ -469,11 +422,7 @@ public void RemoveAction(CharacterAction action)
 
 `action` [CharacterAction](DiceRolling.Characters.CharacterAction.md)
 
-Ação a ser removida.
-
 ### <a id="DiceRolling_Characters_CharacterType_UpdateAttributeCurrentValue_DiceRolling_Attributes_AttributeType_System_Int32_"></a> UpdateAttributeCurrentValue\(AttributeType, int\)
-
-Atualiza o valor atual de um atributo.
 
 ```csharp
 public void UpdateAttributeCurrentValue(AttributeType type, int newValue)
@@ -483,11 +432,15 @@ public void UpdateAttributeCurrentValue(AttributeType type, int newValue)
 
 `type` [AttributeType](DiceRolling.Attributes.AttributeType.md)
 
-Tipo do atributo.
-
 `newValue` [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-Novo valor do atributo.
+### <a id="DiceRolling_Characters_CharacterType_ValidateConstructor"></a> ValidateConstructor\(\)
+
+Valida os campos do resource.
+
+```csharp
+public void ValidateConstructor()
+```
 
 ### <a id="DiceRolling_Characters_CharacterType_AttributeChanged"></a> AttributeChanged
 

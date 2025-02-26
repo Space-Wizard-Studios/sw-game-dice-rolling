@@ -35,13 +35,3 @@ int MinValue { get; }
 
  [int](https://learn.microsoft.com/dotnet/api/system.int32)
 
-## Methods
-
-### <a id="DiceRolling_Attributes_IAttributeValues_ValidateValues"></a> ValidateValues\(\)
-
-Valida se os valores mínimo e máximo são consistentes.
-
-```csharp
-void ValidateValues()
-```
-

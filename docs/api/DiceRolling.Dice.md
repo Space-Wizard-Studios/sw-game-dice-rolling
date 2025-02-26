@@ -2,23 +2,25 @@
 
 ### Classes
 
- [Dice<T\>](DiceRolling.Dice.Dice\-1.md)
+ [DiceEnergy](DiceRolling.Dice.DiceEnergy.md)
+
+ [DiceEnergyStore](DiceRolling.Dice.DiceEnergyStore.md)
 
  [DiceFactory](DiceRolling.Dice.DiceFactory.md)
 
  [DiceIcon](DiceRolling.Dice.DiceIcon.md)
 
- [DiceIconsResources](DiceRolling.Dice.DiceIconsResources.md)
+ [DiceIconStore](DiceRolling.Dice.DiceIconStore.md)
 
  [DiceLocation](DiceRolling.Dice.DiceLocation.md)
 
- [DiceMana](DiceRolling.Dice.DiceMana.md)
-
- [DiceManaResources](DiceRolling.Dice.DiceManaResources.md)
-
  [DiceSide](DiceRolling.Dice.DiceSide.md)
 
-Represents a side of a dice with specific attributes.
+Represents a side of a dice with a specific type of energy.
+
+ [DiceStore](DiceRolling.Dice.DiceStore.md)
+
+ [DiceType](DiceRolling.Dice.DiceType.md)
 
 ### Interfaces
 
@@ -26,17 +28,13 @@ Represents a side of a dice with specific attributes.
 
 Interface que define um dado completo no jogo.
 
+ [IDiceEnergy](DiceRolling.Dice.IDiceEnergy.md)
+
+Interface que define as propriedades de uma energia.
+
  [IDiceLocation](DiceRolling.Dice.IDiceLocation.md)
 
 Interface que define a localização de um dado.
-
- [IDiceMana](DiceRolling.Dice.IDiceMana.md)
-
-Interface que define as propriedades de uma mana.
-
- [IDiceSide](DiceRolling.Dice.IDiceSide.md)
-
-Interface que define as propriedades de um lado do dado.
 
 ### Enums
 

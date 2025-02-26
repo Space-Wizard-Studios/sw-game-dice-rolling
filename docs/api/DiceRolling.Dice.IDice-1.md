@@ -6,7 +6,7 @@ Assembly: dice\-rolling.dll
 Interface que define um dado completo no jogo.
 
 ```csharp
-public interface IDice<T> where T : IDiceSide
+public interface IDice<T> : IIdentifiable where T : DiceSide
 ```
 
 #### Type Parameters
@@ -15,35 +15,23 @@ public interface IDice<T> where T : IDiceSide
 
 Tipo de lado do dado.
 
+#### Implements
+
+[IIdentifiable](DiceRolling.Common.IIdentifiable.md)
+
 ## Properties
-
-### <a id="DiceRolling_Dice_IDice_1_Id"></a> Id
-
-Identificador único do dado.
-
-```csharp
-string Id { get; }
-```
-
-#### Property Value
-
- [string](https://learn.microsoft.com/dotnet/api/system.string)
 
 ### <a id="DiceRolling_Dice_IDice_1_Location"></a> Location
 
-Localização do dado.
-
 ```csharp
-IDiceLocation Location { get; }
+DiceLocation Location { get; }
 ```
 
 #### Property Value
 
- [IDiceLocation](DiceRolling.Dice.IDiceLocation.md)
+ [DiceLocation](DiceRolling.Dice.DiceLocation.md)
 
 ### <a id="DiceRolling_Dice_IDice_1_Name"></a> Name
-
-Nome do dado.
 
 ```csharp
 string Name { get; }
@@ -55,8 +43,6 @@ string Name { get; }
 
 ### <a id="DiceRolling_Dice_IDice_1_SideCount"></a> SideCount
 
-Número de lados do dado.
-
 ```csharp
 int SideCount { get; }
 ```
@@ -67,8 +53,6 @@ int SideCount { get; }
 
 ### <a id="DiceRolling_Dice_IDice_1_Sides"></a> Sides
 
-Coleção de lados do dado.
-
 ```csharp
 Array<T> Sides { get; }
 ```
@@ -76,4 +60,12 @@ Array<T> Sides { get; }
 #### Property Value
 
  Array<T\>
+
+## Methods
+
+### <a id="DiceRolling_Dice_IDice_1_ValidateConstructor"></a> ValidateConstructor\(\)
+
+```csharp
+void ValidateConstructor()
+```
 

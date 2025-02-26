@@ -5,10 +5,10 @@ Assembly: dice\-rolling.dll
 
 ```csharp
 [Signal]
-public delegate void EventBus.ActionSelectedEventHandler(TargetConfiguration targetConfiguration)
+public delegate void EventBus.ActionSelectedEventHandler(TargetBoardType targetBoard)
 ```
 
 #### Parameters
 
-`targetConfiguration` [TargetConfiguration](DiceRolling.Targets.TargetConfiguration.md)
+`targetBoard` [TargetBoardType](DiceRolling.Targets.TargetBoardType.md)
 

@@ -2,19 +2,19 @@
 
 ### Classes
 
- [TargetConfiguration](DiceRolling.Targets.TargetConfiguration.md)
+ [TargetBoardType](DiceRolling.Targets.TargetBoardType.md)
 
 ### Interfaces
 
- [ITarget](DiceRolling.Targets.ITarget.md)
+ [ITargetBoard](DiceRolling.Targets.ITargetBoard.md)
 
-Interface que define a configuração de alvo no jogo.
+Interface que define a configuração de um tabuleiro de alvos no jogo.
 
 ### Delegates
 
- [TargetConfiguration.ConfigurationChangedEventHandler](DiceRolling.Targets.TargetConfiguration.ConfigurationChangedEventHandler.md)
+ [ITargetBoard.ConfigurationChangedEventHandler](DiceRolling.Targets.ITargetBoard.ConfigurationChangedEventHandler.md)
 
- [ITarget.ConfigurationChangedEventHandler](DiceRolling.Targets.ITarget.ConfigurationChangedEventHandler.md)
+Evento emitido quando a configuração do tabuleiro é alterada.
 
-Emite um sinal quando a configuração é alterada.
+ [TargetBoardType.SetupChangedEventHandler](DiceRolling.Targets.TargetBoardType.SetupChangedEventHandler.md)
 

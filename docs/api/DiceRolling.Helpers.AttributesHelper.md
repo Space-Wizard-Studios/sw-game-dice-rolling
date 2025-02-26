@@ -24,15 +24,15 @@ public static class AttributesHelper
 
 ## Methods
 
-### <a id="DiceRolling_Helpers_AttributesHelper_GetAttributeType_DiceRolling_Attributes_AttributesConfig_System_String_"></a> GetAttributeType\(AttributesConfig, string\)
+### <a id="DiceRolling_Helpers_AttributesHelper_GetAttributeType_DiceRolling_Attributes_AttributesStore_System_String_"></a> GetAttributeType\(AttributesStore, string\)
 
 ```csharp
-public static AttributeType? GetAttributeType(AttributesConfig config, string attributeName)
+public static AttributeType? GetAttributeType(AttributesStore config, string attributeName)
 ```
 
 #### Parameters
 
-`config` [AttributesConfig](DiceRolling.Attributes.AttributesConfig.md)
+`config` [AttributesStore](DiceRolling.Attributes.AttributesStore.md)
 
 `attributeName` [string](https://learn.microsoft.com/dotnet/api/system.string)
 

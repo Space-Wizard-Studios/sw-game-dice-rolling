@@ -3,7 +3,7 @@
 Namespace: [DiceRolling.Actions](DiceRolling.Actions.md)  
 Assembly: dice\-rolling.dll  
 
-Interface que define uma ação completa no jogo.
+Interface que define uma ação que é realizada por personagens do jogo.
 
 ```csharp
 public interface IAction<TContext, TResult> : IIdentifiable, IActionInformation, IActionAssets, IActionBehavior<TContext, TResult>
@@ -53,4 +53,10 @@ void RemoveEffect(EffectType effect)
 #### Parameters
 
 `effect` [EffectType](DiceRolling.Effects.EffectType.md)
+
+### <a id="DiceRolling_Actions_IAction_2_ValidateConstructor"></a> ValidateConstructor\(\)
+
+```csharp
+void ValidateConstructor()
+```
 

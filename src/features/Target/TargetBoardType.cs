@@ -6,6 +6,7 @@ using DiceRolling.Grids;
 namespace DiceRolling.Targets;
 
 [Tool]
+[GlobalClass]
 public partial class TargetBoardType : Resource, ITargetBoard {
     [Signal] public delegate void SetupChangedEventHandler();
 

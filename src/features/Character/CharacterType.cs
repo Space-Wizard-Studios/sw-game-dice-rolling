@@ -10,6 +10,10 @@ using DiceRolling.Services;
 
 namespace DiceRolling.Characters;
 
+/// <summary>
+/// Representa um tipo de personagem no jogo e inclui suas informações, atributos, ações, recursos visuais, localização e papel.
+/// Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
+/// </summary>
 [Tool]
 [GlobalClass]
 public partial class CharacterType : IdentifiableResource, ICharacter {

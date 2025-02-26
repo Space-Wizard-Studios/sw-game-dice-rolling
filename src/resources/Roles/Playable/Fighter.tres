@@ -30,8 +30,8 @@ BaseValue = 50
 
 [resource]
 script = ExtResource("7_x8hfl")
-Id = "d617ceaf-d1be-425f-80e3-5e662e73dba6"
 Name = "Fighter"
 Description = "Fighter Description"
 RoleAttributes = Array[ExtResource("3_j81qd")]([SubResource("Resource_g0hcp"), SubResource("Resource_8w8fm"), SubResource("Resource_xurgi")])
 RoleActions = Array[ExtResource("1_iytx6")]([SubResource("Resource_rp15h")])
+Id = "d617ceaf-d1be-425f-80e3-5e662e73dba6"

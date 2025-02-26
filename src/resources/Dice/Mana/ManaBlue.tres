@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="DiceMana" load_steps=3 format=3 uid="uid://d1fdrw7p7rywt"]
+[gd_resource type="Resource" script_class="DiceEnergy" load_steps=2 format=3 uid="uid://d1fdrw7p7rywt"]
 
-[ext_resource type="Texture2D" uid="uid://7edt57k6ta68" path="res://assets/icons/diceMana/drop.png" id="1_fv2o0"]
-[ext_resource type="Script" uid="uid://ckb37a68htybd" path="res://features/Dice/DiceMana/DiceMana.cs" id="2_46u2n"]
+[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://features/Dice/DiceEnergy.cs" id="1_agb81"]
 
 [resource]
-script = ExtResource("2_46u2n")
+script = ExtResource("1_agb81")
 Name = "Ocean Mana"
-Description = "Energia fluida e adaptável; ideal para habilidades estratégicas e defensivas."
-BackgroundColor = Color(0.576471, 0.772549, 0.992157, 1)
-MainColor = Color(0.117647, 0.227451, 0.541176, 1)
-Icon = ExtResource("1_fv2o0")
+Description = ""
+BackgroundColor = Color(0, 0, 0, 0)
+MainColor = Color(0, 0, 0, 0)
+Id = "a3b8c4f7-5d32-40e9-8a60-4a6621586d44"

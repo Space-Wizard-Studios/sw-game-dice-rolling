@@ -172,9 +172,9 @@ public partial class CharacterInspector : HBoxContainer {
     private void OnActionButtonPressed(Button button) {
         // GD.Print("Action button pressed: ", button.Text);
         if (_actionButtons.TryGetValue(button, out var action)) {
-            if (action.Type?.TargetConfiguration is not null) {
-                // GD.Print("Emitting ActionSelected signal with target configuration: ", action.Type.TargetConfiguration);
-                EventBus.Instance.EmitSignal(nameof(EventBus.ActionSelected), action.Type.TargetConfiguration);
+            if (action.Type?.TargetBoard is not null) {
+                // GD.Print("Emitting ActionSelected signal with target configuration: ", action.Type.TargetBoard);
+                EventBus.Instance.EmitSignal(nameof(EventBus.ActionSelected), action.Type.TargetBoard);
             }
         }
     }

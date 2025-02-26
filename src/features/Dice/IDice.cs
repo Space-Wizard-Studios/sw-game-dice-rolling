@@ -1,4 +1,5 @@
 using Godot;
+using DiceRolling.Common;
 
 namespace DiceRolling.Dice;
 
@@ -6,29 +7,10 @@ namespace DiceRolling.Dice;
 /// Interface que define um dado completo no jogo.
 /// </summary>
 /// <typeparam name="T">Tipo de lado do dado.</typeparam>
-public interface IDice<[MustBeVariant] T> where T : IDiceSide {
-    /// <summary>
-    /// Identificador único do dado.
-    /// </summary>
-    string Id { get; }
-
-    /// <summary>
-    /// Nome do dado.
-    /// </summary>
+public interface IDice<[MustBeVariant] T> : IIdentifiable where T : DiceSide {
     string Name { get; }
-
-    /// <summary>
-    /// Coleção de lados do dado.
-    /// </summary>
-    Godot.Collections.Array<T> Sides { get; }
-
-    /// <summary>
-    /// Número de lados do dado.
-    /// </summary>
     int SideCount { get; }
-
-    /// <summary>
-    /// Localização do dado.
-    /// </summary>
-    IDiceLocation Location { get; }
+    Godot.Collections.Array<T> Sides { get; }
+    DiceLocation Location { get; }
+    void ValidateConstructor();
 }

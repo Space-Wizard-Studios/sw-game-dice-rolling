@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_8nsa1")
-Id = "dc6f25b0-9be0-4c88-a615-50ba27e80a44"
 Name = "Speed"
 Description = "Speed description"
 Color = Color(1, 0.85, 0, 1)
 MinValue = 0
 MaxValue = 9999
+Id = "dc6f25b0-9be0-4c88-a615-50ba27e80a44"

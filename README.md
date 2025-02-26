@@ -1,6 +1,10 @@
 # DICE ROLLING FRAMEWORK
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9b87b0cac23442df9fa1d3b07c36e8f4)](https://app.codacy.com/gh/Space-Wizard-Studios/sw-game-dice-rolling/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![GitHub License](https://img.shields.io/github/license/Space-Wizard-Studios/sw-game-dice-rolling)](https://github.com/Space-Wizard-Studios/sw-game-dice-rolling/blob/main/LICENSE)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Space-Wizard-Studios/sw-game-dice-rolling)
+
+[![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/Space-Wizard-Studios_sw-game-dice-rolling?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/summary/new_code?id=Space-Wizard-Studios_sw-game-dice-rolling)
+[![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Space-Wizard-Studios/sw-game-dice-rolling)](https://app.coderabbit.ai/login?grsf=danilo-nob-yhhdp8)
 
 👋 Olá!
 

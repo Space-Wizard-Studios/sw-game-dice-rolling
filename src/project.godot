@@ -20,7 +20,7 @@ config/icon="uid://bmcfxb2srpt1o"
 GameplayTransitionManager="*res://scenes/GameplayTransitionManager.tscn"
 MenuTransitionManager="*res://scenes/MenuTransitionManager.tscn"
 DiceStore="*res://features/Dice/DiceStore.cs"
-GameLogStore="*res://features/_common/Logs/GameLogStore.cs"
+GameLogStore="*res://features/Common/Logs/GameLogStore.cs"
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 Shaker="*res://addons/shaker/src/Shaker.gd"
 
@@ -50,7 +50,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/@spacewiz/Arc3DEditorPlugin/plugin.cfg", "res://addons/@spacewiz/TargetConfigurationEditorPlugin/plugin.cfg", "res://addons/DragNDropNodes/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/shaker/plugin.cfg")
+enabled=PackedStringArray("res://addons/@spacewiz/Arc3DEditorPlugin/plugin.cfg", "res://addons/@spacewiz/TargetBoardEditorPlugin/plugin.cfg", "res://addons/DragNDropNodes/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/shaker/plugin.cfg")
 
 [file_customization]
 
@@ -59,12 +59,17 @@ folder_colors={
 "res://addons/@spacewiz/": "teal",
 "res://assets/": "purple",
 "res://features/": "blue",
-"res://features/_common/": "green",
+"res://features/Common/": "green",
 "res://helpers/": "gray",
 "res://resources/": "pink",
 "res://scenes/": "orange",
-"res://scenes/components/": "orange"
+"res://scenes/components/": "orange",
+"res://tests/": "red"
 }
+
+[gdunit4]
+
+settings/test/test_lookup_folder="tests"
 
 [gui]
 

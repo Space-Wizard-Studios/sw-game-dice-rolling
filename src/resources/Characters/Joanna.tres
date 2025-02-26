@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="CharacterType" load_steps=14 format=3 uid="uid://bkolttux1bvi1"]
+
+[ext_resource type="Script" uid="uid://cxt7qolwarsf1" path="res://features/Character/Action/CharacterAction.cs" id="1_b8qyb"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://features/Character/Attribute/CharacterAttribute.cs" id="2_gsdb2"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="3_06rx3"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="4_td0yb"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="5_7yppy"]
+[ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="6_d10er"]
+[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://resources/Locations/PlayerSquad.tres" id="7_2f8ao"]
+[ext_resource type="Texture2D" uid="uid://8e45l4n0kh6" path="res://assets/characters/joannaOtsoga/JoannaOtsogaPortrait.png" id="8_62ltr"]
+[ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://resources/Roles/Playable/Fighter.tres" id="9_la8y8"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://features/Character/CharacterType.cs" id="10_iwykt"]
+
+[sub_resource type="Resource" id="Resource_4p1nt"]
+script = ExtResource("2_gsdb2")
+Type = ExtResource("3_06rx3")
+MaxValue = 80
+CurrentValue = 80
+BaseValue = 80
+
+[sub_resource type="Resource" id="Resource_ebahj"]
+script = ExtResource("2_gsdb2")
+Type = ExtResource("4_td0yb")
+MaxValue = 50
+CurrentValue = 50
+BaseValue = 50
+
+[sub_resource type="Resource" id="Resource_b3bio"]
+script = ExtResource("2_gsdb2")
+Type = ExtResource("5_7yppy")
+MaxValue = 20
+CurrentValue = 20
+BaseValue = 20
+
+[resource]
+script = ExtResource("10_iwykt")
+Name = "Joanna"
+Portrait = ExtResource("8_62ltr")
+CharacterSprite = ExtResource("6_d10er")
+ShowShadow = false
+SpritePositionX = 0.0
+SpritePositionY = -0.167
+Role = ExtResource("9_la8y8")
+Attributes = Array[ExtResource("2_gsdb2")]([SubResource("Resource_4p1nt"), SubResource("Resource_ebahj"), SubResource("Resource_b3bio")])
+Actions = Array[ExtResource("1_b8qyb")]([])
+Location = ExtResource("7_2f8ao")
+SlotIndex = 5
+Id = "d98ec50f-3df3-47e6-b266-cbc7b8fbb745"

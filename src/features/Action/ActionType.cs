@@ -12,13 +12,30 @@ namespace DiceRolling.Actions;
 [Tool]
 [GlobalClass]
 public partial class ActionType : IdentifiableResource, IAction<IActionContext, bool> {
+    private string _name = "Action_" + Guid.NewGuid().ToString("N");
+    private Texture2D? _icon;
+
     [ExportGroup("📝 Information")]
-    [Export] public ActionCategory? Category { get; set; }
-    [Export] public string? Name { get; set; }
-    [Export(PropertyHint.MultilineText)] public string? Description { get; set; }
+
+    [Export]
+    public string Name {
+        get => _name;
+        set {
+            if (ValidationService.ValidateName(value)) {
+                _name = value;
+                EmitChanged();
+            }
+        }
+    }
+
+    [Export]
+    public ActionCategory? Category { get; set; }
+
+    [Export(PropertyHint.MultilineText)]
+    public string? Description { get; set; }
 
     [ExportGroup("🪵 Assets")]
-    private Texture2D? _icon;
+
     [Export]
     public Texture2D? Icon {
         get => _icon;
@@ -26,37 +43,43 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
             _icon = value;
             if (_icon is not null) {
                 IconPath = _icon.ResourcePath;
+                EmitChanged();
             }
         }
     }
     public string? IconPath { get; private set; }
 
     [ExportGroup("🎭 Behavior")]
-    [Export] public Godot.Collections.Array<DiceMana> RequiredMana { get; set; } = new Godot.Collections.Array<DiceMana>();
-    [Export] public Godot.Collections.Array<EffectType> Effects { get; set; } = new Godot.Collections.Array<EffectType>();
-    [Export] public TargetConfiguration? TargetConfiguration { get; set; }
+
+    [Export]
+    public Godot.Collections.Array<DiceEnergy> RequiredEnergy { get; set; } = [];
+
+    [Export]
+    public Godot.Collections.Array<EffectType> Effects { get; set; } = [];
+
+    [Export]
+    public TargetBoardType? TargetBoard { get; set; }
 
     public ActionType() {
-        EnsureValidId();
     }
 
     public ActionType(
+        string name,
         ActionCategory category,
-        Godot.Collections.Array<DiceMana> requiredMana,
+        string? description,
+        Texture2D? icon,
+        Godot.Collections.Array<DiceEnergy> requiredEnergy,
         Godot.Collections.Array<EffectType> effects,
-        string? name = null,
-        string? description = null,
-        Texture2D? icon = null,
-        TargetConfiguration? targetConfiguration = null
+        TargetBoardType? targetBoard
     ) {
-        Category = category;
-        RequiredMana = requiredMana;
-        Effects = effects;
         Name = name;
+        Category = category;
         Description = description;
         Icon = icon;
-        TargetConfiguration = targetConfiguration;
-        EnsureValidId();
+        RequiredEnergy = requiredEnergy;
+        Effects = effects;
+        TargetBoard = targetBoard;
+        ValidateConstructor();
     }
 
     public bool Do(IActionContext context) {
@@ -68,9 +91,9 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
     public bool IsValid() {
         return !string.IsNullOrEmpty(Id) &&
                Category != null &&
-               RequiredMana.Count > 0 &&
+               RequiredEnergy.Count > 0 &&
                Effects.Count > 0 &&
-               TargetConfiguration != null;
+               TargetBoard != null;
     }
 
     public void AddEffect(EffectType effect) {
@@ -81,5 +104,11 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
 
     public void RemoveEffect(EffectType effect) {
         Effects.Remove(effect);
+    }
+
+    public void ValidateConstructor() {
+        if (!ValidationService.ValidateName(Name)) {
+            throw new ArgumentException("Invalid name", nameof(Name));
+        }
     }
 }

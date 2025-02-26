@@ -1,6 +1,3 @@
-using Godot;
-using DiceRolling.Actions;
-
 namespace DiceRolling.Characters;
 /// <summary>
 /// Interface que define as ações de um personagem no jogo.

@@ -5,14 +5,9 @@ namespace DiceRolling.Attributes;
 /// </summary>
 public interface IAttributeInformation {
     /// <summary>
-    /// Identificador único do atributo.
-    /// </summary>
-    string Id { get; }
-
-    /// <summary>
     /// Nome do atributo.
     /// </summary>
-    string? Name { get; set; }
+    string Name { get; set; }
 
     /// <summary>
     /// Descrição do atributo.

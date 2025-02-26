@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace DiceRolling.Logs;
 
+[Tool]
+[GlobalClass]
 public partial class GameLogStore : Node {
     private static GameLogStore? _instance;
     public static GameLogStore Instance {

@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="CharacterType" load_steps=11 format=3 uid="uid://ctp5er4mb8u3k"]
+
+[ext_resource type="Script" uid="uid://cxt7qolwarsf1" path="res://features/Character/Action/CharacterAction.cs" id="1_ray4s"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://features/Character/Attribute/CharacterAttribute.cs" id="2_miksr"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="3_fnxuv"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="4_6285t"]
+[ext_resource type="SpriteFrames" uid="uid://bkvhu7v1tmcfy" path="res://assets/characters/dummyOtsoga/DummyOtsogaSprites.tres" id="5_giux7"]
+[ext_resource type="Resource" uid="uid://bjc78p06uwuy3" path="res://resources/Locations/EnemySquad.tres" id="6_k0ig8"]
+[ext_resource type="Resource" uid="uid://bviiaflcxorr0" path="res://resources/Roles/Unplayable/DummyRole.tres" id="7_mifd0"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://features/Character/CharacterType.cs" id="8_ktuse"]
+
+[sub_resource type="Resource" id="Resource_1x1o8"]
+script = ExtResource("2_miksr")
+Type = ExtResource("3_fnxuv")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[sub_resource type="Resource" id="Resource_8x7bf"]
+script = ExtResource("2_miksr")
+Type = ExtResource("4_6285t")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[resource]
+script = ExtResource("8_ktuse")
+Name = "Dummy"
+CharacterSprite = ExtResource("5_giux7")
+ShowShadow = false
+SpritePositionX = 0.0
+SpritePositionY = 0.0
+Role = ExtResource("7_mifd0")
+Attributes = Array[ExtResource("2_miksr")]([SubResource("Resource_1x1o8"), SubResource("Resource_8x7bf")])
+Actions = Array[ExtResource("1_ray4s")]([])
+Location = ExtResource("6_k0ig8")
+SlotIndex = 0
+Id = "a98288c9-8795-4e16-801f-5fed51abd905"
+metadata/_custom_type_script = ExtResource("8_ktuse")

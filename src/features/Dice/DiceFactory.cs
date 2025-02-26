@@ -2,27 +2,22 @@ using System;
 namespace DiceRolling.Dice;
 
 public static class DiceFactory {
-    public static Dice<DiceSide> CreateD4(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(4, diceManaResources, locationCategory, characterId);
-    public static Dice<DiceSide> CreateD6(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(6, diceManaResources, locationCategory, characterId);
-    public static Dice<DiceSide> CreateD8(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(8, diceManaResources, locationCategory, characterId);
-    public static Dice<DiceSide> CreateD10(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(10, diceManaResources, locationCategory, characterId);
-    public static Dice<DiceSide> CreateD12(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(12, diceManaResources, locationCategory, characterId);
-    public static Dice<DiceSide> CreateD20(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(20, diceManaResources, locationCategory, characterId);
-    public static Dice<DiceSide> CreateD100(DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(100, diceManaResources, locationCategory, characterId);
+    public static DiceType CreateD4(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(4, DiceEnergyConfig, locationCategory, characterId);
+    public static DiceType CreateD6(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(6, DiceEnergyConfig, locationCategory, characterId);
+    public static DiceType CreateD8(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(8, DiceEnergyConfig, locationCategory, characterId);
+    public static DiceType CreateD10(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(10, DiceEnergyConfig, locationCategory, characterId);
+    public static DiceType CreateD12(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(12, DiceEnergyConfig, locationCategory, characterId);
+    public static DiceType CreateD20(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(20, DiceEnergyConfig, locationCategory, characterId);
+    public static DiceType CreateD100(DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null) => CreateDice(100, DiceEnergyConfig, locationCategory, characterId);
 
-    private static Dice<DiceSide> CreateDice(int sides, DiceManaResources diceManaResources, DiceLocationCategory locationCategory, string? characterId = null) {
-        var manas = new Godot.Collections.Array<DiceSide>();
-        var diceManas = diceManaResources.DiceManas;
+    private static DiceType CreateDice(int sides, DiceEnergyStore DiceEnergyConfig, DiceLocationCategory locationCategory, string? characterId = null) {
+        var energies = new Godot.Collections.Array<DiceSide>();
+        var diceEnergies = DiceEnergyConfig.Energy;
         for (int i = 0; i < sides; i++) {
-            var mana = diceManas[i % diceManas.Count];
-            manas.Add(new DiceSide(
-                mana.Name ?? "Unknown",
-                mana.Description ?? "Unknown",
-                mana.BackgroundColor,
-                mana.MainColor
-            ));
+            var energy = diceEnergies[i % diceEnergies.Count];
+            energies.Add(new DiceSide(energy));
         }
         var location = new DiceLocation(locationCategory, characterId);
-        return new Dice<DiceSide>(Guid.NewGuid().ToString(), $"D{sides}", manas, location);
+        return new DiceType($"D{sides}", energies, location);
     }
 }

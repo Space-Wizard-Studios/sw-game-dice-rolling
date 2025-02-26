@@ -7,7 +7,7 @@ public interface IActionInformation {
     /// <summary>
     /// Nome da ação.
     /// </summary>
-    string? Name { get; set; }
+    string Name { get; set; }
 
     /// <summary>
     /// Categoria da ação.

@@ -10,19 +10,19 @@ namespace DiceRolling.Actions;
 /// </summary>
 public interface IActionBehavior<TContext, TResult> {
     /// <summary>
+    /// Energia necessária para executar a ação.
+    /// </summary>
+    Array<DiceEnergy> RequiredEnergy { get; set; }
+
+    /// <summary>
     /// Efeitos da ação.
     /// </summary>
     Array<EffectType> Effects { get; set; }
 
     /// <summary>
-    /// Mana necessária para executar a ação.
-    /// </summary>
-    Array<DiceMana> RequiredMana { get; set; }
-
-    /// <summary>
     /// Configuração de alvo da ação.
     /// </summary>
-    TargetConfiguration? TargetConfiguration { get; set; }
+    TargetBoardType? TargetBoard { get; set; }
 
     /// <summary>
     /// Executa a ação com o contexto fornecido.

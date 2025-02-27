@@ -34,3 +34,4 @@ script = ExtResource("1_tabhr")
 GridConfigurations = [SubResource("Resource_jan7r"), SubResource("Resource_3uydg")]
 CharacterComponentScene = ExtResource("4_3uydg")
 ArrowMesh = ExtResource("5_og5wa")
+CellPadding = 0.055

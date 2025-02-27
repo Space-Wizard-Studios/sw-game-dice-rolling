@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using DiceRolling.Roles;
 using DiceRolling.Attributes;
 using DiceRolling.Locations;
-using DiceRolling.Common;
+using DiceRolling.Id;
 using DiceRolling.Services;
 
 namespace DiceRolling.Characters;

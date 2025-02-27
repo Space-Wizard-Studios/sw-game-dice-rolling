@@ -1,7 +1,7 @@
 using Godot;
 using DiceRolling.Services;
 
-namespace DiceRolling.Common;
+namespace DiceRolling.Id;
 
 [Tool]
 public abstract partial class IdentifiableResource : Resource, IIdentifiable {

@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-using DiceRolling.Common;
+using DiceRolling.Id;
 using DiceRolling.Services;
 
 namespace DiceRolling.Dice;

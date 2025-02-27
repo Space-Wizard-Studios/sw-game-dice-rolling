@@ -3,7 +3,7 @@ using Godot;
 namespace DiceRolling.Characters;
 
 /// <summary>
-/// Interface que define os recursos visuais de um personagem.
+/// Define os recursos visuais de um personagem.
 /// </summary>
 public interface ICharacterAssetSheet {
     Texture2D? Portrait { get; set; }

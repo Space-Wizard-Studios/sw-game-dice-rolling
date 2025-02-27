@@ -1,4 +1,6 @@
 {
+    "dotnet.defaultSolution": "src/dice-rolling.sln",
+    "dotnet.unitTests.runSettingsPath": "src/.runsettings",
     "editor.quickSuggestions": {
         "strings": true
     },
@@ -15,7 +17,12 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "**/.ssh": true,
-        "**/*.uid": true
+        "**/*.uid": true,
+        "**/node_modules": true,
+        "src/.godot": true,
+        "docs/.docusaurus": true,
+        "docs/content/api": false,
+        "docs/api": true
     },
     "eslint.workingDirectories": [
         {

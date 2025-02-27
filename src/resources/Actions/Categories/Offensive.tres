@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="ActionCategory" load_steps=5 format=3 uid="uid://dwtue01tv131s"]
+[gd_resource type="Resource" script_class="Category" load_steps=5 format=3 uid="uid://dwtue01tv131s"]
 
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="1_e6ljw"]
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://features/Dice/DiceEnergy.cs" id="2_300jt"]
 [ext_resource type="Texture2D" uid="uid://drputnuj4p8ds" path="res://assets/icons/actionCategories/attack.png" id="3_42rmu"]
-[ext_resource type="Script" uid="uid://c2h1r5hcgno4f" path="res://features/Action/ActionCategory.cs" id="4_vltcb"]
+[ext_resource type="Script" uid="uid://c2h1r5hcgno4f" path="res://features/Action/Category.cs" id="4_vltcb"]
 
 [resource]
 script = ExtResource("4_vltcb")

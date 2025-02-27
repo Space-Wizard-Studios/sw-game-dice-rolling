@@ -4,15 +4,15 @@ using System;
 using DiceRolling.Id;
 using DiceRolling.Services;
 
-namespace DiceRolling.Characters;
+namespace DiceRolling.Categories;
 
 /// <summary>
-/// Representa uma categoria de um personagem.
+/// Representa uma categoria.
 /// </summary>
 [Tool]
 [GlobalClass]
-public partial class CharacterCategory : IdentifiableResource {
-    private string _name = "CharacterCategory_" + Guid.NewGuid().ToString("N");
+public partial class Category : IdentifiableResource {
+    private string _name = "Category_" + Guid.NewGuid().ToString("N");
 
     private Texture2D? _icon;
 
@@ -47,10 +47,10 @@ public partial class CharacterCategory : IdentifiableResource {
     }
     public string? IconPath { get; private set; }
 
-    public CharacterCategory() {
+    public Category() {
     }
 
-    public CharacterCategory(string name, string description, Texture2D icon) {
+    public Category(string name, string description, Texture2D icon) {
         Name = name;
         Description = description;
         Icon = icon;

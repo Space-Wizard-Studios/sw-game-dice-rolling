@@ -34,6 +34,14 @@ public partial class RoleType : IdentifiableResource, IRole {
         ValidateConstructor();
     }
 
+    public RoleType(string name, string? description, Godot.Collections.Array<RoleAttribute> roleAttributes, Godot.Collections.Array<RoleAction> roleActions) {
+        Name = name;
+        Description = description;
+        RoleAttributes = roleAttributes;
+        RoleActions = roleActions;
+        ValidateConstructor();
+    }
+
     public void ValidateConstructor() {
         if (!ValidationService.ValidateName(Name)) {
             throw new ArgumentException("Invalid name", nameof(Name));

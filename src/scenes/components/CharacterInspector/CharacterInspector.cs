@@ -95,7 +95,7 @@ public partial class CharacterInspector : HBoxContainer {
 
         PortraitNode.Texture = _character.Portrait;
         CharacterNameNode.Text = _character?.Name ?? "Unknown";
-        CharacterRoleNode.Text = _character?.Role?.Name ?? "Unknown Role";
+        CharacterRoleNode.Text = _character?.Role?.Type?.Name ?? "Unknown Role";
 
         if (AttributesListNode is not null && AttributeTemplateNode is not null) {
             AttributeTemplateNode.Visible = false;
@@ -158,7 +158,7 @@ public partial class CharacterInspector : HBoxContainer {
             foreach (var action in _character.Actions) {
                 var actionButton = (Button)ActionButtonTemplate.Duplicate();
                 actionButton.Visible = true;
-                actionButton.Text = action.Name ?? "Unknown Action";
+                actionButton.Text = action.Type?.Name ?? "Unknown Action";
                 _actionButtons[actionButton] = action;
 
                 actionButton.Pressed += () => OnActionButtonPressed(actionButton);

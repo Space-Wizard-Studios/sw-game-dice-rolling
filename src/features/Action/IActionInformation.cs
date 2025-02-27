@@ -1,3 +1,5 @@
+using DiceRolling.Categories;
+
 namespace DiceRolling.Actions;
 
 /// <summary>
@@ -12,7 +14,7 @@ public interface IActionInformation {
     /// <summary>
     /// Categoria da ação.
     /// </summary>
-    ActionCategory? Category { get; set; }
+    Category? Category { get; set; }
 
     /// <summary>
     /// Descrição da ação.

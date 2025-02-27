@@ -6,6 +6,7 @@ using DiceRolling.Targets;
 using DiceRolling.Effects;
 using DiceRolling.Services;
 using DiceRolling.Id;
+using DiceRolling.Categories;
 
 namespace DiceRolling.Actions;
 
@@ -33,7 +34,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
     }
 
     [Export]
-    public ActionCategory? Category { get; set; }
+    public Category? Category { get; set; }
 
     [Export(PropertyHint.MultilineText)]
     public string? Description { get; set; }
@@ -69,7 +70,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
 
     public ActionType(
         string name,
-        ActionCategory category,
+        Category category,
         string? description,
         Texture2D? icon,
         Godot.Collections.Array<DiceEnergy> requiredEnergy,

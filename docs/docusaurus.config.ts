@@ -45,6 +45,11 @@ const config: Config = {
 
     themeConfig: {
         image: 'img/docusaurus-social-card.jpg',
+        docs:{
+            sidebar: {
+                hideable: true,
+            }
+        },
         navbar: {
             title: 'Dice Rolling Game',
             logo: {

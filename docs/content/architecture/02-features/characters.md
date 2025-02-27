@@ -4,38 +4,59 @@
 
 Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Characters.md).
 
-## Arquitetura
+## Visão Geral
 
 ```mermaid
-flowchart LR
+flowchart
     subgraph Interfaces
         ICharacter
     end
 
-    subgraph Models
-    direction TB
+    subgraph Types
         CharacterType
-        subgraph SubModels
-            CharacterActions
-            CharacterAttributes
-            CharacterCategories
-        end
     end
 
-    subgraph Services
+    subgraph Services["Services"]
         CharacterService
     end
 
-    subgraph Stores
+    subgraph Stores["Stores"]
         CharacterStore
     end
 
-    Interfaces --> Models
-    SubModels --> CharacterType
-    Models --> Stores
-    Models <--> Services
-    Services <--> Stores
+    subgraph Properties
+        ...
+        CharacterAction
+        CharacterAttribute
+        Category
+        CharacterRole
+        CharacterPlacement
+    end
 
+    subgraph Features
+        ActionFeature[ActionType]
+        AttributeFeature[AttributeType]
+        CategoryFeature[Category]
+        RoleFeature[RoleType]
+        LocationFeature[LocationType]
+    end
+
+    Types-->|implementa|Interfaces
+
+    Interfaces-->|define|Properties
+
+    Services-->|manipula|Types
+    Services-->|acessa|Stores
+    Stores-->|armazena|Types
+
+    CharacterAction-->|resource|ActionFeature
+    CharacterAttribute-->|resource|AttributeFeature
+    Category-->|resource|CategoryFeature
+    CharacterRole-->|resource|RoleFeature
+    CharacterPlacement-->|resource|LocationFeature
+
+    style Types fill:#d74242,stroke:#8a0d26,stroke-width:2px;
+    style Interfaces fill:#1da2d3,stroke:#1c74d5,stroke-width:2px;
 ```
 
 ---
@@ -43,26 +64,29 @@ flowchart LR
 ## Interfaces
 
 - **ICharacter**: define um personagem no jogo e agrega as interfaces:
-  - **ICharacterActionSheet**: ações de um personagem.
-  - **ICharacterAssetSheet**: recursos visuais de um personagem.
-  - **ICharacterAttributeSheet**: atributos de um personagem.
+  - **IIdentifiable**: define uma ID única.
   - **ICharacterInformationSheet**: informações gerais de um personagem e categoria.
-  - **ICharacterPlacementSheet**: localização de um personagem.
+  - **ICharacterAssetSheet**: recursos visuais de um personagem.
   - **ICharacterRoleSheet**: role de um personagem.
+  - **ICharacterActionSheet**: ações de um personagem.
+  - **ICharacterAttributeSheet**: atributos de um personagem.
+  - **ICharacterPlacementSheet**: localização de um personagem.
 
 ---
 
-## Models
+## Types (Resources)
 
 - **CharacterType**: Representa um tipo de personagem no jogo e inclui suas informações, atributos, ações, recursos visuais, localização e papel. Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
 
   ![CharacterType model](../../../public/architecture/02-features/characters/CharacterType.png)
 
-### Sub Models
+### External Properties
 
-- **CharacterAction**: Ação de um personagem.
-- **CharacterAttribute**: Atributo de um personagem.
-- **CharacterCategory**: Categoria de um personagem.
+- **Category**: Categoria do personagem.
+- **CharacterRole**: Role do personagem.
+- **CharacterAction**: Ação do personagem.
+- **CharacterAttribute**: Atributo do personagem.
+- **CharacterPlacement**: Localização do personagem.
 
 ---
 

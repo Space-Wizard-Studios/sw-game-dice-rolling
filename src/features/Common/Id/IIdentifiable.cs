@@ -1,6 +1,6 @@
 using Godot;
 
-namespace DiceRolling.Common;
+namespace DiceRolling.Id;
 
 public interface IIdentifiable {
     string Id { get; }

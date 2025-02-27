@@ -1,10 +1,10 @@
-using DiceRolling.Common;
+using DiceRolling.Id;
 using DiceRolling.Effects;
 
 namespace DiceRolling.Actions;
 
 /// <summary>
-/// Interface que define uma ação que é realizada por personagens do jogo.
+/// Interface que define as entidades de ações que são realizadas por personagens.
 /// </summary>
 public interface IAction<TContext, TResult> :
     IIdentifiable,

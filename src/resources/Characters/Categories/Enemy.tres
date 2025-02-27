@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="CharacterCategory" load_steps=3 format=3 uid="uid://sfhb0dqjsixc"]
+[gd_resource type="Resource" script_class="Category" load_steps=3 format=3 uid="uid://sfhb0dqjsixc"]
 
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://features/Character/CharacterType.cs" id="1_jbtim"]
-[ext_resource type="Script" uid="uid://bykcf8sd8a8hu" path="res://features/Character/CharacterCategory.cs" id="2_8p5kw"]
+[ext_resource type="Script" uid="uid://bykcf8sd8a8hu" path="res://features/Character/Category.cs" id="2_8p5kw"]
 
 [resource]
 script = ExtResource("2_8p5kw")

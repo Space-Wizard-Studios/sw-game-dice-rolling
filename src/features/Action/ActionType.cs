@@ -5,10 +5,15 @@ using DiceRolling.Dice;
 using DiceRolling.Targets;
 using DiceRolling.Effects;
 using DiceRolling.Services;
-using DiceRolling.Common;
+using DiceRolling.Id;
+using DiceRolling.Categories;
 
 namespace DiceRolling.Actions;
 
+/// <summary>
+/// Representa um tipo de ação no jogo, incluindo suas informações, categoria, descrição, ícone, energia necessária, efeitos e configuração de alvo.
+/// Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
+/// </summary>
 [Tool]
 [GlobalClass]
 public partial class ActionType : IdentifiableResource, IAction<IActionContext, bool> {
@@ -29,7 +34,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
     }
 
     [Export]
-    public ActionCategory? Category { get; set; }
+    public Category? Category { get; set; }
 
     [Export(PropertyHint.MultilineText)]
     public string? Description { get; set; }
@@ -65,7 +70,7 @@ public partial class ActionType : IdentifiableResource, IAction<IActionContext, 
 
     public ActionType(
         string name,
-        ActionCategory category,
+        Category category,
         string? description,
         Texture2D? icon,
         Godot.Collections.Array<DiceEnergy> requiredEnergy,

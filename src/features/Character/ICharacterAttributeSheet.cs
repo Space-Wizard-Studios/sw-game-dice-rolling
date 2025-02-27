@@ -2,7 +2,7 @@ using DiceRolling.Attributes;
 
 namespace DiceRolling.Characters;
 /// <summary>
-/// Interface que define os atributos de um personagem.
+/// Define os atributos de um personagem.
 /// </summary>
 public interface ICharacterAttributeSheet {
     Godot.Collections.Array<CharacterAttribute> Attributes { get; }

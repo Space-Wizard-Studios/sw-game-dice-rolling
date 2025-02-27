@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - documentation
     paths:
       - "docs/**"
   workflow_dispatch:

@@ -4,36 +4,45 @@
 
 Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Attributes.md).
 
-## Interfaces
+## Arquitetura
 
-A interface `IAttribute` agrega várias interfaces menores para definir um _Attribute_ completo no jogo.
+```mermaid
+flowchart LR
+    subgraph Interfaces
+        IAttribute
+    end
 
-```csharp
-public interface IAttribute :
-    IAttributeInformation,
-    IAttributeAssets,
-    IAttributeValues { }
+    subgraph Models
+    direction TB
+        AttributeType
+    end
+
+    subgraph Stores
+        AttributeStore
+    end
+
+    Interfaces --> Models
+    Models --> Stores
+    Models <--> Stores
 ```
 
-### Informações
+---
 
-`IAttributeInformation` define as informações básicas de um atributo.
+## Interfaces
 
-- **Id**: Identificador único do atributo.
-- **Name**: Nome do atributo.
-- **Description**: Descrição do atributo.
+- **IAttribute**: define um atributo no jogo e agrega as interfaces:
+  - **IAttributeInformation**: informações básicas de um atributo.
+  - **IAttributeAssets**: recursos visuais de um atributo.
+  - **IAttributeValues**: valores de um atributo.
 
-### Recursos Visuais
+---
 
-`IAttributeAssets` define os recursos visuais de um atributo.
+## Models
 
-- **Color**: Cor do atributo.
-- **Icon**: Ícone do atributo.
-- **IconPath**: Caminho do ícone do atributo.
+- **AttributeType**: Representa um tipo de atributo no jogo e inclui suas informações e valores. Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
 
-### Valores
+---
 
-`IAttributeValues` define os valores de um atributo.
+## Stores
 
-- **MinValue**: Valor mínimo do atributo.
-- **MaxValue**: Valor máximo do atributo.
+- **AttributeStore**: Armazena dados dos atributos em coleções e facilita a manipulação desses atributos.

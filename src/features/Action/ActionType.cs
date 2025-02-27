@@ -5,10 +5,14 @@ using DiceRolling.Dice;
 using DiceRolling.Targets;
 using DiceRolling.Effects;
 using DiceRolling.Services;
-using DiceRolling.Common;
+using DiceRolling.Id;
 
 namespace DiceRolling.Actions;
 
+/// <summary>
+/// Representa um tipo de ação no jogo, incluindo suas informações, categoria, descrição, ícone, energia necessária, efeitos e configuração de alvo.
+/// Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
+/// </summary>
 [Tool]
 [GlobalClass]
 public partial class ActionType : IdentifiableResource, IAction<IActionContext, bool> {

@@ -1,7 +1,7 @@
 namespace DiceRolling.Actions;
 
 /// <summary>
-/// Interface que define as informações básicas de uma ação no jogo.
+/// Interface que informações gerais de uma ação.
 /// </summary>
 public interface IActionInformation {
     /// <summary>

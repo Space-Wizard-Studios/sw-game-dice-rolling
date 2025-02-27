@@ -1,15 +1,16 @@
 using Godot;
-using DiceRolling.Dice;
-using DiceRolling.Effects;
 using System;
-using DiceRolling.Common;
+using DiceRolling.Id;
 using DiceRolling.Services;
 
 namespace DiceRolling.Actions;
 
+/// <summary>
+/// Representa uma categoria de ação.
+/// </summary>
 [Tool]
 [GlobalClass]
-public partial class ActionCategory : IdentifiableResource, IActionCategory {
+public partial class ActionCategory : IdentifiableResource {
     private string _name = "ActionCategory_" + Guid.NewGuid().ToString("N");
     private Texture2D? _icon;
 
@@ -44,14 +45,6 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
     }
     public string? IconPath { get; private set; }
 
-    [ExportGroup("🎭 Behavior")]
-
-    [Export]
-    public Godot.Collections.Array<DiceEnergy> DefaultRequiredEnergy { get; set; } = [];
-
-    [Export]
-    public Godot.Collections.Array<EffectType> DefaultEffects { get; set; } = [];
-
     public ActionCategory() {
     }
 
@@ -64,7 +57,7 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
 
     public void ValidateConstructor() {
         if (!ValidationService.ValidateName(Name)) {
-            throw new ArgumentException("Name cannot be null or whitespace");
+            throw new ArgumentException("Name não pode ser null ou vazio.");
         }
     }
 }

@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="ActionType" load_steps=11 format=3 uid="uid://cvojckruuqrn6"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=10 format=3 uid="uid://cvojckruuqrn6"]
 
-[ext_resource type="Resource" uid="uid://dwtue01tv131s" path="res://resources/Actions/Categories/Offensive.tres" id="1_7glge"]
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="2_s3uan"]
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://features/Dice/DiceEnergy.cs" id="4_s3uan"]
 [ext_resource type="Texture2D" uid="uid://bemp486qms5lb" path="res://assets/icons/actions/magic_missiles.png" id="4_wo1pe"]
@@ -37,7 +36,6 @@ metadata/_custom_type_script = ExtResource("6_kaqn3")
 [resource]
 script = ExtResource("7_gvq84")
 Name = "Magic Missiles"
-Category = ExtResource("1_7glge")
 Description = "Magic Missiles description."
 Icon = ExtResource("4_wo1pe")
 RequiredEnergy = Array[ExtResource("4_s3uan")]([])

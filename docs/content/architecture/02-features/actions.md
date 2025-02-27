@@ -4,31 +4,31 @@
 
 Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Actions.md).
 
-## Arquitetura
+## Visão Geral
+
+As ações no jogo são utilizadas para definir o que os personagens podem fazer. Cada ação possui uma categoria (`Category`), energia necessária (`DiceEnergy`), efeitos (`Effects`) e um alvo (`TargetBoard`).
 
 ```mermaid
 flowchart TD
+    Types["ActionType"]
+
     subgraph Interfaces
         IAction
     end
 
-    subgraph Types
-        ActionType
-    end
-
     subgraph Properties["Properties"]
-        ...
+        Other["..."]
         Category
         DiceEnergy
         Effects
         TargetBoard
     end
 
-    subgraph Features
+    subgraph External
         CategoryFeature["Category"]
-        DiceFeature["DiceType"]
+        DiceFeature["DiceEnergy"]
         EffectsFeature["EffectType"]
-        BoardFeature["TargetBoardType"]
+        TargetBoardFeature["TargetBoardType"]
     end
 
     Types-->|implementa|Interfaces
@@ -38,17 +38,24 @@ flowchart TD
     Category-->|resource|CategoryFeature
     DiceEnergy-->|resource|DiceFeature
     Effects-->|resource|EffectsFeature
-    TargetBoard-->|resource|BoardFeature
+    TargetBoard-->|resource|TargetBoardFeature
 
     style Types fill:#d74242,stroke:#8a0d26,stroke-width:2px;
     style Interfaces fill:#1da2d3,stroke:#1c74d5,stroke-width:2px;
 ```
+
+:::warning Atenção
+
+Os tipos de Resources irão alterar conforme o projeto evoluir. Para mais detalhes, veja sobre os [Resources](../../architecture/00-intro/resources.md).
+
+:::
 
 ---
 
 ## Interfaces
 
 - **IAction**: define as entidades de ações que são realizadas por personagens do jogo e agrega as interfaces:
+  - **IIdentifiable**: define uma ID única.
   - **IActionInformation**: informações gerais de uma ação.
   - **IActionAssets**: recursos visuais de uma ação.
   - **IActionBehavior**: comportamento de uma ação.
@@ -61,16 +68,20 @@ flowchart TD
 
 - **ActionType**: Representa um tipo de ação no jogo e inclui suas informações, comportamento, categoria, contexto e efeitos. Esta classe também fornece métodos para gerenciar esses aspectos.
 
-### External Properties
+### Types externos
 
 - **Category**: categoria da ação.
 - **DiceEnergy**: energia necessária para realizar a ação.
 - **Effects**: efeitos da ação.
 - **TargetBoard**: configuração do alvo da ação.
 
+---
+
 ## Services
 
 N/A
+
+---
 
 ## Stores
 

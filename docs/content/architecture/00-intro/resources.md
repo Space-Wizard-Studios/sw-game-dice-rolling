@@ -1,46 +1,52 @@
 # Resources
 
-Até o momento a tipagem das features ainda estão sendo definidas e, por isso, existe basicamente um tipo de Resource para cada feature.
+A criação das informações do projeto (personagens, atributos, classes, ações, efeitos, etc.) é feita através dos Resources do Godot, que funcionam como containers para armazenamento desses dados.
 
-Para um melhor entendimento do que é um Resource, veja o [tutorial](https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html) e a [documentação](https://docs.godotengine.org/en/stable/classes/class_resource.html) do Godot.
+Os Resources podem ser editados pela interface do Godot, carregados nas cenas (Nodes) e são acessados / manipulados in game através dos `Services` e das `Stores`.
 
-Então a manipulação dos Resources até o momento está sendo feita diretamente.
+Até o momento os tipos de Resources ainda estão sendo definidos e, por isso, deve existir apenas um para cada feature, sendo que o acesso e manipulação desses tipos estão sendo feitos de forma direta.
 
 ```mermaid
-flowchart LR
+flowchart
     subgraph Interfaces
         ICharacter
     end
 
-    CharacterType
+    Types["CharacterType"]
 
     CharacterService
 
     CharacterStore
 
-    CharacterType-->|implementa|Interfaces
+    Types-->|implementa|Interfaces
 
     Interfaces-->|define|Properties
 
-    CharacterService-->|manipula|CharacterType
+    CharacterService-->|manipula|Types
     CharacterService-->|acessa|CharacterStore
-    CharacterStore-->|armazena|CharacterType
+    CharacterStore-->|armazena|Types
 
-    style CharacterType fill:#d74242,stroke:#8a0d26,stroke-width:2px;
+    style Types fill:#d74242,stroke:#8a0d26,stroke-width:2px;
     style Interfaces fill:#1da2d3,stroke:#1c74d5,stroke-width:2px;
 ```
 
-:::info
+:::info Explicação
 
-`CharacterType` é o tipo de Resource para a feature `Character`.
+- `CharacterType` é o tipo de Resource que implementa as interfaces `ICharacter`;
+- `CharacterService` manipula `CharacterType`;
+- `CharacterStore` armazena `CharacterType`.
 
-`CharacterService` manipula `CharacterType` e `CharacterStore` armazena `CharacterType`.
+:::
+
+:::tip Dica
+
+Para um melhor entendimento do que é um Resource, veja o [tutorial](https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html) e a [documentação](https://docs.godotengine.org/en/stable/classes/class_resource.html) do Godot.
 
 :::
 
 ## Abstração
 
-A partir do momento que novos tipos de recursos forem criados para uma mesma feature, como `CharacterTypeA` e `CharacterTypeB`, será necessário que essas classes herdem uma classe abstrata como `CharacterBase`.
+A partir do momento que novos tipos de Resources forem criados para uma mesma feature, como `CharacterTypeA` e `CharacterTypeB`, será necessário que essas classes herdem uma classe abstrata como `CharacterBase`.
 
 No gráfico abaixo, `CharacterBase` é a classe herdada e que abstrai as interfaces de `ICharacter`.
 
@@ -116,3 +122,12 @@ flowchart
     style RoleBase fill:#8a1fd1,stroke:#8a1fd1,stroke-width:2px;
     style LocationBase fill:#8a1fd1,stroke:#8a1fd1,stroke-width:2px;
 ```
+
+:::info Explicação
+
+- `CharacterTypeA` e `CharacterTypeB` são os tipos de Resource que herdam `CharacterBase`;
+- `CharacterBase` é a classe abstrata que herda as interfaces de `ICharacter`;
+- `CharacterService` manipula os dados tipo `CharacterBase`;
+- `CharacterStore` armazena dados do tipo `CharacterBase`.
+
+:::

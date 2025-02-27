@@ -1,4 +1,5 @@
 using DiceRolling.Categories;
+using DiceRolling.Roles;
 
 namespace DiceRolling.Characters;
 
@@ -8,4 +9,5 @@ namespace DiceRolling.Characters;
 public interface ICharacterInformationSheet {
     string Name { get; set; }
     Category? Category { get; set; }
+    RoleType? Role { get; set; }
 }

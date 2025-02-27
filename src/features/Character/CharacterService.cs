@@ -19,13 +19,13 @@ public class CharacterService {
             return;
         }
 
-        if (character.Role.Type is null || character.Role.Type.RoleAttributes.Count == 0) {
+        if (character.Role is null || character.Role.RoleAttributes.Count == 0) {
             GD.PrintErr("RoleAttributes is empty");
             return;
         }
 
         if (character.Attributes.Count == 0) {
-            foreach (var roleAttribute in character.Role.Type.RoleAttributes) {
+            foreach (var roleAttribute in character.Role.RoleAttributes) {
                 var characterAttribute = new CharacterAttribute(roleAttribute) {
                     MaxValue = roleAttribute.BaseValue,
                     CurrentValue = roleAttribute.BaseValue
@@ -41,13 +41,13 @@ public class CharacterService {
             return;
         }
 
-        if (character.Role.Type is null || character.Role.Type.RoleActions.Count == 0) {
+        if (character.Role is null || character.Role.RoleActions.Count == 0) {
             GD.PrintErr("RoleActions is empty");
             return;
         }
 
         if (character.Actions.Count == 0) {
-            foreach (var roleAction in character.Role.Type.RoleActions) {
+            foreach (var roleAction in character.Role.RoleActions) {
                 var characterAction = new CharacterAction(roleAction);
                 character.Actions.Add(characterAction);
             }

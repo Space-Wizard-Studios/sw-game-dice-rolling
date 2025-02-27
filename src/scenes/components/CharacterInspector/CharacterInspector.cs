@@ -95,7 +95,7 @@ public partial class CharacterInspector : HBoxContainer {
 
         PortraitNode.Texture = _character.Portrait;
         CharacterNameNode.Text = _character?.Name ?? "Unknown";
-        CharacterRoleNode.Text = _character?.Role?.Type?.Name ?? "Unknown Role";
+        CharacterRoleNode.Text = _character?.Role?.Name ?? "Unknown Role";
 
         if (AttributesListNode is not null && AttributeTemplateNode is not null) {
             AttributeTemplateNode.Visible = false;

@@ -34,8 +34,7 @@ public class CharacterTypeTests {
         };
 
         // Create the role with complete initialization
-        var role = new CharacterRole {
-            Type = new RoleType(
+        var role = new RoleType(
                 "Warrior",
                 "A brave warrior",
                 [
@@ -49,8 +48,7 @@ public class CharacterTypeTests {
                         Type = actionType,
                     },
                 ]
-            ),
-        };
+            );
 
         // Ensure all objects are not null
         if (role == null) {

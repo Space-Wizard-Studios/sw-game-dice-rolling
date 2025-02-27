@@ -79,7 +79,14 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
     [ExportGroup("🦸‍♂ Role")]
 
     [Export]
-    public CharacterRole? Role { get; set; }
+    public RoleType? Role {
+        get => _role;
+        set {
+            _role = value;
+            EmitChanged();
+        }
+    }
+
 
     [ExportGroup("📊 Attributes")]
 
@@ -104,7 +111,7 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
         InitializeActions();
     }
 
-    public CharacterType(string name, CharacterRole role) {
+    public CharacterType(string name, RoleType role) {
         Name = name;
         Role = role;
         ValidateConstructor();

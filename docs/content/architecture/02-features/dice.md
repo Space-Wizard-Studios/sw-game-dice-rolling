@@ -1,51 +1,101 @@
 # Dice
 
-**Dice** representam os dados utilizados no jogo, cada um com seus lados e manas associadas.
+**Dice** são entidades que representam os dados utilizados no jogo.
 
 Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Dice.md).
 
-## Interfaces
+## Visão Geral
 
-A interface `IDice` agrega várias interfaces menores para definir um dado completo no jogo.
+Os dados são utilizados para gerar aleatoriamente a energia será usada pelos personagens para que consigam executar ações.
 
-```csharp
-public interface IDice<[MustBeVariant] T> where T : IDiceSide {
-    string Id { get; }
-    string Name { get; }
-    Godot.Collections.Array<T> Sides { get; }
-    int SideCount { get; }
-    IDiceLocation Location { get; }
-}
+Cada dado possui um conjunto de lados (`DiceSide`), uma localização (`DiceLocation`) e energias associadas (`DiceEnergy`).
+
+```mermaid
+flowchart TD
+    Types["DiceType"]
+
+    DiceFactory
+
+    DiceStore
+    DiceEnergyStore
+    DiceIconStore
+
+    subgraph Interfaces
+        IDice
+    end
+
+    subgraph Properties["Properties"]
+        Other["..."]
+        subgraph Sides["Sides[]"]
+            Energy
+        end
+        Location
+        Icon
+    end
+
+    subgraph External
+        DiceSideFeature["DiceSide"]
+        DiceEnergyFeature["DiceEnergy"]
+        DiceLocationFeature["DiceLocation"]
+        DiceIconFeature["DiceIcon"]
+    end
+
+    Types-->|implementa|Interfaces
+
+    Interfaces-->|define|Properties
+
+    DiceFactory-->|cria|Types
+
+    DiceStore-->|armazena|Types
+
+    DiceEnergyStore-->|armazena|Energy
+
+    DiceIconStore-->|armazena|Icon
+
+    Sides-->|resource|DiceSideFeature
+    Energy-->|resource|DiceEnergyFeature
+    Location-->|resource|DiceLocationFeature
+    Icon-->|resource|DiceIconFeature
+
+    style Types fill:#d74242,stroke:#8a0d26,stroke-width:2px;
+    style Interfaces fill:#1da2d3,stroke:#1c74d5,stroke-width:2px;
 ```
 
-### Manas
+:::warning Atenção
 
-`IDiceMana` define as propriedades de uma mana.
+Os tipos de Resources irão alterar conforme o projeto evoluir. Para mais detalhes, veja sobre os [Resources](../../architecture/00-intro/resources.md).
 
-- **Name**: Nome da mana.
-- **Description**: Descrição da mana.
-- **BackgroundColor**: Cor de fundo da mana.
-- **MainColor**: Cor principal da mana.
-- **Icon**: Ícone da mana.
+:::
 
-### Lados
+## Interfaces
 
-`IDiceSide` define as propriedades de um lado do dado.
+- **IDice**: define as entidades de dados e agrega as interfaces:
+  - **IIdentifiable**: define uma ID única.
+- **IDiceEnergy**: define as energias associadas a um dado.
+- **IDiceIcon**: define os ícones associados a um dado.
 
-- **Mana**: Tipo de mana associada ao lado.
+### Enumerators
 
-### Localização
+- **DiceLocationCategory**: Categorias de localização do dado.
 
-`IDiceLocation` define a localização de um dado.
+## Types (Resources)
 
-- **LocationCategory**: Tipo de localização do dado.
-- **PlayerId**: ID do jogador, se estiver no inventário.
-- **CharacterId**: ID do personagem, se estiver com um personagem.
+- **DiceType**: Representa um tipo de dado no jogo e inclui suas informações, lados, localização e energias. Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
 
-### Categorias de Localização
+- **DiceIcon**: Representa um ícone associado a um dado.
 
-`DiceLocationCategory` define as categorias de localização de um dado.
+### Types externos
 
-- **Inventory**: No inventário.
-- **Character**: Com um personagem.
-- **None**: Sem localização específica.
+- **DiceSide**: Representa um lado do dado.
+- **DiceEnergy**: Energia associada ao lado do dado.
+- **DiceLocation**: Localização do dado.
+
+## Services
+
+- **DiceFactory**: Fornece métodos para criar diferentes tipos de dados (D4, D6, D8, D10, D12, D20, D100).
+
+## Stores
+
+- **DiceStore**: Armazena os dados em coleções;
+- **DiceEnergyStore**: Armazena dados das energias dos dados em coleções;
+- **DiceIconStore**: Armazena dados dos ícones dos dados em coleções.

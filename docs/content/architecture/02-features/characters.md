@@ -6,34 +6,30 @@ Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Characters
 
 ## Visão Geral
 
+Os personagens no jogo possuem categoria (`Category`), papel (`Role`) e localização (`Location`). Cada personagem pode realizar ações (`CharacterAction`) e possui atributos (`CharacterAttribute`) específicos.
+
 ```mermaid
 flowchart
+    Types["CharacterType"]
+
+    CharacterService
+
+    CharacterStore
+
     subgraph Interfaces
         ICharacter
     end
 
-    subgraph Types
-        CharacterType
-    end
-
-    subgraph Services["Services"]
-        CharacterService
-    end
-
-    subgraph Stores["Stores"]
-        CharacterStore
-    end
-
     subgraph Properties
-        ...
-        CharacterAction
-        CharacterAttribute
-        Category
-        CharacterRole
-        CharacterPlacement
+        Other["..."]
+        CharacterAction["Actions[]<br>(CharacterAction)"]
+        CharacterAttribute["Attributes[]<br>(CharacterAttribute)"]
+        Category["Category"]
+        Role["Role"]
+        Location["Location"]
     end
 
-    subgraph Features
+    subgraph External
         ActionFeature[ActionType]
         AttributeFeature[AttributeType]
         CategoryFeature[Category]
@@ -45,19 +41,25 @@ flowchart
 
     Interfaces-->|define|Properties
 
-    Services-->|manipula|Types
-    Services-->|acessa|Stores
-    Stores-->|armazena|Types
+    CharacterService-->|manipula|Types
+    CharacterService-->|acessa|CharacterStore
+    CharacterStore-->|armazena|Types
 
     CharacterAction-->|resource|ActionFeature
     CharacterAttribute-->|resource|AttributeFeature
     Category-->|resource|CategoryFeature
-    CharacterRole-->|resource|RoleFeature
-    CharacterPlacement-->|resource|LocationFeature
+    Role-->|resource|RoleFeature
+    Location-->|resource|LocationFeature
 
     style Types fill:#d74242,stroke:#8a0d26,stroke-width:2px;
     style Interfaces fill:#1da2d3,stroke:#1c74d5,stroke-width:2px;
 ```
+
+:::warning Atenção
+
+Os tipos de Resources irão alterar conforme o projeto evoluir. Para mais detalhes, veja sobre os [Resources](../../architecture/00-intro/resources.md).
+
+:::
 
 ---
 
@@ -80,7 +82,7 @@ flowchart
 
   ![CharacterType model](../../../public/architecture/02-features/characters/CharacterType.png)
 
-### External Properties
+### Types externos
 
 - **Category**: Categoria do personagem.
 - **CharacterRole**: Role do personagem.

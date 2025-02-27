@@ -10,7 +10,6 @@ public interface ICharacter :
     IIdentifiable,
     ICharacterInformationSheet,
     ICharacterAssetSheet,
-    ICharacterRoleSheet,
     ICharacterActionSheet,
     ICharacterAttributeSheet,
     ICharacterPlacementSheet {

@@ -12,50 +12,43 @@ flowchart
         ICharacter
     end
 
-    subgraph Types
-        CharacterType
-    end
+    CharacterType
 
-    subgraph Services["Services"]
-        CharacterService
-    end
+    CharacterService
 
-    subgraph Stores["Stores"]
-        CharacterStore
-    end
+    CharacterStore
 
     subgraph Properties
-        ...
-        CharacterAction
-        CharacterAttribute
-        Category
-        CharacterRole
-        CharacterPlacement
+        Other["..."]
+        CharacterAction["Actions[]<br>(CharacterAction)"]
+        CharacterAttribute["Attributes[]<br>(CharacterAttribute)"]
+        Category["Category<br>(Category)"]
+        Role["Role<br>(Role)"]
+        Location["Location<br>(Location)"]
     end
 
     subgraph Features
-        ActionFeature[ActionType]
-        AttributeFeature[AttributeType]
-        CategoryFeature[Category]
-        RoleFeature[RoleType]
-        LocationFeature[LocationType]
+        ActionFeature[ICharacterAction]
+        AttributeFeature[ICharacterAttribute]
+        CategoryFeature[ICategory]
+        RoleFeature[IRole]
+        LocationFeature[ILocation]
     end
 
-    Types-->|implementa|Interfaces
+    CharacterType-->|implementa|Interfaces
 
     Interfaces-->|define|Properties
 
-    Services-->|manipula|Types
-    Services-->|acessa|Stores
-    Stores-->|armazena|Types
+    CharacterService-->|manipula|CharacterType
+    CharacterService-->|acessa|CharacterStore
+    CharacterStore-->|armazena|CharacterType
 
     CharacterAction-->|resource|ActionFeature
     CharacterAttribute-->|resource|AttributeFeature
     Category-->|resource|CategoryFeature
-    CharacterRole-->|resource|RoleFeature
-    CharacterPlacement-->|resource|LocationFeature
+    Role-->|resource|RoleFeature
+    Location-->|resource|LocationFeature
 
-    style Types fill:#d74242,stroke:#8a0d26,stroke-width:2px;
     style Interfaces fill:#1da2d3,stroke:#1c74d5,stroke-width:2px;
 ```
 

@@ -74,21 +74,25 @@ Os tipos de Resources irão alterar conforme o projeto evoluir. Para mais detalh
   - **ICharacterAttributeSheet**: atributos de um personagem.
   - **ICharacterPlacementSheet**: localização de um personagem.
 
+### Enumerators
+
+N/A
+
 ---
 
 ## Types (Resources)
 
-- **CharacterType**: Representa um tipo de personagem no jogo e inclui suas informações, atributos, ações, recursos visuais, localização e papel. Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
+- **CharacterType**: Representa um tipo de personagem no jogo e inclui suas informações, atributos, ações, recursos visuais, localização e papel.
 
-  ![CharacterType model](../../../public/architecture/02-features/characters/CharacterType.png)
+![CharacterType model](../../../public/architecture/02-features/characters/CharacterType.png)
 
 ### Types externos
 
 - **Category**: Categoria do personagem.
-- **CharacterRole**: Role do personagem.
+- **Role**: Role do personagem.
 - **CharacterAction**: Ação do personagem.
 - **CharacterAttribute**: Atributo do personagem.
-- **CharacterPlacement**: Localização do personagem.
+- **Location**: Localização do personagem.
 
 ---
 

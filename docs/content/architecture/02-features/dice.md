@@ -67,6 +67,8 @@ Os tipos de Resources irão alterar conforme o projeto evoluir. Para mais detalh
 
 :::
 
+---
+
 ## Interfaces
 
 - **IDice**: define as entidades de dados e agrega as interfaces:
@@ -78,11 +80,15 @@ Os tipos de Resources irão alterar conforme o projeto evoluir. Para mais detalh
 
 - **DiceLocationCategory**: Categorias de localização do dado.
 
+---
+
 ## Types (Resources)
 
 - **DiceType**: Representa um tipo de dado no jogo e inclui suas informações, lados, localização e energias. Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
 
 - **DiceIcon**: Representa um ícone associado a um dado.
+
+---
 
 ### Types externos
 
@@ -90,9 +96,13 @@ Os tipos de Resources irão alterar conforme o projeto evoluir. Para mais detalh
 - **DiceEnergy**: Energia associada ao lado do dado.
 - **DiceLocation**: Localização do dado.
 
+---
+
 ## Services
 
 - **DiceFactory**: Fornece métodos para criar diferentes tipos de dados (D4, D6, D8, D10, D12, D20, D100).
+
+---
 
 ## Stores
 

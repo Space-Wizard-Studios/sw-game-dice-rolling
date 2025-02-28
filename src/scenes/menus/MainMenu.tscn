@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://myouhbwr3b27"]
 
-[ext_resource type="Script" uid="uid://p2tg6o2lnf5" path="res://features/UI/Menus/MainMenuManager.cs" id="1_hfxp8"]
+[ext_resource type="Script" uid="uid://p2tg6o2lnf5" path="res://features/Scenes/Menus/MainMenuManager.cs" id="1_hfxp8"]
 [ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://features/UI/SceneTransitionButton.cs" id="2_u85me"]
 [ext_resource type="Script" uid="uid://bk4vy3txoi8tv" path="res://features/UI/CloseGameButton.cs" id="3_rlojh"]
 

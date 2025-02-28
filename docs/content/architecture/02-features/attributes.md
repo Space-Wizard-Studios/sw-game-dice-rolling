@@ -48,11 +48,15 @@ Os tipos de Resources irão alterar conforme o projeto evoluir. Para mais detalh
   - **IAttributeAssets**: recursos visuais de um atributo.
   - **IAttributeValues**: valores de um atributo.
 
+### Enumerators
+
+N/A
+
 ---
 
 ## Models
 
-- **AttributeType**: Representa um tipo de atributo no jogo e inclui suas informações e valores. Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
+- **AttributeType**: Representa um tipo de atributo no jogo e inclui suas informações e valores.
 
 ---
 

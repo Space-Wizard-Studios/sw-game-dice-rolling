@@ -60,6 +60,7 @@ folder_colors={
 "res://assets/": "purple",
 "res://features/": "blue",
 "res://features/Common/": "green",
+"res://features/Scenes/": "green",
 "res://helpers/": "gray",
 "res://resources/": "pink",
 "res://scenes/": "orange",

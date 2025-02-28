@@ -1,33 +1,65 @@
 # Target
 
-**Target** representa a configuração de alvos no jogo.
+**Target** são entidades que representam os tabuleiros de alvos utilizados no jogo.
 
-Para mais detalhes, veja a [Referência da API](../../api/DiceRolling.Targets.md).
+Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Targets.md).
+
+## Visão Geral
+
+Os alvos no jogo representa uma configuração de grids (`GridType`) dos alvos que as ações podem atingir.
+
+```mermaid
+flowchart TD
+    Types["TargetBoardType"]
+
+    subgraph Interfaces
+        ITargetBoard
+    end
+
+    subgraph Properties["Properties"]
+        Other["..."]
+        Grids["Grids[]<br>(GridType)"]
+    end
+
+    subgraph External
+        GridFeature["GridType"]
+    end
+
+    Types-->|implementa|Interfaces
+
+    Interfaces-->|define|Properties
+
+    Grids-->|resource|GridFeature
+```
 
 ## Interfaces
 
-A interface `ITarget` define as propriedades básicas de uma configuração de alvo no jogo.
+- **ITargetBoard**: define um tabuleiro de alvos no jogo e agrega as interfaces:
+  - **IIdentifiable**: define uma ID única.
+  - **IGrid**: define a configuração de grids de um tabuleiro de alvos.
 
-```csharp
-public interface ITarget {
-    [Signal] delegate void ConfigurationChangedEventHandler();
-    bool IsSingleTarget { get; set; }
-    Godot.Collections.Array<GridType> Grids { get; set; }
-    void AddGrid(int rows, int columns);
-    void UpdateGrid(int index);
-}
-```
+### Enumerators
 
-### Propriedades
+N/A
 
-`ITarget` define as seguintes propriedades:
+---
 
-- **IsSingleTarget**: Indica se é um alvo único.
-- **Grids**: Coleção de grids associadas ao alvo.
+## Types (Resources)
 
-### Métodos
+- **TargetBoardType**: Representa um tipo de tabuleiro de alvos no jogo e inclui suas informações e configuração de grids.
 
-`ITarget` define os seguintes métodos:
+### Types externos
 
-- **AddGrid**: Adiciona uma nova grid.
-- **UpdateGrid**: Atualiza uma grid existente.
+- **GridType**: Configuração de grids associada a um tabuleiro de alvos.
+
+---
+
+## Services
+
+- **TargetBoardService**: Fornece métodos para manipulação dos dados dos tabuleiros de alvos.
+
+---
+
+## Stores
+
+N/A

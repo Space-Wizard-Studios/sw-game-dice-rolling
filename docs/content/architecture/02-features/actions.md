@@ -62,11 +62,15 @@ Os tipos de Resources irão alterar conforme o projeto evoluir. Para mais detalh
   - **IActionContext**: contexto de uma ação.
   - **IActionResult**: resultado de uma ação.
 
+### Enumerators
+
+N/A
+
 ---
 
 ## Types (Resources)
 
-- **ActionType**: Representa um tipo de ação no jogo e inclui suas informações, comportamento, categoria, contexto e efeitos. Esta classe também fornece métodos para gerenciar esses aspectos.
+- **ActionType**: Representa um tipo de ação no jogo e inclui suas informações, comportamento, categoria, contexto e efeitos.
 
 ### Types externos
 

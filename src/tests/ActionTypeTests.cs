@@ -6,15 +6,18 @@ using DiceRolling.Actions;
 using DiceRolling.Dice;
 using DiceRolling.Effects;
 using DiceRolling.Targets;
+using DiceRolling.Categories;
 
 namespace DiceRolling.Tests.Actions;
 
 [TestSuite]
-public class ActionTypeTests {
+public class ActionTypeTests
+{
     [TestCase]
-    public static void Constructor_ShouldInitializeProperties() {
+    public static void Constructor_ShouldInitializeProperties()
+    {
         // Arrange
-        var category = new ActionCategory();
+        var category = new Category();
         var RequiredEnergy = new Godot.Collections.Array<DiceEnergy> { new DiceEnergy("EnergyName", "EnergyDescription", new Color(1, 1, 1), new Color(0, 0, 0), new Texture2D()) };
         var effects = new Godot.Collections.Array<EffectType> { new DamageEffect() };
         var name = "Fireball";
@@ -36,9 +39,10 @@ public class ActionTypeTests {
     }
 
     [TestCase]
-    public static void IsValid_ShouldReturnTrue_WhenAllPropertiesAreValid() {
+    public static void IsValid_ShouldReturnTrue_WhenAllPropertiesAreValid()
+    {
         // Arrange
-        var category = new ActionCategory();
+        var category = new Category();
         var RequiredEnergy = new Godot.Collections.Array<DiceEnergy> { new("EnergyName", "EnergyDescription", new Color(1, 1, 1), new Color(0, 0, 0), new Texture2D()) };
         var effects = new Godot.Collections.Array<EffectType> { new DamageEffect() };
         var TargetBoard = new TargetBoardType();

@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using DiceRolling.Common;
+using DiceRolling.Id;
 using DiceRolling.Services;
 
 namespace DiceRolling.Roles;
@@ -31,6 +31,14 @@ public partial class RoleType : IdentifiableResource, IRole {
     public Godot.Collections.Array<RoleAction> RoleActions { get; set; } = [];
 
     public RoleType() {
+        ValidateConstructor();
+    }
+
+    public RoleType(string name, string? description, Godot.Collections.Array<RoleAttribute> roleAttributes, Godot.Collections.Array<RoleAction> roleActions) {
+        Name = name;
+        Description = description;
+        RoleAttributes = roleAttributes;
+        RoleActions = roleActions;
         ValidateConstructor();
     }
 

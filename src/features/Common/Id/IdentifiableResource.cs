@@ -1,7 +1,7 @@
 using Godot;
 using DiceRolling.Services;
 
-namespace DiceRolling.Common;
+namespace DiceRolling.Id;
 
 [Tool]
 public abstract partial class IdentifiableResource : Resource, IIdentifiable {
@@ -12,11 +12,10 @@ public abstract partial class IdentifiableResource : Resource, IIdentifiable {
     public IdentifiableResource(string? id = null) {
         Id = id ?? IdService.Instance.GenerateNewId();
         if (!ValidationService.ValidateId(Id)) {
-            GD.PrintErr("Id inválido. Gerando novo Id.");
+            GD.PrintErr("Invalid Id. Generating new Id.");
             Id = IdService.Instance.GenerateNewId();
         }
     }
-
     public void GenerateNewId() {
         Id = IdService.Instance.GenerateNewId();
     }

@@ -4,36 +4,64 @@
 
 Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Attributes.md).
 
-## Interfaces
+## Visão Geral
 
-A interface `IAttribute` agrega várias interfaces menores para definir um _Attribute_ completo no jogo.
+Os atributos no jogo definem as características dos personagens.
 
-```csharp
-public interface IAttribute :
-    IAttributeInformation,
-    IAttributeAssets,
-    IAttributeValues { }
+```mermaid
+flowchart LR
+    subgraph Interfaces
+        IAttribute
+    end
+
+    Types["AttributeType"]
+
+    AttributeStore
+
+    subgraph Properties
+        Other["..."]
+    end
+
+    Types-->|implementa|Interfaces
+
+    Interfaces-->|define|Properties
+
+    AttributeStore-->|armazena|Types
+
+    style Types fill:#d74242,stroke:#8a0d26,stroke-width:2px;
+    style Interfaces fill:#1da2d3,stroke:#1c74d5,stroke-width:2px;
 ```
 
-### Informações
+:::warning Atenção
 
-`IAttributeInformation` define as informações básicas de um atributo.
+Os tipos de Resources irão alterar conforme o projeto evoluir. Para mais detalhes, veja sobre os [Resources](../../architecture/00-intro/resources.md).
 
-- **Id**: Identificador único do atributo.
-- **Name**: Nome do atributo.
-- **Description**: Descrição do atributo.
+:::
 
-### Recursos Visuais
+---
 
-`IAttributeAssets` define os recursos visuais de um atributo.
+## Interfaces
 
-- **Color**: Cor do atributo.
-- **Icon**: Ícone do atributo.
-- **IconPath**: Caminho do ícone do atributo.
+- **IAttribute**: define um atributo no jogo e agrega as interfaces:
+  - **IIdentifiable**: define uma ID única.
+  - **IAttributeInformation**: informações básicas de um atributo.
+  - **IAttributeAssets**: recursos visuais de um atributo.
+  - **IAttributeValues**: valores de um atributo.
 
-### Valores
+---
 
-`IAttributeValues` define os valores de um atributo.
+## Models
 
-- **MinValue**: Valor mínimo do atributo.
-- **MaxValue**: Valor máximo do atributo.
+- **AttributeType**: Representa um tipo de atributo no jogo e inclui suas informações e valores. Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
+
+---
+
+## Services
+
+N/A
+
+---
+
+## Stores
+
+- **AttributeStore**: Armazena dados dos atributos em coleções e facilita a manipulação desses atributos.

@@ -1,6 +1,6 @@
 namespace DiceRolling.Characters;
 /// <summary>
-/// Interface que define as ações que um personagem pode realizar.
+/// Define as ações que um personagem pode realizar.
 /// </summary>
 public interface ICharacterActionSheet {
     Godot.Collections.Array<CharacterAction> Actions { get; }

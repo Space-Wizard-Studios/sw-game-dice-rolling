@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using DiceRolling.Common;
+using DiceRolling.Id;
 using DiceRolling.Services;
 
 namespace DiceRolling.Attributes;

@@ -19,7 +19,7 @@ public class CharacterService {
             return;
         }
 
-        if (character.Role.RoleAttributes.Count == 0) {
+        if (character.Role is null || character.Role.RoleAttributes.Count == 0) {
             GD.PrintErr("RoleAttributes is empty");
             return;
         }
@@ -41,7 +41,7 @@ public class CharacterService {
             return;
         }
 
-        if (character.Role.RoleActions.Count == 0) {
+        if (character.Role is null || character.Role.RoleActions.Count == 0) {
             GD.PrintErr("RoleActions is empty");
             return;
         }

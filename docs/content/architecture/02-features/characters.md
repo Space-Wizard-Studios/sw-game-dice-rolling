@@ -4,65 +4,91 @@
 
 Para mais detalhes, veja a [Referência de API](../../api/DiceRolling.Characters.md).
 
-## Arquitetura
+## Visão Geral
+
+Os personagens no jogo possuem categoria (`Category`), papel (`Role`) e localização (`Location`). Cada personagem pode realizar ações (`CharacterAction`) e possui atributos (`CharacterAttribute`) específicos.
 
 ```mermaid
-flowchart LR
+flowchart
+    Types["CharacterType"]
+
+    CharacterService
+
+    CharacterStore
+
     subgraph Interfaces
         ICharacter
     end
 
-    subgraph Models
-    direction TB
-        CharacterType
-        subgraph SubModels
-            CharacterActions
-            CharacterAttributes
-            CharacterCategories
-        end
+    subgraph Properties
+        Other["..."]
+        CharacterAction["Actions[]<br>(CharacterAction)"]
+        CharacterAttribute["Attributes[]<br>(CharacterAttribute)"]
+        Category["Category"]
+        Role["Role"]
+        Location["Location"]
     end
 
-    subgraph Services
-        CharacterService
+    subgraph External
+        ActionFeature[ActionType]
+        AttributeFeature[AttributeType]
+        CategoryFeature[Category]
+        RoleFeature[RoleType]
+        LocationFeature[LocationType]
     end
 
-    subgraph Stores
-        CharacterStore
-    end
+    Types-->|implementa|Interfaces
 
-    Interfaces --> Models
-    SubModels --> CharacterType
-    Models --> Stores
-    Models <--> Services
-    Services <--> Stores
+    Interfaces-->|define|Properties
 
+    CharacterService-->|manipula|Types
+    CharacterService-->|acessa|CharacterStore
+    CharacterStore-->|armazena|Types
+
+    CharacterAction-->|resource|ActionFeature
+    CharacterAttribute-->|resource|AttributeFeature
+    Category-->|resource|CategoryFeature
+    Role-->|resource|RoleFeature
+    Location-->|resource|LocationFeature
+
+    style Types fill:#d74242,stroke:#8a0d26,stroke-width:2px;
+    style Interfaces fill:#1da2d3,stroke:#1c74d5,stroke-width:2px;
 ```
+
+:::warning Atenção
+
+Os tipos de Resources irão alterar conforme o projeto evoluir. Para mais detalhes, veja sobre os [Resources](../../architecture/00-intro/resources.md).
+
+:::
 
 ---
 
 ## Interfaces
 
 - **ICharacter**: define um personagem no jogo e agrega as interfaces:
-  - **ICharacterActionSheet**: ações de um personagem.
-  - **ICharacterAssetSheet**: recursos visuais de um personagem.
-  - **ICharacterAttributeSheet**: atributos de um personagem.
+  - **IIdentifiable**: define uma ID única.
   - **ICharacterInformationSheet**: informações gerais de um personagem e categoria.
-  - **ICharacterPlacementSheet**: localização de um personagem.
+  - **ICharacterAssetSheet**: recursos visuais de um personagem.
   - **ICharacterRoleSheet**: role de um personagem.
+  - **ICharacterActionSheet**: ações de um personagem.
+  - **ICharacterAttributeSheet**: atributos de um personagem.
+  - **ICharacterPlacementSheet**: localização de um personagem.
 
 ---
 
-## Models
+## Types (Resources)
 
 - **CharacterType**: Representa um tipo de personagem no jogo e inclui suas informações, atributos, ações, recursos visuais, localização e papel. Esta classe também fornece métodos para inicializar e gerenciar esses aspectos.
 
   ![CharacterType model](../../../public/architecture/02-features/characters/CharacterType.png)
 
-### Sub Models
+### Types externos
 
-- **CharacterAction**: Ação de um personagem.
-- **CharacterAttribute**: Atributo de um personagem.
-- **CharacterCategory**: Categoria de um personagem.
+- **Category**: Categoria do personagem.
+- **CharacterRole**: Role do personagem.
+- **CharacterAction**: Ação do personagem.
+- **CharacterAttribute**: Atributo do personagem.
+- **CharacterPlacement**: Localização do personagem.
 
 ---
 

@@ -1,16 +1,19 @@
 using Godot;
-using DiceRolling.Dice;
-using DiceRolling.Effects;
 using System;
-using DiceRolling.Common;
+
+using DiceRolling.Id;
 using DiceRolling.Services;
 
-namespace DiceRolling.Actions;
+namespace DiceRolling.Categories;
 
+/// <summary>
+/// Representa uma categoria.
+/// </summary>
 [Tool]
 [GlobalClass]
-public partial class ActionCategory : IdentifiableResource, IActionCategory {
-    private string _name = "ActionCategory_" + Guid.NewGuid().ToString("N");
+public partial class Category : IdentifiableResource {
+    private string _name = "Category_" + Guid.NewGuid().ToString("N");
+
     private Texture2D? _icon;
 
     [ExportGroup("📝 Information")]
@@ -44,18 +47,10 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
     }
     public string? IconPath { get; private set; }
 
-    [ExportGroup("🎭 Behavior")]
-
-    [Export]
-    public Godot.Collections.Array<DiceEnergy> DefaultRequiredEnergy { get; set; } = [];
-
-    [Export]
-    public Godot.Collections.Array<EffectType> DefaultEffects { get; set; } = [];
-
-    public ActionCategory() {
+    public Category() {
     }
 
-    public ActionCategory(string name, string description, Texture2D icon) {
+    public Category(string name, string description, Texture2D icon) {
         Name = name;
         Description = description;
         Icon = icon;
@@ -64,7 +59,8 @@ public partial class ActionCategory : IdentifiableResource, IActionCategory {
 
     public void ValidateConstructor() {
         if (!ValidationService.ValidateName(Name)) {
-            throw new ArgumentException("Name cannot be null or whitespace");
+            throw new ArgumentException("Name não pode ser null ou vazio.");
         }
     }
+
 }

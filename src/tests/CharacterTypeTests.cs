@@ -34,18 +34,21 @@ public class CharacterTypeTests {
         };
 
         // Create the role with complete initialization
-        var role = new RoleType {
-            Name = "Fighter", // Add name for the role
-            RoleAttributes = [
-                new() {
-                    Type = AttributesHelper.GetAttributeType(_AttributesStore, "Health")!,
-                    BaseValue = 10
-                }
-            ],
-            RoleActions = [
-                new(actionType)
-            ]
-        };
+        var role = new RoleType(
+                "Warrior",
+                "A brave warrior",
+                [
+                    new RoleAttribute {
+                        Type = AttributesHelper.GetAttributeType(_AttributesStore, "Health")!,
+                        BaseValue = 10,
+                    },
+                ],
+                [
+                    new RoleAction {
+                        Type = actionType,
+                    },
+                ]
+            );
 
         // Ensure all objects are not null
         if (role == null) {

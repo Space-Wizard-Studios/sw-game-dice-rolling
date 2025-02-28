@@ -1,5 +1,5 @@
 using Godot;
-using DiceRolling.Common;
+using DiceRolling.Id;
 
 namespace DiceRolling.Dice;
 

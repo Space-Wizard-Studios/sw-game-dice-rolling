@@ -1,4 +1,4 @@
-using DiceRolling.Common;
+using DiceRolling.Id;
 
 namespace DiceRolling.Characters;
 
@@ -9,14 +9,9 @@ namespace DiceRolling.Characters;
 public interface ICharacter :
     IIdentifiable,
     ICharacterInformationSheet,
-    ICharacterPlacementSheet,
     ICharacterAssetSheet,
-    ICharacterRoleSheet,
+    ICharacterActionSheet,
     ICharacterAttributeSheet,
-    ICharacterActionSheet {
-
-    /// <summary>
-    /// Valida os campos do resource.
-    /// </summary>
+    ICharacterPlacementSheet {
     void ValidateConstructor();
 }

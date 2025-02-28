@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using DiceRolling.Roles;
 using DiceRolling.Attributes;
 using DiceRolling.Locations;
-using DiceRolling.Common;
+using DiceRolling.Id;
 using DiceRolling.Services;
+using DiceRolling.Categories;
 
 namespace DiceRolling.Characters;
 
@@ -41,7 +42,7 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
     }
 
     [Export]
-    public CharacterCategory? Category { get; set; }
+    public Category? Category { get; set; }
 
     [ExportGroup("🪵 Assets")]
 
@@ -82,21 +83,20 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
         get => _role;
         set {
             _role = value;
-            InitializeAttributes();
-            InitializeActions();
             EmitChanged();
         }
     }
 
+
     [ExportGroup("📊 Attributes")]
 
     [Export]
-    public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = new();
+    public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = [];
 
     [ExportGroup("🔥 Actions")]
 
     [Export]
-    public Godot.Collections.Array<CharacterAction> Actions { get; private set; } = new();
+    public Godot.Collections.Array<CharacterAction> Actions { get; private set; } = [];
 
     [ExportGroup("📍 Placement")]
 

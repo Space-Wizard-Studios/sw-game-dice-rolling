@@ -4,3 +4,6 @@ build/
 
 # API generated files
 api/
+
+# Test generated files
+TestResults/

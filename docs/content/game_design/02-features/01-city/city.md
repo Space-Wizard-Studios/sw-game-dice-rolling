@@ -2,7 +2,7 @@
 
 ## Estruturas
 
-O jogador pode interagir com as [estruturas](../09-locations/01-buildings.md).
+O jogador pode interagir com as [estruturas](../09-locations/buildings.md).
 
 ---
 

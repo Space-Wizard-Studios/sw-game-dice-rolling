@@ -22,19 +22,15 @@
 └── src
     ├── addons                  # bibliotecas third party e plugins do editor
     ├── assets                  # assets como sprites, sons, texturas e respectivos arquivos de configuração
-    ├── components              # nodes a serem exibidos nas cenas e respectivos arquivos de configuração
-    ├── core                    # classes principais do jogo
-    │   ├── events              # game events
-    │   ├── managers            # game managers
-    │   ├── stores              # singletons
-    │   └── ui                  # UI-related scripts
+    ├── features                # funcionalidades do jogo
+    │   ├── [...feature]        # pastas específicas de cada funcionalidade
+    │   ├── common              # funcionalidades comuns
+    │   └── scenes              # cenas específicas das funcionalidades
     ├── helpers                 # classes utilitárias
-    ├── interfaces              # interfaces da framework
-    ├── models                  # modelos de objetos
-    │   └── [DOMAIN]            #
     ├── resources               # resources do Godot
-    │   └── [DOMAIN]            # 
-    └── scenes                  # cenas da framework
+    ├── scenes                  # cenas da framework
+    │   └── components          # nodes a serem exibidos nas cenas e respectivos arquivos de configuração
+    └── tests                   # testes do projeto
 ```
 
 ## Ambiente de Desenvolvimento

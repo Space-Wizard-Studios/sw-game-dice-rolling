@@ -4,23 +4,26 @@
 
 Ações pré definidas
 
-### Exemplos de arquétipos
-
-> Tank
-> Melee DPS
-> Ranged DPS
-> Healer
+```txt
+Tank
+Melee DPS
+Ranged DPS
+Healer
+```
 
 ## Espécie
 
 Atributos pré definidos
 
-### Exemplos de espécies
+```txt
+Humano
+Atributos equilibrados
+```
 
-> Humano
-> Atributos equilibrados
-> Besta
-> Mais HP, mais velocidade
+```txt
+Besta
+Mais HP, mais velocidade
+```
 
 ## Tier
 

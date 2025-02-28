@@ -15,8 +15,8 @@ jobs:
     name: Build and Deploy Documentation
 
     env:
-      GODOT_VERSION: 4.4-rc2 # alterar isso ao atualizar o Godot
-      GODOT_FILENAME: Godot_v4.4-rc2_mono_linux_x86_64.zip # alterar isso ao atualizar o Godot
+      GODOT_VERSION: 4.4-rc2 # alterar ao atualizar o Godot
+      GODOT_FILENAME: Godot_v4.4-rc2_mono_linux_x86_64.zip # alterar ao atualizar o Godot
       GODOT_URL: https://github.com/godotengine/godot-builds/releases/download/4.4-rc2/Godot_v4.4-rc2_mono_linux_x86_64.zip # alterar isso ao atualizar o Godot
 
     steps:

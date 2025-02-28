@@ -4,10 +4,10 @@
 
 - Possuem:
   - Level e experiência;
-  - [Atributos](../04-attributes/index.md)
-  - [Papéis jogáveis](../06-roles/01-playable_roles.md) (players) ou [não jogáveis](../06-roles/02-unplayable_roles.md) (inimigos)
-  - Slots para [equipamentos](../07-equipments/index.md)
-- Realizam [ações](../05-actions/index.md) em combate
+  - [Atributos](../04-attributes/attributes.md)
+  - [Papéis jogáveis](../06-roles/playable_roles.md) (players) ou [não jogáveis](../06-roles/unplayable_roles.md) (inimigos)
+  - Slots para [equipamentos](../07-equipments/equipments.md)
+- Realizam [ações](../05-actions/actions.md) em combate
 
 ## Atributos
 
@@ -66,4 +66,4 @@ Os personagens herdam as habilidades iniciais de acordo com o seu papel e a cada
 
 Quando um personagem chega a 0 de vida, ele é considerado morto e não pode mais ser utilizado em combate.
 
-Ao morrer, o personagem é "transformado" em um item chamado "Restos mortais" que pode ser utilizado para reviver o personagem na [enfermaria](../09-locations//01-buildings.md#enfermaria) da cidade.
+Ao morrer, o personagem é "transformado" em um item chamado "Restos mortais" que pode ser utilizado para reviver o personagem na [enfermaria](../09-locations/buildings.md#enfermaria) da cidade.

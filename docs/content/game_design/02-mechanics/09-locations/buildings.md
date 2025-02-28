@@ -10,7 +10,7 @@ Cada local possui um propósito específico e todos podem ser melhorados para au
 
 O jogador pode alocar personagens para aumentar níveis.
 
-- Usa [gold](../08-currency/index.md#gold) para treinar;
+- Usa [gold](../08-currency/currency.md#gold) para treinar;
 - Coloca o personagem em treinamento por um tempo, bloqueando-o para batalhas;
 
 ### Restrições do treinamento
@@ -32,7 +32,7 @@ O jogador pode alocar personagens para aumentar níveis.
 
 O jogador pode recrutar novos personagens.
 
-- Usa [gold](../08-currency/index.md#gold) para recrutar;
+- Usa [gold](../08-currency/currency.md#gold) para recrutar;
 - Escolhe entre uma seleção aleatória de personagens;
 
 ### Restrições do recrutamento
@@ -54,7 +54,7 @@ O jogador pode:
 - Alocar personagens para curá-los;
 - Alocar os restos mortais de personagens mortos para ressuscitá-los.
 
-- Usa [gold](../08-currency/index.md#gold) para usar os serviços;
+- Usa [gold](../08-currency/currency.md#gold) para usar os serviços;
 - Coloca o personagem em cura por um tempo, bloqueando-o para batalhas;
 
 ### Restrições da enfermaria
@@ -73,8 +73,8 @@ O jogador pode:
 
 O jogador pode:
 
-- Comprar ou vender [equipamentos](../07-equipments/index.md) por [gold](../08-currency/index.md#gold);
-- Comprar ou vender dados por [gold](../08-currency/index.md#gold);
+- Comprar ou vender [equipamentos](../07-equipments/equipments.md) por [gold](../08-currency/currency.md#gold);
+- Comprar ou vender dados por [gold](../08-currency/currency.md#gold);
 - Escolhe entre uma seleção aleatória de dados e equipamentos.
 
 ### Restrições da loja de equipamentos

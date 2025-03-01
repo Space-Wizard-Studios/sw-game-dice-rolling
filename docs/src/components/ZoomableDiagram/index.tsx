@@ -83,9 +83,9 @@ const ZoomableDiagram = ({ children }) => {
                 {children}
             </div>
             <div className={styles.controls}>
-                <button ref={zoomInRef}>+</button>
-                <button ref={zoomOutRef}>−</button>
-                <button ref={resetRef}>Reset</button>
+                <button ref={zoomInRef} aria-label="Aumentar zoom">+</button>
+                <button ref={zoomOutRef} aria-label="Diminuir zoom">−</button>
+                <button ref={resetRef} aria-label="Resetar zoom">Reset</button>
             </div>
         </div>
     );

@@ -56,53 +56,23 @@ const ZoomableDiagram = ({ children }) => {
                 content.addEventListener("wheel", handleScroll, { passive: false });
 
                 // Cleanup: removendo os ouvintes de eventos quando o componente desmontar
-// At an appropriate place in the component (e.g., inside the component function):
-const handleZoomIn = () => panzoom.zoomIn();
-const handleZoomOut = () => panzoom.zoomOut();
-const handleReset = () => {
-  panzoom.reset();
-  panzoom.zoom(initialScale);
-};
-
-...
-
-// Wherever the event listeners are set up (for example, in a useEffect)
-if (zoomInRef.current) {
-  zoomInRef.current.addEventListener("click", handleZoomIn);
-}
-if (zoomOutRef.current) {
-  zoomOutRef.current.addEventListener("click", handleZoomOut);
-}
-if (resetRef.current) {
-  resetRef.current.addEventListener("click", handleReset);
-}
-if (content) {
-  content.addEventListener("wheel", handleScroll);
-}
-
-...
-
-// And in the cleanup function:
-return () => {
-  if (zoomInRef.current) {
--   zoomInRef.current.removeEventListener("click", () => panzoom.zoomIn());
-+   zoomInRef.current.removeEventListener("click", handleZoomIn);
-  }
-  if (zoomOutRef.current) {
--   zoomOutRef.current.removeEventListener("click", () => panzoom.zoomOut());
-+   zoomOutRef.current.removeEventListener("click", handleZoomOut);
-  }
-  if (resetRef.current) {
--   resetRef.current.removeEventListener("click", () => {
--     panzoom.reset();
--     panzoom.zoom(initialScale);
--   });
-+   resetRef.current.removeEventListener("click", handleReset);
-  }
-  if (content) {
-    content.removeEventListener("wheel", handleScroll);
-  }
-};
+                return () => {
+                    if (zoomInRef.current) {
+                        zoomInRef.current.removeEventListener("click", () => panzoom.zoomIn());
+                    }
+                    if (zoomOutRef.current) {
+                        zoomOutRef.current.removeEventListener("click", () => panzoom.zoomOut());
+                    }
+                    if (resetRef.current) {
+                        resetRef.current.removeEventListener("click", () => {
+                            panzoom.reset();
+                            panzoom.zoom(initialScale);
+                        });
+                    }
+                    if (content) {
+                        content.removeEventListener("wheel", handleScroll);
+                    }
+                };
             }
         }
     }, []);

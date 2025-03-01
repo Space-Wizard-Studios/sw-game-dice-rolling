@@ -168,8 +168,13 @@ const Thumbnail = React.memo(
                 ref={ref}
                 className={`${styles.thumbnail} ${isSelected ? styles.selectedThumbnail : ""}`}
                 src={image}
-                alt={`Thumbnail ${index}`}
-                onClick={() => onClick(index)}
+<img
+    ref={ref}
+    className={`${styles.thumbnail} ${isSelected ? styles.selectedThumbnail : ""}`}
+    src={image}
+    alt={images[index].title || `Miniatura ${index + 1}`}
+    onClick={() => onClick(index)}
+/>
             />
         )
     )

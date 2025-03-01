@@ -1,3 +1,4 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ZoomableDiagram from "@site/src/components/ZoomableDiagram";
 import FullscreenGallery from "@site/src/components/FullscreenGallery";
 
@@ -112,11 +113,11 @@ Para mais detalhes, veja [sobre a cidade](../features/scenes/city).
 <FullscreenGallery
   images={[
     {
-      image: "/game_design/screen_flow/city/darkest_dungeon.png",
+      image: useBaseUrl('/game_design/screen_flow/city/darkest_dungeon.png'),
       title: "Darkest Dungeon",
     },
     {
-      image: "/game_design/screen_flow/city/iratus.png",
+      image: useBaseUrl('/game_design/screen_flow/city/iratus.png'),
       title: "Iratus: Lord of the Dead",
     },
   ]}
@@ -179,7 +180,7 @@ Para mais detalhes, veja [sobre a cidade](../features/scenes/city).
 <FullscreenGallery
   images={[
     {
-      image: "/game_design/screen_flow/dungeon/slay_the_spire.png",
+      image: useBaseUrl("/game_design/screen_flow/dungeon/slay_the_spire.png"),
       title: "Slay the Spire",
     },
   ]}

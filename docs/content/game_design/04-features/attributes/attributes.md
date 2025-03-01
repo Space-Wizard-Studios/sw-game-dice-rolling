@@ -2,6 +2,10 @@
 
 Os personagens possuem atributos que influenciam diretamente no combate.
 
+## Level
+
+## Experiência
+
 ## Vida
 
 Representa a quantidade de dano que o personagem pode receber antes de morrer;
@@ -27,7 +31,7 @@ Redução de dano.
 
 Determina a iniciativa no combate e a ordem nos turnos.
 
-> TEM QUE PENSAR O DESEMPATE
+### Desempate na iniciativa
 
 ## Poderes elementais
 

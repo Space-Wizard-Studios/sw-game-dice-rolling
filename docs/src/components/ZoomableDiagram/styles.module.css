@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+
+  margin: auto;
+  border: 1px solid #ccc;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 30rem;
+}
+
+.controls {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.controls button {
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}

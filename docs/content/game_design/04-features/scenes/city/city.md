@@ -2,11 +2,11 @@
 
 ## Estruturas
 
-O jogador pode interagir com as [estruturas](../09-locations/buildings.md).
+O jogador pode interagir com as [estruturas](../../locations/buildings.md).
 
 ---
 
-## Elenco
+## Tropa
 
 O jogador pode ver os detalhes dos personagens que possui.
 
@@ -18,9 +18,9 @@ O jogador pode ver os itens que possui.
 
 ---
 
-## Escolha do ambiente
+## Explorar dungeon
 
-O jogador pode escolher o ambiente da próxima batalha.
+O jogador pode escolher a dungeon da próxima exploração.
 
 ---
 

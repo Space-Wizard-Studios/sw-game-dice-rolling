@@ -6,13 +6,13 @@
 
 Afetam os atributos dos personagens aliados.
 
-Debuff
+### Debuff
 
-Defensive
+### Defensive
 
-Offensive
+### Offensive
 
-Movement
+### Movement
 
 ## Custo
 

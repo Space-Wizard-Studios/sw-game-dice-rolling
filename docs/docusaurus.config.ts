@@ -27,7 +27,9 @@ const config: Config = {
     markdown: {
         mermaid: true,
     },
+
     themes: ['@docusaurus/theme-mermaid'],
+
     presets: [
         [
             'classic',
@@ -43,9 +45,13 @@ const config: Config = {
         ],
     ],
 
+    plugins: [
+        require.resolve('docusaurus-lunr-search'),
+    ],
+
     themeConfig: {
         image: 'img/docusaurus-social-card.jpg',
-        docs:{
+        docs: {
             sidebar: {
                 hideable: true,
             }
@@ -90,16 +96,19 @@ const config: Config = {
         },
         footer: {
             style: 'dark',
-            copyright: `Copyright © ${new Date().getFullYear()} Space Wizard Studios - All Rights Reserved.`,
+            copyright: `Copyright © ${new Date().getFullYear()} Space Wizard Studios`,
         },
         prism: {
             theme: prismThemes.github,
             darkTheme: prismThemes.dracula,
             additionalLanguages: ['powershell', 'csharp'],
         },
+        tableOfContents: {
+            minHeadingLevel: 2,
+            maxHeadingLevel: 4,
+        },
     } satisfies Preset.ThemeConfig,
 
-    plugins: [require.resolve('docusaurus-lunr-search')],
 };
 
 export default config;

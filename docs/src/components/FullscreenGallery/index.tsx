@@ -123,8 +123,11 @@ const FullScreenGallery: React.FC<FullScreenGalleryProps> = ({ images }) => {
                         <img
                             className={styles.fullscreenImage}
                             src={images[currentIndex].image}
-                            alt={`Fullscreen ${currentIndex}`}
-                        />
+<img
+    className={styles.fullscreenImage}
+    src={images[currentIndex].image}
+    alt={images[currentIndex].title || `Imagem ${currentIndex + 1} de ${images.length}`}
+/>
                         {images[currentIndex].title && (
                             <div className={styles.fullscreenTitle}>
                                 {images[currentIndex].title}

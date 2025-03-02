@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Panzoom from "@panzoom/panzoom";
 import styles from "./styles.module.css";
 
@@ -7,6 +7,7 @@ const ZoomableDiagram = ({ children }) => {
     const zoomInRef = useRef<HTMLButtonElement | null>(null);
     const zoomOutRef = useRef<HTMLButtonElement | null>(null);
     const resetRef = useRef<HTMLButtonElement | null>(null);
+    const [isFullscreen, setIsFullscreen] = useState(false);
 
     useEffect(() => {
         if (contentRef.current) {
@@ -77,17 +78,41 @@ const ZoomableDiagram = ({ children }) => {
         }
     }, []);
 
+    useEffect(() => {
+        const handleEscKey = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                setIsFullscreen(false);
+            }
+        };
+
+        window.addEventListener('keydown', handleEscKey);
+
+        return () => {
+            window.removeEventListener('keydown', handleEscKey);
+        };
+    }, []);
+
+    const toggleFullscreen = () => {
+        setIsFullscreen(!isFullscreen);
+    };
+
     return (
-        <div className={styles.container}>
-            <div ref={contentRef} className={styles.content}>
-                {children}
+        <>
+            <div className={`${styles.container} ${isFullscreen ? styles.fullscreen : ""}`}>
+                <div ref={contentRef} className={`${styles.content} ${isFullscreen ? styles.fullscreenContent : ""}`}>
+                    {children}
+                </div>
+                <div className={styles.controls}>
+                    <button ref={zoomInRef} aria-label="Aumentar zoom">+</button>
+                    <button ref={zoomOutRef} aria-label="Diminuir zoom">−</button>
+                    <button ref={resetRef} aria-label="Resetar zoom">Reset</button>
+                    <button onClick={toggleFullscreen} aria-label="Toggle Fullscreen">
+                        {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+                    </button>
+                </div>
             </div>
-            <div className={styles.controls}>
-                <button ref={zoomInRef} aria-label="Aumentar zoom">+</button>
-                <button ref={zoomOutRef} aria-label="Diminuir zoom">−</button>
-                <button ref={resetRef} aria-label="Resetar zoom">Reset</button>
-            </div>
-        </div>
+            {isFullscreen && <div className={styles.overlay} onClick={toggleFullscreen}></div>}
+        </>
     );
 };
 

@@ -1,2 +1,38 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+
+# Mark all content under src/addons/* that are not under src/addons/@spacewiz* as linguist-vendored
+src/addons/* linguist-vendored
+src/addons/@spacewiz* -linguist-vendored
+
+# Mark binary files
+*.png binary
+*.jpg binary
+*.gif binary
+*.exe binary
+*.dll binary
+
+# Define custom merge strategies
+*.lock merge=union
+
+# Explicitly mark certain file types as text
+*.cs text
+*.gd text
+*.shader text
+
+# Define custom diff drivers
+*.cs diff=csharp
+
+# Mark large files to prevent them from being diffed
+*.zip -diff
+*.tar.gz -diff
+
+# Exclude specific directories from language statistics
+docs/* linguist-documentation
+
+# Mark specific file types as generated
+*.min.js linguist-generated
+*.min.css linguist-generated
+
+# Custom diff drivers for specific file types
+*.md diff=markdown

@@ -65,4 +65,4 @@ Os personagens herdam as habilidades iniciais de acordo com o seu papel e a cada
 
 Quando um personagem chega a 0 de vida, ele é considerado morto e não pode mais ser utilizado em combate.
 
-Ao morrer, o personagem é "transformado" em um item chamado "Restos mortais" que pode ser utilizado para reviver o personagem na [enfermaria](../locations/buildings.md#enfermaria) da cidade.
+Ao morrer, o personagem é "transformado" em um item chamado "Restos mortais" que pode ser utilizado para reviver o personagem na [enfermaria](../locations/buildings#enfermaria) da cidade.

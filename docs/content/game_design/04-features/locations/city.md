@@ -2,7 +2,7 @@
 
 ## Estruturas
 
-O jogador pode interagir com as [estruturas](../../locations/buildings.md).
+O jogador pode interagir com as [estruturas](buildings).
 
 ---
 

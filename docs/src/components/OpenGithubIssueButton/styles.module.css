@@ -1,0 +1,62 @@
+.openGithubIssueButton {
+  position: fixed;
+  display: flex;
+  right: 10rem;
+  bottom: -50px;
+  width: 200px;
+  z-index: 1000;
+  font-size: 14px;
+  transition: bottom 0.5s;
+}
+
+.openGithubIssueButton:hover {
+  bottom: 0px;
+}
+
+.openGithubIssueButton .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 0.5rem;
+  background-color: rgb(33, 33, 33);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.openGithubIssueButton .icon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -1rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: rgb(33, 33, 33);
+  border: 1px solid #ddd;
+  border-radius: 100%;
+}
+
+.openGithubIssueButton .icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.openGithubIssueButton p {
+  margin: 0;
+}
+
+.openGithubIssueButton button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.openGithubIssueButton button:hover {
+  background-color: #45a049;
+}

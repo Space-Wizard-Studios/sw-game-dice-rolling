@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://21o4pt7dm2n0"]
 
-[ext_resource type="Script" uid="uid://c00f3g3y8eujg" path="res://scenes/components/GameLog/GameLogComponent.cs" id="1_h5njw"]
+[ext_resource type="Script" uid="uid://c00f3g3y8eujg" path="res://components/GameLog/GameLogComponent.cs" id="1_h5njw"]
 
 [node name="GameLog" type="ScrollContainer" node_paths=PackedStringArray("_messageContainerNode", "_messageTemplateNode", "_headingLabelTemplateNode", "_timestampLabelTemplateNode", "_lineTemplateNode")]
 anchors_preset = 15

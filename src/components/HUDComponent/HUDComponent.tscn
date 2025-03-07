@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://c22tpnmaefgn4"]
 
-[ext_resource type="PackedScene" uid="uid://dsbegy218josn" path="res://scenes/components/TurnOrderComponent/TurnOrderComponent.tscn" id="1_c8j77"]
+[ext_resource type="PackedScene" uid="uid://dsbegy218josn" path="res://components/TurnOrderComponent/TurnOrderComponent.tscn" id="1_c8j77"]
 [ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://features/UI/SceneTransitionButton.cs" id="2_ink42"]
-[ext_resource type="PackedScene" uid="uid://dgyegipn74jj5" path="res://scenes/components/CharacterInspector/CharacterInspector.tscn" id="3_xfvph"]
-[ext_resource type="PackedScene" uid="uid://bt73g5fssa68h" path="res://scenes/components/InventoryComponent/InventoryComponent.tscn" id="4_313b0"]
-[ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://scenes/components/GameLog/GameLogComponent.tscn" id="5_no7pv"]
+[ext_resource type="PackedScene" uid="uid://dgyegipn74jj5" path="res://components/CharacterInspector/CharacterInspector.tscn" id="3_xfvph"]
+[ext_resource type="PackedScene" uid="uid://bt73g5fssa68h" path="res://components/InventoryComponent/InventoryComponent.tscn" id="4_313b0"]
+[ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://components/GameLog/GameLogComponent.tscn" id="5_no7pv"]
 
 [node name="HUDComponent" type="VBoxContainer"]
 clip_contents = true

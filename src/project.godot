@@ -57,13 +57,13 @@ folder_colors={
 "res://addons/": "red",
 "res://addons/@spacewiz/": "teal",
 "res://assets/": "purple",
+"res://components/": "orange",
 "res://features/": "blue",
 "res://features/Common/": "green",
 "res://features/Scenes/": "green",
 "res://helpers/": "gray",
 "res://resources/": "pink",
 "res://scenes/": "orange",
-"res://scenes/components/": "orange",
 "res://tests/": "red"
 }
 

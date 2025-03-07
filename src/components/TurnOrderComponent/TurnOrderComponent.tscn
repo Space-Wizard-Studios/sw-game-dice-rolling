@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dsbegy218josn"]
 
 [ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="1_fnlle"]
-[ext_resource type="Theme" uid="uid://dxg2mh1ceh3pc" path="res://scenes/components/TurnOrderComponent/TurnOrderTheme.tres" id="1_o2pqp"]
-[ext_resource type="Script" uid="uid://016w4jxplp8d" path="res://scenes/components/TurnOrderComponent/TurnOrderComponent.cs" id="2_aj4ue"]
+[ext_resource type="Theme" uid="uid://dxg2mh1ceh3pc" path="res://components/TurnOrderComponent/TurnOrderTheme.tres" id="1_o2pqp"]
+[ext_resource type="Script" uid="uid://016w4jxplp8d" path="res://components/TurnOrderComponent/TurnOrderComponent.cs" id="2_aj4ue"]
 [ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://resources/Characters/Eleonore.tres" id="3_8cip4"]
 [ext_resource type="Resource" uid="uid://b4niu7ewhuinj" path="res://resources/Attributes/AttributesStore.tres" id="3_vlbb0"]
 [ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://resources/Characters/Joanna.tres" id="5_ntmsh"]

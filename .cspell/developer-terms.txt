@@ -11,6 +11,7 @@ dotnet
 dracula
 firefox
 fullscreen
+gdunit
 ghpages
 github
 GLSL
@@ -30,7 +31,9 @@ panzoom
 paramref
 premult
 pwsh
+Qube
 rgba
+sonarscanner
 srgb
 staticrypt
 STATICRYPT
@@ -38,5 +41,3 @@ tscn
 unicode
 vram
 Zoomable
-sonarscanner
-Qube

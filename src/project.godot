@@ -21,7 +21,6 @@ GameplayTransitionManager="*res://scenes/GameplayTransitionManager.tscn"
 MenuTransitionManager="*res://scenes/MenuTransitionManager.tscn"
 DiceStore="*res://features/Dice/DiceStore.cs"
 GameLogStore="*res://features/Common/Logs/GameLogStore.cs"
-Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 Shaker="*res://addons/shaker/src/Shaker.gd"
 
 [collada]
@@ -50,7 +49,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/@spacewiz/Arc3DEditorPlugin/plugin.cfg", "res://addons/@spacewiz/TargetBoardEditorPlugin/plugin.cfg", "res://addons/DragNDropNodes/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/shaker/plugin.cfg")
+enabled=PackedStringArray("res://addons/@spacewiz/Arc3DEditorPlugin/plugin.cfg", "res://addons/@spacewiz/TargetBoardEditorPlugin/plugin.cfg", "res://addons/DragNDropNodes/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/shaker/plugin.cfg")
 
 [file_customization]
 

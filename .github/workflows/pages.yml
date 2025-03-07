@@ -3,7 +3,6 @@ name: Build Docs and Deploy to Github Pages
 on:
   push:
     branches:
-      - main
       - documentation
     paths:
       - "docs/**"

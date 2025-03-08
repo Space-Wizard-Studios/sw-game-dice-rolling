@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://c22tpnmaefgn4"]
+
+[ext_resource type="PackedScene" uid="uid://dsbegy218josn" path="res://views/components/TurnOrderComponent/TurnOrderComponent.tscn" id="1_c8j77"]
+[ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://views/ui/SceneTransitionButton.cs" id="2_ink42"]
+[ext_resource type="PackedScene" uid="uid://dgyegipn74jj5" path="res://views/components/CharacterInspector/CharacterInspector.tscn" id="3_xfvph"]
+[ext_resource type="PackedScene" uid="uid://bt73g5fssa68h" path="res://views/components/InventoryComponent/InventoryComponent.tscn" id="4_313b0"]
+[ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://views/components/GameLog/GameLogComponent.tscn" id="5_no7pv"]
+
+[node name="HUDComponent" type="VBoxContainer"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TopContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect3" type="ColorRect" parent="TopContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+mouse_filter = 2
+color = Color(0.49, 0.321848, 0.1421, 1)
+
+[node name="TurnOrder" parent="TopContainer" instance=ExtResource("1_c8j77")]
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="TopContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+mouse_filter = 2
+color = Color(0.49, 0.321848, 0.1421, 1)
+
+[node name="LobbyButton" type="Button" parent="TopContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -15.5
+offset_right = 27.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "Lobby"
+script = ExtResource("2_ink42")
+TypeOfTransition = 2
+
+[node name="MiddleContainer" type="Control" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+mouse_filter = 2
+
+[node name="Row" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterInspector" parent="Row/VBoxContainer" instance=ExtResource("3_xfvph")]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+current_tab = 0
+drag_to_rearrange_enabled = true
+
+[node name="Inventory" parent="Row/TabContainer" instance=ExtResource("4_313b0")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="GameLog" parent="Row/TabContainer" instance=ExtResource("5_no7pv")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1

@@ -1,16 +1,12 @@
-[gd_resource type="Resource" script_class="Category" load_steps=5 format=3 uid="uid://ct48lgxn53fl"]
+[gd_resource type="Resource" script_class="Category" load_steps=3 format=3 uid="uid://ct48lgxn53fl"]
 
-[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="1_ot3a2"]
-[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://features/Dice/DiceEnergy.cs" id="2_vo1sd"]
 [ext_resource type="Texture2D" uid="uid://dkkmepxg2rx6r" path="res://assets/icons/actionCategories/buff.png" id="3_t8l7o"]
-[ext_resource type="Script" uid="uid://c2h1r5hcgno4f" path="res://features/Action/Category.cs" id="4_buxmq"]
+[ext_resource type="Script" uid="uid://c6oq153u13fh4" path="res://models/data/Category/Category.cs" id="4_buxmq"]
 
 [resource]
 script = ExtResource("4_buxmq")
 Name = "Buff"
 Description = "Debuff type description."
 Icon = ExtResource("3_t8l7o")
-DefaultRequiredEnergy = Array[ExtResource("2_vo1sd")]([])
-DefaultEffects = Array[ExtResource("1_ot3a2")]([])
 Id = "a69e85c7-6674-491e-981e-38a5cf596712"
-metadata/_custom_type_script = ExtResource("4_buxmq")
+metadata/_custom_type_script = "uid://c6oq153u13fh4"

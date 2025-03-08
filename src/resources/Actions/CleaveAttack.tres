@@ -1,20 +1,18 @@
-[gd_resource type="Resource" script_class="ActionType" load_steps=8 format=3 uid="uid://cly4t230cu6ii"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=7 format=3 uid="uid://cly4t230cu6ii"]
 
-[ext_resource type="Resource" uid="uid://dwtue01tv131s" path="res://resources/Actions/Categories/Offensive.tres" id="1_8m2td"]
-[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://features/Effect/EffectType.cs" id="2_s1o36"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/data/Effect/EffectType.cs" id="2_s1o36"]
 [ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://resources/Effects/DamageEffect.tres" id="3_wmqqs"]
 [ext_resource type="Texture2D" uid="uid://fmaq315605ce" path="res://assets/icons/actions/wide_cleave.png" id="4_s1o36"]
-[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://features/Dice/DiceEnergy.cs" id="5_yp8id"]
+[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="5_yp8id"]
 [ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Dice/Mana/ManaRed.tres" id="6_vbjrv"]
-[ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://features/Action/ActionType.cs" id="8_0ol17"]
+[ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/data/Action/ActionType.cs" id="8_0ol17"]
 
 [resource]
 script = ExtResource("8_0ol17")
 Name = "Cleave Attack"
-Category = ExtResource("1_8m2td")
 Description = "Cleave Attack description."
 Icon = ExtResource("4_s1o36")
 RequiredEnergy = Array[ExtResource("5_yp8id")]([ExtResource("6_vbjrv")])
 Effects = Array[ExtResource("2_s1o36")]([ExtResource("3_wmqqs")])
 Id = "1575f70b-f7b7-44e6-959c-3e0d347517a2"
-metadata/_custom_type_script = ExtResource("8_0ol17")
+metadata/_custom_type_script = "uid://dk6es2dobyja5"

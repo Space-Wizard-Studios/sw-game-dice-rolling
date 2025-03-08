@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DiceEnergy" load_steps=2 format=3 uid="uid://d1fdrw7p7rywt"]
 
-[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://features/Dice/DiceEnergy.cs" id="1_agb81"]
+[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="1_agb81"]
 
 [resource]
 script = ExtResource("1_agb81")

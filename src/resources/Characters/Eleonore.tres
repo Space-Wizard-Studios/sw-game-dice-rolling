@@ -1,12 +1,9 @@
-[gd_resource type="Resource" script_class="CharacterType" load_steps=19 format=3 uid="uid://clrt1eby68x42"]
+[gd_resource type="Resource" load_steps=16 format=3 uid="uid://clrt1eby68x42"]
 
-[ext_resource type="Script" uid="uid://cxt7qolwarsf1" path="res://features/Character/CharacterAction.cs" id="1_22iko"]
-[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://features/Character/CharacterAttribute.cs" id="2_3cii4"]
-[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://resources/Locations/PlayerSquad.tres" id="4_mck33"]
-[ext_resource type="Resource" uid="uid://bgx5eoqdsu100" path="res://resources/Roles/Playable/Mage.tres" id="5_3cii4"]
+[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://resources/Locations/PlayerSquad.tres" id="4_3cii4"]
 [ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="6_balo1"]
 [ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="8_7y5lj"]
-[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://features/Character/CharacterType.cs" id="10_crg3w"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/data/Character/CharacterType.cs" id="10_crg3w"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ikwiv"]
 
@@ -90,9 +87,8 @@ ShadowSprite = SubResource("SpriteFrames_o11qe")
 ShowShadow = false
 SpritePositionX = 0.0
 SpritePositionY = 0.0
-Role = ExtResource("5_3cii4")
-Attributes = Array[ExtResource("2_3cii4")]([])
-Actions = Array[ExtResource("1_22iko")]([])
-Location = ExtResource("4_mck33")
+Attributes = []
+Actions = []
+Location = ExtResource("4_3cii4")
 SlotIndex = 2
 Id = "4ea655f0-4c3e-4fba-bafe-fe361e68db9e"

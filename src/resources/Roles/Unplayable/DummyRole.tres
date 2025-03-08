@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="RoleType" load_steps=10 format=3 uid="uid://bviiaflcxorr0"]
 
-[ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://features/Role/RoleAction.cs" id="1_d8cls"]
+[ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://models/data/Role/RoleAction.cs" id="1_d8cls"]
 [ext_resource type="Resource" uid="uid://cgac6lxa06rf8" path="res://resources/Actions/Stare.tres" id="2_3rgbr"]
-[ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://features/Role/RoleAttribute.cs" id="3_2fus8"]
+[ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/data/Role/RoleAttribute.cs" id="3_2fus8"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="4_hdasj"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="5_xkma8"]
-[ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://features/Role/RoleType.cs" id="6_ebtsc"]
+[ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/data/Role/RoleType.cs" id="6_ebtsc"]
 
 [sub_resource type="Resource" id="Resource_3ckpd"]
 script = ExtResource("1_d8cls")

@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="AttributeType" load_steps=2 format=3 uid="uid://d37vh6vtgnxkp"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d37vh6vtgnxkp"]
 
-[ext_resource type="Script" uid="uid://dv3nebxjhpuk0" path="res://features/Attribute/AttributeType.cs" id="1_73wod"]
+[ext_resource type="Script" uid="uid://dv3nebxjhpuk0" path="res://models/data/Attribute/AttributeType.cs" id="1_73wod"]
 
 [resource]
 script = ExtResource("1_73wod")

@@ -6,14 +6,12 @@
 
 A arquitetura desta framework é projetada para oferecer **flexibilidade e modularidade**, permitindo modificações e expansões sem impacto direto em outras partes do sistema.
 
-A ideia é ter uma arquitetura baseada em Modelos, Renderizadores, Controladores e Eventos, que são organizados em camadas para facilitar a manutenção e a expansão do código.
+A ideia é ter uma arquitetura baseada em Modelos, Renderizadores, Controladores e Eventos, que são organizados em camadas para facilitar a manutenção e a expansão do código:
 
-Dessa forma, a **lógica do jogo** é centralizada nos Controladores, a **representação visual** é feita pelos Renderizadores e os **dados do jogo** são gerenciados pelos Modelos:
-
-1. Os **Modelos** armazenam e gerenciam os dados do jogo, estruturados em três camadas: Data, Services e Stores;
+1. Os **Modelos** armazenam e gerenciam os dados do jogo, estruturados em três camadas: Data, Stores e Services;
 2. Os **Renderizadores** representam os dados em elementos visuais;
-3. Os **Controladores** gerenciam estados, cenas e eventos;
-4. A comunicação entre os sistemas é feita por **Eventos**, que permitem a interação entre Modelos, Visualizações e Controladores.
+3. Os **Controladores** centralizam a lógica do jogo, gerenciando estados e cenas;
+4. Os **Eventos** permitem a comunicação entre os sistemas, possibilitando a interação entre Modelos, Renderizadores e Controladores.
 
 ---
 
@@ -24,14 +22,14 @@ Os Modelos são estruturados em `Resources` do Godot, possibilitando expansão c
 São estruturados em três camadas:
 
 - **Data**: definem **como** os `Resources` são estruturados, incluindo suas propriedades;
-- **Services**: Manipulam os dados das `Stores` e implementam regras de negócio, garantindo consistência na lógica da aplicação.
 - **Stores**: Armazenam os dados em tempo de execução, mantendo o estado global do jogo e sincronizando as mudanças entre diferentes partes do sistema.
+- **Services**: Manipulam os dados das `Stores` e implementam regras de negócio, garantindo consistência na lógica da aplicação.
 
 ### Resources
 
-Atualmente, os tipos de `Resources` ainda estão sendo definidos e por enquanto, existe apenas um para cada modelo.
+Atualmente, os tipos de `Resources` ainda estão sendo definidos e, por enquanto, existe apenas um para cada modelo.
 
-Por isso o acesso e manipulação desses tipos está sendo feito diretamente.
+Por isso, o acesso e manipulação desses tipos está sendo feito diretamente.
 
 ```mermaid
 flowchart

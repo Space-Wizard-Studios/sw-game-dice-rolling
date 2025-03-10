@@ -11,17 +11,15 @@ config_version=5
 [application]
 
 config/name="dice-rolling"
-run/main_scene="res://views/scenes/menus/MainMenu.tscn"
+run/main_scene="res://renderers/scenes/menus/MainMenu.tscn"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="uid://bmcfxb2srpt1o"
 
 [autoload]
 
-GameplayTransitionManager="*res://views/scenes/GameplayTransitionManager.tscn"
-MenuTransitionManager="*res://views/scenes/MenuTransitionManager.tscn"
-DiceStore="*res://models/stores/DiceStore.cs"
-GameLogStore="*res://models/stores/GameLogStore.cs"
 Shaker="*res://addons/shaker/src/Shaker.gd"
+Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
+EventBus="*res://events/EventBus.cs"
 
 [collada]
 
@@ -49,7 +47,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/@spacewiz/Arc3DEditorPlugin/plugin.cfg", "res://addons/@spacewiz/TargetBoardEditorPlugin/plugin.cfg", "res://addons/DragNDropNodes/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/shaker/plugin.cfg")
+enabled=PackedStringArray("res://addons/@spacewiz/Arc3DEditorPlugin/plugin.cfg", "res://addons/@spacewiz/TargetBoardEditorPlugin/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/shaker/plugin.cfg")
 
 [file_customization]
 
@@ -61,10 +59,10 @@ folder_colors={
 "res://events/": "green",
 "res://helpers/": "gray",
 "res://models/": "blue",
+"res://renderers/": "orange",
+"res://renderers/scenes/": "orange",
 "res://resources/": "pink",
-"res://tests/": "gray",
-"res://views/": "orange",
-"res://views/scenes/": "orange"
+"res://tests/": "gray"
 }
 
 [gdunit4]

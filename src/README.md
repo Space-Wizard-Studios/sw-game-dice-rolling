@@ -20,35 +20,33 @@
 ```bash
 .
 └── src
-    ├── addons                  # bibliotecas third party
-    │   └── @spacewiz           # plugins desenvolvidos para o projeto
+    ├── addons          # bibliotecas third party
+    │   └── @spacewiz   # plugins desenvolvidos para o projeto
     │
-    ├── assets                  # assets como sprites, sons, texturas e seus arquivos de configuração
+    ├── assets          # assets como sprites, sons, texturas e seus arquivos de configuração
     │
-    ├── controllers             # comunicação entre a view e o model, interatividade e controle de eventos
-    │                           # lógica de alto nível, como o controle do estado do jogo, cenas e transições
+    ├── controllers     # comunicação entre a view e o model, interatividade e controle de eventos
+    │                   # lógica de alto nível, como o controle do estado do jogo, cenas e transições
     │
-    ├── events                  # comunicação entre os models, views e controllers
-    │                           # TODO: bus, handlers, types
+    ├── events          # comunicação por signals entre os models, views e controllers
+    │                   # TODO: bus, handlers, types
     │
     ├── models
-    │   ├── data                # tipos de dados (resources) que representam informações do jogo
-    │   ├── services            # regras de negócios e acesso aos dados
-    │   │                       # processamento e manipulação dos dados, interação direta com as stores
-    │   └── stores              # estado e armazenamento persistente dos dados
+    │   ├── data        # estruturas dos dados
+    │   ├── services    # manipulação de dados e regras de negócio
+    │   └── stores      # estado em tempo de execução (cache e gerenciamento)
     │
-    ├── views                   # View layer: visualização
-    │   ├── 
-    │   ├── 
-    │   ├── 
-    │   ├── 
-    │   └── 
+    ├── renderers           # visualização e renderização do jogo
+    │   ├── components  # componentes reutilizáveis
+    │   ├── entities    # entidades do jogo
+    │   ├── scenes      # cenas do jogo
+    │   └── ui          # elementos de interface do usuário
     │
-    ├── helpers                 # classes utilitárias
+    ├── helpers         # classes utilitárias
     │
-    ├── resources               # arquivos de configuração dos dados do jogo
+    ├── resources       # arquivos de configuração estáticos do jogo
     │
-    └── tests                   # testes unitários e cenas específicas para testes
+    └── tests           # testes unitários e cenas específicas para testes
 ```
 
 ## Ambiente de Desenvolvimento

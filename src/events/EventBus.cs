@@ -54,7 +54,6 @@ public partial class EventBus : Node {
         var characterName = character?.Character?.Name ?? "Unknown";
 
         if (character is not null) {
-            // GD.Print("Emitting CharacterSelected signal with character: ", characterName);
             EmitSignal(nameof(CharacterSelected), character);
         }
         else {
@@ -65,5 +64,4 @@ public partial class EventBus : Node {
     public void OnCharacterUnselected() {
         EmitSignal(nameof(CharacterUnselected));
     }
-
 }

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://blv7vekuqpawn"]
+[gd_resource type="Resource" script_class="AttributeType" load_steps=2 format=3 uid="uid://blv7vekuqpawn"]
 
 [ext_resource type="Script" uid="uid://dv3nebxjhpuk0" path="res://models/data/Attribute/AttributeType.cs" id="1_8nsa1"]
 

@@ -1,9 +1,10 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://snt34yslyn4f"]
+[gd_resource type="Resource" script_class="CharacterStore" load_steps=5 format=3 uid="uid://snt34yslyn4f"]
 
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/data/Character/CharacterType.cs" id="1_tf880"]
 [ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://resources/Characters/Eleonore.tres" id="2_tf880"]
 [ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://resources/Characters/Joanna.tres" id="3_oxbo1"]
 [ext_resource type="Script" uid="uid://c0ludr6rojb3c" path="res://models/stores/CharacterStore.cs" id="10_xofbh"]
 
 [resource]
 script = ExtResource("10_xofbh")
-Characters = [ExtResource("2_tf880"), ExtResource("3_oxbo1")]
+Characters = Array[ExtResource("1_tf880")]([ExtResource("2_tf880"), ExtResource("3_oxbo1")])

@@ -22,9 +22,9 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
     private float _spritePositionX;
     private float _spritePositionY;
     private RoleType? _role;
-    private readonly Dictionary<AttributeType, int> _attributeCurrentValueCache = new Dictionary<AttributeType, int>();
-    private readonly Dictionary<AttributeType, int> _attributeMaxValueCache = new Dictionary<AttributeType, int>();
-    private readonly Dictionary<AttributeType, int> _attributeBaseValueCache = new Dictionary<AttributeType, int>();
+    private readonly Dictionary<AttributeType, int> _attributeCurrentValueCache = [];
+    private readonly Dictionary<AttributeType, int> _attributeMaxValueCache = [];
+    private readonly Dictionary<AttributeType, int> _attributeBaseValueCache = [];
 
     [Signal] public delegate void AttributeChangedEventHandler(CharacterType character, AttributeType attributeType);
 
@@ -51,6 +51,9 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
 
     [Export]
     public SpriteFrames? CharacterSprite { get; set; }
+
+    [Export]
+    public float PixelSize { get; set; } = 0.01f;
 
     [Export]
     public SpriteFrames? ShadowSprite { get; set; }

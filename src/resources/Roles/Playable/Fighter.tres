@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=8 format=3 uid="uid://bad7cxgeb8mqp"]
+[gd_resource type="Resource" script_class="RoleType" load_steps=8 format=3 uid="uid://bad7cxgeb8mqp"]
 
 [ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://models/data/Role/RoleAction.cs" id="1_iytx6"]
 [ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/data/Role/RoleAttribute.cs" id="3_j81qd"]
@@ -24,6 +24,6 @@ BaseValue = 50
 script = ExtResource("7_x8hfl")
 Name = "Fighter"
 Description = "Fighter Description"
-RoleAttributes = [SubResource("Resource_g0hcp"), SubResource("Resource_8w8fm"), SubResource("Resource_xurgi")]
-RoleActions = [SubResource("Resource_rp15h")]
+RoleAttributes = Array[ExtResource("3_j81qd")]([SubResource("Resource_g0hcp"), SubResource("Resource_8w8fm"), SubResource("Resource_xurgi")])
+RoleActions = Array[ExtResource("1_iytx6")]([SubResource("Resource_rp15h")])
 Id = "d617ceaf-d1be-425f-80e3-5e662e73dba6"

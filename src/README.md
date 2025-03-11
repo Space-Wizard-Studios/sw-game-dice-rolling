@@ -31,6 +31,8 @@
     ├── events          # comunicação por signals entre os models, views e controllers
     │                   # TODO: bus, handlers, types
     │
+    ├── helpers         # classes utilitárias
+    │
     ├── models
     │   ├── data        # estruturas dos dados
     │   ├── services    # manipulação de dados e regras de negócio
@@ -41,8 +43,6 @@
     │   ├── entities    # entidades do jogo
     │   ├── scenes      # cenas do jogo
     │   └── ui          # elementos de interface do usuário
-    │
-    ├── helpers         # classes utilitárias
     │
     ├── resources       # arquivos de configuração estáticos do jogo
     │

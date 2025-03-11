@@ -83,7 +83,7 @@ public partial class TurnOrderComponent : Control {
         }
 
         // Connect the AttributeChanged signal from EventBus to the OnCharacterAttributeChanged method
-        EventBus.Instance.Connect(nameof(EventBus.AttributeChanged), new Callable(this, nameof(OnCharacterAttributeChanged)));
+        // EventBus.Instance.Connect(nameof(EventBus.AttributeChanged), new Callable(this, nameof(OnCharacterAttributeChanged)));
 
     }
 

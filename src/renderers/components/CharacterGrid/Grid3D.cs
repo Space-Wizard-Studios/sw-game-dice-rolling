@@ -130,29 +130,29 @@ public partial class Grid3D : Node3D {
             return;
         }
 
-        foreach (var character in CharacterStore.Characters) {
-            if (character.Location?.Name == "Player Squad" || character.Location?.Name == "Enemy Squad" && character.SlotIndex >= 0 && character.SlotIndex < gridCells.Length) {
-                // Instantiate the CharacterComponent from the packed scene
-                var characterComponent = CharacterComponentScene.Instantiate<CharacterComponent>();
-                if (characterComponent is null) {
-                    GD.PrintErr("Failed to instantiate CharacterComponent");
-                    continue;
-                }
+        // foreach (var character in CharacterStore.Characters) {
+        //     if (character.Location?.Name == "Player Squad" || character.Location?.Name == "Enemy Squad" && character.SlotIndex >= 0 && character.SlotIndex < gridCells.Length) {
+        //         // Instantiate the CharacterComponent from the packed scene
+        //         var characterComponent = CharacterComponentScene.Instantiate<CharacterComponent>();
+        //         if (characterComponent is null) {
+        //             GD.PrintErr("Failed to instantiate CharacterComponent");
+        //             continue;
+        //         }
 
-                characterComponent.Character = character;
+        //         characterComponent.Character = character;
 
-                // Position the character at the center of the cell
-                var gridCell = gridCells[character.SlotIndex / Columns, character.SlotIndex % Columns];
-                if (gridCell is null) {
-                    GD.PrintErr($"Grid cell at index {character.SlotIndex} is null");
-                    continue;
-                }
-                var cellPosition = gridCell.CellMarker.Transform.Origin;
-                var cellCenter = new Vector3(cellPosition.X + 0.5f, 0, cellPosition.Z + 0.5f); // Use exact grid positions
-                characterComponent.Transform = new Transform3D(Basis.Identity, cellCenter);
-                gridCell.SetCharacter(characterComponent);
-            }
-        }
+        //         // Position the character at the center of the cell
+        //         var gridCell = gridCells[character.SlotIndex / Columns, character.SlotIndex % Columns];
+        //         if (gridCell is null) {
+        //             GD.PrintErr($"Grid cell at index {character.SlotIndex} is null");
+        //             continue;
+        //         }
+        //         var cellPosition = gridCell.CellMarker.Transform.Origin;
+        //         var cellCenter = new Vector3(cellPosition.X + 0.5f, 0, cellPosition.Z + 0.5f); // Use exact grid positions
+        //         characterComponent.Transform = new Transform3D(Basis.Identity, cellCenter);
+        //         gridCell.SetCharacter(characterComponent);
+        //     }
+        // }
     }
 
     public void UpdateCellColor(int index, Color color) {

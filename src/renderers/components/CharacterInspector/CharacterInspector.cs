@@ -46,15 +46,15 @@ public partial class CharacterInspector : HBoxContainer {
 
     public override void _Ready() {
         Visible = false;
-        EventBus.Instance.Connect(nameof(EventBus.CharacterSelected), new Callable(this, nameof(OnCharacterSelected)));
-        EventBus.Instance.Connect(nameof(EventBus.CharacterUnselected), new Callable(this, nameof(OnCharacterUnselected)));
+        // EventBus.Instance.Connect(nameof(EventBus.CharacterSelected), new Callable(this, nameof(OnCharacterSelected)));
+        // EventBus.Instance.Connect(nameof(EventBus.CharacterUnselected), new Callable(this, nameof(OnCharacterUnselected)));
     }
 
-    private void OnCharacterSelected(CharacterComponent characterComponent) {
-        _character = characterComponent.Character;
-        Visible = true;
-        UpdateCharacterDetails();
-    }
+    // private void OnCharacterSelected(CharacterComponent characterComponent) {
+    //     _character = characterComponent.Character;
+    //     Visible = true;
+    //     UpdateCharacterDetails();
+    // }
 
     private void OnCharacterUnselected() {
         _character = null;
@@ -174,7 +174,7 @@ public partial class CharacterInspector : HBoxContainer {
         if (_actionButtons.TryGetValue(button, out var action)) {
             if (action.Type?.TargetBoard is not null) {
                 // GD.Print("Emitting ActionSelected signal with target configuration: ", action.Type.TargetBoard);
-                EventBus.Instance.EmitSignal(nameof(EventBus.ActionSelected), action.Type.TargetBoard);
+                // EventBus.Instance.EmitSignal(nameof(EventBus.ActionSelected), action.Type.TargetBoard);
             }
         }
     }

@@ -26,7 +26,7 @@ public partial class CharacterGrid : Node3D {
     public override void _Ready() {
         base._Ready();
         GenerateGrids();
-        EventBus.Instance.Connect(nameof(EventBus.ActionSelected), new Callable(this, nameof(OnActionSelected)));
+        // EventBus.Instance.Connect(nameof(EventBus.ActionSelected), new Callable(this, nameof(OnActionSelected)));
     }
 
     public override void _ExitTree() {

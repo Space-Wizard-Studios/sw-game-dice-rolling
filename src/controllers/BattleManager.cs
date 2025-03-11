@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 
 using DiceRolling.Logs;
+using DiceRolling.Stores;
 
 namespace DiceRolling.Controllers;
 

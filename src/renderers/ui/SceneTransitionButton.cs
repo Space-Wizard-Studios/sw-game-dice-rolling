@@ -1,3 +1,4 @@
+using DiceRolling.Controllers;
 using Godot;
 
 namespace DiceRolling.UI;

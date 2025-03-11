@@ -1,6 +1,8 @@
 using Godot;
 
-namespace DiceRolling.Dice;
+using DiceRolling.Dice;
+
+namespace DiceRolling.Stores;
 
 [Tool]
 [GlobalClass]

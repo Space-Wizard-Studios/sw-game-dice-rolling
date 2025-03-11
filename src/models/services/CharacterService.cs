@@ -3,8 +3,9 @@ using System.Linq;
 using System;
 
 using DiceRolling.Attributes;
+using DiceRolling.Characters;
 
-namespace DiceRolling.Characters;
+namespace DiceRolling.Services;
 
 /// <summary>
 /// Fornece métodos para manipulação dos dados de personagens.

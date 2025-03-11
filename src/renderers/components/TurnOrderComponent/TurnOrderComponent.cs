@@ -5,6 +5,7 @@ using DiceRolling.Helpers;
 using DiceRolling.Events;
 using DiceRolling.Characters;
 using DiceRolling.Attributes;
+using DiceRolling.Stores;
 
 namespace DiceRolling.Components;
 
@@ -70,8 +71,8 @@ public partial class TurnOrderComponent : Control {
     public override void _Ready() {
         if (AttributeConfigResource is AttributesStore attributeConfig) {
             _AttributesStore = attributeConfig;
-            SpeedAttributeType = AttributesHelper.GetAttributeType(_AttributesStore, "Speed");
-            HealthAttributeType = AttributesHelper.GetAttributeType(_AttributesStore, "Health");
+            // SpeedAttributeType = AttributesHelper.GetAttributeType(_AttributesStore, "Speed");
+            // HealthAttributeType = AttributesHelper.GetAttributeType(_AttributesStore, "Health");
 
             // Update turn order if characters are already set
             if (_characters.Length > 0) {

@@ -1,7 +1,9 @@
 using Godot;
 using System.Collections.Generic;
 
-namespace DiceRolling.Logs;
+using DiceRolling.Logs;
+
+namespace DiceRolling.Stores;
 
 [Tool]
 [GlobalClass]

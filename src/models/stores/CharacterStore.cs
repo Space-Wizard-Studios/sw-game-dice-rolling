@@ -1,9 +1,11 @@
 using Godot;
 using System;
 using System.Linq;
-using DiceRolling.Locations;
 
-namespace DiceRolling.Characters;
+using DiceRolling.Locations;
+using DiceRolling.Characters;
+
+namespace DiceRolling.Stores;
 
 /// <summary>
 /// Armazena dados dos personagens em coleções e facilita a manipulação desses personagens.

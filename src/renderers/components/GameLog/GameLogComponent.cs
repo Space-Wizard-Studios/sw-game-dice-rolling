@@ -1,5 +1,6 @@
 using Godot;
 using DiceRolling.Logs;
+using DiceRolling.Stores;
 
 namespace DiceRolling.Components.UI;
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using DiceRolling.Logs;
 
-namespace DiceRolling.Battle;
+namespace DiceRolling.Controllers;
 
 public partial class BattleManager : Node3D {
     public override void _Ready() {

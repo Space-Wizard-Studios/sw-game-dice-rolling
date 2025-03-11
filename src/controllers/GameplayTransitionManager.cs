@@ -1,6 +1,6 @@
 using Godot;
 
-namespace DiceRolling.UI;
+namespace DiceRolling.Controllers;
 
 public enum GameplayScenes {
     GameplayLobby,

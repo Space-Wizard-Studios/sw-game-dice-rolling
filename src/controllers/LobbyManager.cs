@@ -1,6 +1,6 @@
 using Godot;
 
-namespace DiceRolling.Lobby;
+namespace DiceRolling.Controllers;
 
 public partial class LobbyManager : Node2D {
     public override void _Ready() {

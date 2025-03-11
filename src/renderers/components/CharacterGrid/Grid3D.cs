@@ -6,6 +6,7 @@ using DiceRolling.Grids;
 using DiceRolling.Characters;
 
 using DiceRolling.Components.Characters;
+using DiceRolling.Stores;
 
 namespace DiceRolling.Components.Grids;
 

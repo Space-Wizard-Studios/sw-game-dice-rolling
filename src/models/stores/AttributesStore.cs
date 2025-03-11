@@ -1,6 +1,8 @@
 using Godot;
 
-namespace DiceRolling.Attributes;
+using DiceRolling.Attributes;
+
+namespace DiceRolling.Stores;
 
 [Tool]
 [GlobalClass]

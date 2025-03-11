@@ -1,9 +1,11 @@
 using Godot;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 
-namespace DiceRolling.Dice;
+using DiceRolling.Dice;
+
+namespace DiceRolling.Stores;
 
 [Tool]
 [GlobalClass]

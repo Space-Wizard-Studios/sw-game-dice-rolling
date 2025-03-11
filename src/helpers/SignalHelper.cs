@@ -6,13 +6,6 @@ namespace DiceRolling.Helpers;
 /// Helper class for safely connecting and disconnecting signals in Godot
 /// </summary>
 public static class SignalHelper {
-    /// <summary>
-    /// Safely connects a signal from a source object to a target method
-    /// </summary>
-    /// <param name="source">The source object that emits the signal</param>
-    /// <param name="signalName">Name of the signal to connect</param>
-    /// <param name="target">The target object that will receive the signal</param>
-    /// <param name="methodName">Name of the method to call when the signal is emitted</param>
     public static void ConnectSignal(GodotObject? source, string signalName, GodotObject target, string methodName) {
         if (source == null)
             return;
@@ -29,13 +22,6 @@ public static class SignalHelper {
         source.Connect(signalName, new Callable(target, methodName));
     }
 
-    /// <summary>
-    /// Safely disconnects a signal from a source object
-    /// </summary>
-    /// <param name="source">The source object that emits the signal</param>
-    /// <param name="signalName">Name of the signal to disconnect</param>
-    /// <param name="target">The target object that was receiving the signal</param>
-    /// <param name="methodName">Name of the method that was called when the signal was emitted</param>
     public static void DisconnectSignal(GodotObject? source, string signalName, GodotObject target, string methodName) {
         if (source == null)
             return;

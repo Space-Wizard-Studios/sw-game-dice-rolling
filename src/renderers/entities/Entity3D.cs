@@ -1,5 +1,6 @@
 using Godot;
 using DiceRolling.Helpers;
+using DiceRolling.Id;
 
 namespace DiceRolling.Entities;
 
@@ -9,10 +10,10 @@ namespace DiceRolling.Entities;
 public abstract partial class Entity3D : Node3D {
     [Signal] public delegate void EntityUpdatedEventHandler();
 
-    private Resource? _data;
+    private IdentifiableResource? _data;
 
     [Export]
-    public Resource? Data {
+    public IdentifiableResource? Data {
         get => _data;
         set {
             if (_data == value) {
@@ -36,7 +37,7 @@ public abstract partial class Entity3D : Node3D {
     }
 
     // Changed from protected to public to allow components to access it
-    public T? GetData<T>() where T : Resource {
+    public T? GetData<T>() where T : IdentifiableResource {
         return Data as T;
     }
 

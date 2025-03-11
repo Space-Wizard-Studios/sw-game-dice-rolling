@@ -1,24 +1,19 @@
 using Godot;
-using DiceRolling.Characters;
-using DiceRolling.Attributes;
-using DiceRolling.Targets;
-
-using DiceRolling.Components.Characters;
+using DiceRolling.Entities;
+using DiceRolling.Components;
 
 namespace DiceRolling.Events;
 
 [Tool]
 public partial class EventBus : Node {
-    [Signal] public delegate void AttributeChangedEventHandler();
-    [Signal] public delegate void CharacterSelectedEventHandler(CharacterComponent character);
-    [Signal] public delegate void CharacterUnselectedEventHandler();
-    [Signal] public delegate void ActionSelectedEventHandler(TargetBoardType targetBoard);
+    [Signal] public delegate void ComponentSelectedEventHandler(Node component);
+    [Signal] public delegate void ComponentUnselectedEventHandler(Node component);
 
     private static EventBus? _instance;
 
     public static EventBus Instance {
         get {
-            _instance ??= GetInstance();
+            _instance ??= new EventBus();
             return _instance;
         }
     }
@@ -27,41 +22,15 @@ public partial class EventBus : Node {
         _instance = this;
     }
 
-    public override void _Input(InputEvent @event) {
-        if (@event.IsActionPressed("ui_cancel")) {
-            OnCharacterUnselected();
+    public void OnComponentSelected(Node component) {
+        EmitSignal(nameof(ComponentSelected), component);
+
+        if (component is SelectableComponent selectableComponent && selectableComponent.GetParent<Entity3D>() is Entity3D parentEntity && parentEntity.Data is { } data) {
+            GD.Print("Selected Data ID:", data.Id);
         }
     }
 
-    private static EventBus GetInstance() {
-        var root = (Engine.GetMainLoop() as SceneTree)?.Root;
-        if (root is null) {
-            return new EventBus();
-        }
-        var eventBus = root.GetNodeOrNull<EventBus>("/root/EventBus");
-        if (eventBus is null) {
-            eventBus = new EventBus();
-            root.CallDeferred("add_child", eventBus);
-        }
-        return eventBus;
-    }
-
-    public void EmitAttributeChanged(CharacterType character, AttributeType attributeType) {
-        EmitSignal(nameof(AttributeChanged), character, attributeType);
-    }
-
-    public void OnCharacterSelected(CharacterComponent character) {
-        var characterName = character?.Character?.Name ?? "Unknown";
-
-        if (character is not null) {
-            EmitSignal(nameof(CharacterSelected), character);
-        }
-        else {
-            GD.PrintErr("Character is null, cannot emit CharacterSelected signal.");
-        }
-    }
-
-    public void OnCharacterUnselected() {
-        EmitSignal(nameof(CharacterUnselected));
+    public void OnComponentUnselected(Node component) {
+        EmitSignal(nameof(ComponentUnselected), component);
     }
 }

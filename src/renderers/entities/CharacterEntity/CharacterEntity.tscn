@@ -26,7 +26,7 @@ shaded = true
 texture_filter = 0
 sprite_frames = ExtResource("3_lytje")
 animation = &"idle"
-frame_progress = 0.403001
+frame_progress = 0.982385
 script = ExtResource("3_q1qiw")
 metadata/_custom_type_script = "uid://cejuccgxo60qs"
 
@@ -40,11 +40,13 @@ metadata/_custom_type_script = "uid://bs8ip2rdvho4s"
 
 [node name="Selector" type="Sprite3D" parent="SelectableComponent"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.75, 0)
+visible = false
 pixel_size = 0.002
 billboard = 1
 texture = ExtResource("6_56jxl")
 
 [node name="Hover" type="Sprite3D" parent="SelectableComponent"]
+visible = false
 pixel_size = 0.002
 billboard = 1
 texture = ExtResource("7_5h2tr")
@@ -53,6 +55,3 @@ texture = ExtResource("7_5h2tr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SelectableComponent/Area3D"]
 shape = SubResource("CapsuleShape3D_x22vy")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)

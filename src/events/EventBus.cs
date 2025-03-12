@@ -27,13 +27,7 @@ public partial class EventBus : Node {
     }
 
     public override void _Ready() {
-        // Limpa a instância estática se for diferente desta
-        if (_instance != null && _instance != this) {
-            _instance = this;
-        }
-        else {
-            _instance = this;
-        }
+        _instance = this;
     }
 
     public void OnComponentSelected(Node component) {

@@ -1,4 +1,5 @@
 using Godot;
+using DiceRolling.Entities;
 using DiceRolling.Grids;
 
 namespace DiceRolling.Entities;
@@ -15,5 +16,4 @@ public partial class GridCellEntity : Entity3D {
 
     [ExportToolButton("Update Cell")]
     public Callable UpdateCellData => Callable.From(() => NotifyUpdate());
-
 }

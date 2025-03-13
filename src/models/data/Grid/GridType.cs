@@ -13,6 +13,7 @@ public partial class GridType : IdentifiableResource, IGrid {
     [Signal] public delegate void GridChangedEventHandler();
     private int _rows = 1;
     private int _columns = 1;
+    private CharacterStore? _characterStore;
 
     [Export]
     public string Prefix { get; set; } = "G";
@@ -21,7 +22,15 @@ public partial class GridType : IdentifiableResource, IGrid {
     public int Offset { get; set; } = 0;
 
     [Export]
-    public CharacterStore? CharacterStore { get; set; }
+    public CharacterStore? CharacterStore {
+        get => _characterStore;
+        set {
+            _characterStore = value;
+            if (_characterStore != null && Engine.IsEditorHint()) {
+                AssignCharacters();
+            }
+        }
+    }
 
     [Export(PropertyHint.Enum, "LeftToRight,RightToLeft")]
     public GridDirection Direction { get; set; } = GridDirection.LeftToRight;
@@ -70,36 +79,7 @@ public partial class GridType : IdentifiableResource, IGrid {
 
         Cells ??= [];
 
-        // Adjust size if needed
-        int requiredSize = _rows * _columns;
-        int currentSize = Cells.Count;
-
-        if (requiredSize > currentSize) {
-            // Add new cells
-            for (int i = currentSize; i < requiredSize; i++) {
-                int row = i / _columns;
-                int col = i % _columns;
-                Cells.Add(GridService.CreateCellType(0, row, col, _columns, Prefix));
-            }
-        }
-        else if (requiredSize < currentSize) {
-            // Remove excess cells
-            Cells.Resize(requiredSize);
-        }
-
-        // Update existing cells' positions
-        for (int i = 0; i < requiredSize; i++) {
-            var cell = Cells[i];
-            if (cell != null) {
-                int row = i / _columns;
-                int col = i % _columns;
-                cell.Row = row;
-                cell.Column = col;
-                cell.Index = i;
-                cell.Label = $"{Prefix}{i}";
-            }
-        }
-
+        GridService.ResizeGridCells(Cells, _rows, _columns, Prefix);
         EmitSignal(nameof(GridChanged));
     }
 
@@ -108,29 +88,31 @@ public partial class GridType : IdentifiableResource, IGrid {
     }
 
     public GridCellType? GetCell(int row, int column) {
-        int index = GetCellIndex(row, column);
-        return (index >= 0 && index < Cells?.Count) ? Cells[index] : null;
+        return GridService.GetGridCell(Cells, row, column, _columns);
     }
 
     public void SetCell(int row, int column, int value) {
-        if (row < 0 || row >= _rows || column < 0 || column >= _columns || Cells == null) {
-            GD.PrintErr("Invalid cell position or cells collection is null.");
+        if (Cells == null) {
+            GD.PrintErr("Cells collection is null.");
             return;
         }
 
-        int index = GetCellIndex(row, column);
-        if (index >= 0 && index < Cells.Count) {
-            var cell = Cells[index];
-            if (cell != null) {
-                cell.Value = value;
-                cell.NotifyChanged();
-                EmitSignal(nameof(GridChanged));
-            }
-        }
+        GridService.SetGridCellValue(Cells, row, column, value, _columns);
+        EmitSignal(nameof(GridChanged));
     }
 
     public void SetCellValue(int row, int column, int value) {
-        SetCell(row, column, value);
+        if (Cells == null) {
+            GD.PrintErr("Cells collection is null.");
+            return;
+        }
+
+        GridService.SetCellValue(Cells, row, column, value, _columns);
+        EmitSignal(nameof(GridChanged));
+    }
+
+    public void AssignCharacters() {
+        GridService.AssignCharactersToGrid(this);
     }
 
     public void ValidateConstructor() {

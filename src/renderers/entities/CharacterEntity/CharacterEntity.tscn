@@ -26,7 +26,7 @@ shaded = true
 texture_filter = 0
 sprite_frames = ExtResource("3_lytje")
 animation = &"idle"
-frame_progress = 0.769479
+frame_progress = 0.891897
 script = ExtResource("3_q1qiw")
 metadata/_custom_type_script = "uid://cejuccgxo60qs"
 

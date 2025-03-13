@@ -29,6 +29,7 @@ Newtonsoft
 nunit
 panzoom
 paramref
+Pickable
 premult
 pwsh
 Qube

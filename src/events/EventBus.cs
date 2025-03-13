@@ -27,7 +27,12 @@ public partial class EventBus : Node {
     }
 
     public override void _Ready() {
-        _instance = this;
+        if (_instance == null || _instance != this) {
+            _instance = this;
+        }
+        else if (_instance != this) {
+            GD.PushWarning("Múltiplas instâncias de EventBus detectadas. Considere usar apenas o EventBus do Autoload.");
+        }
     }
 
     public void OnComponentSelected(Node component) {

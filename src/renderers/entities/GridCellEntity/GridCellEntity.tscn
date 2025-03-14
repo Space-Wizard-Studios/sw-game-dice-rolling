@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://2jqadvotpskf"]
+
+[ext_resource type="Script" uid="uid://d2163e68sbuxu" path="res://renderers/entities/GridCellEntity/GridCellEntity.cs" id="1_ms2v1"]
+[ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://resources/Characters/Joanna.tres" id="2_5dr04"]
+[ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="2_k85n8"]
+[ext_resource type="Script" uid="uid://xekdm6ih1oi3" path="res://renderers/components/GridCellComponent.cs" id="3_e3qvn"]
+[ext_resource type="PackedScene" uid="uid://b5fpv2rdkq5c" path="res://renderers/entities/CharacterEntity/CharacterEntity.tscn" id="4_dnb4r"]
+[ext_resource type="Script" uid="uid://yl5hkmseiouh" path="res://renderers/components/CharacterGridCellComponent.cs" id="5_detn8"]
+
+[sub_resource type="Resource" id="Resource_e3qvn"]
+script = ExtResource("2_k85n8")
+Character = ExtResource("2_5dr04")
+Value = 0
+Row = 1
+Column = 1
+Index = 0
+Label = ""
+IsWalkable = false
+IsOccupied = true
+Id = "c9d78c06-2e53-4e44-9fd1-11e5f4e97afc"
+metadata/_custom_type_script = "uid://bnrom8367617i"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnb4r"]
+albedo_color = Color(0.8, 0.8, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dnb4r"]
+
+[node name="GridCellEntity" type="Node3D"]
+script = ExtResource("1_ms2v1")
+CellData = SubResource("Resource_e3qvn")
+metadata/_custom_type_script = "uid://d2163e68sbuxu"
+
+[node name="GridCellComponent" type="Node3D" parent="." node_paths=PackedStringArray("CellMeshNode", "LabelNode")]
+script = ExtResource("3_e3qvn")
+CellMeshNode = NodePath("MeshInstance3D")
+LabelNode = NodePath("Label3D")
+metadata/_custom_type_script = "uid://xekdm6ih1oi3"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GridCellComponent"]
+transform = Transform3D(1, 0, 0, 0, 0.0393298, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_dnb4r")
+mesh = SubResource("BoxMesh_dnb4r")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="GridCellComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28578, 0)
+
+[node name="CharacterGridCellComponent" type="Node3D" parent="."]
+script = ExtResource("5_detn8")
+CharacterEntityScene = ExtResource("4_dnb4r")
+metadata/_custom_type_script = "uid://yl5hkmseiouh"

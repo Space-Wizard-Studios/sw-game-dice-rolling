@@ -6,6 +6,7 @@ namespace DiceRolling.Entities;
 [Tool]
 [GlobalClass]
 public partial class CharacterEntity : Entity3D {
+
     [Export]
     public CharacterType? CharacterData {
         get => GetData<CharacterType>();

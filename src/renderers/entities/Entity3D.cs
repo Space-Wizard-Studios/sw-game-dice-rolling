@@ -1,5 +1,4 @@
 using Godot;
-using DiceRolling.Helpers;
 using DiceRolling.Id;
 
 namespace DiceRolling.Entities;
@@ -12,43 +11,25 @@ public abstract partial class Entity3D : Node3D {
 
     private IdentifiableResource? _data;
 
-    [Export]
     public IdentifiableResource? Data {
         get => _data;
         set {
             if (_data == value) {
                 return;
             }
-
-            // Disconnect from old data if exists
-            // SignalHelper.DisconnectSignal(_data, "Changed", this, nameof(OnDataChanged));
-
             _data = value;
-
-            // Connect to new data if exists
-            // SignalHelper.ConnectSignal(_data, "Changed", this, nameof(OnDataChanged));
-
             NotifyUpdate();
         }
     }
 
     protected void NotifyUpdate() {
+        GD.Print($"Entity Updated: {Data?.Id}");
         EmitSignal(nameof(EntityUpdated));
     }
 
-    // Changed from protected to public to allow components to access it
     public T? GetData<T>() where T : IdentifiableResource {
         return Data as T;
     }
-
-    public override void _Ready() {
-        // SignalHelper.ConnectSignal(_data, "Changed", this, nameof(OnDataChanged));
-    }
-
-    public override void _ExitTree() {
-        // SignalHelper.DisconnectSignal(_data, "Changed", this, nameof(OnDataChanged));
-    }
-
     private void OnDataChanged() {
         NotifyUpdate();
     }

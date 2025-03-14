@@ -21,6 +21,20 @@ public partial class GridCellComponent : Node3D {
     [Export] public Color DefaultColor { get; set; } = new Color(1, 1, 1, 1);
     [Export] public Color OccupiedColor { get; set; } = new Color(0.8f, 0.8f, 1, 1);
 
+    [ExportToolButton("Refresh Character")]
+    public Callable RefreshCharacter => Callable.From(() => {
+        if (_cellData != null && _cellData.Character != null) {
+            _cellData.IsOccupied = true;
+            _cellData.NotifyChanged();
+
+            // Use a API pública do GridCellEntity para notificar atualizações
+            if (_cellEntity != null) {
+                _cellEntity.UpdateCellData.Call();
+                GD.Print($"Refreshing character in cell {_cellData.Label}");
+            }
+        }
+    });
+
     public override void _Ready() {
         _parent = GetParent<Entity3D>();
         _cellEntity = _parent as GridCellEntity;

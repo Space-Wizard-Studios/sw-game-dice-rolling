@@ -92,7 +92,6 @@ metadata/_custom_type_script = "uid://ca6up1de7fo4q"
 [node name="GridEntity" type="Node3D"]
 script = ExtResource("1_0ephl")
 GridData = SubResource("Resource_pohop")
-Data = SubResource("Resource_pohop")
 metadata/_custom_type_script = "uid://ctc1mk501yyuj"
 
 [node name="GridContainerComponent" type="Node3D" parent="."]

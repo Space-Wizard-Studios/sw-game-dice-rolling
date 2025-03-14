@@ -16,7 +16,7 @@ Column = 1
 Index = 0
 Label = ""
 IsWalkable = false
-IsOccupied = false
+IsOccupied = true
 Id = "c9d78c06-2e53-4e44-9fd1-11e5f4e97afc"
 metadata/_custom_type_script = "uid://bnrom8367617i"
 
@@ -28,7 +28,6 @@ albedo_color = Color(0.8, 0.8, 1, 1)
 [node name="GridCellEntity" type="Node3D"]
 script = ExtResource("1_ms2v1")
 CellData = SubResource("Resource_e3qvn")
-Data = SubResource("Resource_e3qvn")
 metadata/_custom_type_script = "uid://d2163e68sbuxu"
 
 [node name="GridCellComponent" type="Node3D" parent="." node_paths=PackedStringArray("CellMeshNode", "LabelNode")]

@@ -1,5 +1,4 @@
 using Godot;
-using DiceRolling.Helpers;
 using DiceRolling.Id;
 
 namespace DiceRolling.Entities;
@@ -12,7 +11,6 @@ public abstract partial class Entity3D : Node3D {
 
     private IdentifiableResource? _data;
 
-    [Export]
     public IdentifiableResource? Data {
         get => _data;
         set {
@@ -25,6 +23,7 @@ public abstract partial class Entity3D : Node3D {
     }
 
     protected void NotifyUpdate() {
+        GD.Print($"Entity Updated: {Data?.Id}");
         EmitSignal(nameof(EntityUpdated));
     }
 

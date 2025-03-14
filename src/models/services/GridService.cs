@@ -11,22 +11,8 @@ public class GridService {
 
     private GridService() { }
 
-    public static void ResizeCells(Godot.Collections.Array<int> cells, int rows, int columns) {
-        cells.Resize(rows * columns);
-    }
-
     public static int GetCellIndex(int row, int column, int columns) {
         return row * columns + column;
-    }
-
-    public static int GetCell(Godot.Collections.Array<int> cells, int row, int column, int columns) {
-        ArgumentNullException.ThrowIfNull(cells);
-        return cells[GetCellIndex(row, column, columns)];
-    }
-
-    public static void SetCell(Godot.Collections.Array<int> cells, int row, int column, int value, int columns) {
-        ArgumentNullException.ThrowIfNull(cells);
-        cells[GetCellIndex(row, column, columns)] = value;
     }
 
     public static GridCellType CreateCellType(int value, int row, int column, int columns, string prefix = "") {
@@ -38,12 +24,6 @@ public class GridService {
             Index = index,
             Label = string.IsNullOrEmpty(prefix) ? $"({row},{column})" : $"{prefix}{index}"
         };
-    }
-
-    public static GridCellType? GetCellType(Godot.Collections.Array<int> cells, int row, int column, int columns, string prefix = "") {
-        if (cells == null) return null;
-        int value = GetCell(cells, row, column, columns);
-        return CreateCellType(value, row, column, columns, prefix);
     }
 
     public static void ResizeGridCells(Godot.Collections.Array<GridCellType?>? cells, int rows, int columns, string prefix = "") {
@@ -102,10 +82,6 @@ public class GridService {
                 cell.NotifyChanged();
             }
         }
-    }
-
-    public static void SetCellValue(Godot.Collections.Array<GridCellType?>? cells, int row, int column, int value, int columns) {
-        SetGridCellValue(cells, row, column, value, columns);
     }
 
     public static void AssignCharactersToGrid(GridType grid) {

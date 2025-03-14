@@ -76,27 +76,37 @@ public partial class CharacterGridCellComponent : Node3D {
 
     private void UpdateCharacter() {
         if (_cellData == null) {
+            GD.Print("CharacterGridCellComponent: _cellData é null, destruindo CharacterEntity");
             DestroyCharacterEntity();
             return;
+        }
+
+        GD.Print($"UpdateCharacter: Cell '{_cellData.Label}', IsOccupied: {_cellData.IsOccupied}, Has Character: {_cellData.Character != null}");
+
+        if (_cellData.Character != null && !_cellData.IsOccupied) {
+            _cellData.IsOccupied = true;
+            _cellData.NotifyChanged();
         }
 
         bool hasCharacter = _cellData.IsOccupied && _cellData.Character != null;
 
         if (hasCharacter) {
-            // If no character entity exists but we have character data, create it
             if (_characterEntity == null) {
+                GD.Print("CharacterGridCellComponent: Criando nova CharacterEntity");
                 CreateCharacterEntity();
             }
 
-            // Update character data
             if (_characterEntity != null && _cellData.Character != null) {
+                GD.Print($"CharacterGridCellComponent: Atualizando CharacterData para {_cellData.Character.Name}");
                 _characterEntity.CharacterData = _cellData.Character;
                 _characterEntity.Visible = true;
+
+                _characterEntity.UpdateCharacterData.Call();
             }
         }
         else {
-            // If no character should be here, hide or destroy entity
             if (_characterEntity != null) {
+                GD.Print("CharacterGridCellComponent: Escondendo CharacterEntity existente");
                 _characterEntity.Visible = false;
             }
         }

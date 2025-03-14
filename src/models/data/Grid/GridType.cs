@@ -91,23 +91,13 @@ public partial class GridType : IdentifiableResource, IGrid {
         return GridService.GetGridCell(Cells, row, column, _columns);
     }
 
-    public void SetCell(int row, int column, int value) {
-        if (Cells == null) {
-            GD.PrintErr("Cells collection is null.");
-            return;
-        }
-
-        GridService.SetGridCellValue(Cells, row, column, value, _columns);
-        EmitSignal(nameof(GridChanged));
-    }
-
     public void SetCellValue(int row, int column, int value) {
         if (Cells == null) {
             GD.PrintErr("Cells collection is null.");
             return;
         }
 
-        GridService.SetCellValue(Cells, row, column, value, _columns);
+        GridService.SetGridCellValue(Cells, row, column, value, _columns);
         EmitSignal(nameof(GridChanged));
     }
 

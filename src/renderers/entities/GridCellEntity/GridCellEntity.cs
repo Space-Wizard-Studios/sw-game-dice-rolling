@@ -1,5 +1,4 @@
 using Godot;
-using DiceRolling.Entities;
 using DiceRolling.Grids;
 
 namespace DiceRolling.Entities;

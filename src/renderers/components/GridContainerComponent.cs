@@ -15,7 +15,7 @@ public partial class GridContainerComponent : Node3D {
     [Export] public Vector3 CellSize { get; set; } = new Vector3(1, 0, 1);
     [Export] public Vector3 GridOffset { get; set; } = Vector3.Zero;
 
-    private Dictionary<string, GridCellEntity> _cellEntities = new();
+    private readonly Dictionary<string, GridCellEntity> _cellEntities = [];
 
     public override void _Ready() {
         _parent = GetParent() as GridEntity;

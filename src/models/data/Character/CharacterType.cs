@@ -130,7 +130,7 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
 
     public int GetAttributeCurrentValue(AttributeType type) {
         if (!_attributeCurrentValueCache.TryGetValue(type, out var value)) {
-            value = CharacterService.Instance.GetAttributeCurrentValue(this, type);
+            value = CharacterService.GetAttributeCurrentValue(this, type);
             _attributeCurrentValueCache[type] = value;
         }
         return value;
@@ -138,7 +138,7 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
 
     public int GetAttributeMaxValue(AttributeType type) {
         if (!_attributeMaxValueCache.TryGetValue(type, out var value)) {
-            value = CharacterService.Instance.GetAttributeMaxValue(this, type);
+            value = CharacterService.GetAttributeMaxValue(this, type);
             _attributeMaxValueCache[type] = value;
         }
         return value;
@@ -146,23 +146,23 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
 
     public int GetAttributeBaseValue(AttributeType type) {
         if (!_attributeBaseValueCache.TryGetValue(type, out var value)) {
-            value = CharacterService.Instance.GetAttributeBaseValue(this, type);
+            value = CharacterService.GetAttributeBaseValue(this, type);
             _attributeBaseValueCache[type] = value;
         }
         return value;
     }
 
     public void UpdateAttributeCurrentValue(AttributeType type, int newValue) {
-        CharacterService.Instance.UpdateAttributeCurrentValue(this, type, newValue);
+        CharacterService.UpdateAttributeCurrentValue(this, type, newValue);
         _attributeCurrentValueCache[type] = newValue;
     }
 
     public void AddAction(CharacterAction action) {
-        CharacterService.Instance.AddAction(this, action);
+        CharacterService.AddAction(this, action);
     }
 
     public void RemoveAction(CharacterAction action) {
-        CharacterService.Instance.RemoveAction(this, action);
+        CharacterService.RemoveAction(this, action);
     }
 
     public void ValidateConstructor() {

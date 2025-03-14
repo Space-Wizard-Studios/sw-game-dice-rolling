@@ -55,22 +55,22 @@ public class CharacterService {
         }
     }
 
-    public int GetAttributeCurrentValue(CharacterType character, AttributeType type) {
+    public static int GetAttributeCurrentValue(CharacterType character, AttributeType type) {
         var attribute = character.Attributes.FirstOrDefault(attr => attr.Type == type);
         return attribute is not null ? attribute.CurrentValue : 0;
     }
 
-    public int GetAttributeMaxValue(CharacterType character, AttributeType type) {
+    public static int GetAttributeMaxValue(CharacterType character, AttributeType type) {
         var attribute = character.Attributes.FirstOrDefault(attr => attr.Type == type);
         return attribute is not null ? attribute.MaxValue : 0;
     }
 
-    public int GetAttributeBaseValue(CharacterType character, AttributeType type) {
+    public static int GetAttributeBaseValue(CharacterType character, AttributeType type) {
         var attribute = character.Attributes.FirstOrDefault(attr => attr.Type == type);
         return attribute is not null ? attribute.BaseValue : 0;
     }
 
-    public void UpdateAttributeCurrentValue(CharacterType character, AttributeType type, int newValue) {
+    public static void UpdateAttributeCurrentValue(CharacterType character, AttributeType type, int newValue) {
         var attribute = character.Attributes.FirstOrDefault(attr => attr.Type == type);
         if (attribute is not null) {
             attribute.CurrentValue = newValue;
@@ -78,12 +78,12 @@ public class CharacterService {
         }
     }
 
-    public void AddAction(CharacterType character, CharacterAction action) {
+    public static void AddAction(CharacterType character, CharacterAction action) {
         ArgumentNullException.ThrowIfNull(action);
         character.Actions.Add(action);
     }
 
-    public void RemoveAction(CharacterType character, CharacterAction action) {
+    public static void RemoveAction(CharacterType character, CharacterAction action) {
         ArgumentNullException.ThrowIfNull(action);
         character.Actions.Remove(action);
     }

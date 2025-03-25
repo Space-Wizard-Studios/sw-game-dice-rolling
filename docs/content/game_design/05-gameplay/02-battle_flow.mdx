@@ -1,28 +1,113 @@
-import ZoomableDiagram from "../../../src/components/ZoomableDiagram/index";
+import ZoomableDiagram from "../../../src/components/ZoomableDiagram/index.tsx";
 
-# Fluxo de Batalha
+# Fluxo de batalha:
 
-## Fase 1: Preparação da Batalha
+## Eventos do Fluxo de Batalha
 
-1. Os inimigos são gerados e exibidos para o jogador;
-2. Os personagens da equipe inimiga são posicionados no campo de batalha;
-3. Os personagens da equipe dos jogadores são posicionados no campo de batalha;
-4. A fila de iniciativa é definida, organizando todos os personagens de acordo com suas velocidades.
-   - Em caso de empate, o desempate é determinado pela velocidade base do personagem, sem modificadores;
-   - Se mesmo assim houver empate, a ordem é aleatória.
-5. A batalha começa.
+- Estados da Batalha
+
+  - Batalha Iniciada
+  - Batalha Finalizada
+  - Batalha Pausada
+  - Batalha Continuada
+
+- Fase 1: Preparação:
+
+  - Etapa 1: Geração de Inimigos
+  - Etapa 2: Posicionamento dos Personagens
+  - Etapa 3: Criação da Fila de Iniciativa
+  - Etapa 4: Transição para Rodadas
+
+- Iniciativa
+
+  - Atualiza a ordem quando um personagem é adicionado à fila
+  - Atualiza a ordem quando um personagem é removido da fila
+  - Atualiza a ordem quando a iniciativa de um personagem é alterada
+
+- Fase 2: Rodadas:
+
+  - Etapa 1: Início da Rodada
+  - Etapa 2: Declaração de Ações
+  - Etapa 3: Resolução em Turnos
+  - Etapa 4: Fim da Rodada
+
+- Eventos de inimigos
+
+  - Inimigo declara ação
+
+- Eventos de jogadores
+
+  - Personagem rola para coletar mana
+  - Jogador declara ação
+  - Jogador seleciona alvo
+  - Jogador cancela ação
+
+- Eventos dos turnos
+    - Turno de um personagem começa
+    - Personagem executa ação
+    - Personagem é movido para o final da fila de iniciativa
+    - Turno de um personagem termina
+
+- Verificações
+    - Verifica se um novo turno deve começar ou se a rodada deve terminar
+    - Verifica se uma nova rodada deve começar ou se a batalha deve terminar
+
+- Fase 3: Resultado da Batalha
+
+  - Etapa 1: Verificação do Resultado
+  - Etapa 2: Transição para o Pós-Batalha
+
+- Fase 4: Pós-Batalha
+  - Recompensas
+    ou
+  - Game Over
 
 ---
 
-## Fase 2: Rodadas
+## Fases da Batalha
 
-### Declaração de Ações
+### Fase 1: Preparação da Batalha
 
-1. Os inimigos declaram suas ações e alvos;
-2. Para cada personagem na equipe dos jogadores:
-   - O personagem rola os dados equipados para coletar mana;
-   - Os jogadores devem escolher ações e alvos.
-3. Após todas as ações serem declaradas, os turnos são resolvidos.
+1. Geração de Inimigos
+
+   - Os inimigos são gerados e exibidos para o jogador;
+
+2. Posicionamento dos Personagens
+
+   - Os personagens da equipe dos jogadores e da equipe inimiga são posicionados nas células da grid de batalha;
+
+3. Fila de Iniciativa
+
+   - A fila de iniciativa é definida, organizando todos os personagens de acordo com suas velocidades;
+   - Em caso de empate, o desempate é determinado pela velocidade base do personagem, sem modificadores;
+   - Se mesmo assim houver empate, a ordem é aleatória;
+
+4. Início das Rodadas
+   - Transição para a primeira rodada.
+
+---
+
+### Fase 2: Rodadas
+
+1. Início da Rodada
+
+2. Declaração de Ações
+
+   - Inimigos declaram suas ações e alvos;
+   - Personagens dos Jogadores rolam os dados equipados para coletar mana;
+   - Jogadores escolhem ações e alvos para seus personagens;
+   - Transição para a resolução dos turnos.
+
+3. Resolução em Turnos
+
+   - Cada personagem executa sua ação, na ordem da fila de iniciativa;
+   - Se um personagem morrer, ele é removido da fila de iniciativa;
+   - Personagens são movidos para o final da fila após executar sua ação.
+
+4. Fim da Rodada
+   - Após todos os personagens terem agido, a rodada termina;
+   - Se apenas uma equipe tiver personagens vivos, a batalha termina;
+   - Caso contrário, uma nova rodada começa.
 
 #### Pré-visualização de Ações
 
@@ -30,22 +115,26 @@ Durante a declaração de ações, os jogadores podem **pré-visualizar** os res
 
 Por exemplo, ao selecionar um inimigo como alvo, o jogador pode ver **o dano estimado** e **quaisquer efeitos colaterais** que a ação possa causar. Da mesma forma, pode verificar o impacto das ações inimigas e tentar mitigar seus efeitos.
 
-### Turnos
+---
 
-1. Começando pelo primeiro personagem na fila de iniciativa, cada personagem executa sua ação;
-2. Se um personagem morrer como resultado de uma ação, ele é removido do campo de batalha e da fila antes de agir;
-3. Após executar sua ação, o personagem é movido para o final da fila de iniciativa.
+### Fase 3: Resultado da Batalha
 
-### Fim da Rodada
+1. Verificação
 
-A rodada termina quando todos os personagens na fila de iniciativa tiveram seu turno e, então, é verificado:
-   - Se apenas um lado tiver personagens vivos, a batalha termina;
-   - Caso contrário, uma nova rodada começa.
+   - Se todos os inimigos forem derrotados, o jogador vence a batalha;
+   - Se todos os personagens dos jogadores forem derrotados, a batalha termina com um game over.
+
+2. Transição para o Pós-Batalha
 
 ---
 
-### Fase 3: Resultado da Rodada
+### Fase 4: Pós-Batalha
 
-2. No fim da batalha, o resultado é determinado de acordo com o estado das equipes:
-   - **Vitória**: Se todos os inimigos forem derrotados, o jogador vence e recebe recompensas.
-   - **Derrota**: Se todos os personagens dos jogadores forem derrotados, a batalha termina com um game over.
+- Recompensas
+  - O jogador recebe recompensas pela vitória, como experiência, ouro e itens;
+  - Os personagens podem subir de nível e aprender novas habilidades.
+
+ou
+
+- Game Over
+  - Tela exibida ao final de uma sessão de jogo, onde o jogador pode carregar um jogo salvo, voltar ao menu principal ou sair do jogo.

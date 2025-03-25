@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 
 using DiceRolling.Characters;
 using DiceRolling.Actions;
-using DiceRolling.Logs;
-using DiceRolling.Stores;
-using DiceRolling.Events;  // Adicionar esse namespace
+using DiceRolling.Events;
 
 namespace DiceRolling.Controllers;
 
@@ -31,12 +29,7 @@ public partial class TurnController : RefCounted {
             _declaredTargets[character.Id] = target;
         }
 
-        GameLogStore.Instance.AddGameLogLine(
-            new GameLogLine(GameLogLineType.Info,
-                $"{character.Name} preparou {action.Name}" +
-                (target != null ? $" contra {target.Name}." : ".")
-            )
-        );
+        GD.Print($"{character.Name} preparou {action.Name}{(target != null ? $" contra {target.Name}." : ".")}");
 
         BattleEvents.Instance.EmitActionDeclared(character, action, target ?? character);
     }
@@ -88,9 +81,7 @@ public partial class TurnController : RefCounted {
 
         BattleEvents.Instance.EmitTurnStarted(character);
 
-        GameLogStore.Instance.AddGameLogLine(
-            new GameLogLine(GameLogLineType.Info, $"Turno de {character.Name} iniciado.")
-        );
+        GD.Print($"Turno de {character.Name} iniciado.");
 
         await Task.Delay((int)(_actionDelay * 1000));
 
@@ -104,9 +95,7 @@ public partial class TurnController : RefCounted {
 
         BattleEvents.Instance.EmitTurnEnded(character);
 
-        GameLogStore.Instance.AddGameLogLine(
-            new GameLogLine(GameLogLineType.Info, $"Turno de {character.Name} finalizado.")
-        );
+        GD.Print($"Turno de {character.Name} finalizado.");
 
         await Task.Delay((int)(_actionDelay * 1000));
 
@@ -118,9 +107,7 @@ public partial class TurnController : RefCounted {
 
     private void ExecuteCharacterAction(CharacterType character) {
         if (!_declaredActions.TryGetValue(character.Id, out var action)) {
-            GameLogStore.Instance.AddGameLogLine(
-                new GameLogLine(GameLogLineType.Info, $"{character.Name} não executou nenhuma ação.")
-            );
+            GD.Print($"{character.Name} não executou nenhuma ação.");
             return;
         }
 
@@ -135,20 +122,13 @@ public partial class TurnController : RefCounted {
             actionSuccess = action.Do(context);
 
             if (actionSuccess) {
-                GameLogStore.Instance.AddGameLogLine(
-                    new GameLogLine(GameLogLineType.Action,
-                        $"{character.Name} executou {action.Name}" +
-                        (target != null ? $" contra {target.Name}." : ".")
-                    )
-                );
+                GD.Print($"{character.Name} executou {action.Name}{(target != null ? $" contra {target.Name}." : ".")}");
 
                 BattleEvents.Instance.EmitActionExecuted(character, action, target ?? character);
 
                 if (target != null && IsCharacterDefeated(target)) {
                     // Registrar a derrota
-                    GameLogStore.Instance.AddGameLogLine(
-                        new GameLogLine(GameLogLineType.Combat, $"{target.Name} foi derrotado!")
-                    );
+                    GD.Print($"{target.Name} foi derrotado!");
 
                     _initiativeController.RemoveFromQueue(target);
 
@@ -156,15 +136,11 @@ public partial class TurnController : RefCounted {
                 }
             }
             else {
-                GameLogStore.Instance.AddGameLogLine(
-                    new GameLogLine(GameLogLineType.Action, $"{character.Name} falhou ao executar {action.Name}.")
-                );
+                GD.Print($"{character.Name} falhou ao executar {action.Name}.");
             }
         }
         catch (Exception ex) {
-            GameLogStore.Instance.AddGameLogLine(
-                new GameLogLine(GameLogLineType.Error, $"Erro ao executar ação: {ex.Message}")
-            );
+            GD.Print($"Erro ao executar ação: {ex.Message}");
         }
         finally {
             _declaredActions.Remove(character.Id);
@@ -175,9 +151,7 @@ public partial class TurnController : RefCounted {
     private void FinishAllTurns() {
         _isExecutingTurns = false;
 
-        GameLogStore.Instance.AddGameLogLine(
-            new GameLogLine(GameLogLineType.Info, "Todos os turnos foram concluídos.")
-        );
+        GD.Print("Todos os turnos foram concluídos.");
 
         BattleEvents.Instance.EmitAllTurnsCompleted();
     }

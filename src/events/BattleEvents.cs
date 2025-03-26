@@ -1,5 +1,5 @@
-using DiceRolling.Characters;
 using Godot;
+using DiceRolling.Characters;
 
 namespace DiceRolling.Controllers;
 
@@ -23,34 +23,34 @@ public partial class BattleEvents : Node {
 
     // Battle State Events
     //  - Battle started
-    //  - Battle ended
     //  - Battle paused
     //  - Battle resumed
+    //  - Battle ended
     [Signal] public delegate void BattleStartedEventHandler(Godot.Collections.Array playerTeam, Godot.Collections.Array enemyTeam);
-    [Signal] public delegate void BattleEndedEventHandler(bool victory);
     [Signal] public delegate void BattlePausedEventHandler();
     [Signal] public delegate void BattleResumedEventHandler();
+    [Signal] public delegate void BattleEndedEventHandler(bool victory);
 
     // Battle State Signals
     public void EmitBattleStarted(Godot.Collections.Array playerTeam, Godot.Collections.Array enemyTeam) => EmitSignal(nameof(BattleStarted), playerTeam, enemyTeam);
-    public void EmitBattleEnded(bool victory) => EmitSignal(nameof(BattleEnded), victory);
     public void EmitBattlePaused() => EmitSignal(nameof(BattlePaused));
     public void EmitBattleResumed() => EmitSignal(nameof(BattleResumed));
+    public void EmitBattleEnded(bool victory) => EmitSignal(nameof(BattleEnded), victory);
 
     // Phase 1: Battle Preparation Events
     //  - Step 1: Enemies generation
     //  - Step 2: Characters position
-    //  - Step 3: Initiative queue creation
+    //  - Step 3: Initiative queue setup
     //  - Step 4: Transition to Rounds Phase
     [Signal] public delegate void EnemiesGeneratedEventHandler(Godot.Collections.Array enemies);
     [Signal] public delegate void CharactersPositionedEventHandler(Godot.Collections.Array characters);
-    [Signal] public delegate void InitiativeQueueCreatedEventHandler(Godot.Collections.Array queue);
+    [Signal] public delegate void InitiativeQueueSetupEventHandler(Godot.Collections.Array queue);
     [Signal] public delegate void TransitionedToRoundsEventHandler(int roundNumber);
 
     // Battle Preparation Signals
     public void EmitEnemiesGenerated(Godot.Collections.Array enemies) => EmitSignal(nameof(EnemiesGenerated), enemies);
     public void EmitCharactersPositioned(Godot.Collections.Array characters) => EmitSignal(nameof(CharactersPositioned), characters);
-    public void EmitInitiativeQueueCreated(Godot.Collections.Array queue) => EmitSignal(nameof(InitiativeQueueCreated), queue);
+    public void EmitInitiativeQueueCreated(Godot.Collections.Array queue) => EmitSignal(nameof(InitiativeQueueSetup), queue);
     public void EmitTransitionedToRounds() => EmitSignal(nameof(TransitionedToRounds));
 
     // Initiative Events
@@ -90,17 +90,17 @@ public partial class BattleEvents : Node {
     public void EmitEnemyActionDeclared(CharacterType character) => EmitSignal(nameof(EnemyActionDeclared), character);
 
     // Player Characters Events
-    //  - Character rolls dice for mana
+    //  - Character rolls dice for energy
     //  - Player declares an action for a character
     //  - Player selects a target for an action
     //  - Player cancels an action for a character
-    [Signal] public delegate void PlayerManaRolledEventHandler(CharacterType character);
+    [Signal] public delegate void PlayerEnergyRolledEventHandler(CharacterType character);
     [Signal] public delegate void PlayerActionDeclaredEventHandler(CharacterType character);
     [Signal] public delegate void PlayerTargetSelectedEventHandler(CharacterType character, CharacterType target);
     [Signal] public delegate void PlayerActionCancelledEventHandler(CharacterType character);
 
     // Player Characters Signals
-    public void EmitPlayerManaRolled(CharacterType character) => EmitSignal(nameof(PlayerManaRolled), character);
+    public void EmitPlayerEnergyRolled(CharacterType character) => EmitSignal(nameof(PlayerEnergyRolled), character);
     public void EmitPlayerActionDeclared(CharacterType character) => EmitSignal(nameof(PlayerActionDeclared), character);
     public void EmitPlayerTargetSelected(CharacterType character, CharacterType target) => EmitSignal(nameof(PlayerTargetSelected), character, target);
     public void EmitPlayerActionCancelled(CharacterType character) => EmitSignal(nameof(PlayerActionCancelled), character);
@@ -124,12 +124,11 @@ public partial class BattleEvents : Node {
     // Turn Check Events
     // - Check if the next turn is from a player character
     [Signal] public delegate void CheckNextTurnEventHandler();
+    // Check if a new round starts or the battle ends
+    [Signal] public delegate void CheckNextRoundEventHandler();
 
     // Turn Check Signals
     public void EmitCheckNextTurn() => EmitSignal(nameof(CheckNextTurn));
-
-    // Check if a new round starts or the battle ends
-    [Signal] public delegate void CheckNextRoundEventHandler();
 
     // Phase 3: Battle Result Events
     //  - Step 1: Result checking

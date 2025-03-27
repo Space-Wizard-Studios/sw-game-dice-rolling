@@ -26,7 +26,7 @@ public partial class PostBattleController : RefCounted {
 
     // Exibe a tela de vitória
     public static void ShowVictoryScreen() {
-        BattleManager.Instance.SetBattleState(BattleState.RewardsDistribution);
+        BattleController.Instance.SetBattleState(BattleState.RewardsDistribution);
 
         // TODO
         // Implementar lógica para mostrar a tela de vitória
@@ -38,7 +38,7 @@ public partial class PostBattleController : RefCounted {
 
     // Exibe a tela de derrota
     public static void ShowGameOverScreen() {
-        BattleManager.Instance.SetBattleState(BattleState.GameOver);
+        BattleController.Instance.SetBattleState(BattleState.GameOver);
 
         // TODO
         // Implementar lógica para mostrar a tela de game over

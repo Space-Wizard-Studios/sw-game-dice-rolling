@@ -25,7 +25,6 @@ public partial class BattleResultsController : RefCounted {
 
     // Verifica se houve vitória ou derrota
     public static void CheckBattleResult() {
-        BattleManager.Instance.SetBattleState(BattleState.ResultChecking);
 
         bool victory = CheckVictoryCondition();
 
@@ -54,8 +53,6 @@ public partial class BattleResultsController : RefCounted {
 
     // Transição para a fase de pós-batalha
     private static void TransitionToPostBattle(bool victory) {
-        BattleManager.Instance.SetBattleState(BattleState.PostBattleTransition);
-
         // Notifica o fim da batalha
         BattleEvents.Instance.EmitBattleEnded(victory);
     }

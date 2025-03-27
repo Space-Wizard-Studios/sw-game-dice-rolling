@@ -20,50 +20,54 @@ namespace DiceRolling.Controllers;
 /// </remarks>
 public partial class ActionsController : RefCounted {
     public ActionsController() {
-        // Conecta-se aos eventos necessários
+        // Connect to events
         BattleEvents.Instance.PlayerActionDeclared += OnPlayerActionDeclared;
         BattleEvents.Instance.PlayerTargetSelected += OnPlayerTargetSelected;
         BattleEvents.Instance.PlayerActionCancelled += OnPlayerActionCancelled;
     }
 
-    // Inicia a fase de declaração de ações
+    /// <summary>
+    /// Starts the action declaration phase
+    /// </summary>
     public static void StartActionsDeclaration() {
-        // Primeiro, declara as ações dos inimigos (IA)
+        // Declare enemy actions first
         DeclareEnemyActions();
 
-        // TODO
-        // Em seguida, permite que os jogadores declarem suas ações
-        // (Este é um processo assíncrono que será controlado pela UI)
-        // O método será concluído quando todos os jogadores declararem suas ações
+        // Player actions will be declared asynchronously through the UI
+        // The phase will complete when all characters have declared actions
     }
 
-    // Declara ações para inimigos usando IA
+    /// <summary>
+    /// Handles enemy action declaration using AI
+    /// </summary>
     private static void DeclareEnemyActions() {
-        // TODO
-        // Implementar a lógica de IA para determinar ações dos inimigos
-        // Para cada inimigo:
-        //   - Escolher a melhor ação baseada na situação atual
-        //   - Escolher o melhor alvo
-        //   - Emitir o evento EnemyActionDeclared
+        // TODO: Implement AI logic to determine enemy actions
+        // For each enemy:
+        //   - Choose the best action based on the current situation
+        //   - Choose the best target
+        //   - Emit EnemyActionDeclared event
     }
 
-    // Verifica se todos os personagens declararam suas ações
+    /// <summary>
+    /// Checks if all characters have declared their actions
+    /// </summary>
     private static bool AllActionsAreDeclared() {
-        // TODO
-        // Implementar lógica para verificar se todos os personagens declararam suas ações
+        // TODO: Implement logic to check if all characters have declared actions
         return false; // Placeholder
     }
 
-    // Finaliza a declaração de ações e avança para a resolução de turnos
+    /// <summary>
+    /// Completes the action declaration phase
+    /// </summary>
     private static void CompleteActionsDeclaration() {
+        // Notify that all actions have been declared
         BattleEvents.Instance.EmitActionsDeclared();
 
-        // Avança para a próxima fase
-        RoundController roundController = new();
-        roundController.StartTurnsResolutionPhase();
+        // Turn resolution will be initiated by the TurnManager's event handler
     }
 
-    // Eventos
+    // Event handlers
+
     private void OnPlayerActionDeclared(CharacterType character) {
         CheckIfAllActionsDeclared();
     }
@@ -73,8 +77,7 @@ public partial class ActionsController : RefCounted {
     }
 
     private void OnPlayerActionCancelled(CharacterType character) {
-        // TODO
-        // Lógica para lidar com o cancelamento de ação
+        // TODO: Handle action cancellation
     }
 
     private static void CheckIfAllActionsDeclared() {

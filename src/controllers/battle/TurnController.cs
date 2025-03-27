@@ -1,5 +1,7 @@
 using Godot;
 using DiceRolling.Characters;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DiceRolling.Controllers;
 
@@ -8,6 +10,16 @@ namespace DiceRolling.Controllers;
 /// </summary>
 /// <remarks>
 /// O <c>TurnController</c> é responsável por controlar a execução das ações dos personagens e garantir a resolução ordenada dos turnos na batalha.
+///     <list type="table">
+///         <listheader>
+///             <term>Gestão da iniciativa</term>
+///             <description>Calcula, atualiza e mantém a ordem de ação dos personagens</description>
+///         </listheader>
+///         <item>- Calcula a ordem de iniciativa inicial com base nos atributos dos personagens</item>
+///         <item>- Gerencia modificadores de iniciativa que podem alterar a ordem durante a batalha</item>
+///         <item>- Atualiza a fila de iniciativa quando personagens entram ou saem da batalha</item>
+///         <item>- Fornece informações sobre os próximos personagens a agir, permitindo a continuidade do combate</item>
+///     </list>
 ///     <list type="table">
 ///         <listheader>
 ///             <term>Resolução de turnos</term>
@@ -20,85 +32,171 @@ namespace DiceRolling.Controllers;
 ///     </list>
 /// </remarks>
 public partial class TurnController : RefCounted {
-    private InitiativeController _initiativeController;
+    // The initiative queue (order of characters' turns)
+    private List<CharacterType> _initiativeQueue = [];
+    public List<CharacterType> InitiativeQueue => _initiativeQueue;
 
     public TurnController() {
-        // Inicializa dependências
-        _initiativeController = new InitiativeController();
-
-        // Conecta-se aos eventos necessários
-        BattleEvents.Instance.ActionPerformed += OnActionPerformed;
+        // Connect to relevant events
+        ConnectEvents();
     }
 
-    // Inicia a fase de resolução de turnos
+    private void ConnectEvents() {
+        BattleEvents.Instance.CharactersPositioned += OnCharactersPositioned;
+        BattleEvents.Instance.ActionsDeclared += OnActionsDeclared;
+        BattleEvents.Instance.ActionPerformed += OnActionPerformed;
+        BattleEvents.Instance.CharacterAddedToQueue += OnCharacterAddedToQueue;
+        BattleEvents.Instance.CharacterRemovedFromQueue += OnCharacterRemovedFromQueue;
+        BattleEvents.Instance.CharacterInitiativeModified += OnCharacterInitiativeModified;
+    }
+
+    // Initiative queue management
+
+    /// Calculates the initial turn order based on characters' initiative
+    private void CalculateInitialOrder(Godot.Collections.Array characters) {
+        _initiativeQueue.Clear();
+
+        // Add all characters to the queue
+        foreach (CharacterType character in characters.Cast<Godot.Variant>().Select(v => v.As<CharacterType>())) {
+            _initiativeQueue.Add(character);
+        }
+
+        // Sort by initiative (descending)
+        SortQueue();
+
+        // Notify that the queue has been created
+        BattleEvents.Instance.EmitInitiativeQueueCreated(new Godot.Collections.Array(_initiativeQueue.ToArray()));
+
+        // Transition to rounds phase
+        BattleController.Instance.TransitionToRounds();
+    }
+
+    /// Sort the initiative queue based on character initiative values
+    private void SortQueue() {
+        _initiativeQueue = _initiativeQueue.OrderByDescending(c => GetCharacterInitiative(c)).ToList();
+    }
+
+    /// Gets the initiative value for a character (speed + modifiers)
+    private static int GetCharacterInitiative(CharacterType character) {
+        // TODO: Implement logic to get initiative (speed + modifiers)
+        return 0; // Placeholder
+    }
+
+    /// Adds a character to the initiative queue
+    public void AddCharacterToQueue(CharacterType character) {
+        if (!_initiativeQueue.Contains(character)) {
+            _initiativeQueue.Add(character);
+            SortQueue();
+            BattleEvents.Instance.EmitCharacterAddedToQueue(character);
+        }
+    }
+
+    /// Removes a character from the initiative queue
+    public void RemoveCharacterFromQueue(CharacterType character) {
+        if (_initiativeQueue.Contains(character)) {
+            _initiativeQueue.Remove(character);
+            BattleEvents.Instance.EmitCharacterRemovedFromQueue(character);
+        }
+    }
+
+    /// Moves a character to the end of the initiative queue
+    public void MoveCharacterToEndOfQueue(CharacterType character) {
+        if (_initiativeQueue.Contains(character)) {
+            _initiativeQueue.Remove(character);
+            _initiativeQueue.Add(character);
+            BattleEvents.Instance.EmitCharacterMovedToEndOfQueue(character);
+        }
+    }
+
+    /// Gets the next character to act
+    public CharacterType? GetNextCharacter() {
+        return _initiativeQueue.Count > 0 ? _initiativeQueue[0] : null;
+    }
+
+    // Turn resolution methods
+
+    /// Begins the process of resolving turns
     public void StartTurnsResolution() {
-        // Começa processando o primeiro personagem na fila de iniciativa
         ProcessNextCharacterTurn();
     }
 
-    // Processa o turno do próximo personagem na fila
+    /// Process the turn for the next character in the queue
     private void ProcessNextCharacterTurn() {
-        CharacterType? nextCharacter = _initiativeController.GetNextCharacter();
+        CharacterType? nextCharacter = GetNextCharacter();
 
         if (nextCharacter != null) {
-            // Inicia o turno do personagem
             StartCharacterTurn(nextCharacter);
         }
         else {
-            // Se não há mais personagens, finaliza a fase de resolução
+            // If no more characters, the turn resolution is complete
             BattleEvents.Instance.EmitTurnsResolved();
         }
     }
 
-    // Inicia o turno de um personagem
+    /// Start a character's turn
     private static void StartCharacterTurn(CharacterType character) {
         BattleEvents.Instance.EmitTurnStarted(character);
-
-        // Executa a ação do personagem
         ExecuteCharacterAction(character);
     }
 
-    // Executa a ação declarada pelo personagem
+    /// Execute the action declared by the character
     private static void ExecuteCharacterAction(CharacterType character) {
+        // TODO: Execute the character's action
+        // This depends on the action system implementation
 
-        // TODO
-        // Implementar lógica para executar a ação do personagem
-        // Esta parte depende do sistema de ações do jogo
-
-        // Emite evento de ação executada
+        // Notify that the action has been executed
         BattleEvents.Instance.EmitActionPerformed(character);
     }
 
-    // Finaliza o turno de um personagem
+    /// End a character's turn and prepare for the next
     private void EndCharacterTurn(CharacterType character) {
-        // Move o personagem para o final da fila de iniciativa
-        _initiativeController.MoveCharacterToEndOfQueue(character);
+        // Move character to the end of queue
+        MoveCharacterToEndOfQueue(character);
 
-        // Emite evento de fim de turno
+        // Emit turn ended event
         BattleEvents.Instance.EmitTurnEnded(character);
 
-        // Verifica se há condições para continuar
-        if (CheckBattleContinue()) {
-            // Processa o próximo personagem
+        // Check if we should continue to next turn
+        if (ShouldContinueBattle()) {
             ProcessNextCharacterTurn();
         }
         else {
-            // Finaliza a fase de resolução de turnos
+            // Battle round is complete
             BattleEvents.Instance.EmitTurnsResolved();
         }
     }
 
-    // ? Deve ser feito aqui, no RoundController ou em outro lugar?
-    // Verifica se um novo turno deve começar ou se a rodada deve terminar
-    // Verifica se uma nova rodada deve começar ou se a batalha deve terminar
-    private static bool CheckBattleContinue() {
-        // TODO
-        // Implementar lógica para verificar se ambas equipes ainda têm personagens vivos
+    /// Check if the battle should continue
+    private static bool ShouldContinueBattle() {
+        // TODO: Implement logic to check if both teams still have characters alive
         return true; // Placeholder
     }
 
-    // Eventos
+    // Event handlers
+
+    private void OnCharactersPositioned(Godot.Collections.Array characters) {
+        CalculateInitialOrder(characters);
+    }
+
+    private void OnActionsDeclared() {
+        StartTurnsResolution();
+    }
+
     private void OnActionPerformed(CharacterType character) {
         EndCharacterTurn(character);
+    }
+
+    private void OnCharacterAddedToQueue(CharacterType character) {
+        SortQueue();
+    }
+
+    private void OnCharacterRemovedFromQueue(CharacterType character) {
+        // The character is already removed in RemoveCharacterFromQueue
+        // Just resort the queue
+        SortQueue();
+    }
+
+    private void OnCharacterInitiativeModified(CharacterType character) {
+        SortQueue();
     }
 }

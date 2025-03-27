@@ -36,13 +36,13 @@ public partial class RoundController : RefCounted {
     // Inicia um novo round
     public void StartRound() {
         // Incrementa o contador de rounds
-        BattleManager.Instance.AdvanceRound();
+        BattleController.Instance.AdvanceRound();
 
         // Atualiza o estado da batalha
-        BattleManager.Instance.SetBattleState(BattleState.RoundStart);
+        BattleController.Instance.SetBattleState(BattleState.RoundStart);
 
         // Notifica o início do round
-        BattleEvents.Instance.EmitRoundStarted(BattleManager.Instance.CurrentRound);
+        BattleEvents.Instance.EmitRoundStarted(BattleController.Instance.CurrentRound);
 
         // Passa para a fase de declaração de ações
         StartActionsDeclarationPhase();
@@ -50,7 +50,7 @@ public partial class RoundController : RefCounted {
 
     // Inicia a fase de declaração de ações
     private void StartActionsDeclarationPhase() {
-        BattleManager.Instance.SetBattleState(BattleState.ActionsDeclaration);
+        BattleController.Instance.SetBattleState(BattleState.ActionsDeclaration);
 
         // Delega a declaração de ações para o ActionsController
         ActionsController.StartActionsDeclaration();
@@ -58,7 +58,7 @@ public partial class RoundController : RefCounted {
 
     // Inicia a fase de resolução de turnos
     public void StartTurnsResolutionPhase() {
-        BattleManager.Instance.SetBattleState(BattleState.TurnsResolution);
+        BattleController.Instance.SetBattleState(BattleState.TurnsResolution);
 
         // Delega a resolução de turnos para o TurnController
         _turnController.StartTurnsResolution();
@@ -66,10 +66,10 @@ public partial class RoundController : RefCounted {
 
     // Finaliza o round atual
     public void EndRound() {
-        BattleManager.Instance.SetBattleState(BattleState.RoundEnd);
+        BattleController.Instance.SetBattleState(BattleState.RoundEnd);
 
         // Notifica o fim do round
-        BattleEvents.Instance.EmitRoundEnded(BattleManager.Instance.CurrentRound);
+        BattleEvents.Instance.EmitRoundEnded(BattleController.Instance.CurrentRound);
 
         // Verifica se deve iniciar um novo round ou terminar a batalha
         CheckBattleState();

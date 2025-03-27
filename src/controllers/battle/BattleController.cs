@@ -1,4 +1,6 @@
 using Godot;
+using System.Collections.Generic;
+using DiceRolling.Characters;
 
 namespace DiceRolling.Controllers;
 
@@ -28,90 +30,155 @@ namespace DiceRolling.Controllers;
 ///         <item>- Transição para a fase de rounds (<c>RoundController</c>)</item>
 ///     </list>
 /// </remarks>
-public partial class BattleController : RefCounted {
-    // Início da batalha
+public partial class BattleController : Node {
+    private static BattleController? _instance;
+
+    // Padrão Singleton
+    public static BattleController Instance {
+        get {
+            if (_instance == null) {
+                if (Engine.GetMainLoop() is SceneTree tree) {
+                    _instance = tree.Root.GetNodeOrNull<BattleController>("/root/BattleManager");
+                }
+                _instance ??= new BattleController();
+            }
+            return _instance;
+        }
+    }
+
+    // State management
+    private BattleState _currentState = BattleState.Start;
+    public BattleState CurrentState => _currentState;
+
+    // Battle data
+    private int _currentRound = 0;
+    public int CurrentRound => _currentRound;
+    private Godot.Collections.Array _playerTeam = [];
+    private Godot.Collections.Array _enemyTeam = [];
+
+    // Controllers
+    private TurnController? _turnManager;
+    private RoundController? _roundController;
+    private ActionsController? _actionsController;
+    private BattleResultsController? _battleResultsController;
+    private PostBattleController? _postBattleController;
+
+    public override void _Ready() {
+        InitializeControllers();
+        ConnectEvents();
+    }
+
+    private void InitializeControllers() {
+        _turnManager = new TurnController();
+        _roundController = new RoundController();
+        _actionsController = new ActionsController();
+        _battleResultsController = new BattleResultsController();
+        _postBattleController = new PostBattleController();
+    }
+
+    private void ConnectEvents() {
+        // Connect to battle system events
+        BattleEvents.Instance.BattleStarted += OnBattleStarted;
+        BattleEvents.Instance.BattleEnded += OnBattleEnded;
+    }
+
+    // Battle lifecycle methods
+
+    /// Starts a new battle with the specified teams
     public void StartBattle(Godot.Collections.Array playerTeam, Godot.Collections.Array enemyTeam) {
-        // Configura as equipes e o estado inicial no BattleManager
-        BattleManager.Instance.SetupBattle(playerTeam, enemyTeam);
+        // Setup battle data
+        _playerTeam = playerTeam;
+        _enemyTeam = enemyTeam;
+        _currentRound = 0;
 
-        // Define o estado para Start
-        BattleManager.Instance.SetBattleState(BattleState.Start);
-
-        // Notifica que a batalha começou
+        // Set initial state and notify listeners
+        SetBattleState(BattleState.Start);
         BattleEvents.Instance.EmitBattleStarted(playerTeam, enemyTeam);
 
+        // Begin battle preparation phase
+        StartBattlePreparation();
+    }
+
+    /// Pauses the current battle
+    public void PauseBattle() {
+        BattleEvents.Instance.EmitBattlePaused();
+    }
+
+    /// Resumes a paused battle
+    public void ResumeBattle() {
+        BattleEvents.Instance.EmitBattleResumed();
+    }
+
+    /// Updates the battle state
+    public void SetBattleState(BattleState newState) {
+        _currentState = newState;
+    }
+
+    /// Advances to the next round
+    public void AdvanceRound() {
+        _currentRound++;
+    }
+
+    // Battle preparation phase methods
+
+    private void StartBattlePreparation() {
+        GenerateEnemies();
+    }
+
+    private void GenerateEnemies() {
+
+        // TODO: Implement enemy generation logic
+        // This would be based on dungeon level, player team strength, etc.
+
+        // Notify that enemies have been generated
+        BattleEvents.Instance.EmitEnemiesGenerated(_enemyTeam);
+
+        // Proceed to character positioning
+        PositionCharacters();
+    }
+
+    private void PositionCharacters() {
+
+        // TODO: Implement character positioning logic
+
+        // Combine both teams for positioning
+        var allCharacters = new Godot.Collections.Array();
+        allCharacters.AddRange(_playerTeam);
+        allCharacters.AddRange(_enemyTeam);
+
+        // Notify that characters have been positioned
+        BattleEvents.Instance.EmitCharactersPositioned(allCharacters);
+
+        // Proceed to initiative queue setup
+        SetupInitiativeQueue();
+    }
+
+    private void SetupInitiativeQueue() {
+
+        // TurnManager will handle initiative setup through the CharactersPositioned event
+    }
+
+    /// Transitions from battle preparation to rounds phase
+    public void TransitionToRounds() {
+        BattleEvents.Instance.EmitTransitionedToRounds();
+    }
+
+    // Event handlers
+
+    private void OnBattleStarted(Godot.Collections.Array playerTeam, Godot.Collections.Array enemyTeam) {
         // Inicia a fase de preparação
         StartBattlePreparation();
     }
 
-    // Pausa a batalha
-    public static void PauseBattle() {
-        BattleManager.Instance.SetBattleState(BattleState.Pause);
-        BattleEvents.Instance.EmitBattlePaused();
-    }
+    private void OnBattleEnded(bool victory) {
+        SetBattleState(BattleState.End);
 
-    // Continua a batalha
-    public void ResumeBattle() {
-        BattleManager.Instance.SetBattleState(BattleState.Resume);
-        BattleEvents.Instance.EmitBattleResumed();
-    }
-
-    // Finaliza a batalha (vitória ou derrota)
-    public static void EndBattle(bool victory) {
-        BattleManager.Instance.SetBattleState(BattleState.End);
-        BattleEvents.Instance.EmitBattleEnded(victory);
-    }
-
-    // Inicia a fase de preparação da batalha
-    public void StartBattlePreparation() {
-        GenerateEnemies();
-    }
-
-    // Geração de inimigos
-    private void GenerateEnemies() {
-        BattleManager.Instance.SetBattleState(BattleState.EnemiesGeneration);
-
-        // TODO
-        // Implementar a lógica de geração dos inimigos
-        // Exemplo: baseado na dungeon atual, nível dos personagens, etc.
-
-        // Notifica que os inimigos foram gerados
-        // TODO
-        // Adicionar inimigos gerados
-        Godot.Collections.Array enemies = new Godot.Collections.Array();
-        BattleEvents.Instance.EmitEnemiesGenerated(enemies);
-
-        // Passa para a próxima etapa: posicionamento dos personagens
-        PositionCharacters();
-    }
-
-    // Posiciona os personagens na grid
-    private void PositionCharacters() {
-        BattleManager.Instance.SetBattleState(BattleState.CharactersPosition);
-
-        // TODO
-        // Implementar a lógica de posicionamento dos personagens na grid
-
-        // Notifica que os personagens foram posicionados
-        Godot.Collections.Array characters = new Godot.Collections.Array(); // Personagens posicionados
-        BattleEvents.Instance.EmitCharactersPositioned(characters);
-
-        // Passa para a próxima etapa: configuração da fila de iniciativa
-        SetupInitiativeQueue();
-    }
-
-    // Configura a fila de iniciativa
-    private static void SetupInitiativeQueue() {
-        BattleManager.Instance.SetBattleState(BattleState.InitiativeQueueSetup);
-
-        // TODO
-        // Delega a configuração da fila de iniciativa para o InitiativeController
-        // A transição para a próxima fase será tratada pelo InitiativeController
-    }
-
-    // Transição para a fase de rounds
-    public static void TransitionToRounds() {
-        BattleManager.Instance.SetBattleState(BattleState.TransitionToRounds);
-        BattleEvents.Instance.EmitTransitionedToRounds();
+        // Transition to post-battle phase
+        if (victory) {
+            PostBattleController.ShowVictoryScreen();
+        }
+        else {
+            PostBattleController.ShowGameOverScreen();
+        }
     }
 }

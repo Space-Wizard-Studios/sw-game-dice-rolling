@@ -79,7 +79,7 @@ public partial class BattleEvents : Node {
     // Battle Round Signals
     public void EmitRoundStarted(int roundNumber) => EmitSignal(nameof(RoundStarted), roundNumber);
     public void EmitActionsDeclared() => EmitSignal(nameof(ActionsDeclared));
-    public void EmitTurnResolved() => EmitSignal(nameof(TurnsResolved));
+    public void EmitTurnsResolved() => EmitSignal(nameof(TurnsResolved));
     public void EmitRoundEnded(int roundNumber) => EmitSignal(nameof(RoundEnded), roundNumber);
 
     // Enemy Character Events

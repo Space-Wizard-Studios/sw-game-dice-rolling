@@ -42,60 +42,72 @@ public partial class BattleManager : Node {
 
     // Controllers da batalha
 
-    // TODO
-    // BattleController - executa comandos de alto nível:
-    // - Transições de estados
-    //      - Início da batalha
-    //      - Pausa/continuação de batalha
-    //      - Fim da batalha
-    // - Phase 1: Preparação da batalha   
-    //      - Geração de inimigos
-    //      - Posicionamento de personagens
-    //      - Inicialização de fila de iniciativa (InitiativeController)
-    //      - Transição para a fase de rounds (RoundController)
     private BattleController? _battleController;
-
-    // TODO
-    // InitiativeController - gerencia a ordem de iniciativa dos personagens
-    // - Calcula a ordem de iniciativa inicial
-    // - Gerencia modificadores de iniciativa durante a batalha
-    // - Atualiza a fila quando personagens entram/saem
-    // - Fornece informações sobre próximos personagens a agir
     private InitiativeController? _initiativeController;
-
-    // TODO
-    // RoundController - gerencia o fluxo de rounds da batalha
-    // - Inicia um novo round
-    // TODO - Definir a relação com o ActionsController
-    // TODO - Definir a relação com o TurnController
-    // - Finaliza o round
     private RoundController? _roundController;
-
-    // TODO
-    // ActionsController - gerencia a declaração de ações dos personagens
-    // - Gerencia a declaração das ações dos inimigos
-    // - Gerencia a rolagem de dados para coleta de energia dos personagens
-    // - Recebe comandos de declaração de ações dos personagens dos jogadores
     private ActionsController? _actionsController;
-
-    // TODO
-    // TurnController - gerencia a resolução dos turnos dos personagens (execução de ações)
-    // - Inicia o turno de um personagem
-    // - Gerencia a execução de ações do personagem
-    // - Move personagem para o fim da fila de iniciativa após ação
-    // - Finaliza o turno de um personagem
-    // - Verifica condições para novos turnos
-    // - Verifica condições para novas rodadas
     private TurnController? _turnController;
+    private BattleResultsController? _battleResultsController;
+    private PostBattleController? _postBattleController;
 
-    // TODO
-    // BattleResultsController - gerencia a exibição dos resultados da batalha
-    // - Verifica condições de vitória/derrota
-    // - Faz a transição para a tela de resultados (PostBattleController)
+    public override void _Ready() {
+        // Inicializa os controladores
+        InitializeControllers();
 
-    // TODO
-    // PostBattleController - gerencia ações após o término da batalha
-    // - Exibe tela de resultados
-    // - Gerencia a transição para tela de recompensas
-    // - Gerencia a transição para tela de game over
+        // Conecta aos eventos
+        ConnectEvents();
+    }
+
+    private void InitializeControllers() {
+        _battleController = new BattleController();
+        _initiativeController = new InitiativeController();
+        _roundController = new RoundController();
+        _actionsController = new ActionsController();
+        _turnController = new TurnController();
+        _battleResultsController = new BattleResultsController();
+        _postBattleController = new PostBattleController();
+    }
+
+    private void ConnectEvents() {
+        // Conecta aos eventos do sistema de batalha
+        BattleEvents.Instance.BattleStarted += OnBattleStarted;
+        BattleEvents.Instance.BattleEnded += OnBattleEnded;
+    }
+
+    // Inicia a batalha com as equipes fornecidas
+    public void SetupBattle(Godot.Collections.Array playerTeam, Godot.Collections.Array enemyTeam) {
+        _playerTeam = playerTeam;
+        _enemyTeam = enemyTeam;
+        _currentRound = 0;
+    }
+
+    // Atualiza o estado da batalha
+    public void SetBattleState(BattleState newState) {
+        _currentState = newState;
+    }
+
+    // Evento: Quando a batalha é iniciada
+    private void OnBattleStarted(Godot.Collections.Array playerTeam, Godot.Collections.Array enemyTeam) {
+        // Inicia a fase de preparação
+        SetBattleState(BattleState.EnemiesGeneration);
+        _battleController?.StartBattlePreparation();
+    }
+
+    // Evento: Quando a batalha termina
+    private void OnBattleEnded(bool victory) {
+        SetBattleState(BattleState.End);
+        // Transição para fase de pós-batalha
+        if (victory) {
+            SetBattleState(BattleState.RewardsDistribution);
+            PostBattleController.ShowVictoryScreen();
+        }
+        else {
+            SetBattleState(BattleState.GameOver);
+            PostBattleController.ShowGameOverScreen();
+        }
+    }
+
+    public void AdvanceRound() {
+        _currentRound++;
+    }
 }

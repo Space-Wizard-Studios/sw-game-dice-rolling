@@ -1,5 +1,4 @@
 using Godot;
-using System.Collections.Generic;
 using DiceRolling.Characters;
 
 namespace DiceRolling.Controllers;
@@ -33,18 +32,22 @@ namespace DiceRolling.Controllers;
 public partial class BattleController : Node {
     private static BattleController? _instance;
 
-    // Padrão Singleton
+    // Singleton pattern
     public static BattleController Instance {
         get {
             if (_instance == null) {
                 if (Engine.GetMainLoop() is SceneTree tree) {
-                    _instance = tree.Root.GetNodeOrNull<BattleController>("/root/BattleManager");
+                    _instance = tree.Root.GetNodeOrNull<BattleController>("/root/BattleController");
                 }
                 _instance ??= new BattleController();
             }
             return _instance;
         }
     }
+
+    [Export] public CharacterType[] PlayerCharacters { get; set; } = [];
+
+    [Export] public CharacterType[] EnemyCharacters { get; set; } = [];
 
     // State management
     private BattleState _currentState = BattleState.Start;
@@ -66,6 +69,15 @@ public partial class BattleController : Node {
     public override void _Ready() {
         InitializeControllers();
         ConnectEvents();
+
+        // Initialize with exported characters if available
+        if (PlayerCharacters != null && PlayerCharacters.Length > 0) {
+            _playerTeam = new Godot.Collections.Array(PlayerCharacters);
+        }
+
+        if (EnemyCharacters != null && EnemyCharacters.Length > 0) {
+            _enemyTeam = new Godot.Collections.Array(EnemyCharacters);
+        }
     }
 
     private void InitializeControllers() {
@@ -85,27 +97,27 @@ public partial class BattleController : Node {
     // Battle lifecycle methods
 
     /// Starts a new battle with the specified teams
-    public void StartBattle(Godot.Collections.Array playerTeam, Godot.Collections.Array enemyTeam) {
-        // Setup battle data
-        _playerTeam = playerTeam;
-        _enemyTeam = enemyTeam;
+    public void StartBattle(Godot.Collections.Array? playerTeam = null, Godot.Collections.Array? enemyTeam = null) {
+        // Setup battle data using provided teams or fall back to exported characters
+        _playerTeam = playerTeam ?? _playerTeam;
+        _enemyTeam = enemyTeam ?? _enemyTeam;
         _currentRound = 0;
 
         // Set initial state and notify listeners
         SetBattleState(BattleState.Start);
-        BattleEvents.Instance.EmitBattleStarted(playerTeam, enemyTeam);
+        BattleEvents.Instance.EmitBattleStarted(_playerTeam, _enemyTeam);
 
         // Begin battle preparation phase
         StartBattlePreparation();
     }
 
     /// Pauses the current battle
-    public void PauseBattle() {
+    public static void PauseBattle() {
         BattleEvents.Instance.EmitBattlePaused();
     }
 
     /// Resumes a paused battle
-    public void ResumeBattle() {
+    public static void ResumeBattle() {
         BattleEvents.Instance.EmitBattleResumed();
     }
 
@@ -153,20 +165,19 @@ public partial class BattleController : Node {
         SetupInitiativeQueue();
     }
 
-    private void SetupInitiativeQueue() {
-
+    private static void SetupInitiativeQueue() {
         // TurnManager will handle initiative setup through the CharactersPositioned event
     }
 
     /// Transitions from battle preparation to rounds phase
-    public void TransitionToRounds() {
+    public static void TransitionToRounds() {
         BattleEvents.Instance.EmitTransitionedToRounds();
     }
 
     // Event handlers
 
     private void OnBattleStarted(Godot.Collections.Array playerTeam, Godot.Collections.Array enemyTeam) {
-        // Inicia a fase de preparação
+        // Start the battle preparation phase
         StartBattlePreparation();
     }
 

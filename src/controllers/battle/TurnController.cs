@@ -68,7 +68,7 @@ public partial class TurnController : RefCounted {
         BattleEvents.Instance.EmitInitiativeQueueCreated(new Godot.Collections.Array(_initiativeQueue.ToArray()));
 
         // Transition to rounds phase
-        BattleController.Instance.TransitionToRounds();
+        BattleController.TransitionToRounds();
     }
 
     /// Sort the initiative queue based on character initiative values

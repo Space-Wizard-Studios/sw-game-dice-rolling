@@ -42,7 +42,7 @@ public partial class InitiativeController : RefCounted {
         _initiativeQueue.Clear();
 
         // Adiciona todos os personagens à fila
-        foreach (CharacterType character in characters) {
+        foreach (CharacterType character in characters.Select(v => (CharacterType)v)) {
             _initiativeQueue.Add(character);
         }
 

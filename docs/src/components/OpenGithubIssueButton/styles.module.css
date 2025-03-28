@@ -9,6 +9,14 @@
   transition: bottom 0.5s;
 }
 
+@media (max-width: 768px) {
+  .openGithubIssueButton {
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+}
+
 .openGithubIssueButton:hover {
   bottom: 0px;
 }
@@ -26,6 +34,15 @@
   padding: 10px;
 }
 
+.openGithubIssueButton .content span {
+    cursor: help;
+}
+
+[data-theme="light"] .openGithubIssueButton .content {
+  background-color: #f9f9f9;
+  border: 1px solid rgb(33, 33, 33);
+}
+
 .openGithubIssueButton .icon {
   position: absolute;
   display: flex;
@@ -37,6 +54,11 @@
   background-color: rgb(33, 33, 33);
   border: 1px solid #ddd;
   border-radius: 100%;
+}
+
+[data-theme="light"] .openGithubIssueButton .icon {
+  background-color: #f9f9f9;
+  border: 1px solid rgb(33, 33, 33);
 }
 
 .openGithubIssueButton .icon svg {

@@ -60,7 +60,7 @@ public partial class GridType : IdentifiableResource, IGrid {
         ResizeCells();
     }
 
-    public GridType(int rows, int columns, int offset, string prefix) {
+    public GridType(int rows, int columns, string prefix) {
         Rows = rows;
         Columns = columns;
         Prefix = prefix;

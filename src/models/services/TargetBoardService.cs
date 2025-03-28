@@ -18,7 +18,7 @@ public class TargetBoardService {
         if (!ValidationService.ValidateGridDimensions(rows, columns)) {
             return;
         }
-        targetBoard.Grids.Add(new GridType(rows, columns, 0, "G"));
+        targetBoard.Grids.Add(new GridType(rows, columns, "G"));
         targetBoard.EmitSignal(nameof(TargetBoardType.SetupChanged));
     }
 

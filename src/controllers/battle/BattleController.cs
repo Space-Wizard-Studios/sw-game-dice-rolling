@@ -259,12 +259,11 @@ public partial class BattleController : Node {
         AddChild(gridEntity);
         gridEntity.Position = position;
 
-        gridEntity.GridData = new GridType {
-            Rows = 2,
-            Columns = 3,
-            Prefix = prefix,
+        var gridData = new GridType(2, 3, prefix) {
             CharacterStore = characterStore
         };
+
+        gridEntity.GridData = gridData;
 
         return gridEntity;
     }

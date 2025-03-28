@@ -44,6 +44,7 @@ skeleton = NodePath("../..")
 [node name="Label3D" type="Label3D" parent="GridCellComponent"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 billboard = 1
+text = "Label"
 
 [node name="CharacterGridCellComponent" type="Node3D" parent="."]
 script = ExtResource("5_detn8")

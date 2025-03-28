@@ -22,7 +22,7 @@ public partial class TargetBoardType : Resource, ITargetBoard {
         if (rows <= 0 || columns <= 0) {
             throw new ArgumentException("Rows e Columns devem ser maiores que 0.");
         }
-        Grids.Add(new GridType(rows, columns, 0, "G"));
+        Grids.Add(new GridType(rows, columns, "G"));
         EmitSignal(nameof(SetupChanged));
     }
 

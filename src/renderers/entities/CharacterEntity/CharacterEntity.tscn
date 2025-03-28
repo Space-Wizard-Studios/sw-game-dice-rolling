@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyt7peem686tr" path="res://renderers/entities/CharacterEntity/CharacterEntity.cs" id="1_sly7g"]
 [ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://resources/Characters/Joanna.tres" id="2_56jxl"]
-[ext_resource type="SpriteFrames" uid="uid://bskb8ffl72voq" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaSprites.tres" id="3_lytje"]
+[ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="3_56jxl"]
 [ext_resource type="Script" uid="uid://cejuccgxo60qs" path="res://renderers/components/AnimatedSpriteComponent.cs" id="3_q1qiw"]
 [ext_resource type="Script" uid="uid://bs8ip2rdvho4s" path="res://renderers/components/SelectableComponent.cs" id="4_lytje"]
 [ext_resource type="Texture2D" uid="uid://drfm6uc8yvpwi" path="res://assets/icons/hud/plain-arrow.png" id="6_56jxl"]
@@ -19,13 +19,14 @@ metadata/_custom_type_script = "uid://cyt7peem686tr"
 
 [node name="AnimatedSpriteComponent" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+offset = Vector2(0, -10)
 pixel_size = 0.016
 billboard = 1
 shaded = true
 texture_filter = 0
-sprite_frames = ExtResource("3_lytje")
+sprite_frames = ExtResource("3_56jxl")
 animation = &"idle"
-frame_progress = 0.133684
+frame_progress = 0.813543
 script = ExtResource("3_q1qiw")
 metadata/_custom_type_script = "uid://cejuccgxo60qs"
 

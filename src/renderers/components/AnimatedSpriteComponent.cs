@@ -5,6 +5,12 @@ using DiceRolling.Helpers;
 
 namespace DiceRolling.Components;
 
+/// <summary>
+/// Component that displays an animated sprite for a character entity.
+/// </summary>
+/// <remarks>
+/// This component listens for updates to the parent Entity3D's CharacterType and updates the sprite accordingly.
+/// </remarks>
 [Tool]
 [GlobalClass]
 [Icon("res://assets/editor/component-3d.svg")]

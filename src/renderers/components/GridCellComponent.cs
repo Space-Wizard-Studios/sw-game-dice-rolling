@@ -6,6 +6,12 @@ using DiceRolling.Helpers;
 
 namespace DiceRolling.Components.Grids;
 
+/// <summary>
+/// Component that displays a grid cell entity.
+/// </summary>
+/// <remarks>
+/// This component listens for updates to the parent GridCellEntity's GridCellType and updates the visual appearance of the cell.
+/// </remarks>
 [Tool]
 [GlobalClass]
 [Icon("res://assets/editor/component-3d.svg")]

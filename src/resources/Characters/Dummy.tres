@@ -10,7 +10,7 @@
 script = ExtResource("8_ktuse")
 Name = "Dummy"
 CharacterSprite = ExtResource("5_giux7")
-PixelSize = 0.01
+PixelSize = 0.02
 ShowShadow = false
 SpritePositionX = 0.0
 SpritePositionY = 0.0
@@ -19,4 +19,4 @@ Actions = Array[ExtResource("1_5s1he")]([])
 Location = ExtResource("4_5s1he")
 SlotIndex = 0
 Id = "a98288c9-8795-4e16-801f-5fed51abd905"
-metadata/_custom_type_script = ExtResource("8_ktuse")
+metadata/_custom_type_script = "uid://0ip2w43r0d2a"

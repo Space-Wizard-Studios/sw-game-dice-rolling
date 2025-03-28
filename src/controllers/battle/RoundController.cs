@@ -39,7 +39,7 @@ public partial class RoundController : RefCounted {
         BattleController.Instance.AdvanceRound();
 
         // Atualiza o estado da batalha
-        BattleController.Instance.SetBattleState(BattleState.RoundStart);
+        BattleController.Instance.SetRoundState(RoundState.RoundStart);
 
         // Notifica o início do round
         BattleEvents.Instance.EmitRoundStarted(BattleController.Instance.CurrentRound);
@@ -50,7 +50,7 @@ public partial class RoundController : RefCounted {
 
     // Inicia a fase de declaração de ações
     private void StartActionsDeclarationPhase() {
-        BattleController.Instance.SetBattleState(BattleState.ActionsDeclaration);
+        BattleController.Instance.SetRoundState(RoundState.ActionsDeclaration);
 
         // Delega a declaração de ações para o ActionsController
         ActionsController.StartActionsDeclaration();
@@ -58,7 +58,7 @@ public partial class RoundController : RefCounted {
 
     // Inicia a fase de resolução de turnos
     public void StartTurnsResolutionPhase() {
-        BattleController.Instance.SetBattleState(BattleState.TurnsResolution);
+        BattleController.Instance.SetRoundState(RoundState.TurnsResolution);
 
         // Delega a resolução de turnos para o TurnController
         _turnController.StartTurnsResolution();
@@ -66,7 +66,7 @@ public partial class RoundController : RefCounted {
 
     // Finaliza o round atual
     public void EndRound() {
-        BattleController.Instance.SetBattleState(BattleState.RoundEnd);
+        BattleController.Instance.SetRoundState(RoundState.RoundEnd);
 
         // Notifica o fim do round
         BattleEvents.Instance.EmitRoundEnded(BattleController.Instance.CurrentRound);

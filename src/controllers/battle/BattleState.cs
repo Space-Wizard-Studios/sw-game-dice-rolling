@@ -5,8 +5,4 @@ public enum BattleState {
     Start,
     InProgress,
     End,
-    RoundStart,
-    ActionsDeclaration,
-    TurnsResolution,
-    RoundEnd,
 }

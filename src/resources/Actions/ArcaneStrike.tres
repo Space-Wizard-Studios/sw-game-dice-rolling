@@ -76,7 +76,6 @@ Id = "81f48fe1-c368-4dc1-8643-a78949629305"
 [sub_resource type="Resource" id="Resource_qkl28"]
 script = ExtResource("3_kqwk7")
 Prefix = "G"
-Offset = 0
 Direction = 0
 Rows = 2
 Columns = 3
@@ -153,7 +152,6 @@ Id = "dd7d38e4-0b10-4051-b8d7-c4d948553c70"
 [sub_resource type="Resource" id="Resource_ym6qs"]
 script = ExtResource("3_kqwk7")
 Prefix = "G"
-Offset = 0
 Direction = 0
 Rows = 2
 Columns = 3

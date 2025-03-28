@@ -95,7 +95,7 @@ public partial class BattleController : Node {
     private Godot.Collections.Array _enemyTeam = [];
 
     // Controllers
-    private TurnController? _turnManager;
+    private TurnController? _turnController;
     private RoundController? _roundController;
     private ActionsController? _actionsController;
     private BattleResultsController? _battleResultsController;
@@ -134,9 +134,9 @@ public partial class BattleController : Node {
     }
 
     private void InitializeControllers() {
-        _turnManager = new TurnController();
-        _roundController = new RoundController();
+        _turnController = new TurnController();
         _actionsController = new ActionsController();
+        _roundController = new RoundController(_actionsController, _turnController);
         _battleResultsController = new BattleResultsController();
         _postBattleController = new PostBattleController();
     }
@@ -214,24 +214,26 @@ public partial class BattleController : Node {
     }
 
     private void PositionCharacters() {
-
         GD.Print("Positioning characters...");
         CreateBattleGrids();
+
+        // Ensure all characters have initialized attributes and actions before positioning
+        InitializeCharacterAttributesIfNeeded(_playerTeam);
+        InitializeCharacterAttributesIfNeeded(_enemyTeam);
+        InitializeCharacterActionsIfNeeded(_playerTeam);
+        InitializeCharacterActionsIfNeeded(_enemyTeam);
 
         // Utilizar o método AssignCharacters diretamente
         _playerGridEntity?.GridData?.AssignCharacters();
         _enemyGridEntity?.GridData?.AssignCharacters();
 
-        // Combine both teams for positioning
+        // Combine both teams for initiative
         var allCharacters = new Godot.Collections.Array();
         allCharacters.AddRange(_playerTeam);
         allCharacters.AddRange(_enemyTeam);
 
         // Notify that characters have been positioned
         BattleEvents.Instance.EmitCharactersPositioned(allCharacters);
-
-        // Proceed to initiative queue setup
-        SetupInitiativeQueue();
     }
 
     private void CreateBattleGrids() {
@@ -259,6 +261,7 @@ public partial class BattleController : Node {
         AddChild(gridEntity);
         gridEntity.Position = position;
 
+        // TODO - implement grid sizing somehow 
         var gridData = new GridType(2, 3, prefix) {
             CharacterStore = characterStore
         };
@@ -268,13 +271,35 @@ public partial class BattleController : Node {
         return gridEntity;
     }
 
-    private static void SetupInitiativeQueue() {
-        GD.Print("Setting up initiative queue...");
-        // TurnManager will handle initiative setup through the CharactersPositioned event
+    private static void InitializeCharacterActionsIfNeeded(Godot.Collections.Array characterTeam) {
+        foreach (var character in characterTeam) {
+            // Use proper Godot type conversion
+            if (character.Obj is CharacterType characterType) {
+                // Check if actions are initialized (no actions or empty actions collection)
+                if (characterType.Actions == null || characterType.Actions.Count == 0) {
+                    GD.Print($"Initializing actions for character: {characterType.Name}");
+                    characterType.InitializeActions();
+                }
+            }
+        }
+    }
+
+    private static void InitializeCharacterAttributesIfNeeded(Godot.Collections.Array characterTeam) {
+        foreach (var character in characterTeam) {
+            // Use proper Godot type conversion
+            if (character.Obj is CharacterType characterType) {
+                // Check if attributes are initialized (no attributes or empty attributes collection)
+                if (characterType.Attributes == null || characterType.Attributes.Count == 0) {
+                    GD.Print($"Initializing attributes for character: {characterType.Name}");
+                    characterType.InitializeAttributes();
+                }
+            }
+        }
     }
 
     // Transitions from battle preparation to rounds phase
     public static void TransitionToRounds() {
+        GD.Print("Transitioning to battle rounds phase...");
         Instance.SetBattleState(BattleState.InProgress);
         BattleEvents.Instance.EmitTransitionedToRounds();
     }
@@ -282,10 +307,12 @@ public partial class BattleController : Node {
     // Event handlers
 
     private void OnBattleStarted(Godot.Collections.Array playerTeam, Godot.Collections.Array enemyTeam) {
+        GD.Print("Event BattleStarted fired on BattleController");
         SetBattleState(BattleState.InProgress);
     }
 
     private void OnBattleEnded(bool victory) {
+        GD.Print("Event BattleEnded fired on BattleController");
         SetBattleState(BattleState.End);
 
         // Transition to post-battle phase

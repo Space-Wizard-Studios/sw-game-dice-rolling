@@ -52,7 +52,7 @@ public partial class TurnController : RefCounted {
 
     // Initiative queue management
 
-    /// Calculates the initial turn order based on characters' initiative
+    // Calculates the initial turn order based on characters' initiative
     private void CalculateInitialOrder(Godot.Collections.Array characters) {
         _initiativeQueue.Clear();
 
@@ -71,18 +71,58 @@ public partial class TurnController : RefCounted {
         BattleController.TransitionToRounds();
     }
 
-    /// Sort the initiative queue based on character initiative values
+    // Sort the initiative queue based on character initiative values
     private void SortQueue() {
-        _initiativeQueue = _initiativeQueue.OrderByDescending(c => GetCharacterInitiative(c)).ToList();
+        _initiativeQueue = [.. _initiativeQueue.OrderByDescending(c => GetCharacterInitiative(c))];
+
+        // Print detailed queue information
+        GD.Print("=== INITIATIVE QUEUE ===");
+        for (int i = 0; i < _initiativeQueue.Count; i++) {
+            var character = _initiativeQueue[i];
+            int initiative = GetCharacterInitiative(character);
+
+            // Determine team based on location
+            string team = "Unknown";
+            if (character.Location == BattleController.Instance.PlayerSquadLocation) {
+                team = "Player";
+            }
+            else if (character.Location == BattleController.Instance.EnemySquadLocation) {
+                team = "Enemy";
+            }
+
+            GD.Print($"{i + 1}. {character.Name} (Team: {team}) - Initiative: {initiative}");
+        }
+        GD.Print("======================");
     }
 
-    /// Gets the initiative value for a character (speed + modifiers)
+    // Gets the initiative value for a character (speed + modifiers)
     private static int GetCharacterInitiative(CharacterType character) {
-        // TODO: Implement logic to get initiative (speed + modifiers)
-        return 0; // Placeholder
+        // Find the Speed attribute
+        var speedAttribute = character.Attributes.Cast<CharacterAttribute>()
+            .FirstOrDefault(attr => attr.Type?.Name == "Speed");
+
+        int baseSpeed = speedAttribute != null ? speedAttribute.CurrentValue : 0;
+
+        // If no Speed attribute found, log a warning
+        if (speedAttribute == null) {
+            GD.Print($"Character {character.Name} doesn't have a Speed attribute");
+        }
+
+        // TODO Consider any active initiative modifiers
+        // int initiativeModifiers = 0;
+        // if (character.ActiveEffects != null) {
+        //     foreach (var effect in character.ActiveEffects) {
+        //         if (effect.AffectsInitiative) {
+        //             initiativeModifiers += effect.InitiativeModifierValue;
+        //         }
+        //     }
+        // }
+
+        return baseSpeed;
+        // return baseSpeed + initiativeModifiers;
     }
 
-    /// Adds a character to the initiative queue
+    // Adds a character to the initiative queue
     public void AddCharacterToQueue(CharacterType character) {
         if (!_initiativeQueue.Contains(character)) {
             _initiativeQueue.Add(character);
@@ -91,7 +131,7 @@ public partial class TurnController : RefCounted {
         }
     }
 
-    /// Removes a character from the initiative queue
+    // Removes a character from the initiative queue
     public void RemoveCharacterFromQueue(CharacterType character) {
         if (_initiativeQueue.Contains(character)) {
             _initiativeQueue.Remove(character);
@@ -99,7 +139,7 @@ public partial class TurnController : RefCounted {
         }
     }
 
-    /// Moves a character to the end of the initiative queue
+    // Moves a character to the end of the initiative queue
     public void MoveCharacterToEndOfQueue(CharacterType character) {
         if (_initiativeQueue.Contains(character)) {
             _initiativeQueue.Remove(character);
@@ -108,19 +148,19 @@ public partial class TurnController : RefCounted {
         }
     }
 
-    /// Gets the next character to act
+    // Gets the next character to act
     public CharacterType? GetNextCharacter() {
         return _initiativeQueue.Count > 0 ? _initiativeQueue[0] : null;
     }
 
     // Turn resolution methods
 
-    /// Begins the process of resolving turns
+    // Begins the process of resolving turns
     public void StartTurnsResolution() {
         ProcessNextCharacterTurn();
     }
 
-    /// Process the turn for the next character in the queue
+    // Process the turn for the next character in the queue
     private void ProcessNextCharacterTurn() {
         CharacterType? nextCharacter = GetNextCharacter();
 
@@ -133,13 +173,13 @@ public partial class TurnController : RefCounted {
         }
     }
 
-    /// Start a character's turn
+    // Start a character's turn
     private static void StartCharacterTurn(CharacterType character) {
         BattleEvents.Instance.EmitTurnStarted(character);
         ExecuteCharacterAction(character);
     }
 
-    /// Execute the action declared by the character
+    // Execute the action declared by the character
     private static void ExecuteCharacterAction(CharacterType character) {
         // TODO: Execute the character's action
         // This depends on the action system implementation
@@ -148,7 +188,7 @@ public partial class TurnController : RefCounted {
         BattleEvents.Instance.EmitActionPerformed(character);
     }
 
-    /// End a character's turn and prepare for the next
+    // End a character's turn and prepare for the next
     private void EndCharacterTurn(CharacterType character) {
         // Move character to the end of queue
         MoveCharacterToEndOfQueue(character);
@@ -166,7 +206,7 @@ public partial class TurnController : RefCounted {
         }
     }
 
-    /// Check if the battle should continue
+    // Check if the battle should continue
     private static bool ShouldContinueBattle() {
         // TODO: Implement logic to check if both teams still have characters alive
         return true; // Placeholder
@@ -175,28 +215,34 @@ public partial class TurnController : RefCounted {
     // Event handlers
 
     private void OnCharactersPositioned(Godot.Collections.Array characters) {
+        GD.Print("Event CharactersPositioned fired on TurnController, calculating initial order");
         CalculateInitialOrder(characters);
     }
 
     private void OnActionsDeclared() {
+        GD.Print("Event ActionsDeclared fired on TurnController, starting turns resolution");
         StartTurnsResolution();
     }
 
     private void OnActionPerformed(CharacterType character) {
+        GD.Print("Event ActionPerformed fired on TurnController, ending turn");
         EndCharacterTurn(character);
     }
 
     private void OnCharacterAddedToQueue(CharacterType character) {
+        GD.Print("Event CharacterAddedToQueue fired on TurnController, re-sorting queue");
         SortQueue();
     }
 
     private void OnCharacterRemovedFromQueue(CharacterType character) {
+        GD.Print("Event CharacterRemovedFromQueue fired on TurnController, re-sorting queue");
         // The character is already removed in RemoveCharacterFromQueue
         // Just resort the queue
         SortQueue();
     }
 
     private void OnCharacterInitiativeModified(CharacterType character) {
+        GD.Print("Event CharacterInitiativeModified fired on TurnController, re-sorting queue");
         SortQueue();
     }
 }

@@ -56,6 +56,7 @@ public partial class PostBattleController : RefCounted {
 
     // Eventos
     private void OnBattleEnded(bool victory) {
+        GD.Print("Event BattleEnded fired on PostBattleController");
         if (victory) {
             ShowVictoryScreen();
         }

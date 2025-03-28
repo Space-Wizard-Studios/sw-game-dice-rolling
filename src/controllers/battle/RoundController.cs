@@ -23,14 +23,14 @@ public partial class RoundController : RefCounted {
     private ActionsController _actionsController;
     private TurnController _turnController;
 
-    public RoundController() {
+    public RoundController(ActionsController actionsController, TurnController turnController) {
         // Conecta-se aos eventos necessários
         BattleEvents.Instance.TransitionedToRounds += OnTransitionedToRounds;
         BattleEvents.Instance.TurnsResolved += OnTurnsResolved;
 
-        // Inicializa os controladores relacionados
-        _actionsController = new ActionsController();
-        _turnController = new TurnController();
+        // Use the provided controllers instead of creating new ones
+        _actionsController = actionsController;
+        _turnController = turnController;
     }
 
     // Inicia um novo round
@@ -93,10 +93,12 @@ public partial class RoundController : RefCounted {
 
     // Eventos
     private void OnTransitionedToRounds(int number) {
+        GD.Print("Event TransitionedToRounds fired on RoundController");
         StartRound();
     }
 
     private void OnTurnsResolved() {
+        GD.Print("Event TurnsResolved fired on RoundController");
         EndRound();
     }
 }

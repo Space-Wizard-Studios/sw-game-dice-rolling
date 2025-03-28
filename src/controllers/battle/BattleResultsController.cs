@@ -59,6 +59,7 @@ public partial class BattleResultsController : RefCounted {
 
     // Eventos
     private void OnRoundEnded(int roundNumber) {
+        GD.Print("Event RoundEnded fired on RoundController");
         CheckBattleResult();
     }
 }

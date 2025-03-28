@@ -4,6 +4,7 @@ using DiceRolling.Actions;
 namespace DiceRolling.Roles;
 
 [Tool]
+[GlobalClass]
 public partial class RoleAction : Resource {
     [Export] public ActionType? Type { get; set; }
 

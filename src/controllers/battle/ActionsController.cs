@@ -69,14 +69,17 @@ public partial class ActionsController : RefCounted {
     // Event handlers
 
     private void OnPlayerActionDeclared(CharacterType character) {
+        GD.Print("Event PlayerActionDeclared fired on ActionsController");
         CheckIfAllActionsDeclared();
     }
 
     private void OnPlayerTargetSelected(CharacterType character, CharacterType target) {
+        GD.Print("Event PlayerTargetSelected fired on ActionsController");
         CheckIfAllActionsDeclared();
     }
 
     private void OnPlayerActionCancelled(CharacterType character) {
+        GD.Print("Event PlayerActionCancelled fired on ActionsController");
         // TODO: Handle action cancellation
     }
 

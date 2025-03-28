@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ActionType" load_steps=11 format=3 uid="uid://cgac6lxa06rf8"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=12 format=3 uid="uid://cgac6lxa06rf8"]
 
 [ext_resource type="Resource" uid="uid://dw1d38425v5rd" path="res://resources/Actions/Categories/Defensive.tres" id="1_f256u"]
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/data/Effect/EffectType.cs" id="2_f256u"]
@@ -6,26 +6,27 @@
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="4_2x0xn"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="4_f256u"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/data/Target/TargetBoardType.cs" id="5_2x0xn"]
+[ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="6_2x0xn"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/data/Action/ActionType.cs" id="6_i6kiq"]
 
 [sub_resource type="Resource" id="Resource_8bxoq"]
 script = ExtResource("4_f256u")
 Prefix = "P"
-Offset = 0
 Direction = 0
 Rows = 2
 Columns = 3
-Cells = Array[int]([1, 1, 1, 1, 1, 1])
+Cells = Array[ExtResource("6_2x0xn")]([])
+Id = "c74bd3b7-db67-4115-bedd-353c1283a5f3"
 metadata/_custom_type_script = ExtResource("4_f256u")
 
 [sub_resource type="Resource" id="Resource_woyg6"]
 script = ExtResource("4_f256u")
 Prefix = "E"
-Offset = 0
 Direction = 0
 Rows = 2
 Columns = 3
-Cells = Array[int]([3, 3, 3, 3, 3, 3])
+Cells = Array[ExtResource("6_2x0xn")]([])
+Id = "40c6556c-63ba-43b8-91e3-ec14f8182849"
 metadata/_custom_type_script = ExtResource("4_f256u")
 
 [sub_resource type="Resource" id="Resource_shlmr"]
@@ -44,4 +45,4 @@ RequiredEnergy = Array[ExtResource("4_2x0xn")]([])
 Effects = Array[ExtResource("2_f256u")]([])
 TargetBoard = SubResource("Resource_shlmr")
 Id = "b2da61e6-c5c6-44e5-974d-3a41d1185f41"
-metadata/_custom_type_script = ExtResource("6_i6kiq")
+metadata/_custom_type_script = "uid://dk6es2dobyja5"

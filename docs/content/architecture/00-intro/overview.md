@@ -15,7 +15,7 @@ A ideia é ter uma arquitetura baseada em Modelos, Renderizadores, Controladores
 
 ---
 
-## Modelos
+## Modelos de dados
 
 Os Modelos são estruturados em `Resources` do Godot, possibilitando expansão como a criação de novos tipos de personagens, atributos, classes, ações e efeitos com o mínimo de alterações no código.
 

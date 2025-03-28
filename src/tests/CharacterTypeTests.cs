@@ -6,6 +6,7 @@ using DiceRolling.Roles;
 using DiceRolling.Attributes;
 using DiceRolling.Helpers;
 using DiceRolling.Actions;
+using DiceRolling.Stores;
 
 namespace DiceRolling.Tests.Characters;
 

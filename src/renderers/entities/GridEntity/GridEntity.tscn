@@ -1,0 +1,100 @@
+[gd_scene load_steps=16 format=3 uid="uid://bqux57kvwbyix"]
+
+[ext_resource type="Script" uid="uid://ctc1mk501yyuj" path="res://renderers/entities/GridEntity/GridEntity.cs" id="1_0ephl"]
+[ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="2_jqupx"]
+[ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="2_yi2bp"]
+[ext_resource type="Resource" uid="uid://snt34yslyn4f" path="res://resources/Characters/PlayerCharacterStore.tres" id="3_3sa72"]
+[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://resources/Characters/Eleonore.tres" id="3_go7ud"]
+[ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://resources/Characters/Joanna.tres" id="4_x231g"]
+[ext_resource type="Script" uid="uid://cycvmb2ix6vas" path="res://renderers/components/GridContainerComponent.cs" id="5_jqupx"]
+[ext_resource type="PackedScene" uid="uid://2jqadvotpskf" path="res://renderers/entities/GridCellEntity/GridCellEntity.tscn" id="6_3sa72"]
+
+[sub_resource type="Resource" id="Resource_rfibt"]
+script = ExtResource("2_jqupx")
+Value = 0
+Row = 0
+Column = 0
+Index = 0
+Label = "G0"
+IsWalkable = true
+IsOccupied = false
+Id = "f97aa9cf-9d8a-438a-9b3b-b1fcb33b1548"
+
+[sub_resource type="Resource" id="Resource_irwyf"]
+script = ExtResource("2_jqupx")
+Value = 0
+Row = 0
+Column = 1
+Index = 1
+Label = "G1"
+IsWalkable = true
+IsOccupied = false
+Id = "936e4634-0b70-422d-8dda-5bae6054c3d5"
+
+[sub_resource type="Resource" id="Resource_mkisb"]
+script = ExtResource("2_jqupx")
+Character = ExtResource("3_go7ud")
+Value = 0
+Row = 0
+Column = 2
+Index = 2
+Label = "G2"
+IsWalkable = true
+IsOccupied = true
+Id = "a2b5459b-c9b4-45f8-b069-e769f5ecd5de"
+
+[sub_resource type="Resource" id="Resource_0yhms"]
+script = ExtResource("2_jqupx")
+Value = 0
+Row = 1
+Column = 0
+Index = 3
+Label = "G3"
+IsWalkable = true
+IsOccupied = false
+Id = "5ec3a7be-f3ed-4804-b021-c9b90d23ae46"
+
+[sub_resource type="Resource" id="Resource_tdpn2"]
+script = ExtResource("2_jqupx")
+Value = 0
+Row = 1
+Column = 1
+Index = 4
+Label = "G4"
+IsWalkable = true
+IsOccupied = false
+Id = "bcb49902-bad3-42d1-8e27-339ff571723a"
+
+[sub_resource type="Resource" id="Resource_p6s3l"]
+script = ExtResource("2_jqupx")
+Character = ExtResource("4_x231g")
+Value = 0
+Row = 1
+Column = 2
+Index = 5
+Label = "G5"
+IsWalkable = true
+IsOccupied = true
+Id = "e2d08d64-26d1-4070-ad02-88c0c9293a19"
+
+[sub_resource type="Resource" id="Resource_pohop"]
+script = ExtResource("2_yi2bp")
+Prefix = "G"
+Offset = 0
+CharacterStore = ExtResource("3_3sa72")
+Direction = 0
+Rows = 2
+Columns = 3
+Cells = Array[ExtResource("2_jqupx")]([SubResource("Resource_rfibt"), SubResource("Resource_irwyf"), SubResource("Resource_mkisb"), SubResource("Resource_0yhms"), SubResource("Resource_tdpn2"), SubResource("Resource_p6s3l")])
+Id = "db049eb9-815c-40eb-a0bd-e483b7f3fd32"
+metadata/_custom_type_script = "uid://ca6up1de7fo4q"
+
+[node name="GridEntity" type="Node3D"]
+script = ExtResource("1_0ephl")
+GridData = SubResource("Resource_pohop")
+metadata/_custom_type_script = "uid://ctc1mk501yyuj"
+
+[node name="GridContainerComponent" type="Node3D" parent="."]
+script = ExtResource("5_jqupx")
+CellScene = ExtResource("6_3sa72")
+metadata/_custom_type_script = "uid://cycvmb2ix6vas"

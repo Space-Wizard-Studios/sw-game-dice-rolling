@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://m2cjh6t2impm"]
+
+[ext_resource type="Script" uid="uid://de5a1nv2c7r1a" path="res://controllers/MenuTransitionManager.cs" id="1_lkj8k"]
+[ext_resource type="PackedScene" uid="uid://myouhbwr3b27" path="res://renderers/scenes/menus/MainMenu.tscn" id="2_db3kg"]
+[ext_resource type="PackedScene" uid="uid://bqbiqwyfv8mfg" path="res://renderers/scenes/gameplay/Lobby.tscn" id="3_7yx2c"]
+[ext_resource type="PackedScene" uid="uid://dp330lfyi8bfk" path="res://renderers/scenes/menus/GameOver.tscn" id="4_rilil"]
+
+[node name="MenuTransitionManager" type="Node"]
+script = ExtResource("1_lkj8k")
+MainMenuScene = ExtResource("2_db3kg")
+GameplayLobbyScene = ExtResource("3_7yx2c")
+GameOverMenuScene = ExtResource("4_rilil")

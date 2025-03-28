@@ -55,7 +55,7 @@ public partial class BoardMatrixEditor : Control {
         foreach (var grid in _grids) {
             for (int y = 0; y < grid.Rows; y++) {
                 for (int x = 0; x < grid.Columns; x++) {
-                    grid.SetCell(y, x, 0);
+                    grid.SetCellValue(y, x, 0);
                 }
             }
         }
@@ -97,7 +97,11 @@ public partial class BoardMatrixEditor : Control {
             for (int x = 0; x < grid.Columns; x++) {
                 int drawX = isFlippedHorizontally ? grid.Columns - 1 - x : x;
                 var rect = new Rect2(drawX * CellSize + Padding + offsetX, y * CellSize + Padding + offsetY, CellSize, CellSize);
-                int value = grid.GetCell(y, x);
+
+                // Get GridCellType and extract its value
+                var cellData = grid.GetCell(y, x);
+                int value = cellData?.Value ?? 0;
+
                 Color bgColor = ColorsArray[Mathf.Clamp(value, 0, ColorsArray.Length - 1)];
                 DrawRect(rect, bgColor);
                 DrawRect(rect, Colors.Black, false);
@@ -130,13 +134,15 @@ public partial class BoardMatrixEditor : Control {
         }
 
         if (x >= 0 && x < grid.Columns && y >= 0 && y < grid.Rows) {
-            int value = grid.GetCell(y, x);
+            // Get GridCellType and extract its value
+            var cellData = grid.GetCell(y, x);
+            int value = cellData?.Value ?? 0;
 
             if (mouseEvent.ButtonIndex == MouseButton.Left) {
-                grid.SetCell(y, x, (value + 1) % ColorsArray.Length);
+                grid.SetCellValue(y, x, (value + 1) % ColorsArray.Length);
             }
             else if (mouseEvent.ButtonIndex == MouseButton.Right) {
-                grid.SetCell(y, x, (value - 1 + ColorsArray.Length) % ColorsArray.Length);
+                grid.SetCellValue(y, x, (value - 1 + ColorsArray.Length) % ColorsArray.Length);
             }
             QueueRedraw();
             return true;

@@ -1,5 +1,6 @@
 using Godot;
 using DiceRolling.Attributes;
+using DiceRolling.Stores;
 
 namespace DiceRolling.Helpers;
 

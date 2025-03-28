@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://21o4pt7dm2n0"]
+
+[ext_resource type="Script" uid="uid://c00f3g3y8eujg" path="res://renderers/components/GameLog/GameLogComponent.cs" id="1_h5njw"]
+
+[node name="GameLog" type="ScrollContainer" node_paths=PackedStringArray("_messageContainerNode", "_messageTemplateNode", "_headingLabelTemplateNode", "_timestampLabelTemplateNode", "_lineTemplateNode")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_h5njw")
+_messageContainerNode = NodePath("MessagesContainer")
+_messageTemplateNode = NodePath("MessagesContainer/MessageTemplate")
+_headingLabelTemplateNode = NodePath("MessagesContainer/MessageTemplate/HeaderTemplate/Heading")
+_timestampLabelTemplateNode = NodePath("MessagesContainer/MessageTemplate/HeaderTemplate/Timestamp")
+_lineTemplateNode = NodePath("MessagesContainer/MessageTemplate/LinesContainer/LineTemplate")
+
+[node name="MessagesContainer" type="BoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+vertical = true
+
+[node name="MessageTemplate" type="VBoxContainer" parent="MessagesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HeaderTemplate" type="HBoxContainer" parent="MessagesContainer/MessageTemplate"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Heading" type="Label" parent="MessagesContainer/MessageTemplate/HeaderTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Game State"
+justification_flags = 3
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Timestamp" type="Label" parent="MessagesContainer/MessageTemplate/HeaderTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Timestamp"
+horizontal_alignment = 2
+justification_flags = 3
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="LinesContainer" type="VBoxContainer" parent="MessagesContainer/MessageTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="LineTemplate" type="RichTextLabel" parent="MessagesContainer/MessageTemplate/LinesContainer"]
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet. Est itaque veritatis non voluptas omnis At maiores velit. Et unde neque sed magni consequatur aut cupiditate sunt eos delectus dolores et dolorum eligendi."
+fit_content = true

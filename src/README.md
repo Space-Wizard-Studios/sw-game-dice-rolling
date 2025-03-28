@@ -12,25 +12,41 @@
 
 ### Tecnologias do Jogo
 
-- **Godot Engine 4+**: Motor de jogo utilizado para desenvolver o projeto.
+- **Godot 4+**: Engine utilizada para desenvolver o projeto;
 - **C#**: Linguagem de programação utilizada para a lógica do jogo.
 
 ### Estrutura da framework
 
-```pwsh
+```bash
 .
 └── src
-    ├── addons                  # bibliotecas third party e plugins do editor
-    ├── assets                  # assets como sprites, sons, texturas e respectivos arquivos de configuração
-    ├── features                # funcionalidades do jogo
-    │   ├── [...feature]        # pastas específicas de cada funcionalidade
-    │   ├── common              # funcionalidades comuns
-    │   └── scenes              # cenas específicas das funcionalidades
-    ├── helpers                 # classes utilitárias
-    ├── resources               # resources do Godot
-    ├── scenes                  # cenas da framework
-    │   └── components          # nodes a serem exibidos nas cenas e respectivos arquivos de configuração
-    └── tests                   # testes do projeto
+    ├── addons          # bibliotecas third party
+    │   └── @spacewiz   # plugins desenvolvidos para o projeto
+    │
+    ├── assets          # assets como sprites, sons, texturas e seus arquivos de configuração
+    │
+    ├── controllers     # comunicação entre a view e o model, interatividade e controle de eventos
+    │                   # lógica de alto nível, como o controle do estado do jogo, cenas e transições
+    │
+    ├── events          # comunicação por signals entre os models, views e controllers
+    │                   # TODO: bus, handlers, types
+    │
+    ├── helpers         # classes utilitárias
+    │
+    ├── models
+    │   ├── data        # estruturas dos dados
+    │   ├── services    # manipulação de dados e regras de negócio
+    │   └── stores      # estado em tempo de execução (cache e gerenciamento)
+    │
+    ├── renderers           # visualização e renderização do jogo
+    │   ├── components  # componentes reutilizáveis
+    │   ├── entities    # entidades do jogo
+    │   ├── scenes      # cenas do jogo
+    │   └── ui          # elementos de interface do usuário
+    │
+    ├── resources       # arquivos de configuração estáticos do jogo
+    │
+    └── tests           # testes unitários e cenas específicas para testes
 ```
 
 ## Ambiente de Desenvolvimento

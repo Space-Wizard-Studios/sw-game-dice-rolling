@@ -1,20 +1,21 @@
 [gd_resource type="Resource" script_class="CharacterType" load_steps=6 format=3 uid="uid://ctp5er4mb8u3k"]
 
-[ext_resource type="Script" uid="uid://cxt7qolwarsf1" path="res://features/Character/CharacterAction.cs" id="1_4pvhh"]
-[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://features/Character/CharacterAttribute.cs" id="2_5s1he"]
+[ext_resource type="Script" uid="uid://cxt7qolwarsf1" path="res://models/data/Character/CharacterAction.cs" id="1_5s1he"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/data/Character/CharacterAttribute.cs" id="2_suo5q"]
 [ext_resource type="Resource" uid="uid://bjc78p06uwuy3" path="res://resources/Locations/EnemySquad.tres" id="4_5s1he"]
 [ext_resource type="SpriteFrames" uid="uid://bkvhu7v1tmcfy" path="res://assets/characters/dummyOtsoga/DummyOtsogaSprites.tres" id="5_giux7"]
-[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://features/Character/CharacterType.cs" id="8_ktuse"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/data/Character/CharacterType.cs" id="8_ktuse"]
 
 [resource]
 script = ExtResource("8_ktuse")
 Name = "Dummy"
 CharacterSprite = ExtResource("5_giux7")
+PixelSize = 0.01
 ShowShadow = false
 SpritePositionX = 0.0
 SpritePositionY = 0.0
-Attributes = Array[ExtResource("2_5s1he")]([])
-Actions = Array[ExtResource("1_4pvhh")]([])
+Attributes = Array[ExtResource("2_suo5q")]([])
+Actions = Array[ExtResource("1_5s1he")]([])
 Location = ExtResource("4_5s1he")
 SlotIndex = 0
 Id = "a98288c9-8795-4e16-801f-5fed51abd905"

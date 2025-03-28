@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="RoleType" load_steps=12 format=3 uid="uid://bgx5eoqdsu100"]
 
-[ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://features/Role/RoleAction.cs" id="1_e1455"]
+[ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://models/data/Role/RoleAction.cs" id="1_e1455"]
 [ext_resource type="Resource" uid="uid://cvojckruuqrn6" path="res://resources/Actions/MagicMissiles.tres" id="2_6jo5k"]
 [ext_resource type="Resource" uid="uid://c8xr12tkory0k" path="res://resources/Actions/ArcaneStrike.tres" id="3_7dyxt"]
-[ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://features/Role/RoleAttribute.cs" id="4_h5xh8"]
+[ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/data/Role/RoleAttribute.cs" id="4_h5xh8"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="5_3q0ws"]
 [ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="6_s2fk3"]
-[ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://features/Role/RoleType.cs" id="7_psdi4"]
+[ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/data/Role/RoleType.cs" id="7_psdi4"]
 
 [sub_resource type="Resource" id="Resource_fqxkr"]
 script = ExtResource("1_e1455")

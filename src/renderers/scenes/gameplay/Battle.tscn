@@ -47,6 +47,7 @@ EnemyGridPosition = Vector3(1, 0, 0)
 metadata/_custom_type_script = "uid://ct1yyo7dn6eba"
 
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="HUDContainer" parent="HUD" instance=ExtResource("2_dcsho")]
 

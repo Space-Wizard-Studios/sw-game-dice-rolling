@@ -1,29 +1,46 @@
-[gd_resource type="Resource" script_class="RoleType" load_steps=8 format=3 uid="uid://bad7cxgeb8mqp"]
+[gd_resource type="Resource" script_class="RoleType" load_steps=14 format=3 uid="uid://bad7cxgeb8mqp"]
 
 [ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://models/data/Role/RoleAction.cs" id="1_iytx6"]
+[ext_resource type="Resource" uid="uid://cs65w4r75ugap" path="res://resources/Actions/QuickSlash.tres" id="2_j81qd"]
 [ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/data/Role/RoleAttribute.cs" id="3_j81qd"]
+[ext_resource type="Resource" uid="uid://cly4t230cu6ii" path="res://resources/Actions/CleaveAttack.tres" id="3_x8hfl"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="5_ysdox"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="6_tynnb"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="7_q2kfc"]
 [ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/data/Role/RoleType.cs" id="7_x8hfl"]
 
-[sub_resource type="Resource" id="Resource_rp15h"]
+[sub_resource type="Resource" id="Resource_eysv7"]
 script = ExtResource("1_iytx6")
-metadata/_custom_type_script = ExtResource("1_iytx6")
+Type = ExtResource("2_j81qd")
+metadata/_custom_type_script = "uid://dva25u156vwmb"
 
-[sub_resource type="Resource" id="Resource_g0hcp"]
+[sub_resource type="Resource" id="Resource_0l1dg"]
+script = ExtResource("1_iytx6")
+Type = ExtResource("3_x8hfl")
+metadata/_custom_type_script = "uid://dva25u156vwmb"
+
+[sub_resource type="Resource" id="Resource_6os0b"]
 script = ExtResource("3_j81qd")
+Type = ExtResource("5_ysdox")
 BaseValue = 100
+metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
 
-[sub_resource type="Resource" id="Resource_8w8fm"]
+[sub_resource type="Resource" id="Resource_ss44g"]
 script = ExtResource("3_j81qd")
+Type = ExtResource("6_tynnb")
 BaseValue = 50
+metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
 
-[sub_resource type="Resource" id="Resource_xurgi"]
+[sub_resource type="Resource" id="Resource_4qaq3"]
 script = ExtResource("3_j81qd")
-BaseValue = 50
+Type = ExtResource("7_q2kfc")
+BaseValue = 100
+metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
 
 [resource]
 script = ExtResource("7_x8hfl")
 Name = "Fighter"
 Description = "Fighter Description"
-RoleAttributes = Array[ExtResource("3_j81qd")]([SubResource("Resource_g0hcp"), SubResource("Resource_8w8fm"), SubResource("Resource_xurgi")])
-RoleActions = Array[ExtResource("1_iytx6")]([SubResource("Resource_rp15h")])
+RoleAttributes = Array[ExtResource("3_j81qd")]([SubResource("Resource_6os0b"), SubResource("Resource_ss44g"), SubResource("Resource_4qaq3")])
+RoleActions = Array[ExtResource("1_iytx6")]([SubResource("Resource_eysv7"), SubResource("Resource_0l1dg")])
 Id = "d617ceaf-d1be-425f-80e3-5e662e73dba6"

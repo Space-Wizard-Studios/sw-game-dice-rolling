@@ -96,10 +96,22 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
     [Export]
     public Godot.Collections.Array<CharacterAttribute> Attributes { get; private set; } = [];
 
+    [ExportToolButton("Initialize Attributes")]
+    public Callable InitAttributesButton => Callable.From(() => {
+        InitializeAttributes();
+        GD.Print($"Attributes initialized for character: {Name}");
+    });
+
     [ExportGroup("🔥 Actions")]
 
     [Export]
     public Godot.Collections.Array<CharacterAction> Actions { get; private set; } = [];
+
+    [ExportToolButton("Initialize Actions")]
+    public Callable InitActionsButton => Callable.From(() => {
+        InitializeActions();
+        GD.Print($"Actions initialized for character: {Name}");
+    });
 
     [ExportGroup("📍 Placement")]
 

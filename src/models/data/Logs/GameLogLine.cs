@@ -9,6 +9,8 @@ public enum GameLogLineType {
     Success,
     Warning,
     Wip,
+    Action,
+    Combat
 }
 
 public class GameLogLine {

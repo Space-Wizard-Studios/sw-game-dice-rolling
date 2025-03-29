@@ -105,8 +105,7 @@ public class GridService {
 
         // Get all characters from the store
         foreach (var character in grid.CharacterStore.Characters) {
-            // Check if character is in the right location for this grid
-            // Assuming each grid has a LocationType property to check against
+            // TODO - Check if character is in the right location for this grid
             if (character.Location != null && character.SlotIndex >= 0) {
                 // Map the slot index to a cell in the grid
                 int row = character.SlotIndex / grid.Columns;

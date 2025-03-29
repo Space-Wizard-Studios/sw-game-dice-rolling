@@ -1,41 +1,44 @@
-[gd_resource type="Resource" load_steps=7 format=3 uid="uid://cs65w4r75ugap"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=10 format=3 uid="uid://cs65w4r75ugap"]
 
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/data/Effect/EffectType.cs" id="1_qhrue"]
+[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="2_8ielr"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="2_i76yk"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/data/Target/TargetBoardType.cs" id="3_qhrue"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/data/Action/ActionType.cs" id="4_8ielr"]
+[ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="4_rvih8"]
 
 [sub_resource type="Resource" id="Resource_5ohu7"]
 script = ExtResource("2_i76yk")
 Prefix = "P"
-Offset = 0
 Direction = 0
 Rows = 2
 Columns = 3
-Cells = Array[int]([0, 0, 1, 0, 0, 1])
+Cells = Array[ExtResource("4_rvih8")]([])
+Id = "5327cd36-1771-436e-8fdb-2015654bc510"
 metadata/_custom_type_script = ExtResource("2_i76yk")
 
 [sub_resource type="Resource" id="Resource_ntci2"]
 script = ExtResource("2_i76yk")
 Prefix = "E"
-Offset = 0
 Direction = 0
 Rows = 2
 Columns = 3
-Cells = Array[int]([3, 0, 0, 3, 0, 0])
+Cells = Array[ExtResource("4_rvih8")]([])
+Id = "d539d0e1-7631-4100-8054-c585b367e754"
 metadata/_custom_type_script = ExtResource("2_i76yk")
 
 [sub_resource type="Resource" id="Resource_0oh7q"]
 script = ExtResource("3_qhrue")
 IsSingleTarget = true
-Grids = [SubResource("Resource_5ohu7"), SubResource("Resource_ntci2")]
+Grids = Array[ExtResource("2_i76yk")]([SubResource("Resource_5ohu7"), SubResource("Resource_ntci2")])
 metadata/_custom_type_script = ExtResource("3_qhrue")
 
 [resource]
 script = ExtResource("4_8ielr")
 Name = "Quick Slash"
 Description = "Quick slash description"
-RequiredEnergy = []
-Effects = []
+RequiredEnergy = Array[ExtResource("2_8ielr")]([])
+Effects = Array[ExtResource("1_qhrue")]([])
 TargetBoard = SubResource("Resource_0oh7q")
 Id = "1575f70b-f7b7-44e6-959c-3e0d347517a2"
-metadata/_custom_type_script = ExtResource("4_8ielr")
+metadata/_custom_type_script = "uid://dk6es2dobyja5"

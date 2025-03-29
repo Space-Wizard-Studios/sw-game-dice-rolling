@@ -5,6 +5,12 @@ using DiceRolling.Grids;
 
 namespace DiceRolling.Components.Grids;
 
+/// <summary>
+/// A component that creates a grid of cells based on a GridEntity's GridData.
+/// </summary>
+/// <remarks>
+/// This component listens for updates to the parent GridEntity's GridData and rebuilds the grid of cells accordingly.
+/// </remarks>
 [Tool]
 [GlobalClass]
 [Icon("res://assets/editor/component-3d.svg")]
@@ -59,9 +65,9 @@ public partial class GridContainerComponent : Node3D {
 
     private Vector3 CalculateCellPosition(GridCellType cell) {
         return new Vector3(
-            cell.Column * CellSize.X + GridOffset.X,
+            cell.Column * CellSize.X + GridOffset.X + CellSize.X / 2,
             GridOffset.Y,
-            cell.Row * CellSize.Z + GridOffset.Z
+            cell.Row * CellSize.Z + GridOffset.Z + CellSize.Z / 2
         );
     }
 }

@@ -18,8 +18,6 @@ public partial class GridType : IdentifiableResource, IGrid {
     [Export]
     public string Prefix { get; set; } = "G";
 
-    [Export]
-    public int Offset { get; set; } = 0;
 
     [Export]
     public CharacterStore? CharacterStore {
@@ -62,10 +60,9 @@ public partial class GridType : IdentifiableResource, IGrid {
         ResizeCells();
     }
 
-    public GridType(int rows, int columns, int offset, string prefix) {
+    public GridType(int rows, int columns, string prefix) {
         Rows = rows;
         Columns = columns;
-        Offset = offset;
         Prefix = prefix;
         ValidateConstructor();
         ResizeCells();
@@ -111,9 +108,6 @@ public partial class GridType : IdentifiableResource, IGrid {
         }
         if (Columns <= 0) {
             throw new ArgumentException("O número de Columns não pode ser 0 ou menor.", nameof(_columns));
-        }
-        if (Offset < 0) {
-            throw new ArgumentException("Offset não pode ser negativo.", nameof(Offset));
         }
         if (!Enum.IsDefined(Direction)) {
             throw new ArgumentException("Grid Direction inválida.", nameof(Direction));

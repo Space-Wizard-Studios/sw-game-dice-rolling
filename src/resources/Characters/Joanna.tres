@@ -1,12 +1,46 @@
-[gd_resource type="Resource" script_class="CharacterType" load_steps=8 format=3 uid="uid://bkolttux1bvi1"]
+[gd_resource type="Resource" script_class="CharacterType" load_steps=18 format=3 uid="uid://bkolttux1bvi1"]
 
 [ext_resource type="Script" uid="uid://cxt7qolwarsf1" path="res://models/data/Character/CharacterAction.cs" id="1_5q3u5"]
 [ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/data/Character/CharacterAttribute.cs" id="2_6bp7c"]
+[ext_resource type="Resource" uid="uid://cs65w4r75ugap" path="res://resources/Actions/QuickSlash.tres" id="2_06rx3"]
+[ext_resource type="Resource" uid="uid://cly4t230cu6ii" path="res://resources/Actions/CleaveAttack.tres" id="3_td0yb"]
 [ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://resources/Locations/PlayerSquad.tres" id="4_5q3u5"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="5_7yppy"]
 [ext_resource type="Resource" uid="uid://bad7cxgeb8mqp" path="res://resources/Roles/Playable/Fighter.tres" id="5_ffsgs"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="6_2f8ao"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="6_d10er"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="7_62ltr"]
 [ext_resource type="Texture2D" uid="uid://8e45l4n0kh6" path="res://assets/characters/joannaOtsoga/JoannaOtsogaPortrait.png" id="8_62ltr"]
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/data/Character/CharacterType.cs" id="10_iwykt"]
+
+[sub_resource type="Resource" id="Resource_la8y8"]
+script = ExtResource("1_5q3u5")
+Type = ExtResource("2_06rx3")
+
+[sub_resource type="Resource" id="Resource_iwykt"]
+script = ExtResource("1_5q3u5")
+Type = ExtResource("3_td0yb")
+
+[sub_resource type="Resource" id="Resource_j65eg"]
+script = ExtResource("2_6bp7c")
+Type = ExtResource("5_7yppy")
+MaxValue = 100
+CurrentValue = 100
+BaseValue = 100
+
+[sub_resource type="Resource" id="Resource_7gmay"]
+script = ExtResource("2_6bp7c")
+Type = ExtResource("6_2f8ao")
+MaxValue = 50
+CurrentValue = 50
+BaseValue = 50
+
+[sub_resource type="Resource" id="Resource_6mm8l"]
+script = ExtResource("2_6bp7c")
+Type = ExtResource("7_62ltr")
+MaxValue = 100
+CurrentValue = 100
+BaseValue = 100
 
 [resource]
 script = ExtResource("10_iwykt")
@@ -18,8 +52,8 @@ ShowShadow = false
 SpritePositionX = 0.0
 SpritePositionY = -10.0
 Role = ExtResource("5_ffsgs")
-Attributes = Array[ExtResource("2_6bp7c")]([])
-Actions = Array[ExtResource("1_5q3u5")]([])
+Attributes = Array[ExtResource("2_6bp7c")]([SubResource("Resource_j65eg"), SubResource("Resource_7gmay"), SubResource("Resource_6mm8l")])
+Actions = Array[ExtResource("1_5q3u5")]([SubResource("Resource_la8y8"), SubResource("Resource_iwykt")])
 Location = ExtResource("4_5q3u5")
 SlotIndex = 5
 Id = "d98ec50f-3df3-47e6-b266-cbc7b8fbb745"

@@ -1,11 +1,32 @@
-[gd_resource type="Resource" script_class="CharacterType" load_steps=7 format=3 uid="uid://ctp5er4mb8u3k"]
+[gd_resource type="Resource" script_class="CharacterType" load_steps=13 format=3 uid="uid://ctp5er4mb8u3k"]
 
 [ext_resource type="Script" uid="uid://cxt7qolwarsf1" path="res://models/data/Character/CharacterAction.cs" id="1_5s1he"]
+[ext_resource type="Resource" uid="uid://cgac6lxa06rf8" path="res://resources/Actions/Stare.tres" id="2_miksr"]
 [ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/data/Character/CharacterAttribute.cs" id="2_suo5q"]
 [ext_resource type="Resource" uid="uid://bjc78p06uwuy3" path="res://resources/Locations/EnemySquad.tres" id="4_5s1he"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="4_fnxuv"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="5_6285t"]
 [ext_resource type="SpriteFrames" uid="uid://bkvhu7v1tmcfy" path="res://assets/characters/dummyOtsoga/DummyOtsogaSprites.tres" id="5_giux7"]
 [ext_resource type="Resource" uid="uid://bviiaflcxorr0" path="res://resources/Roles/Unplayable/DummyRole.tres" id="5_suo5q"]
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/data/Character/CharacterType.cs" id="8_ktuse"]
+
+[sub_resource type="Resource" id="Resource_giux7"]
+script = ExtResource("1_5s1he")
+Type = ExtResource("2_miksr")
+
+[sub_resource type="Resource" id="Resource_k0ig8"]
+script = ExtResource("2_suo5q")
+Type = ExtResource("4_fnxuv")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
+
+[sub_resource type="Resource" id="Resource_mifd0"]
+script = ExtResource("2_suo5q")
+Type = ExtResource("5_6285t")
+MaxValue = 999
+CurrentValue = 999
+BaseValue = 999
 
 [resource]
 script = ExtResource("8_ktuse")
@@ -16,8 +37,8 @@ ShowShadow = false
 SpritePositionX = 0.0
 SpritePositionY = 0.0
 Role = ExtResource("5_suo5q")
-Attributes = Array[ExtResource("2_suo5q")]([])
-Actions = Array[ExtResource("1_5s1he")]([])
+Attributes = Array[ExtResource("2_suo5q")]([SubResource("Resource_k0ig8"), SubResource("Resource_mifd0")])
+Actions = Array[ExtResource("1_5s1he")]([SubResource("Resource_giux7")])
 Location = ExtResource("4_5s1he")
 SlotIndex = 0
 Id = "a98288c9-8795-4e16-801f-5fed51abd905"

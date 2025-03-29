@@ -21,6 +21,7 @@ Id = "c9d78c06-2e53-4e44-9fd1-11e5f4e97afc"
 metadata/_custom_type_script = "uid://bnrom8367617i"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnb4r"]
+albedo_color = Color(0.8, 0.8, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_dnb4r"]
 

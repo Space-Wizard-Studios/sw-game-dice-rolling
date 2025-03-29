@@ -51,7 +51,7 @@ public partial class BattleEvents : Node {
     public void EmitEnemiesGenerated(Godot.Collections.Array enemies) => EmitSignal(nameof(EnemiesGenerated), enemies);
     public void EmitCharactersPositioned(Godot.Collections.Array characters) => EmitSignal(nameof(CharactersPositioned), characters);
     public void EmitInitiativeQueueCreated(Godot.Collections.Array queue) => EmitSignal(nameof(InitiativeQueueSetup), queue);
-    public void EmitTransitionedToRounds() => EmitSignal(nameof(TransitionedToRounds));
+    public void EmitTransitionedToRounds(int roundNumber) => EmitSignal(nameof(TransitionedToRounds), roundNumber);
 
     // Initiative Events
     //  - Update queue when a character is added
@@ -129,6 +129,7 @@ public partial class BattleEvents : Node {
 
     // Turn Check Signals
     public void EmitCheckNextTurn() => EmitSignal(nameof(CheckNextTurn));
+    public void EmitCheckNextRound() => EmitSignal(nameof(CheckNextRound));
 
     // Phase 3: Battle Result Events
     //  - Step 1: Result checking

@@ -68,7 +68,7 @@ public partial class TurnController : RefCounted {
         BattleEvents.Instance.EmitInitiativeQueueCreated(new Godot.Collections.Array(_initiativeQueue.ToArray()));
 
         // Transition to rounds phase
-        BattleController.TransitionToRounds();
+        BattleController.Instance.TransitionToRounds();
     }
 
     // Sort the initiative queue based on character initiative values
@@ -124,6 +124,7 @@ public partial class TurnController : RefCounted {
 
     // Adds a character to the initiative queue
     public void AddCharacterToQueue(CharacterType character) {
+        GD.Print("TurnController: Adding character to initiative queue");
         if (!_initiativeQueue.Contains(character)) {
             _initiativeQueue.Add(character);
             SortQueue();
@@ -133,6 +134,7 @@ public partial class TurnController : RefCounted {
 
     // Removes a character from the initiative queue
     public void RemoveCharacterFromQueue(CharacterType character) {
+        GD.Print("TurnController: Removing character from initiative queue");
         if (_initiativeQueue.Contains(character)) {
             _initiativeQueue.Remove(character);
             BattleEvents.Instance.EmitCharacterRemovedFromQueue(character);
@@ -141,6 +143,7 @@ public partial class TurnController : RefCounted {
 
     // Moves a character to the end of the initiative queue
     public void MoveCharacterToEndOfQueue(CharacterType character) {
+        GD.Print("TurnController: Moving character to end of initiative queue");
         if (_initiativeQueue.Contains(character)) {
             _initiativeQueue.Remove(character);
             _initiativeQueue.Add(character);
@@ -157,11 +160,13 @@ public partial class TurnController : RefCounted {
 
     // Begins the process of resolving turns
     public void StartTurnsResolution() {
+        GD.Print("TurnController: Starting turns resolution");
         ProcessNextCharacterTurn();
     }
 
     // Process the turn for the next character in the queue
     private void ProcessNextCharacterTurn() {
+        GD.Print("TurnController: Processing next character turn");
         CharacterType? nextCharacter = GetNextCharacter();
 
         if (nextCharacter != null) {
@@ -175,12 +180,14 @@ public partial class TurnController : RefCounted {
 
     // Start a character's turn
     private static void StartCharacterTurn(CharacterType character) {
+        GD.Print($"TurnController: Starting turn for {character.Name}");
         BattleEvents.Instance.EmitTurnStarted(character);
         ExecuteCharacterAction(character);
     }
 
     // Execute the action declared by the character
     private static void ExecuteCharacterAction(CharacterType character) {
+        GD.Print($"TurnController: Executing action for {character.Name}");
         // TODO: Execute the character's action
         // This depends on the action system implementation
 
@@ -190,6 +197,7 @@ public partial class TurnController : RefCounted {
 
     // End a character's turn and prepare for the next
     private void EndCharacterTurn(CharacterType character) {
+        GD.Print($"TurnController: Ending turn for {character.Name}");
         // Move character to the end of queue
         MoveCharacterToEndOfQueue(character);
 
@@ -198,7 +206,8 @@ public partial class TurnController : RefCounted {
 
         // Check if we should continue to next turn
         if (ShouldContinueBattle()) {
-            ProcessNextCharacterTurn();
+            // Use CheckNextTurn event instead of direct call to break recursion
+            BattleEvents.Instance.EmitCheckNextTurn();
         }
         else {
             // Battle round is complete
@@ -244,5 +253,10 @@ public partial class TurnController : RefCounted {
     private void OnCharacterInitiativeModified(CharacterType character) {
         GD.Print("Event CharacterInitiativeModified fired on TurnController, re-sorting queue");
         SortQueue();
+    }
+
+    private void OnCheckNextTurn() {
+        // Call process with deferred execution to break the call stack
+        CallDeferred(nameof(ProcessNextCharacterTurn));
     }
 }

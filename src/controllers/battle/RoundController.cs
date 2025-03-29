@@ -20,53 +20,97 @@ namespace DiceRolling.Controllers;
 ///     </list>
 /// </remarks>
 public partial class RoundController : RefCounted {
-    private ActionsController _actionsController;
-    private TurnController _turnController;
+    private ActionsController? _actionsController;
+    private TurnController? _turnController;
+    private RoundState _currentRoundState = RoundState.RoundStart;
+    public RoundState CurrentRoundState => _currentRoundState;
+
+    public RoundController() {
+        // Will be initialized later via Initialize method
+    }
 
     public RoundController(ActionsController actionsController, TurnController turnController) {
-        // Conecta-se aos eventos necessários
-        BattleEvents.Instance.TransitionedToRounds += OnTransitionedToRounds;
-        BattleEvents.Instance.TurnsResolved += OnTurnsResolved;
+        Initialize(actionsController, turnController);
+    }
 
-        // Use the provided controllers instead of creating new ones
+    // Initialize method allows for proper setup after deserialization
+    public void Initialize(ActionsController actionsController, TurnController turnController) {
         _actionsController = actionsController;
         _turnController = turnController;
+
+        // Connect events
+        ConnectEvents();
+    }
+
+    private void ConnectEvents() {
+        // Avoid duplicate connections
+        DisconnectEvents();
+
+        // Connect to required events
+        BattleEvents.Instance.TransitionedToRounds += OnTransitionedToRounds;
+        BattleEvents.Instance.TurnsResolved += OnTurnsResolved;
+    }
+
+    private void DisconnectEvents() {
+        if (BattleEvents.Instance != null) {
+            BattleEvents.Instance.TransitionedToRounds -= OnTransitionedToRounds;
+            BattleEvents.Instance.TurnsResolved -= OnTurnsResolved;
+        }
+    }
+    // Method to update round state
+    private void SetRoundState(RoundState newState) {
+        GD.Print($"Round state changing: {_currentRoundState} -> {newState}");
+        _currentRoundState = newState;
     }
 
     // Inicia um novo round
     public void StartRound() {
-        // Incrementa o contador de rounds
+        // Ensure controllers are available
+        if (_actionsController == null || _turnController == null) {
+            GD.PrintErr("RoundController: Controllers not initialized!");
+            return;
+        }
+
+        GD.Print("RoundController: Starting a new round...");
         BattleController.Instance.AdvanceRound();
-
-        // Atualiza o estado da batalha
-        BattleController.Instance.SetRoundState(RoundState.RoundStart);
-
-        // Notifica o início do round
+        SetRoundState(RoundState.RoundStart);
         BattleEvents.Instance.EmitRoundStarted(BattleController.Instance.CurrentRound);
-
-        // Passa para a fase de declaração de ações
         StartActionsDeclarationPhase();
     }
 
     // Inicia a fase de declaração de ações
     private void StartActionsDeclarationPhase() {
-        BattleController.Instance.SetRoundState(RoundState.ActionsDeclaration);
+        if (_actionsController == null) {
+            GD.PrintErr("RoundController: ActionsController not initialized!");
+            return;
+        }
 
-        // Delega a declaração de ações para o ActionsController
-        ActionsController.StartActionsDeclaration();
+        GD.Print("RoundController: Starting actions declaration phase...");
+        SetRoundState(RoundState.ActionsDeclaration);
+
+        var playerTeam = BattleController.Instance.GetPlayerTeam();
+        var enemyTeam = BattleController.Instance.GetEnemyTeam();
+
+        _actionsController.StartActionsDeclaration(playerTeam, enemyTeam);
     }
-
     // Inicia a fase de resolução de turnos
-    public void StartTurnsResolutionPhase() {
-        BattleController.Instance.SetRoundState(RoundState.TurnsResolution);
 
-        // Delega a resolução de turnos para o TurnController
+    public void StartTurnsResolutionPhase() {
+        if (_turnController == null) {
+            GD.PrintErr("RoundController: TurnController not initialized!");
+            return;
+        }
+
+        GD.Print("RoundController: Starting turns resolution phase...");
+        SetRoundState(RoundState.TurnsResolution);
+
         _turnController.StartTurnsResolution();
     }
 
     // Finaliza o round atual
     public void EndRound() {
-        BattleController.Instance.SetRoundState(RoundState.RoundEnd);
+        GD.Print("RoundController: Ending the current round...");
+        SetRoundState(RoundState.RoundEnd);
 
         // Notifica o fim do round
         BattleEvents.Instance.EmitRoundEnded(BattleController.Instance.CurrentRound);

@@ -1,12 +1,15 @@
 using Godot;
-using DiceRolling.Characters;
-using DiceRolling.Entities;
-using DiceRolling.Grids;
+using System;
 using System.Linq;
+using System.Collections.Generic;
+
+using DiceRolling.Characters;
+using DiceRolling.Grids;
 using DiceRolling.Stores;
 using DiceRolling.Locations;
-using System;
 using DiceRolling.Helpers;
+
+using DiceRolling.Entities;
 
 namespace DiceRolling.Controllers;
 
@@ -37,7 +40,6 @@ namespace DiceRolling.Controllers;
 ///     </list>
 /// </remarks>
 [Tool]
-[GlobalClass]
 [Icon("res://assets/editor/controller.svg")]
 public partial class BattleController : Node {
     private static BattleController? _instance;
@@ -47,8 +49,9 @@ public partial class BattleController : Node {
         get {
             if (_instance == null) {
                 if (Engine.GetMainLoop() is SceneTree tree) {
-                    _instance = tree.Root.GetNodeOrNull<BattleController>("/root/BattleController");
+                    _instance = tree.Root.FindNodeOfType<BattleController>();
                 }
+                GD.Print("BattleController: Creating new instance");
                 _instance ??= new BattleController();
             }
             return _instance;
@@ -79,15 +82,12 @@ public partial class BattleController : Node {
 
         // Create new grids
         CreateBattleGrids();
-        GD.Print("Battle grids recreated");
+        GD.Print("Battle Controller: Battle grids recreated");
     });
 
     // State management
     private BattleState _currentState = BattleState.Start;
     public BattleState CurrentState => _currentState;
-    private RoundState _currentRoundState = RoundState.RoundStart;
-    public RoundState CurrentRoundState => _currentRoundState;
-
     // Battle data
     private int _currentRound = 0;
     public int CurrentRound => _currentRound;
@@ -110,18 +110,22 @@ public partial class BattleController : Node {
             var playerChars = PlayerCharacterStore.Characters.Where(c =>
                 c != null && c.Location == PlayerSquadLocation).ToArray();
             _playerTeam = new Godot.Collections.Array(playerChars);
+            GD.Print($"Player team initialized with {playerChars.Length} characters.");
         }
 
         if (EnemyCharacterStore?.Characters != null && EnemySquadLocation != null) {
             var enemyChars = EnemyCharacterStore.Characters.Where(c =>
                 c != null && c.Location == EnemySquadLocation).ToArray();
             _enemyTeam = new Godot.Collections.Array(enemyChars);
+            GD.Print($"Enemy team initialized with {enemyChars.Length} characters.");
         }
 
-
         // TESTING
+        // if (Engine.IsEditorHint()) {
+        //     return;
+        // }
+        LogTeamInfo("Ready");
         StartBattle();
-
     }
 
     public override void _ExitTree() {
@@ -136,7 +140,8 @@ public partial class BattleController : Node {
     private void InitializeControllers() {
         _turnController = new TurnController();
         _actionsController = new ActionsController();
-        _roundController = new RoundController(_actionsController, _turnController);
+        _roundController = new RoundController();
+        _roundController.Initialize(_actionsController, _turnController);
         _battleResultsController = new BattleResultsController();
         _postBattleController = new PostBattleController();
     }
@@ -156,11 +161,13 @@ public partial class BattleController : Node {
 
     // Starts a new battle with the specified teams
     public void StartBattle(Godot.Collections.Array? playerTeam = null, Godot.Collections.Array? enemyTeam = null) {
-        GD.Print("Starting battle...");
+        GD.Print("Battle Controller: Starting battle...");
         // Setup battle data using provided teams or fall back to exported characters
         _playerTeam = playerTeam ?? _playerTeam;
         _enemyTeam = enemyTeam ?? _enemyTeam;
         _currentRound = 0;
+
+        LogTeamInfo("StartBattle");
 
         BattleEvents.Instance.EmitBattleStarted(_playerTeam, _enemyTeam);
 
@@ -180,14 +187,8 @@ public partial class BattleController : Node {
 
     // Updates the battle state
     public void SetBattleState(BattleState newState) {
-        GD.Print($"Battle state changing: {_currentState} -> {newState}");
+        GD.Print($"Battle Controller: Battle state changing: {_currentState} -> {newState}");
         _currentState = newState;
-    }
-
-    // Updates the round state
-    public void SetRoundState(RoundState newState) {
-        GD.Print($"Round state changing: {_currentRoundState} -> {newState}");
-        _currentRoundState = newState;
     }
 
     // Advances to the next round
@@ -214,7 +215,7 @@ public partial class BattleController : Node {
     }
 
     private void PositionCharacters() {
-        GD.Print("Positioning characters...");
+        GD.Print("Battle Controller: Positioning characters...");
         CreateBattleGrids();
 
         // Ensure all characters have initialized attributes and actions before positioning
@@ -222,6 +223,9 @@ public partial class BattleController : Node {
         InitializeCharacterAttributesIfNeeded(_enemyTeam);
         InitializeCharacterActionsIfNeeded(_playerTeam);
         InitializeCharacterActionsIfNeeded(_enemyTeam);
+
+        LogTeamInfo("PositionCharacters");
+        LogLocationInfo("PositionCharacters");
 
         // Utilizar o método AssignCharacters diretamente
         _playerGridEntity?.GridData?.AssignCharacters();
@@ -298,10 +302,90 @@ public partial class BattleController : Node {
     }
 
     // Transitions from battle preparation to rounds phase
-    public static void TransitionToRounds() {
-        GD.Print("Transitioning to battle rounds phase...");
+    public void TransitionToRounds() {
+        GD.Print("Battle Controller: Transitioning to battle rounds phase...");
         Instance.SetBattleState(BattleState.InProgress);
-        BattleEvents.Instance.EmitTransitionedToRounds();
+        BattleEvents.Instance.EmitTransitionedToRounds(CurrentRound);
+    }
+
+    public Godot.Collections.Array GetAllCharacters() {
+        var allCharacters = new Godot.Collections.Array();
+        allCharacters.AddRange(_playerTeam);
+        allCharacters.AddRange(_enemyTeam);
+        return allCharacters;
+    }
+
+    public List<CharacterType> GetPlayerTeam() {
+        List<CharacterType> result = [];
+
+        GD.Print($"_playerTeam has {_playerTeam.Count} characters");
+        foreach (var item in _playerTeam) {
+            if (item.Obj is CharacterType characterType) {
+                GD.Print($"Adding character: {characterType.Name}");
+                result.Add(characterType);
+            }
+            else {
+                GD.Print($"Item is not a CharacterType: {item.Obj}");
+            }
+        }
+
+        GD.Print($"GetPlayerTeam called: {result.Count} characters");
+        return result;
+    }
+
+    public List<CharacterType> GetEnemyTeam() {
+        List<CharacterType> result = [];
+
+        GD.Print($"_enemyTeam has {_enemyTeam.Count} characters");
+        foreach (var item in _enemyTeam) {
+            if (item.Obj is CharacterType characterType) {
+                GD.Print($"Adding character: {characterType.Name}");
+                result.Add(characterType);
+            }
+            else {
+                GD.Print($"Item is not a CharacterType: {item.Obj}");
+            }
+        }
+
+        GD.Print($"GetEnemyTeam called: {result.Count} characters");
+        return result;
+    }
+
+    // Debugging methods
+
+    public void LogLocationInfo(string? context) {
+        GD.Print($"=== DEBUG LOCATION INFO  [{context}] ===");
+
+        // Log the reference locations
+        GD.Print($"PlayerSquadLocation: {PlayerSquadLocation} (Hash: {PlayerSquadLocation?.GetHashCode()})");
+        GD.Print($"EnemySquadLocation: {EnemySquadLocation} (Hash: {EnemySquadLocation?.GetHashCode()})");
+
+        // Log each character's location
+        GD.Print("\nPlayer Team Characters:");
+        foreach (var character in _playerTeam) {
+            if (character.Obj is CharacterType characterType) {
+                GD.Print($"  Character: {characterType.Name}, Location: {characterType.Location} (Hash: {characterType.Location?.GetHashCode()})");
+                GD.Print($"  Is Player Location? {ReferenceEquals(characterType.Location, PlayerSquadLocation)}");
+                GD.Print($"  Is Enemy Location? {ReferenceEquals(characterType.Location, EnemySquadLocation)}");
+            }
+        }
+
+        GD.Print("\nEnemy Team Characters:");
+        foreach (var character in _enemyTeam) {
+            if (character.Obj is CharacterType characterType) {
+                GD.Print($"  Character: {characterType.Name}, Location: {characterType.Location} (Hash: {characterType.Location?.GetHashCode()})");
+                GD.Print($"  Is Player Location? {ReferenceEquals(characterType.Location, PlayerSquadLocation)}");
+                GD.Print($"  Is Enemy Location? {ReferenceEquals(characterType.Location, EnemySquadLocation)}");
+            }
+        }
+        GD.Print("==========================");
+    }
+
+    private void LogTeamInfo(string context) {
+        GD.Print($"=== TEAM INFO [{context}] ===");
+        GD.Print($"_playerTeam: {_playerTeam.Count} characters");
+        GD.Print($"_enemyTeam: {_enemyTeam.Count} characters");
+        GD.Print("=========================");
     }
 
     // Event handlers

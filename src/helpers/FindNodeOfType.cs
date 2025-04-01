@@ -14,7 +14,7 @@ public static class NodeExtensions {
     /// <returns>The first node of type T found, or null if none exists</returns>
     public static T? FindNodeOfType<T>(this Node root) where T : class {
         if (root is T nodeOfType) {
-            GD.Print($"Found node of type {typeof(T)}: {nodeOfType}");
+            GD.PrintRich($"[color=green]Found node of type {typeof(T)}: {nodeOfType}[/color]");
             return nodeOfType;
         }
 

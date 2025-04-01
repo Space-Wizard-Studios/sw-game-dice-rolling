@@ -1,7 +1,10 @@
 using Godot;
-using DiceRolling.Characters;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
+
+using DiceRolling.Characters;
+using DiceRolling.Stores;
+using DiceRolling.Helpers;
 
 namespace DiceRolling.Controllers;
 
@@ -33,8 +36,9 @@ namespace DiceRolling.Controllers;
 /// </remarks>
 public partial class TurnController : RefCounted {
     // The initiative queue (order of characters' turns)
-    private List<CharacterType> _initiativeQueue = [];
-    public List<CharacterType> InitiativeQueue => _initiativeQueue;
+    private Queue<CharacterType> _initiativeQueue = new Queue<CharacterType>();
+    public IEnumerable<CharacterType> InitiativeQueue => _initiativeQueue;
+
 
     public TurnController() {
         // Connect to relevant events
@@ -58,7 +62,7 @@ public partial class TurnController : RefCounted {
 
         // Add all characters to the queue
         foreach (CharacterType character in characters.Cast<Godot.Variant>().Select(v => v.As<CharacterType>())) {
-            _initiativeQueue.Add(character);
+            _initiativeQueue.Enqueue(character);
         }
 
         // Sort by initiative (descending)
@@ -73,12 +77,14 @@ public partial class TurnController : RefCounted {
 
     // Sort the initiative queue based on character initiative values
     private void SortQueue() {
-        _initiativeQueue = [.. _initiativeQueue.OrderByDescending(c => GetCharacterInitiative(c))];
+        // Convert queue to list, sort it, then rebuild the queue
+        var sortedCharacters = _initiativeQueue.OrderByDescending(c => GetCharacterInitiative(c)).ToList();
+        _initiativeQueue = new Queue<CharacterType>(sortedCharacters);
 
-        // Print detailed queue information
-        GD.Print("=== INITIATIVE QUEUE ===");
-        for (int i = 0; i < _initiativeQueue.Count; i++) {
-            var character = _initiativeQueue[i];
+        // Print queue information
+        GD.PrintRich("[color=pink]=== INITIATIVE QUEUE ===[/color]");
+        int i = 1;
+        foreach (var character in _initiativeQueue) {
             int initiative = GetCharacterInitiative(character);
 
             // Determine team based on location
@@ -90,9 +96,9 @@ public partial class TurnController : RefCounted {
                 team = "Enemy";
             }
 
-            GD.Print($"{i + 1}. {character.Name} (Team: {team}) - Initiative: {initiative}");
+            GD.PrintRich($"[color=pink]{i++}. {character.Name} (Team: {team}) - Initiative: {initiative}.[/color]");
         }
-        GD.Print("======================");
+        GD.PrintRich("[color=pink]======================[/color]");
     }
 
     // Gets the initiative value for a character (speed + modifiers)
@@ -105,7 +111,7 @@ public partial class TurnController : RefCounted {
 
         // If no Speed attribute found, log a warning
         if (speedAttribute == null) {
-            GD.Print($"Character {character.Name} doesn't have a Speed attribute");
+            GD.PrintRich($"[color=pink]Character {character.Name} doesn't have a Speed attribute.[/color]");
         }
 
         // TODO Consider any active initiative modifiers
@@ -124,9 +130,9 @@ public partial class TurnController : RefCounted {
 
     // Adds a character to the initiative queue
     public void AddCharacterToQueue(CharacterType character) {
-        GD.Print("TurnController: Adding character to initiative queue");
+        GD.PrintRich("[color=pink]TurnController: Adding character to initiative queue.[/color]");
         if (!_initiativeQueue.Contains(character)) {
-            _initiativeQueue.Add(character);
+            _initiativeQueue.Enqueue(character);
             SortQueue();
             BattleEvents.Instance.EmitCharacterAddedToQueue(character);
         }
@@ -134,39 +140,45 @@ public partial class TurnController : RefCounted {
 
     // Removes a character from the initiative queue
     public void RemoveCharacterFromQueue(CharacterType character) {
-        GD.Print("TurnController: Removing character from initiative queue");
-        if (_initiativeQueue.Contains(character)) {
-            _initiativeQueue.Remove(character);
-            BattleEvents.Instance.EmitCharacterRemovedFromQueue(character);
+        GD.PrintRich("[color=pink]TurnController: Removing character from initiative queue.[/color]");
+        // Need to rebuild queue to remove a specific character
+        var newQueue = new Queue<CharacterType>();
+        foreach (var c in _initiativeQueue) {
+            if (c != character) {
+                newQueue.Enqueue(c);
+            }
         }
+        _initiativeQueue = newQueue;
+        BattleEvents.Instance.EmitCharacterRemovedFromQueue(character);
     }
 
     // Moves a character to the end of the initiative queue
     public void MoveCharacterToEndOfQueue(CharacterType character) {
-        GD.Print("TurnController: Moving character to end of initiative queue");
+        GD.PrintRich("[color=pink]TurnController: Moving character to end of initiative queue.[/color]");
         if (_initiativeQueue.Contains(character)) {
-            _initiativeQueue.Remove(character);
-            _initiativeQueue.Add(character);
+            RemoveCharacterFromQueue(character);
+            _initiativeQueue.Enqueue(character);
             BattleEvents.Instance.EmitCharacterMovedToEndOfQueue(character);
         }
     }
 
     // Gets the next character to act
     public CharacterType? GetNextCharacter() {
-        return _initiativeQueue.Count > 0 ? _initiativeQueue[0] : null;
+        GD.PrintRich($"[color=pink]TurnController: Next character in queue: {(_initiativeQueue.Count > 0 ? _initiativeQueue.Peek()?.Name : "none")}.[/color]");
+        return _initiativeQueue.Count > 0 ? _initiativeQueue.Peek() : null;
     }
 
     // Turn resolution methods
 
     // Begins the process of resolving turns
     public void StartTurnsResolution() {
-        GD.Print("TurnController: Starting turns resolution");
+        GD.PrintRich("[color=pink]TurnController: Starting turns resolution.[/color]");
         ProcessNextCharacterTurn();
     }
 
     // Process the turn for the next character in the queue
     private void ProcessNextCharacterTurn() {
-        GD.Print("TurnController: Processing next character turn");
+        GD.PrintRich("[color=pink]TurnController: Processing next character turn.[/color]");
         CharacterType? nextCharacter = GetNextCharacter();
 
         if (nextCharacter != null) {
@@ -180,14 +192,14 @@ public partial class TurnController : RefCounted {
 
     // Start a character's turn
     private static void StartCharacterTurn(CharacterType character) {
-        GD.Print($"TurnController: Starting turn for {character.Name}");
+        GD.PrintRich($"[color=pink]TurnController: Starting turn for {character.Name}.[/color]");
         BattleEvents.Instance.EmitTurnStarted(character);
         ExecuteCharacterAction(character);
     }
 
     // Execute the action declared by the character
     private static void ExecuteCharacterAction(CharacterType character) {
-        GD.Print($"TurnController: Executing action for {character.Name}");
+        GD.PrintRich($"[color=pink]TurnController: Executing action for {character.Name}.[/color]");
         // TODO: Execute the character's action
         // This depends on the action system implementation
 
@@ -197,66 +209,104 @@ public partial class TurnController : RefCounted {
 
     // End a character's turn and prepare for the next
     private void EndCharacterTurn(CharacterType character) {
-        GD.Print($"TurnController: Ending turn for {character.Name}");
-        // Move character to the end of queue
-        MoveCharacterToEndOfQueue(character);
+        GD.PrintRich($"[color=pink]TurnController: Ending turn for {character.Name}.[/color]");
 
         // Emit turn ended event
         BattleEvents.Instance.EmitTurnEnded(character);
 
         // Check if we should continue to next turn
         if (ShouldContinueBattle()) {
+            GD.PrintRich($"[color=pink]TurnController: Next character in queue: {(_initiativeQueue.Count > 0 ? _initiativeQueue.Peek()?.Name : "none")}.[/color]");
             // Use CheckNextTurn event instead of direct call to break recursion
             BattleEvents.Instance.EmitCheckNextTurn();
         }
         else {
+            GD.PrintRich("[color=pink]TurnController: Battle conditions met to end round.[/color]");
             // Battle round is complete
             BattleEvents.Instance.EmitTurnsResolved();
         }
     }
 
     // Check if the battle should continue
-    private static bool ShouldContinueBattle() {
-        // TODO: Implement logic to check if both teams still have characters alive
-        return true; // Placeholder
+    private bool ShouldContinueBattle() {
+        // Check if there are characters in the queue
+        if (_initiativeQueue.Count == 0) {
+            GD.PrintRich("[color=pink]TurnController: No characters left in queue, ending round.[/color]");
+            return false;
+        }
+
+        // Check if both teams still have active characters
+        var battleController = BattleController.Instance;
+
+        // Get alive characters from each team
+        var playerTeam = battleController.GetPlayerTeam();
+        var enemyTeam = battleController.GetEnemyTeam();
+
+        // Get attributes store for health check
+        var attributesStore = GD.Load<AttributesStore>("res://resources/Attributes/AttributesStore.tres");
+        var healthAttribute = AttributesHelper.GetAttributeType(attributesStore, "Health");
+
+        if (healthAttribute == null) {
+            GD.PrintRich("[color=pink]TurnController: Health attribute not found.[/color]");
+            return true; // Continue battle if we can't check health
+        }
+
+        // Check if there are alive characters in both teams
+        bool hasPlayerAlive = playerTeam.Any(p => p.GetAttributeCurrentValue(healthAttribute) > 0);
+        bool hasEnemyAlive = enemyTeam.Any(e => e.GetAttributeCurrentValue(healthAttribute) > 0);
+
+        // If either team has no living characters, battle should end
+        if (!hasPlayerAlive || !hasEnemyAlive) {
+            GD.PrintRich($"[color=pink]TurnController: Battle ending - Players alive: {hasPlayerAlive}, Enemies alive: {hasEnemyAlive}.[/color]");
+            return false;
+        }
+
+        GD.PrintRich("[color=pink]TurnController: Battle continuing - both teams have active characters.[/color]");
+        return true;
     }
 
     // Event handlers
-
     private void OnCharactersPositioned(Godot.Collections.Array characters) {
-        GD.Print("Event CharactersPositioned fired on TurnController, calculating initial order");
+        GD.PrintRich("[color=pink]Event CharactersPositioned fired on TurnController, calculating initial order.[/color]");
         CalculateInitialOrder(characters);
     }
 
     private void OnActionsDeclared() {
-        GD.Print("Event ActionsDeclared fired on TurnController, starting turns resolution");
+        GD.PrintRich("[color=pink]Event ActionsDeclared fired on TurnController, starting turns resolution.[/color]");
         StartTurnsResolution();
     }
 
+    // After a character's turn, dequeue them
     private void OnActionPerformed(CharacterType character) {
-        GD.Print("Event ActionPerformed fired on TurnController, ending turn");
+        GD.PrintRich("[color=pink]Event ActionPerformed fired on TurnController, ending turn.[/color]");
+        // Only dequeue if it's the current character
+        if (_initiativeQueue.Count > 0 && _initiativeQueue.Peek() == character) {
+            GD.PrintRich($"[color=pink]Removing {character.Name} from front of queue.[/color]");
+            _initiativeQueue.Dequeue();
+        }
+
+        // Now end the character turn (which will also move them to the end)
         EndCharacterTurn(character);
     }
 
     private void OnCharacterAddedToQueue(CharacterType character) {
-        GD.Print("Event CharacterAddedToQueue fired on TurnController, re-sorting queue");
+        GD.PrintRich("[color=pink]Event CharacterAddedToQueue fired on TurnController, re-sorting queue.[/color]");
         SortQueue();
     }
 
     private void OnCharacterRemovedFromQueue(CharacterType character) {
-        GD.Print("Event CharacterRemovedFromQueue fired on TurnController, re-sorting queue");
+        GD.PrintRich("[color=pink]Event CharacterRemovedFromQueue fired on TurnController, re-sorting queue.[/color]");
         // The character is already removed in RemoveCharacterFromQueue
         // Just resort the queue
         SortQueue();
     }
 
     private void OnCharacterInitiativeModified(CharacterType character) {
-        GD.Print("Event CharacterInitiativeModified fired on TurnController, re-sorting queue");
+        GD.PrintRich("[color=pink]Event CharacterInitiativeModified fired on TurnController, re-sorting queue.[/color]");
         SortQueue();
     }
 
     private void OnCheckNextTurn() {
-        // Call process with deferred execution to break the call stack
-        CallDeferred(nameof(ProcessNextCharacterTurn));
+        ProcessNextCharacterTurn();
     }
 }

@@ -1,3 +1,6 @@
+using System.Linq;
+using DiceRolling.Helpers;
+using DiceRolling.Stores;
 using Godot;
 
 namespace DiceRolling.Controllers;
@@ -24,42 +27,80 @@ public partial class BattleResultsController : RefCounted {
     }
 
     // Verifica se houve vitória ou derrota
-    public static void CheckBattleResult() {
+    public void CheckBattleResult() {
+        GD.Print("BattleResultsController: Checking battle result...");
 
         bool victory = CheckVictoryCondition();
+        bool defeat = CheckDefeatCondition();
 
-        if (victory || CheckDefeatCondition()) {
+        if (victory || defeat) {
             // Notifica o resultado da batalha
             BattleEvents.Instance.EmitBattleResultChecked(victory);
+            GD.Print($"BattleResultsController: Battle ended with result - Victory: {victory}");
 
             // Transição para o pós-batalha
             TransitionToPostBattle(victory);
         }
+        else {
+            GD.Print("BattleResultsController: Battle continues - both teams have active characters");
+        }
     }
 
     // Verifica condições de vitória (todos inimigos derrotados)
-    private static bool CheckVictoryCondition() {
-        // TODO
-        // Implementar lógica para verificar se todos os inimigos foram derrotados
-        return false; // Placeholder
+    private bool CheckVictoryCondition() {
+        var enemyTeam = BattleController.Instance.GetEnemyTeam();
+        var attributesStore = GD.Load<AttributesStore>("res://resources/Attributes/AttributesStore.tres");
+        var healthAttribute = AttributesHelper.GetAttributeType(attributesStore, "Health");
+
+        if (healthAttribute == null) {
+            GD.PrintErr("BattleResultsController: Health attribute not found");
+            return false;
+        }
+
+        // Verifica se não existem inimigos ou se todos os inimigos estão derrotados
+        bool noEnemiesLeft = enemyTeam.Count == 0 ||
+            !enemyTeam.Any(e => e != null && e.GetAttributeCurrentValue(healthAttribute) > 0);
+
+        if (noEnemiesLeft) {
+            GD.Print("BattleResultsController: Victory condition met - all enemies defeated");
+        }
+
+        return noEnemiesLeft;
     }
 
     // Verifica condições de derrota (todos personagens do jogador derrotados)
-    private static bool CheckDefeatCondition() {
-        // TODO
-        // Implementar lógica para verificar se todos os personagens do jogador foram derrotados
-        return false; // Placeholder
+    private bool CheckDefeatCondition() {
+        var playerTeam = BattleController.Instance.GetPlayerTeam();
+        var attributesStore = GD.Load<AttributesStore>("res://resources/Attributes/AttributesStore.tres");
+        var healthAttribute = AttributesHelper.GetAttributeType(attributesStore, "Health");
+
+        if (healthAttribute == null) {
+            GD.PrintErr("BattleResultsController: Health attribute not found");
+            return false;
+        }
+
+        // Verifica se não existem jogadores ou se todos os jogadores estão derrotados
+        bool noPlayersLeft = playerTeam.Count == 0 ||
+            !playerTeam.Any(p => p != null && p.GetAttributeCurrentValue(healthAttribute) > 0);
+
+        if (noPlayersLeft) {
+            GD.Print("BattleResultsController: Defeat condition met - all player characters defeated");
+        }
+
+        return noPlayersLeft;
     }
 
     // Transição para a fase de pós-batalha
-    private static void TransitionToPostBattle(bool victory) {
+    private void TransitionToPostBattle(bool victory) {
+        // Atualiza o estado da batalha para finalizada
+        BattleController.Instance.SetBattleState(BattleState.End);
+
         // Notifica o fim da batalha
         BattleEvents.Instance.EmitBattleEnded(victory);
     }
-
     // Eventos
     private void OnRoundEnded(int roundNumber) {
-        GD.Print("Event RoundEnded fired on RoundController");
+        GD.Print($"Event RoundEnded fired on BattleResultsController - Round {roundNumber} ended");
         CheckBattleResult();
     }
 }

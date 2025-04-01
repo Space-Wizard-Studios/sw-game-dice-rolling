@@ -59,7 +59,7 @@ public partial class RoundController : RefCounted {
     }
     // Method to update round state
     private void SetRoundState(RoundState newState) {
-        GD.Print($"Round state changing: {_currentRoundState} -> {newState}");
+        GD.PrintRich($"[color=violet]Round state changing: {_currentRoundState} -> {newState}.[/color]");
         _currentRoundState = newState;
     }
 
@@ -71,7 +71,7 @@ public partial class RoundController : RefCounted {
             return;
         }
 
-        GD.Print("RoundController: Starting a new round...");
+        GD.Print("[color=violet]RoundController: Starting a new round...[/color]");
         BattleController.Instance.AdvanceRound();
         SetRoundState(RoundState.RoundStart);
         BattleEvents.Instance.EmitRoundStarted(BattleController.Instance.CurrentRound);
@@ -85,7 +85,7 @@ public partial class RoundController : RefCounted {
             return;
         }
 
-        GD.Print("RoundController: Starting actions declaration phase...");
+        GD.PrintRich("[color=violet]RoundController: Starting actions declaration phase...[/color]");
         SetRoundState(RoundState.ActionsDeclaration);
 
         var playerTeam = BattleController.Instance.GetPlayerTeam();
@@ -101,7 +101,7 @@ public partial class RoundController : RefCounted {
             return;
         }
 
-        GD.Print("RoundController: Starting turns resolution phase...");
+        GD.PrintRich("[color=violet]RoundController: Starting turns resolution phase...[/color].");
         SetRoundState(RoundState.TurnsResolution);
 
         _turnController.StartTurnsResolution();
@@ -109,7 +109,7 @@ public partial class RoundController : RefCounted {
 
     // Finaliza o round atual
     public void EndRound() {
-        GD.Print("RoundController: Ending the current round...");
+        GD.PrintRich("[color=violet]RoundController: Ending the current round...[/color]");
         SetRoundState(RoundState.RoundEnd);
 
         // Notifica o fim do round
@@ -137,12 +137,12 @@ public partial class RoundController : RefCounted {
 
     // Eventos
     private void OnTransitionedToRounds(int number) {
-        GD.Print("Event TransitionedToRounds fired on RoundController");
+        GD.PrintRich("[color=violet]Event TransitionedToRounds fired on RoundController.[/color]");
         StartRound();
     }
 
     private void OnTurnsResolved() {
-        GD.Print("Event TurnsResolved fired on RoundController");
+        GD.PrintRich("[color=violet]Event TurnsResolved fired on RoundController.[/color]");
         EndRound();
     }
 }

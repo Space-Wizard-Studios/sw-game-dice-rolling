@@ -147,7 +147,6 @@ public partial class BattleController : Node {
     }
 
     private void ConnectEvents() {
-        // Connect to battle system events
         // SignalHelper.ConnectSignal(BattleEvents.Instance, nameof(BattleEvents.BattleStarted), this, nameof(OnBattleStarted));
         SignalHelper.ConnectSignal(BattleEvents.Instance, nameof(BattleEvents.BattleEnded), this, nameof(OnBattleEnded));
     }
@@ -198,18 +197,13 @@ public partial class BattleController : Node {
 
     private void StartBattlePreparation() {
         GenerateEnemies();
+        PositionCharacters();
     }
 
     private void GenerateEnemies() {
-
         // TODO: Implement enemy generation logic
         // This would be based on dungeon level, player team strength, etc.
-
-        // Notify that enemies have been generated
         BattleEvents.Instance.EmitEnemiesGenerated(_enemyTeam);
-
-        // Proceed to character positioning
-        PositionCharacters();
     }
 
     private void PositionCharacters() {
@@ -234,10 +228,10 @@ public partial class BattleController : Node {
         allCharacters.AddRange(_playerTeam);
         allCharacters.AddRange(_enemyTeam);
 
-        // Notify that characters have been positioned
         BattleEvents.Instance.EmitCharactersPositioned(allCharacters);
     }
 
+    // TODO mover para o service de grids (data layer)
     private void CreateBattleGrids() {
         if (GridEntityScene == null) return;
 
@@ -255,6 +249,7 @@ public partial class BattleController : Node {
         );
     }
 
+    // TODO mover para o service de grids (data layer)
     private GridEntity CreateGrid(string prefix, Vector3 position, CharacterStore? characterStore) {
         if (GridEntityScene == null)
             throw new InvalidOperationException("[color=gold]GridEntityScene is not assigned.[/color]");
@@ -273,6 +268,7 @@ public partial class BattleController : Node {
         return gridEntity;
     }
 
+    // TODO mover para o service de characters (data layer)
     private static void InitializeCharacterActionsIfNeeded(Godot.Collections.Array characterTeam) {
         foreach (var character in characterTeam) {
             // Use proper Godot type conversion
@@ -286,6 +282,7 @@ public partial class BattleController : Node {
         }
     }
 
+    // TODO mover para o service de characters (data layer)
     private static void InitializeCharacterAttributesIfNeeded(Godot.Collections.Array characterTeam) {
         foreach (var character in characterTeam) {
             // Use proper Godot type conversion

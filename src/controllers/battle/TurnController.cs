@@ -41,17 +41,17 @@ public partial class TurnController : RefCounted {
 
 
     public TurnController() {
-        // Connect to relevant events
         ConnectEvents();
     }
 
     private void ConnectEvents() {
         BattleEvents.Instance.CharactersPositioned += OnCharactersPositioned;
         BattleEvents.Instance.ActionsDeclared += OnActionsDeclared;
-        BattleEvents.Instance.ActionPerformed += OnActionPerformed;
+        // BattleEvents.Instance.ActionPerformed += OnActionPerformed;
         BattleEvents.Instance.CharacterAddedToQueue += OnCharacterAddedToQueue;
         BattleEvents.Instance.CharacterRemovedFromQueue += OnCharacterRemovedFromQueue;
         BattleEvents.Instance.CharacterInitiativeModified += OnCharacterInitiativeModified;
+        BattleEvents.Instance.CheckNextTurn += OnCheckNextTurn;
     }
 
     // Initiative queue management
@@ -130,7 +130,7 @@ public partial class TurnController : RefCounted {
 
     // Adds a character to the initiative queue
     public void AddCharacterToQueue(CharacterType character) {
-        GD.PrintRich("[color=pink]TurnController: Adding character to initiative queue.[/color]");
+        GD.PrintRich($"[color=pink]TurnController: Adding character {character.Name} to initiative queue.[/color]");
         if (!_initiativeQueue.Contains(character)) {
             _initiativeQueue.Enqueue(character);
             SortQueue();
@@ -140,7 +140,7 @@ public partial class TurnController : RefCounted {
 
     // Removes a character from the initiative queue
     public void RemoveCharacterFromQueue(CharacterType character) {
-        GD.PrintRich("[color=pink]TurnController: Removing character from initiative queue.[/color]");
+        GD.PrintRich($"[color=pink]TurnController: Removing character {character.Name} from initiative queue.[/color]");
         // Need to rebuild queue to remove a specific character
         var newQueue = new Queue<CharacterType>();
         foreach (var c in _initiativeQueue) {
@@ -154,12 +154,13 @@ public partial class TurnController : RefCounted {
 
     // Moves a character to the end of the initiative queue
     public void MoveCharacterToEndOfQueue(CharacterType character) {
-        GD.PrintRich("[color=pink]TurnController: Moving character to end of initiative queue.[/color]");
-        if (_initiativeQueue.Contains(character)) {
-            RemoveCharacterFromQueue(character);
-            _initiativeQueue.Enqueue(character);
-            BattleEvents.Instance.EmitCharacterMovedToEndOfQueue(character);
-        }
+        GD.PrintRich($"[color=pink]TurnController: Moving character {character.Name} to end of initiative queue.[/color]");
+
+        // TODO
+        // For now, only removes the character from the queue and 
+        RemoveCharacterFromQueue(character);
+        ProcessNextCharacterTurn();
+        BattleEvents.Instance.EmitCharacterMovedToEndOfQueue(character);
     }
 
     // Gets the next character to act
@@ -191,19 +192,20 @@ public partial class TurnController : RefCounted {
     }
 
     // Start a character's turn
-    private static void StartCharacterTurn(CharacterType character) {
+    private void StartCharacterTurn(CharacterType character) {
         GD.PrintRich($"[color=pink]TurnController: Starting turn for {character.Name}.[/color]");
         BattleEvents.Instance.EmitTurnStarted(character);
         ExecuteCharacterAction(character);
     }
 
     // Execute the action declared by the character
-    private static void ExecuteCharacterAction(CharacterType character) {
+    private void ExecuteCharacterAction(CharacterType character) {
         GD.PrintRich($"[color=pink]TurnController: Executing action for {character.Name}.[/color]");
         // TODO: Execute the character's action
         // This depends on the action system implementation
 
-        // Notify that the action has been executed
+        // For now, only remove the character from the queue
+        MoveCharacterToEndOfQueue(character);
         BattleEvents.Instance.EmitActionPerformed(character);
     }
 
@@ -217,7 +219,7 @@ public partial class TurnController : RefCounted {
         // Check if we should continue to next turn
         if (ShouldContinueBattle()) {
             GD.PrintRich($"[color=pink]TurnController: Next character in queue: {(_initiativeQueue.Count > 0 ? _initiativeQueue.Peek()?.Name : "none")}.[/color]");
-            // Use CheckNextTurn event instead of direct call to break recursion
+            ProcessNextCharacterTurn();
             BattleEvents.Instance.EmitCheckNextTurn();
         }
         else {
@@ -276,18 +278,10 @@ public partial class TurnController : RefCounted {
         StartTurnsResolution();
     }
 
-    // After a character's turn, dequeue them
-    private void OnActionPerformed(CharacterType character) {
-        GD.PrintRich("[color=pink]Event ActionPerformed fired on TurnController, ending turn.[/color]");
-        // Only dequeue if it's the current character
-        if (_initiativeQueue.Count > 0 && _initiativeQueue.Peek() == character) {
-            GD.PrintRich($"[color=pink]Removing {character.Name} from front of queue.[/color]");
-            _initiativeQueue.Dequeue();
-        }
-
-        // Now end the character turn (which will also move them to the end)
-        EndCharacterTurn(character);
-    }
+    // private void OnActionPerformed(CharacterType character) {
+    //     GD.PrintRich("[color=pink]Event ActionPerformed fired on TurnController, ending turn.[/color]");
+    //     EndCharacterTurn(character);
+    // }
 
     private void OnCharacterAddedToQueue(CharacterType character) {
         GD.PrintRich("[color=pink]Event CharacterAddedToQueue fired on TurnController, re-sorting queue.[/color]");
@@ -296,8 +290,6 @@ public partial class TurnController : RefCounted {
 
     private void OnCharacterRemovedFromQueue(CharacterType character) {
         GD.PrintRich("[color=pink]Event CharacterRemovedFromQueue fired on TurnController, re-sorting queue.[/color]");
-        // The character is already removed in RemoveCharacterFromQueue
-        // Just resort the queue
         SortQueue();
     }
 

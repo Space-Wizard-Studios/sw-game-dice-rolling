@@ -6,6 +6,12 @@ using DiceRolling.Helpers;
 
 namespace DiceRolling.Components.Grids;
 
+/// <summary>
+///  Component that displays a character entity on a grid cell.
+/// </summary>
+/// <remarks>
+/// This component listens for updates to the parent GridCellEntity's GridCellType and displays a character entity if the cell is occupied.
+/// </remarks>
 [Tool]
 [GlobalClass]
 [Icon("res://assets/editor/component-3d.svg")]

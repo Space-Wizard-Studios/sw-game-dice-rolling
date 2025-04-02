@@ -10,7 +10,5 @@ public interface IGridConfiguration {
 
     string Prefix { get; }
 
-    int Offset { get; }
-
     GridDirection Direction { get; }
 }

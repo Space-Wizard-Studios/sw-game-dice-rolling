@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://ddxylsk71nji3"]
+
+[ext_resource type="Texture2D" uid="uid://d1wpfbc6w7wo5" path="res://assets/characters/moai/MoaiSpritesheet.png" id="1_2tlrb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at42t"]
+atlas = ExtResource("1_2tlrb")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fni2y"]
+atlas = ExtResource("1_2tlrb")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmc1v"]
+atlas = ExtResource("1_2tlrb")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2bst"]
+atlas = ExtResource("1_2tlrb")
+region = Rect2(1536, 0, 512, 512)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at42t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fni2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmc1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2bst")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

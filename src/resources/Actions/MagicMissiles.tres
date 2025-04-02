@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="ActionType" load_steps=10 format=3 uid="uid://cvojckruuqrn6"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=11 format=3 uid="uid://cvojckruuqrn6"]
 
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/data/Effect/EffectType.cs" id="1_evn5j"]
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="3_7glge"]
 [ext_resource type="Texture2D" uid="uid://bemp486qms5lb" path="res://assets/icons/actions/magic_missiles.png" id="4_wo1pe"]
+[ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="5_7glge"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="5_bbx2m"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/data/Target/TargetBoardType.cs" id="6_kaqn3"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/data/Action/ActionType.cs" id="7_gvq84"]
@@ -10,21 +11,21 @@
 [sub_resource type="Resource" id="Resource_7glge"]
 script = ExtResource("5_bbx2m")
 Prefix = "G"
-Offset = 0
 Direction = 0
 Rows = 2
 Columns = 2
-Cells = Array[int]([0, 0, 0, 0])
+Cells = Array[ExtResource("5_7glge")]([])
+Id = "bf93ce25-e698-4594-b1b7-279b6ced973d"
 metadata/_custom_type_script = ExtResource("5_bbx2m")
 
 [sub_resource type="Resource" id="Resource_s3uan"]
 script = ExtResource("5_bbx2m")
 Prefix = "G"
-Offset = 0
 Direction = 0
 Rows = 2
 Columns = 2
-Cells = Array[int]([0, 0, 0, 0])
+Cells = Array[ExtResource("5_7glge")]([])
+Id = "4e301b47-2041-47bf-aeb5-1243783257d0"
 metadata/_custom_type_script = ExtResource("5_bbx2m")
 
 [sub_resource type="Resource" id="Resource_bbx2m"]

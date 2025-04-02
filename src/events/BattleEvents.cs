@@ -37,7 +37,7 @@ public partial class BattleEvents : Node {
     public void EmitBattleResumed() => EmitSignal(nameof(BattleResumed));
     public void EmitBattleEnded(bool victory) => EmitSignal(nameof(BattleEnded), victory);
 
-    // Phase 1: Battle Preparation Events
+    // Phase 1: Battle setup Events
     //  - Step 1: Enemies generation
     //  - Step 2: Characters position
     //  - Step 3: Initiative queue setup
@@ -47,7 +47,7 @@ public partial class BattleEvents : Node {
     [Signal] public delegate void InitiativeQueueSetupEventHandler(Godot.Collections.Array queue);
     [Signal] public delegate void TransitionedToRoundsEventHandler(int roundNumber);
 
-    // Battle Preparation Signals
+    // Battle setup Signals
     public void EmitEnemiesGenerated(Godot.Collections.Array enemies) => EmitSignal(nameof(EnemiesGenerated), enemies);
     public void EmitCharactersPositioned(Godot.Collections.Array characters) => EmitSignal(nameof(CharactersPositioned), characters);
     public void EmitInitiativeQueueCreated(Godot.Collections.Array queue) => EmitSignal(nameof(InitiativeQueueSetup), queue);

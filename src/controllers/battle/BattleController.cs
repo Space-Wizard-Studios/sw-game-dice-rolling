@@ -17,7 +17,7 @@ namespace DiceRolling.Controllers;
 /// Executa comandos de alto nível durante a batalha.
 /// </summary>
 /// <remarks>
-/// O <c>BattleController</c> é responsável por gerenciar a execução de comandos de alto nível durante a batalha, como iniciar, pausar, continuar e finalizar a batalha.
+/// O <c>BattleController</c> é responsável por gerenciar o fluxo geral da batalha, incluindo a inicialização, transições de estado e configuração.
 ///     <list type="table">
 ///         <listheader>
 ///             <term>Transições de estados</term>
@@ -30,7 +30,7 @@ namespace DiceRolling.Controllers;
 ///     </list>
 ///     <list type="table">
 ///         <listheader>
-///             <term>Phase 1: Preparação da batalha</term>
+///             <term>Setup da batalha</term>
 ///             <description>Configuração inicial da batalha</description>
 ///         </listheader>
 ///         <item>- Geração de inimigos</item>
@@ -95,6 +95,7 @@ public partial class BattleController : Node {
     private Godot.Collections.Array _enemyTeam = [];
 
     // Controllers
+    private QueueController? _queueController;
     private TurnController? _turnController;
     private RoundController? _roundController;
     private ActionsController? _actionsController;
@@ -102,8 +103,8 @@ public partial class BattleController : Node {
     private PostBattleController? _postBattleController;
 
     public override void _Ready() {
+        _instance = this;
         InitializeControllers();
-        ConnectEvents();
 
         // Initialize with characters from stores if available
         if (PlayerCharacterStore?.Characters != null && PlayerSquadLocation != null) {
@@ -128,74 +129,53 @@ public partial class BattleController : Node {
         StartBattle();
     }
 
-    public override void _ExitTree() {
-        base._ExitTree();
-        DisconnectEvents();
-    }
-
-    public override void _Process(double delta) {
-        base._Process(delta);
-    }
+    // public override void _Process(double delta) {
+    //     base._Process(delta);
+    // }
 
     private void InitializeControllers() {
-        _turnController = new TurnController();
+        // Create controllers
+        _queueController = new QueueController();
+        _turnController = new TurnController(_queueController);
         _actionsController = new ActionsController();
-        _roundController = new RoundController();
-        _roundController.Initialize(_actionsController, _turnController);
+        _roundController = new RoundController(_actionsController, _turnController);
         _battleResultsController = new BattleResultsController();
         _postBattleController = new PostBattleController();
     }
 
-    private void ConnectEvents() {
-        // SignalHelper.ConnectSignal(BattleEvents.Instance, nameof(BattleEvents.BattleStarted), this, nameof(OnBattleStarted));
-        SignalHelper.ConnectSignal(BattleEvents.Instance, nameof(BattleEvents.BattleEnded), this, nameof(OnBattleEnded));
-    }
-
-    private void DisconnectEvents() {
-        // SignalHelper.DisconnectSignal(BattleEvents.Instance, nameof(BattleEvents.BattleStarted), this, nameof(OnBattleStarted));
-        SignalHelper.DisconnectSignal(BattleEvents.Instance, nameof(BattleEvents.BattleEnded), this, nameof(OnBattleEnded));
-    }
-
-    // Battle lifecycle methods
-
     // Starts a new battle with the specified teams
     public void StartBattle(Godot.Collections.Array? playerTeam = null, Godot.Collections.Array? enemyTeam = null) {
         GD.PrintRich("[color=gold]Battle Controller: Starting battle...[/color]");
+
         // Setup battle data using provided teams or fall back to exported characters
         _playerTeam = playerTeam ?? _playerTeam;
         _enemyTeam = enemyTeam ?? _enemyTeam;
         _currentRound = 0;
 
         BattleEvents.Instance.EmitBattleStarted(_playerTeam, _enemyTeam);
+        SetBattleState(BattleState.InProgress);
 
-        // Begin battle preparation phase
-        StartBattlePreparation();
+        BattleSetup();
     }
 
-    // Pauses the current battle
     public static void PauseBattle() {
         BattleEvents.Instance.EmitBattlePaused();
     }
 
-    // Resumes a paused battle
     public static void ResumeBattle() {
         BattleEvents.Instance.EmitBattleResumed();
     }
 
-    // Updates the battle state
     public void SetBattleState(BattleState newState) {
         GD.PrintRich($"[color=gold]Battle Controller: Battle state changing: {_currentState} -> {newState}.[/color]");
         _currentState = newState;
     }
 
-    // Advances to the next round
     public void AdvanceRound() {
         _currentRound++;
     }
 
-    // Battle preparation phase methods
-
-    private void StartBattlePreparation() {
+    private void BattleSetup() {
         GenerateEnemies();
         PositionCharacters();
     }
@@ -208,6 +188,7 @@ public partial class BattleController : Node {
 
     private void PositionCharacters() {
         GD.PrintRich("[color=gold]Battle Controller: Positioning characters...[/color]");
+
         CreateBattleGrids();
 
         // Ensure all characters have initialized attributes and actions before positioning
@@ -216,10 +197,6 @@ public partial class BattleController : Node {
         InitializeCharacterActionsIfNeeded(_playerTeam);
         InitializeCharacterActionsIfNeeded(_enemyTeam);
 
-        // LogTeamInfo("PositionCharacters");
-        // LogLocationInfo("PositionCharacters");
-
-        // Utilizar o método AssignCharacters diretamente
         _playerGridEntity?.GridData?.AssignCharacters();
         _enemyGridEntity?.GridData?.AssignCharacters();
 
@@ -229,13 +206,14 @@ public partial class BattleController : Node {
         allCharacters.AddRange(_enemyTeam);
 
         BattleEvents.Instance.EmitCharactersPositioned(allCharacters);
+
+        TransitionToRounds();
     }
 
     // TODO mover para o service de grids (data layer)
     private void CreateBattleGrids() {
         if (GridEntityScene == null) return;
 
-        // Criar grids usando método auxiliar
         _playerGridEntity = CreateGrid(
             "P",
             PlayerGridPosition,
@@ -296,10 +274,8 @@ public partial class BattleController : Node {
         }
     }
 
-    // Transitions from battle preparation to rounds phase
     public void TransitionToRounds() {
         GD.PrintRich("[color=gold]Battle Controller: Transitioning to battle rounds phase...[/color]");
-        Instance.SetBattleState(BattleState.InProgress);
         BattleEvents.Instance.EmitTransitionedToRounds(CurrentRound);
     }
 
@@ -374,30 +350,10 @@ public partial class BattleController : Node {
         GD.PrintRich("[color=gold]==========================[/color]");
     }
 
-    private void LogTeamInfo(string context) {
+    public void LogTeamInfo(string context) {
         GD.PrintRich($"[color=gold]=== TEAM INFO [{context}] ===[/color]");
         GD.PrintRich($"[color=gold]_playerTeam: {_playerTeam.Count} characters[/color]");
         GD.PrintRich($"[color=gold]_enemyTeam: {_enemyTeam.Count} characters[/color]");
         GD.PrintRich("[color=gold]=========================[/color]");
-    }
-
-    // Event handlers
-
-    private void OnBattleStarted(Godot.Collections.Array playerTeam, Godot.Collections.Array enemyTeam) {
-        GD.PrintRich("[color=gold]Event BattleStarted fired on BattleController[/color]");
-        SetBattleState(BattleState.InProgress);
-    }
-
-    private void OnBattleEnded(bool victory) {
-        GD.PrintRich("[color=gold]Event BattleEnded fired on BattleController[/color]");
-        SetBattleState(BattleState.End);
-
-        // Transition to post-battle phase
-        if (victory) {
-            PostBattleController.ShowVictoryScreen();
-        }
-        else {
-            PostBattleController.ShowGameOverScreen();
-        }
     }
 }

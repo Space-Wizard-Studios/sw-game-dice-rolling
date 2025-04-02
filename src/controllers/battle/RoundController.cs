@@ -23,30 +23,23 @@ public partial class RoundController : RefCounted {
     private ActionsController? _actionsController;
     private TurnController? _turnController;
     private RoundState _currentRoundState = RoundState.RoundStart;
+    private int _currentRound = 0;
     public RoundState CurrentRoundState => _currentRoundState;
+    public int CurrentRound => _currentRound;
 
     public RoundController() {
-        // Will be initialized later via Initialize method
+        ConnectEvents();
     }
 
     public RoundController(ActionsController actionsController, TurnController turnController) {
-        Initialize(actionsController, turnController);
-    }
-
-    // Initialize method allows for proper setup after deserialization
-    public void Initialize(ActionsController actionsController, TurnController turnController) {
         _actionsController = actionsController;
         _turnController = turnController;
 
-        // Connect events
         ConnectEvents();
     }
 
     private void ConnectEvents() {
-        // Avoid duplicate connections
         DisconnectEvents();
-
-        // Connect to required events
         BattleEvents.Instance.TransitionedToRounds += OnTransitionedToRounds;
         BattleEvents.Instance.TurnsResolved += OnTurnsResolved;
     }
@@ -57,28 +50,34 @@ public partial class RoundController : RefCounted {
             BattleEvents.Instance.TurnsResolved -= OnTurnsResolved;
         }
     }
-    // Method to update round state
+
     private void SetRoundState(RoundState newState) {
         GD.PrintRich($"[color=violet]Round state changing: {_currentRoundState} -> {newState}.[/color]");
         _currentRoundState = newState;
     }
 
-    // Inicia um novo round
+    private void AdvanceRound() {
+        _currentRound++;
+        GD.PrintRich($"[color=violet]RoundController: Advanced to round {_currentRound}.[/color]");
+    }
+
     public void StartRound() {
-        // Ensure controllers are available
         if (_actionsController == null || _turnController == null) {
             GD.PrintErr("RoundController: Controllers not initialized!");
             return;
         }
 
         GD.Print("[color=violet]RoundController: Starting a new round...[/color]");
-        BattleController.Instance.AdvanceRound();
+
         SetRoundState(RoundState.RoundStart);
-        BattleEvents.Instance.EmitRoundStarted(BattleController.Instance.CurrentRound);
+
+        AdvanceRound();
+
+        BattleEvents.Instance.EmitRoundStarted(_currentRound);
+
         StartActionsDeclarationPhase();
     }
 
-    // Inicia a fase de declaração de ações
     private void StartActionsDeclarationPhase() {
         if (_actionsController == null) {
             GD.PrintErr("RoundController: ActionsController not initialized!");
@@ -86,14 +85,13 @@ public partial class RoundController : RefCounted {
         }
 
         GD.PrintRich("[color=violet]RoundController: Starting actions declaration phase...[/color]");
+
         SetRoundState(RoundState.ActionsDeclaration);
 
         var playerTeam = BattleController.Instance.GetPlayerTeam();
         var enemyTeam = BattleController.Instance.GetEnemyTeam();
-
         _actionsController.StartActionsDeclaration(playerTeam, enemyTeam);
     }
-    // Inicia a fase de resolução de turnos
 
     public void StartTurnsResolutionPhase() {
         if (_turnController == null) {
@@ -102,6 +100,7 @@ public partial class RoundController : RefCounted {
         }
 
         GD.PrintRich("[color=violet]RoundController: Starting turns resolution phase...[/color].");
+
         SetRoundState(RoundState.TurnsResolution);
 
         _turnController.StartTurnsResolution();
@@ -110,12 +109,11 @@ public partial class RoundController : RefCounted {
     // Finaliza o round atual
     public void EndRound() {
         GD.PrintRich("[color=violet]RoundController: Ending the current round...[/color]");
+
         SetRoundState(RoundState.RoundEnd);
 
-        // Notifica o fim do round
-        BattleEvents.Instance.EmitRoundEnded(BattleController.Instance.CurrentRound);
+        BattleEvents.Instance.EmitRoundEnded(_currentRound);
 
-        // Verifica se deve iniciar um novo round ou terminar a batalha
         CheckBattleState();
     }
 

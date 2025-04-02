@@ -1,6 +1,8 @@
 using Godot;
 using DiceRolling.Characters;
 using System.Collections.Generic;
+using System;
+using DiceRolling.Helpers;
 
 namespace DiceRolling.Controllers;
 
@@ -23,45 +25,43 @@ public partial class ActionsController : RefCounted {
     private readonly HashSet<CharacterType> _charactersDeclaredActions = [];
     private List<CharacterType> _playerTeam = [];
     private List<CharacterType> _enemyTeam = [];
-    private bool _isInActionDeclarationPhase = false;
-
     public ActionsController() {
-        // Connect to action-related events
-        BattleEvents.Instance.PlayerActionDeclared += OnPlayerActionDeclared;
-        BattleEvents.Instance.PlayerTargetSelected += OnPlayerTargetSelected;
-        BattleEvents.Instance.PlayerActionCancelled += OnPlayerActionCancelled;
-        BattleEvents.Instance.EnemyActionDeclared += OnEnemyActionDeclared;
-        BattleEvents.Instance.ActionsDeclared += OnActionsDeclared;
+        ConnectEvents();
     }
 
-    // Starts the action declaration phase
+    private void ConnectEvents() {
+        DisconnectEvents();
+        SignalHelper.ConnectSignal(BattleEvents.Instance, nameof(BattleEvents.PlayerActionDeclared), this, nameof(OnPlayerActionDeclared));
+        SignalHelper.ConnectSignal(BattleEvents.Instance, nameof(BattleEvents.PlayerTargetSelected), this, nameof(OnPlayerTargetSelected));
+        SignalHelper.ConnectSignal(BattleEvents.Instance, nameof(BattleEvents.PlayerActionCancelled), this, nameof(OnPlayerActionCancelled));
+        SignalHelper.ConnectSignal(BattleEvents.Instance, nameof(BattleEvents.EnemyActionDeclared), this, nameof(OnEnemyActionDeclared));
+    }
+
+    private void DisconnectEvents() {
+        if (BattleEvents.Instance != null) {
+            SignalHelper.DisconnectSignal(BattleEvents.Instance, nameof(BattleEvents.PlayerActionDeclared), this, nameof(OnPlayerActionDeclared));
+            SignalHelper.DisconnectSignal(BattleEvents.Instance, nameof(BattleEvents.PlayerTargetSelected), this, nameof(OnPlayerTargetSelected));
+            SignalHelper.DisconnectSignal(BattleEvents.Instance, nameof(BattleEvents.PlayerActionCancelled), this, nameof(OnPlayerActionCancelled));
+            SignalHelper.DisconnectSignal(BattleEvents.Instance, nameof(BattleEvents.EnemyActionDeclared), this, nameof(OnEnemyActionDeclared));
+        }
+    }
+
     public void StartActionsDeclaration(List<CharacterType> playerTeam, List<CharacterType> enemyTeam) {
         GD.PrintRich("[color=cyan]ActionsController: Starting actions declaration phase...[/color]");
 
-        // Use the teams provided directly
         _playerTeam = playerTeam;
         _enemyTeam = enemyTeam;
         _charactersDeclaredActions.Clear();
-        _isInActionDeclarationPhase = true;
 
         GD.PrintRich($"[color=cyan]ActionsController: Using teams - Players: {_playerTeam.Count}, Enemies: {_enemyTeam.Count}.[/color]");
 
-        // Declare enemy actions first
-        DeclareEnemyActions();
-
-        // For testing, declaring player actions automatically:
+        DeclareEnemyActionsForTesting();
         DeclarePlayerActionsForTesting();
     }
 
-    // Event handler when all actions are declared
-    private void OnActionsDeclared() {
-        // When ActionsDeclared is emitted, we're no longer in action declaration phase
-        _isInActionDeclarationPhase = false;
-    }
-
-    // Handles enemy action declaration using AI
-    private void DeclareEnemyActions() {
-        GD.PrintRich("[color=cyan]ActionsController: Declaring enemy actions...[/color]");
+    // TODO - for testing purposes, simple logic for declaring enemy actions
+    private void DeclareEnemyActionsForTesting() {
+        GD.PrintRich("[color=cyan]ActionsController: Declaring enemy actions for testing...[/color]");
 
         // Declare actions for each enemy
         foreach (var enemy in _enemyTeam) {
@@ -73,10 +73,10 @@ public partial class ActionsController : RefCounted {
                 var action = enemy.Actions[actionIndex];
                 var target = _playerTeam[targetIndex];
 
-                GD.PrintRich($"[color=cyan]Enemy {enemy.Name} selected action {action.Type?.Name} targeting {target.Name}.[/color]");
-
-                // Emit event
                 BattleEvents.Instance.EmitEnemyActionDeclared(enemy);
+
+                GD.PrintRich($"[color=cyan]Enemy {enemy.Name} selected action {action.Type?.Name} targeting {target.Name}.[/color]");
+                GD.PrintRich("[color=cyan]======[/color]");
             }
             else {
                 GD.PrintRich($"[color=cyan]Enemy {enemy.Name} has no actions or no valid targets.[/color]");
@@ -84,8 +84,7 @@ public partial class ActionsController : RefCounted {
         }
     }
 
-
-    // For testing purposes, declare actions for player characters
+    // TODO - for testing purposes, simple logic for declaring player actions
     private void DeclarePlayerActionsForTesting() {
         GD.PrintRich("[color=cyan]ActionsController: Declaring player actions for testing...[/color]");
 
@@ -99,11 +98,12 @@ public partial class ActionsController : RefCounted {
                 var action = player.Actions[actionIndex];
                 var target = _enemyTeam[targetIndex];
 
-                GD.PrintRich($"[color=cyan]Player {player.Name} selected action {action.Type?.Name} targeting {target.Name}.[/color]");
-
-                // Emit events
+                // BattleEvents.Instance.EmitPlayerTargetSelected(player, target);
+                // BattleEvents.Instance.EmitPlayerActionCancelled(player);
                 BattleEvents.Instance.EmitPlayerActionDeclared(player);
-                BattleEvents.Instance.EmitPlayerTargetSelected(player, target);
+
+                GD.PrintRich($"[color=cyan]Player {player.Name} selected action {action.Type?.Name} targeting {target.Name}.[/color]");
+                GD.PrintRich("[color=cyan]======[/color]");
             }
             else {
                 GD.PrintRich($"[color=cyan]Player {player.Name} has no actions or no valid targets.[/color]");
@@ -111,11 +111,9 @@ public partial class ActionsController : RefCounted {
         }
     }
 
-    // Checks if all characters have declared their actions
     private bool AllActionsAreDeclared() {
         GD.PrintRich("[color=cyan]ActionsController: Checking if all actions are declared...[/color]");
 
-        // Calculate total characters from both teams
         int totalCharacters = _playerTeam.Count + _enemyTeam.Count;
 
         GD.PrintRich($"[color=cyan]ActionsController: {_charactersDeclaredActions.Count}/{totalCharacters} actions declared.[/color]");
@@ -123,49 +121,37 @@ public partial class ActionsController : RefCounted {
         return _charactersDeclaredActions.Count >= totalCharacters;
     }
 
-    // Completes the action declaration phase
     private static void CompleteActionsDeclaration() {
         GD.PrintRich("[color=cyan]ActionsController: Completing actions declaration phase...[/color]");
-        // Notify that all actions have been declared
         BattleEvents.Instance.EmitActionsDeclared();
-
-        // Turn resolution will be initiated by the TurnManager's event handler
     }
 
-    // Event handlers
     private void OnEnemyActionDeclared(CharacterType character) {
-        if (!_isInActionDeclarationPhase) return;
-
         GD.PrintRich($"[color=cyan]Enemy {character.Name} declared an action.[/color]");
         _charactersDeclaredActions.Add(character);
         CheckIfAllActionsDeclared();
     }
 
     private void OnPlayerActionDeclared(CharacterType character) {
-        if (!_isInActionDeclarationPhase) return;
-
         GD.PrintRich("[color=cyan]Event PlayerActionDeclared fired on ActionsController.[/color]");
         _charactersDeclaredActions.Add(character);
         CheckIfAllActionsDeclared();
     }
 
     private void OnPlayerTargetSelected(CharacterType character, CharacterType target) {
-        if (!_isInActionDeclarationPhase) return;
-
         GD.PrintRich("[color=cyan]Event PlayerTargetSelected fired on ActionsController.[/color]");
         CheckIfAllActionsDeclared();
     }
 
     private void OnPlayerActionCancelled(CharacterType character) {
-        if (!_isInActionDeclarationPhase) return;
-
         GD.PrintRich("[color=cyan]Event PlayerActionCancelled fired on ActionsController.[/color]");
-        // TODO: Handle action cancellation
+        _charactersDeclaredActions.Remove(character);
+        CheckIfAllActionsDeclared();
     }
 
     private void CheckIfAllActionsDeclared() {
         if (AllActionsAreDeclared()) {
-            CompleteActionsDeclaration();
+            CallDeferred(nameof(CompleteActionsDeclaration));
         }
     }
 }

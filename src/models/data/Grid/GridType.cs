@@ -18,7 +18,6 @@ public partial class GridType : IdentifiableResource, IGrid {
     [Export]
     public string Prefix { get; set; } = "G";
 
-
     [Export]
     public CharacterStore? CharacterStore {
         get => _characterStore;

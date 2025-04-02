@@ -1,18 +1,182 @@
-[gd_resource type="Resource" script_class="ActionType" load_steps=7 format=3 uid="uid://cly4t230cu6ii"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=26 format=3 uid="uid://cly4t230cu6ii"]
 
+[ext_resource type="Resource" uid="uid://cupu4ulat2q28" path="res://resources/Actions/Categories/ActionOffensive.tres" id="1_wmqqs"]
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/data/Effect/EffectType.cs" id="2_s1o36"]
+[ext_resource type="Texture2D" uid="uid://fmaq315605ce" path="res://assets/icons/actions/cleave.png" id="3_8m2td"]
 [ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://resources/Effects/DamageEffect.tres" id="3_wmqqs"]
-[ext_resource type="Texture2D" uid="uid://fmaq315605ce" path="res://assets/icons/actions/wide_cleave.png" id="4_s1o36"]
+[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Dice/DiceEnergy/RedEnergy.tres" id="5_wmqqs"]
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="5_yp8id"]
-[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Dice/Mana/ManaRed.tres" id="6_vbjrv"]
+[ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="6_daon4"]
+[ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="7_ac40e"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/data/Action/ActionType.cs" id="8_0ol17"]
+[ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/data/Target/TargetBoardType.cs" id="8_o00re"]
+
+[sub_resource type="Resource" id="Resource_ctwuj"]
+script = ExtResource("7_ac40e")
+Value = 0
+Row = 0
+Column = 0
+Index = 0
+Label = "G0"
+IsWalkable = true
+IsOccupied = false
+Id = "5b2c657a-dc82-4afc-8a10-d668fd8a2884"
+
+[sub_resource type="Resource" id="Resource_4ij6w"]
+script = ExtResource("7_ac40e")
+Value = 0
+Row = 0
+Column = 1
+Index = 1
+Label = "G1"
+IsWalkable = true
+IsOccupied = false
+Id = "0059c0bb-a9f9-4c38-82db-1abd49b88645"
+
+[sub_resource type="Resource" id="Resource_3chpi"]
+script = ExtResource("7_ac40e")
+Value = 1
+Row = 0
+Column = 2
+Index = 2
+Label = "G2"
+IsWalkable = true
+IsOccupied = false
+Id = "88dae4bc-e952-4094-b142-ea2c06b72686"
+
+[sub_resource type="Resource" id="Resource_u4bxa"]
+script = ExtResource("7_ac40e")
+Value = 0
+Row = 1
+Column = 0
+Index = 3
+Label = "G3"
+IsWalkable = true
+IsOccupied = false
+Id = "c21de9e6-79f8-4857-b525-a92b996eb75b"
+
+[sub_resource type="Resource" id="Resource_rguav"]
+script = ExtResource("7_ac40e")
+Value = 0
+Row = 1
+Column = 1
+Index = 4
+Label = "G4"
+IsWalkable = true
+IsOccupied = false
+Id = "f26d30f4-d44f-4fac-8c0f-7b5180d03208"
+
+[sub_resource type="Resource" id="Resource_bjvet"]
+script = ExtResource("7_ac40e")
+Value = 1
+Row = 1
+Column = 2
+Index = 5
+Label = "G5"
+IsWalkable = true
+IsOccupied = false
+Id = "f5239cde-2685-4018-a1d5-01186c0f9914"
+
+[sub_resource type="Resource" id="Resource_av067"]
+script = ExtResource("6_daon4")
+Prefix = "A"
+Direction = 0
+Rows = 2
+Columns = 3
+Cells = Array[ExtResource("7_ac40e")]([SubResource("Resource_ctwuj"), SubResource("Resource_4ij6w"), SubResource("Resource_3chpi"), SubResource("Resource_u4bxa"), SubResource("Resource_rguav"), SubResource("Resource_bjvet")])
+Id = "75fdd357-9ed9-47ef-b100-3797ee7218e0"
+metadata/_custom_type_script = "uid://ca6up1de7fo4q"
+
+[sub_resource type="Resource" id="Resource_hhp8p"]
+script = ExtResource("7_ac40e")
+Value = 3
+Row = 0
+Column = 0
+Index = 0
+Label = "G0"
+IsWalkable = true
+IsOccupied = false
+Id = "2cb0ee67-a16e-44aa-91dd-0ea411c7fb7d"
+
+[sub_resource type="Resource" id="Resource_230fa"]
+script = ExtResource("7_ac40e")
+Value = 0
+Row = 0
+Column = 1
+Index = 1
+Label = "G1"
+IsWalkable = true
+IsOccupied = false
+Id = "30a38e7b-d193-431b-afa4-8c30340bbf40"
+
+[sub_resource type="Resource" id="Resource_kkevv"]
+script = ExtResource("7_ac40e")
+Value = 0
+Row = 0
+Column = 2
+Index = 2
+Label = "G2"
+IsWalkable = true
+IsOccupied = false
+Id = "94b8bc2c-b50c-496f-ba18-fc3efe2d2551"
+
+[sub_resource type="Resource" id="Resource_huyob"]
+script = ExtResource("7_ac40e")
+Value = 3
+Row = 1
+Column = 0
+Index = 3
+Label = "G3"
+IsWalkable = true
+IsOccupied = false
+Id = "d51f7530-ded6-41fb-b660-9f880230767b"
+
+[sub_resource type="Resource" id="Resource_oqoy7"]
+script = ExtResource("7_ac40e")
+Value = 0
+Row = 1
+Column = 1
+Index = 4
+Label = "G4"
+IsWalkable = true
+IsOccupied = false
+Id = "c00183e4-393c-492b-a50b-ff5e8886b158"
+
+[sub_resource type="Resource" id="Resource_it6th"]
+script = ExtResource("7_ac40e")
+Value = 0
+Row = 1
+Column = 2
+Index = 5
+Label = "G5"
+IsWalkable = true
+IsOccupied = false
+Id = "3845cc22-e594-40a3-b42d-70b651d0d01d"
+
+[sub_resource type="Resource" id="Resource_3nmdf"]
+script = ExtResource("6_daon4")
+Prefix = "E"
+Direction = 0
+Rows = 2
+Columns = 3
+Cells = Array[ExtResource("7_ac40e")]([SubResource("Resource_hhp8p"), SubResource("Resource_230fa"), SubResource("Resource_kkevv"), SubResource("Resource_huyob"), SubResource("Resource_oqoy7"), SubResource("Resource_it6th")])
+Id = "7ee6776c-8585-49f2-8d28-1a29b66b8c43"
+metadata/_custom_type_script = "uid://ca6up1de7fo4q"
+
+[sub_resource type="Resource" id="Resource_g2845"]
+script = ExtResource("8_o00re")
+IsSingleTarget = false
+Grids = Array[ExtResource("6_daon4")]([SubResource("Resource_av067"), SubResource("Resource_3nmdf")])
+metadata/_custom_type_script = "uid://1fvttm4h5sf3"
 
 [resource]
 script = ExtResource("8_0ol17")
 Name = "Cleave Attack"
+Category = ExtResource("1_wmqqs")
 Description = "Cleave Attack description."
-Icon = ExtResource("4_s1o36")
-RequiredEnergy = Array[ExtResource("5_yp8id")]([ExtResource("6_vbjrv")])
+Icon = ExtResource("3_8m2td")
+RequiredEnergy = Array[ExtResource("5_yp8id")]([ExtResource("5_wmqqs")])
 Effects = Array[ExtResource("2_s1o36")]([ExtResource("3_wmqqs")])
+TargetBoard = SubResource("Resource_g2845")
 Id = "1575f70b-f7b7-44e6-959c-3e0d347517a2"
 metadata/_custom_type_script = "uid://dk6es2dobyja5"

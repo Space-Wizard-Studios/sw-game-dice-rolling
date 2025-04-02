@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q64eatkgts6s"
-path="res://.godot/imported/magic_strike.png-4a0a415db5c3811b6bd2d34342b4a1c2.ctex"
+uid="uid://7edt57k6ta68"
+path="res://.godot/imported/drop.png-841c962b058ddd2799b75e73b808d8e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/actions/magic_strike.png"
-dest_files=["res://.godot/imported/magic_strike.png-4a0a415db5c3811b6bd2d34342b4a1c2.ctex"]
+source_file="res://assets/icons/diceEnergy/drop.png"
+dest_files=["res://.godot/imported/drop.png-841c962b058ddd2799b75e73b808d8e5.ctex"]
 
 [params]
 

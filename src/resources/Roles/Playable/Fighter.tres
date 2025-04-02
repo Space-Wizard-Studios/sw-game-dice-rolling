@@ -40,7 +40,7 @@ metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
 [resource]
 script = ExtResource("7_x8hfl")
 Name = "Fighter"
-Description = "Fighter Description"
+Description = "Fighter description."
 RoleAttributes = Array[ExtResource("3_j81qd")]([SubResource("Resource_6os0b"), SubResource("Resource_ss44g"), SubResource("Resource_4qaq3")])
 RoleActions = Array[ExtResource("1_iytx6")]([SubResource("Resource_eysv7"), SubResource("Resource_0l1dg")])
 Id = "d617ceaf-d1be-425f-80e3-5e662e73dba6"

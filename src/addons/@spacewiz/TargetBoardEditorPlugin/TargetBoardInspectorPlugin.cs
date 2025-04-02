@@ -51,9 +51,9 @@ public partial class TargetBoardInspectorPlugin : EditorInspectorPlugin {
                 BbcodeEnabled = true,
                 Text = "[b]Possible values on the matrix:[/b]\n" +
                        "[color=white]0 - Ignored[/color]\n" +
-                       "[color=yellow]1 - Placement[/color]\n" +
+                       "[color=yellow]1 - Actor Placement[/color]\n" +
                        "[color=green]2 - Ally[/color]\n" +
-                       "[color=red]3 - Enemy[/color]\n",
+                       "[color=red]3 - Target[/color]\n",
                 SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
                 SizeFlagsVertical = Control.SizeFlags.ExpandFill,
                 CustomMinimumSize = new Vector2(0, 80)

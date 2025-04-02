@@ -33,7 +33,7 @@ metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
 [resource]
 script = ExtResource("7_psdi4")
 Name = "Mage"
-Description = "MageDescription"
+Description = "Mage description."
 RoleAttributes = Array[ExtResource("4_h5xh8")]([SubResource("Resource_aw583"), SubResource("Resource_0pnvr")])
 RoleActions = Array[ExtResource("1_e1455")]([SubResource("Resource_q6buy"), SubResource("Resource_dbp2g")])
 Id = "2a176229-77a9-4766-866f-ac9beb1006c5"

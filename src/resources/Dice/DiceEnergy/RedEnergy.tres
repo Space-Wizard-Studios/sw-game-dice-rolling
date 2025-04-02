@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DiceEnergy" load_steps=3 format=3 uid="uid://qxd24e6b177u"]
+
+[ext_resource type="Texture2D" uid="uid://7edt57k6ta68" path="res://assets/icons/diceEnergy/drop.png" id="1_chtvj"]
+[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="2_l3pkg"]
+
+[resource]
+script = ExtResource("2_l3pkg")
+Name = "Red Energy"
+Description = "Red Energy description."
+BackgroundColor = Color(0.901961, 0.223529, 0.27451, 1)
+MainColor = Color(0.509804, 0.0431373, 0.0431373, 1)
+Icon = ExtResource("1_chtvj")
+Id = "ca2dad2d-52ac-4716-a7f0-2191c70825df"

@@ -33,7 +33,7 @@ Id = "acba29d2-339a-4571-80b4-e98b9fc25209"
 
 [sub_resource type="Resource" id="Resource_v36a5"]
 script = ExtResource("2_oxlr7")
-Character = ExtResource("3_go7ud")
+Character = ExtResource("4_x231g")
 Value = 0
 Row = 0
 Column = 2
@@ -45,7 +45,7 @@ Id = "7db9a0dc-8d35-4044-9311-c6e06de7f823"
 
 [sub_resource type="Resource" id="Resource_bl0jg"]
 script = ExtResource("2_oxlr7")
-Character = ExtResource("4_x231g")
+Character = ExtResource("3_go7ud")
 Value = 0
 Row = 1
 Column = 0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7edt57k6ta68"
-path="res://.godot/imported/drop.png-fba12f23ec8bccb38c360a69cba5b50a.ctex"
+uid="uid://fmaq315605ce"
+path="res://.godot/imported/cleave.png-8e5073d908b935615dc03b10fd6b3fa1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/diceMana/drop.png"
-dest_files=["res://.godot/imported/drop.png-fba12f23ec8bccb38c360a69cba5b50a.ctex"]
+source_file="res://assets/icons/actions/cleave.png"
+dest_files=["res://.godot/imported/cleave.png-8e5073d908b935615dc03b10fd6b3fa1.ctex"]
 
 [params]
 

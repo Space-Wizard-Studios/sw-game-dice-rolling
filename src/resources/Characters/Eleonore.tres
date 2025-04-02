@@ -121,5 +121,5 @@ Role = ExtResource("6_mck33")
 Attributes = Array[ExtResource("2_mck33")]([SubResource("Resource_7y5lj"), SubResource("Resource_vll7e")])
 Actions = Array[ExtResource("1_3cii4")]([SubResource("Resource_balo1"), SubResource("Resource_8vodf")])
 Location = ExtResource("4_3cii4")
-SlotIndex = 2
+SlotIndex = 3
 Id = "4ea655f0-4c3e-4fba-bafe-fe361e68db9e"

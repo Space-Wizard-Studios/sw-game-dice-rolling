@@ -4,6 +4,26 @@ Essa é uma ferramenta que eu criei em Go para facilitar a manutenção do proje
 
 Atualmente a única utilidade é poder escrever as issues em arquivos yaml (melhor visualização) para depois comparar com o projeto remoto usando a lib [go-github](https://github.com/google/go-github).
 
+## Installation
+
+```cmd
+cd tools/github-manager/app
+go mod download
+```
+
+### Usage
+
+```cmd
+# List remote issues from GitHub
+go run main.go list-remote --state open
+
+# List local issues from YAML files
+go run main.go list-local --state all
+
+# Compare local and remote issues
+go run main.go compare --state open --save
+```
+
 ## Propriedades das issues no GitHub
 
 ```yaml

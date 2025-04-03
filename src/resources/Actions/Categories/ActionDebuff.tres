@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Category" load_steps=3 format=3 uid="uid://bt78ea1fdbgvx"]
+
+[ext_resource type="Texture2D" uid="uid://b1fr2n747j0en" path="res://assets/icons/actionCategories/debuff.png" id="1_bjlll"]
+[ext_resource type="Script" uid="uid://c6oq153u13fh4" path="res://models/data/Category/Category.cs" id="2_yj51j"]
+
+[resource]
+script = ExtResource("2_yj51j")
+Name = "Debuff"
+Description = "Debuff category description."
+Icon = ExtResource("1_bjlll")
+Id = "7a79664d-5d55-4a82-af70-19ba79f14406"
+metadata/_custom_type_script = "uid://c6oq153u13fh4"

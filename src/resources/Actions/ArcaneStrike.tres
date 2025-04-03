@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="ActionType" load_steps=22 format=3 uid="uid://c8xr12tkory0k"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=24 format=3 uid="uid://c8xr12tkory0k"]
 
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/data/Effect/EffectType.cs" id="1_ce1no"]
+[ext_resource type="Resource" uid="uid://cupu4ulat2q28" path="res://resources/Actions/Categories/ActionOffensive.tres" id="1_n366w"]
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="2_3fo7f"]
+[ext_resource type="Texture2D" uid="uid://q64eatkgts6s" path="res://assets/icons/actions/arcane_strike.png" id="2_8r31q"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="3_kqwk7"]
 [ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="4_8r31q"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/data/Target/TargetBoardType.cs" id="5_n366w"]
@@ -9,7 +11,7 @@
 
 [sub_resource type="Resource" id="Resource_xi31x"]
 script = ExtResource("4_8r31q")
-Value = 0
+Value = 1
 Row = 0
 Column = 0
 Index = 0
@@ -20,7 +22,7 @@ Id = "1d706315-3bf3-4bd9-9d87-fb3520ef5d94"
 
 [sub_resource type="Resource" id="Resource_mxrco"]
 script = ExtResource("4_8r31q")
-Value = 0
+Value = 1
 Row = 0
 Column = 1
 Index = 1
@@ -42,7 +44,7 @@ Id = "717203a1-3223-4553-aab9-60019c62d935"
 
 [sub_resource type="Resource" id="Resource_icgfc"]
 script = ExtResource("4_8r31q")
-Value = 0
+Value = 1
 Row = 1
 Column = 0
 Index = 3
@@ -53,7 +55,7 @@ Id = "7ff2b494-4436-4fc1-b23a-a3347222aa35"
 
 [sub_resource type="Resource" id="Resource_rsgia"]
 script = ExtResource("4_8r31q")
-Value = 0
+Value = 1
 Row = 1
 Column = 1
 Index = 4
@@ -75,7 +77,7 @@ Id = "81f48fe1-c368-4dc1-8643-a78949629305"
 
 [sub_resource type="Resource" id="Resource_qkl28"]
 script = ExtResource("3_kqwk7")
-Prefix = "G"
+Prefix = "A"
 Direction = 0
 Rows = 2
 Columns = 3
@@ -96,7 +98,7 @@ Id = "97eb2b49-5dff-4890-b389-f20847385f5b"
 
 [sub_resource type="Resource" id="Resource_im6sk"]
 script = ExtResource("4_8r31q")
-Value = 0
+Value = 3
 Row = 0
 Column = 1
 Index = 1
@@ -107,7 +109,7 @@ Id = "ec972158-5864-4a37-a25b-88e584dc45ae"
 
 [sub_resource type="Resource" id="Resource_opck1"]
 script = ExtResource("4_8r31q")
-Value = 0
+Value = 3
 Row = 0
 Column = 2
 Index = 2
@@ -129,7 +131,7 @@ Id = "4f4be816-94e0-43f5-b041-e5d7d90474b9"
 
 [sub_resource type="Resource" id="Resource_cs1c4"]
 script = ExtResource("4_8r31q")
-Value = 0
+Value = 3
 Row = 1
 Column = 1
 Index = 4
@@ -140,7 +142,7 @@ Id = "7d4da2fb-3987-487a-9cad-67417df1dcd3"
 
 [sub_resource type="Resource" id="Resource_xc6bq"]
 script = ExtResource("4_8r31q")
-Value = 0
+Value = 3
 Row = 1
 Column = 2
 Index = 5
@@ -151,7 +153,7 @@ Id = "dd7d38e4-0b10-4051-b8d7-c4d948553c70"
 
 [sub_resource type="Resource" id="Resource_ym6qs"]
 script = ExtResource("3_kqwk7")
-Prefix = "G"
+Prefix = "E"
 Direction = 0
 Rows = 2
 Columns = 3
@@ -161,14 +163,16 @@ metadata/_custom_type_script = "uid://ca6up1de7fo4q"
 
 [sub_resource type="Resource" id="Resource_qf6s8"]
 script = ExtResource("5_n366w")
-IsSingleTarget = false
+IsSingleTarget = true
 Grids = Array[ExtResource("3_kqwk7")]([SubResource("Resource_qkl28"), SubResource("Resource_ym6qs")])
 metadata/_custom_type_script = "uid://1fvttm4h5sf3"
 
 [resource]
 script = ExtResource("7_wv8if")
 Name = "Arcane Strike"
+Category = ExtResource("1_n366w")
 Description = ""
+Icon = ExtResource("2_8r31q")
 RequiredEnergy = Array[ExtResource("2_3fo7f")]([])
 Effects = Array[ExtResource("1_ce1no")]([])
 TargetBoard = SubResource("Resource_qf6s8")

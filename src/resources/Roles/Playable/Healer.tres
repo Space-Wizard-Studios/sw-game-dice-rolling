@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="RoleType" load_steps=8 format=3 uid="uid://bj2dxbp3ievn2"]
+
+[ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://models/data/Role/RoleAction.cs" id="1_sxrv0"]
+[ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/data/Role/RoleAttribute.cs" id="2_j8evg"]
+[ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/data/Role/RoleType.cs" id="3_b8bb8"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="3_od471"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="4_f1wx7"]
+
+[sub_resource type="Resource" id="Resource_t4yp4"]
+script = ExtResource("2_j8evg")
+Type = ExtResource("3_od471")
+BaseValue = 999
+metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
+
+[sub_resource type="Resource" id="Resource_lh845"]
+script = ExtResource("2_j8evg")
+Type = ExtResource("4_f1wx7")
+BaseValue = 0
+metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
+
+[resource]
+script = ExtResource("3_b8bb8")
+Name = "Healer"
+Description = "Healer description."
+RoleAttributes = Array[ExtResource("2_j8evg")]([SubResource("Resource_t4yp4"), SubResource("Resource_lh845")])
+RoleActions = Array[ExtResource("1_sxrv0")]([])
+Id = "48cab77d-dd2f-4598-83df-8f43e0fc2c94"
+metadata/_custom_type_script = "uid://bf8grw0ulmqkc"

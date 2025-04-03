@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="RoleType" load_steps=10 format=3 uid="uid://bviiaflcxorr0"]
+[gd_resource type="Resource" script_class="RoleType" load_steps=12 format=3 uid="uid://bviiaflcxorr0"]
 
 [ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://models/data/Role/RoleAction.cs" id="1_d8cls"]
 [ext_resource type="Resource" uid="uid://cgac6lxa06rf8" path="res://resources/Actions/Stare.tres" id="2_3rgbr"]
 [ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/data/Role/RoleAttribute.cs" id="3_2fus8"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="4_hdasj"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="5_xkma8"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="6_2fus8"]
 [ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/data/Role/RoleType.cs" id="6_ebtsc"]
 
 [sub_resource type="Resource" id="Resource_3ckpd"]
@@ -24,11 +25,17 @@ Type = ExtResource("5_xkma8")
 BaseValue = 999
 metadata/_custom_type_script = ExtResource("3_2fus8")
 
+[sub_resource type="Resource" id="Resource_ebtsc"]
+script = ExtResource("3_2fus8")
+Type = ExtResource("6_2fus8")
+BaseValue = 0
+metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
+
 [resource]
 script = ExtResource("6_ebtsc")
 Name = "Dummy"
 Description = "It's just a training dummy"
-RoleAttributes = Array[ExtResource("3_2fus8")]([SubResource("Resource_bmv4o"), SubResource("Resource_jxq6j")])
+RoleAttributes = Array[ExtResource("3_2fus8")]([SubResource("Resource_bmv4o"), SubResource("Resource_jxq6j"), SubResource("Resource_ebtsc")])
 RoleActions = Array[ExtResource("1_d8cls")]([SubResource("Resource_3ckpd")])
 Id = "fd711259-10a4-42df-87f6-ed817e718b81"
 metadata/_custom_type_script = ExtResource("6_ebtsc")

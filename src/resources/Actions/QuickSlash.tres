@@ -1,44 +1,180 @@
-[gd_resource type="Resource" script_class="ActionType" load_steps=10 format=3 uid="uid://cs65w4r75ugap"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=24 format=3 uid="uid://cs65w4r75ugap"]
 
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/data/Effect/EffectType.cs" id="1_qhrue"]
+[ext_resource type="Resource" uid="uid://cupu4ulat2q28" path="res://resources/Actions/Categories/ActionOffensive.tres" id="1_rvih8"]
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="2_8ielr"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="2_i76yk"]
+[ext_resource type="Texture2D" uid="uid://cr3pt07ubrr56" path="res://assets/icons/actions/quick_slash.png" id="3_70lu1"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/data/Target/TargetBoardType.cs" id="3_qhrue"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/data/Action/ActionType.cs" id="4_8ielr"]
 [ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="4_rvih8"]
 
-[sub_resource type="Resource" id="Resource_5ohu7"]
+[sub_resource type="Resource" id="Resource_b27pn"]
+script = ExtResource("4_rvih8")
+Value = 0
+Row = 0
+Column = 0
+Index = 0
+Label = "G0"
+IsWalkable = true
+IsOccupied = false
+Id = "e2d72e2d-1acf-44a7-a467-6de76990592c"
+
+[sub_resource type="Resource" id="Resource_a7w78"]
+script = ExtResource("4_rvih8")
+Value = 0
+Row = 0
+Column = 1
+Index = 1
+Label = "G1"
+IsWalkable = true
+IsOccupied = false
+Id = "93d6bc55-5d6a-48c0-bdfd-0309df6b5035"
+
+[sub_resource type="Resource" id="Resource_rqyiy"]
+script = ExtResource("4_rvih8")
+Value = 1
+Row = 0
+Column = 2
+Index = 2
+Label = "G2"
+IsWalkable = true
+IsOccupied = false
+Id = "9a450b50-91af-4f43-b28f-0927f50a1a39"
+
+[sub_resource type="Resource" id="Resource_meltv"]
+script = ExtResource("4_rvih8")
+Value = 0
+Row = 1
+Column = 0
+Index = 3
+Label = "G3"
+IsWalkable = true
+IsOccupied = false
+Id = "6478723f-c024-44b9-9339-bf7bded7b4f3"
+
+[sub_resource type="Resource" id="Resource_e3apn"]
+script = ExtResource("4_rvih8")
+Value = 0
+Row = 1
+Column = 1
+Index = 4
+Label = "G4"
+IsWalkable = true
+IsOccupied = false
+Id = "60eee590-43bf-4672-99f6-d17fd97550af"
+
+[sub_resource type="Resource" id="Resource_s1t18"]
+script = ExtResource("4_rvih8")
+Value = 1
+Row = 1
+Column = 2
+Index = 5
+Label = "G5"
+IsWalkable = true
+IsOccupied = false
+Id = "e8010730-ceb4-422d-a3a8-2074bff8dca0"
+
+[sub_resource type="Resource" id="Resource_q8vnr"]
 script = ExtResource("2_i76yk")
-Prefix = "P"
+Prefix = "A"
 Direction = 0
 Rows = 2
 Columns = 3
-Cells = Array[ExtResource("4_rvih8")]([])
-Id = "5327cd36-1771-436e-8fdb-2015654bc510"
-metadata/_custom_type_script = ExtResource("2_i76yk")
+Cells = Array[ExtResource("4_rvih8")]([SubResource("Resource_b27pn"), SubResource("Resource_a7w78"), SubResource("Resource_rqyiy"), SubResource("Resource_meltv"), SubResource("Resource_e3apn"), SubResource("Resource_s1t18")])
+Id = "4c0dd54e-3239-48e1-a437-3644a7bde332"
+metadata/_custom_type_script = "uid://ca6up1de7fo4q"
 
-[sub_resource type="Resource" id="Resource_ntci2"]
+[sub_resource type="Resource" id="Resource_r7omx"]
+script = ExtResource("4_rvih8")
+Value = 3
+Row = 0
+Column = 0
+Index = 0
+Label = "G0"
+IsWalkable = true
+IsOccupied = false
+Id = "2bf4e773-9b47-498c-884f-6b767bcf90e9"
+
+[sub_resource type="Resource" id="Resource_2qpll"]
+script = ExtResource("4_rvih8")
+Value = 0
+Row = 0
+Column = 1
+Index = 1
+Label = "G1"
+IsWalkable = true
+IsOccupied = false
+Id = "35dfa565-aa97-49c9-b44d-3d958837e6f7"
+
+[sub_resource type="Resource" id="Resource_0noky"]
+script = ExtResource("4_rvih8")
+Value = 0
+Row = 0
+Column = 2
+Index = 2
+Label = "G2"
+IsWalkable = true
+IsOccupied = false
+Id = "7a9fd82d-05c7-4fe1-ab5d-b9587c0c85a9"
+
+[sub_resource type="Resource" id="Resource_wvmic"]
+script = ExtResource("4_rvih8")
+Value = 3
+Row = 1
+Column = 0
+Index = 3
+Label = "G3"
+IsWalkable = true
+IsOccupied = false
+Id = "297e2e2e-c248-4fd3-9062-4844d9d1e3d6"
+
+[sub_resource type="Resource" id="Resource_7r555"]
+script = ExtResource("4_rvih8")
+Value = 0
+Row = 1
+Column = 1
+Index = 4
+Label = "G4"
+IsWalkable = true
+IsOccupied = false
+Id = "b1639ad0-7aaa-4024-80f5-0f0a1573a25d"
+
+[sub_resource type="Resource" id="Resource_mpvq6"]
+script = ExtResource("4_rvih8")
+Value = 0
+Row = 1
+Column = 2
+Index = 5
+Label = "G5"
+IsWalkable = true
+IsOccupied = false
+Id = "41c7bed4-1971-46e7-92b2-5a8bebb89968"
+
+[sub_resource type="Resource" id="Resource_pvddb"]
 script = ExtResource("2_i76yk")
 Prefix = "E"
 Direction = 0
 Rows = 2
 Columns = 3
-Cells = Array[ExtResource("4_rvih8")]([])
-Id = "d539d0e1-7631-4100-8054-c585b367e754"
-metadata/_custom_type_script = ExtResource("2_i76yk")
+Cells = Array[ExtResource("4_rvih8")]([SubResource("Resource_r7omx"), SubResource("Resource_2qpll"), SubResource("Resource_0noky"), SubResource("Resource_wvmic"), SubResource("Resource_7r555"), SubResource("Resource_mpvq6")])
+Id = "ac811775-68ea-4d48-82fa-1a5eda4c6925"
+metadata/_custom_type_script = "uid://ca6up1de7fo4q"
 
-[sub_resource type="Resource" id="Resource_0oh7q"]
+[sub_resource type="Resource" id="Resource_fhhls"]
 script = ExtResource("3_qhrue")
 IsSingleTarget = true
-Grids = Array[ExtResource("2_i76yk")]([SubResource("Resource_5ohu7"), SubResource("Resource_ntci2")])
-metadata/_custom_type_script = ExtResource("3_qhrue")
+Grids = Array[ExtResource("2_i76yk")]([SubResource("Resource_q8vnr"), SubResource("Resource_pvddb")])
+metadata/_custom_type_script = "uid://1fvttm4h5sf3"
 
 [resource]
 script = ExtResource("4_8ielr")
 Name = "Quick Slash"
-Description = "Quick slash description"
+Category = ExtResource("1_rvih8")
+Description = "Quick slash description."
+Icon = ExtResource("3_70lu1")
 RequiredEnergy = Array[ExtResource("2_8ielr")]([])
 Effects = Array[ExtResource("1_qhrue")]([])
-TargetBoard = SubResource("Resource_0oh7q")
+TargetBoard = SubResource("Resource_fhhls")
 Id = "1575f70b-f7b7-44e6-959c-3e0d347517a2"
 metadata/_custom_type_script = "uid://dk6es2dobyja5"

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ActionType" load_steps=11 format=3 uid="uid://cvojckruuqrn6"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=24 format=3 uid="uid://cvojckruuqrn6"]
 
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/data/Effect/EffectType.cs" id="1_evn5j"]
+[ext_resource type="Resource" uid="uid://cupu4ulat2q28" path="res://resources/Actions/Categories/ActionOffensive.tres" id="1_s3uan"]
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="3_7glge"]
 [ext_resource type="Texture2D" uid="uid://bemp486qms5lb" path="res://assets/icons/actions/magic_missiles.png" id="4_wo1pe"]
 [ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="5_7glge"]
@@ -9,37 +10,170 @@
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/data/Action/ActionType.cs" id="7_gvq84"]
 
 [sub_resource type="Resource" id="Resource_7glge"]
-script = ExtResource("5_bbx2m")
-Prefix = "G"
-Direction = 0
-Rows = 2
-Columns = 2
-Cells = Array[ExtResource("5_7glge")]([])
-Id = "bf93ce25-e698-4594-b1b7-279b6ced973d"
-metadata/_custom_type_script = ExtResource("5_bbx2m")
+script = ExtResource("5_7glge")
+Value = 1
+Row = 0
+Column = 0
+Index = 0
+Label = "G0"
+IsWalkable = true
+IsOccupied = false
+Id = "8da5f120-9d14-4548-88ea-84c5a21ecfd7"
 
 [sub_resource type="Resource" id="Resource_s3uan"]
-script = ExtResource("5_bbx2m")
-Prefix = "G"
-Direction = 0
-Rows = 2
-Columns = 2
-Cells = Array[ExtResource("5_7glge")]([])
-Id = "4e301b47-2041-47bf-aeb5-1243783257d0"
-metadata/_custom_type_script = ExtResource("5_bbx2m")
+script = ExtResource("5_7glge")
+Value = 0
+Row = 0
+Column = 1
+Index = 1
+Label = "G1"
+IsWalkable = true
+IsOccupied = false
+Id = "40fce4cf-e04d-4ef6-a4a2-89b7c2df5fb6"
 
 [sub_resource type="Resource" id="Resource_bbx2m"]
+script = ExtResource("5_7glge")
+Value = 0
+Row = 0
+Column = 2
+Index = 2
+Label = "G2"
+IsWalkable = true
+IsOccupied = false
+Id = "947d1c68-5a54-458c-b934-b57a96ebc3de"
+
+[sub_resource type="Resource" id="Resource_kaqn3"]
+script = ExtResource("5_7glge")
+Value = 1
+Row = 1
+Column = 0
+Index = 3
+Label = "G3"
+IsWalkable = true
+IsOccupied = false
+Id = "f1e6d0f0-0ea3-47ff-b83e-eee778196611"
+
+[sub_resource type="Resource" id="Resource_gvq84"]
+script = ExtResource("5_7glge")
+Value = 0
+Row = 1
+Column = 1
+Index = 4
+Label = "G4"
+IsWalkable = true
+IsOccupied = false
+Id = "12663042-163e-457a-8806-da18dc3c9076"
+
+[sub_resource type="Resource" id="Resource_wo1pe"]
+script = ExtResource("5_7glge")
+Value = 0
+Row = 1
+Column = 2
+Index = 5
+Label = "G5"
+IsWalkable = true
+IsOccupied = false
+Id = "066fa3f9-af78-444b-a814-c86228aca0fe"
+
+[sub_resource type="Resource" id="Resource_3y3bx"]
+script = ExtResource("5_bbx2m")
+Prefix = "A"
+Direction = 0
+Rows = 2
+Columns = 3
+Cells = Array[ExtResource("5_7glge")]([SubResource("Resource_7glge"), SubResource("Resource_s3uan"), SubResource("Resource_bbx2m"), SubResource("Resource_kaqn3"), SubResource("Resource_gvq84"), SubResource("Resource_wo1pe")])
+Id = "1ec756dd-41de-4930-a888-afee609ffa94"
+metadata/_custom_type_script = "uid://ca6up1de7fo4q"
+
+[sub_resource type="Resource" id="Resource_ulsfc"]
+script = ExtResource("5_7glge")
+Value = 0
+Row = 0
+Column = 0
+Index = 0
+Label = "G0"
+IsWalkable = true
+IsOccupied = false
+Id = "cddf3045-fcea-4c12-b18e-00abf82901b8"
+
+[sub_resource type="Resource" id="Resource_1o5xt"]
+script = ExtResource("5_7glge")
+Value = 3
+Row = 0
+Column = 1
+Index = 1
+Label = "G1"
+IsWalkable = true
+IsOccupied = false
+Id = "9d36bb79-80ca-45a5-bfbf-0d7bd5e66c9f"
+
+[sub_resource type="Resource" id="Resource_xc6t4"]
+script = ExtResource("5_7glge")
+Value = 3
+Row = 0
+Column = 2
+Index = 2
+Label = "G2"
+IsWalkable = true
+IsOccupied = false
+Id = "046ceb7d-8bea-4934-a61e-1e5d6e8dc46c"
+
+[sub_resource type="Resource" id="Resource_lf25c"]
+script = ExtResource("5_7glge")
+Value = 0
+Row = 1
+Column = 0
+Index = 3
+Label = "G3"
+IsWalkable = true
+IsOccupied = false
+Id = "137e6026-4464-48e9-9c93-366e97f2b659"
+
+[sub_resource type="Resource" id="Resource_vdms0"]
+script = ExtResource("5_7glge")
+Value = 3
+Row = 1
+Column = 1
+Index = 4
+Label = "G4"
+IsWalkable = true
+IsOccupied = false
+Id = "ccb8f48e-1b50-4969-b6d8-0d30c899da9d"
+
+[sub_resource type="Resource" id="Resource_bribp"]
+script = ExtResource("5_7glge")
+Value = 3
+Row = 1
+Column = 2
+Index = 5
+Label = "G5"
+IsWalkable = true
+IsOccupied = false
+Id = "260c9560-7b08-49c7-870e-a622863718a6"
+
+[sub_resource type="Resource" id="Resource_j6g70"]
+script = ExtResource("5_bbx2m")
+Prefix = "E"
+Direction = 0
+Rows = 2
+Columns = 3
+Cells = Array[ExtResource("5_7glge")]([SubResource("Resource_ulsfc"), SubResource("Resource_1o5xt"), SubResource("Resource_xc6t4"), SubResource("Resource_lf25c"), SubResource("Resource_vdms0"), SubResource("Resource_bribp")])
+Id = "7164e00a-8edb-45a2-8265-fbabb75f6598"
+metadata/_custom_type_script = "uid://ca6up1de7fo4q"
+
+[sub_resource type="Resource" id="Resource_wh0gl"]
 script = ExtResource("6_kaqn3")
-IsSingleTarget = false
-Grids = Array[ExtResource("5_bbx2m")]([SubResource("Resource_7glge"), SubResource("Resource_s3uan")])
-metadata/_custom_type_script = ExtResource("6_kaqn3")
+IsSingleTarget = true
+Grids = Array[ExtResource("5_bbx2m")]([SubResource("Resource_3y3bx"), SubResource("Resource_j6g70")])
+metadata/_custom_type_script = "uid://1fvttm4h5sf3"
 
 [resource]
 script = ExtResource("7_gvq84")
 Name = "Magic Missiles"
+Category = ExtResource("1_s3uan")
 Description = "Magic Missiles description."
 Icon = ExtResource("4_wo1pe")
 RequiredEnergy = Array[ExtResource("3_7glge")]([])
 Effects = Array[ExtResource("1_evn5j")]([])
-TargetBoard = SubResource("Resource_bbx2m")
+TargetBoard = SubResource("Resource_wh0gl")
 Id = "1c94c7cf-b863-43f1-bb4b-ed141e35638b"

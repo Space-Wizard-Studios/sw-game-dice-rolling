@@ -19,6 +19,7 @@ metadata/_custom_type_script = "uid://cyt7peem686tr"
 
 [node name="AnimatedSpriteComponent" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+offset = Vector2(0, -4)
 pixel_size = 0.002
 billboard = 1
 shaded = true
@@ -26,7 +27,7 @@ double_sided = false
 texture_filter = 0
 sprite_frames = ExtResource("3_56jxl")
 animation = &"idle"
-frame_progress = 0.646373
+frame_progress = 0.988159
 script = ExtResource("3_q1qiw")
 metadata/_custom_type_script = "uid://cejuccgxo60qs"
 

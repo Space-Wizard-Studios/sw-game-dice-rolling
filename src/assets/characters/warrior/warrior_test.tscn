@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://npyy56na6kbm"]
+
+[ext_resource type="PackedScene" uid="uid://0wwiq3trjw12" path="res://assets/characters/warrior/warrior.blend" id="1_3x0ly"]
+
+[node name="WarriorTest" type="Node3D"]
+
+[node name="warrior" parent="." instance=ExtResource("1_3x0ly")]

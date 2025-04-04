@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://g21nla884ha0"]
+
+[node name="Panel" type="ConfirmationDialog"]
+size = Vector2i(512, 512)
+visible = true
+
+[node name="Container" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="path_source_section" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="label_title" type="Label" parent="Container/path_source_section"]
+layout_mode = 2
+text = "Source File"
+
+[node name="path_source_file" type="Label" parent="Container/path_source_section"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "No file selected"
+autowrap_mode = 2
+
+[node name="path_destination_section" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="label_title" type="Label" parent="Container/path_destination_section"]
+layout_mode = 2
+text = "Destination File"
+
+[node name="path_destination_file" type="Label" parent="Container/path_destination_section"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "No file selected"
+autowrap_mode = 2
+
+[node name="json_info_section" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="json_info" type="RichTextLabel" parent="Container/json_info_section"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "JSON information will appear here"
+
+[node name="button_source" type="Button" parent="Container"]
+layout_mode = 2
+text = "Source File"
+
+[node name="button_destination" type="Button" parent="Container"]
+layout_mode = 2
+text = "Destination File"
+
+[node name="check_merge_scenes" type="CheckBox" parent="Container"]
+layout_mode = 2
+text = "Merge Source and Destination Scene"

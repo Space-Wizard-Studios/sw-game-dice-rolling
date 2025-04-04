@@ -1,5 +1,7 @@
+anims
 autoload
 autoplay
+autowrap
 bbcode
 Bbcode
 Bezier
@@ -9,6 +11,7 @@ docfx
 docusaurus
 dotnet
 dracula
+elif
 firefox
 fullscreen
 gdunit
@@ -17,6 +20,7 @@ github
 GLSL
 godot
 godotenv
+hframes
 hideable
 Infima
 Interp
@@ -38,7 +42,9 @@ sonarscanner
 srgb
 staticrypt
 STATICRYPT
+subparent
 tscn
 unicode
+vframes
 vram
 Zoomable

@@ -2,8 +2,8 @@
 * text=auto eol=lf
 
 # Mark all content under src/addons/* that are not under src/addons/@spacewiz* as linguist-vendored
-src/addons/* linguist-vendored
-src/addons/@spacewiz* -linguist-vendored
+src/addons/** linguist-vendored
+src/addons/@spacewiz/** -linguist-vendored
 
 # Mark binary files
 *.png binary

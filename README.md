@@ -1,4 +1,4 @@
-![marca](https://github.com/user-attachments/assets/f24945f8-5ed7-467c-aca0-802c788c7e78)
+![marca_horizontal](https://github.com/user-attachments/assets/c2a1d029-a64e-41d7-8dcb-5d82bbf529bc)
 
 # FIREBOUND FRAMEWORK
 

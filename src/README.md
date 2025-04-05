@@ -1,8 +1,8 @@
-# DICE ROLLING GAME
+# FIREBOUND GAME DEVELOPMENT
 
 ## Sumário
 
-- [DICE ROLLING GAME](#dice-rolling-game)
+- [FIREBOUND GAME DEVELOPMENT](#firebound-game-development)
   - [Sumário](#sumário)
     - [Tecnologias do Jogo](#tecnologias-do-jogo)
     - [Estrutura da framework](#estrutura-da-framework)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q64eatkgts6s"
-path="res://.godot/imported/magic_strike.png-4a0a415db5c3811b6bd2d34342b4a1c2.ctex"
+uid="uid://co3s4y64r0uo0"
+path="res://.godot/imported/controller.svg-82fe38cac3b711a9f53442f873187bc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/actions/magic_strike.png"
-dest_files=["res://.godot/imported/magic_strike.png-4a0a415db5c3811b6bd2d34342b4a1c2.ctex"]
+source_file="res://assets/editor/controller.svg"
+dest_files=["res://.godot/imported/controller.svg-82fe38cac3b711a9f53442f873187bc9.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -1,20 +1,10 @@
-# DICE ROLLING FRAMEWORK
+![marca_horizontal](https://github.com/user-attachments/assets/c2a1d029-a64e-41d7-8dcb-5d82bbf529bc)
 
-[![GitHub License](https://img.shields.io/github/license/Space-Wizard-Studios/sw-game-dice-rolling)](https://github.com/Space-Wizard-Studios/sw-game-dice-rolling/blob/main/LICENSE) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Space-Wizard-Studios/sw-game-dice-rolling) [![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/Space-Wizard-Studios_sw-game-dice-rolling?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/summary/new_code?id=Space-Wizard-Studios_sw-game-dice-rolling) [![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Space-Wizard-Studios/sw-game-dice-rolling)](https://app.coderabbit.ai/login?grsf=danilo-nob-yhhdp8)
+# FIREBOUND FRAMEWORK
 
-👋 Olá!
+[![GitHub License](https://img.shields.io/github/license/Space-Wizard-Studios/sw-game-dice-rolling)](https://github.com/Space-Wizard-Studios/sw-game-dice-rolling/blob/main/LICENSE) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Space-Wizard-Studios/sw-game-dice-rolling) [![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/Space-Wizard-Studios_sw-game-dice-rolling?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/summary/new_code?id=Space-Wizard-Studios_sw-game-dice-rolling) ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Space-Wizard-Studios/firebound?utm_source=oss&utm_medium=github&utm_campaign=Space-Wizard-Studios%2Ffirebound&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
 
-Nós somos a [**Space Wizard Studios**](https://spacewiz.dev/) e este é o repositório do nosso projeto chamado **Dice Rolling Framework** (nome temporário).
-
-> [!WARNING]  
-> **Aviso:** Este projeto está em desenvolvimento (em uma fase **bem inicial**!) e, por isso, não recomendamos para uso em produção.
-> Por isso, use esse projeto apenas como um estudo de caso, para dar suas sugestões ou simplesmente como um lugar para discutirmos suas ideias.
-
----
-
-## Sumário
-
-- [DICE ROLLING FRAMEWORK](#dice-rolling-framework)
+- [FIREBOUND FRAMEWORK](#firebound-framework)
   - [Sumário](#sumário)
   - [Sobre](#sobre)
     - [Por que código aberto?](#por-que-código-aberto)

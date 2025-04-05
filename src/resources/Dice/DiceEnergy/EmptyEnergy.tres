@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DiceEnergy" load_steps=3 format=3 uid="uid://xcyti3lh5xkx"]
+
+[ext_resource type="Texture2D" uid="uid://7edt57k6ta68" path="res://assets/icons/diceEnergy/drop.png" id="1_tmop6"]
+[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="2_esyoi"]
+
+[resource]
+script = ExtResource("2_esyoi")
+Name = "Empty Energy"
+Description = "Empty Energy description."
+BackgroundColor = Color(0.768627, 0.768627, 0.768627, 1)
+MainColor = Color(0.180392, 0.180392, 0.180392, 1)
+Icon = ExtResource("1_tmop6")
+Id = "098a9af2-834b-41d5-8876-16d779ed4286"

@@ -1,0 +1,180 @@
+[gd_resource type="Resource" script_class="ActionType" load_steps=24 format=3 uid="uid://bdos2pr7ri4i"]
+
+[ext_resource type="Resource" uid="uid://dw1d38425v5rd" path="res://resources/Actions/Categories/ActionDefensive.tres" id="1_c1qih"]
+[ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/data/Effect/EffectType.cs" id="1_j464g"]
+[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="2_c1qih"]
+[ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/data/Action/ActionType.cs" id="3_fhkwu"]
+[ext_resource type="Texture2D" uid="uid://mh3kl4xhl0nb" path="res://assets/icons/actionCategories/defend.png" id="3_gch6k"]
+[ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="5_i3h2k"]
+[ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="6_mbd47"]
+[ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/data/Target/TargetBoardType.cs" id="7_lguhc"]
+
+[sub_resource type="Resource" id="Resource_1gcde"]
+script = ExtResource("6_mbd47")
+Value = 2
+Row = 0
+Column = 0
+Index = 0
+Label = "A0"
+IsWalkable = true
+IsOccupied = false
+Id = "c86f7d58-a9d9-4618-a200-4be29853a395"
+
+[sub_resource type="Resource" id="Resource_avm1r"]
+script = ExtResource("6_mbd47")
+Value = 2
+Row = 0
+Column = 1
+Index = 1
+Label = "A1"
+IsWalkable = true
+IsOccupied = false
+Id = "e57234ae-511f-469d-8c4c-1d1244f5f049"
+
+[sub_resource type="Resource" id="Resource_f7p5w"]
+script = ExtResource("6_mbd47")
+Value = 2
+Row = 0
+Column = 2
+Index = 2
+Label = "A2"
+IsWalkable = true
+IsOccupied = false
+Id = "f1a72088-501e-4914-b74a-98a7b7f6c686"
+
+[sub_resource type="Resource" id="Resource_xaf5k"]
+script = ExtResource("6_mbd47")
+Value = 2
+Row = 1
+Column = 0
+Index = 3
+Label = "A3"
+IsWalkable = true
+IsOccupied = false
+Id = "d2aa012e-edce-4400-beeb-efbbe49236c2"
+
+[sub_resource type="Resource" id="Resource_jjc6f"]
+script = ExtResource("6_mbd47")
+Value = 2
+Row = 1
+Column = 1
+Index = 4
+Label = "A4"
+IsWalkable = true
+IsOccupied = false
+Id = "ec8c11e3-b8b9-4e7f-928e-9318ffd4cb50"
+
+[sub_resource type="Resource" id="Resource_0d07r"]
+script = ExtResource("6_mbd47")
+Value = 2
+Row = 1
+Column = 2
+Index = 5
+Label = "A5"
+IsWalkable = true
+IsOccupied = false
+Id = "8dea2edd-8d76-4cd6-bb31-ea4eb9758a20"
+
+[sub_resource type="Resource" id="Resource_ekr67"]
+script = ExtResource("5_i3h2k")
+Prefix = "A"
+Direction = 0
+Rows = 2
+Columns = 3
+Cells = Array[ExtResource("6_mbd47")]([SubResource("Resource_1gcde"), SubResource("Resource_avm1r"), SubResource("Resource_f7p5w"), SubResource("Resource_xaf5k"), SubResource("Resource_jjc6f"), SubResource("Resource_0d07r")])
+Id = "5dbe8625-d07b-43e8-897c-252b10a1fac2"
+metadata/_custom_type_script = "uid://ca6up1de7fo4q"
+
+[sub_resource type="Resource" id="Resource_3g3t8"]
+script = ExtResource("6_mbd47")
+Value = 0
+Row = 0
+Column = 0
+Index = 0
+Label = "E0"
+IsWalkable = true
+IsOccupied = false
+Id = "d9761f1b-98f4-46a0-bb76-a25e10cd3252"
+
+[sub_resource type="Resource" id="Resource_31dy5"]
+script = ExtResource("6_mbd47")
+Value = 0
+Row = 0
+Column = 1
+Index = 1
+Label = "E1"
+IsWalkable = true
+IsOccupied = false
+Id = "5f46c44f-65e3-4707-95aa-6b7462072c61"
+
+[sub_resource type="Resource" id="Resource_kx66s"]
+script = ExtResource("6_mbd47")
+Value = 0
+Row = 0
+Column = 2
+Index = 2
+Label = "E2"
+IsWalkable = true
+IsOccupied = false
+Id = "0d1f1015-fd4f-40da-907d-7b40542234dc"
+
+[sub_resource type="Resource" id="Resource_vnnwq"]
+script = ExtResource("6_mbd47")
+Value = 0
+Row = 1
+Column = 0
+Index = 3
+Label = "E3"
+IsWalkable = true
+IsOccupied = false
+Id = "e3973329-a47c-4475-9521-2b916d42c50b"
+
+[sub_resource type="Resource" id="Resource_q5e0k"]
+script = ExtResource("6_mbd47")
+Value = 0
+Row = 1
+Column = 1
+Index = 4
+Label = "E4"
+IsWalkable = true
+IsOccupied = false
+Id = "4d93e6f3-fe5e-440a-b13b-bce24b513ad4"
+
+[sub_resource type="Resource" id="Resource_uu1xg"]
+script = ExtResource("6_mbd47")
+Value = 0
+Row = 1
+Column = 2
+Index = 5
+Label = "E5"
+IsWalkable = true
+IsOccupied = false
+Id = "35b442ba-bda9-48ca-87ec-0ca1a2c36c2d"
+
+[sub_resource type="Resource" id="Resource_q1etb"]
+script = ExtResource("5_i3h2k")
+Prefix = "E"
+Direction = 0
+Rows = 2
+Columns = 3
+Cells = Array[ExtResource("6_mbd47")]([SubResource("Resource_3g3t8"), SubResource("Resource_31dy5"), SubResource("Resource_kx66s"), SubResource("Resource_vnnwq"), SubResource("Resource_q5e0k"), SubResource("Resource_uu1xg")])
+Id = "81b1fdc8-ac2d-4e0b-93f3-f042c2d59b13"
+metadata/_custom_type_script = "uid://ca6up1de7fo4q"
+
+[sub_resource type="Resource" id="Resource_vhwjc"]
+script = ExtResource("7_lguhc")
+IsSingleTarget = false
+Grids = Array[ExtResource("5_i3h2k")]([SubResource("Resource_ekr67"), SubResource("Resource_q1etb")])
+metadata/_custom_type_script = "uid://1fvttm4h5sf3"
+
+[resource]
+script = ExtResource("3_fhkwu")
+Name = "Lesser Restoration"
+Category = ExtResource("1_c1qih")
+Description = "Lesser Restoration description."
+Icon = ExtResource("3_gch6k")
+RequiredEnergy = Array[ExtResource("2_c1qih")]([])
+Effects = Array[ExtResource("1_j464g")]([])
+TargetBoard = SubResource("Resource_vhwjc")
+Id = "fa356434-89da-43d7-adb4-f4df104957d7"
+metadata/_custom_type_script = "uid://dk6es2dobyja5"

@@ -1,47 +1,180 @@
-[gd_resource type="Resource" script_class="ActionType" load_steps=11 format=3 uid="uid://cgac6lxa06rf8"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=24 format=3 uid="uid://cgac6lxa06rf8"]
 
-[ext_resource type="Resource" uid="uid://dw1d38425v5rd" path="res://resources/Actions/Categories/Defensive.tres" id="1_f256u"]
+[ext_resource type="Resource" uid="uid://dw1d38425v5rd" path="res://resources/Actions/Categories/ActionDefensive.tres" id="1_2x0xn"]
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/data/Effect/EffectType.cs" id="2_f256u"]
 [ext_resource type="Texture2D" uid="uid://b5tap0qunatiw" path="res://assets/icons/actions/stare.png" id="3_i6kiq"]
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="4_2x0xn"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="4_f256u"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/data/Target/TargetBoardType.cs" id="5_2x0xn"]
+[ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="6_2x0xn"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/data/Action/ActionType.cs" id="6_i6kiq"]
 
-[sub_resource type="Resource" id="Resource_8bxoq"]
+[sub_resource type="Resource" id="Resource_2x0xn"]
+script = ExtResource("6_2x0xn")
+Value = 1
+Row = 0
+Column = 0
+Index = 0
+Label = "G0"
+IsWalkable = true
+IsOccupied = false
+Id = "5bf6b055-22a9-412a-97a3-6c3a85f84709"
+
+[sub_resource type="Resource" id="Resource_i6kiq"]
+script = ExtResource("6_2x0xn")
+Value = 1
+Row = 0
+Column = 1
+Index = 1
+Label = "G1"
+IsWalkable = true
+IsOccupied = false
+Id = "a8a95781-9afd-49f6-ad08-820c417a9a16"
+
+[sub_resource type="Resource" id="Resource_0i1gb"]
+script = ExtResource("6_2x0xn")
+Value = 1
+Row = 0
+Column = 2
+Index = 2
+Label = "G2"
+IsWalkable = true
+IsOccupied = false
+Id = "43a579b4-37d3-4215-8e8a-108a734af1d6"
+
+[sub_resource type="Resource" id="Resource_iqdem"]
+script = ExtResource("6_2x0xn")
+Value = 1
+Row = 1
+Column = 0
+Index = 3
+Label = "G3"
+IsWalkable = true
+IsOccupied = false
+Id = "2d1c1b51-71c1-4b43-a029-0a08fcaee97a"
+
+[sub_resource type="Resource" id="Resource_yq7l0"]
+script = ExtResource("6_2x0xn")
+Value = 1
+Row = 1
+Column = 1
+Index = 4
+Label = "G4"
+IsWalkable = true
+IsOccupied = false
+Id = "e116eeba-5625-438d-beb7-b672741c5805"
+
+[sub_resource type="Resource" id="Resource_c4421"]
+script = ExtResource("6_2x0xn")
+Value = 1
+Row = 1
+Column = 2
+Index = 5
+Label = "G5"
+IsWalkable = true
+IsOccupied = false
+Id = "6419079e-b65d-4763-bc75-a045e693d473"
+
+[sub_resource type="Resource" id="Resource_t1bbf"]
 script = ExtResource("4_f256u")
-Prefix = "P"
-Offset = 0
+Prefix = "A"
 Direction = 0
 Rows = 2
 Columns = 3
-Cells = Array[int]([1, 1, 1, 1, 1, 1])
-metadata/_custom_type_script = ExtResource("4_f256u")
+Cells = Array[ExtResource("6_2x0xn")]([SubResource("Resource_2x0xn"), SubResource("Resource_i6kiq"), SubResource("Resource_0i1gb"), SubResource("Resource_iqdem"), SubResource("Resource_yq7l0"), SubResource("Resource_c4421")])
+Id = "0952ff91-04c1-4a6a-8ef2-9ca15aef6d89"
+metadata/_custom_type_script = "uid://ca6up1de7fo4q"
 
-[sub_resource type="Resource" id="Resource_woyg6"]
+[sub_resource type="Resource" id="Resource_lovo0"]
+script = ExtResource("6_2x0xn")
+Value = 3
+Row = 0
+Column = 0
+Index = 0
+Label = "G0"
+IsWalkable = true
+IsOccupied = false
+Id = "fff2face-fb70-4937-9385-1a48561dfb32"
+
+[sub_resource type="Resource" id="Resource_op8im"]
+script = ExtResource("6_2x0xn")
+Value = 3
+Row = 0
+Column = 1
+Index = 1
+Label = "G1"
+IsWalkable = true
+IsOccupied = false
+Id = "0becd08e-ec7c-45f8-8c43-9e33c3cbf53d"
+
+[sub_resource type="Resource" id="Resource_3fhre"]
+script = ExtResource("6_2x0xn")
+Value = 3
+Row = 0
+Column = 2
+Index = 2
+Label = "G2"
+IsWalkable = true
+IsOccupied = false
+Id = "58c7238d-766c-4096-9295-fc8331413845"
+
+[sub_resource type="Resource" id="Resource_wetjr"]
+script = ExtResource("6_2x0xn")
+Value = 3
+Row = 1
+Column = 0
+Index = 3
+Label = "G3"
+IsWalkable = true
+IsOccupied = false
+Id = "9884267a-cef1-4479-95a4-ae0696b18b65"
+
+[sub_resource type="Resource" id="Resource_cbgrs"]
+script = ExtResource("6_2x0xn")
+Value = 3
+Row = 1
+Column = 1
+Index = 4
+Label = "G4"
+IsWalkable = true
+IsOccupied = false
+Id = "8b61c36c-1b59-4499-a5d9-30caf1c7e49a"
+
+[sub_resource type="Resource" id="Resource_217ti"]
+script = ExtResource("6_2x0xn")
+Value = 3
+Row = 1
+Column = 2
+Index = 5
+Label = "G5"
+IsWalkable = true
+IsOccupied = false
+Id = "fabcd14a-f08d-4bc6-b691-514c1026b581"
+
+[sub_resource type="Resource" id="Resource_74aue"]
 script = ExtResource("4_f256u")
 Prefix = "E"
-Offset = 0
 Direction = 0
 Rows = 2
 Columns = 3
-Cells = Array[int]([3, 3, 3, 3, 3, 3])
-metadata/_custom_type_script = ExtResource("4_f256u")
+Cells = Array[ExtResource("6_2x0xn")]([SubResource("Resource_lovo0"), SubResource("Resource_op8im"), SubResource("Resource_3fhre"), SubResource("Resource_wetjr"), SubResource("Resource_cbgrs"), SubResource("Resource_217ti")])
+Id = "24618c44-6131-4005-a6cd-469f61d1e0a2"
+metadata/_custom_type_script = "uid://ca6up1de7fo4q"
 
-[sub_resource type="Resource" id="Resource_shlmr"]
+[sub_resource type="Resource" id="Resource_f256u"]
 script = ExtResource("5_2x0xn")
 IsSingleTarget = false
-Grids = Array[ExtResource("4_f256u")]([SubResource("Resource_8bxoq"), SubResource("Resource_woyg6")])
-metadata/_custom_type_script = ExtResource("5_2x0xn")
+Grids = Array[ExtResource("4_f256u")]([SubResource("Resource_t1bbf"), SubResource("Resource_74aue")])
+metadata/_custom_type_script = "uid://1fvttm4h5sf3"
 
 [resource]
 script = ExtResource("6_i6kiq")
 Name = "Stare"
-Category = ExtResource("1_f256u")
-Description = "Stare at the nothingess of life."
+Category = ExtResource("1_2x0xn")
+Description = "Stare at the nothingess of the deep universe."
 Icon = ExtResource("3_i6kiq")
 RequiredEnergy = Array[ExtResource("4_2x0xn")]([])
 Effects = Array[ExtResource("2_f256u")]([])
-TargetBoard = SubResource("Resource_shlmr")
+TargetBoard = SubResource("Resource_f256u")
 Id = "b2da61e6-c5c6-44e5-974d-3a41d1185f41"
-metadata/_custom_type_script = ExtResource("6_i6kiq")
+metadata/_custom_type_script = "uid://dk6es2dobyja5"

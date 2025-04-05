@@ -6,6 +6,12 @@ using DiceRolling.Characters;
 
 namespace DiceRolling.Components;
 
+/// <summary>
+/// Component that allows for selection of an entity.
+/// </summary>
+/// <remarks>
+/// This component listens for input events and allows for selection of the parent entity.
+/// </remarks>
 [Tool]
 [GlobalClass]
 [Icon("res://assets/editor/component-3d.svg")]

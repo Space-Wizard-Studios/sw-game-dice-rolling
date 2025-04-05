@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CharacterType" load_steps=6 format=3 uid="uid://dvg3w53ywtiue"]
+
+[ext_resource type="Script" uid="uid://cxt7qolwarsf1" path="res://models/data/Character/CharacterAction.cs" id="1_tj2ou"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/data/Character/CharacterAttribute.cs" id="2_yvi5y"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/data/Character/CharacterType.cs" id="3_abh7l"]
+[ext_resource type="SpriteFrames" uid="uid://ddxylsk71nji3" path="res://assets/characters/moai/MoaiSprites.tres" id="3_yvi5y"]
+[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://resources/Locations/PlayerSquad.tres" id="4_abh7l"]
+
+[resource]
+script = ExtResource("3_abh7l")
+Name = "Moai"
+CharacterSprite = ExtResource("3_yvi5y")
+PixelSize = 0.002
+ShowShadow = false
+SpritePositionX = 0.0
+SpritePositionY = -4.0
+Attributes = Array[ExtResource("2_yvi5y")]([])
+Actions = Array[ExtResource("1_tj2ou")]([])
+Location = ExtResource("4_abh7l")
+SlotIndex = 5
+Id = "723e18b6-7d2d-4a00-b8f9-3f031d338a92"
+metadata/_custom_type_script = "uid://0ip2w43r0d2a"

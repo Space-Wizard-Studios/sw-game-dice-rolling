@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // const baseUrl = isGitHubPages ? '/sw-game-dice-rolling/' : '/';
 
 const config: Config = {
-    title: 'Dice Rolling Game',
+    title: 'Firebound Framework',
     tagline: 'Documentation',
     staticDirectories: ['public'],
     favicon: 'img/favicon.ico',
@@ -14,7 +14,7 @@ const config: Config = {
     baseUrl: '/',
 
     organizationName: 'Space-Wizard-Studios',
-    projectName: 'sw-game-dice-rolling',
+    projectName: 'firebound',
 
     onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',

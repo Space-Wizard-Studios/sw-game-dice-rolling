@@ -21,12 +21,14 @@ Obrigado por considerar contribuir para o projeto, nós apreciamos sua ajuda! �
 Você pode contribuir com este projeto de várias maneiras:
 
 - Participando de [discussões](https://github.com/Space-Wizard-Studios/sw-game-dice-rolling/discussions);
-- Relatando problemas;
-- Corrigindo bugs;
-- Implementando novas funcionalidades;
-- Melhorando a documentação;
-- Melhorando os testes;
-- E o que mais você achar que pode ajudar!
+- Relatando ou corrigindo [problemas](https://github.com/Space-Wizard-Studios/sw-game-dice-rolling/issues);
+- Implementando, discutindo ou solicitando novas funcionalidades;
+- Criando ou melhorando documentação;
+- Criando ou melhorando tutoriais;
+- Criando ou melhorando os testes;
+- Usando a framework para criar seus jogos, mods ou o que mais achar divertido;
+- Dando seu feedback no que fazemos por aqui;
+- E todo o resto que achar poder ajudar!
 
 ## Relatando Problemas
 

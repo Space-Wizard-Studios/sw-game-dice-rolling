@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Category" load_steps=3 format=3 uid="uid://cupu4ulat2q28"]
+
+[ext_resource type="Texture2D" uid="uid://drputnuj4p8ds" path="res://assets/icons/actionCategories/attack.png" id="1_6nxgm"]
+[ext_resource type="Script" uid="uid://c6oq153u13fh4" path="res://models/data/Category/Category.cs" id="1_kpoj6"]
+
+[resource]
+script = ExtResource("1_kpoj6")
+Name = "Offensive"
+Description = "Defensive category description."
+Icon = ExtResource("1_6nxgm")
+Id = "a4763214-f333-4d0d-b6ab-dcfeac862d86"
+metadata/_custom_type_script = "uid://c6oq153u13fh4"

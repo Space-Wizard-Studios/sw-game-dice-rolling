@@ -1,11 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://8n50xik7xid3"]
+[gd_scene load_steps=15 format=3 uid="uid://8n50xik7xid3"]
 
-[ext_resource type="Script" uid="uid://jc3rfy1j13nu" path="res://controllers/BattleManager.cs" id="1_hf7dd"]
+[ext_resource type="Script" uid="uid://ct1yyo7dn6eba" path="res://controllers/battle/BattleController.cs" id="1_hf7dd"]
 [ext_resource type="PackedScene" uid="uid://c22tpnmaefgn4" path="res://renderers/components/HUDComponent/HUDComponent.tscn" id="2_dcsho"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="3_0d3nu"]
-[ext_resource type="PackedScene" uid="uid://dmw0cm136sn4p" path="res://renderers/components/CharacterGrid/CharacterGrid.tscn" id="4_8j5p5"]
+[ext_resource type="PackedScene" uid="uid://bqux57kvwbyix" path="res://renderers/entities/GridEntity/GridEntity.tscn" id="4_8j5p5"]
+[ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://resources/Locations/PlayerSquad.tres" id="4_fix3k"]
 [ext_resource type="Resource" uid="uid://snt34yslyn4f" path="res://resources/Characters/PlayerCharacterStore.tres" id="5_0omgf"]
-[ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="6_cvc4r"]
+[ext_resource type="Resource" uid="uid://bjc78p06uwuy3" path="res://resources/Locations/EnemySquad.tres" id="5_2gwxh"]
 [ext_resource type="Resource" uid="uid://d22hmntd0rfq2" path="res://resources/Characters/EnemyCharacterStore.tres" id="7_rbvwj"]
 [ext_resource type="Texture2D" uid="uid://byujdpnhcw2vd" path="res://assets/prototype/Dark/texture_01.png" id="8_ymf4h"]
 
@@ -25,32 +26,6 @@ ssao_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
 
-[sub_resource type="Resource" id="Resource_vpfel"]
-script = ExtResource("6_cvc4r")
-Prefix = "P"
-Offset = 0
-CharacterStore = ExtResource("5_0omgf")
-Direction = 0
-Rows = 2
-Columns = 3
-Cells = Array[int]([0, 0, 0, 0, 0, 0])
-_rows = 2
-_columns = 3
-metadata/_custom_type_script = ExtResource("6_cvc4r")
-
-[sub_resource type="Resource" id="Resource_hsrxk"]
-script = ExtResource("6_cvc4r")
-Prefix = "E"
-Offset = 2
-CharacterStore = ExtResource("7_rbvwj")
-Direction = 1
-Rows = 2
-Columns = 3
-Cells = Array[int]([0, 0, 0, 0, 0, 0])
-_rows = 2
-_columns = 3
-metadata/_custom_type_script = ExtResource("6_cvc4r")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsrxk"]
 albedo_texture = ExtResource("8_ymf4h")
 uv1_scale = Vector3(5, 5, 5)
@@ -58,10 +33,18 @@ uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_eybki"]
 
-[node name="Battle" type="Node3D"]
+[node name="BattleController" type="Node"]
 script = ExtResource("1_hf7dd")
+PlayerCharacterStore = ExtResource("5_0omgf")
+EnemyCharacterStore = ExtResource("7_rbvwj")
+PlayerSquadLocation = ExtResource("4_fix3k")
+EnemySquadLocation = ExtResource("5_2gwxh")
+GridEntityScene = ExtResource("4_8j5p5")
+PlayerGridPosition = Vector3(-4, 0, -1)
+EnemyGridPosition = Vector3(1, 0, -1)
 
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="HUDContainer" parent="HUD" instance=ExtResource("2_dcsho")]
 
@@ -2726,15 +2709,11 @@ shadow_opacity = 0.6
 shadow_blur = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.766045, 0.642787, 0, -0.642787, 0.766045, 0, 3, 2.5)
-
-[node name="CharacterGrid3D" parent="." instance=ExtResource("4_8j5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-CellPadding = 0.25
-GridConfigurations = [SubResource("Resource_vpfel"), SubResource("Resource_hsrxk")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 4, 5.5)
+current = true
+fov = 45.0
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, -0.05, 0)
-visible = false
+transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, -0.0698283, 0)
 material_override = SubResource("StandardMaterial3D_hsrxk")
 mesh = SubResource("BoxMesh_eybki")

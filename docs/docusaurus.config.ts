@@ -10,7 +10,7 @@ const config: Config = {
     tagline: 'Documentation',
     staticDirectories: ['public'],
     favicon: 'img/favicon.ico',
-    url: '/',
+    url: 'https://firebound.dev',
     baseUrl: '/',
 
     organizationName: 'Space-Wizard-Studios',

@@ -90,7 +90,7 @@ Isso significa que os áudios, imagens e outros recursos que não sejam parte do
 
 ## Links
 
-[Documentação](https://space-wizard-studios.github.io/sw-game-dice-rolling/) (em construção)
+[Documentação](https://space-wizard-studios.github.io/firebound/) (em construção)
 
 ---
 

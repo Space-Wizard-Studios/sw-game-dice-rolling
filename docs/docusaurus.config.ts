@@ -2,16 +2,16 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
-const baseUrl = isGitHubPages ? '/sw-game-dice-rolling/' : '/';
+// const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
+// const baseUrl = isGitHubPages ? '/sw-game-dice-rolling/' : '/';
 
 const config: Config = {
     title: 'Dice Rolling Game',
     tagline: 'Documentation',
     staticDirectories: ['public'],
     favicon: 'img/favicon.ico',
-    url: 'https://space-wizard-studios.github.io/',
-    baseUrl: baseUrl,
+    url: '/',
+    baseUrl: '/',
 
     organizationName: 'Space-Wizard-Studios',
     projectName: 'sw-game-dice-rolling',

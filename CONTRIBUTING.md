@@ -4,10 +4,7 @@ Oba! 🎉
 
 Obrigado por considerar contribuir para o projeto, nós apreciamos sua ajuda! 🎉
 
-## Sumário
-
 - [Contribuindo](#contribuindo)
-  - [Sumário](#sumário)
   - [Em que posso ajudar?](#em-que-posso-ajudar)
   - [Relatando Problemas](#relatando-problemas)
   - [Como desenvolver](#como-desenvolver)

@@ -3,10 +3,10 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
-const baseUrl = isGitHubPages ? '/sw-game-dice-rolling/' : '/';
+const baseUrl = isGitHubPages ? '/firebound/' : '/';
 
 const config: Config = {
-    title: 'Dice Rolling Game',
+    title: 'Firebound Framework',
     tagline: 'Documentation',
     staticDirectories: ['public'],
     favicon: 'img/favicon.ico',
@@ -14,7 +14,7 @@ const config: Config = {
     baseUrl: baseUrl,
 
     organizationName: 'Space-Wizard-Studios',
-    projectName: 'sw-game-dice-rolling',
+    projectName: 'firebound',
 
     onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',

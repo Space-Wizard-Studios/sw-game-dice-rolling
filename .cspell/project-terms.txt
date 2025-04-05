@@ -6,6 +6,7 @@ Debuff
 debuffs
 diceroll
 dicerolling
+firebound
 gameplay
 Gameplay
 Harutai

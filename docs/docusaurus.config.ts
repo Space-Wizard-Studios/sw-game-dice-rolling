@@ -1,15 +1,17 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import path from 'path';
+import fs from 'fs';
 
 // const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
 // const baseUrl = isGitHubPages ? '/sw-game-dice-rolling/' : '/';
 
 const config: Config = {
-    title: 'Firebound Framework',
-    tagline: 'Documentation',
+    title: 'Firebound Docs',
+    tagline: 'Documentação da Firebound - Framework modular para RPGs táticos no Godot.',
     staticDirectories: ['public'],
-    favicon: 'img/favicon.ico',
+    favicon: 'img/favicon.svg',
     url: 'https://firebound.dev',
     baseUrl: '/',
 
@@ -19,16 +21,21 @@ const config: Config = {
     onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
 
+    future: { experimental_faster: true },
+
     i18n: {
-        defaultLocale: 'en',
-        locales: ['en'],
+        defaultLocale: 'pt',
+        locales: ['pt'],
     },
 
     markdown: {
         mermaid: true,
     },
 
-    themes: ['@docusaurus/theme-mermaid'],
+    themes: [
+        '@docusaurus/theme-mermaid',
+        '@easyops-cn/docusaurus-search-local'
+    ],
 
     presets: [
         [
@@ -46,7 +53,8 @@ const config: Config = {
     ],
 
     plugins: [
-        require.resolve('docusaurus-lunr-search'),
+        // require.resolve('docusaurus-lunr-search'),
+        ['./src/plugins/tailwind-config.js', {}],
     ],
 
     themeConfig: {
@@ -57,40 +65,41 @@ const config: Config = {
             }
         },
         navbar: {
-            title: 'Dice Rolling Game',
             logo: {
                 alt: 'Dice Rolling Game Logo',
                 src: 'img/logo.svg',
             },
             items: [
-                {
-                    type: 'docSidebar',
-                    sidebarId: 'apiSidebar',
-                    position: 'left',
-                    label: 'API',
-                },
+                ...(fs.existsSync(path.join(__dirname, 'content', 'api', 'toc_processed.json')) ? [
+                    {
+                        type: 'docSidebar',
+                        sidebarId: 'apiSidebar',
+                        position: 'left' as const,
+                        label: 'API',
+                    }
+                ] : []),
                 {
                     type: 'docSidebar',
                     sidebarId: 'architectureSidebar',
-                    position: 'left',
+                    position: 'left' as const,
                     label: 'Architecture',
                 },
                 {
                     type: 'docSidebar',
                     sidebarId: 'tutorialsSidebar',
-                    position: 'left',
+                    position: 'left' as const,
                     label: 'Tutorials',
                 },
                 {
                     type: 'docSidebar',
                     sidebarId: 'gameDesignSidebar',
-                    position: 'left',
+                    position: 'left' as const,
                     label: 'Game Design',
                 },
                 {
                     href: 'https://github.com/Space-Wizard-Studios/sw-game-dice-rolling',
                     label: 'GitHub',
-                    position: 'right',
+                    position: 'right' as const,
                 },
             ],
         },

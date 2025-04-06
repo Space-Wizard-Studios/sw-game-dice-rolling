@@ -9,6 +9,8 @@ docfx
 docusaurus
 dotnet
 dracula
+easyops
+esnext
 firefox
 fullscreen
 gdunit

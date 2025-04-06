@@ -8,3 +8,8 @@ dotnet_diagnostic.CS1591.severity = none
 
 # IDE0130: Namespace does not match folder structure
 dotnet_diagnostic.IDE0130.severity = none
+
+[*.{js,json,yml}]
+charset = utf-8
+indent_style = space
+indent_size = 4

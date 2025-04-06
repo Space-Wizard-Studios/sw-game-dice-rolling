@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Panzoom from "@panzoom/panzoom";
 import styles from "./styles.module.css";
 
-const ZoomableDiagram = ({ children }) => {
+const ZoomableDiagram = ({ children }: any) => {
     const contentRef = useRef<HTMLDivElement | null>(null);
     const zoomInRef = useRef<HTMLButtonElement | null>(null);
     const zoomOutRef = useRef<HTMLButtonElement | null>(null);

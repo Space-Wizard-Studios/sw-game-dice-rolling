@@ -1,62 +1,183 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme) important;
+@import 'tailwindcss/utilities.css' layer(utilities) important;
+@plugin 'tailwindcss-animate';
 
-/* You can override the default Infima variables here. */
-:root {
-  --doc-sidebar-width: 400px !important;
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --doc-sidebar-width: 300px !important;
-  --doc-sidebar-hidden-width: 24px !important;
-  --custom-heading-color-target: #3cad6e;
-}
+@custom-variant dark (&:is([data-theme="dark"] *));
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme="dark"] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  --custom-heading-color-target: #4fddbf;
+@theme {
+    --color-firebound-beige: #c8ad76;
+    --color-firebound-beige-50: #fceed9;
+    --color-firebound-beige-100: #f8e5c9;
+    --color-firebound-beige-200: #f1d8b2;
+    --color-firebound-beige-300: #e6ca99;
+    --color-firebound-beige-400: #dabd86;
+    --color-firebound-beige-500: #c8ad76;
+    --color-firebound-beige-600: #c5963f;
+    --color-firebound-beige-700: #a07427;
+    --color-firebound-beige-800: #745016;
+    --color-firebound-beige-900: #442c09;
+    --color-firebound-beige-950: #2b1a03;
+
+    --color-firebound-orange: #ce590f;
+    --color-firebound-orange-50: #fff5f5;
+    --color-firebound-orange-100: #fee8e6;
+    --color-firebound-orange-200: #fcccc4;
+    --color-firebound-orange-300: #faaa94;
+    --color-firebound-orange-400: #f48352;
+    --color-firebound-orange-500: #ce590f;
+    --color-firebound-orange-600: #c5440c;
+    --color-firebound-orange-700: #b82f09;
+    --color-firebound-orange-800: #9c1b07;
+    --color-firebound-orange-900: #680904;
+    --color-firebound-orange-950: #3c0103;
+
+    --color-firebound-brown: #8c340f;
+    --color-firebound-brown-50: #f4ede7;
+    --color-firebound-brown-100: #ecd9cb;
+    --color-firebound-brown-200: #dfb091;
+    --color-firebound-brown-300: #d78251;
+    --color-firebound-brown-400: #be5622;
+    --color-firebound-brown-500: #8c340f;
+    --color-firebound-brown-600: #6c3113;
+    --color-firebound-brown-700: #4f2812;
+    --color-firebound-brown-800: #372010;
+    --color-firebound-brown-900: #1e130b;
+    --color-firebound-brown-950: #150f0a;
+
+    --color-firebound-white: #fafafa;
+
+    --color-firebound-coal: #2e2e2e;
+    --color-firebound-coal-50: #fafafa;
+    --color-firebound-coal-100: #e3e3e3;
+    --color-firebound-coal-200: #b5b5b5;
+    --color-firebound-coal-300: #8a8a8a;
+    --color-firebound-coal-400: #5c5c5c;
+    --color-firebound-coal-500: #2e2e2e;
+    --color-firebound-coal-600: #262626;
+    --color-firebound-coal-700: #212121;
+    --color-firebound-coal-800: #1a1a1a;
+    --color-firebound-coal-900: #141414;
+    --color-firebound-coal-950: #0f0f0f;
+
+    --color-firebound-green: #3a614d;
+    --color-firebound-green-50: #e9f2ed;
+    --color-firebound-green-100: #d2e4db;
+    --color-firebound-green-200: #a6cab7;
+    --color-firebound-green-300: #79af93;
+    --color-firebound-green-400: #548c6f;
+    --color-firebound-green-500: #3a614d;
+    --color-firebound-green-600: #30503f;
+    --color-firebound-green-700: #243d30;
+    --color-firebound-green-800: #1b2d23;
+    --color-firebound-green-900: #0f1a14;
+    --color-firebound-green-950: #0b130f;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
-.theme-doc-sidebar-container ul li {
-  font-size: 0.8rem;
+:root {
+    --ifm-color-emphasis-0: var(--color-firebound-brown-950);
+    --ifm-color-emphasis-100: var(--color-firebound-brown-100);
+    --ifm-color-emphasis-200: var(--color-firebound-brown-200);
+    --ifm-color-emphasis-300: var(--color-firebound-brown-300);
+    --ifm-color-emphasis-400: var(--color-firebound-brown-400);
+    --ifm-color-emphasis-500: var(--color-firebound-brown-600);
+    --ifm-color-emphasis-600: var(--color-firebound-brown-700);
+    --ifm-color-emphasis-700: var(--color-firebound-brown-800);
+    --ifm-color-emphasis-800: var(--color-firebound-brown-900);
+    --ifm-color-emphasis-900: var(--color-firebound-brown-950);
+    --ifm-color-emphasis-1000: var(--color-firebound-brown-900);
+
+    --ifm-color-primary: var(--color-firebound-brown-500);
+    --ifm-color-primary-dark: var(--color-firebound-brown-600);
+    --ifm-color-primary-darker: var(--color-firebound-brown-700);
+    --ifm-color-primary-darkest: var(--color-firebound-brown-800);
+    --ifm-color-primary-light: var(--color-firebound-brown-400);
+    --ifm-color-primary-lighter: var(--color-firebound-brown-300);
+    --ifm-color-primary-lightest: var(--color-firebound-brown-200);
+
+    --ifm-navbar-background-color: var(--color-firebound-beige-100);
+    --ifm-navbar-link-color: var(--color-firebound-brown-700);
+    --ifm-background-color: var(--color-firebound-beige-50);
+    --ifm-background-surface-color: var(--color-firebound-beige-50);
+
+    --ifm-footer-background-color: var(--color-firebound-beige-100);
+
+    --ifm-code-font-size: 95%;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --custom-heading-color-target: var(--color-firebound-orange-500);
+
+    --docusaurus-collapse-button-bg-hover: rgba(206, 89, 15, 0.1) !important;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  transition: color 0.3s ease;
+html.docs-wrapper{
+    --doc-sidebar-width: 250px;
+    --doc-sidebar-hidden-width: 24px;
 }
 
-h1:target,
-h2:target,
-h3:target,
-h4:target,
-h5:target,
-h6:target {
-  color: var(--custom-heading-color-target) !important;
-  transition: color 0.3s ease;
+html[data-theme='dark']{
+    --ifm-color-emphasis-0: var(--color-firebound-brown-950);
+    --ifm-color-emphasis-100: var(--color-firebound-brown-100);
+    --ifm-color-emphasis-200: var(--color-firebound-brown-200);
+    --ifm-color-emphasis-300: var(--color-firebound-brown-300);
+    --ifm-color-emphasis-400: var(--color-firebound-brown-400);
+    --ifm-color-emphasis-500: var(--color-firebound-brown-600);
+    --ifm-color-emphasis-600: var(--color-firebound-brown-700);
+    --ifm-color-emphasis-700: var(--color-firebound-brown-800);
+    --ifm-color-emphasis-800: var(--color-firebound-brown-900);
+    --ifm-color-emphasis-900: var(--color-firebound-brown-950);
+    --ifm-color-emphasis-1000: var(--color-firebound-brown-950);
+
+    --ifm-color-primary: var(--color-firebound-orange-400);
+    --ifm-color-primary-dark: var(--color-firebound-orange-600);
+    --ifm-color-primary-darker: var(--color-firebound-orange-700);
+    --ifm-color-primary-darkest: var(--color-firebound-orange-800);
+    --ifm-color-primary-light: var(--color-firebound-orange-400);
+    --ifm-color-primary-lighter: var(--color-firebound-orange-300);
+    --ifm-color-primary-lightest: var(--color-firebound-orange-200);
+
+    --ifm-navbar-background-color: var(--color-firebound-brown-800);
+    --ifm-navbar-link-color: var(--color-firebound-beige-100);
+    --ifm-background-color: var(--color-firebound-brown-900);
+    --ifm-background-surface-color: var(--color-firebound-brown-900);
+
+    --ifm-menu-color: var(--color-firebound-beige-300);
+    --ifm-menu-color-active: var(--color-firebound-orange-400);
+    --ifm-menu-color-background-active: var(--color-firebound-brown-800);
+    --ifm-toc-border-color: var(--color-firebound-brown-700);
+    --table-of-contents-color: var(--color-firebound-beige-200);
+
+    --ifm-heading-color: var(--color-firebound-beige-100);
+    --ifm-font-color-base: var(--color-firebound-beige-100);
+
+    --ifm-footer-background-color: var(--color-firebound-brown-800);
+    
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+    --custom-heading-color-target: var(--color-firebound-beige-400);
+
+}
+
+[data-theme="dark"] .navbar {
+    --ifm-color-emphasis-200: var(--color-firebound-orange-400);
+}
+
+[data-theme="dark"] .navbar .clean-btn:hover {
+    color: var(--color-firebound-orange-950);
+    transition: all 500ms;
+}
+
+.footer.footer--dark {
+    background-color: var(--color-firebound-brown-800);
+}
+
+.button.button--secondary.button--outline {
+    margin: .1rem;
+    border: 0;
+}
+
+.clean-btn.menu__caret {
+    margin: .25rem;
 }

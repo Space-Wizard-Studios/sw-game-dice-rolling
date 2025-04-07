@@ -9,7 +9,6 @@ import fs from 'fs';
 
 const config: Config = {
     title: 'Firebound Docs',
-    tagline: 'Documentação da Firebound - Framework modular para RPGs táticos no Godot.',
     staticDirectories: ['public'],
     favicon: 'img/favicon.svg',
     url: 'https://firebound.dev',

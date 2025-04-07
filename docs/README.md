@@ -39,7 +39,7 @@ docs/
 
 ### Gerar a Documentação da API
 
-Para gerar a documentação da API utilizando o DocFX, você precisará do projeto .NET em `src/` e seguir os passos abaixo:
+Para gerar a documentação da API utilizando o DocFX, você precisará do projeto .NET em `src/`, ter os requisitos para criar uma build (siga os passos para o setup do ambiente de desenvolvimento no arquivo [`src/README`](../src/README.md)) e seguir os passos abaixo:
 
 1. Certifique-se de ter o DocFX instalado. Você pode instalar o DocFX globalmente usando o comando:
 
@@ -57,7 +57,7 @@ Para gerar a documentação da API utilizando o DocFX, você precisará do proje
 
 ### Executar Scripts NPM
 
-Para executar os scripts definidos no arquivo `package.json`:
+Para executar os scripts definidos no arquivo [`package.json`](package.json):
 
 - Para processar os arquivos da API:
 
@@ -65,7 +65,7 @@ Para executar os scripts definidos no arquivo `package.json`:
   npm --prefix docs run start
   ```
 
-  O comando irá executar o código `node processApiFiles.js`, que trata os arquivos gerados pelo DocFX de acordo com [processApiFiles.js](processApiFiles.js)
+  O comando irá executar o código `node processApiFiles.js`, que trata os arquivos gerados pelo DocFX de acordo com [`processApiFiles.js`](processApiFiles.js)
 
 - Para iniciar o servidor de desenvolvimento do Docusaurus:
 

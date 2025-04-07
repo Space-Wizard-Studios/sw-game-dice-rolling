@@ -78,6 +78,19 @@ html {
     scroll-behavior: smooth;
 }
 
+.footer.footer--dark {
+    background-color: var(--color-firebound-brown-900);
+}
+
+.button.button--secondary.button--outline {
+    margin: .1rem;
+    border: 0;
+}
+
+.clean-btn.menu__caret {
+    margin: .25rem;
+}
+
 :root {
     --ifm-color-emphasis-0: var(--color-firebound-brown-950);
     --ifm-color-emphasis-100: var(--color-firebound-brown-100);
@@ -139,10 +152,10 @@ html[data-theme='dark']{
     --ifm-color-primary-lighter: var(--color-firebound-orange-300);
     --ifm-color-primary-lightest: var(--color-firebound-orange-200);
 
-    --ifm-navbar-background-color: var(--color-firebound-brown-800);
+    --ifm-navbar-background-color: var(--color-firebound-brown-900);
     --ifm-navbar-link-color: var(--color-firebound-beige-100);
-    --ifm-background-color: var(--color-firebound-brown-900);
-    --ifm-background-surface-color: var(--color-firebound-brown-900);
+    --ifm-background-color: var(--color-firebound-brown-950);
+    --ifm-background-surface-color: var(--color-firebound-brown-950);
 
     --ifm-menu-color: var(--color-firebound-beige-300);
     --ifm-menu-color-active: var(--color-firebound-orange-400);
@@ -151,7 +164,7 @@ html[data-theme='dark']{
     --table-of-contents-color: var(--color-firebound-beige-200);
 
     --ifm-heading-color: var(--color-firebound-beige-100);
-    --ifm-font-color-base: var(--color-firebound-beige-100);
+    --ifm-font-color-base: var(--color-firebound-beige-50);
 
     --ifm-footer-background-color: var(--color-firebound-brown-800);
     
@@ -169,15 +182,15 @@ html[data-theme='dark']{
     transition: all 500ms;
 }
 
-.footer.footer--dark {
-    background-color: var(--color-firebound-brown-800);
+[data-theme="dark"] .table-of-contents__link {
+    color: var(--color-firebound-beige-200);
+
+    &:hover {
+        color: var(--color-firebound-orange-400);
+    }
 }
 
-.button.button--secondary.button--outline {
-    margin: .1rem;
-    border: 0;
-}
-
-.clean-btn.menu__caret {
-    margin: .25rem;
+p {
+    margin: initial;
+    padding: initial;
 }

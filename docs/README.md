@@ -1,8 +1,8 @@
-# DICE ROLLING GAME DOCS
+# FIREBOUND DOCS DEVELOPMENT
 
 ## Sumário
 
-- [DICE ROLLING GAME DOCS](#dice-rolling-game-docs)
+- [FIREBOUND DOCS DEVELOPMENT](#firebound-docs-development)
   - [Sumário](#sumário)
     - [Tecnologias da Documentação](#tecnologias-da-documentação)
     - [Estrutura da documentação](#estrutura-da-documentação)

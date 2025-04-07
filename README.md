@@ -5,7 +5,6 @@
 [![GitHub License](https://img.shields.io/github/license/Space-Wizard-Studios/sw-game-dice-rolling)](https://github.com/Space-Wizard-Studios/sw-game-dice-rolling/blob/main/LICENSE) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Space-Wizard-Studios/sw-game-dice-rolling) [![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/Space-Wizard-Studios_sw-game-dice-rolling?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/summary/new_code?id=Space-Wizard-Studios_sw-game-dice-rolling) ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Space-Wizard-Studios/firebound?utm_source=oss&utm_medium=github&utm_campaign=Space-Wizard-Studios%2Ffirebound&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
 
 - [FIREBOUND FRAMEWORK](#firebound-framework)
-  - [Sumário](#sumário)
   - [Sobre](#sobre)
     - [Por que código aberto?](#por-que-código-aberto)
     - [E por que os assets não são abertos?](#e-por-que-os-assets-não-são-abertos)
@@ -90,7 +89,7 @@ Isso significa que os áudios, imagens e outros recursos que não sejam parte do
 
 ## Links
 
-[Documentação](https://space-wizard-studios.github.io/sw-game-dice-rolling/) (em construção)
+[Documentação](https://space-wizard-studios.github.io/firebound/) (em construção)
 
 ---
 

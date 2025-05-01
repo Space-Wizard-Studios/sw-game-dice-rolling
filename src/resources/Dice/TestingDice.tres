@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="DiceType" load_steps=14 format=3 uid="uid://dqt7qsspicnj4"]
+
+[ext_resource type="Script" uid="uid://by7a3143ls7g0" path="res://models/data/Dice/DiceLocation.cs" id="1_kkbu5"]
+[ext_resource type="Script" uid="uid://3lgd5c2d6bk5" path="res://models/data/Dice/DiceSide.cs" id="2_rxlg5"]
+[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Dice/DiceEnergy/RedEnergy.tres" id="3_42uwo"]
+[ext_resource type="Script" uid="uid://6jc2e71j4ljb" path="res://models/data/Dice/DiceType.cs" id="3_i4o8l"]
+[ext_resource type="Resource" uid="uid://djkgjo1axl23k" path="res://resources/Dice/DiceEnergy/GreenEnergy.tres" id="4_0ky08"]
+[ext_resource type="Resource" uid="uid://d1fdrw7p7rywt" path="res://resources/Dice/DiceEnergy/BlueEnergy.tres" id="5_256vy"]
+
+[sub_resource type="Resource" id="Resource_42uwo"]
+script = ExtResource("1_kkbu5")
+LocationCategory = 2
+CharacterId = ""
+
+[sub_resource type="Resource" id="Resource_fmuje"]
+script = ExtResource("2_rxlg5")
+Energy = ExtResource("3_42uwo")
+metadata/_custom_type_script = "uid://3lgd5c2d6bk5"
+
+[sub_resource type="Resource" id="Resource_vemyq"]
+script = ExtResource("2_rxlg5")
+Energy = ExtResource("3_42uwo")
+metadata/_custom_type_script = "uid://3lgd5c2d6bk5"
+
+[sub_resource type="Resource" id="Resource_45e1a"]
+script = ExtResource("2_rxlg5")
+Energy = ExtResource("4_0ky08")
+metadata/_custom_type_script = "uid://3lgd5c2d6bk5"
+
+[sub_resource type="Resource" id="Resource_xf3i5"]
+script = ExtResource("2_rxlg5")
+Energy = ExtResource("4_0ky08")
+metadata/_custom_type_script = "uid://3lgd5c2d6bk5"
+
+[sub_resource type="Resource" id="Resource_dc0i2"]
+script = ExtResource("2_rxlg5")
+Energy = ExtResource("5_256vy")
+metadata/_custom_type_script = "uid://3lgd5c2d6bk5"
+
+[sub_resource type="Resource" id="Resource_megkl"]
+script = ExtResource("2_rxlg5")
+Energy = ExtResource("5_256vy")
+metadata/_custom_type_script = "uid://3lgd5c2d6bk5"
+
+[resource]
+script = ExtResource("3_i4o8l")
+Name = "Testing Dice"
+SideCount = 6
+Sides = Array[ExtResource("2_rxlg5")]([SubResource("Resource_fmuje"), SubResource("Resource_vemyq"), SubResource("Resource_45e1a"), SubResource("Resource_xf3i5"), SubResource("Resource_dc0i2"), SubResource("Resource_megkl")])
+Location = SubResource("Resource_42uwo")
+Id = "e71301d1-ab06-4e03-b656-899cbc6d6e9c"
+metadata/_custom_type_script = "uid://6jc2e71j4ljb"

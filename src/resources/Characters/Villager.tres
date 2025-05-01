@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="CharacterType" load_steps=15 format=3 uid="uid://byngv32mrx7r4"]
+
+[ext_resource type="Script" uid="uid://cxt7qolwarsf1" path="res://models/data/Character/CharacterAction.cs" id="1_0e0pa"]
+[ext_resource type="Script" uid="uid://6shb3cqcf2bt" path="res://models/data/Character/CharacterAttribute.cs" id="2_1xdy5"]
+[ext_resource type="Resource" uid="uid://cs65w4r75ugap" path="res://resources/Actions/QuickSlash.tres" id="2_ogo0q"]
+[ext_resource type="Script" uid="uid://6jc2e71j4ljb" path="res://models/data/Dice/DiceType.cs" id="3_nqy2h"]
+[ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/data/Character/CharacterType.cs" id="4_h7qs0"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="4_wqxc1"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="5_yoott"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="6_xvfdh"]
+[ext_resource type="Resource" uid="uid://dqt7qsspicnj4" path="res://resources/Dice/TestingDice.tres" id="8_abow2"]
+[ext_resource type="Resource" uid="uid://djthxx6kthcye" path="res://resources/Roles/Villager.tres" id="9_8aqx7"]
+
+[sub_resource type="Resource" id="Resource_hjh1t"]
+script = ExtResource("1_0e0pa")
+Type = ExtResource("2_ogo0q")
+
+[sub_resource type="Resource" id="Resource_g87f5"]
+script = ExtResource("2_1xdy5")
+Type = ExtResource("4_wqxc1")
+MaxValue = 50
+CurrentValue = 50
+BaseValue = 50
+
+[sub_resource type="Resource" id="Resource_u7p37"]
+script = ExtResource("2_1xdy5")
+Type = ExtResource("5_yoott")
+MaxValue = 10
+CurrentValue = 10
+BaseValue = 10
+
+[sub_resource type="Resource" id="Resource_n2x2v"]
+script = ExtResource("2_1xdy5")
+Type = ExtResource("6_xvfdh")
+MaxValue = 10
+CurrentValue = 10
+BaseValue = 10
+
+[resource]
+script = ExtResource("4_h7qs0")
+Name = "Villager"
+PixelSize = 0.01
+ShowShadow = false
+SpritePositionX = 0.0
+SpritePositionY = 0.0
+Role = ExtResource("9_8aqx7")
+Attributes = Array[ExtResource("2_1xdy5")]([SubResource("Resource_g87f5"), SubResource("Resource_u7p37"), SubResource("Resource_n2x2v")])
+Actions = Array[ExtResource("1_0e0pa")]([SubResource("Resource_hjh1t")])
+EquippedDice = Array[ExtResource("3_nqy2h")]([ExtResource("8_abow2")])
+SlotIndex = -1
+Id = "1df758d9-45f2-497c-8ce9-eb7a535f9131"
+metadata/_custom_type_script = "uid://0ip2w43r0d2a"

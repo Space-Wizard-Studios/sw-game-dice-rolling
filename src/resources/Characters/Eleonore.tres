@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterType" load_steps=27 format=3 uid="uid://clrt1eby68x42"]
+[gd_resource type="Resource" script_class="CharacterType" load_steps=28 format=3 uid="uid://clrt1eby68x42"]
 
 [ext_resource type="Script" uid="uid://cxt7qolwarsf1" path="res://models/data/Character/CharacterAction.cs" id="1_3cii4"]
 [ext_resource type="Resource" uid="uid://c8xr12tkory0k" path="res://resources/Actions/ArcaneStrike.tres" id="2_cp76l"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://bgx5eoqdsu100" path="res://resources/Roles/Playable/Mage.tres" id="6_mck33"]
 [ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="6_sm6en"]
 [ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="8_7y5lj"]
+[ext_resource type="Resource" uid="uid://dqt7qsspicnj4" path="res://resources/Dice/TestingDice.tres" id="8_onea4"]
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/data/Character/CharacterType.cs" id="10_crg3w"]
 
 [sub_resource type="Resource" id="Resource_balo1"]
@@ -120,6 +121,7 @@ SpritePositionY = 0.0
 Role = ExtResource("6_mck33")
 Attributes = Array[ExtResource("2_mck33")]([SubResource("Resource_7y5lj"), SubResource("Resource_vll7e")])
 Actions = Array[ExtResource("1_3cii4")]([SubResource("Resource_balo1"), SubResource("Resource_8vodf")])
+EquippedDice = [ExtResource("8_onea4")]
 Location = ExtResource("4_3cii4")
 SlotIndex = 3
 Id = "4ea655f0-4c3e-4fba-bafe-fe361e68db9e"

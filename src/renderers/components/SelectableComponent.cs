@@ -2,7 +2,6 @@ using Godot;
 using DiceRolling.Entities;
 using DiceRolling.Events;
 using DiceRolling.Helpers;
-using DiceRolling.Characters;
 
 namespace DiceRolling.Components;
 

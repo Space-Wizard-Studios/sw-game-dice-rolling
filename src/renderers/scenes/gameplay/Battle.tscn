@@ -44,7 +44,6 @@ PlayerGridPosition = Vector3(-4, 0, -1)
 EnemyGridPosition = Vector3(1, 0, -1)
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="HUDContainer" parent="HUD" instance=ExtResource("2_dcsho")]
 
@@ -64,13 +63,13 @@ theme_override_constants/separation = 0
 layout_mode = 2
 
 [node name="SpacingTop" type="BoxContainer" parent="Characters"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 mouse_filter = 2
 
 [node name="Middle" type="Control" parent="Characters"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
@@ -2659,6 +2658,7 @@ autoplay = "idle"
 offset = Vector2(0, -32)
 
 [node name="Versus" type="HBoxContainer" parent="Characters/Middle"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2702,7 +2702,7 @@ mouse_filter = 2
 environment = SubResource("Environment_eybki")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 0, 3, 3)
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 3, 3)
 light_color = Color(0.9, 0.864, 0.81, 1)
 shadow_enabled = true
 shadow_opacity = 0.6

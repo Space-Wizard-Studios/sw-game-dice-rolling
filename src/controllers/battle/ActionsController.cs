@@ -3,6 +3,8 @@ using DiceRolling.Characters;
 using System.Collections.Generic;
 using System;
 using DiceRolling.Helpers;
+using DiceRolling.Services;
+using DiceRolling.Actions;
 
 namespace DiceRolling.Controllers;
 
@@ -65,54 +67,104 @@ public partial class ActionsController : RefCounted {
         DeclarePlayerActionsForTesting();
     }
 
-    // TODO - for testing purposes, simple logic for declaring enemy actions
     private void DeclareEnemyActionsForTesting() {
-        GD.PrintRich("[color=cyan]ActionsController: Declaring enemy actions for testing...[/color]");
+        GD.PrintRich("[color=cyan]ActionsController: Declaring enemy actions (with validation)...[/color]");
 
-        // Declare actions for each enemy
         foreach (var enemy in _enemyTeam) {
-            if (enemy.Actions.Count > 0 && _playerTeam.Count > 0) {
-                // Select random action and target
-                var actionIndex = GD.RandRange(0, enemy.Actions.Count - 1);
-                var targetIndex = GD.RandRange(0, _playerTeam.Count - 1);
-
-                var action = enemy.Actions[actionIndex];
-                var target = _playerTeam[targetIndex];
-
+            bool actionDeclared = false;
+            if (enemy.Actions == null || enemy.Actions.Count == 0 || _playerTeam.Count == 0) {
+                GD.PrintRich($"[color=cyan]Enemy {enemy.Name} has no actions or no player targets.[/color]");
+                // Still need to emit declared signal even if no action is possible
                 BattleEvents.Instance.EmitEnemyActionDeclared(enemy);
-
-                GD.PrintRich($"[color=cyan]Enemy {enemy.Name} selected action {action.Type?.Name} targeting {target.Name}.[/color]");
-                GD.PrintRich("[color=cyan]======[/color]");
+                continue;
             }
-            else {
-                GD.PrintRich($"[color=cyan]Enemy {enemy.Name} has no actions or no valid targets.[/color]");
+
+            // Shuffle actions for variety if desired
+            var shuffledActions = new Godot.Collections.Array<CharacterAction>(enemy.Actions);
+            shuffledActions.Shuffle();
+
+            foreach (CharacterAction charAction in shuffledActions) {
+                var actionType = charAction.Type;
+                if (actionType == null) continue;
+
+                // Check Mana
+                if (!ActionService.CanAffordAction(enemy, actionType)) {
+                    GD.Print($"Enemy {enemy.Name} cannot afford {actionType.Name}");
+                    continue;
+                }
+
+                // Check Targets
+                List<CharacterType> validTargets = ActionService.GetValidTargets(enemy, actionType, _playerTeam);
+
+                if (validTargets.Count > 0) {
+                    // Select a valid target (randomly for now)
+                    var target = validTargets[GD.RandRange(0, validTargets.Count - 1)];
+
+                    // TODO: Store the declared action and target for later execution by TurnController
+                    // For now, just emit the declaration signal
+                    BattleEvents.Instance.EmitEnemyActionDeclared(enemy);
+                    GD.PrintRich($"[color=cyan]Enemy {enemy.Name} declared action {actionType.Name} targeting {target.Name}. (VALIDATED)[/color]");
+                    actionDeclared = true;
+                    break; // Action declared for this enemy, move to the next enemy
+                }
+                else { GD.Print($"Enemy {enemy.Name} found no valid targets for {actionType.Name}"); }
+            }
+
+            // If no action was declared after checking all possibilities
+            if (!actionDeclared) {
+                GD.PrintRich($"[color=cyan]Enemy {enemy.Name} could not find any valid action to declare.[/color]");
+                // Emit the signal to indicate the enemy has finished declaring (even if it's a pass)
+                BattleEvents.Instance.EmitEnemyActionDeclared(enemy);
             }
         }
     }
 
-    // TODO - for testing purposes, simple logic for declaring player actions
     private void DeclarePlayerActionsForTesting() {
-        GD.PrintRich("[color=cyan]ActionsController: Declaring player actions for testing...[/color]");
+        GD.PrintRich("[color=cyan]ActionsController: Declaring player actions (with validation)...[/color]");
 
-        // Declare actions for each player
         foreach (var player in _playerTeam) {
-            if (player.Actions.Count > 0 && _enemyTeam.Count > 0) {
-                // Select random action and target
-                var actionIndex = GD.RandRange(0, player.Actions.Count - 1);
-                var targetIndex = GD.RandRange(0, _enemyTeam.Count - 1);
-
-                var action = player.Actions[actionIndex];
-                var target = _enemyTeam[targetIndex];
-
-                // BattleEvents.Instance.EmitPlayerTargetSelected(player, target);
-                // BattleEvents.Instance.EmitPlayerActionCancelled(player);
+            bool actionDeclared = false;
+            if (player.Actions == null || player.Actions.Count == 0 || _enemyTeam.Count == 0) {
+                GD.PrintRich($"[color=cyan]Player {player.Name} has no actions or no enemy targets.[/color]");
+                // Still need to emit declared signal even if no action is possible
                 BattleEvents.Instance.EmitPlayerActionDeclared(player);
-
-                GD.PrintRich($"[color=cyan]Player {player.Name} selected action {action.Type?.Name} targeting {target.Name}.[/color]");
-                GD.PrintRich("[color=cyan]======[/color]");
+                continue;
             }
-            else {
-                GD.PrintRich($"[color=cyan]Player {player.Name} has no actions or no valid targets.[/color]");
+
+            var shuffledActions = new Godot.Collections.Array<CharacterAction>(player.Actions);
+            shuffledActions.Shuffle();
+
+            foreach (CharacterAction charAction in shuffledActions) {
+                var actionType = charAction.Type;
+                if (actionType == null) continue;
+
+                // Check Mana
+                if (!ActionService.CanAffordAction(player, actionType)) {
+                    // GD.Print($"Player {player.Name} cannot afford {actionType.Name}");
+                    continue;
+                }
+
+                // Check Targets
+                List<CharacterType> validTargets = ActionService.GetValidTargets(player, actionType, _enemyTeam);
+
+                if (validTargets.Count > 0) {
+                    // Select a valid target (randomly for now)
+                    var target = validTargets[GD.RandRange(0, validTargets.Count - 1)];
+
+                    // TODO: Store declared action/target for later execution by TurnController
+                    BattleEvents.Instance.EmitPlayerActionDeclared(player);
+                    GD.PrintRich($"[color=cyan]Player {player.Name} declared action {actionType.Name} targeting {target.Name}. (VALIDATED)[/color]");
+                    actionDeclared = true;
+                    break; // Action declared for this player, move to the next player
+                }
+                // else { GD.Print($"Player {player.Name} found no valid targets for {actionType.Name}"); }
+            }
+
+            // If no action was declared after checking all possibilities
+            if (!actionDeclared) {
+                GD.PrintRich($"[color=cyan]Player {player.Name} could not find any valid action to declare.[/color]");
+                // Emit the signal to indicate the player has finished declaring (even if it's a pass)
+                BattleEvents.Instance.EmitPlayerActionDeclared(player);
             }
         }
     }
@@ -133,7 +185,7 @@ public partial class ActionsController : RefCounted {
     }
 
     private void OnEnemyActionDeclared(CharacterType character) {
-        GD.PrintRich($"[color=cyan]Enemy {character.Name} declared an action.[/color]");
+        GD.PrintRich($"[color=cyan]Event EnemyActionDeclared fired on ActionsController.[/color]");
         _charactersDeclaredActions.Add(character);
         CheckIfAllActionsDeclared();
     }

@@ -71,10 +71,10 @@ public partial class AnimatedModel3DComponent : Node3D {
         if (!Engine.IsEditorHint() && BillboardEnabled && _currentModelInstance != null && IsInstanceValid(_currentModelInstance)) {
             var camera = GetViewport().GetCamera3D();
             if (camera != null) {
-                Vector3 lookTarget = GlobalPosition + (camera.GlobalPosition - GlobalPosition).Normalized() with { Y = GlobalPosition.Y };
+                Vector3 direction = camera.GlobalPosition - GlobalPosition;
+                direction.Y = 0;
+                Vector3 lookTarget = GlobalPosition + direction;
                 _currentModelInstance.LookAt(lookTarget, Vector3.Up);
-
-                _currentModelInstance.Basis = camera.GlobalBasis;
             }
         }
     }

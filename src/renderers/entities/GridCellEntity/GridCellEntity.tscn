@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://d2163e68sbuxu" path="res://renderers/entities/GridCellEntity/GridCellEntity.cs" id="1_ms2v1"]
 [ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://resources/Characters/Joanna.tres" id="2_5dr04"]
 [ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="2_k85n8"]
-[ext_resource type="Script" uid="uid://xekdm6ih1oi3" path="res://renderers/components/GridCellComponent.cs" id="3_e3qvn"]
-[ext_resource type="PackedScene" uid="uid://b5fpv2rdkq5c" path="res://renderers/entities/CharacterEntity/CharacterEntity.tscn" id="4_dnb4r"]
-[ext_resource type="Script" uid="uid://yl5hkmseiouh" path="res://renderers/components/CharacterGridCellComponent.cs" id="5_detn8"]
+[ext_resource type="Script" uid="uid://xekdm6ih1oi3" path="res://renderers/components/GridComponents/GridCellComponent.cs" id="3_e3qvn"]
+[ext_resource type="PackedScene" uid="uid://b5fpv2rdkq5c" path="res://renderers/entities/CharacterEntity/3DModelCharacterEntity.tscn" id="4_dnb4r"]
+[ext_resource type="Script" uid="uid://yl5hkmseiouh" path="res://renderers/components/GridComponents/CharacterGridCellComponent.cs" id="5_detn8"]
 
 [sub_resource type="Resource" id="Resource_e3qvn"]
 script = ExtResource("2_k85n8")

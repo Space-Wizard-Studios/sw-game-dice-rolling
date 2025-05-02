@@ -55,6 +55,12 @@ public partial class ActionsController : RefCounted {
 
         GD.PrintRich($"[color=cyan]ActionsController: Using teams - Players: {_playerTeam.Count}, Enemies: {_enemyTeam.Count}.[/color]");
 
+        GD.PrintRich("[color=cyan]ActionsController: Rolling dice for player characters...[/color]");
+        foreach (var playerCharacter in _playerTeam) {
+            playerCharacter.RollEquippedDiceForEnergy();
+        }
+        GD.PrintRich("[color=cyan]ActionsController: Player dice rolling complete.[/color]");
+
         DeclareEnemyActionsForTesting();
         DeclarePlayerActionsForTesting();
     }

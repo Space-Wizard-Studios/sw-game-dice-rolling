@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqux57kvwbyix"]
+[gd_scene load_steps=15 format=3 uid="uid://bqux57kvwbyix"]
 
 [ext_resource type="Script" uid="uid://ctc1mk501yyuj" path="res://renderers/entities/GridEntity/GridEntity.cs" id="1_0ephl"]
 [ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="2_oxlr7"]
-[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://resources/Characters/Eleonore.tres" id="3_go7ud"]
-[ext_resource type="Resource" uid="uid://bkolttux1bvi1" path="res://resources/Characters/Joanna.tres" id="4_x231g"]
-[ext_resource type="Resource" uid="uid://snt34yslyn4f" path="res://resources/Characters/PlayerCharacterStore.tres" id="5_ffcyv"]
-[ext_resource type="Script" uid="uid://cycvmb2ix6vas" path="res://renderers/components/GridContainerComponent.cs" id="5_jqupx"]
+[ext_resource type="Resource" uid="uid://byngv32mrx7r4" path="res://resources/Characters/Villager.tres" id="3_oxlr7"]
+[ext_resource type="Resource" uid="uid://snt34yslyn4f" path="res://resources/Characters/Stores/PlayerCharacterStore.tres" id="5_ffcyv"]
+[ext_resource type="Script" uid="uid://cycvmb2ix6vas" path="res://renderers/components/GridComponents/GridContainerComponent.cs" id="5_jqupx"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="5_p07r4"]
 [ext_resource type="PackedScene" uid="uid://2jqadvotpskf" path="res://renderers/entities/GridCellEntity/GridCellEntity.tscn" id="6_3sa72"]
 
@@ -22,37 +21,36 @@ Id = "d835380a-452e-47f5-b539-a8879d198ce7"
 
 [sub_resource type="Resource" id="Resource_p5vyd"]
 script = ExtResource("2_oxlr7")
+Character = ExtResource("3_oxlr7")
 Value = 0
 Row = 0
 Column = 1
 Index = 1
 Label = "G1"
 IsWalkable = true
-IsOccupied = false
+IsOccupied = true
 Id = "acba29d2-339a-4571-80b4-e98b9fc25209"
 
 [sub_resource type="Resource" id="Resource_v36a5"]
 script = ExtResource("2_oxlr7")
-Character = ExtResource("4_x231g")
 Value = 0
 Row = 0
 Column = 2
 Index = 2
 Label = "G2"
 IsWalkable = true
-IsOccupied = true
+IsOccupied = false
 Id = "7db9a0dc-8d35-4044-9311-c6e06de7f823"
 
 [sub_resource type="Resource" id="Resource_bl0jg"]
 script = ExtResource("2_oxlr7")
-Character = ExtResource("3_go7ud")
 Value = 0
 Row = 1
 Column = 0
 Index = 3
 Label = "G3"
 IsWalkable = true
-IsOccupied = true
+IsOccupied = false
 Id = "8021d5d0-bc50-4216-9651-520eff1df4db"
 
 [sub_resource type="Resource" id="Resource_vdxgo"]

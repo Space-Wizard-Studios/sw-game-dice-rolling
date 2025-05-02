@@ -54,6 +54,9 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
     public SpriteFrames? CharacterSprite { get; set; }
 
     [Export]
+    public Godot.Collections.Dictionary<string, PackedScene>? CharacterAnimations { get; set; }
+
+    [Export]
     public float PixelSize { get; set; } = 0.01f;
 
     [Export]
@@ -193,11 +196,11 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
     }
 
     public void RollEquippedDiceForEnergy() {
-        GD.PrintRich($"[color=cyan]-- Rolling Dice for {Name} --[/color]");
+        GD.PrintRich($"[color=violet]-- Rolling Dice for {Name} --[/color]");
         AvailableEnergy.Clear(); // Limpa energia anterior
 
         if (EquippedDice == null || EquippedDice.Count == 0) {
-            GD.PrintRich("[color=yellow]No dice equipped.[/color]");
+            GD.PrintRich("[color=violet]No dice equipped.[/color]");
             return;
         }
 
@@ -206,17 +209,17 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
                 DiceEnergy? energyResult = dice.Roll();
                 if (energyResult != null) {
                     AvailableEnergy.Add(energyResult);
-                    GD.PrintRich($"Rolled: [color=lightblue]{energyResult.Name}[/color] from Dice: {dice.Name}");
+                    GD.PrintRich($"[color=violet]Rolled: {energyResult.Name} from Dice: {dice.Name}[/color]");
                 }
                 else {
-                    GD.PrintRich($"[color=yellow]Dice {dice.Name} rolled null (no sides?).[/color]");
+                    GD.PrintRich($"[color=violet]Dice {dice.Name} rolled null (no sides?).[/color]");
                 }
             }
             else {
-                GD.PrintRich("[color=yellow]Encountered a null dice in EquippedDice.[/color]");
+                GD.PrintRich("[color=violet]Encountered a null dice in EquippedDice.[/color]");
             }
         }
-        GD.PrintRich($"[color=cyan]-- Dice Rolling Complete for {Name} --[/color]");
+        GD.PrintRich($"[color=violet]-- Dice Rolling Complete for {Name} --[/color]");
     }
 
 }

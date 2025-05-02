@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://tomctv14euva"]
 
-[ext_resource type="Script" uid="uid://5drla5c75a4b" path="res://renderers/components/InventoryItemComponent/InventoryItemComponent.cs" id="1_sc2gm"]
-[ext_resource type="PackedScene" uid="uid://bwvsdedui54tw" path="res://renderers/components/TooltipComponent/TooltipComponent.tscn" id="2_7j7lb"]
+[ext_resource type="Script" uid="uid://5drla5c75a4b" path="res://renderers/components/_to_refactor/InventoryItemComponent/InventoryItemComponent.cs" id="1_sc2gm"]
+[ext_resource type="PackedScene" uid="uid://bwvsdedui54tw" path="res://renderers/components/_to_refactor/TooltipComponent/TooltipComponent.tscn" id="2_7j7lb"]
 
 [node name="InventoryItemComponent" type="Control"]
 layout_mode = 3

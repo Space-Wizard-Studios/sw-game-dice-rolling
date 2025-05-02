@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://c22tpnmaefgn4"]
 
-[ext_resource type="PackedScene" uid="uid://dsbegy218josn" path="res://renderers/components/TurnOrderComponent/TurnOrderComponent.tscn" id="1_c8j77"]
+[ext_resource type="PackedScene" uid="uid://dsbegy218josn" path="res://renderers/components/_to_refactor/TurnOrderComponent/TurnOrderComponent.tscn" id="1_c8j77"]
 [ext_resource type="Script" uid="uid://dpbxdw7s7l3mh" path="res://renderers/ui/SceneTransitionButton.cs" id="2_ink42"]
-[ext_resource type="PackedScene" uid="uid://dgyegipn74jj5" path="res://renderers/components/CharacterInspector/CharacterInspector.tscn" id="3_xfvph"]
-[ext_resource type="PackedScene" uid="uid://bt73g5fssa68h" path="res://renderers/components/InventoryComponent/InventoryComponent.tscn" id="4_313b0"]
-[ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://renderers/components/GameLog/GameLogComponent.tscn" id="5_no7pv"]
+[ext_resource type="PackedScene" uid="uid://dgyegipn74jj5" path="res://renderers/components/_to_refactor/CharacterInspector/CharacterInspector.tscn" id="3_xfvph"]
+[ext_resource type="PackedScene" uid="uid://bt73g5fssa68h" path="res://renderers/components/_to_refactor/InventoryComponent/InventoryComponent.tscn" id="4_313b0"]
+[ext_resource type="PackedScene" uid="uid://21o4pt7dm2n0" path="res://renderers/components/_to_refactor/GameLog/GameLogComponent.tscn" id="5_no7pv"]
 
 [node name="HUDComponent" type="VBoxContainer"]
 clip_contents = true
@@ -83,7 +83,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="CharacterInspector" parent="Row/VBoxContainer" instance=ExtResource("3_xfvph")]
-visible = true
 layout_mode = 2
 
 [node name="TabContainer" type="TabContainer" parent="Row"]

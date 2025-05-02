@@ -118,7 +118,7 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
     });
 
     [Export]
-    public Godot.Collections.Array<DiceType> EquippedDice { get; private set; } = [];
+    public Godot.Collections.Array<DiceType> EquippedDice { get; set; } = [];
 
     public Godot.Collections.Array<DiceEnergy> AvailableEnergy { get; private set; } = [];
 
@@ -197,7 +197,7 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
 
     public void RollEquippedDiceForEnergy() {
         GD.PrintRich($"[color=violet]-- Rolling Dice for {Name} --[/color]");
-        AvailableEnergy.Clear(); // Limpa energia anterior
+        AvailableEnergy.Clear();
 
         if (EquippedDice == null || EquippedDice.Count == 0) {
             GD.PrintRich("[color=violet]No dice equipped.[/color]");

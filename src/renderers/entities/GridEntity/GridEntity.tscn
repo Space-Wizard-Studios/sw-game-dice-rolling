@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="2_oxlr7"]
 [ext_resource type="Resource" uid="uid://byngv32mrx7r4" path="res://resources/Characters/Villager.tres" id="3_oxlr7"]
 [ext_resource type="Resource" uid="uid://snt34yslyn4f" path="res://resources/Characters/Stores/PlayerCharacterStore.tres" id="5_ffcyv"]
-[ext_resource type="Script" uid="uid://cycvmb2ix6vas" path="res://renderers/components/GridComponents/GridContainerComponent.cs" id="5_jqupx"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="5_p07r4"]
-[ext_resource type="PackedScene" uid="uid://2jqadvotpskf" path="res://renderers/entities/GridCellEntity/GridCellEntity.tscn" id="6_3sa72"]
+[ext_resource type="Script" uid="uid://cycvmb2ix6vas" path="res://renderers/components/GridComponents/GridContainerComponent.cs" id="6_tyrak"]
+[ext_resource type="PackedScene" uid="uid://2jqadvotpskf" path="res://renderers/entities/GridCellEntity/GridCellEntity.tscn" id="7_1mxpx"]
 
 [sub_resource type="Resource" id="Resource_ffcyv"]
 script = ExtResource("2_oxlr7")
@@ -86,12 +86,12 @@ Cells = Array[ExtResource("2_oxlr7")]([SubResource("Resource_ffcyv"), SubResourc
 Id = "af2419d1-e714-418d-ae89-fef43e4fa445"
 metadata/_custom_type_script = "uid://ca6up1de7fo4q"
 
-[node name="GridEntity" type="Node3D"]
+[node name="Grid" type="Node3D"]
 script = ExtResource("1_0ephl")
 GridData = SubResource("Resource_5vga2")
 metadata/_custom_type_script = "uid://ctc1mk501yyuj"
 
 [node name="GridContainerComponent" type="Node3D" parent="."]
-script = ExtResource("5_jqupx")
-CellScene = ExtResource("6_3sa72")
+script = ExtResource("6_tyrak")
+CellScene = ExtResource("7_1mxpx")
 metadata/_custom_type_script = "uid://cycvmb2ix6vas"

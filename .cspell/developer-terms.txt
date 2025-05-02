@@ -35,6 +35,7 @@ Pickable
 premult
 pwsh
 Qube
+Randf
 rgba
 sonarscanner
 srgb

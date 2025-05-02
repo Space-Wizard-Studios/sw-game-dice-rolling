@@ -30,6 +30,7 @@ public partial class AnimatedModel3DComponent : Node3D {
                 if (_currentAnimationState != newState) {
                     _currentAnimationState = newState;
                     UpdateModel();
+                    NotifyPropertyListChanged();
                 }
             }
             else {
@@ -37,6 +38,7 @@ public partial class AnimatedModel3DComponent : Node3D {
                 if (_currentAnimationState != CharacterAnimationState.Idle) {
                     _currentAnimationState = CharacterAnimationState.Idle;
                     UpdateModel();
+                    NotifyPropertyListChanged();
                 }
             }
         }

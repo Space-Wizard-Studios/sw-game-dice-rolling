@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://2jqadvotpskf"]
 
 [ext_resource type="Script" uid="uid://d2163e68sbuxu" path="res://renderers/entities/GridCellEntity/GridCellEntity.cs" id="1_ms2v1"]
-[ext_resource type="Resource" uid="uid://byngv32mrx7r4" path="res://resources/Characters/Villager.tres" id="2_detn8"]
+[ext_resource type="Resource" uid="uid://byngv32mrx7r4" path="res://resources/Characters/_enemy.tres" id="2_detn8"]
 [ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="2_k85n8"]
 [ext_resource type="PackedScene" uid="uid://b0rl2juis6ehx" path="res://renderers/components/GridComponents/GridCellComponent.tscn" id="4_colqg"]
 [ext_resource type="Script" uid="uid://yl5hkmseiouh" path="res://renderers/components/GridComponents/CharacterGridCellComponent.cs" id="5_rmfyh"]

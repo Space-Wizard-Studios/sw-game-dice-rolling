@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CharacterStore" load_steps=4 format=3 uid="uid://snt34yslyn4f"]
 
 [ext_resource type="Script" uid="uid://0ip2w43r0d2a" path="res://models/data/Character/CharacterType.cs" id="1_s60xb"]
-[ext_resource type="Resource" uid="uid://byngv32mrx7r4" path="res://resources/Characters/Villager.tres" id="2_q0wvp"]
+[ext_resource type="Resource" uid="uid://dt2412y63ikgc" path="res://resources/Characters/_player.tres" id="2_s60xb"]
 [ext_resource type="Script" uid="uid://c0ludr6rojb3c" path="res://models/stores/CharacterStore.cs" id="3_35b8s"]
 
 [resource]
 script = ExtResource("3_35b8s")
-Characters = Array[ExtResource("1_s60xb")]([ExtResource("2_q0wvp")])
+Characters = Array[ExtResource("1_s60xb")]([ExtResource("2_s60xb")])

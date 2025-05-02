@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://8n50xik7xid3"]
+[gd_scene load_steps=15 format=3 uid="uid://8n50xik7xid3"]
 
 [ext_resource type="Script" uid="uid://ct1yyo7dn6eba" path="res://controllers/battle/BattleController.cs" id="1_hf7dd"]
 [ext_resource type="PackedScene" uid="uid://c22tpnmaefgn4" path="res://renderers/components/_to_refactor/HUDComponent/HUDComponent.tscn" id="2_dcsho"]
@@ -9,7 +9,6 @@
 [ext_resource type="Resource" uid="uid://bjc78p06uwuy3" path="res://resources/Locations/EnemySquad.tres" id="5_2gwxh"]
 [ext_resource type="Resource" uid="uid://d22hmntd0rfq2" path="res://resources/Characters/Stores/EnemyCharacterStore.tres" id="7_rbvwj"]
 [ext_resource type="Texture2D" uid="uid://byujdpnhcw2vd" path="res://assets/prototype/Dark/texture_01.png" id="8_ymf4h"]
-[ext_resource type="Script" uid="uid://dtwtxg268pju5" path="res://renderers/components/CameraMovement.cs" id="9_2gwxh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vpfel"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -2714,12 +2713,6 @@ shadow_blur = 3.0
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 4, 5.5)
 current = true
 fov = 45.0
-
-[node name="CameraMovement" type="Node" parent="Camera3D"]
-script = ExtResource("9_2gwxh")
-PositionRandomRange = Vector3(2, 2, 2)
-RandomizeRotation = true
-RotationRandomRangeDegrees = Vector3(15, 45, 0)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(11, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, -0.075, 0)

@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="RoleType" load_steps=12 format=3 uid="uid://bjfhwocmqh4uy"]
+
+[ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://models/data/Role/RoleAction.cs" id="1_kcg6h"]
+[ext_resource type="Resource" uid="uid://c8xr12tkory0k" path="res://resources/Actions/ArcaneStrike.tres" id="2_kcg6h"]
+[ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/data/Role/RoleAttribute.cs" id="3_iqn8h"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="4_rx8qx"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="5_nxanb"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="6_qy8th"]
+[ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/data/Role/RoleType.cs" id="7_7x0d1"]
+
+[sub_resource type="Resource" id="Resource_gqx4i"]
+script = ExtResource("1_kcg6h")
+Type = ExtResource("2_kcg6h")
+metadata/_custom_type_script = "uid://dva25u156vwmb"
+
+[sub_resource type="Resource" id="Resource_5wt3q"]
+script = ExtResource("3_iqn8h")
+Type = ExtResource("4_rx8qx")
+BaseValue = 50
+metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
+
+[sub_resource type="Resource" id="Resource_ef43d"]
+script = ExtResource("3_iqn8h")
+Type = ExtResource("5_nxanb")
+BaseValue = 10
+metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
+
+[sub_resource type="Resource" id="Resource_tpsip"]
+script = ExtResource("3_iqn8h")
+Type = ExtResource("6_qy8th")
+BaseValue = 10
+metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
+
+[resource]
+script = ExtResource("7_7x0d1")
+Name = "Enemy Villager"
+Description = "Villager role description."
+RoleAttributes = Array[ExtResource("3_iqn8h")]([SubResource("Resource_5wt3q"), SubResource("Resource_ef43d"), SubResource("Resource_tpsip")])
+RoleActions = Array[ExtResource("1_kcg6h")]([SubResource("Resource_gqx4i")])
+Id = "4f307d5e-5903-417e-8f0b-9b0fe238b77a"
+metadata/_custom_type_script = "uid://bf8grw0ulmqkc"

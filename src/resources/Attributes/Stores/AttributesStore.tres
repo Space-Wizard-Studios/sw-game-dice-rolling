@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AttributesStore" load_steps=5 format=3 uid="uid://b4niu7ewhuinj"]
+
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="1_alr3g"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="2_ax07m"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="3_b3syj"]
+[ext_resource type="Script" uid="uid://bated1t84ka4j" path="res://models/stores/AttributesStore.cs" id="4_lv2dq"]
+
+[resource]
+script = ExtResource("4_lv2dq")
+Attributes = [ExtResource("1_alr3g"), ExtResource("2_ax07m"), ExtResource("3_b3syj")]

@@ -3,6 +3,7 @@ using DiceRolling.Entities;
 using DiceRolling.Characters;
 using DiceRolling.Helpers;
 using System.Linq;
+using DiceRolling.Controllers;
 
 namespace DiceRolling.Components;
 
@@ -60,6 +61,8 @@ public partial class AnimatedModel3DComponent : Node3D {
             SignalHelper.ConnectSignal(_parent, nameof(Entity3D.EntityUpdated), this, nameof(OnEntityUpdated));
             UpdateModel();
         }
+
+        SetProcess(BillboardEnabled);
     }
 
     public override void _ExitTree() {
@@ -70,13 +73,23 @@ public partial class AnimatedModel3DComponent : Node3D {
     }
 
     public override void _Process(double delta) {
-        if (!Engine.IsEditorHint() && BillboardEnabled && _currentModelInstance != null && IsInstanceValid(_currentModelInstance)) {
+        if (BillboardEnabled && _currentModelInstance != null && IsInstanceValid(_currentModelInstance)) {
             var camera = GetViewport().GetCamera3D();
-            if (camera != null) {
-                Vector3 direction = camera.GlobalPosition - GlobalPosition;
-                direction.Y = 0;
-                Vector3 lookTarget = GlobalPosition + direction;
-                _currentModelInstance.LookAt(lookTarget, Vector3.Up);
+            var characterData = _parent?.GetData<CharacterType>();
+
+            if (camera != null && characterData != null) {
+                Vector3 directionToCamera = (camera.GlobalPosition - GlobalPosition) with { Y = 0 };
+                if (directionToCamera.LengthSquared() > 0.001f) {
+                    Vector3 lookTarget = GlobalPosition + directionToCamera.Normalized();
+                    _currentModelInstance.LookAt(lookTarget, Vector3.Up);
+                }
+                else {
+                    Vector3 lookTarget = GlobalPosition - camera.GlobalBasis.Z with { Y = 0 };
+                    _currentModelInstance.LookAt(lookTarget, Vector3.Up);
+                }
+                if (BattleController.Instance != null && characterData.Location == BattleController.Instance.PlayerSquadLocation) {
+                    _currentModelInstance.RotateY(Mathf.Pi);
+                }
             }
         }
     }

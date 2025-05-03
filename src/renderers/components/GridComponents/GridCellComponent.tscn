@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0rl2juis6ehx"]
+
+[ext_resource type="Script" uid="uid://xekdm6ih1oi3" path="res://renderers/components/GridComponents/GridCellComponent.cs" id="1_ai840"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnb4r"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dnb4r"]
+
+[node name="GridCellComponent" type="Node3D" node_paths=PackedStringArray("CellMeshNode", "LabelNode")]
+script = ExtResource("1_ai840")
+CellMeshNode = NodePath("MeshInstance3D")
+LabelNode = NodePath("Label3D")
+metadata/_custom_type_script = "uid://xekdm6ih1oi3"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0393298, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_dnb4r")
+mesh = SubResource("BoxMesh_dnb4r")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1

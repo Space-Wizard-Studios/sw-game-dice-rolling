@@ -19,7 +19,7 @@ public static class NodeExtensions {
         }
 
         foreach (Node child in root.GetChildren()) {
-            GD.Print($"Searching in child node: {child}");
+            // GD.Print($"Searching in child node: {child}");
             var result = FindNodeOfType<T>(child);
             if (result != null) {
                 return result;

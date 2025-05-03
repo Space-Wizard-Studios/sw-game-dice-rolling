@@ -77,4 +77,14 @@ public partial class DiceType : IdentifiableResource, IDice<DiceSide> {
             throw new ArgumentException("Invalid name.");
         }
     }
+
+    public DiceEnergy? Roll() {
+        if (Sides == null || Sides.Count == 0) {
+            GD.PrintRich("[color=yellow]Dice has no sides to roll.[/color]");
+            return null;
+        }
+        var random = new Random();
+        int randomIndex = random.Next(Sides.Count);
+        return Sides[randomIndex].Energy;
+    }
 }

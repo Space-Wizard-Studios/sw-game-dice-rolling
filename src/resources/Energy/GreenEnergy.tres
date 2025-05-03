@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DiceEnergy" load_steps=3 format=3 uid="uid://djkgjo1axl23k"]
+
+[ext_resource type="Texture2D" uid="uid://7edt57k6ta68" path="res://assets/icons/diceEnergy/drop.png" id="1_umheo"]
+[ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="2_5fuyc"]
+
+[resource]
+script = ExtResource("2_5fuyc")
+Name = "Green Energy"
+Description = "Green Energy description."
+BackgroundColor = Color(0.2772, 0.99, 0.41976, 1)
+MainColor = Color(0.0564, 0.47, 0.20116, 1)
+Icon = ExtResource("1_umheo")
+Id = "1431d2b5-c5bf-4a94-a5f5-18d5509e49ed"

@@ -6,6 +6,6 @@ namespace DiceRolling.Actions;
 /// Define o contexto de uma ação.
 /// </summary>
 public interface IActionContext {
-    CharacterType Target { get; }
     CharacterType Attacker { get; }
+    CharacterType? Target { get; }
 }

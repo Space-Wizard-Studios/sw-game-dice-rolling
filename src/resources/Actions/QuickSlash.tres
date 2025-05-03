@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="ActionType" load_steps=24 format=3 uid="uid://cs65w4r75ugap"]
+[gd_resource type="Resource" script_class="ActionType" load_steps=25 format=3 uid="uid://cs65w4r75ugap"]
 
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/data/Effect/EffectType.cs" id="1_qhrue"]
 [ext_resource type="Resource" uid="uid://cupu4ulat2q28" path="res://resources/Actions/Categories/ActionOffensive.tres" id="1_rvih8"]
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="2_8ielr"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="2_i76yk"]
 [ext_resource type="Texture2D" uid="uid://cr3pt07ubrr56" path="res://assets/icons/actions/quick_slash.png" id="3_70lu1"]
+[ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://resources/Effects/DamageEffect.tres" id="3_b27pn"]
 [ext_resource type="Script" uid="uid://1fvttm4h5sf3" path="res://models/data/Target/TargetBoardType.cs" id="3_qhrue"]
 [ext_resource type="Script" uid="uid://dk6es2dobyja5" path="res://models/data/Action/ActionType.cs" id="4_8ielr"]
 [ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="4_rvih8"]
@@ -174,7 +175,7 @@ Category = ExtResource("1_rvih8")
 Description = "Quick slash description."
 Icon = ExtResource("3_70lu1")
 RequiredEnergy = Array[ExtResource("2_8ielr")]([])
-Effects = Array[ExtResource("1_qhrue")]([])
+Effects = Array[ExtResource("1_qhrue")]([ExtResource("3_b27pn")])
 TargetBoard = SubResource("Resource_fhhls")
 Id = "1575f70b-f7b7-44e6-959c-3e0d347517a2"
 metadata/_custom_type_script = "uid://dk6es2dobyja5"

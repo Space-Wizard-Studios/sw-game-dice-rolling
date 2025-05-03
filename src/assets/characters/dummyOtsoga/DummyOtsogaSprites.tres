@@ -48,6 +48,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_pc7se")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": true,
 "name": &"idle",

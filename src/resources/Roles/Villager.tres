@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="RoleType" load_steps=12 format=3 uid="uid://djthxx6kthcye"]
+
+[ext_resource type="Script" uid="uid://dva25u156vwmb" path="res://models/data/Role/RoleAction.cs" id="1_8w5xo"]
+[ext_resource type="Script" uid="uid://dg8bedxsn6cm7" path="res://models/data/Role/RoleAttribute.cs" id="2_1v0sd"]
+[ext_resource type="Resource" uid="uid://cs65w4r75ugap" path="res://resources/Actions/QuickSlash.tres" id="2_cr3u3"]
+[ext_resource type="Script" uid="uid://bf8grw0ulmqkc" path="res://models/data/Role/RoleType.cs" id="3_fing2"]
+[ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="4_eqr21"]
+[ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="5_i6gcd"]
+[ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="6_uccj3"]
+
+[sub_resource type="Resource" id="Resource_gqx4i"]
+script = ExtResource("1_8w5xo")
+Type = ExtResource("2_cr3u3")
+metadata/_custom_type_script = "uid://dva25u156vwmb"
+
+[sub_resource type="Resource" id="Resource_5wt3q"]
+script = ExtResource("2_1v0sd")
+Type = ExtResource("4_eqr21")
+BaseValue = 50
+metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
+
+[sub_resource type="Resource" id="Resource_ef43d"]
+script = ExtResource("2_1v0sd")
+Type = ExtResource("5_i6gcd")
+BaseValue = 10
+metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
+
+[sub_resource type="Resource" id="Resource_tpsip"]
+script = ExtResource("2_1v0sd")
+Type = ExtResource("6_uccj3")
+BaseValue = 10
+metadata/_custom_type_script = "uid://dg8bedxsn6cm7"
+
+[resource]
+script = ExtResource("3_fing2")
+Name = "Villager"
+Description = "Villager role description."
+RoleAttributes = Array[ExtResource("2_1v0sd")]([SubResource("Resource_5wt3q"), SubResource("Resource_ef43d"), SubResource("Resource_tpsip")])
+RoleActions = Array[ExtResource("1_8w5xo")]([SubResource("Resource_gqx4i")])
+Id = "4f307d5e-5903-417e-8f0b-9b0fe238b77a"
+metadata/_custom_type_script = "uid://bf8grw0ulmqkc"

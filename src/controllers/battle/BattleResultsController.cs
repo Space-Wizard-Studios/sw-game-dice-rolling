@@ -49,6 +49,7 @@ public partial class BattleResultsController : RefCounted {
     // Verifica condições de vitória (todos inimigos derrotados)
     private bool CheckVictoryCondition() {
         var enemyTeam = BattleController.Instance.GetEnemyTeam();
+        // TODO - achar um jeito melhor de acessar a coleção de atributos do jogo
         var attributesStore = GD.Load<AttributesStore>("res://resources/Attributes/AttributesStore.tres");
         var healthAttribute = AttributesHelper.GetAttributeType(attributesStore, "Health");
 
@@ -71,6 +72,7 @@ public partial class BattleResultsController : RefCounted {
     // Verifica condições de derrota (todos personagens do jogador derrotados)
     private bool CheckDefeatCondition() {
         var playerTeam = BattleController.Instance.GetPlayerTeam();
+        // TODO - achar um jeito melhor de acessar a coleção de atributos do jogo
         var attributesStore = GD.Load<AttributesStore>("res://resources/Attributes/AttributesStore.tres");
         var healthAttribute = AttributesHelper.GetAttributeType(attributesStore, "Health");
 

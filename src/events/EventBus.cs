@@ -1,6 +1,7 @@
 using Godot;
 using DiceRolling.Entities;
 using DiceRolling.Components;
+using DiceRolling.Targets;
 
 namespace DiceRolling.Events;
 
@@ -10,6 +11,7 @@ public partial class EventBus : Node {
 
     [Signal] public delegate void ComponentSelectedEventHandler(Node component);
     [Signal] public delegate void ComponentUnselectedEventHandler(Node component);
+    [Signal] public delegate void ActionSelectedEventHandler(TargetBoardType targetBoard);
 
     public static EventBus Instance {
         get {
@@ -48,5 +50,9 @@ public partial class EventBus : Node {
 
     public void OnComponentUnselected(Node component) {
         EmitSignal(nameof(ComponentUnselected), component);
+    }
+
+    public void EmitActionSelected(TargetBoardType targetBoard) {
+        EmitSignal(nameof(ActionSelected), targetBoard);
     }
 }

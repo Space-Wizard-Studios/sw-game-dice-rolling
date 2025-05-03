@@ -8,6 +8,7 @@ using DiceRolling.Locations;
 using DiceRolling.Id;
 using DiceRolling.Services;
 using DiceRolling.Categories;
+using DiceRolling.Dice;
 
 namespace DiceRolling.Characters;
 
@@ -51,6 +52,9 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
 
     [Export]
     public SpriteFrames? CharacterSprite { get; set; }
+
+    [Export]
+    public Godot.Collections.Dictionary<string, PackedScene>? CharacterAnimations { get; set; }
 
     [Export]
     public float PixelSize { get; set; } = 0.01f;
@@ -102,7 +106,7 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
         GD.Print($"Attributes initialized for character: {Name}");
     });
 
-    [ExportGroup("🔥 Actions")]
+    [ExportGroup("🔥 Actions & Energy")]
 
     [Export]
     public Godot.Collections.Array<CharacterAction> Actions { get; private set; } = [];
@@ -112,6 +116,14 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
         InitializeActions();
         GD.Print($"Actions initialized for character: {Name}");
     });
+
+    [Export]
+    public Godot.Collections.Array<DiceType> EquippedDice { get; set; } = [];
+
+    public Godot.Collections.Array<DiceEnergy> AvailableEnergy { get; private set; } = [];
+
+    [ExportToolButton("Roll Equipped Dice (Test)")]
+    public Callable RollEquippedDiceButton => Callable.From(RollEquippedDiceForEnergy);
 
     [ExportGroup("📍 Placement")]
 
@@ -130,6 +142,12 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
         ValidateConstructor();
         InitializeAttributes();
         InitializeActions();
+    }
+
+    public void ValidateConstructor() {
+        if (!ValidationService.ValidateName(Name)) {
+            throw new ArgumentException("Invalid name", nameof(Name));
+        }
     }
 
     public void InitializeAttributes() {
@@ -177,9 +195,31 @@ public partial class CharacterType : IdentifiableResource, ICharacter {
         CharacterService.RemoveAction(this, action);
     }
 
-    public void ValidateConstructor() {
-        if (!ValidationService.ValidateName(Name)) {
-            throw new ArgumentException("Invalid name", nameof(Name));
+    public void RollEquippedDiceForEnergy() {
+        GD.PrintRich($"[color=violet]-- Rolling Dice for {Name} --[/color]");
+        AvailableEnergy.Clear();
+
+        if (EquippedDice == null || EquippedDice.Count == 0) {
+            GD.PrintRich("[color=violet]No dice equipped.[/color]");
+            return;
         }
+
+        foreach (var dice in EquippedDice) {
+            if (dice != null) {
+                DiceEnergy? energyResult = dice.Roll();
+                if (energyResult != null) {
+                    AvailableEnergy.Add(energyResult);
+                    GD.PrintRich($"[color=violet]Rolled: {energyResult.Name} from Dice: {dice.Name}[/color]");
+                }
+                else {
+                    GD.PrintRich($"[color=violet]Dice {dice.Name} rolled null (no sides?).[/color]");
+                }
+            }
+            else {
+                GD.PrintRich("[color=violet]Encountered a null dice in EquippedDice.[/color]");
+            }
+        }
+        GD.PrintRich($"[color=violet]-- Dice Rolling Complete for {Name} --[/color]");
     }
+
 }

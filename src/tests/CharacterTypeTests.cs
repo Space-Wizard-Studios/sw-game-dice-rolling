@@ -16,6 +16,7 @@ public class CharacterTypeTests {
 
     [Before]
     public void SetUp() {
+        // TODO - achar um jeito melhor de acessar a coleção de atributos do jogo
         _AttributesStore = GD.Load<AttributesStore>("res://resources/Attributes/AttributesStore.tres");
     }
 

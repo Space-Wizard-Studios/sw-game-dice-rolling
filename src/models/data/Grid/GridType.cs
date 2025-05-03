@@ -67,6 +67,18 @@ public partial class GridType : IdentifiableResource, IGrid {
         ResizeCells();
     }
 
+    public void ValidateConstructor() {
+        if (Rows <= 0) {
+            throw new ArgumentException("O número de Rows não pode ser 0 ou menor.", nameof(_rows));
+        }
+        if (Columns <= 0) {
+            throw new ArgumentException("O número de Columns não pode ser 0 ou menor.", nameof(_columns));
+        }
+        if (!Enum.IsDefined(Direction)) {
+            throw new ArgumentException("Grid Direction inválida.", nameof(Direction));
+        }
+    }
+
     private void ResizeCells() {
         if (_rows <= 0 || _columns <= 0) {
             GD.PrintErr("Invalid grid size: Rows and Columns must be greater than 0.");
@@ -101,15 +113,31 @@ public partial class GridType : IdentifiableResource, IGrid {
         GridService.AssignCharactersToGrid(this);
     }
 
-    public void ValidateConstructor() {
-        if (Rows <= 0) {
-            throw new ArgumentException("O número de Rows não pode ser 0 ou menor.", nameof(_rows));
+    /// <summary>
+    /// Gets the value of a cell at a specific slot index, optionally flipping horizontally.
+    /// </summary>
+    /// <param name="slotIndex">The 1-based index of the slot.</param>
+    /// <param name="flipped">Whether to flip the grid horizontally when checking.</param>
+    /// <returns>The value of the cell (0-3), or -1 if the index is invalid.</returns>
+    public int GetCellValueAt(int slotIndex, bool flipped) {
+        if (slotIndex < 0 || Columns <= 0) {
+            return -1; // Invalid index or grid configuration
         }
-        if (Columns <= 0) {
-            throw new ArgumentException("O número de Columns não pode ser 0 ou menor.", nameof(_columns));
+
+        int row = slotIndex / Columns;
+        int column = slotIndex % Columns;
+
+        // Apply horizontal flip if needed
+        if (flipped) {
+            column = Columns - 1 - column;
         }
-        if (!Enum.IsDefined(Direction)) {
-            throw new ArgumentException("Grid Direction inválida.", nameof(Direction));
+
+        // Check bounds after potential flip
+        if (row < 0 || row >= Rows || column < 0 || column >= Columns) {
+            return -1; // Index out of bounds
         }
+
+        GridCellType? cell = GetCell(row, column);
+        return cell?.Value ?? -1; // Return cell value or -1 if cell is null
     }
 }

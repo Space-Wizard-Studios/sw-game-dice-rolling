@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dunaxvn3b6xe0" path="res://models/data/Effect/EffectType.cs" id="2_s1o36"]
 [ext_resource type="Texture2D" uid="uid://fmaq315605ce" path="res://assets/icons/actions/cleave.png" id="3_8m2td"]
 [ext_resource type="Resource" uid="uid://b43duhk6atdos" path="res://resources/Effects/DamageEffect.tres" id="3_wmqqs"]
-[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Dice/DiceEnergy/RedEnergy.tres" id="5_wmqqs"]
+[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Energy/RedEnergy.tres" id="5_wmqqs"]
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="5_yp8id"]
 [ext_resource type="Script" uid="uid://ca6up1de7fo4q" path="res://models/data/Grid/GridType.cs" id="6_daon4"]
 [ext_resource type="Script" uid="uid://bnrom8367617i" path="res://models/data/GridCell/GridCellType.cs" id="7_ac40e"]

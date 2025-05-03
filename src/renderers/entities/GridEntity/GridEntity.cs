@@ -15,12 +15,4 @@ public partial class GridEntity : Entity3D {
 
     [ExportToolButton("Update Grid")]
     public Callable UpdateGridData => Callable.From(() => NotifyUpdate());
-
-    [ExportToolButton("Assign Characters")]
-    public Callable AssignCharactersButton => Callable.From(() => {
-        if (GridData != null) {
-            GridData.AssignCharacters();
-            NotifyUpdate();
-        }
-    });
 }

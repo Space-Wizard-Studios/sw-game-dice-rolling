@@ -94,7 +94,7 @@ public partial class ActionsController : RefCounted {
                 var actionType = charAction.Type;
                 if (actionType == null) continue;
 
-                // Check Mana
+                // Check Energy
                 if (!ActionService.CanAffordAction(enemy, actionType)) {
                     GD.Print($"Enemy {enemy.Name} cannot afford {actionType.Name}");
                     continue;
@@ -144,9 +144,9 @@ public partial class ActionsController : RefCounted {
                 var actionType = charAction.Type;
                 if (actionType == null) continue;
 
-                // Check Mana
+                // Check Energy
                 if (!ActionService.CanAffordAction(player, actionType)) {
-                    // GD.Print($"Player {player.Name} cannot afford {actionType.Name}");
+                    GD.Print($"Player {player.Name} cannot afford {actionType.Name}");
                     continue;
                 }
 

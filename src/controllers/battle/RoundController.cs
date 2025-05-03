@@ -57,22 +57,22 @@ public partial class RoundController : RefCounted {
     }
 
     private void SetRoundState(RoundState newState) {
-        GD.PrintRich($"[color=violet]Round state changing: {_currentRoundState} -> {newState}.[/color]");
+        GD.PrintRich($"[color=violet][RoundController] Round state changing: {_currentRoundState} -> {newState}.[/color]");
         _currentRoundState = newState;
     }
 
     private void AdvanceRound() {
         _currentRound++;
-        GD.PrintRich($"[color=violet]RoundController: Advanced to round {_currentRound}.[/color]");
+        GD.PrintRich($"[color=violet][RoundController] Advanced to round {_currentRound}.[/color]");
     }
 
     public void StartRound() {
         if (_actionsController == null || _turnController == null) {
-            GD.PrintErr("RoundController: Controllers not initialized!");
+            GD.PrintErr("[RoundController] Controllers not initialized!");
             return;
         }
 
-        GD.Print("[color=violet]RoundController: Starting a new round...[/color]");
+        GD.Print("[color=violet][RoundController] Starting a new round...[/color]");
 
         SetRoundState(RoundState.RoundStart);
 
@@ -85,11 +85,11 @@ public partial class RoundController : RefCounted {
 
     private void StartActionsDeclarationPhase() {
         if (_actionsController == null) {
-            GD.PrintErr("RoundController: ActionsController not initialized!");
+            GD.PrintErr("[RoundController] ActionsController not initialized!");
             return;
         }
 
-        GD.PrintRich("[color=violet]RoundController: Starting actions declaration phase...[/color]");
+        GD.PrintRich("[color=violet][RoundController] Starting actions declaration phase...[/color]");
 
         SetRoundState(RoundState.ActionsDeclaration);
 
@@ -100,11 +100,11 @@ public partial class RoundController : RefCounted {
 
     public void StartTurnsResolutionPhase() {
         if (_turnController == null) {
-            GD.PrintErr("RoundController: TurnController not initialized!");
+            GD.PrintErr("[RoundController] TurnController not initialized!");
             return;
         }
 
-        GD.PrintRich("[color=violet]RoundController: Starting turns resolution phase...[/color].");
+        GD.PrintRich("[color=violet][RoundController] Starting turns resolution phase...[/color].");
 
         SetRoundState(RoundState.TurnsResolution);
 
@@ -113,7 +113,7 @@ public partial class RoundController : RefCounted {
 
     // Finaliza o round atual
     public void EndRound() {
-        GD.PrintRich("[color=violet]RoundController: Ending the current round...[/color]");
+        GD.PrintRich("[color=violet][RoundController] Ending the current round...[/color]");
 
         SetRoundState(RoundState.RoundEnd);
 
@@ -127,13 +127,13 @@ public partial class RoundController : RefCounted {
     // Verifica se um novo turno deve começar ou se a rodada deve terminar
     // Verifica se uma nova rodada deve começar ou se a batalha deve terminar
     private void CheckBattleState() {
-        GD.PrintRich("[color=violet]RoundController: Checking battle state...[/color]");
+        GD.PrintRich("[color=violet][RoundController] Checking battle state...[/color]");
 
         // Use the same logic as TurnController.ShouldContinueBattle for now
         // TODO: Refactor this check into BattleResultsController or a shared service
         var battleController = BattleController.Instance;
         if (battleController == null) {
-            GD.PrintErr("RoundController: BattleController instance is null. Cannot check battle state.");
+            GD.PrintErr("[RoundController] BattleController instance is null. Cannot check battle state.");
             // Decide how to handle this - maybe end battle?
             // BattleEvents.Instance.EmitBattleEnded(BattleResult.Error); // Example
             return;
@@ -146,7 +146,7 @@ public partial class RoundController : RefCounted {
         var healthAttribute = attributesStore.GetAttributeByName("Health");
 
         if (healthAttribute == null) {
-            GD.PrintErr("RoundController: Health attribute not found. Cannot determine battle end.");
+            GD.PrintErr("[RoundController] Health attribute not found. Cannot determine battle end.");
             // Decide how to handle this - maybe end battle?
             // BattleEvents.Instance.EmitBattleEnded(BattleResult.Error); // Example
             return;
@@ -157,18 +157,18 @@ public partial class RoundController : RefCounted {
 
         // If battle should continue (both teams have members alive)
         if (hasPlayerAlive && hasEnemyAlive) {
-            GD.PrintRich("[color=violet]RoundController: Battle continues. Starting next round.[/color]");
+            GD.PrintRich("[color=violet][RoundController] Battle continues. Starting next round.[/color]");
             // If the battle should continue, initiate the next round.
             StartRound();
         }
         // If battle should end
         else {
-            GD.PrintRich($"[color=violet]RoundController: Battle ended. Players alive: {hasPlayerAlive}, Enemies alive: {hasEnemyAlive}.[/color]");
+            GD.PrintRich($"[color=violet][RoundController] Battle ended. Players alive: {hasPlayerAlive}, Enemies alive: {hasEnemyAlive}.[/color]");
             // TODO: Delegate to BattleResultsController or emit BattleEnded event
             // For now, just stop the loop.
             // Example: BattleEvents.Instance.EmitBattleEnded(hasPlayerAlive ? BattleResult.Victory : BattleResult.Defeat);
             SetRoundState(RoundState.RoundEnd); // Ensure state is final
-            GD.PrintRich("[color=violet]RoundController: Battle finished. No new round started.[/color]");
+            GD.PrintRich("[color=violet][RoundController] Battle finished. No new round started.[/color]");
         }
     }
     // Eventos

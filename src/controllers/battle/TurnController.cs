@@ -29,7 +29,6 @@ public partial class TurnController : RefCounted {
     private IReadOnlyDictionary<CharacterType, DeclaredActionInfo>? _declaredActions; // Store the declared actions
 
     public TurnController() {
-        // Consider initializing _queueController here if needed, or ensure it's passed
         ConnectEvents();
     }
 
@@ -40,40 +39,21 @@ public partial class TurnController : RefCounted {
 
     private void ConnectEvents() {
         DisconnectEvents();
-
-        // Remove event listeners that might cause redundant calls if RoundController manages the flow
-        // var events = BattleEvents.Instance;
-        // if (events != null) {
-        //     events.ActionsDeclared += OnActionsDeclared;
-        //     events.CheckNextTurn += OnCheckNextTurn;
-        // }
     }
 
     private void DisconnectEvents() {
-        // Remove event listeners that might cause redundant calls if RoundController manages the flow
-        // var events = BattleEvents.Instance;
-        // if (events != null) {
-        //     events.ActionsDeclared -= OnActionsDeclared;
-        //     events.CheckNextTurn -= OnCheckNextTurn;
-        // }
     }
 
     public void StartTurnsResolution() {
         GD.PrintRich("[color=pink]TurnController: Starting turns resolution.[/color]");
-        // Get the declared actions from ActionsController (via BattleController or direct reference)
-        _declaredActions = BattleController.Instance.ActionsController?.DeclaredActions; // Assuming BattleController holds ActionsController instance
+        _declaredActions = BattleController.Instance.ActionsController?.DeclaredActions;
 
         if (_declaredActions == null) {
             // Log a more severe error as this indicates a potential flow issue
             GD.PrintErr("TurnController: CRITICAL ERROR - Declared actions not available! Cannot resolve turns.");
             // TODO: Implement robust error handling here. Options include:
-            // 1. Emitting a specific BattleErrorOccurred signal for BattleController to handle (e.g., show error message, end battle).
-            // 2. Directly attempting to end the battle via BattleController.
-            // Avoid emitting TurnsResolved here, as the phase cannot proceed correctly.
-            // Temporary fix: Emit TurnsResolved to allow the battle flow to potentially continue or be handled by RoundController,
-            // even though an error occurred. This might still lead to inconsistent states if not handled properly upstream.
             BattleEvents.Instance.EmitTurnsResolved(); // Emit TurnsResolved even on error for now
-            return; // Stop the resolution phase due to the error
+            return;
         }
         ProcessNextCharacterTurn();
     }
@@ -191,17 +171,7 @@ public partial class TurnController : RefCounted {
             return false;
         }
 
-        // GD.PrintRich("[color=pink]TurnController: Battle continuing - both teams have active characters.[/color]");
+        GD.PrintRich("[color=pink]TurnController: Battle continuing - both teams have active characters.[/color]");
         return true;
     }
-
-    // Event handlers (Potentially redundant if RoundController manages the flow)
-    // private void OnActionsDeclared() {
-    //     GD.PrintRich("[color=pink]Event ActionsDeclared fired on TurnController, starting turns resolution.[/color]");
-    //     StartTurnsResolution();
-    // }
-
-    // private void OnCheckNextTurn() {
-    //     ProcessNextCharacterTurn();
-    // }
 }

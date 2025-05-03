@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://yxgkinium01u" path="res://models/data/Dice/DiceEnergy.cs" id="1_2dewc"]
 [ext_resource type="Script" uid="uid://gfcl3cu0htms" path="res://models/stores/DiceEnergyStore.cs" id="1_46bd6"]
-[ext_resource type="Resource" uid="uid://xcyti3lh5xkx" path="res://resources/Dice/DiceEnergy/EmptyEnergy.tres" id="2_r1adj"]
-[ext_resource type="Resource" uid="uid://d1fdrw7p7rywt" path="res://resources/Dice/DiceEnergy/BlueEnergy.tres" id="3_qqaa6"]
-[ext_resource type="Resource" uid="uid://cnfykne4hnexp" path="res://resources/Dice/DiceEnergy/GreenEnergy.tres" id="4_yh246"]
+[ext_resource type="Resource" path="res://resources/Dice/DiceEnergy/EmptyEnergy.tres" id="2_r1adj"]
+[ext_resource type="Resource" uid="uid://d1fdrw7p7rywt" path="res://resources/Energy/BlueEnergy.tres" id="3_qqaa6"]
+[ext_resource type="Resource" uid="uid://djkgjo1axl23k" path="res://resources/Energy/GreenEnergy.tres" id="4_yh246"]
 [ext_resource type="Resource" path="res://resources/Dice/DiceEnergy/PurpleEnergy.tres" id="5_v5b0b"]
-[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Dice/DiceEnergy/RedEnergy.tres" id="6_dhtij"]
-[ext_resource type="Resource" uid="uid://cnfykne4hnexp" path="res://resources/Dice/DiceEnergy/GreenEnergy.tres" id="7_lvqyi"]
+[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Energy/RedEnergy.tres" id="6_dhtij"]
+[ext_resource type="Resource" uid="uid://djkgjo1axl23k" path="res://resources/Energy/GreenEnergy.tres" id="7_lvqyi"]
 
 [resource]
 script = ExtResource("1_46bd6")

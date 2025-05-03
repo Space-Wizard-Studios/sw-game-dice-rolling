@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://by7a3143ls7g0" path="res://models/data/Dice/DiceLocation.cs" id="1_kkbu5"]
 [ext_resource type="Script" uid="uid://3lgd5c2d6bk5" path="res://models/data/Dice/DiceSide.cs" id="2_rxlg5"]
-[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Dice/DiceEnergy/RedEnergy.tres" id="3_42uwo"]
+[ext_resource type="Resource" uid="uid://qxd24e6b177u" path="res://resources/Energy/RedEnergy.tres" id="3_42uwo"]
 [ext_resource type="Script" uid="uid://6jc2e71j4ljb" path="res://models/data/Dice/DiceType.cs" id="3_i4o8l"]
-[ext_resource type="Resource" uid="uid://djkgjo1axl23k" path="res://resources/Dice/DiceEnergy/GreenEnergy.tres" id="4_0ky08"]
-[ext_resource type="Resource" uid="uid://d1fdrw7p7rywt" path="res://resources/Dice/DiceEnergy/BlueEnergy.tres" id="5_256vy"]
+[ext_resource type="Resource" uid="uid://djkgjo1axl23k" path="res://resources/Energy/GreenEnergy.tres" id="4_0ky08"]
+[ext_resource type="Resource" uid="uid://d1fdrw7p7rywt" path="res://resources/Energy/BlueEnergy.tres" id="5_256vy"]
 
 [sub_resource type="Resource" id="Resource_42uwo"]
 script = ExtResource("1_kkbu5")

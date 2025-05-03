@@ -40,7 +40,7 @@ BaseValue = 10
 
 [resource]
 script = ExtResource("12_f1xch")
-Name = "Player"
+Name = "_player"
 CharacterAnimations = {
 "Idle": ExtResource("7_c1s6o")
 }

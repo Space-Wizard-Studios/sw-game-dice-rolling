@@ -23,7 +23,7 @@ public abstract partial class Entity3D : Node3D {
     }
 
     protected void NotifyUpdate() {
-        GD.Print($"[Entity3D] Entity Updated: {Data?.Id}");
+        // GD.Print($"[Entity3D] Entity Updated: {Data?.Id}");
         EmitSignal(nameof(EntityUpdated));
     }
 

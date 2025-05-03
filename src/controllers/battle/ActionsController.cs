@@ -1,6 +1,6 @@
 using Godot;
 using DiceRolling.Characters;
-using System.Collections.Generic;
+using System.Collections.Generic; // Use Generic Dictionary
 using System;
 using DiceRolling.Helpers;
 using DiceRolling.Services;
@@ -25,8 +25,12 @@ namespace DiceRolling.Controllers;
 /// </remarks>
 public partial class ActionsController : RefCounted {
     private readonly HashSet<CharacterType> _charactersDeclaredActions = [];
+    private readonly Dictionary<CharacterType, DeclaredActionInfo> _declaredActions = new();
     private List<CharacterType> _playerTeam = [];
     private List<CharacterType> _enemyTeam = [];
+
+    public IReadOnlyDictionary<CharacterType, DeclaredActionInfo> DeclaredActions => _declaredActions;
+
     public ActionsController() {
         ConnectEvents();
     }
@@ -54,13 +58,16 @@ public partial class ActionsController : RefCounted {
         _playerTeam = playerTeam;
         _enemyTeam = enemyTeam;
         _charactersDeclaredActions.Clear();
+        _declaredActions.Clear();
 
         GD.PrintRich($"[color=cyan]ActionsController: Using teams - Players: {_playerTeam.Count}, Enemies: {_enemyTeam.Count}.[/color]");
 
         GD.PrintRich("[color=cyan]ActionsController: Rolling dice for player characters...[/color]");
+
         foreach (var playerCharacter in _playerTeam) {
             playerCharacter.RollEquippedDiceForEnergy();
         }
+
         GD.PrintRich("[color=cyan]ActionsController: Player dice rolling complete.[/color]");
 
         DeclareEnemyActionsForTesting();
@@ -97,23 +104,22 @@ public partial class ActionsController : RefCounted {
                 List<CharacterType> validTargets = ActionService.GetValidTargets(enemy, actionType, _playerTeam);
 
                 if (validTargets.Count > 0) {
-                    // Select a valid target (randomly for now)
                     var target = validTargets[GD.RandRange(0, validTargets.Count - 1)];
 
-                    // TODO: Store the declared action and target for later execution by TurnController
-                    // For now, just emit the declaration signal
+                    _declaredActions[enemy] = new DeclaredActionInfo(actionType, target);
+
                     BattleEvents.Instance.EmitEnemyActionDeclared(enemy);
                     GD.PrintRich($"[color=cyan]Enemy {enemy.Name} declared action {actionType.Name} targeting {target.Name}. (VALIDATED)[/color]");
                     actionDeclared = true;
-                    break; // Action declared for this enemy, move to the next enemy
+                    break;
                 }
                 else { GD.Print($"Enemy {enemy.Name} found no valid targets for {actionType.Name}"); }
             }
 
-            // If no action was declared after checking all possibilities
             if (!actionDeclared) {
-                GD.PrintRich($"[color=cyan]Enemy {enemy.Name} could not find any valid action to declare.[/color]");
-                // Emit the signal to indicate the enemy has finished declaring (even if it's a pass)
+                // Store a "Pass" action if none was valid
+                _declaredActions[enemy] = new DeclaredActionInfo(); // Pass action
+                GD.PrintRich($"[color=cyan]Enemy {enemy.Name} could not find any valid action to declare (Pass).[/color]");
                 BattleEvents.Instance.EmitEnemyActionDeclared(enemy);
             }
         }
@@ -148,22 +154,23 @@ public partial class ActionsController : RefCounted {
                 List<CharacterType> validTargets = ActionService.GetValidTargets(player, actionType, _enemyTeam);
 
                 if (validTargets.Count > 0) {
-                    // Select a valid target (randomly for now)
                     var target = validTargets[GD.RandRange(0, validTargets.Count - 1)];
 
-                    // TODO: Store declared action/target for later execution by TurnController
+                    // Store the declared action and target
+                    _declaredActions[player] = new DeclaredActionInfo(actionType, target);
+
                     BattleEvents.Instance.EmitPlayerActionDeclared(player);
                     GD.PrintRich($"[color=cyan]Player {player.Name} declared action {actionType.Name} targeting {target.Name}. (VALIDATED)[/color]");
                     actionDeclared = true;
-                    break; // Action declared for this player, move to the next player
+                    break;
                 }
-                // else { GD.Print($"Player {player.Name} found no valid targets for {actionType.Name}"); }
+                else { GD.Print($"Player {player.Name} found no valid targets for {actionType.Name}"); }
             }
 
-            // If no action was declared after checking all possibilities
             if (!actionDeclared) {
-                GD.PrintRich($"[color=cyan]Player {player.Name} could not find any valid action to declare.[/color]");
-                // Emit the signal to indicate the player has finished declaring (even if it's a pass)
+                // Store a "Pass" action if none was valid
+                _declaredActions[player] = new DeclaredActionInfo(); // Pass action
+                GD.PrintRich($"[color=cyan]Player {player.Name} could not find any valid action to declare (Pass).[/color]");
                 BattleEvents.Instance.EmitPlayerActionDeclared(player);
             }
         }

@@ -6,6 +6,7 @@ using DiceRolling.Grids;
 using DiceRolling.Targets;
 using DiceRolling.Controllers;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DiceRolling.Services;
 
@@ -122,5 +123,36 @@ public static class ActionService {
         }
 
         return validTargets;
+    }
+
+    /// <summary>
+    /// Consumes the required energy for an action from a character's available energy pool.
+    /// Assumes CanAffordAction was already checked and returned true.
+    /// </summary>
+    /// <param name="character">The character spending the energy.</param>
+    /// <param name="action">The action whose energy cost is being spent.</param>
+    public static void ConsumeEnergy(CharacterType character, ActionType action) {
+        if (character == null || action == null || action.RequiredEnergy == null || action.RequiredEnergy.Count == 0) {
+            return; // Nothing to consume
+        }
+
+        if (character.AvailableEnergy == null) {
+            GD.PrintErr($"ActionService.ConsumeEnergy: Character {character.Name} has null AvailableEnergy.");
+            return;
+        }
+
+        // It's generally safer to modify the collection directly if it's designed for it.
+        // Godot.Collections.Array allows Remove().
+        foreach (var required in action.RequiredEnergy) {
+            if (required == null) continue;
+
+            bool removed = character.AvailableEnergy.Remove(required); // Remove the first matching energy
+            if (!removed) {
+                // This should ideally not happen if CanAffordAction passed, but log if it does.
+                GD.PrintErr($"ActionService.ConsumeEnergy: Failed to remove required energy {required.Name} from {character.Name}. Available: [{string.Join(", ", character.AvailableEnergy.Select(e => e?.Name ?? "null"))}]");
+            }
+        }
+        // Optionally, emit a signal that the character's energy changed
+        // character.EmitSignal(nameof(CharacterType.EnergyChanged));
     }
 }

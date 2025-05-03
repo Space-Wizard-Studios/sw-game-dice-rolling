@@ -1,6 +1,10 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b43duhk6atdos"]
+[gd_resource type="Resource" script_class="DamageEffect" load_steps=2 format=3 uid="uid://b43duhk6atdos"]
 
 [ext_resource type="Script" uid="uid://dg2lc30fx0iba" path="res://models/data/Effect/DamageEffect.cs" id="3_m732g"]
 
 [resource]
 script = ExtResource("3_m732g")
+Name = "Effect_aeb22bfec98d4786bea57b3aa3916fdc"
+Description = ""
+DamageValue = 50
+TargetAttributeName = "Health"

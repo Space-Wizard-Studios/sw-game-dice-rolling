@@ -101,6 +101,8 @@ public partial class BattleController : Node {
     private ActionsController? _actionsController;
     private BattleResultsController? _battleResultsController;
     private PostBattleController? _postBattleController;
+
+    public ActionsController? ActionsController => _actionsController;
     public RoundState CurrentRoundState => _roundController?.CurrentRoundState ?? RoundState.RoundEnd;
 
     public override void _Ready() {

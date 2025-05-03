@@ -13,6 +13,7 @@ public partial class AttributesStore : Resource {
     public static AttributesStore Instance {
         get {
             if (_instance == null) {
+                // TODO - achar um jeito melhor de acessar a coleção de atributos do jogo
                 _instance = GD.Load<AttributesStore>("res://resources/Attributes/AttributesStore.tres");
                 if (_instance == null) {
                     GD.PrintErr("Failed to load AttributesStore singleton from res://resources/Attributes/AttributesStore.tres. Creating new instance.");

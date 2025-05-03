@@ -49,13 +49,12 @@ public static class ActionService {
             for (int i = 0; i < availableEnergyCopy.Count; i++) {
                 // Assuming DiceEnergy resources are unique and can be compared by reference
                 // or have overridden Equals/GetHashCode if they represent types.
-                if (availableEnergyCopy[i] == required) {
+                if (availableEnergyCopy[i].Id == required.Id) { // semantically compare by energy type
                     availableEnergyCopy.RemoveAt(i); // Consume the energy
                     foundAndRemoved = true;
                     break; // Move to the next required energy
                 }
             }
-
             // If a required energy type couldn't be found in the available pool, the character cannot afford the action.
             if (!foundAndRemoved) {
                 GD.Print($"{character.Name} cannot afford {action.Name}: Missing {required.Name}");

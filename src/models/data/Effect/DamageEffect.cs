@@ -4,7 +4,8 @@ using DiceRolling.Characters;
 using DiceRolling.Attributes; // For AttributeType
 using DiceRolling.Stores; // For AttributesStore
 using DiceRolling.Helpers;
-using System; // For AttributesHelper
+using System;
+using System.Linq; // For AttributesHelper
 
 namespace DiceRolling.Effects;
 
@@ -51,6 +52,12 @@ public partial class DamageEffect : EffectType {
         }
 
         var target = context.Target;
+
+        // Check if the target actually has the attribute
+        if (!target.Attributes.Any(attr => attr.Type == targetAttribute)) {
+            GD.PrintErr($"DamageEffect ({Name}): Target {target.Name} does not possess the attribute {targetAttribute.Name}.");
+            return;
+        }
 
         // Get target's current value for the specific attribute
         int currentValue = target.GetAttributeCurrentValue(targetAttribute);

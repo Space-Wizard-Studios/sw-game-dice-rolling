@@ -64,10 +64,16 @@ public partial class TurnController : RefCounted {
         _declaredActions = BattleController.Instance.ActionsController?.DeclaredActions; // Assuming BattleController holds ActionsController instance
 
         if (_declaredActions == null) {
-            GD.PrintErr("TurnController: Declared actions not available!");
-            // Handle error - maybe end the phase?
-            BattleEvents.Instance.EmitTurnsResolved(); // Emit completion signal even on error?
-            return;
+            // Log a more severe error as this indicates a potential flow issue
+            GD.PrintErr("TurnController: CRITICAL ERROR - Declared actions not available! Cannot resolve turns.");
+            // TODO: Implement robust error handling here. Options include:
+            // 1. Emitting a specific BattleErrorOccurred signal for BattleController to handle (e.g., show error message, end battle).
+            // 2. Directly attempting to end the battle via BattleController.
+            // Avoid emitting TurnsResolved here, as the phase cannot proceed correctly.
+            // Temporary fix: Emit TurnsResolved to allow the battle flow to potentially continue or be handled by RoundController,
+            // even though an error occurred. This might still lead to inconsistent states if not handled properly upstream.
+            BattleEvents.Instance.EmitTurnsResolved(); // Emit TurnsResolved even on error for now
+            return; // Stop the resolution phase due to the error
         }
         ProcessNextCharacterTurn();
     }

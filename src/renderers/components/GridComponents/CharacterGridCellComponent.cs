@@ -1,7 +1,6 @@
 using Godot;
 using DiceRolling.Entities;
 using DiceRolling.Grids;
-using DiceRolling.Characters;
 using DiceRolling.Helpers;
 
 namespace DiceRolling.Components.Grids;

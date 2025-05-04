@@ -1,5 +1,3 @@
-using System;
-
 using DiceRolling.Grids;
 using DiceRolling.Targets;
 
@@ -22,11 +20,13 @@ public class TargetBoardService {
         targetBoard.EmitSignal(nameof(TargetBoardType.SetupChanged));
     }
 
-
     public static void UpdateGrid(TargetBoardType targetBoard, int index) {
         if (index >= 0 && index < targetBoard.Grids.Count) {
-            targetBoard.Grids[index].Cells.Resize(targetBoard.Grids[index].Rows * targetBoard.Grids[index].Columns);
-            targetBoard.EmitSignal(nameof(TargetBoardType.SetupChanged));
+            var grid = targetBoard.Grids[index];
+            if (grid?.Cells != null) {
+                grid.Cells.Resize(grid.Rows * grid.Columns);
+                targetBoard.EmitSignal(nameof(TargetBoardType.SetupChanged));
+            }
         }
     }
 }

@@ -79,7 +79,7 @@ public partial class GridType : IdentifiableResource, IGrid {
         }
     }
 
-    private void ResizeCells() {
+    public void ResizeCells() {
         if (_rows <= 0 || _columns <= 0) {
             GD.PrintErr("Invalid grid size: Rows and Columns must be greater than 0.");
             return;

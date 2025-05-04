@@ -1,9 +1,7 @@
 using Godot;
-using DiceRolling.Actions; // For IActionContext
-using DiceRolling.Characters;
-using DiceRolling.Attributes; // For AttributeType
-using DiceRolling.Stores; // For AttributesStore
-using DiceRolling.Helpers;
+using DiceRolling.Actions;
+using DiceRolling.Attributes;
+using DiceRolling.Stores;
 using System;
 using System.Linq; // For AttributesHelper
 

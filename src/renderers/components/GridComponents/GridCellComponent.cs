@@ -1,7 +1,6 @@
 using Godot;
 using DiceRolling.Entities;
 using DiceRolling.Grids;
-using DiceRolling.Characters;
 using DiceRolling.Helpers;
 
 namespace DiceRolling.Components.Grids;
@@ -126,12 +125,12 @@ public partial class GridCellComponent : Node3D {
         if (CellMeshNode == null) return;
 
         // Creating a new material if needed
-        if (CellMeshNode.MaterialOverride is not StandardMaterial3D currentMat) {
-            currentMat = new StandardMaterial3D();
-            CellMeshNode.MaterialOverride = currentMat;
+        if (CellMeshNode.MaterialOverride is not StandardMaterial3D) {
+            // Directly assign a new material if the override is not the correct type or is null
+            CellMeshNode.MaterialOverride = new StandardMaterial3D();
         }
 
-        // Update material properties
+        // Update material properties by casting the MaterialOverride
         ((StandardMaterial3D)CellMeshNode.MaterialOverride).AlbedoColor = color;
     }
 }

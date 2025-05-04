@@ -28,7 +28,7 @@ public partial class TargetBoardType : Resource, ITargetBoard {
 
     public void UpdateGrid(int index) {
         if (index >= 0 && index < Grids.Count) {
-            Grids[index].Cells.Resize(Grids[index].Rows * Grids[index].Columns);
+            Grids[index].ResizeCells();
             EmitSignal(nameof(SetupChanged));
         }
     }

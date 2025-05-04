@@ -170,7 +170,7 @@ public partial class AnimatedModel3DComponent : Node3D {
                 if (animationList.Length > 0) {
                     // Tenta reproduzir a animação correspondente ao nome do arquivo da cena
                     string animationToPlay = System.IO.Path.GetFileNameWithoutExtension(modelScene.ResourcePath);
-                    Animation? animResource = null;
+                    Animation? animResource;
 
                     if (animPlayer.HasAnimation(animationToPlay)) {
                         animResource = animPlayer.GetAnimation(animationToPlay);

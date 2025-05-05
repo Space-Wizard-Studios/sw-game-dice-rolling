@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk0r5pgq5wku8"]
+
+[ext_resource type="Script" uid="uid://dj37ihi355foi" path="res://renderers/components/CharacterInspector/CharacterActionButtonComponent.cs" id="1_3m2gd"]
+
+[node name="CharacterActionButtonComponent" type="Button"]
+disabled = true
+text = "No Action"
+script = ExtResource("1_3m2gd")
+metadata/_custom_type_script = "uid://dj37ihi355foi"

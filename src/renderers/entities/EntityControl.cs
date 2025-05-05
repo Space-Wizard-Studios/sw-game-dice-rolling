@@ -5,8 +5,8 @@ namespace DiceRolling.Entities;
 
 [Tool]
 [GlobalClass]
-[Icon("res://assets/editor/entity-3d.svg")]
-public abstract partial class Entity3D : Node3D {
+[Icon("res://assets/editor/entity-ui.svg")]
+public abstract partial class EntityControl : Control {
     [Signal] public delegate void EntityUpdatedEventHandler();
 
     private IdentifiableResource? _data;
@@ -23,7 +23,7 @@ public abstract partial class Entity3D : Node3D {
     }
 
     protected void NotifyUpdate() {
-        EmitSignal(nameof(EntityUpdated));
+        EmitSignal(SignalName.EntityUpdated);
     }
 
     public T? GetData<T>() where T : IdentifiableResource {

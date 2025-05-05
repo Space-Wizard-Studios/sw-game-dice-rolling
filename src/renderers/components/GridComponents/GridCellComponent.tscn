@@ -5,6 +5,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnb4r"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dnb4r"]
+size = Vector3(0.9, 0.9, 0.9)
 
 [node name="GridCellComponent" type="Node3D" node_paths=PackedStringArray("CellMeshNode", "LabelNode")]
 script = ExtResource("1_ai840")
@@ -20,4 +21,5 @@ skeleton = NodePath("../..")
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 billboard = 1

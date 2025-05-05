@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx0peu7lylikg"]
+
+[ext_resource type="Script" uid="uid://btewr614c85bw" path="res://renderers/components/CharacterInspector/CharacterAttributeDisplayComponent.cs" id="1_57e7p"]
+
+[node name="CharacterAttributeDisplayComponent" type="VBoxContainer" node_paths=PackedStringArray("NameLabel", "CurrentValueLabel", "MaxValueLabel")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_57e7p")
+NameLabel = NodePath("AttributesList/AttributeTemplate/Title")
+CurrentValueLabel = NodePath("AttributesList/AttributeTemplate/ValueContainer/CurrentValue")
+MaxValueLabel = NodePath("AttributesList/AttributeTemplate/ValueContainer/MaxValue")
+metadata/_custom_type_script = "uid://btewr614c85bw"
+
+[node name="AttributesList" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="AttributeTemplate" type="VBoxContainer" parent="AttributesList"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="Label" parent="AttributesList/AttributeTemplate"]
+layout_mode = 2
+text = "ATTRIBUTE NAME"
+
+[node name="ValueContainer" type="HBoxContainer" parent="AttributesList/AttributeTemplate"]
+layout_mode = 2
+
+[node name="CurrentValue" type="Label" parent="AttributesList/AttributeTemplate/ValueContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CURRENT"
+
+[node name="Separator" type="Label" parent="AttributesList/AttributeTemplate/ValueContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "/"
+horizontal_alignment = 1
+
+[node name="MaxValue" type="Label" parent="AttributesList/AttributeTemplate/ValueContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MAX"
+horizontal_alignment = 2

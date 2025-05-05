@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="1_jybd2"]
 
 [node name="CharacterInspector" type="HBoxContainer" node_paths=PackedStringArray("PortraitNode", "CharacterNameNode", "CharacterRoleNode", "AttributesListNode", "AttributeTemplateNode", "AttributeTemplateTitleNode", "ValueContainerNode", "AttributeCurrentValueNode", "AttributeMaxValueNode", "ActionGridNode", "ActionButtonTemplate")]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=3 uid="uid://mitpc2xtp0g7"]
+
+[ext_resource type="Script" uid="uid://bjfejchykefts" path="res://renderers/entities/CharacterInspectorEntity/CharacterInspectorEntity.cs" id="1_rgds7"]
+[ext_resource type="Script" uid="uid://bfbtej5ynhelf" path="res://renderers/components/CharacterInspector/CharacterPortraitComponent.cs" id="2_acmgq"]
+[ext_resource type="Resource" uid="uid://clrt1eby68x42" path="res://resources/Characters/Eleonore.tres" id="2_tqj6p"]
+[ext_resource type="Script" uid="uid://dfwmeacqfxfdw" path="res://renderers/components/CharacterInspector/CharacterNameComponent.cs" id="3_iov45"]
+[ext_resource type="Texture2D" uid="uid://dqpa6f8n80d61" path="res://assets/characters/eleonoreOtsoga/EleonoreOtsogaPortrait.png" id="3_qti0a"]
+[ext_resource type="Script" uid="uid://cuifmxs7wt3yg" path="res://renderers/components/CharacterInspector/CharacterRoleComponent.cs" id="4_f26iu"]
+[ext_resource type="Script" uid="uid://vw8re4xt4ics" path="res://renderers/components/CharacterInspector/CharacterAttributeListComponent.cs" id="5_tqj6p"]
+[ext_resource type="PackedScene" uid="uid://cx0peu7lylikg" path="res://renderers/components/CharacterInspector/CharacterAttributeDisplayComponent.tscn" id="6_f26iu"]
+[ext_resource type="Script" uid="uid://d023ags5u1bed" path="res://renderers/components/CharacterInspector/CharacterActionListComponent.cs" id="7_78p11"]
+[ext_resource type="PackedScene" uid="uid://dk0r5pgq5wku8" path="res://renderers/components/CharacterInspector/CharacterActionButtonComponent.tscn" id="8_tqj6p"]
+
+[node name="CharacterInspectorEntity" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_rgds7")
+PreviewCharacterData = ExtResource("2_tqj6p")
+metadata/_custom_type_script = "uid://bjfejchykefts"
+
+[node name="MainContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PortraitMargin" type="MarginContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="CharacterPortrait" type="TextureRect" parent="MainContainer/PortraitMargin"]
+layout_mode = 2
+texture = ExtResource("3_qti0a")
+stretch_mode = 5
+script = ExtResource("2_acmgq")
+metadata/_custom_type_script = "uid://bfbtej5ynhelf"
+
+[node name="DetailsContainer" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="DetailsMargin" type="MarginContainer" parent="MainContainer/DetailsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="CharacterProperties" type="VBoxContainer" parent="MainContainer/DetailsContainer/DetailsMargin"]
+layout_mode = 2
+alignment = 1
+
+[node name="CharacterName" type="Label" parent="MainContainer/DetailsContainer/DetailsMargin/CharacterProperties"]
+layout_mode = 2
+text = "Eleonore"
+script = ExtResource("3_iov45")
+metadata/_custom_type_script = "uid://dfwmeacqfxfdw"
+
+[node name="CharacterRole" type="Label" parent="MainContainer/DetailsContainer/DetailsMargin/CharacterProperties"]
+layout_mode = 2
+text = "Mage"
+script = ExtResource("4_f26iu")
+metadata/_custom_type_script = "uid://cuifmxs7wt3yg"
+
+[node name="DataContainer" type="HBoxContainer" parent="MainContainer/DetailsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AttributesScroll" type="ScrollContainer" parent="MainContainer/DetailsContainer/DataContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+vertical_scroll_mode = 2
+
+[node name="AttributesMargin" type="MarginContainer" parent="MainContainer/DetailsContainer/DataContainer/AttributesScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="AttributeList" type="VBoxContainer" parent="MainContainer/DetailsContainer/DataContainer/AttributesScroll/AttributesMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("5_tqj6p")
+AttributeDisplayScene = ExtResource("6_f26iu")
+metadata/_custom_type_script = "uid://vw8re4xt4ics"
+
+[node name="ActionsScroll" type="ScrollContainer" parent="MainContainer/DetailsContainer/DataContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+vertical_scroll_mode = 2
+
+[node name="ActionsMargin" type="MarginContainer" parent="MainContainer/DetailsContainer/DataContainer/ActionsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ActionList" type="GridContainer" parent="MainContainer/DetailsContainer/DataContainer/ActionsScroll/ActionsMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+script = ExtResource("7_78p11")
+ActionButtonScene = ExtResource("8_tqj6p")
+metadata/_custom_type_script = "uid://d023ags5u1bed"

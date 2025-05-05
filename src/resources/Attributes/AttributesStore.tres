@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="AttributesStore" load_steps=5 format=3 uid="uid://b4niu7ewhuinj"]
+[gd_resource type="Resource" script_class="AttributesStore" load_steps=6 format=3 uid="uid://b4niu7ewhuinj"]
 
+[ext_resource type="Script" uid="uid://dv3nebxjhpuk0" path="res://models/data/Attribute/AttributeType.cs" id="1_1fi7k"]
 [ext_resource type="Resource" uid="uid://c765rrtwoaq76" path="res://resources/Attributes/Health.tres" id="1_alr3g"]
 [ext_resource type="Resource" uid="uid://blv7vekuqpawn" path="res://resources/Attributes/Speed.tres" id="2_ax07m"]
 [ext_resource type="Resource" uid="uid://d37vh6vtgnxkp" path="res://resources/Attributes/Armor.tres" id="3_b3syj"]
@@ -7,4 +8,4 @@
 
 [resource]
 script = ExtResource("4_lv2dq")
-Attributes = [ExtResource("1_alr3g"), ExtResource("2_ax07m"), ExtResource("3_b3syj")]
+Attributes = Array[ExtResource("1_1fi7k")]([ExtResource("1_alr3g"), ExtResource("2_ax07m"), ExtResource("3_b3syj")])

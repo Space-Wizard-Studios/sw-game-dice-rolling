@@ -46,7 +46,7 @@ EnemyGridPosition = Vector3(1, 0, -1)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="HUDContainer" parent="HUD" instance=ExtResource("2_dcsho")]
+[node name="HUDComponent" parent="HUD" instance=ExtResource("2_dcsho")]
 
 [node name="Characters" type="VBoxContainer" parent="."]
 visible = false

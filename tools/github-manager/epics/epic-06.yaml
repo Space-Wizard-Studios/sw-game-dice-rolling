@@ -1,16 +1,16 @@
 title: "Epic 6: Sistema de Batalha"
 type: "⭐ Epic"
-state: "open"
+state: "closed"
 sub-issues:
   - title: "Story 6.1: Definir Fluxo da Batalha (documentação)"
     type: "📖 Feature / Story"
-    state: "open"
+    state: "closed"
     description: |
       - Documentar o fluxo completo da batalha, incluindo a ordem dos turnos, ações dos personagens e resolução dos efeitos.
 
   - title: "Story 6.2: Definir e Documentar Interfaces e Contratos"
     type: "📖 Feature / Story"
-    state: "open"
+    state: "closed"
     sub-issues:
       - title: "Task 6.2.a: Definir Interface de Character"
       - title: "Task 6.2.b: Definir Interface de Role"
@@ -35,7 +35,7 @@ sub-issues:
 
   - title: "Story 6.3: Refatorar Models"
     type: "📖 Feature / Story"
-    state: "open"
+    state: "closed"
     sub-issues:
       - title: "Task 6.3.a: Refatorar Characters"
         description: |
@@ -68,7 +68,7 @@ sub-issues:
 
   - title: "Story 6.4: Refatorar Componentes"
     type: "📖 Feature / Story"
-    state: "open"
+    state: "closed"
     sub-issues:
       - title: "Task 6.4.a: BattleGrid (CharacterGrid)"
         description: |
@@ -137,7 +137,7 @@ sub-issues:
 
   - title: "Story 6.5: Implementar Sistema de Batalha"
     type: "📖 Feature / Story"
-    state: "open"
+    state: "closed"
     sub-issues:
       - title: "Task 6.5.a: Game State Management"
         description: |

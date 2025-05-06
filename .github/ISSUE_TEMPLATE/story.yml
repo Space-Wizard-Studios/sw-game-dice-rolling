@@ -1,35 +1,44 @@
-name: "🔨 Sub-task"
-description: "Create a new Sub-task."
-title: "🔨 Sub-task: [Sub-task Title]"
-labels: ["🔨 Sub-task"]
+name: "📖 Feature / Story"
+description: "Create a new Feature or Story."
+title: "📖 Story: [Story Title]"
+labels: ["📖 Feature / Story"]
 assignees:
     - ""
 body:
     - type: markdown
       attributes:
           value: |
-              A Sub-task is a smaller, specific piece of work required to complete a Task.
+              A Feature or Story is a distinct piece of functionality or user experience that delivers value.
+              It should be understandable by both technical and non-technical team members.
     - type: input
-      id: task-link
+      id: epic-link
       attributes:
-          label: Parent Task
-          description: Which Task (Issue '📝 Task') does this Sub-task belong to? Use '#' to reference.
-          placeholder: "#<task_number>"
+          label: Parent Epic
+          description: Which Epic (Issue '⭐ Epic') does this Story belong to? Use '#' to reference.
+          placeholder: "#<epic_number>"
       validations:
-          required: true # Sub-tasks should always belong to a Task
+          required: false # Stories can be standalone or belong to an Epic
     - type: textarea
       id: description
       attributes:
           label: Description
-          description: Describe what needs to be done in this Sub-task. Be specific.
-          placeholder: "Refactor method Y in class Z."
+          description: |
+              Describe the Story from a user's perspective (e.g., "As a [user type], I want [goal] so that [reason/value].").
+              Include acceptance criteria.
+          placeholder: |
+              As a player, I want to see my character's health bar update in real-time so that I can monitor my character's status during combat.
+
+              Acceptance Criteria:
+              - Health bar visually decreases when damage is taken.
+              - Health bar visually increases when healing is received.
+              - Health bar accurately reflects the character's current health.
       validations:
           required: true
     - type: dropdown
       id: priority
       attributes:
           label: Priority
-          description: What is the priority of this Sub-task?
+          description: What is the priority of this Story?
           options:
               - "💥 P0 - Critical"
               - "🔥 P1 - High"
@@ -41,18 +50,40 @@ body:
       id: size
       attributes:
           label: Estimated Size
-          description: What is the estimated size of this Sub-task? (Usually small or tiny)
+          description: What is the estimated size of this Story? (e.g., using Story Points or T-shirt sizes)
           options:
-              - "🐂 Medium" # Included for edge cases, but typically smaller
+              - "🐋 X-Large"
+              - "🦑 Large"
+              - "🐂 Medium"
               - "🐇 Small"
-              - "🦔 Tiny"
+              # Stories are typically not "Tiny", those would be Tasks or Sub-tasks
       validations:
           required: false
+    - type: textarea
+      id: tasks
+      attributes:
+          label: Related Tasks (Sub-issues)
+          description: List the Tasks (Issues '📝 Task') required to complete this Story. Use '#' to reference existing issues or create new ones.
+          value: |
+              - #
+              - #
     - type: input
       id: iteration
       attributes:
           label: Iteration/Sprint
-          description: If applicable, which iteration does this Sub-task belong to?
-          placeholder: "Ex: Sprint 5"
+          description: If applicable, which iteration or sprint does this Story belong to?
+          placeholder: "Ex: Sprint 3"
       validations:
           required: false
+    - type: markdown
+      attributes:
+          value: |
+              ---
+              **Definition of Done Checklist:**
+              - [ ] Code implemented and reviewed.
+              - [ ] Unit tests written and passing.
+              - [ ] Integration tests (if applicable) written and passing.
+              - [ ] Documentation updated (if applicable).
+              - [ ] Acceptance criteria met.
+              - [ ] Deployed to test environment (if applicable).
+              - [ ] Approved by Product Owner/Stakeholder.

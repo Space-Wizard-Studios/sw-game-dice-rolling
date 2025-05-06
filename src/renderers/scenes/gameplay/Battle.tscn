@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://8n50xik7xid3"]
 
 [ext_resource type="Script" uid="uid://ct1yyo7dn6eba" path="res://controllers/battle/BattleController.cs" id="1_hf7dd"]
-[ext_resource type="PackedScene" uid="uid://c22tpnmaefgn4" path="res://renderers/components/_to_refactor/HUDComponent/HUDComponent.tscn" id="2_dcsho"]
+[ext_resource type="PackedScene" uid="uid://c22tpnmaefgn4" path="res://renderers/ui/HUDComponent/HUDComponent.tscn" id="2_dcsho"]
 [ext_resource type="SpriteFrames" uid="uid://fdkgmyh24b0q" path="res://assets/characters/joannaOtsoga/JoannaOtsogaSprites.tres" id="3_0d3nu"]
 [ext_resource type="PackedScene" uid="uid://bqux57kvwbyix" path="res://renderers/entities/GridEntity/GridEntity.tscn" id="4_8j5p5"]
 [ext_resource type="Resource" uid="uid://d1dsndqu7on50" path="res://resources/Locations/PlayerSquad.tres" id="4_fix3k"]

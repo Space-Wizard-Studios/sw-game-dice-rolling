@@ -1,0 +1,68 @@
+name: "📝 Task"
+description: "Create a new technical or specific Task."
+title: "📝 Task: [Task Title]"
+labels: ["📝 Task"]
+assignees:
+    - ""
+body:
+    - type: markdown
+      attributes:
+          value: |
+              A Task is a specific work item needed to complete a Story or fix a Bug.
+    - type: input
+      id: story-link
+      attributes:
+          label: Parent Story
+          description: Which Story (Issue '📖 Feature / Story') does this Task belong to? Use '#' to reference.
+          placeholder: "#<story_number>"
+      validations:
+          required: false # Can be a standalone Task
+    - type: textarea
+      id: description
+      attributes:
+          label: Description
+          description: Describe what needs to be done in this Task. Be specific.
+          placeholder: "Implement function X in service Y."
+      validations:
+          required: true
+    - type: dropdown
+      id: priority
+      attributes:
+          label: Priority
+          description: What is the priority of this Task?
+          options:
+              - "💥 P0 - Critical"
+              - "🔥 P1 - High"
+              - "❗ P2 - Medium"
+              - "🧊 P3 - Low"
+      validations:
+          required: true
+    - type: dropdown
+      id: size
+      attributes:
+          label: Estimated Size
+          description: What is the estimated size of this Task?
+          options:
+              - "🐋 X-Large"
+              - "🦑 Large"
+              - "🐂 Medium"
+              - "🐇 Small"
+              - "🦔 Tiny"
+      validations:
+          required: false
+    - type: textarea
+      id: sub-tasks
+      attributes:
+          label: Related Sub-tasks (Sub-issues)
+          description: If this Task is complex, list the Sub-tasks (Issues '🔨 Sub-task') here. Use '#' to reference.
+          value: |
+              - #
+              - #
+    - type: input
+      id: iteration
+      attributes:
+          label: Iteration/Sprint
+          description: If applicable, which iteration does this Task belong to?
+          placeholder: "Ex: Sprint 5"
+      validations:
+          required: false

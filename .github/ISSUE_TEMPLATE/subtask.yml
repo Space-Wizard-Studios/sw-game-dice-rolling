@@ -1,0 +1,58 @@
+name: "🔨 Sub-task"
+description: "Create a new Sub-task."
+title: "🔨 Sub-task: [Sub-task Title]"
+labels: ["🔨 Sub-task"]
+assignees:
+  - ''
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A Sub-task is a smaller, specific piece of work required to complete a Task.
+  - type: input
+    id: task-link
+    attributes:
+      label: Parent Task
+      description: Which Task (Issue '📝 Task') does this Sub-task belong to? Use '#' to reference.
+      placeholder: "#<task_number>"
+    validations:
+      required: true # Sub-tasks should always belong to a Task
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe what needs to be done in this Sub-task. Be specific.
+      placeholder: "Refactor method Y in class Z."
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: What is the priority of this Sub-task?
+      options:
+        - "💥 P0 - Critical"
+        - "🔥 P1 - High"
+        - "❗ P2 - Medium"
+        - "🧊 P3 - Low"
+    validations:
+      required: true
+  - type: dropdown
+    id: size
+    attributes:
+      label: Estimated Size
+      description: What is the estimated size of this Sub-task? (Usually small or tiny)
+      options:
+        - "🐂 Medium" # Included for edge cases, but typically smaller
+        - "🐇 Small"
+        - "🦔 Tiny"
+    validations:
+      required: false
+  - type: input
+    id: iteration
+    attributes:
+      label: Iteration/Sprint
+      description: If applicable, which iteration does this Sub-task belong to?
+      placeholder: "Ex: Sprint 5"
+    validations:
+      required: false

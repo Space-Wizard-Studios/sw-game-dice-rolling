@@ -1,0 +1,60 @@
+name: "⭐ Epic"
+description: "Create a new Epic to group related Stories."
+title: "⭐ Epic: [Epic Title]"
+labels: ["⭐ Epic"]
+assignees:
+    - ""
+body:
+    - type: markdown
+      attributes:
+          value: |
+              An Epic represents a large feature or initiative that will be broken down into smaller Stories.
+    - type: textarea
+      id: description
+      attributes:
+          label: Description
+          description: Describe the overall goal and value of this Epic.
+          placeholder: "What problem are we solving or what value are we delivering?"
+      validations:
+          required: true
+    - type: dropdown
+      id: priority
+      attributes:
+          label: Priority
+          description: What is the priority of this Epic?
+          options:
+              - "💥 P0 - Critical"
+              - "🔥 P1 - High"
+              - "❗ P2 - Medium"
+              - "🧊 P3 - Low"
+      validations:
+          required: true
+    - type: dropdown
+      id: size
+      attributes:
+          label: Estimated Size
+          description: What is the estimated size of this Epic? (Usually large or extra-large)
+          options:
+              - "🐋 X-Large"
+              - "🦑 Large"
+              - "🐂 Medium"
+              - "🐇 Small"
+              - "🦔 Tiny"
+      validations:
+          required: false
+    - type: textarea
+      id: stories
+      attributes:
+          label: Related Stories (Sub-issues)
+          description: List the Stories (Issues of type '📖 Feature / Story') that make up this Epic. Use '#' to reference existing issues or create new ones.
+          value: |
+              - #
+              - #
+    - type: input
+      id: iteration
+      attributes:
+          label: Iteration/Sprint
+          description: If applicable, which iteration does this Epic belong to?
+          placeholder: "Ex: Sprint 5"
+      validations:
+          required: false

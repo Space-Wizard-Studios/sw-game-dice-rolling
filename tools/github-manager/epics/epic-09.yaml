@@ -1,0 +1,90 @@
+title: "⭐ Epic 9: Personagens Mínimos"
+state: "open"
+sub-issues:
+  - title: "Story 9.1: Definição das Classes de Personagem"
+    type: "📖 Feature / Story"
+    state: "open"
+    description: |
+      Como Game Designer, quero criar duas classes de personagem com características e visuais distintos para oferecer variedade.
+    sub-issues:
+      - title: "📝 Task 9.1.1: Criar e Configurar Dois Recursos CharacterType Distintos"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          No editor do Godot, crie dois novos arquivos de recurso CharacterType.tres. Para cada um, configure suas propriedades fundamentais como Pontos de Vida base, Energia inicial e quaisquer outras estatísticas centrais. Crucialmente, vincule cada CharacterType à sua representação visual correspondente (uma PackedScene para o modelo/sprite do personagem no jogo).
+      - title: "📝 Task 9.1.2: Criar e Configurar Recursos RoleType e Associar com CharacterTypes"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Crie dois novos arquivos de recurso RoleType.tres, cada um representando uma das novas classes de personagem (ex: "Guerreiro", "Mago"). No Inspetor do Godot, associe cada RoleType ao seu recurso CharacterType correspondente criado na Tarefa 9.1.1. Isso estabelece a identidade da classe.
+
+  - title: "Story 9.2: Implementação de Animações Básicas"
+    type: "📖 Feature / Story"
+    state: "open"
+    description: |
+      Como jogador, quero ver feedback visual através de animações quando os personagens realizam ações ou sofrem efeitos para aumentar a imersão.
+    sub-issues:
+      - title: "📝 Task 9.2.1: Preparar Assets de Animação (Idle, Attack, Hit, Death) para Duas Classes de Personagem"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Crie ou adquira os assets visuais para animações. Para 2D, isso significa preparar spritesheets para animações de "Idle", "Attack", "Hit" (recebendo dano) e "Death" para ambas as classes de personagem. Para 3D, isso envolve garantir que os modelos tenham esses clipes de animação.
+      - title: "📝 Task 9.2.2: Configurar Nós de Animação (AnimationPlayer ou AnimatedSprite2D/3D) nas Cenas dos Personagens"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Abra a PackedScene para cada uma das duas classes de personagem. Adicione e configure um nó AnimationPlayer (para animações complexas ou 3D) ou um nó AnimatedSprite2D/3D (para animações de sprite 2D mais simples). Configure as animações definidas na Tarefa 9.2.1 dentro desses nós.
+      - title: "📝 Task 9.2.3: Implementar Lógica para Disparar Animações de Personagem em Resposta a Eventos do Jogo"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          No script anexado à cena do personagem (ex: CharacterController.cs ou um script CharacterAnimator.cs dedicado), escreva código C# para reproduzir as animações apropriadas. Esta lógica deve ser acionada por eventos do jogo, como: reproduzir "Attack" quando uma ação de ataque começa, "Hit" quando dano é recebido, "Death" quando HP chega a zero, e "Idle" caso contrário.
+
+  - title: "Story 9.3: Implementação de Ações de Ataque"
+    type: "📖 Feature / Story"
+    state: "open"
+    description: |
+      Como personagem, quero ter opções ofensivas (Ataque Básico e Especial) para poder causar dano aos inimigos.
+    sub-issues:
+      - title: "📝 Task 9.3.1: Criar e Configurar Quatro Recursos ActionType para Ataques (Básico e Especial por Classe)"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Crie quatro novos arquivos de recurso ActionType.tres. Dois serão para "Ataque Básico" (um para cada classe) e dois para "Ataque Especial" (um para cada classe). No Inspetor do Godot, configure suas propriedades: custo de energia, valor/fórmula de dano, tipo de alvo (único, área), alcance e quaisquer efeitos visuais ou sonoros associados.
+      - title: "📝 Task 9.3.2: Associar Recursos ActionType de Ataque com Respectivos CharacterTypes"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Edite os recursos CharacterType.tres (ou potencialmente RoleType.tres) para as duas novas classes. Adicione referências aos recursos ActionType.tres de ataque recém-criados (da Tarefa 9.3.1) a uma lista de ações disponíveis para cada tipo de personagem. Isso torna esses ataques utilizáveis por essas classes.
+      - title: "📝 Task 9.3.3: Implementar Lógica de Processamento de Ação de Ataque no ActionsController"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Modificar ActionsController.cs. Adicionar lógica para lidar com a execução desses ActionTypes de ataque. Quando uma ação de ataque é escolhida, este controlador deve: verificar custo de energia, identificar alvo(s), calcular e aplicar dano ao(s) alvo(s), deduzir energia do atacante e potencialmente disparar a animação de "Attack" do atacante e quaisquer efeitos de acerto no alvo.
+
+  - title: "Story 9.4: Implementação da Ação Defender"
+    type: "📖 Feature / Story"
+    state: "open"
+    description: |
+      Como personagem, quero poder me defender para reduzir o dano recebido e ter mais opções táticas.
+    sub-issues:
+      - title: "📝 Task 9.4.1: Criar e Configurar Recurso ActionType para Ação 'Defender'"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Crie um novo arquivo de recurso ActionType.tres especificamente para a ação "Defender". No Inspetor do Godot, configure suas propriedades, como custo de energia (se houver) e a natureza do benefício defensivo (ex: um efeito de status temporário que reduz o dano recebido por uma porcentagem ou valor fixo).
+      - title: "📝 Task 9.4.2: Implementar Aplicação de Estado/Status 'Defendendo' ao Personagem"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Quando um personagem usa a ação "Defender", seu script (CharacterStats.cs ou CharacterController.cs) deve aplicar um status "Defendendo" ou definir um sinalizador booleano. Este status indica que eles estão ativamente defendendo.
+      - title: "📝 Task 9.4.3: Modificar Lógica de Cálculo de Dano para Considerar Estado 'Defendendo'"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Atualize a parte do código onde o dano é calculado e aplicado a um personagem. Esta lógica deve agora verificar se o personagem alvo tem o status "Defendendo" ativo. Se sim, o dano recebido deve ser reduzido de acordo com as regras definidas no ActionType "Defender".
+      - title: "📝 Task 9.4.4: Definir e Implementar Regras para Remoção do Estado 'Defendendo'"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Estabeleça quando o status "Defendendo" desaparece. Regras comuns incluem: durar até o início do próximo turno do personagem, durar por um round completo ou ser removido após mitigar um ataque. Implemente a lógica para remover este status de acordo com a regra escolhida.

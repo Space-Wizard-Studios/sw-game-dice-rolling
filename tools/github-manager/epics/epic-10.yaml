@@ -1,0 +1,61 @@
+title: "⭐ Epic 10: HUD Mínima"
+state: "open"
+sub-issues:
+  - title: "📖 Story 10.1: Exibição de Informações Essenciais na HUD"
+    type: "📖 Feature / Story"
+    state: "open"
+    description: |
+      Como jogador, quero ver HP, Energia e a ordem dos turnos na tela para poder planejar minhas ações.
+    sub-issues:
+      - title: "📝 Task 10.1.1: Criar Cena Base para Interface de Usuário da Batalha (BattleUI.tscn)"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          No editor do Godot, crie um novo arquivo de cena 2D chamado BattleUI.tscn (ou similar). Esta cena servirá como o nó raiz e contêiner para todos os elementos de UI relacionados à tela de batalha.
+      - title: "📝 Task 10.1.2: Adicionar Elementos de UI (Labels, ProgressBars) para Exibição de HP e Energia"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Dentro de BattleUI.tscn, adicione nós de UI do Godot como Label e/ou ProgressBar para representar visualmente os Pontos de Vida (HP) e Energia atuais do personagem ativo. Posicione-os apropriadamente na tela.
+      - title: "📝 Task 10.1.3: Conectar Elementos de UI às Estatísticas do Personagem para Atualizações Dinâmicas"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Escreva lógica de script C# para a BattleUI (ou seus nós filhos) para atualizar os elementos de exibição de HP e Energia. Isso tipicamente envolve conectar-se a sinais emitidos por CharacterStats.cs (ou uma fonte de dados similar) quando esses valores mudam, garantindo que o HUD reflita o estado atual.
+      - title: "📝 Task 10.1.4: Adicionar Elemento de UI para Exibição da Ordem de Turnos"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Em BattleUI.tscn, adicione um elemento de UI dedicado a mostrar a sequência dos próximos turnos. Isso pode ser um contêiner vertical ou horizontal contendo pequenos ícones, retratos de personagens ou nomes representando os personagens na fila de turnos.
+      - title: "📝 Task 10.1.5: Implementar Lógica para Buscar e Atualizar Exibição da Ordem de Turnos do TurnController"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Adicione lógica de script à BattleUI que recupera a lista de ordem de turnos atual do TurnController.cs. Esta lógica deve então popular ou atualizar o elemento de exibição da ordem de turnos (criado na Tarefa 10.1.4) sempre que a ordem de turnos mudar ou a exibição precisar ser atualizada.
+
+  - title: "📖 Story 10.2: Seleção Básica de Ações via HUD"
+    type: "📖 Feature / Story"
+    state: "open"
+    description: |
+      Como jogador, quero poder clicar em botões na HUD para escolher qual ação (Ataque Básico, Especial, Defender) meu personagem vai realizar.
+    sub-issues:
+      - title: "📝 Task 10.2.1: Adicionar Nós Button à BattleUI para Ações Disponíveis"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Em BattleUI.tscn, adicione nós Button para cada uma das ações centrais que um jogador pode realizar (ex: "Ataque Básico", "Ataque Especial", "Defender"). Rotule esses botões claramente.
+      - title: "📝 Task 10.2.2: Implementar Lógica para Habilitar/Desabilitar Botões de Ação Baseado no Estado do Jogo"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Adicione lógica de script à BattleUI para controlar a interatividade dos botões de ação. Os botões devem ser desabilitados se: não for o turno do jogador, ou o personagem ativo não tiver energia suficiente para uma ação específica.
+      - title: "📝 Task 10.2.3: Conectar Sinais pressed dos Botões de Ação a Métodos Manipuladores"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Para cada Button de ação na BattleUI, conecte seu sinal pressed no editor do Godot ou via código a um método C#. Este método (provavelmente no script da BattleUI ou passado para o ActionsController) será executado quando o botão for clicado.
+      - title: "📝 Task 10.2.4: Implementar Comunicação entre UI e ActionsController para Registro de Ação"
+        type: "📝 Task"
+        state: "open"
+        description: |
+          Garanta que quando o método manipulador de um botão de ação (da Tarefa 10.2.3) for acionado, a ação escolhida (identificada por seu ActionType) seja comunicada ao ActionsController.cs. O ActionsController será então responsável por enfileirar ou iniciar a execução dessa ação para o personagem jogador atualmente ativo.

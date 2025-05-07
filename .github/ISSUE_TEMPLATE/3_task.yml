@@ -50,14 +50,6 @@ body:
               - "🦔 Tiny"
       validations:
           required: false
-    - type: textarea
-      id: sub-tasks
-      attributes:
-          label: Related Sub-tasks (Sub-issues)
-          description: If this Task is complex, list the Sub-tasks (Issues '🔨 Sub-task') here. Use '#' to reference.
-          value: |
-              - #
-              - #
     - type: input
       id: iteration
       attributes:

@@ -59,14 +59,6 @@ body:
               # Stories are typically not "Tiny", those would be Tasks or Sub-tasks
       validations:
           required: false
-    - type: textarea
-      id: tasks
-      attributes:
-          label: Related Tasks (Sub-issues)
-          description: List the Tasks (Issues '📝 Task') required to complete this Story. Use '#' to reference existing issues or create new ones.
-          value: |
-              - #
-              - #
     - type: input
       id: iteration
       attributes:

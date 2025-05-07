@@ -42,14 +42,6 @@ body:
               - "🦔 Tiny"
       validations:
           required: false
-    - type: textarea
-      id: stories
-      attributes:
-          label: Related Stories (Sub-issues)
-          description: List the Stories (Issues of type '📖 Feature / Story') that make up this Epic. Use '#' to reference existing issues or create new ones.
-          value: |
-              - #
-              - #
     - type: input
       id: iteration
       attributes:

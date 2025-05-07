@@ -18,9 +18,28 @@ import (
 )
 
 const (
-	owner = "Space-Wizard-Studios"
-	repo  = "sw-game-dice-rolling"
+	ownerEnvKey = "GITHUB_OWNER"
+	repoEnvKey  = "GITHUB_REPO"
 )
+
+var (
+	owner string
+	repo  string
+)
+
+func init() {
+	// Attempt to load .env file. If it fails, variables might still be set in the environment.
+	if err := godotenv.Load(".env"); err != nil {
+		log.Printf("Warning: Could not load .env file: %v. Relying on environment variables if set.", err)
+	}
+
+	owner = os.Getenv(ownerEnvKey)
+	repo = os.Getenv(repoEnvKey)
+
+	if owner == "" || repo == "" {
+		log.Fatalf("Environment variables %s and %s must be set (either in .env file or system environment)", ownerEnvKey, repoEnvKey)
+	}
+}
 
 type Issue struct {
 	Title string `yaml:"title"`
@@ -65,14 +84,9 @@ func main() {
 }
 
 func loadConfig() Config {
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-
 	token := os.Getenv("GITHUB_TOKEN")
 	if token == "" {
-		log.Fatal("GITHUB_TOKEN environment variable not set")
+		log.Fatalf("GITHUB_TOKEN environment variable not set (either in .env file or system environment)")
 	}
 
 	state := flag.String("state", "open", "State of the issues")
@@ -118,7 +132,7 @@ func listRemoteIssues(ctx context.Context, client *github.Client, config Config)
 	logIssues("Issues in the repository:", config.State, allIssues)
 
 	if config.Save {
-		saveIssuesToFile("remote_issues.json", allIssues)
+		saveIssuesToFile("results/remote_issues.json", allIssues)
 	}
 
 	return allIssues
@@ -151,7 +165,7 @@ func listLocalIssues(config Config) []Issue {
 	logIssues("Local issues:", config.State, localIssues)
 
 	if config.Save {
-		saveIssuesToFile("local_issues.json", localIssues)
+		saveIssuesToFile("results/local_issues.json", localIssues)
 	}
 
 	return localIssues
@@ -168,12 +182,19 @@ func flattenIssues(issue Issue) []Issue {
 
 func compareIssues(ctx context.Context, client *github.Client, config Config) {
 	remoteIssues := listRemoteIssues(ctx, client, config)
-	localIssues := listLocalIssues(config)
+	localIssuesRoots := listLocalIssues(config)
+
+	var allLocalIssuesFlat []Issue
+	for _, rootIssue := range localIssuesRoots {
+		allLocalIssuesFlat = append(allLocalIssuesFlat, flattenIssues(rootIssue)...)
+	}
 
 	var notFoundIssues []string
-	for _, localIssue := range localIssues {
-		if !issueExists(remoteIssues, localIssue.Title) {
-			notFoundIssues = append(notFoundIssues, localIssue.Title)
+	for _, localIssue := range allLocalIssuesFlat {
+		if config.State == "all" || localIssue.State == config.State {
+			if !issueExists(remoteIssues, localIssue.Title) {
+				notFoundIssues = append(notFoundIssues, localIssue.Title)
+			}
 		}
 	}
 
@@ -184,7 +205,7 @@ func compareIssues(ctx context.Context, client *github.Client, config Config) {
 	}
 
 	if config.Save {
-		saveIssuesToFile("not_found_issues.json", notFoundIssues)
+		saveIssuesToFile("results/not_found_issues.json", notFoundIssues)
 	}
 }
 

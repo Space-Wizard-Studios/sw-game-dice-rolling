@@ -11,7 +11,7 @@ sub-issues:
         type: "📝 Task"
         state: "open"
         description: |
-          No editor do Godot, crie um novo arquivo de cena 2D chamado BattleUI.tscn (ou similar). Esta cena servirá como o nó raiz e contêiner para todos os elementos de UI relacionados à tela de batalha.
+          No editor do Godot, criar um novo arquivo de cena 2D chamado BattleUI.tscn (ou similar). Esta cena servirá como o nó raiz e contêiner para todos os elementos de UI relacionados à tela de batalha.
       - title: "📝 Task 10.1.2: Adicionar Elementos de UI (Labels, ProgressBars) para Exibição de HP e Energia"
         type: "📝 Task"
         state: "open"

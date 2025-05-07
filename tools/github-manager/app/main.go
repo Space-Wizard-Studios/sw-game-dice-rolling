@@ -211,7 +211,8 @@ func compareIssues(ctx context.Context, client *github.Client, config Config) {
 
 func issueExists(issues []*github.Issue, title string) bool {
 	for _, issue := range issues {
-		if *issue.Title == title {
+		// Compare titles without case-insensitive
+		if strings.EqualFold(*issue.Title, title) {
 			return true
 		}
 	}

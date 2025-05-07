@@ -1,17 +1,20 @@
 title: "⭐ Epic 8: Slice Vertical: Batalha"
 state: "open"
+description: |
+  Implementar o fluxo completo de uma batalha, desde o setup inicial dos personagens e inimigos, gerenciamento de energia através de dados, o ciclo de rounds e turnos, até as condições de finalização da batalha e apresentação do resultado.
 sub-issues:
-  - title: "Story 8.1: Configuração Inicial da Batalha"
+  - title: "📖 Story 8.1: Setup Inicial da Batalha"
     type: "📖 Feature / Story"
     state: "open"
     description: |
       Como jogador, quero que a batalha comece com meus personagens e inimigos posicionados na grid para que o combate possa ser iniciado.
     sub-issues:
-      - title: "📝 Task 8.1.1 Definir Locais Válidos para Spawn de Inimigos na Grid de Batalha"
+      - title: "📝 Task 8.1.1: Definir locais para os personagens na grid de batalha"
         type: "📝 Task"
         state: "open"
         description: |
-          Esta tarefa envolve especificar o conjunto de coordenadas na grid de batalha onde os personagens inimigos podem ser colocados programaticamente no início de uma batalha. Isso pode ser gerenciado adicionando um array de Vector2i ao script do GridController ou a um recurso BattleConfig dedicado, configurável através do Inspetor do Godot. Estes pontos garantirão que os inimigos apareçam nas áreas pretendidas.
+          - Os personagens do jogador precisam ser posicionados de acordo com a configuração deles na equipe do player (PlayerSquad).
+          - Especificar o conjunto de coordenadas na grid de batalha onde os inimigos podem ser colocados programaticamente no início de uma batalha.
       - title: "📝 Task 8.1.2: Implementar Instanciação e Posicionamento de Inimigos no BattleController"
         type: "📝 Task"
         state: "open"
@@ -23,7 +26,7 @@ sub-issues:
         description: |
           Após os personagens inimigos serem instanciados e posicionados na grid pelo BattleController, eles devem ser registrados no TurnController.cs. Isso garante que eles sejam adicionados à fila de turnos e participem do fluxo de turnos da batalha.
 
-  - title: "Story 8.2: Gerenciamento de Energia por Dados"
+  - title: "📖 Story 8.2: Gerenciamento de Energia"
     type: "📖 Feature / Story"
     state: "open"
     description: |
@@ -34,34 +37,34 @@ sub-issues:
         state: "open"
         description: |
           Para cada recurso CharacterType.tres que será usado para personagens jogadores e inimigos, use o Inspetor do Godot para atribuir recursos DiceType.tres específicos à sua propriedade EquippedDice (ou equivalente). Isso define quais dados cada tipo de personagem rolará para gerar energia.
-      - title: "📝 Task 8.2.2: Implementar Lógica de Rolagem de Dados no Início do Turno do Personagem Jogador no TurnController"
+      - title: "📝 Task 8.2.2: Implementar lógica de rolagem de dados no início do turno do personagem do jogador no ActionsController"
         type: "📝 Task"
         state: "open"
         description: |
           Modificar TurnController.cs. Quando for determinado que o turno de um personagem controlado pelo jogador está começando, o controlador deve acionar o mecanismo de rolagem de dados para aquele personagem. Isso envolve chamar o método existente CharacterType.RollEquippedDiceForEnergy() ou uma função similar associada ao personagem ativo para simular a rolagem dos dados.
-      - title: "📝 Task 8.2.3: Atualizar Atributo de Energia Atual do Personagem Baseado no Resultado da Rolagem de Dados"
+      - title: "📝 Task 8.2.3: Atualizar a energia atual do personagem baseado no resultado da Rolagem de Dados"
         type: "📝 Task"
         state: "open"
         description: |
           Após os dados serem rolados (conforme Tarefa 8.2.2), o valor de energia resultante precisa atualizar o pool de energia atual do personagem ativo. Isso tipicamente envolve modificar um atributo de energia dentro de um componente CharacterStats.cs ou uma estrutura de dados em tempo de execução associada ao CharacterType.
-      - title: "📝 Task 8.2.4: Implementar Subtração de Custo de Energia para Ações no ActionsController ou CharacterStats"
+      - title: "📝 Task 8.2.4: Implementar subtração de custo de energia para ações no ActionsController"
         type: "📝 Task"
         state: "open"
         description: |
           Quando um personagem executa uma ação que tem um custo de energia (definido em seu recurso ActionType), o sistema deve subtrair este custo do pool de energia atual do personagem. Esta lógica deve ser implementada dentro do ActionsController.cs (quando uma ação é processada) ou usando o CharacterService.
 
-  - title: "Story 8.3: Ciclo Básico de Round e Turnos"
+  - title: "📖 Story 8.3: Ciclo Básico de Round e Turnos"
     type: "📖 Feature / Story"
     state: "open"
     description: |
       Como sistema, quero gerenciar a progressão dos turnos e rounds de forma ordenada para que a batalha siga uma estrutura lógica.
     sub-issues:
-      - title: "📝 Task 8.3.1: Implementar Cálculo de Iniciativa e Definição da Ordem Inicial de Turnos no TurnController"
+      - title: "📝 Task 8.3.1: Implementar cálculo de iniciativa e definição da ordem Inicial de turnos no TurnController"
         type: "📝 Task"
         state: "open"
         description: |
           Aprimorar TurnController.cs para calcular uma pontuação de iniciativa para cada personagem participante da batalha no seu início. Baseado nestas pontuações (ex: maior iniciativa vai primeiro), o controlador estabelecerá a sequência inicial de turnos para o primeiro round.
-      - title: "📝 Task 8.3.2: Implementar Progressão de Turno para o Próximo Personagem no TurnController"
+      - title: "📝 Task 8.3.2: Implementar progressão de turno para o próximo personagem no TurnController"
         type: "📝 Task"
         state: "open"
         description: |
@@ -72,13 +75,13 @@ sub-issues:
         description: |
           Desenvolver lógica dentro de RoundController.cs (ou TurnController se os rounds forem gerenciados lá) para detectar quando cada personagem na ordem de turno completou seu turno para o round atual. Após a detecção, o controlador deve acionar os processos necessários para concluir o round atual e iniciar um novo (ex: resetar ordem de turno se a iniciativa for rolada novamente, aplicar efeitos baseados no round).
 
-  - title: "Story 8.4: Condições de Fim de Batalha"
+  - title: "📖 Story 8.4: Condições de Fim de Batalha"
     type: "📖 Feature / Story"
     state: "open"
     description: |
       Como sistema, quero detectar o fim da batalha quando um dos lados for completamente derrotado para declarar um vencedor.
     sub-issues:
-      - title: "📝 Task 8.4.1: Implementar Verificações de Condição de Fim de Batalha por Derrota de Equipe"
+      - title: "📝 Task 8.4.1: Implementar verificações de condição dd fim da batalha na derrota de equipe"
         type: "📝 Task"
         state: "open"
         description: |
@@ -88,8 +91,8 @@ sub-issues:
         state: "open"
         description: |
           Uma vez que uma condição de fim de batalha (da Tarefa 8.4.1) é detectada, o sistema (provavelmente o BattleController ou TurnController) deve invocar o BattleResultsController.cs. Esta chamada deve incluir informação sobre o resultado da batalha (ex: um enum indicando Vitória do Jogador ou Derrota do Jogador).
-      - title: "📝 Task 8.4.3: Implementar Exibição Básica de Resultado da Batalha no BattleResultsController"
+      - title: "📝 Task 8.4.3: Implementar exibição básica de resultado da batalha no BattleResultsController"
         type: "📝 Task"
         state: "open"
         description: |
-          Em BattleResultsController.cs, adicionar lógica inicial para apresentar o resultado da batalha ao jogador. Para esta fatia mínima, isso pode ser tão simples quanto imprimir "Vitória!" ou "Derrota!" no console do Godot ou exibir um rótulo de UI básico e não interativo na tela.
+          Em `BattleResultsController.cs`, adicionar lógica inicial para apresentar o resultado da batalha ao jogador. Isso pode ser tão simples quanto imprimir "Vitória!" ou "Derrota!" no console do Godot ou exibir uma label básica e não interativo na tela.
